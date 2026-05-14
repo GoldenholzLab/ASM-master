@@ -56,6 +56,13 @@
         text-align: right;
       }
 
+      .refresh-date {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 650;
+      }
+
       .toolbar {
         display: flex;
         flex-wrap: wrap;
@@ -578,6 +585,7 @@
       <header>
         <div>
           <h1>ASM Master</h1>
+          <p class="refresh-date" id="refreshDate">Data was most recently refreshed on: Loading...</p>
         </div>
         <p class="summary" id="summary">Loading ASMs...</p>
       </header>
@@ -689,6 +697,7 @@
       const selectNoAsmsEl = document.querySelector("#selectNoAsms");
       const asmChecksEl = document.querySelector("#asmChecks");
       const summaryEl = document.querySelector("#summary");
+      const refreshDateEl = document.querySelector("#refreshDate");
       let asmRows = [];
       let visibleRows = [];
       let filterMatchedRows = [];
@@ -1239,6 +1248,8 @@
         })
         .then((text) => {
           asmRows = parseCsv(text).sort((a, b) => a.generic_name.localeCompare(b.generic_name));
+          const refreshDate = asmRows.find((row) => row.data_most_recently_refreshed)?.data_most_recently_refreshed || "Unknown";
+          refreshDateEl.textContent = `Data was most recently refreshed on: ${refreshDate}`;
           populateFilters();
           populateAsmChecks();
           applyFilters();
