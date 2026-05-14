@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASM Master</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #18212f;
+        --muted: #637083;
+        --line: #d8dee8;
+        --panel: #ffffff;
+        --soft: #f4f7fb;
+        --accent: #0f766e;
+        --accent-dark: #115e59;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: #eef3f7;
+      }
+
+      main {
+        width: min(1120px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 32px 0;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        line-height: 1;
+        font-weight: 780;
+      }
+
+      .summary {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        text-align: right;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .field {
+        display: grid;
+        flex: 1 1 148px;
+        gap: 5px;
+        position: relative;
+      }
+
+      .field-wide {
+        flex-basis: 230px;
+      }
+
+      .field-label {
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 760;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 14px;
+        color: var(--ink);
+        background: var(--panel);
+        font: inherit;
+        outline: none;
+      }
+
+      select {
+        appearance: none;
+        background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+        background-position: calc(100% - 18px) 18px, calc(100% - 13px) 18px;
+        background-size: 5px 5px, 5px 5px;
+        background-repeat: no-repeat;
+        padding-right: 32px;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+      }
+
+      .clear {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--accent-dark);
+        background: var(--panel);
+        font-size: 0.92rem;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .clear {
+        flex: 0 0 auto;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .mode-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin: -4px 0 14px;
+      }
+
+      .switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 680;
+      }
+
+      .switch input {
+        width: 44px;
+        height: 24px;
+        accent-color: var(--accent);
+      }
+
+      .list-shell {
+        height: calc(100vh - 184px);
+        min-height: 420px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        overflow: hidden;
+        box-shadow: 0 18px 42px rgba(24, 33, 47, 0.08);
+      }
+
+      details.asm-picker {
+        margin: 0 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      details.asm-picker summary {
+        cursor: pointer;
+        padding: 11px 14px;
+        color: var(--accent-dark);
+        font-weight: 720;
+      }
+
+      .asm-picker-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 14px 10px;
+      }
+
+      .asm-picker-actions button {
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 12px;
+        color: var(--accent-dark);
+        background: #f8fafc;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 720;
+      }
+
+      .asm-checks {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 8px 12px;
+        max-height: 220px;
+        overflow: auto;
+        padding: 0 14px 14px;
+      }
+
+      .asm-check {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.88rem;
+      }
+
+      .asm-check input {
+        width: auto;
+        height: auto;
+      }
+
+      .asm-list {
+        height: 100%;
+        overflow: auto;
+      }
+
+      table {
+        width: 100%;
+        min-width: 4220px;
+        border-collapse: collapse;
+        background: var(--panel);
+      }
+
+      thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #e7edf5;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: #475569;
+        font-size: 0.76rem;
+        font-weight: 780;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .th-wrap {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .column-toggle {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        color: var(--accent-dark);
+        background: #fff;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.82rem;
+        line-height: 1;
+      }
+
+      th.collapsed-column {
+        min-width: 34px;
+        width: 34px;
+        padding-inline: 6px;
+      }
+
+      .collapsed-column .th-wrap {
+        justify-content: center;
+      }
+
+      .collapsed-column .column-label {
+        display: none;
+      }
+
+      .hidden-column {
+        display: none;
+      }
+
+      tbody tr:nth-child(even) {
+        background: var(--soft);
+      }
+
+      td {
+        font-size: 0.9rem;
+        line-height: 1.42;
+      }
+
+      .name-cell {
+        width: 190px;
+      }
+
+      .trade-cell {
+        width: 220px;
+      }
+
+      .availability-cell {
+        width: 150px;
+      }
+
+      .fda-year-cell {
+        width: 160px;
+      }
+
+      .mechanism-cell {
+        width: 300px;
+      }
+
+      .enzyme-cell,
+      .qt-cell {
+        width: 250px;
+      }
+
+      .symptom-cell {
+        width: 310px;
+      }
+
+      .half-life-cell,
+      .metabolism-cell {
+        width: 190px;
+      }
+
+      .formulation-cell,
+      .dose-cell {
+        width: 230px;
+      }
+
+      .approved-dose-cell {
+        width: 220px;
+      }
+
+      .notes-cell {
+        width: 340px;
+      }
+
+      .outcome-cell {
+        width: 210px;
+      }
+
+      .trials-cell {
+        width: 260px;
+      }
+
+      .generic {
+        margin: 0 0 6px;
+        font-size: 1.08rem;
+        font-weight: 720;
+        line-height: 1.25;
+      }
+
+      .alt {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 720;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .trade,
+      .notes,
+      .evidence {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .notes {
+        color: #334155;
+      }
+
+      .evidence {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .trial-link {
+        display: inline-block;
+        margin: 0 8px 6px 0;
+        color: var(--accent-dark);
+        font-weight: 680;
+        text-decoration: none;
+      }
+
+      .trial-link:hover {
+        text-decoration: underline;
+      }
+
+      .rct-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        margin-top: 4px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--accent-dark);
+        background: #fff;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 780;
+      }
+
+      .graph-panel {
+        min-width: 980px;
+        padding: 18px;
+      }
+
+      .chart {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        padding: 16px 16px 10px;
+        margin-bottom: 22px;
+      }
+
+      .chart-head {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .chart h2 {
+        margin: 0;
+        font-size: 1.08rem;
+      }
+
+      .chart-counts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+
+      .chart-pill {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 4px 9px;
+        color: var(--muted);
+        background: #f8fafc;
+        font-size: 0.75rem;
+        font-weight: 720;
+        white-space: nowrap;
+      }
+
+      .chart-meta {
+        margin: 5px 0 12px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.35;
+      }
+
+      .chart-filter-summary {
+        margin: -4px 0 12px;
+        color: #334155;
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .chart-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .legend-swatch {
+        width: 24px;
+        height: 8px;
+        border-radius: 999px;
+        background: #0f766e;
+      }
+
+      .legend-track {
+        background: #dbe3ee;
+      }
+
+      .legend-zero {
+        background: #99d6cf;
+      }
+
+      .chart-empty {
+        color: var(--muted);
+        padding: 20px 0;
+      }
+
+      .empty,
+      .error {
+        padding: 28px;
+        color: var(--muted);
+      }
+
+      .error {
+        color: #9f1239;
+      }
+
+      @media (max-width: 760px) {
+        main {
+          width: min(100vw - 20px, 1120px);
+          padding: 20px 0;
+        }
+
+        .toolbar {
+          display: block;
+        }
+
+        header {
+          display: block;
+        }
+
+        .summary {
+          margin-top: 8px;
+          text-align: left;
+        }
+
+        .clear,
+        .field,
+        select {
+          margin-top: 10px;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .mode-row {
+          display: block;
+        }
+
+        .list-shell {
+          height: calc(100vh - 210px);
+          min-height: 360px;
+        }
+
+        table {
+          min-width: 3720px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>ASM Master</h1>
+        </div>
+        <p class="summary" id="summary">Loading ASMs...</p>
+      </header>
+
+      <div class="toolbar">
+        <label class="field field-wide">
+          <span class="field-label">Text Search</span>
+          <input id="search" type="search" placeholder="Search generic names, trade names, notes, or sources" autocomplete="off">
+        </label>
+        <label class="field field-wide">
+          <span class="field-label">Availability</span>
+          <select id="availabilityFilter" aria-label="Availability filter">
+            <option value="">Any availability</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Metabolism</span>
+          <select id="organFilter" aria-label="Metabolism organ filter">
+            <option value="">Any metabolism</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Mechanism</span>
+          <select id="mechanismFilter" aria-label="Mechanism filter">
+            <option value="">Any mechanism</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Epilepsy Type</span>
+          <select id="epilepsyTypeFilter" aria-label="Epilepsy type filter">
+            <option value="">Any epilepsy type</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Formulation</span>
+          <select id="formulationFilter" aria-label="Formulation filter">
+            <option value="">Any formulation</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Enzyme Effect</span>
+          <select id="enzymeFilter" aria-label="Enzyme interaction filter">
+            <option value="">Any enzyme effect</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">QT Effect</span>
+          <select id="qtFilter" aria-label="QT interval filter">
+            <option value="">Any QT effect</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Symptom Category</span>
+          <select id="symptomFilter" aria-label="Symptom category filter">
+            <option value="">Any symptom category</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">Symptom Word</span>
+          <input id="symptomTextFilter" list="symptomSuggestions" type="search" placeholder="Type symptom" autocomplete="off">
+          <datalist id="symptomSuggestions"></datalist>
+        </label>
+        <button class="clear" id="clearFilters" type="button">Clear</button>
+      </div>
+
+      <div class="mode-row">
+        <label class="switch">
+          <span>Text list</span>
+          <input id="graphToggle" type="checkbox">
+          <span>Graphical display</span>
+        </label>
+        <label class="switch">
+          <input id="notSymptomFilter" type="checkbox">
+          <span>NOT symptom word</span>
+        </label>
+      </div>
+
+      <details class="asm-picker">
+        <summary>Manually include ASMs</summary>
+        <div class="asm-picker-actions">
+          <button id="selectAllAsms" type="button">Select all</button>
+          <button id="selectNoAsms" type="button">Select none</button>
+        </div>
+        <div class="asm-checks" id="asmChecks"></div>
+      </details>
+
+      <section class="list-shell" aria-label="Scrollable anti-seizure medication list">
+        <div class="asm-list" id="asmList"></div>
+      </section>
+    </main>
+
+    <script>
+      const listEl = document.querySelector("#asmList");
+      const searchEl = document.querySelector("#search");
+      const availabilityFilterEl = document.querySelector("#availabilityFilter");
+      const organFilterEl = document.querySelector("#organFilter");
+      const mechanismFilterEl = document.querySelector("#mechanismFilter");
+      const epilepsyTypeFilterEl = document.querySelector("#epilepsyTypeFilter");
+      const formulationFilterEl = document.querySelector("#formulationFilter");
+      const enzymeFilterEl = document.querySelector("#enzymeFilter");
+      const qtFilterEl = document.querySelector("#qtFilter");
+      const symptomFilterEl = document.querySelector("#symptomFilter");
+      const symptomTextFilterEl = document.querySelector("#symptomTextFilter");
+      const symptomSuggestionsEl = document.querySelector("#symptomSuggestions");
+      const notSymptomFilterEl = document.querySelector("#notSymptomFilter");
+      const graphToggleEl = document.querySelector("#graphToggle");
+      const clearFiltersEl = document.querySelector("#clearFilters");
+      const selectAllAsmsEl = document.querySelector("#selectAllAsms");
+      const selectNoAsmsEl = document.querySelector("#selectNoAsms");
+      const asmChecksEl = document.querySelector("#asmChecks");
+      const summaryEl = document.querySelector("#summary");
+      let asmRows = [];
+      let visibleRows = [];
+      let filterMatchedRows = [];
+      let selectedAsms = new Set();
+      const hiddenColumns = new Set();
+
+      function parseCsv(text) {
+        const rows = [];
+        let row = [];
+        let value = "";
+        let inQuotes = false;
+
+        for (let i = 0; i < text.length; i += 1) {
+          const char = text[i];
+          const next = text[i + 1];
+
+          if (char === '"' && inQuotes && next === '"') {
+            value += '"';
+            i += 1;
+          } else if (char === '"') {
+            inQuotes = !inQuotes;
+          } else if (char === "," && !inQuotes) {
+            row.push(value);
+            value = "";
+          } else if ((char === "\n" || char === "\r") && !inQuotes) {
+            if (char === "\r" && next === "\n") {
+              i += 1;
+            }
+            row.push(value);
+            if (row.some((cell) => cell.trim() !== "")) {
+              rows.push(row);
+            }
+            row = [];
+            value = "";
+          } else {
+            value += char;
+          }
+        }
+
+        if (value || row.length) {
+          row.push(value);
+          rows.push(row);
+        }
+
+        const headers = rows.shift();
+        return rows.map((cells) => Object.fromEntries(headers.map((header, index) => [header, cells[index] || ""])));
+      }
+
+      function escapeHtml(value) {
+        return value.replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[char]);
+      }
+
+      function renderPubMedLinks(value, rowId) {
+        if (!value) {
+          return "";
+        }
+
+        const links = value.split(";").map((item) => {
+          const trimmed = item.trim();
+          const pipeMatch = trimmed.match(/^(.*?)\|(https?:\/\/\S+)$/);
+          const colonMatch = trimmed.match(/^(.*?):\s*(https?:\/\/\S+)$/);
+          const match = pipeMatch || colonMatch;
+          if (!match) {
+            return escapeHtml(trimmed);
+          }
+
+          return `<a class="trial-link" href="${escapeHtml(match[2])}" target="_blank" rel="noopener">${escapeHtml(match[1])}</a>`;
+        });
+
+        if (links.length <= 3) {
+          return links.join("<br>");
+        }
+
+        return `
+          ${links.slice(0, 3).join("<br>")}
+          <button class="rct-toggle" type="button" data-rct-target="rct-${rowId}" aria-expanded="false" title="Show all RCT links">+</button>
+          <span class="rct-extra" id="rct-${rowId}" hidden><br>${links.slice(3).join("<br>")}</span>
+        `;
+      }
+
+      function hasAny(text, patterns) {
+        return patterns.some((pattern) => pattern.test(text));
+      }
+
+      function mechanismCategories(row) {
+        const text = row.mechanism_of_action.toLowerCase();
+        const categories = [];
+        if (hasAny(text, [/\bsodium[- ]channel\b/, /\bvoltage[- ]gated sodium\b/, /\bsodium current/])) categories.push("Sodium channel");
+        if (hasAny(text, [/\bgaba-a\b/, /\bgabaergic\b/, /\bbenzodiazepine\b/, /\bbarbiturate\b/, /\bgaba tone\b/, /\bgaba transaminase\b/, /\bgaba reuptake\b/, /\bgat-1\b/])) categories.push("GABA");
+        if (/\bsv2a\b/.test(text)) categories.push("SV2A");
+        if (hasAny(text, [/\bcalcium\b/, /\balpha-?2-?delta\b/])) categories.push("Calcium channel / alpha-2-delta");
+        if (text.includes("carbonic anhydrase")) categories.push("Carbonic anhydrase");
+        if (hasAny(text, [/\bampa\b/, /\bglutamate\b/, /\bnmda\b/])) categories.push("Glutamate receptor");
+        if (/\bmtor\b/.test(text)) categories.push("mTOR");
+        if (hasAny(text, [/\bseroton/, /\bsigma\b/])) categories.push("Serotonin / sigma");
+        if (hasAny(text, [/\bgaba transaminase\b/, /\bgaba reuptake\b/, /\bgat-1\b/])) categories.push("GABA metabolism / reuptake");
+        if (hasAny(text, [/\bpotassium\b/, /\bkv7\b/, /\bkcnq\b/])) categories.push("Potassium channel");
+        if (hasAny(text, [/\bsteroid\b/, /\badrenal\b/, /\bhormonal\b/])) categories.push("Hormonal / steroid");
+        if (hasAny(text, [/\bvitamin\b/, /\bcofactor\b/])) categories.push("Vitamin / cofactor");
+        if (!categories.length || text.includes("unclear") || text.includes("not well established")) categories.push("Other / unclear");
+        return categories;
+      }
+
+      function availabilityCategories(row) {
+        const text = row.available_in_us.toLowerCase();
+        if (text === "yes") {
+          return ["Available in US"];
+        }
+        if (text.includes("limited") || text.includes("rare") || text.includes("not as epilepsy") || text.includes("not as u.s. sodium-valproate")) {
+          return ["Limited or non-epilepsy US availability"];
+        }
+        return ["Not available in US"];
+      }
+
+      function organCategories(row) {
+        const text = row.major_organ_for_metabolism.toLowerCase();
+        const categories = [];
+        if (text.includes("liver") || text.includes("hepatic")) categories.push("Liver/hepatic");
+        if (text.includes("renal") || text.includes("kidney") || text.includes("not metabolized")) categories.push("Renal/no major metabolism");
+        if (text.includes("gut")) categories.push("Gut");
+        if (text.includes("plasma") || text.includes("extrahepatic") || text.includes("blood/tissues")) categories.push("Plasma/extrahepatic");
+        if (text.includes("limited") || text.includes("unknown")) categories.push("Limited/unknown");
+        return categories.length ? categories : ["Other"];
+      }
+
+      function formulationCategories(row) {
+        const text = row.formulations_available.toLowerCase();
+        const categories = [];
+        if (/\btablets?\b/.test(text)) categories.push("Tablet");
+        if (/\bcapsules?\b/.test(text)) categories.push("Capsule");
+        if (hasAny(text, [/\bsolution\b/, /\bsuspension\b/, /\bsyrup\b/, /\belixir\b/, /\bliquid\b/, /\bconcentrate\b/])) categories.push("Liquid");
+        if (hasAny(text, [/\biv\b/, /\bi\.v\.\b/, /\bintravenous\b/, /\bim\b/, /\bi\.m\.\b/, /\bintramuscular\b/, /\binjections?\b/, /\binjectable\b/])) categories.push("IV/IM injection");
+        if (hasAny(text, [/\bnasal\b/, /\brectal\b/, /\brescue\b/, /\bbuccal\b/, /\boromucosal\b/])) categories.push("Rescue formulation");
+        if (hasAny(text, [/\bextended-release\b/, /\bmodified-release\b/, /\bdelayed-release\b/, /\blong acting\b/, /\blong-acting\b/, /\bprolonged release\b/])) categories.push("Long acting");
+        if (hasAny(text, [/\bsprinkles?\b/, /\bpowder\b/])) categories.push("Sprinkle/powder");
+        if (hasAny(text, [/\bfilm\b/, /\bdisintegrating\b/, /\bodt\b/, /\bdissolvable\b/])) categories.push("Film/ODT");
+        if (hasAny(text, [/\bhistorical\b/, /\bnot marketed\b/, /\binvestigational\b/, /\blimited markets?\b/])) categories.push("Historical/not marketed");
+        return categories.length ? categories : ["Other"];
+      }
+
+      function enzymeCategories(row) {
+        const text = row.enzyme_inducing_or_inhibiting.toLowerCase();
+        const categories = [];
+        const noMajorEffect = hasAny(text, [/\bnot a cyp inducer\/inhibitor\b/, /\bnot an enzyme inducer\/inhibitor\b/, /\bnot metabolized\b/, /\bnot a major inducer\b/]);
+        if (hasAny(text, [/\bstrong enzyme inducer\b/, /\bstrong cyp\b/, /\benzyme inducer\b/, /\bautoinducer\b/])) categories.push("Inducer");
+        if (hasAny(text, [/\bweak cyp\b/, /\bweak enzyme\b/, /\bweak cyp3a\b/, /\bweaker inducer\b/])) categories.push("Weak inducer");
+        if (!noMajorEffect && hasAny(text, [/\binhibits\b/, /\binhibitor\b/, /\binhibiting\b/])) categories.push("Inhibitor");
+        if (noMajorEffect) categories.push("No major enzyme effect");
+        if (/\bsubstrate\b/.test(text) || /\baffected by\b/.test(text)) categories.push("Substrate / affected by modulators");
+        if (hasAny(text, [/\bunknown\b/, /\blimited\b/])) categories.push("Unknown/limited");
+        return categories.length ? categories : ["Other"];
+      }
+
+      function qtCategories(row) {
+        const text = row.qt_interval_effect.toLowerCase();
+        const categories = [];
+        if (hasAny(text, [/\bshortens qt\b/, /\bqt shortening\b/])) categories.push("QT shortening");
+        if (hasAny(text, [/\bqt prolong/, /\bprolongs qt\b/])) categories.push("QT prolongation");
+        if (/\bpr interval\b/.test(text)) categories.push("PR interval effect");
+        if (hasAny(text, [/\bconduction\b/, /\barrhythmia\b/, /\bqrs\b/, /\bav block\b/])) categories.push("Conduction/arrhythmia caution");
+        if (text.includes("no clinically meaningful") || text.includes("no established clinically meaningful")) categories.push("No known meaningful QT effect");
+        if (text.includes("unknown") || text.includes("limited")) categories.push("Unknown/limited");
+        return categories.length ? categories : ["Other"];
+      }
+
+      function symptomCategories(row) {
+        const labelMap = {
+          "allergic/immunologic": "Allergic/immunologic",
+          "behavioral": "Behavioral",
+          "cardiac": "Cardiac",
+          "cardiovascular": "Cardiovascular",
+          "cognitive": "Cognitive",
+          "constitutional": "Constitutional",
+          "dermatologic": "Dermatologic",
+          "gingival": "Gingival",
+          "gi/oral": "GI/oral",
+          "hematologic": "Hematologic",
+          "hematologic/hepatic": "Hematologic/hepatic",
+          "hepatic": "Hepatic",
+          "infectious": "Infectious",
+          "injury": "Injury",
+          "metabolic": "Metabolic",
+          "neurologic": "Neurologic",
+          "ophthalmologic": "Ophthalmologic",
+          "peripheral": "Peripheral",
+          "psychiatric": "Psychiatric",
+          "renal/metabolic": "Renal/metabolic",
+          "respiratory": "Respiratory",
+          "urologic": "Urologic"
+        };
+        const text = row.adverse_symptoms_percentages || "";
+        const categories = [];
+        text.split(",").forEach((entry) => {
+          const rawPrefix = entry.split(":")[0].trim();
+          const prefix = labelMap[rawPrefix.toLowerCase()] || rawPrefix;
+          if (prefix && !prefix.includes("%") && !prefix.toLowerCase().startsWith("evidence availability")) {
+            categories.push(prefix);
+          }
+        });
+        if (text.toLowerCase().includes("no reliable")) categories.push("Unquantified/limited data");
+        return [...new Set(categories.length ? categories : ["Other"])];
+      }
+
+      function epilepsyTypeCategories(row) {
+        return [...new Set((row.epilepsy_type || "Unspecified epilepsy")
+          .split(";")
+          .map((value) => value.trim())
+          .filter(Boolean))];
+      }
+
+      function symptomWords(row) {
+        const stop = new Set(["and", "with", "for", "the", "data", "found", "usable", "current", "located", "evidence", "availability", "reliable", "quantified"]);
+        const words = (row.adverse_symptoms_percentages || "")
+          .toLowerCase()
+          .replace(/>/g, " ")
+          .match(/[a-z][a-z/-]{2,}/g) || [];
+        return [...new Set(words.filter((word) => !stop.has(word) && !word.includes("fda/rct")))];
+      }
+
+      function allSymptomWords() {
+        return [...new Set(asmRows.flatMap(symptomWords))].sort();
+      }
+
+      function updateSymptomSuggestions() {
+        const query = symptomTextFilterEl.value.trim().toLowerCase();
+        const words = allSymptomWords();
+        const matches = words
+          .filter((word) => !query || word.includes(query) || query.includes(word))
+          .slice(0, 40);
+        symptomSuggestionsEl.innerHTML = matches.map((word) => `<option value="${escapeHtml(word)}"></option>`).join("");
+      }
+
+      function setOptions(select, values) {
+        const first = select.querySelector("option").cloneNode(true);
+        select.innerHTML = "";
+        select.append(first);
+        values.forEach((value) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = value;
+          select.append(option);
+        });
+      }
+
+      function populateFilters() {
+        setOptions(availabilityFilterEl, [...new Set(asmRows.flatMap(availabilityCategories))].sort());
+        setOptions(organFilterEl, [...new Set(asmRows.flatMap(organCategories))].sort());
+        setOptions(mechanismFilterEl, [...new Set(asmRows.flatMap(mechanismCategories))].sort());
+        setOptions(epilepsyTypeFilterEl, [...new Set(asmRows.flatMap(epilepsyTypeCategories))].sort());
+        setOptions(formulationFilterEl, [...new Set(asmRows.flatMap(formulationCategories))].sort());
+        setOptions(enzymeFilterEl, [...new Set(asmRows.flatMap(enzymeCategories))].sort());
+        setOptions(qtFilterEl, [...new Set(asmRows.flatMap(qtCategories))].sort());
+        setOptions(symptomFilterEl, [...new Set(asmRows.flatMap(symptomCategories))].sort());
+        updateSymptomSuggestions();
+      }
+
+      function populateAsmChecks() {
+        asmChecksEl.innerHTML = asmRows.map((row) => `
+          <label class="asm-check">
+            <input type="checkbox" value="${escapeHtml(row.generic_name)}">
+            <span>${escapeHtml(row.generic_name)}</span>
+          </label>
+        `).join("");
+      }
+
+      function syncAsmChecks(rows) {
+        const matchingNames = new Set(rows.map((row) => row.generic_name));
+        selectedAsms = new Set(matchingNames);
+        asmChecksEl.querySelectorAll("input").forEach((input) => {
+          input.checked = matchingNames.has(input.value);
+        });
+      }
+
+      function outcomeRange(row, column) {
+        const source = row[column] || "";
+        if (/NR|No placebo|not comparable|Greater than placebo|Statistically/i.test(source)) {
+          return null;
+        }
+        const numbers = source
+          .split(";")
+          .flatMap((part) => (part.split("(")[0].match(/\d+(?:\.\d+)?/g) || []).map(Number))
+          .filter((value) => Number.isFinite(value));
+        if (!numbers.length) {
+          return null;
+        }
+        const min = Math.max(0, Math.min(100, Math.min(...numbers)));
+        const max = Math.max(0, Math.min(100, Math.max(...numbers)));
+        return {
+          min,
+          max,
+          label: min === max ? `${max}%` : `${min}-${max}%`,
+          source
+        };
+      }
+
+      function graphData(rows, column) {
+        return rows
+          .map((row) => ({ row, range: outcomeRange(row, column) }))
+          .filter((item) => item.range)
+          .sort((a, b) => b.range.max - a.range.max || a.row.generic_name.localeCompare(b.row.generic_name));
+      }
+
+      function activeFilterSummary() {
+        const active = [];
+        if (searchEl.value.trim()) active.push(`Search: ${searchEl.value.trim()}`);
+        if (availabilityFilterEl.value) active.push(`US availability: ${availabilityFilterEl.value}`);
+        if (organFilterEl.value) active.push(`Metabolism: ${organFilterEl.value}`);
+        if (mechanismFilterEl.value) active.push(`Mechanism: ${mechanismFilterEl.value}`);
+        if (epilepsyTypeFilterEl.value) active.push(`Epilepsy type: ${epilepsyTypeFilterEl.value}`);
+        if (formulationFilterEl.value) active.push(`Formulation: ${formulationFilterEl.value}`);
+        if (enzymeFilterEl.value) active.push(`Enzyme effect: ${enzymeFilterEl.value}`);
+        if (qtFilterEl.value) active.push(`QT effect: ${qtFilterEl.value}`);
+        if (symptomFilterEl.value) active.push(`Symptom category: ${symptomFilterEl.value}`);
+        if (symptomTextFilterEl.value.trim()) active.push(`${notSymptomFilterEl.checked ? "NOT " : ""}symptom word: ${symptomTextFilterEl.value.trim()}`);
+        if (selectedAsms.size !== filterMatchedRows.length) active.push(`Manual ASM selection: ${selectedAsms.size} of ${filterMatchedRows.length} selected`);
+        return active.length ? active.join("; ") : "No filters active";
+      }
+
+      function renderChart(title, rows, column, description) {
+        const data = graphData(rows, column);
+        const missingCount = rows.length - data.length;
+        const filterSummary = activeFilterSummary();
+        if (!data.length) {
+          return `
+            <section class="chart">
+              <div class="chart-head">
+                <h2>${escapeHtml(title)}</h2>
+                <div class="chart-counts" aria-label="Chart counts">
+                  <span class="chart-pill">${rows.length} filtered</span>
+                  <span class="chart-pill">0 plotted</span>
+                </div>
+              </div>
+              <p class="chart-meta">${escapeHtml(description)} Axis is fixed at 0-100%.</p>
+              <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
+              <p class="chart-empty">No numeric placebo-adjusted values are available for the current filters.</p>
+            </section>
+          `;
+        }
+
+        const left = 210;
+        const right = 112;
+        const top = 34;
+        const rowHeight = 34;
+        const width = 920;
+        const height = top + data.length * rowHeight + 46;
+        const scale = (value) => left + (value / 100) * (width - left - right);
+        const ticks = [0, 25, 50, 75, 100];
+
+        const bars = data.map((item, index) => {
+          const y = top + index * rowHeight;
+          const x1 = scale(item.range.min);
+          const x2 = scale(item.range.max);
+          const zero = scale(0);
+          const label = item.range.label;
+          const doseMatch = item.range.source.match(/\(([^)]*?(?:mg|kg|dose|individualized)[^)]*)\)/i);
+          const doseLabel = doseMatch ? doseMatch[1] : "maximum effective dose";
+          return `
+            <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row.generic_name)}</text>
+            <text x="0" y="${y + 28}" font-size="10.5" fill="#637083">${escapeHtml(doseLabel)}</text>
+            <line x1="${left}" y1="${y + 15}" x2="${width - right}" y2="${y + 15}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
+            <line x1="${zero}" y1="${y + 15}" x2="${x2}" y2="${y + 15}" stroke="#99d6cf" stroke-width="8" stroke-linecap="round" />
+            <line x1="${x1}" y1="${y + 15}" x2="${x2}" y2="${y + 15}" stroke="#0f766e" stroke-width="8" stroke-linecap="round" />
+            <circle cx="${x1}" cy="${y + 15}" r="4" fill="#0f766e" />
+            <circle cx="${x2}" cy="${y + 15}" r="4" fill="#0f766e" />
+            <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(label)}</text>
+          `;
+        }).join("");
+
+        const axis = ticks.map((tick) => `
+          <line x1="${scale(tick)}" y1="24" x2="${scale(tick)}" y2="${height - 30}" stroke="#d8dee8" />
+          <text x="${scale(tick)}" y="14" font-size="11" text-anchor="middle" fill="#637083">${tick}%</text>
+          <text x="${scale(tick)}" y="${height - 10}" font-size="11" text-anchor="middle" fill="#637083">${tick}%</text>
+        `).join("");
+
+        return `
+          <section class="chart">
+            <div class="chart-head">
+              <h2>${escapeHtml(title)}</h2>
+              <div class="chart-counts" aria-label="Chart counts">
+                <span class="chart-pill">${rows.length} filtered</span>
+                <span class="chart-pill">${data.length} plotted</span>
+                <span class="chart-pill">${missingCount} no numeric value</span>
+              </div>
+            </div>
+            <p class="chart-meta">${escapeHtml(description)} Axis is fixed at 0-100%; rows are sorted by highest plotted value.</p>
+            <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
+            <div class="chart-legend" aria-label="Chart legend">
+              <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
+              <span class="legend-item"><span class="legend-swatch legend-zero"></span>0 to maximum value</span>
+              <span class="legend-item"><span class="legend-swatch"></span>reported range</span>
+            </div>
+            <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
+              <text x="0" y="14" font-size="11" fill="#637083">Placebo-adjusted %</text>
+              ${axis}
+              ${bars}
+              <text x="${left}" y="${height - 32}" font-size="11" fill="#637083">0%</text>
+              <text x="${width - right}" y="${height - 32}" font-size="11" text-anchor="end" fill="#637083">100%</text>
+            </svg>
+          </section>
+        `;
+      }
+
+      function renderGraphs(rows) {
+        listEl.innerHTML = `
+          <div class="graph-panel">
+            ${renderChart("Differential RR50 (Maximum Effective Dose Only)", rows, "diff_50_responder_maximum_effective_dose", "Placebo-adjusted 50% responder-rate difference at the maximum effective dose only.")}
+            ${renderChart("Differential MPC (Maximum Effective Dose Only)", rows, "diff_median_pct_change_maximum_effective_dose", "Placebo-adjusted median percent seizure-frequency change at the maximum effective dose only.")}
+          </div>
+        `;
+      }
+
+      const columns = [
+        { key: "generic_name", label: "Generic Name", className: "name-cell", collapsible: false, render: (row) => {
+          const alternate = row.alternate_generic_names ? `<p class="alt">Also: ${escapeHtml(row.alternate_generic_names)}</p>` : "";
+          return `<p class="generic">${escapeHtml(row.generic_name)}</p>${alternate}`;
+        }},
+        { key: "trade_names", label: "Trade Names", className: "trade-cell" },
+        { key: "available_in_us", label: "Available in US", className: "availability-cell" },
+        { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell" },
+        { key: "year_fda_cleared", label: "Year FDA Cleared", className: "fda-year-cell" },
+        { key: "mechanism_of_action", label: "Mechanism of Action", className: "mechanism-cell" },
+        { key: "enzyme_inducing_or_inhibiting", label: "Enzyme Inducing / Inhibiting", className: "enzyme-cell" },
+        { key: "qt_interval_effect", label: "QT Interval Effect", className: "qt-cell" },
+        { key: "adverse_symptoms_percentages", label: "Symptoms With Percentages", className: "symptom-cell" },
+        { key: "formulations_available", label: "Formulations Available", className: "formulation-cell" },
+        { key: "typical_doses_per_day", label: "Typical Doses Per Day", className: "dose-cell" },
+        { key: "minimum_effective_dose", label: "Minimum Effective Dose", className: "approved-dose-cell" },
+        { key: "maximum_approved_daily_dose", label: "Maximum Approved Daily Dose", className: "approved-dose-cell" },
+        { key: "half_life_range", label: "Half-Life Range", className: "half-life-cell" },
+        { key: "major_organ_for_metabolism", label: "Major Organ for Metabolism", className: "metabolism-cell" },
+        { key: "status_or_notes", label: "Notes / Sources", className: "notes-cell", render: (row) => `${escapeHtml(row.status_or_notes)}<p class="evidence">${escapeHtml(row.evidence_sources)}</p>` },
+        { key: "diff_50_responder_maximum_effective_dose", label: "Differential RR50: Maximum Effective Dose Only", className: "outcome-cell" },
+        { key: "diff_median_pct_change_maximum_effective_dose", label: "Differential MPC: Maximum Effective Dose Only", className: "outcome-cell" },
+        { key: "pubmed_phase_ii_iii_rct_links", label: "PubMed Phase II/III RCTs", className: "trials-cell", render: (row, rowId) => renderPubMedLinks(row.pubmed_phase_ii_iii_rct_links, rowId) }
+      ];
+
+      function headerClass(column) {
+        return `${column.className} ${hiddenColumns.has(column.key) ? "collapsed-column" : ""}`;
+      }
+
+      function cellClass(column) {
+        return `${column.className} ${hiddenColumns.has(column.key) ? "hidden-column" : ""}`;
+      }
+
+      function renderHeader(column) {
+        const isHidden = hiddenColumns.has(column.key);
+        const toggle = column.collapsible === false ? "" : `<button class="column-toggle" type="button" data-column-toggle="${escapeHtml(column.key)}" title="${isHidden ? "Show" : "Hide"} ${escapeHtml(column.label)}">${isHidden ? "+" : "-"}</button>`;
+        return `
+          <th class="${headerClass(column)}" data-column="${escapeHtml(column.key)}">
+            <span class="th-wrap">
+              <span class="column-label">${escapeHtml(column.label)}</span>
+              ${toggle}
+            </span>
+          </th>
+        `;
+      }
+
+      function renderCell(column, row, rowId) {
+        const content = column.render ? column.render(row, rowId) : escapeHtml(row[column.key] || "");
+        return `<td class="${cellClass(column)}" data-column="${escapeHtml(column.key)}">${content}</td>`;
+      }
+
+      function render(rows) {
+        visibleRows = rows;
+        summaryEl.textContent = `${rows.length} of ${asmRows.length} ASMs`;
+
+        if (!rows.length) {
+          listEl.innerHTML = '<p class="empty">No ASMs match the current search.</p>';
+          return;
+        }
+
+        if (graphToggleEl.checked) {
+          renderGraphs(rows);
+          return;
+        }
+
+        const body = rows.map((row, index) => {
+          const rowId = `${index}-${row.generic_name.replace(/[^a-z0-9]+/gi, "-")}`;
+
+          return `
+            <tr>
+              ${columns.map((column) => renderCell(column, row, rowId)).join("")}
+            </tr>
+          `;
+        }).join("");
+
+        listEl.innerHTML = `
+          <table>
+            <thead>
+              <tr>
+                ${columns.map(renderHeader).join("")}
+              </tr>
+            </thead>
+            <tbody>${body}</tbody>
+          </table>
+        `;
+      }
+
+      function rowsMatchingCriteria() {
+        const query = searchEl.value.trim().toLowerCase();
+        const availability = availabilityFilterEl.value;
+        const organ = organFilterEl.value;
+        const mechanism = mechanismFilterEl.value;
+        const epilepsyType = epilepsyTypeFilterEl.value;
+        const formulation = formulationFilterEl.value;
+        const enzyme = enzymeFilterEl.value;
+        const qt = qtFilterEl.value;
+        const symptom = symptomFilterEl.value;
+        const symptomText = symptomTextFilterEl.value.trim().toLowerCase();
+        const notSymptom = notSymptomFilterEl.checked;
+
+        return asmRows.filter((row) => {
+          const matchesText = !query || Object.values(row).join(" ").toLowerCase().includes(query);
+          const matchesAvailability = !availability || availabilityCategories(row).includes(availability);
+          const matchesOrgan = !organ || organCategories(row).includes(organ);
+          const matchesMechanism = !mechanism || mechanismCategories(row).includes(mechanism);
+          const matchesEpilepsyType = !epilepsyType || epilepsyTypeCategories(row).includes(epilepsyType);
+          const matchesFormulation = !formulation || formulationCategories(row).includes(formulation);
+          const matchesEnzyme = !enzyme || enzymeCategories(row).includes(enzyme);
+          const matchesQt = !qt || qtCategories(row).includes(qt);
+          const matchesSymptom = !symptom || symptomCategories(row).includes(symptom);
+          const hasSymptomWord = !symptomText || symptomWords(row).some((word) => word.includes(symptomText) || symptomText.includes(word));
+          const matchesSymptomWord = !symptomText || (notSymptom ? !hasSymptomWord : hasSymptomWord);
+          return matchesText && matchesAvailability && matchesOrgan && matchesMechanism && matchesEpilepsyType && matchesFormulation && matchesEnzyme && matchesQt && matchesSymptom && matchesSymptomWord;
+        });
+      }
+
+      function applyFilters(syncManualSelection = true) {
+        filterMatchedRows = rowsMatchingCriteria();
+        if (syncManualSelection) {
+          syncAsmChecks(filterMatchedRows);
+        }
+        render(filterMatchedRows.filter((row) => selectedAsms.has(row.generic_name)));
+      }
+
+      fetch("ASM-list.csv")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Could not load ASM-list.csv (${response.status})`);
+          }
+          return response.text();
+        })
+        .then((text) => {
+          asmRows = parseCsv(text).sort((a, b) => a.generic_name.localeCompare(b.generic_name));
+          populateFilters();
+          populateAsmChecks();
+          applyFilters();
+        })
+        .catch((error) => {
+          summaryEl.textContent = "CSV unavailable";
+          listEl.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+        });
+
+      searchEl.addEventListener("input", () => applyFilters());
+      availabilityFilterEl.addEventListener("change", () => applyFilters());
+      organFilterEl.addEventListener("change", () => applyFilters());
+      mechanismFilterEl.addEventListener("change", () => applyFilters());
+      epilepsyTypeFilterEl.addEventListener("change", () => applyFilters());
+      formulationFilterEl.addEventListener("change", () => applyFilters());
+      enzymeFilterEl.addEventListener("change", () => applyFilters());
+      qtFilterEl.addEventListener("change", () => applyFilters());
+      symptomFilterEl.addEventListener("change", () => applyFilters());
+      symptomTextFilterEl.addEventListener("input", () => {
+        updateSymptomSuggestions();
+        applyFilters();
+      });
+      notSymptomFilterEl.addEventListener("change", () => applyFilters());
+      graphToggleEl.addEventListener("change", () => render(visibleRows));
+      listEl.addEventListener("click", (event) => {
+        const columnButton = event.target.closest(".column-toggle");
+        if (columnButton) {
+          const key = columnButton.dataset.columnToggle;
+          const column = columns.find((item) => item.key === key);
+          if (!column || column.collapsible === false) {
+            return;
+          }
+          if (hiddenColumns.has(key)) {
+            hiddenColumns.delete(key);
+          } else {
+            hiddenColumns.add(key);
+          }
+          render(visibleRows.length ? visibleRows : asmRows);
+          return;
+        }
+
+        const button = event.target.closest(".rct-toggle");
+        if (!button) {
+          return;
+        }
+        const extra = document.getElementById(button.dataset.rctTarget);
+        if (!extra) {
+          return;
+        }
+        const expanded = extra.hidden;
+        extra.hidden = !expanded;
+        button.textContent = expanded ? "-" : "+";
+        button.setAttribute("aria-expanded", String(expanded));
+      });
+      clearFiltersEl.addEventListener("click", () => {
+        searchEl.value = "";
+        availabilityFilterEl.value = "";
+        organFilterEl.value = "";
+        mechanismFilterEl.value = "";
+        epilepsyTypeFilterEl.value = "";
+        formulationFilterEl.value = "";
+        enzymeFilterEl.value = "";
+        qtFilterEl.value = "";
+        symptomFilterEl.value = "";
+        symptomTextFilterEl.value = "";
+        notSymptomFilterEl.checked = false;
+        updateSymptomSuggestions();
+        applyFilters();
+      });
+      asmChecksEl.addEventListener("change", () => {
+        selectedAsms = new Set([...asmChecksEl.querySelectorAll("input:checked")].map((input) => input.value));
+        applyFilters(false);
+      });
+      selectAllAsmsEl.addEventListener("click", () => {
+        selectedAsms = new Set(filterMatchedRows.map((row) => row.generic_name));
+        asmChecksEl.querySelectorAll("input").forEach((input) => {
+          input.checked = selectedAsms.has(input.value);
+        });
+        applyFilters(false);
+      });
+      selectNoAsmsEl.addEventListener("click", () => {
+        selectedAsms = new Set();
+        asmChecksEl.querySelectorAll("input").forEach((input) => {
+          input.checked = false;
+        });
+        applyFilters(false);
+      });
+    </script>
+  </body>
+</html>
