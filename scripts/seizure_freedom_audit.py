@@ -375,6 +375,11 @@ def update_asm_csv(report_rows, included_rct_rows):
     fieldnames = []
     inserted = False
     for field in old_fieldnames:
+        if field == OUTPUT_FIELD:
+            if not inserted:
+                fieldnames.append(OUTPUT_FIELD)
+                inserted = True
+            continue
         if field == OLD_FIELD:
             if not inserted:
                 fieldnames.append(OUTPUT_FIELD)

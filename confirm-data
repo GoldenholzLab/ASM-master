@@ -1,0 +1,617 @@
+#!/usr/bin/env python3
+import argparse
+import csv
+import hashlib
+import html
+import json
+import re
+import sys
+import textwrap
+import unicodedata
+import urllib.error
+import urllib.request
+import xml.etree.ElementTree as ET
+from collections import Counter, defaultdict
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parent
+CSV_PATH = ROOT / "ASM-list.csv"
+HTML_PATH = ROOT / "index.html"
+RCT_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
+SEIZURE_FREEDOM_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "seizure_freedom_audit.csv"
+EFETCH_DIR = ROOT / "pubmed_cache" / "efetch"
+REPORT_DIR = ROOT / "pubmed_cache" / "reports"
+CACHE_DIR = ROOT / ".confirm-data-cache"
+
+
+REQUIRED_COLUMNS = [
+    "generic_name",
+    "alternate_generic_names",
+    "trade_names",
+    "status_or_notes",
+    "evidence_sources",
+    "available_in_us",
+    "epilepsy_type",
+    "mechanism_of_action",
+    "half_life_range",
+    "major_organ_for_metabolism",
+    "pubmed_phase_ii_iii_rct_links",
+    "diff_50_responder_maximum_effective_dose",
+    "diff_median_pct_change_maximum_effective_dose",
+    "diff_seizure_freedom_maximum_effective_dose",
+    "formulations_available",
+    "typical_doses_per_day",
+    "minimum_effective_dose",
+    "maximum_approved_daily_dose",
+    "enzyme_inducing_or_inhibiting",
+    "qt_interval_effect",
+    "adverse_symptoms_percentages",
+    "year_fda_cleared",
+    "rct_pubmed_verification_notes",
+    "data_most_recently_refreshed",
+]
+
+
+NON_RCT_FACT_FIELDS = [
+    "trade_names",
+    "status_or_notes",
+    "available_in_us",
+    "epilepsy_type",
+    "mechanism_of_action",
+    "half_life_range",
+    "major_organ_for_metabolism",
+    "formulations_available",
+    "typical_doses_per_day",
+    "minimum_effective_dose",
+    "maximum_approved_daily_dose",
+    "enzyme_inducing_or_inhibiting",
+    "qt_interval_effect",
+    "adverse_symptoms_percentages",
+    "year_fda_cleared",
+]
+
+
+RCT_DERIVED_FIELDS = [
+    "pubmed_phase_ii_iii_rct_links",
+    "diff_50_responder_maximum_effective_dose",
+    "diff_median_pct_change_maximum_effective_dose",
+    "diff_seizure_freedom_maximum_effective_dose",
+    "rct_pubmed_verification_notes",
+]
+
+
+SOURCE_REGISTRY = {
+    "American Epilepsy Society 2024 U.S. ASM summary": {
+        "urls": [
+            "https://cms.aesnet.org/docs/default-source/pdfs-clinical/42981132_aes_summary_of_antiseizure_medications_available_in_the_united_states_4th_edition_april_2024.pdf?sfvrsn=65016203_1"
+        ],
+        "markers": ["antiseizure medications", "american epilepsy society"],
+    },
+    "EMA Trobalt withdrawal page": {
+        "urls": ["https://www.ema.europa.eu/en/medicines/human/EPAR/trobalt"],
+        "markers": ["trobalt", "retigabine"],
+    },
+    "Epilepsy Foundation Australia ASM list": {
+        "urls": [
+            "https://epilepsyfoundation.org.au/understanding-epilepsy/treatments-and-management/anti-seizure-medication/list-of-anti-seizure-medication-asms/"
+        ],
+        "markers": ["anti-seizure medication", "epilepsy foundation"],
+    },
+    "Epilepsy Society ASM list": {
+        "urls": [
+            "https://epilepsysociety.org.uk/about-epilepsy/anti-seizure-medication/list-anti-seizure-medication"
+        ],
+        "markers": ["anti-seizure medication", "epilepsy society"],
+    },
+    "FDA/DailyMed labeling": {
+        "urls": [
+            "https://dailymed.nlm.nih.gov/dailymed/",
+            "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
+        ],
+        "markers": ["dailymed", "acthar", "corticotropin"],
+    },
+    "FDA Ztalmy approval/snapshot pages": {
+        "urls": [
+            "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-ztalmy",
+            "https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-drug-treatment-seizures-associated-rare-disease-patients-two-years-age-and-older",
+        ],
+        "markers": ["ztalmy", "ganaxolone"],
+    },
+    "Healthline ASM list": {
+        "urls": ["https://www.healthline.com/health/epilepsy/medications-list"],
+        "markers": ["epilepsy", "medications"],
+    },
+    "ILAE/GSK discontinuation notice": {
+        "urls": [
+            "https://www.ilae.org/news-and-media/epilepsy-news-around-the-world/retigabine-to-be-discontinued-in-june",
+            "https://www.ilae.org/files/dmfile/GSK_RetigabineTrobalt-Reminder.pdf",
+        ],
+        "markers": ["retigabine", "trobalt"],
+    },
+    "NCBI LiverTox anticonvulsants table": {
+        "urls": ["https://www.ncbi.nlm.nih.gov/books/NBK548365/table/Anticonvulsants.Tc/"],
+        "markers": ["anticonvulsants", "livertox"],
+    },
+    "Wikipedia anticonvulsant drug-class list": {
+        "urls": ["https://en.wikipedia.org/wiki/Anticonvulsant"],
+        "markers": ["anticonvulsant", "antiepileptic"],
+    },
+}
+
+
+def normalize_space(value):
+    return re.sub(r"\s+", " ", value or "").strip()
+
+
+def slug(value):
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "source"
+
+
+def strip_tags(value):
+    value = re.sub(r"(?is)<script.*?</script>|<style.*?</style>", " ", value)
+    value = re.sub(r"(?s)<[^>]+>", " ", value)
+    return normalize_space(html.unescape(value))
+
+
+def read_csv_with_header(path):
+    with path.open(newline="") as handle:
+        reader = csv.reader(handle)
+        header = next(reader)
+        rows = [dict(zip(header, row)) for row in reader]
+    return header, rows
+
+
+def read_dicts(path):
+    with path.open(newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def add_issue(issues, severity, check, row="", field="", message="", expected="", observed="", source=""):
+    issues.append(
+        {
+            "severity": severity,
+            "check": check,
+            "row": row,
+            "field": field,
+            "message": message,
+            "expected": expected,
+            "observed": observed,
+            "source": source,
+        }
+    )
+
+
+def split_sources(value):
+    return [part.strip() for part in (value or "").split(";") if part.strip()]
+
+
+def parse_rct_links(value):
+    value = value or ""
+    if value.startswith("No PubMed"):
+        return []
+    links = []
+    for part in value.split(";"):
+        part = part.strip()
+        if not part:
+            continue
+        if "|" not in part:
+            links.append({"label": "", "url": part, "pmid": ""})
+            continue
+        label, url = [item.strip() for item in part.split("|", 1)]
+        match = re.search(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?", url)
+        links.append({"label": label, "url": url, "pmid": match.group(1) if match else ""})
+    return links
+
+
+def label_from_author_year(first_author, year):
+    author = ascii_token(first_author)
+    return f"{author}{year}" if author and year else ""
+
+
+def ascii_token(value):
+    normalized = unicodedata.normalize("NFKD", value or "")
+    ascii_value = normalized.encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^A-Za-z0-9]+", "", ascii_value)
+
+
+def parse_pubmed_cache():
+    articles = {}
+    for xml_path in sorted(EFETCH_DIR.glob("*.xml")):
+        root = ET.parse(xml_path).getroot()
+        for article in root.findall(".//PubmedArticle"):
+            pmid = (article.findtext(".//PMID") or "").strip()
+            if not pmid:
+                continue
+            title_el = article.find(".//ArticleTitle")
+            title = normalize_space("".join(title_el.itertext())) if title_el is not None else ""
+            year = ""
+            for path in [
+                ".//Article/Journal/JournalIssue/PubDate/Year",
+                ".//Article/ArticleDate/Year",
+                ".//PubmedData/History/PubMedPubDate[@PubStatus='pubmed']/Year",
+            ]:
+                year = (article.findtext(path) or "").strip()
+                if year:
+                    break
+            years = sorted({(item.text or "").strip() for item in article.findall(".//Year") if (item.text or "").strip()})
+            first_author = ""
+            first = article.find(".//AuthorList/Author")
+            if first is not None:
+                first_author = (first.findtext("LastName") or first.findtext("CollectiveName") or "").strip()
+            pub_types = [normalize_space("".join(item.itertext())) for item in article.findall(".//PublicationType")]
+            abstract = " ".join(normalize_space("".join(item.itertext())) for item in article.findall(".//AbstractText"))
+            articles[pmid] = {
+                "pmid": pmid,
+                "title": title,
+                "year": year,
+                "years": years,
+                "first_author": first_author,
+                "label": label_from_author_year(first_author, year),
+                "pub_types": pub_types,
+                "abstract": abstract,
+            }
+    return articles
+
+
+def fetch_url(url, timeout=20):
+    CACHE_DIR.mkdir(exist_ok=True)
+    key = hashlib.sha256(url.encode()).hexdigest()[:24]
+    cache_path = CACHE_DIR / f"{key}.txt"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "ASM-master confirm-data/1.0 (+https://github.com/GoldenholzLab/ASM-master)"
+        },
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        content = response.read()
+        content_type = response.headers.get("content-type", "")
+        status = getattr(response, "status", 200)
+    try:
+        text = content.decode("utf-8", errors="replace")
+    except Exception:
+        text = ""
+    if "text/html" in content_type or text.lstrip().startswith("<"):
+        text = strip_tags(text)
+    else:
+        text = normalize_space(text)
+    cache_path.write_text(text)
+    return {"status": status, "content_type": content_type, "text": text[:300000], "cache": str(cache_path)}
+
+
+def validate_schema(header, rows, issues):
+    counts = Counter(header)
+    duplicates = sorted(name for name, count in counts.items() if count > 1)
+    if duplicates:
+        add_issue(issues, "error", "csv_schema", field="header", message="Duplicate CSV header(s)", observed=", ".join(duplicates))
+    missing = [name for name in REQUIRED_COLUMNS if name not in counts]
+    extra = [name for name in header if name not in REQUIRED_COLUMNS]
+    if missing:
+        add_issue(issues, "error", "csv_schema", field="header", message="Required column(s) missing", observed=", ".join(missing))
+    if extra:
+        add_issue(issues, "warning", "csv_schema", field="header", message="Unexpected column(s)", observed=", ".join(extra))
+    if len(rows) != 65:
+        add_issue(issues, "error", "csv_schema", message="Unexpected ASM row count", expected="65", observed=str(len(rows)))
+    names = [row.get("generic_name", "") for row in rows]
+    duplicate_names = sorted(name for name, count in Counter(names).items() if count > 1)
+    if duplicate_names:
+        add_issue(issues, "error", "csv_schema", field="generic_name", message="Duplicate generic name(s)", observed=", ".join(duplicate_names))
+
+
+def validate_sources(rows, issues, source_text_by_name):
+    for row in rows:
+        generic = row.get("generic_name", "")
+        sources = split_sources(row.get("evidence_sources", ""))
+        if not sources:
+            add_issue(issues, "error", "source_section", row=generic, field="evidence_sources", message="No non-RCT evidence source listed")
+            continue
+        for source in sources:
+            if source not in SOURCE_REGISTRY:
+                add_issue(issues, "error", "source_section", row=generic, field="evidence_sources", message="Unregistered source", observed=source)
+            if re.search(r"pubmed|clinicaltrials|trial|rct", source, re.I):
+                add_issue(
+                    issues,
+                    "error",
+                    "source_section",
+                    row=generic,
+                    field="evidence_sources",
+                    message="RCT/PubMed source belongs in the RCT section, not evidence_sources",
+                    observed=source,
+                )
+        for field in NON_RCT_FACT_FIELDS:
+            value = normalize_space(row.get(field, ""))
+            if not value:
+                add_issue(issues, "error", "fact_presence", row=generic, field=field, message="Non-RCT fact field is blank")
+            elif sources:
+                add_issue(
+                    issues,
+                    "info",
+                    "fact_source_coverage",
+                    row=generic,
+                    field=field,
+                    message="Field has non-RCT source coverage listed in evidence_sources",
+                    source="; ".join(sources),
+                )
+
+        if source_text_by_name:
+            row_terms = [generic]
+            row_terms += [part.strip() for part in row.get("alternate_generic_names", "").split(";") if part.strip()]
+            row_terms += [part.strip() for part in row.get("trade_names", "").split(";") if part.strip()]
+            source_hits = []
+            for source in sources:
+                source_text = source_text_by_name.get(source, "").lower()
+                if not source_text:
+                    continue
+                if any(term.lower() in source_text for term in row_terms if len(term) >= 4):
+                    source_hits.append(source)
+            if not source_hits:
+                add_issue(
+                    issues,
+                    "warning",
+                    "online_source_review",
+                    row=generic,
+                    field="evidence_sources",
+                    message="Fetched registered source pages did not contain the row generic/trade-name terms; manual review may be needed",
+                    source="; ".join(sources),
+                )
+
+
+def validate_rcts(rows, issues):
+    rct_rows = read_dicts(RCT_AUDIT_PATH)
+    included = [row for row in rct_rows if row["status"] == "included"]
+    included_by_drug = defaultdict(list)
+    included_by_pmid = {}
+    for row in included:
+        included_by_drug[row["generic_name"]].append(row)
+        included_by_pmid[row["pmid"]] = row
+
+    pubmed = parse_pubmed_cache()
+    for row in rows:
+        generic = row["generic_name"]
+        links = parse_rct_links(row.get("pubmed_phase_ii_iii_rct_links", ""))
+        expected = sorted(item["pmid"] for item in included_by_drug.get(generic, []))
+        observed = sorted(link["pmid"] for link in links)
+        if expected != observed:
+            add_issue(
+                issues,
+                "error",
+                "rct_section",
+                row=generic,
+                field="pubmed_phase_ii_iii_rct_links",
+                message="RCT PMID set in CSV does not match included PubMed RCT audit set",
+                expected=", ".join(expected) or "none",
+                observed=", ".join(observed) or "none",
+            )
+        if not expected and not row.get("pubmed_phase_ii_iii_rct_links", "").startswith("No PubMed"):
+            add_issue(issues, "error", "rct_section", row=generic, field="pubmed_phase_ii_iii_rct_links", message="Expected no-RCT text")
+        for link in links:
+            pmid = link["pmid"]
+            audit = included_by_pmid.get(pmid)
+            if not pmid:
+                add_issue(issues, "error", "rct_link", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT link does not contain a PubMed PMID", observed=link["url"])
+                continue
+            if not audit:
+                add_issue(issues, "error", "rct_link", row=generic, field="pubmed_phase_ii_iii_rct_links", message="PMID is not included in pubmed_rct_audit.csv", observed=pmid)
+                continue
+            expected_url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+            if link["url"] != expected_url:
+                add_issue(issues, "error", "rct_link", row=generic, field="pubmed_phase_ii_iii_rct_links", message="PubMed URL mismatch", expected=expected_url, observed=link["url"])
+            if link["label"] != audit["label"]:
+                add_issue(issues, "error", "rct_link", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT link label mismatch with audit", expected=audit["label"], observed=link["label"])
+            article = pubmed.get(pmid)
+            if not article:
+                add_issue(issues, "error", "pubmed_cache", row=generic, field="pubmed_phase_ii_iii_rct_links", message="PMID missing from local PubMed efetch cache", observed=pmid)
+            else:
+                if audit["title"] and normalize_space(audit["title"]) != article["title"]:
+                    add_issue(issues, "warning", "pubmed_cache", row=generic, field="pubmed_phase_ii_iii_rct_links", message="Cached PubMed title differs from RCT audit title", expected=audit["title"], observed=article["title"])
+                if audit["year"] not in article["years"]:
+                    add_issue(issues, "warning", "pubmed_cache", row=generic, field="pubmed_phase_ii_iii_rct_links", message="Cached PubMed years do not include RCT audit year", expected=audit["year"], observed=", ".join(article["years"]))
+                if link["label"] and not link["label"].startswith(ascii_token(audit["first_author"])):
+                    add_issue(issues, "error", "rct_link", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT label does not start with first author", expected=audit["first_author"], observed=link["label"])
+
+
+def extract_percent_range(value):
+    if re.match(r"^(NR|No PubMed|No qualifying|No placebo|No numeric|not comparable|Greater than placebo|Statistically)", value or "", re.I):
+        return None
+    leading = (value or "").split("(", 1)[0]
+    numbers = []
+    for match in re.finditer(r"(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?\s*%", leading):
+        numbers.extend(float(item) for item in match.groups() if item)
+    if not numbers:
+        return None
+    return min(numbers), max(numbers)
+
+
+def format_number(value):
+    value = round(float(value), 2)
+    if value.is_integer():
+        return str(int(value))
+    return f"{value:.2f}".rstrip("0").rstrip(".")
+
+
+def validate_seizure_freedom(rows, issues):
+    audit_rows = read_dicts(SEIZURE_FREEDOM_AUDIT_PATH)
+    included = defaultdict(list)
+    for row in audit_rows:
+        if row["included_in_csv_summary"] == "yes":
+            included[row["generic_name"]].append(float(row["differential_percent"]))
+    if len(audit_rows) != 180:
+        add_issue(issues, "error", "seizure_freedom_audit", message="Expected one seizure-freedom audit row per included RCT", expected="180", observed=str(len(audit_rows)))
+    for row in rows:
+        generic = row["generic_name"]
+        value = row.get("diff_seizure_freedom_maximum_effective_dose", "")
+        if included[generic]:
+            low = min(included[generic])
+            high = max(included[generic])
+            expected = f"{format_number(low)} %" if low == high else f"{format_number(low)}-{format_number(high)} %"
+            if not value.startswith(expected):
+                add_issue(
+                    issues,
+                    "error",
+                    "seizure_freedom_rollup",
+                    row=generic,
+                    field="diff_seizure_freedom_maximum_effective_dose",
+                    message="CSV seizure-freedom differential does not match audit roll-up",
+                    expected=expected,
+                    observed=value,
+                )
+        elif extract_percent_range(value):
+            add_issue(
+                issues,
+                "error",
+                "seizure_freedom_rollup",
+                row=generic,
+                field="diff_seizure_freedom_maximum_effective_dose",
+                message="CSV contains numeric seizure-freedom value but no included audit row supports it",
+                observed=value,
+            )
+
+
+def validate_outcome_fields(rows, issues):
+    for row in rows:
+        generic = row["generic_name"]
+        has_rcts = not row.get("pubmed_phase_ii_iii_rct_links", "").startswith("No PubMed")
+        for field in [
+            "diff_50_responder_maximum_effective_dose",
+            "diff_median_pct_change_maximum_effective_dose",
+            "diff_seizure_freedom_maximum_effective_dose",
+        ]:
+            value = row.get(field, "")
+            numeric = extract_percent_range(value)
+            if numeric:
+                low, high = numeric
+                if low < 0 or high > 100 or low > high:
+                    add_issue(issues, "error", "outcome_range", row=generic, field=field, message="Outcome percentage outside 0-100% or invalid range", observed=value)
+                if not has_rcts:
+                    add_issue(issues, "error", "outcome_source", row=generic, field=field, message="Numeric RCT-derived outcome exists but RCT section has no PubMed RCT links", observed=value)
+            elif not re.search(r"NR|No PubMed|No placebo|not extractable|not comparable|Statistically|No qualifying", value or "", re.I):
+                add_issue(issues, "warning", "outcome_range", row=generic, field=field, message="Outcome field is neither numeric nor a recognized non-extractable statement", observed=value)
+
+
+def validate_non_rct_fact_format(rows, issues):
+    for row in rows:
+        generic = row["generic_name"]
+        availability = row.get("available_in_us", "")
+        if not (availability.startswith("Yes") or availability.startswith("No") or "Limited" in availability):
+            add_issue(issues, "warning", "fact_format", row=generic, field="available_in_us", message="Availability value is unusual", observed=row.get("available_in_us", ""))
+        symptoms = row.get("adverse_symptoms_percentages", "")
+        if "%" not in symptoms:
+            add_issue(issues, "error", "fact_format", row=generic, field="adverse_symptoms_percentages", message="Symptom field must include percentages or an explicit 0% limited-data statement", observed=symptoms)
+        if "No PubMed" not in row.get("pubmed_phase_ii_iii_rct_links", ""):
+            for link in parse_rct_links(row.get("pubmed_phase_ii_iii_rct_links", "")):
+                if not re.match(r"^[A-Za-z][A-Za-z0-9]+\d{4}[a-z]?$", link["label"]):
+                    add_issue(issues, "error", "rct_label_format", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT label should be FirstAuthorYear", observed=link["label"])
+
+
+def validate_html(rows, issues):
+    text = HTML_PATH.read_text()
+    if 'fetch("ASM-list.csv")' not in text:
+        add_issue(issues, "error", "html_display", field="fetch", message="HTML does not fetch ASM-list.csv")
+    if "refreshDate" not in text or "data_most_recently_refreshed" not in text:
+        add_issue(issues, "error", "html_display", field="data_most_recently_refreshed", message="HTML does not display the CSV refresh date")
+    if "seizure_freedom_rct_rates" in text:
+        add_issue(issues, "error", "html_display", field="seizure_freedom_rct_rates", message="HTML still references obsolete active-rate seizure-freedom column")
+    if "diff_seizure_freedom_maximum_effective_dose" not in text:
+        add_issue(issues, "error", "html_display", field="diff_seizure_freedom_maximum_effective_dose", message="HTML does not display differential seizure freedom")
+
+    displayed_keys = set(re.findall(r"\{\s*key:\s*\"([^\"]+)\"", text))
+    expected_display = set(REQUIRED_COLUMNS) - {
+        "alternate_generic_names",
+        "evidence_sources",
+        "rct_pubmed_verification_notes",
+        "data_most_recently_refreshed",
+    }
+    expected_display.add("status_or_notes")
+    missing_display = sorted(key for key in expected_display if key not in displayed_keys and key != "pubmed_phase_ii_iii_rct_links")
+    if "pubmed_phase_ii_iii_rct_links" not in displayed_keys:
+        missing_display.append("pubmed_phase_ii_iii_rct_links")
+    if missing_display:
+        add_issue(issues, "error", "html_display", message="CSV field(s) expected in table are missing from HTML columns", observed=", ".join(missing_display))
+    unknown_display = sorted(key for key in displayed_keys if key not in REQUIRED_COLUMNS and key != "status_or_notes")
+    if unknown_display:
+        add_issue(issues, "error", "html_display", message="HTML displays unknown CSV key(s)", observed=", ".join(unknown_display))
+
+
+def review_sources_online(issues, strict):
+    source_text_by_name = {}
+    for source, config in SOURCE_REGISTRY.items():
+        combined = []
+        for url in config["urls"]:
+            try:
+                fetched = fetch_url(url)
+            except (urllib.error.URLError, TimeoutError, OSError) as exc:
+                add_issue(issues, "error" if strict else "warning", "online_source_review", field=source, message="Could not fetch registered source URL", observed=str(exc), source=url)
+                continue
+            text = fetched["text"]
+            combined.append(text)
+            marker_hits = [marker for marker in config.get("markers", []) if marker.lower() in text.lower()]
+            if not marker_hits and not fetched["content_type"].lower().startswith("application/pdf"):
+                add_issue(issues, "warning", "online_source_review", field=source, message="Fetched source did not contain expected marker text", expected=", ".join(config.get("markers", [])), source=url)
+            add_issue(issues, "info", "online_source_review", field=source, message="Fetched registered source URL", observed=f"HTTP {fetched['status']} {fetched['content_type']}", source=url)
+        source_text_by_name[source] = "\n".join(combined)
+    return source_text_by_name
+
+
+def write_reports(issues):
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    csv_path = REPORT_DIR / "confirm-data-report.csv"
+    json_path = REPORT_DIR / "confirm-data-report.json"
+    summary_path = REPORT_DIR / "confirm-data-summary.txt"
+    fieldnames = ["severity", "check", "row", "field", "message", "expected", "observed", "source"]
+    with csv_path.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(issues)
+    json_path.write_text(json.dumps(issues, indent=2))
+    counts = Counter(issue["severity"] for issue in issues)
+    summary = textwrap.dedent(
+        f"""\
+        confirm-data summary
+        errors: {counts.get('error', 0)}
+        warnings: {counts.get('warning', 0)}
+        info: {counts.get('info', 0)}
+
+        Detailed reports:
+        - {csv_path.relative_to(ROOT)}
+        - {json_path.relative_to(ROOT)}
+        """
+    )
+    summary_path.write_text(summary)
+    return csv_path, json_path, summary_path, counts
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Validate ASM-list.csv source coverage, RCT provenance, and HTML display wiring.")
+    parser.add_argument("--online", action="store_true", help="Fetch registered non-RCT source URLs and review accessibility/markers.")
+    parser.add_argument("--strict-online", action="store_true", help="Treat online source fetch failures as errors instead of warnings.")
+    args = parser.parse_args()
+
+    issues = []
+    header, rows = read_csv_with_header(CSV_PATH)
+    validate_schema(header, rows, issues)
+
+    source_text_by_name = {}
+    if args.online:
+        source_text_by_name = review_sources_online(issues, strict=args.strict_online)
+
+    validate_sources(rows, issues, source_text_by_name)
+    validate_rcts(rows, issues)
+    validate_seizure_freedom(rows, issues)
+    validate_outcome_fields(rows, issues)
+    validate_non_rct_fact_format(rows, issues)
+    validate_html(rows, issues)
+
+    csv_path, json_path, summary_path, counts = write_reports(issues)
+    print(summary_path.read_text().strip())
+    if counts.get("error", 0):
+        print("\nFirst errors:")
+        for issue in [item for item in issues if item["severity"] == "error"][:20]:
+            location = " / ".join(part for part in [issue["row"], issue["field"]] if part)
+            print(f"- {issue['check']}: {location}: {issue['message']} {issue['observed']}".rstrip())
+        raise SystemExit(1)
+    print("\nNo blocking data-confirmation errors found.")
+
+
+if __name__ == "__main__":
+    main()

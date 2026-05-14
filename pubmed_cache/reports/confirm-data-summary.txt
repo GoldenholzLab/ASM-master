@@ -1,0 +1,8 @@
+confirm-data summary
+errors: 0
+warnings: 0
+info: 988
+
+Detailed reports:
+- pubmed_cache/reports/confirm-data-report.csv
+- pubmed_cache/reports/confirm-data-report.json
