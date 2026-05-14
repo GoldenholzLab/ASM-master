@@ -575,7 +575,7 @@
         }
 
         table {
-          min-width: 3720px;
+          min-width: 3920px;
         }
       }
     </style>
@@ -979,12 +979,12 @@
 
       function outcomeRange(row, column) {
         const source = row[column] || "";
-        if (/NR|No placebo|not comparable|Greater than placebo|Statistically/i.test(source)) {
+        if (/^(NR|No PubMed|No qualifying|No placebo|No numeric|not comparable|Greater than placebo|Statistically)/i.test(source)) {
           return null;
         }
-        const numbers = source
-          .split(";")
-          .flatMap((part) => (part.split("(")[0].match(/\d+(?:\.\d+)?/g) || []).map(Number))
+        const leadingText = source.split("(")[0];
+        const numbers = [...leadingText.matchAll(/(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?\s*%/g)]
+          .flatMap((match) => [match[1], match[2]].filter(Boolean).map(Number))
           .filter((value) => Number.isFinite(value));
         if (!numbers.length) {
           return null;
@@ -1022,10 +1022,15 @@
         return active.length ? active.join("; ") : "No filters active";
       }
 
-      function renderChart(title, rows, column, description) {
+      function renderChart(title, rows, column, description, options = {}) {
         const data = graphData(rows, column);
         const missingCount = rows.length - data.length;
         const filterSummary = activeFilterSummary();
+        const axisLabel = options.axisLabel || "Placebo-adjusted %";
+        const fixedRowDetail = options.fixedRowDetail || "";
+        const fallbackRowDetail = options.fallbackRowDetail || "maximum effective dose";
+        const emptyMessage = options.emptyMessage || "No numeric placebo-adjusted values are available for the current filters.";
+        const legendValueLabel = options.legendValueLabel || "0 to maximum value";
         if (!data.length) {
           return `
             <section class="chart">
@@ -1038,7 +1043,7 @@
               </div>
               <p class="chart-meta">${escapeHtml(description)} Axis is fixed at 0-100%.</p>
               <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
-              <p class="chart-empty">No numeric placebo-adjusted values are available for the current filters.</p>
+              <p class="chart-empty">${escapeHtml(emptyMessage)}</p>
             </section>
           `;
         }
@@ -1059,7 +1064,7 @@
           const zero = scale(0);
           const label = item.range.label;
           const doseMatch = item.range.source.match(/\(([^)]*?(?:mg|kg|dose|individualized)[^)]*)\)/i);
-          const doseLabel = doseMatch ? doseMatch[1] : "maximum effective dose";
+          const doseLabel = fixedRowDetail || (doseMatch ? doseMatch[1] : fallbackRowDetail);
           return `
             <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row.generic_name)}</text>
             <text x="0" y="${y + 28}" font-size="10.5" fill="#637083">${escapeHtml(doseLabel)}</text>
@@ -1092,11 +1097,11 @@
             <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
             <div class="chart-legend" aria-label="Chart legend">
               <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
-              <span class="legend-item"><span class="legend-swatch legend-zero"></span>0 to maximum value</span>
+              <span class="legend-item"><span class="legend-swatch legend-zero"></span>${escapeHtml(legendValueLabel)}</span>
               <span class="legend-item"><span class="legend-swatch"></span>reported range</span>
             </div>
             <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
-              <text x="0" y="14" font-size="11" fill="#637083">Placebo-adjusted %</text>
+              <text x="0" y="14" font-size="11" fill="#637083">${escapeHtml(axisLabel)}</text>
               ${axis}
               ${bars}
               <text x="${left}" y="${height - 32}" font-size="11" fill="#637083">0%</text>
@@ -1111,6 +1116,12 @@
           <div class="graph-panel">
             ${renderChart("Differential RR50 (Maximum Effective Dose Only)", rows, "diff_50_responder_maximum_effective_dose", "Placebo-adjusted 50% responder-rate difference at the maximum effective dose only.")}
             ${renderChart("Differential MPC (Maximum Effective Dose Only)", rows, "diff_median_pct_change_maximum_effective_dose", "Placebo-adjusted median percent seizure-frequency change at the maximum effective dose only.")}
+            ${renderChart("Seizure Freedom in Included RCTs", rows, "seizure_freedom_rct_rates", "Active-treatment seizure-free, spasm-free, or target-seizure-free patient rates reported in included phase II/III RCTs.", {
+              axisLabel: "Active-treatment seizure-free %",
+              fixedRowDetail: "reported RCT rate(s)",
+              emptyMessage: "No numeric seizure-freedom rates are available for the current filters.",
+              legendValueLabel: "0 to active rate"
+            })}
           </div>
         `;
       }
@@ -1137,6 +1148,7 @@
         { key: "status_or_notes", label: "Notes / Sources", className: "notes-cell", render: (row) => `${escapeHtml(row.status_or_notes)}<p class="evidence">${escapeHtml(row.evidence_sources)}</p>` },
         { key: "diff_50_responder_maximum_effective_dose", label: "Differential RR50: Maximum Effective Dose Only", className: "outcome-cell" },
         { key: "diff_median_pct_change_maximum_effective_dose", label: "Differential MPC: Maximum Effective Dose Only", className: "outcome-cell" },
+        { key: "seizure_freedom_rct_rates", label: "Seizure Freedom in RCTs", className: "outcome-cell" },
         { key: "pubmed_phase_ii_iii_rct_links", label: "PubMed Phase II/III RCTs", className: "trials-cell", render: (row, rowId) => renderPubMedLinks(row.pubmed_phase_ii_iii_rct_links, rowId) }
       ];
 
