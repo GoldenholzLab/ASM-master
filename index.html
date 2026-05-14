@@ -1116,11 +1116,11 @@
           <div class="graph-panel">
             ${renderChart("Differential RR50 (Maximum Effective Dose Only)", rows, "diff_50_responder_maximum_effective_dose", "Placebo-adjusted 50% responder-rate difference at the maximum effective dose only.")}
             ${renderChart("Differential MPC (Maximum Effective Dose Only)", rows, "diff_median_pct_change_maximum_effective_dose", "Placebo-adjusted median percent seizure-frequency change at the maximum effective dose only.")}
-            ${renderChart("Seizure Freedom in Included RCTs", rows, "seizure_freedom_rct_rates", "Active-treatment seizure-free, spasm-free, or target-seizure-free patient rates reported in included phase II/III RCTs.", {
-              axisLabel: "Active-treatment seizure-free %",
+            ${renderChart("Differential Seizure Freedom (Maximum Effective Dose Only)", rows, "diff_seizure_freedom_maximum_effective_dose", "Drug-minus-placebo seizure-freedom patient-rate difference at the maximum reported active RCT dose or regimen.", {
+              axisLabel: "Differential seizure freedom %",
               fixedRowDetail: "reported RCT rate(s)",
-              emptyMessage: "No numeric seizure-freedom rates are available for the current filters.",
-              legendValueLabel: "0 to active rate"
+              emptyMessage: "No numeric differential seizure-freedom rates are available for the current filters.",
+              legendValueLabel: "0 to differential value"
             })}
           </div>
         `;
@@ -1148,7 +1148,7 @@
         { key: "status_or_notes", label: "Notes / Sources", className: "notes-cell", render: (row) => `${escapeHtml(row.status_or_notes)}<p class="evidence">${escapeHtml(row.evidence_sources)}</p>` },
         { key: "diff_50_responder_maximum_effective_dose", label: "Differential RR50: Maximum Effective Dose Only", className: "outcome-cell" },
         { key: "diff_median_pct_change_maximum_effective_dose", label: "Differential MPC: Maximum Effective Dose Only", className: "outcome-cell" },
-        { key: "seizure_freedom_rct_rates", label: "Seizure Freedom in RCTs", className: "outcome-cell" },
+        { key: "diff_seizure_freedom_maximum_effective_dose", label: "Differential Seizure Freedom: Maximum Effective Dose Only", className: "outcome-cell" },
         { key: "pubmed_phase_ii_iii_rct_links", label: "PubMed Phase II/III RCTs", className: "trials-cell", render: (row, rowId) => renderPubMedLinks(row.pubmed_phase_ii_iii_rct_links, rowId) }
       ];
 
