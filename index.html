@@ -173,28 +173,28 @@
         box-shadow: 0 18px 42px rgba(24, 33, 47, 0.08);
       }
 
-      details.asm-picker {
+      details.picker {
         margin: 0 0 14px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--panel);
       }
 
-      details.asm-picker summary {
+      details.picker summary {
         cursor: pointer;
         padding: 11px 14px;
         color: var(--accent-dark);
         font-weight: 720;
       }
 
-      .asm-picker-actions {
+      .picker-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
         padding: 0 14px 10px;
       }
 
-      .asm-picker-actions button {
+      .picker-actions button {
         min-height: 34px;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -207,7 +207,7 @@
         font-weight: 720;
       }
 
-      .asm-checks {
+      .check-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
         gap: 8px 12px;
@@ -216,14 +216,14 @@
         padding: 0 14px 14px;
       }
 
-      .asm-check {
+      .check-item {
         display: flex;
         align-items: center;
         gap: 8px;
         font-size: 0.88rem;
       }
 
-      .asm-check input {
+      .check-item input {
         width: auto;
         height: auto;
       }
@@ -261,41 +261,6 @@
         font-weight: 780;
         letter-spacing: 0;
         text-transform: uppercase;
-      }
-
-      .th-wrap {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .column-toggle {
-        flex: 0 0 auto;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #cbd5e1;
-        border-radius: 5px;
-        color: var(--accent-dark);
-        background: #fff;
-        cursor: pointer;
-        font: inherit;
-        font-size: 0.82rem;
-        line-height: 1;
-      }
-
-      th.collapsed-column {
-        min-width: 34px;
-        width: 34px;
-        padding-inline: 6px;
-      }
-
-      .collapsed-column .th-wrap {
-        justify-content: center;
-      }
-
-      .collapsed-column .column-label {
-        display: none;
       }
 
       .hidden-column {
@@ -672,13 +637,22 @@
         </label>
       </div>
 
-      <details class="asm-picker">
+      <details class="picker">
         <summary>Manually include ASMs</summary>
-        <div class="asm-picker-actions">
+        <div class="picker-actions">
           <button id="selectAllAsms" type="button">Select all</button>
           <button id="selectNoAsms" type="button">Select none</button>
         </div>
-        <div class="asm-checks" id="asmChecks"></div>
+        <div class="check-grid" id="asmChecks"></div>
+      </details>
+
+      <details class="picker">
+        <summary>Columns</summary>
+        <div class="picker-actions">
+          <button id="selectAllColumns" type="button">Select all</button>
+          <button id="selectNoColumns" type="button">Select none</button>
+        </div>
+        <div class="check-grid" id="columnChecks"></div>
       </details>
 
       <section class="list-shell" aria-label="Scrollable anti-seizure medication list">
@@ -705,6 +679,9 @@
       const selectAllAsmsEl = document.querySelector("#selectAllAsms");
       const selectNoAsmsEl = document.querySelector("#selectNoAsms");
       const asmChecksEl = document.querySelector("#asmChecks");
+      const selectAllColumnsEl = document.querySelector("#selectAllColumns");
+      const selectNoColumnsEl = document.querySelector("#selectNoColumns");
+      const columnChecksEl = document.querySelector("#columnChecks");
       const summaryEl = document.querySelector("#summary");
       const refreshDateEl = document.querySelector("#refreshDate");
       let asmRows = [];
@@ -971,11 +948,26 @@
 
       function populateAsmChecks() {
         asmChecksEl.innerHTML = asmRows.map((row) => `
-          <label class="asm-check">
+          <label class="check-item">
             <input type="checkbox" value="${escapeHtml(row.generic_name)}">
             <span>${escapeHtml(row.generic_name)}</span>
           </label>
         `).join("");
+      }
+
+      function populateColumnChecks() {
+        columnChecksEl.innerHTML = columns.map((column) => `
+          <label class="check-item">
+            <input type="checkbox" value="${escapeHtml(column.key)}" checked>
+            <span>${escapeHtml(column.label)}</span>
+          </label>
+        `).join("");
+      }
+
+      function syncColumnChecks() {
+        columnChecksEl.querySelectorAll("input").forEach((input) => {
+          input.checked = !hiddenColumns.has(input.value);
+        });
       }
 
       function syncAsmChecks(rows) {
@@ -1136,7 +1128,7 @@
       }
 
       const columns = [
-        { key: "generic_name", label: "Generic Name", className: "name-cell", collapsible: false, render: (row) => {
+        { key: "generic_name", label: "Generic Name", className: "name-cell", render: (row) => {
           const alternate = row.alternate_generic_names ? `<p class="alt">Also: ${escapeHtml(row.alternate_generic_names)}</p>` : "";
           return `<p class="generic">${escapeHtml(row.generic_name)}</p>${alternate}`;
         }},
@@ -1165,7 +1157,7 @@
       ];
 
       function headerClass(column) {
-        return `${column.className} ${hiddenColumns.has(column.key) ? "collapsed-column" : ""}`;
+        return `${column.className} ${hiddenColumns.has(column.key) ? "hidden-column" : ""}`;
       }
 
       function cellClass(column) {
@@ -1173,14 +1165,9 @@
       }
 
       function renderHeader(column) {
-        const isHidden = hiddenColumns.has(column.key);
-        const toggle = column.collapsible === false ? "" : `<button class="column-toggle" type="button" data-column-toggle="${escapeHtml(column.key)}" title="${isHidden ? "Show" : "Hide"} ${escapeHtml(column.label)}">${isHidden ? "+" : "-"}</button>`;
         return `
           <th class="${headerClass(column)}" data-column="${escapeHtml(column.key)}">
-            <span class="th-wrap">
-              <span class="column-label">${escapeHtml(column.label)}</span>
-              ${toggle}
-            </span>
+            ${escapeHtml(column.label)}
           </th>
         `;
       }
@@ -1276,6 +1263,7 @@
           refreshDateEl.textContent = `Data was most recently refreshed on: ${refreshDate}`;
           populateFilters();
           populateAsmChecks();
+          populateColumnChecks();
           applyFilters();
         })
         .catch((error) => {
@@ -1299,22 +1287,6 @@
       notSymptomFilterEl.addEventListener("change", () => applyFilters());
       graphToggleEl.addEventListener("change", () => render(visibleRows));
       listEl.addEventListener("click", (event) => {
-        const columnButton = event.target.closest(".column-toggle");
-        if (columnButton) {
-          const key = columnButton.dataset.columnToggle;
-          const column = columns.find((item) => item.key === key);
-          if (!column || column.collapsible === false) {
-            return;
-          }
-          if (hiddenColumns.has(key)) {
-            hiddenColumns.delete(key);
-          } else {
-            hiddenColumns.add(key);
-          }
-          render(visibleRows.length ? visibleRows : asmRows);
-          return;
-        }
-
         const button = event.target.closest(".rct-toggle");
         if (!button) {
           return;
@@ -1360,6 +1332,24 @@
           input.checked = false;
         });
         applyFilters(false);
+      });
+      columnChecksEl.addEventListener("change", () => {
+        hiddenColumns.clear();
+        columnChecksEl.querySelectorAll("input:not(:checked)").forEach((input) => {
+          hiddenColumns.add(input.value);
+        });
+        render(visibleRows);
+      });
+      selectAllColumnsEl.addEventListener("click", () => {
+        hiddenColumns.clear();
+        syncColumnChecks();
+        render(visibleRows);
+      });
+      selectNoColumnsEl.addEventListener("click", () => {
+        hiddenColumns.clear();
+        columns.forEach((column) => hiddenColumns.add(column.key));
+        syncColumnChecks();
+        render(visibleRows);
       });
     </script>
   </body>
