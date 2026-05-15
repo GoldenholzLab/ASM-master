@@ -20,6 +20,7 @@ CSV_PATH = ROOT / "ASM-list.csv"
 HTML_PATH = ROOT / "index.html"
 RCT_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
 SEIZURE_FREEDOM_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "seizure_freedom_audit.csv"
+FDA_BOXED_WARNING_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "fda_boxed_warning_audit.csv"
 EFETCH_DIR = ROOT / "pubmed_cache" / "efetch"
 REPORT_DIR = ROOT / "pubmed_cache" / "reports"
 CACHE_DIR = ROOT / ".confirm-data-cache"
@@ -51,6 +52,9 @@ REQUIRED_COLUMNS = [
     "qt_interval_effect",
     "adverse_symptoms_percentages",
     "year_fda_cleared",
+    "fda_black_box_warning",
+    "fda_black_box_warning_source",
+    "fda_black_box_warning_verified",
     "rct_pubmed_verification_notes",
     "data_most_recently_refreshed",
 ]
@@ -75,6 +79,9 @@ NON_RCT_FACT_FIELDS = [
     "qt_interval_effect",
     "adverse_symptoms_percentages",
     "year_fda_cleared",
+    "fda_black_box_warning",
+    "fda_black_box_warning_source",
+    "fda_black_box_warning_verified",
 ]
 
 
@@ -601,6 +608,60 @@ def validate_mechanism_fields(rows, issues):
         )
 
 
+def validate_fda_boxed_warnings(rows, issues):
+    if not FDA_BOXED_WARNING_AUDIT_PATH.exists():
+        add_issue(issues, "error", "fda_boxed_warning_review", field="audit", message="FDA boxed-warning audit file is missing", source=str(FDA_BOXED_WARNING_AUDIT_PATH))
+        return
+    audit_rows = read_dicts(FDA_BOXED_WARNING_AUDIT_PATH)
+    audit_by_name = {row.get("generic_name", ""): row for row in audit_rows}
+    if len(audit_rows) != len(rows):
+        add_issue(issues, "error", "fda_boxed_warning_review", field="audit", message="FDA boxed-warning audit row count mismatch", expected=str(len(rows)), observed=str(len(audit_rows)))
+    for row in rows:
+        generic = row["generic_name"]
+        audit = audit_by_name.get(generic)
+        if not audit:
+            add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="Drug missing from FDA boxed-warning audit")
+            continue
+        for field in ["fda_black_box_warning", "fda_black_box_warning_source", "fda_black_box_warning_verified"]:
+            if row.get(field, "") != audit.get(field, ""):
+                add_issue(
+                    issues,
+                    "error",
+                    "fda_boxed_warning_review",
+                    row=generic,
+                    field=field,
+                    message="CSV FDA boxed-warning field does not match audit extraction",
+                    expected=audit.get(field, ""),
+                    observed=row.get(field, ""),
+                    source=audit.get("dailymed_url", ""),
+                )
+        status = audit.get("status", "")
+        warning = row.get("fda_black_box_warning", "")
+        source = row.get("fda_black_box_warning_source", "")
+        if status == "boxed_warning_found":
+            if not audit.get("dailymed_setid") or "dailymed.nlm.nih.gov" not in source:
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning_source", message="Boxed warning lacks DailyMed setid/source URL", observed=source)
+            if "WARNING" not in warning[:300].upper() and "WARNINGS" not in warning[:300].upper():
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="Boxed-warning text does not begin with FDA warning text", observed=warning[:300])
+        elif status == "no_boxed_warning_in_selected_label":
+            if warning != "No FDA boxed warning identified in selected current DailyMed label.":
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="No-boxed-warning row has unexpected text", observed=warning)
+        elif status == "no_current_fda_label":
+            if warning != "No current FDA/DailyMed label identified.":
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="No-current-label row has unexpected text", observed=warning)
+        else:
+            add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="status", message="Unexpected FDA boxed-warning audit status", observed=status)
+        add_issue(
+            issues,
+            "info",
+            "fda_boxed_warning_review",
+            row=generic,
+            field="fda_black_box_warning",
+            message="FDA boxed-warning field matches generated DailyMed audit extraction",
+            source=audit.get("dailymed_url", ""),
+        )
+
+
 def validate_html(rows, issues):
     text = HTML_PATH.read_text()
     if 'fetch("ASM-list.csv")' not in text:
@@ -698,6 +759,7 @@ def main():
     validate_outcome_fields(rows, issues)
     validate_non_rct_fact_format(rows, issues)
     validate_mechanism_fields(rows, issues)
+    validate_fda_boxed_warnings(rows, issues)
     validate_html(rows, issues)
 
     csv_path, json_path, summary_path, counts = write_reports(issues)

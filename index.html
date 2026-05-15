@@ -235,7 +235,7 @@
 
       table {
         width: 100%;
-        min-width: 4820px;
+        min-width: 5620px;
         border-collapse: collapse;
         background: var(--panel);
       }
@@ -303,6 +303,14 @@
       .mechanism-tier-cell,
       .mechanism-confidence-cell {
         width: 150px;
+      }
+
+      .black-box-cell {
+        width: 460px;
+      }
+
+      .black-box-source-cell {
+        width: 330px;
       }
 
       .enzyme-cell,
@@ -549,7 +557,7 @@
         }
 
         table {
-          min-width: 4520px;
+          min-width: 5320px;
         }
       }
     </style>
@@ -1136,6 +1144,9 @@
         { key: "available_in_us", label: "Available in US", className: "availability-cell" },
         { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell" },
         { key: "year_fda_cleared", label: "Year FDA Cleared", className: "fda-year-cell" },
+        { key: "fda_black_box_warning", label: "FDA Black Box Warning", className: "black-box-cell" },
+        { key: "fda_black_box_warning_source", label: "FDA Black Box Source", className: "black-box-source-cell" },
+        { key: "fda_black_box_warning_verified", label: "FDA Black Box Verified", className: "fda-year-cell" },
         { key: "mechanism_of_action", label: "Mechanism of Action", className: "mechanism-cell" },
         { key: "mechanism_source", label: "MOA Source", className: "mechanism-source-cell" },
         { key: "mechanism_source_tier", label: "MOA Source Tier", className: "mechanism-tier-cell" },
