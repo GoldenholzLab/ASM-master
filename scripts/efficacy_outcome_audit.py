@@ -76,6 +76,8 @@ def reviewed(note):
 # dose/regimen represented within a qualifying RCT is extractable from the
 # abstract as active/placebo arm values or an explicit placebo-adjusted value.
 EXTRACTIONS = {
+    ("carbamazepine", "Sobaniec2004"): reviewed("Sustained-release carbamazepine study used valproate as the randomized comparator in the abstract, so no placebo differential is extractable."),
+
     ("brivaracetam", "Yu2026"): item(
         dose="BRV 200 mg/day",
         endpoint="focal-onset seizures",
@@ -104,10 +106,37 @@ EXTRACTIONS = {
         mpc=(26.9, 18.9),
         note="Abstract reports focal-seizure responder and median reduction values for the flexible-dose trial; 150 mg/day was the trial maximum.",
     ),
-    ("brivaracetam", "Biton2013"): reviewed("Highest dose was 50 mg/day, below the current 200 mg/day maximum effective/approved regimen."),
-    ("brivaracetam", "Ryvlin2013"): reviewed("Highest dose was 100 mg/day, below the 200 mg/day maximum effective/approved regimen."),
-    ("brivaracetam", "VanPaesschen2012"): reviewed("Highest dose was 150 mg/day, below the 200 mg/day maximum effective/approved regimen."),
-    ("brivaracetam", "French2010"): reviewed("Highest dose was 50 mg/day, below the 200 mg/day maximum effective/approved regimen."),
+    ("brivaracetam", "Biton2013"): item(
+        dose="BRV 50 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(32.7, 16.7),
+        mpc=(30.5, 17.8),
+        note="Abstract reports the highest and statistically significant 50 mg/day arm: responder and median seizure-frequency reduction values.",
+    ),
+    ("brivaracetam", "Ryvlin2013"): item(
+        dose="BRV 100 mg/day",
+        endpoint="focal seizures",
+        rr50=(36.0, 20.0),
+        mpc=(32.5, 17.0),
+        sf=(4.0, 0.0),
+        note="Abstract reports 100 mg/day responder, median seizure-frequency reduction, and seizure-freedom values.",
+    ),
+    ("brivaracetam", "VanPaesschen2012"): item(
+        dose="BRV 150 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(33.3, 23.1),
+        mpc=(30.0, 18.9),
+        sf=(5.8, 1.9),
+        note="Abstract reports maintenance-period responder, median reduction, and seizure freedom for the 150 mg/day arm.",
+    ),
+    ("brivaracetam", "French2010"): item(
+        dose="BRV 50 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(55.8, 16.7),
+        mpc=(53.1, 21.7),
+        sf=(7.7, 1.9),
+        note="Abstract reports 50 mg/day responder, median seizure-frequency reduction, and seizure-freedom values.",
+    ),
     ("brivaracetam", "Kalviainen2015"): reviewed("EPM1 trials reported myoclonus-score outcomes rather than seizure-frequency RR50/MPC/seizure-freedom outcomes."),
     ("brivaracetam", "Bast2022"): reviewed("Adaptive absence-epilepsy trial design publication; no extractable efficacy-arm results."),
 
@@ -187,12 +216,29 @@ EXTRACTIONS = {
         note="Abstract reports highest-dose clobazam RR50 and average weekly drop-seizure-rate decrease versus placebo.",
     ),
 
+    ("clonazepam", "Navarro2015"): reviewed("Status-epilepticus trial randomized levetiracetam add-on versus placebo add-on while both arms received clonazepam; no clonazepam-placebo differential is extractable."),
+    ("clonazepam", "Dahlin2000"): reviewed("Low-dose clonazepam study measured epileptiform EEG activity, not seizure-frequency RR50/MPC/seizure-freedom outcomes."),
+
     ("diazepam", "Cereghino1998"): item(
         dose="single caregiver-administered rectal diazepam dose",
         endpoint="acute repetitive seizure post-treatment seizure freedom",
         sf=(55.0, 34.0),
         note="Abstract reports post-treatment seizure freedom for Diastat and placebo.",
     ),
+    ("diazepam", "vanTuijl2021"): item(
+        dose="diazepam for 3 days after acute stroke",
+        endpoint="post-stroke seizure prevention",
+        sf=(98.5, 96.7),
+        note="Abstract reports seizure occurrence of 1.5% with diazepam and 3.3% with placebo over 3 months; converted to seizure-free patient rates.",
+    ),
+    ("diazepam", "Autret1990"): item(
+        dose="intermittent oral diazepam during fever",
+        endpoint="febrile-seizure recurrence prevention",
+        sf=(84.0, 80.5),
+        note="Abstract reports febrile-seizure recurrence rates of 16% with diazepam and 19.5% with placebo; converted to recurrence-free patient rates. Trial conclusion found no advantage.",
+    ),
+    ("diazepam", "Uhari1995"): reviewed("Febrile-seizure prevention trial reported higher recurrence with diazepam than placebo; not included as a maximum effective regimen."),
+    ("diazepam", "Rosman1993"): reviewed("Febrile-seizure trial reports relative risk reductions and event counts while receiving medication, but not extractable randomized-arm seizure-free rates in the abstract."),
 
     ("eslicarbazepine acetate", "Sperling2014"): item(
         dose="ESL 1200 mg/day",
@@ -274,8 +320,13 @@ EXTRACTIONS = {
         mpc_diff=23.0,
         note="Abstract reports total seizure frequency decreased 19% with felbamate versus a 4% increase with placebo.",
     ),
+    ("felbamate", "Bourgeois1993"): reviewed("Presurgical-evaluation trial reports time-to-fourth-seizure and fourth-seizure event proportions, not RR50, MPC, or seizure-freedom patient rates."),
+    ("felbamate", "Leppik1991"): reviewed("Abstract reports mean seizure frequencies and significant percent seizure reduction, but not extractable active/placebo percentage reductions."),
+    ("felbamate", "Theodore1991"): reviewed("Crossover abstract reports no significant seizure-frequency difference and no extractable active/placebo percentages."),
     ("felbamate", "Devinsky1995"): reviewed("Presurgical monotherapy trial reports daily seizure frequency ranks and completer seizure reductions, but no extractable active/placebo RR50, MPC, or seizure-freedom differential."),
     ("felbamate", "Siegel1999"): reviewed("Small crossover add-on study reports fewer seizures on felbamate plus valproate, but not an extractable arm-specific RR50/MPC/seizure-freedom differential."),
+
+    ("fosphenytoin", "Gwer2013"): reviewed("Childhood coma prophylaxis trial did not reduce seizure occurrence versus placebo; not included as a maximum effective regimen."),
 
     ("gabapentin", "PMID1990"): item(
         dose="gabapentin 1200 mg/day",
@@ -284,6 +335,26 @@ EXTRACTIONS = {
         mpc=(29.2, 12.5),
         note="Abstract reports 1200 mg/day responder and median partial-seizure reduction values.",
     ),
+    ("gabapentin", "Appleton1999"): item(
+        dose="gabapentin 23-35 mg/kg/day",
+        endpoint="pediatric refractory partial seizures",
+        mpc=(17.0, 6.5),
+        note="Abstract reports median percentage reduction for all partial seizures. Responder rate favored gabapentin but arm percentages were not reported.",
+    ),
+    ("gabapentin", "Anhut1994"): item(
+        dose="gabapentin 1200 mg/day",
+        endpoint="partial seizures",
+        rr50=(28.0, 10.1),
+        note="Abstract reports 1200 mg/day responder rate and placebo responder rate; 1200 mg/day median reduction was described as greater than 900 mg/day but not numerically reported.",
+    ),
+    ("gabapentin", "PMID1993"): reviewed("Abstract reports a responder-rate range across gabapentin dose groups, but does not identify the maximum-dose arm-specific responder percentage."),
+    ("gabapentin", "Sivenius1991"): reviewed("Abstract reports seizure-frequency decrease for gabapentin 1200 mg/day but not an extractable placebo arm percentage for a drug-minus-placebo differential."),
+    ("gabapentin", "Yamauchi2006"): reviewed("Abstract reports response-ratio significance for 1200 and 1800 mg/day but not arm-specific RR50/MPC/seizure-freedom percentages."),
+    ("gabapentin", "Zhu2005"): reviewed("Abstract reports significant efficacy-rate differences but not extractable active/placebo percentages."),
+    ("gabapentin", "Leach1997"): reviewed("Cognition-focused dose-ranging study; seizure-frequency RR50/MPC/seizure-freedom outcomes are not extractable from the abstract."),
+    ("gabapentin", "Dimond1996"): reviewed("Mood/well-being analysis of gabapentin trials, not a primary seizure-frequency efficacy report."),
+    ("gabapentin", "BenMenachem1995"): reviewed("CSF/seizure-frequency study abstract does not report extractable active/placebo RR50, MPC, or seizure-freedom percentages."),
+    ("gabapentin", "Trudeau1996"): reviewed("Absence-epilepsy monotherapy trials did not significantly change seizure frequency versus placebo and do not provide extractable active/placebo percentages."),
 
     ("fenfluramine", "Sullivan2023"): item(
         dose="fenfluramine 0.7 mg/kg/day",
@@ -433,6 +504,21 @@ EXTRACTIONS = {
         mpc_diff=25.0,
         note="Abstract reports overall median seizure frequency decreased by 25% with lamotrigine compared with placebo.",
     ),
+    ("lamotrigine", "Boas1996"): item(
+        dose="lamotrigine 75-400 mg/day",
+        endpoint="partial seizures",
+        mpc_diff=30.3,
+        note="Abstract reports placebo-adjusted total-seizure count reduction during lamotrigine treatment.",
+    ),
+    ("lamotrigine", "Duchowny1999"): reviewed("Pediatric partial-seizure trial reports significant reduction versus placebo but no extractable arm-specific percentages in the abstract."),
+    ("lamotrigine", "Beran1998"): reviewed("Generalized-epilepsy crossover abstract reports >=50% decreases among evaluable lamotrigine-treated cases, but not matching placebo arm percentages."),
+    ("lamotrigine", "Eriksson1998"): reviewed("Enriched crossover design reports significant seizure-frequency reduction but no extractable active/placebo RR50, MPC, or seizure-freedom percentages."),
+    ("lamotrigine", "Loiseau1990"): reviewed("Crossover abstract reports numbers of lamotrigine-treated responders but not matching placebo arm percentages."),
+    ("lamotrigine", "Sander1990"): reviewed("Abstract reports no significant total-seizure reduction and does not provide extractable active/placebo percentages."),
+    ("lamotrigine", "Ettinger2006"): reviewed("Mood-symptom secondary analysis; primary PGTC seizure outcomes are captured in the source efficacy report."),
+    ("lamotrigine", "Matsuo1996"): reviewed("High-dose tolerability/pharmacokinetic study, not a seizure-frequency efficacy report."),
+    ("lamotrigine", "Jawad1986"): reviewed("Interictal spike-count study reports EEG spike suppression, not seizure-frequency RR50/MPC/seizure-freedom outcomes."),
+    ("lamotrigine", "Pressler2006"): reviewed("Cognition crossover study reports similar seizure frequency during lamotrigine and placebo phases, without extractable seizure-outcome percentages."),
 
     ("levetiracetam", "Wu2018"): item(
         dose="LEV 1000-3000 mg/day",
@@ -485,13 +571,52 @@ EXTRACTIONS = {
         mpc=(43.6, 7.1),
         note="Abstract reports pediatric responder and median seizure-frequency reduction values from video-EEG monitoring.",
     ),
-    ("levetiracetam", "Tsai2006"): reviewed("Highest dose was 2000 mg/day, below adult 3000 mg/day maximum; excluded from max-dose rollup."),
-    ("levetiracetam", "Shorvon2000"): reviewed("Highest dose was 2000 mg/day, below adult 3000 mg/day maximum; excluded from max-dose rollup."),
-    ("levetiracetam", "Boon2002"): reviewed("Highest dose was 2000 mg/day, below adult 3000 mg/day maximum; excluded from max-dose rollup."),
-    ("levetiracetam", "Peltola2009"): reviewed("LEV XR 1000 mg/day trial was below adult 3000 mg/day maximum; excluded from max-dose rollup."),
+    ("levetiracetam", "BenMenachem2000"): item(
+        dose="LEV 3000 mg/day",
+        endpoint="partial seizures",
+        rr50=(42.1, 16.7),
+        note="Abstract reports responder rates during the placebo-controlled add-on phase.",
+    ),
+    ("levetiracetam", "Betts2000"): item(
+        dose="LEV 2000 mg/day",
+        endpoint="partial and/or generalized seizures",
+        rr50=(48.1, 16.1),
+        note="Abstract reports responder rates for 2000 mg/day and placebo; 4000 mg/day was not used because it was not more effective and had more somnolence.",
+    ),
+    ("levetiracetam", "Tsai2006"): item(
+        dose="LEV up to 2000 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(43.5, 10.6),
+        mpc_diff=23.8,
+        note="Abstract reports responder rates and placebo-relative log-frequency reduction for the 2000 mg/day regimen.",
+    ),
+    ("levetiracetam", "Shorvon2000"): item(
+        dose="LEV 2000 mg/day",
+        endpoint="partial seizures",
+        rr50=(31.6, 10.4),
+        note="Abstract reports responder rates for the higher 2000 mg/day arm and placebo.",
+    ),
+    ("levetiracetam", "Boon2002"): item(
+        dose="LEV 2000 mg/day",
+        endpoint="partial seizures",
+        sf=(6.3, 1.2),
+        include_rr50=False,
+        note="Dose-response/withdrawal publication duplicates the Shorvon2000 responder results but adds seizure-freedom rates for the 2000 mg/day evaluation period.",
+    ),
+    ("levetiracetam", "Peltola2009"): item(
+        dose="LEV XR 1000 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(43.0, 29.1),
+        mpc=(46.1, 33.4),
+        sf=(10.1, 1.3),
+        note="Abstract reports once-daily XR responder, median reduction, and seizure-freedom values.",
+    ),
     ("levetiracetam", "Fattore2011"): reviewed("Neonatal seizure study endpoint was short acute electroclinical seizure freedom, not chronic max-dose seizure-frequency efficacy."),
     ("levetiracetam", "Navarro2015"): reviewed("Both arms received clonazepam; levetiracetam add-on acute status endpoint is not a chronic seizure-frequency max-dose endpoint."),
     ("levetiracetam", "PeterDerex2022"): reviewed("Post-stroke prophylaxis endpoint; not included in chronic seizure-frequency max-dose rollup."),
+    ("levetiracetam", "Larsson2012"): reviewed("ESES study measured nocturnal epileptiform spike index, not seizure-frequency RR50/MPC/seizure-freedom outcomes."),
+
+    ("lorazepam", "Walker1984"): reviewed("Small crossover trial reports fewer seizures during lorazepam treatment but not extractable active/placebo RR50, MPC, or seizure-freedom percentages."),
 
     ("midazolam", "Spencer2020"): item(
         dose="midazolam nasal spray 5 mg",
@@ -521,6 +646,9 @@ EXTRACTIONS = {
         mpc=(50.0, 8.0),
         note="Abstract reports 2400 mg/day responder and median reduction values.",
     ),
+    ("oxcarbazepine", "Schachter1999"): reviewed("Monotherapy trial reports time to exit criteria and total partial-seizure frequency significance, but not extractable RR50, MPC, or seizure-freedom percentages."),
+    ("oxcarbazepine", "Cramer1999"): reviewed("Ethics/commentary publication on the oxcarbazepine monotherapy trial; no extractable efficacy-arm outcomes."),
+    ("oxcarbazepine", "Schachter1999b"): reviewed("Ethics/commentary publication on the oxcarbazepine monotherapy trial; no extractable efficacy-arm outcomes."),
 
     ("perampanel", "French2015"): item(
         dose="perampanel up to 8 mg/day",
@@ -544,7 +672,61 @@ EXTRACTIONS = {
         mpc=(34.5, 21.0),
         note="Abstract reports 12 mg/day responder and median seizure-frequency reduction values.",
     ),
-    ("perampanel", "Krauss2012"): reviewed("Highest focal-seizure dose in this study was 8 mg/day; excluded from the 12 mg/day focal-seizure max-dose rollup."),
+    ("perampanel", "Krauss2012"): item(
+        dose="perampanel 8 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(34.9, 17.9),
+        mpc=(30.8, 10.7),
+        note="Abstract reports responder and median seizure-frequency reduction values for the highest dose tested in study 306.",
+    ),
+    ("perampanel", "Nishida2017"): item(
+        dose="perampanel 12 mg/day",
+        endpoint="partial-onset seizures",
+        mpc=(38.0, 10.8),
+        note="Abstract reports 12 mg/day median seizure-frequency reduction versus placebo; responder and seizure-freedom percentages were not reported in the abstract.",
+    ),
+    ("perampanel", "Lagae2016"): item(
+        dose="perampanel up to 12 mg/day",
+        endpoint="adolescent partial-onset seizures",
+        rr50=(59.0, 37.0),
+        mpc=(58.0, 24.0),
+        note="Abstract reports adolescent responder and median seizure-frequency reduction values.",
+    ),
+    ("perampanel", "Vossler2024"): item(
+        dose="perampanel up to 12 mg/day",
+        endpoint="LGS drop seizures",
+        mpc=(23.1, 4.5),
+        note="Abstract reports prespecified drop-seizure median reduction values; the prespecified comparison was underpowered and not statistically significant.",
+    ),
+    ("perampanel", "Belousova2014"): reviewed("Secondary summary of international phase III studies; source study values are captured from the primary perampanel RCT reports."),
+
+    ("phenobarbital", "Crawley2000"): reviewed("Cerebral-malaria prophylaxis trial reports prevention of three-or-more seizures but increased mortality; not a seizure-frequency RR50/MPC or seizure-freedom endpoint."),
+    ("phenobarbital", "Bacon1981"): reviewed("Febrile-convulsion prophylaxis trial reports subgroup recurrence reduction but no extractable active/placebo percentages in the abstract."),
+    ("phenobarbital", "Takami2019"): item(
+        dose="phenobarbital 10 mg/kg IV",
+        endpoint="benign convulsions with mild gastroenteritis recurrence prevention",
+        sf=(100.0, 16.7),
+        note="Abstract reports no post-dose seizures in 7 phenobarbital patients versus seizures in 5 of 6 placebo patients; converted to seizure-free patient rates.",
+    ),
+
+    ("phenytoin", "Temkin1990"): item(
+        dose="phenytoin high-therapeutic serum range after serious head trauma",
+        endpoint="early post-traumatic seizure prevention",
+        sf=(96.4, 85.8),
+        note="Abstract reports day-0-to-7 seizure rates of 3.6% with phenytoin and 14.2% with placebo; converted to seizure-free patient rates.",
+    ),
+    ("phenytoin", "North1980"): item(
+        dose="post-craniotomy phenytoin prophylaxis",
+        endpoint="postoperative epilepsy prevention",
+        sf=(92.1, 83.3),
+        note="Abstract reports postoperative epilepsy in 7.9% of phenytoin-treated patients and 16.7% of placebo-treated patients; converted to epilepsy-free patient rates.",
+    ),
+    ("phenytoin", "Young2004"): reviewed("Pediatric blunt-head-injury prophylaxis trial had slightly more early seizures with phenytoin than placebo; not included as a maximum effective regimen."),
+    ("phenytoin", "DeSantis2002"): reviewed("Post-craniotomy study used an open-label no-phenytoin control rather than a placebo arm, so no placebo differential is extractable."),
+    ("phenytoin", "Bacon1981"): reviewed("Febrile-convulsion prophylaxis trial found phenytoin ineffective and did not provide extractable active/placebo percentages."),
+    ("phenytoin", "Dikmen1991"): reviewed("Neurobehavioral prophylaxis analysis; seizure-prevention efficacy is captured from the source post-traumatic seizure trial."),
+
+    ("piracetam", "Koskiniemi1998"): reviewed("Progressive myoclonus epilepsy trial used a myoclonus rating scale, not seizure-frequency RR50/MPC/seizure-freedom outcomes."),
 
     ("pregabalin", "French2003"): item(
         dose="pregabalin 600 mg/day BID",
@@ -581,6 +763,22 @@ EXTRACTIONS = {
         mpc_diff=20.0,
         note="Abstract reports responder rates and a placebo-comparator median percentage reduction across treatment.",
     ),
+    ("pregabalin", "Elger2005"): item(
+        dose="pregabalin 600 mg/day BID fixed dose",
+        endpoint="partial seizures",
+        mpc=(49.3, 10.6),
+        note="Abstract reports fixed-dose 600 mg/day and placebo seizure-frequency reductions; flexible-dose regimen was lower.",
+    ),
+    ("pregabalin", "Mann2020"): item(
+        dose="pregabalin 14 mg/kg/day",
+        endpoint="focal-onset seizures in children aged 1 month to <4 years",
+        mpc_diff=35.0,
+        note="Abstract reports a 35% placebo-relative reduction in log-transformed video-EEG seizure rate for 14 mg/kg/day.",
+    ),
+    ("pregabalin", "French2014b"): reviewed("Controlled-release pregabalin trial did not demonstrate efficacy versus placebo; numeric values were not included in the maximum-effective-dose rollup."),
+    ("pregabalin", "French2014"): reviewed("Historical-controlled conversion-to-monotherapy trial; no concurrent placebo arm for drug-minus-placebo differential."),
+    ("pregabalin", "Lee2009"): reviewed("Flexible-dose trial reports response-ratio least-squares means but not RR50, MPC, or seizure-freedom percentages."),
+    ("pregabalin", "Driscoll2021"): reviewed("Generalized tonic-clonic seizure trial showed no significant pregabalin-placebo difference and did not report extractable responder percentages in the abstract."),
 
     ("progabide", "MartinezLage1984"): reviewed("Crossover abstract reports seizure reductions for individual progabide-treated patients but not extractable active/placebo RR50, MPC, or seizure-freedom arm values."),
     ("progabide", "Loiseau1983"): reviewed("Crossover abstract reports global improvement and 48-100% total-seizure reductions in some progabide periods, but not extractable active/placebo RR50, MPC, or seizure-freedom arm values."),
@@ -658,6 +856,11 @@ EXTRACTIONS = {
     ),
     ("stiripentol", "Nabbout2020"): reviewed("Fenfluramine was the randomized active treatment; stiripentol was background therapy."),
 
+    ("seletracetam", "KasteleijnNolstTrenite2025"): reviewed("Photosensitivity proof-of-principle study reports PPR suppression, not seizure-frequency RR50/MPC/seizure-freedom outcomes."),
+
+    ("sodium valproate", "Richens1975"): reviewed("Crossover abstract reports significant seizure-frequency reduction but not extractable active/placebo RR50, MPC, or seizure-freedom percentages."),
+    ("sodium valproate", "McGuire1988"): reviewed("Haem-biosynthesis crossover study in healthy subjects, not a seizure-frequency efficacy trial."),
+
     ("tiagabine", "Uthman1998"): item(
         dose="tiagabine 56 mg/day",
         endpoint="complex partial seizures",
@@ -670,12 +873,14 @@ EXTRACTIONS = {
         rr50=(31.0, 10.0),
         note="Abstract reports responder rates for the BID maximum-effective regimen; seizure-frequency change was reported as an absolute 4-week rate, not percent.",
     ),
-    ("tiagabine", "Crawford2001"): item(
-        dose="tiagabine response-dependent dose up to 64 mg/day",
+    ("tiagabine", "Kalviainen1998"): item(
+        dose="tiagabine 30 mg/day",
         endpoint="partial seizures",
-        rr50_diff=33.0,
-        note="Enrichment/withdrawal trial reports 33% of tiagabine-treated double-blind patients had >=50% all-partial-seizure reduction; placebo rate was not extractable from the abstract.",
+        rr50=(14.0, 6.0),
+        note="Abstract reports all-partial-seizure responder rates for tiagabine and placebo; median seizure-rate values were not numerically extractable.",
     ),
+    ("tiagabine", "Richens1995"): reviewed("Enrichment/withdrawal crossover trial reports tiagabine-treated responder percentages but not matching placebo percentages in the abstract."),
+    ("tiagabine", "Sveinbjornsdottir1994"): reviewed("Neuropsychological crossover study reports no significant seizure-frequency difference and no extractable active/placebo percentages."),
 
     ("topiramate", "Biton1999"): item(
         dose="topiramate approximately 6 mg/kg/day",
@@ -718,6 +923,49 @@ EXTRACTIONS = {
         rr50=(47.8, 7.5),
         note="Abstract reports responder rates for the 200 mg/day elderly trial.",
     ),
+    ("topiramate", "Yen2000"): item(
+        dose="topiramate 300 mg/day",
+        endpoint="adult refractory partial epilepsy",
+        rr50=(47.8, 13.0),
+        note="Abstract reports responder rates for topiramate 300 mg/day and placebo.",
+    ),
+    ("topiramate", "Sachdeo1999"): item(
+        dose="topiramate approximately 6 mg/kg/day",
+        endpoint="LGS drop attacks and major seizures",
+        rr50=(33.0, 8.0),
+        mpc=(14.8, -5.1),
+        note="Abstract reports major-seizure responder rates and drop-attack median reduction values.",
+    ),
+    ("topiramate", "Elterman1999"): item(
+        dose="topiramate 6 mg/kg/day",
+        endpoint="pediatric partial-onset seizures",
+        rr50=(39.0, 20.0),
+        mpc=(33.1, 10.5),
+        note="Abstract reports pediatric responder and median seizure-frequency reduction values.",
+    ),
+    ("topiramate", "Tassinari1996"): item(
+        dose="topiramate 600 mg/day",
+        endpoint="partial-onset seizures",
+        rr50=(47.0, 10.0),
+        mpc=(46.0, -12.0),
+        note="Abstract reports responder and median seizure-frequency reduction values for topiramate 600 mg/day.",
+    ),
+    ("topiramate", "Privitera1996"): item(
+        dose="topiramate 600 mg/day",
+        endpoint="refractory partial epilepsy",
+        rr50=(44.0, 9.0),
+        mpc=(41.0, 1.0),
+        note="Abstract reports 600 mg/day responder and median seizure-frequency reduction values; higher doses did not add group-level efficacy.",
+    ),
+    ("topiramate", "BenMenachem1996"): item(
+        dose="topiramate up to 800 mg/day",
+        endpoint="refractory partial epilepsy",
+        rr50=(43.0, 0.0),
+        mpc_diff=54.0,
+        note="Abstract reports placebo-adjusted median reduction and responder rates for the titrated 800 mg/day/max-tolerated regimen.",
+    ),
+    ("topiramate", "Novotny2010"): reviewed("Infant partial-onset seizure trial found no significant difference for 25 mg/kg/day versus placebo; not included as a maximum effective regimen."),
+    ("topiramate", "Faught1997"): reviewed("Companion summary of topiramate U.S. dose-ranging trials; source study values are captured from the primary trial reports."),
 
     ("vigabatrin", "Bruni2000"): item(
         dose="vigabatrin adult add-on regimen",
@@ -745,6 +993,26 @@ EXTRACTIONS = {
         rr50=(51.0, 7.0),
         note="Abstract reports therapeutic success rates for 3 g/day and placebo; 6 g/day was not used because it exceeds the current adult approved maximum and had more dropouts.",
     ),
+    ("vigabatrin", "Kalita2025"): item(
+        dose="vigabatrin add-on regimen",
+        endpoint="LGS drop attacks and total seizures",
+        rr50=(51.7, 8.9),
+        mpc=(50.0, 0.0),
+        note="Abstract reports drop-attack responder rates and total-seizure percentage change for vigabatrin and placebo.",
+    ),
+    ("vigabatrin", "PMID1992"): reviewed("Single-blind multicenter trial reports median seizure counts on placebo and vigabatrin, but not a percentage MPC or active/placebo RR50 arm percentage."),
+    ("vigabatrin", "Tassinari1987"): reviewed("Crossover abstract reports the percentage of patients with >=50% decrease during vigabatrin treatment, but not the matching placebo percentage."),
+    ("vigabatrin", "Tartara1986"): reviewed("Crossover abstract reports vigabatrin-period responders but not matching placebo responder percentages."),
+    ("vigabatrin", "Loiseau1986"): reviewed("Crossover abstract reports vigabatrin-period responder categories but not matching placebo responder percentages."),
+    ("vigabatrin", "Bebin2023"): reviewed("TSC prevention trial reports neurodevelopmental and drug-resistant epilepsy outcomes, not extractable RR50/MPC/seizure-freedom percentages."),
+    ("vigabatrin", "Gillham1993"): reviewed("Sedation/cognition crossover study; seizure-frequency outcomes were not significantly different and not extractable as active/placebo percentages."),
+    ("vigabatrin", "Beran1996"): reviewed("Crossover abstract reports significant seizure-frequency reduction for vigabatrin 2-3 g/day but not extractable active/placebo percentages."),
+    ("vigabatrin", "Cosi1988"): reviewed("Evoked-potential safety study, not a seizure-frequency efficacy report."),
+    ("vigabatrin", "Cosi1989"): reviewed("Evoked-potential safety follow-up, not a seizure-frequency efficacy report."),
+    ("vigabatrin", "Jackson1994"): reviewed("MRI relaxometry safety study, not a seizure-frequency efficacy report."),
+    ("vigabatrin", "Rimmer1984"): reviewed("Crossover abstract reports mean weekly seizure frequency on vigabatrin and placebo, but not percentage RR50/MPC/seizure-freedom outcomes."),
+
+    ("valproic acid", "Sharshar2023"): reviewed("Convulsive status-epilepticus trial found no between-group secondary outcome differences and does not report extractable seizure-control percentages."),
 
     ("zonisamide", "Guerrini2013"): item(
         dose="zonisamide target 8 mg/kg/day",
@@ -764,8 +1032,20 @@ EXTRACTIONS = {
         mpc=(40.5, 9.0),
         note="Abstract reports 400 mg/day median all-seizure reduction versus placebo.",
     ),
-    ("zonisamide", "Brodie2005"): reviewed("Highest trial dose was 500 mg/day, above the current 400 mg/day approved maximum; excluded from max-approved-dose rollup."),
-    ("zonisamide", "Sackellares2004"): reviewed("Titrated 400-600 mg/day mixed regimen; not included because max-dose arm-specific values were not separable."),
+    ("zonisamide", "Brodie2005"): item(
+        dose="zonisamide 500 mg/day",
+        endpoint="complex partial seizures",
+        rr50=(52.3, 21.3),
+        mpc=(51.2, 16.3),
+        note="Abstract reports responder and median complex-partial-seizure reduction values for the highest tested 500 mg/day arm.",
+    ),
+    ("zonisamide", "Sackellares2004"): item(
+        dose="zonisamide titrated 400-600 mg/day",
+        endpoint="refractory partial seizures",
+        rr50=(26.9, 16.2),
+        mpc_diff=33.6,
+        note="Abstract reports responder rates and median seizure-frequency change for the titrated 400-600 mg/day regimen versus placebo.",
+    ),
     ("zonisamide", "Schmidt1993"): reviewed("Dose was not extractable from the PubMed abstract for a current max-dose rollup."),
 }
 
