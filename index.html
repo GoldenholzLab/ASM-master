@@ -501,10 +501,6 @@
         background: #dbe3ee;
       }
 
-      .legend-zero {
-        background: #99d6cf;
-      }
-
       .chart-empty {
         color: var(--muted);
         padding: 20px 0;
@@ -1033,10 +1029,7 @@
         const missingCount = rows.length - data.length;
         const filterSummary = activeFilterSummary();
         const axisLabel = options.axisLabel || "Placebo-adjusted %";
-        const fixedRowDetail = options.fixedRowDetail || "";
-        const fallbackRowDetail = options.fallbackRowDetail || "maximum effective dose";
         const emptyMessage = options.emptyMessage || "No numeric placebo-adjusted values are available for the current filters.";
-        const legendValueLabel = options.legendValueLabel || "0 to maximum value";
         if (!data.length) {
           return `
             <section class="chart">
@@ -1067,15 +1060,10 @@
           const y = top + index * rowHeight;
           const x1 = scale(item.range.min);
           const x2 = scale(item.range.max);
-          const zero = scale(0);
           const label = item.range.label;
-          const doseMatch = item.range.source.match(/\(([^)]*?(?:mg|kg|dose|individualized)[^)]*)\)/i);
-          const doseLabel = fixedRowDetail || (doseMatch ? doseMatch[1] : fallbackRowDetail);
           return `
             <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row.generic_name)}</text>
-            <text x="0" y="${y + 28}" font-size="10.5" fill="#637083">${escapeHtml(doseLabel)}</text>
             <line x1="${left}" y1="${y + 15}" x2="${width - right}" y2="${y + 15}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
-            <line x1="${zero}" y1="${y + 15}" x2="${x2}" y2="${y + 15}" stroke="#99d6cf" stroke-width="8" stroke-linecap="round" />
             <line x1="${x1}" y1="${y + 15}" x2="${x2}" y2="${y + 15}" stroke="#0f766e" stroke-width="8" stroke-linecap="round" />
             <circle cx="${x1}" cy="${y + 15}" r="4" fill="#0f766e" />
             <circle cx="${x2}" cy="${y + 15}" r="4" fill="#0f766e" />
@@ -1103,7 +1091,6 @@
             <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
             <div class="chart-legend" aria-label="Chart legend">
               <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
-              <span class="legend-item"><span class="legend-swatch legend-zero"></span>${escapeHtml(legendValueLabel)}</span>
               <span class="legend-item"><span class="legend-swatch"></span>reported range</span>
             </div>
             <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
@@ -1124,19 +1111,14 @@
             ${renderChart("Differential MPC (Maximum Effective Dose Only)", rows, "diff_median_pct_change_maximum_effective_dose", "Placebo-adjusted median percent seizure-frequency change at the maximum effective dose only.")}
             ${renderChart("Differential Seizure Freedom (Maximum Effective Dose Only)", rows, "diff_seizure_freedom_maximum_effective_dose", "Drug-minus-placebo seizure-freedom patient-rate difference at the maximum reported active RCT dose or regimen.", {
               axisLabel: "Differential seizure freedom %",
-              fixedRowDetail: "reported RCT rate(s)",
-              emptyMessage: "No numeric differential seizure-freedom rates are available for the current filters.",
-              legendValueLabel: "0 to differential value"
+              emptyMessage: "No numeric differential seizure-freedom rates are available for the current filters."
             })}
           </div>
         `;
       }
 
       const columns = [
-        { key: "generic_name", label: "Generic Name", className: "name-cell", width: 190, required: true, render: (row) => {
-          const alternate = row.alternate_generic_names ? `<p class="alt">Also: ${escapeHtml(row.alternate_generic_names)}</p>` : "";
-          return `<p class="generic">${escapeHtml(row.generic_name)}</p>${alternate}`;
-        }},
+        { key: "generic_name", label: "Generic Name", className: "name-cell", width: 190, required: true, render: (row) => `<p class="generic">${escapeHtml(row.generic_name)}</p>` },
         { key: "trade_names", label: "Trade Names", className: "trade-cell", width: 220 },
         { key: "available_in_us", label: "Available in US", className: "availability-cell", width: 150 },
         { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell", width: 190 },
