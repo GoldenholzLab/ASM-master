@@ -235,7 +235,7 @@
 
       table {
         width: 100%;
-        min-width: 4220px;
+        min-width: 4820px;
         border-collapse: collapse;
         background: var(--panel);
       }
@@ -329,6 +329,15 @@
 
       .mechanism-cell {
         width: 300px;
+      }
+
+      .mechanism-source-cell {
+        width: 260px;
+      }
+
+      .mechanism-tier-cell,
+      .mechanism-confidence-cell {
+        width: 150px;
       }
 
       .enzyme-cell,
@@ -575,7 +584,7 @@
         }
 
         table {
-          min-width: 3920px;
+          min-width: 4520px;
         }
       }
     </style>
@@ -1136,6 +1145,9 @@
         { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell" },
         { key: "year_fda_cleared", label: "Year FDA Cleared", className: "fda-year-cell" },
         { key: "mechanism_of_action", label: "Mechanism of Action", className: "mechanism-cell" },
+        { key: "mechanism_source", label: "MOA Source", className: "mechanism-source-cell" },
+        { key: "mechanism_source_tier", label: "MOA Source Tier", className: "mechanism-tier-cell" },
+        { key: "mechanism_confidence", label: "MOA Confidence", className: "mechanism-confidence-cell" },
         { key: "enzyme_inducing_or_inhibiting", label: "Enzyme Inducing / Inhibiting", className: "enzyme-cell" },
         { key: "qt_interval_effect", label: "QT Interval Effect", className: "qt-cell" },
         { key: "adverse_symptoms_percentages", label: "Symptoms With Percentages", className: "symptom-cell" },

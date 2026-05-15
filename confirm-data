@@ -34,6 +34,9 @@ REQUIRED_COLUMNS = [
     "available_in_us",
     "epilepsy_type",
     "mechanism_of_action",
+    "mechanism_source",
+    "mechanism_source_tier",
+    "mechanism_confidence",
     "half_life_range",
     "major_organ_for_metabolism",
     "pubmed_phase_ii_iii_rct_links",
@@ -59,6 +62,9 @@ NON_RCT_FACT_FIELDS = [
     "available_in_us",
     "epilepsy_type",
     "mechanism_of_action",
+    "mechanism_source",
+    "mechanism_source_tier",
+    "mechanism_confidence",
     "half_life_range",
     "major_organ_for_metabolism",
     "formulations_available",
@@ -132,6 +138,59 @@ SOURCE_REGISTRY = {
     "NCBI LiverTox anticonvulsants table": {
         "urls": ["https://www.ncbi.nlm.nih.gov/books/NBK548365/table/Anticonvulsants.Tc/"],
         "markers": ["anticonvulsants", "livertox"],
+    },
+    "NCBI Bookshelf AED mechanism table": {
+        "urls": ["https://www.ncbi.nlm.nih.gov/books/NBK2513/table/A921/"],
+        "markers": ["Commonly Used AEDs", "Proposed Mechanisms of Action"],
+    },
+    "NCBI PubChem pharmacology records": {
+        "urls": [
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Barbexaclone",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Beclamide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Clorazepate",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Ethotoin",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Etiracetam",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Mephenytoin",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Mephobarbital",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Methazolamide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Methsuximide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Mirogabalin",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Nitrazepam",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Paraldehyde",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Paramethadione",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Phenacemide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Pheneturide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Phensuximide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-bromide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Primidone",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Progabide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Pyridoxine",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Seletracetam",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Temazepam",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Trimethadione",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Valnoctamide",
+            "https://pubchem.ncbi.nlm.nih.gov/compound/Valpromide",
+        ],
+        "markers": ["PubChem", "Pharmacology"],
+    },
+    "Sills and Rogawski 2020 ASM mechanism review": {
+        "urls": ["https://eprints.gla.ac.uk/207782/"],
+        "markers": ["Mechanisms of action", "antiseizure drugs"],
+    },
+    "UK eMC SmPC labeling": {
+        "urls": [
+            "https://www.medicines.org.uk/emc/product/100433/smpc",
+            "https://www.medicines.org.uk/emc/product/101131/smpc",
+        ],
+        "markers": ["Summary of Product Characteristics", "Pharmacodynamic properties"],
+    },
+    "Sulthiame sodium-current mechanism study": {
+        "urls": ["https://pubmed.ncbi.nlm.nih.gov/11325350/"],
+        "markers": ["sulthiame", "sodium currents"],
+    },
+    "PMC valnoctamide GABA-A mechanism study": {
+        "urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC4167227/"],
+        "markers": ["Valnoctamide", "GABA"],
     },
     "Wikipedia anticonvulsant drug-class list": {
         "urls": ["https://en.wikipedia.org/wiki/Anticonvulsant"],
@@ -504,6 +563,44 @@ def validate_non_rct_fact_format(rows, issues):
                     add_issue(issues, "error", "rct_label_format", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT label should be FirstAuthorYear", observed=link["label"])
 
 
+def validate_mechanism_fields(rows, issues):
+    allowed_tiers = {"FDA label", "FDA/AES summary", "AES/FDA summary", "EMA/UK SmPC", "Peer-reviewed review", "NCBI/PubChem", "Historical/limited"}
+    allowed_confidence = {"High", "Moderate", "Limited"}
+    for row in rows:
+        generic = row["generic_name"]
+        mechanism = normalize_space(row.get("mechanism_of_action", ""))
+        source = normalize_space(row.get("mechanism_source", ""))
+        tier = normalize_space(row.get("mechanism_source_tier", ""))
+        confidence = normalize_space(row.get("mechanism_confidence", ""))
+        evidence_sources = set(split_sources(row.get("evidence_sources", "")))
+
+        if not mechanism:
+            add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_of_action", message="Mechanism is blank")
+        if not source:
+            add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source", message="Mechanism source is blank")
+        for item in split_sources(source):
+            if item not in SOURCE_REGISTRY:
+                add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source", message="Mechanism source is not registered", observed=item)
+            if item not in evidence_sources:
+                add_issue(issues, "error", "mechanism_review", row=generic, field="evidence_sources", message="Mechanism source is not listed in evidence_sources", observed=item)
+        if tier not in allowed_tiers:
+            add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source_tier", message="Unexpected mechanism source tier", observed=tier)
+        if confidence not in allowed_confidence:
+            add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_confidence", message="Unexpected mechanism confidence", observed=confidence)
+        forbidden_domain = "drugs" + ".com"
+        if forbidden_domain in " ".join(row.values()).lower():
+            add_issue(issues, "error", "source_policy", row=generic, message="Forbidden low-trust source domain is not allowed")
+        add_issue(
+            issues,
+            "info",
+            "mechanism_review",
+            row=generic,
+            field="mechanism_of_action",
+            message="MOA row has mechanism-specific source tier and confidence annotation",
+            source=source,
+        )
+
+
 def validate_html(rows, issues):
     text = HTML_PATH.read_text()
     if 'fetch("ASM-list.csv")' not in text:
@@ -600,6 +697,7 @@ def main():
     validate_seizure_freedom(rows, issues)
     validate_outcome_fields(rows, issues)
     validate_non_rct_fact_format(rows, issues)
+    validate_mechanism_fields(rows, issues)
     validate_html(rows, issues)
 
     csv_path, json_path, summary_path, counts = write_reports(issues)
