@@ -234,8 +234,7 @@
       }
 
       table {
-        width: 100%;
-        min-width: 5620px;
+        table-layout: fixed;
         border-collapse: collapse;
         background: var(--panel);
       }
@@ -274,6 +273,7 @@
       td {
         font-size: 0.9rem;
         line-height: 1.42;
+        overflow-wrap: anywhere;
       }
 
       .name-cell {
@@ -556,9 +556,6 @@
           min-height: 360px;
         }
 
-        table {
-          min-width: 5320px;
-        }
       }
     </style>
   </head>
@@ -964,7 +961,7 @@
       }
 
       function populateColumnChecks() {
-        columnChecksEl.innerHTML = columns.map((column) => `
+        columnChecksEl.innerHTML = columns.filter((column) => !column.required).map((column) => `
           <label class="check-item">
             <input type="checkbox" value="${escapeHtml(column.key)}" checked>
             <span>${escapeHtml(column.label)}</span>
@@ -1136,43 +1133,51 @@
       }
 
       const columns = [
-        { key: "generic_name", label: "Generic Name", className: "name-cell", render: (row) => {
+        { key: "generic_name", label: "Generic Name", className: "name-cell", width: 190, required: true, render: (row) => {
           const alternate = row.alternate_generic_names ? `<p class="alt">Also: ${escapeHtml(row.alternate_generic_names)}</p>` : "";
           return `<p class="generic">${escapeHtml(row.generic_name)}</p>${alternate}`;
         }},
-        { key: "trade_names", label: "Trade Names", className: "trade-cell" },
-        { key: "available_in_us", label: "Available in US", className: "availability-cell" },
-        { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell" },
-        { key: "year_fda_cleared", label: "Year FDA Cleared", className: "fda-year-cell" },
-        { key: "fda_black_box_warning", label: "FDA Black Box Warning", className: "black-box-cell" },
-        { key: "fda_black_box_warning_source", label: "FDA Black Box Source", className: "black-box-source-cell" },
-        { key: "fda_black_box_warning_verified", label: "FDA Black Box Verified", className: "fda-year-cell" },
-        { key: "mechanism_of_action", label: "Mechanism of Action", className: "mechanism-cell" },
-        { key: "mechanism_source", label: "MOA Source", className: "mechanism-source-cell" },
-        { key: "mechanism_source_tier", label: "MOA Source Tier", className: "mechanism-tier-cell" },
-        { key: "mechanism_confidence", label: "MOA Confidence", className: "mechanism-confidence-cell" },
-        { key: "enzyme_inducing_or_inhibiting", label: "Enzyme Inducing / Inhibiting", className: "enzyme-cell" },
-        { key: "qt_interval_effect", label: "QT Interval Effect", className: "qt-cell" },
-        { key: "adverse_symptoms_percentages", label: "Symptoms With Percentages", className: "symptom-cell" },
-        { key: "formulations_available", label: "Formulations Available", className: "formulation-cell" },
-        { key: "typical_doses_per_day", label: "Typical Doses Per Day", className: "dose-cell" },
-        { key: "minimum_effective_dose", label: "Minimum Effective Dose", className: "approved-dose-cell" },
-        { key: "maximum_approved_daily_dose", label: "Maximum Approved Daily Dose", className: "approved-dose-cell" },
-        { key: "half_life_range", label: "Half-Life Range", className: "half-life-cell" },
-        { key: "major_organ_for_metabolism", label: "Major Organ for Metabolism", className: "metabolism-cell" },
-        { key: "status_or_notes", label: "Notes / Sources", className: "notes-cell", render: (row) => `${escapeHtml(row.status_or_notes)}<p class="evidence">${escapeHtml(row.evidence_sources)}</p>` },
-        { key: "diff_50_responder_maximum_effective_dose", label: "Differential RR50: Maximum Effective Dose Only", className: "outcome-cell" },
-        { key: "diff_median_pct_change_maximum_effective_dose", label: "Differential MPC: Maximum Effective Dose Only", className: "outcome-cell" },
-        { key: "diff_seizure_freedom_maximum_effective_dose", label: "Differential Seizure Freedom: Maximum Effective Dose Only", className: "outcome-cell" },
-        { key: "pubmed_phase_ii_iii_rct_links", label: "PubMed Phase II/III RCTs", className: "trials-cell", render: (row, rowId) => renderPubMedLinks(row.pubmed_phase_ii_iii_rct_links, rowId) }
+        { key: "trade_names", label: "Trade Names", className: "trade-cell", width: 220 },
+        { key: "available_in_us", label: "Available in US", className: "availability-cell", width: 150 },
+        { key: "epilepsy_type", label: "Epilepsy Type", className: "epilepsy-type-cell", width: 190 },
+        { key: "year_fda_cleared", label: "Year FDA Cleared", className: "fda-year-cell", width: 160 },
+        { key: "fda_black_box_warning", label: "FDA Black Box Warning", className: "black-box-cell", width: 460 },
+        { key: "fda_black_box_warning_source", label: "FDA Black Box Source", className: "black-box-source-cell", width: 330 },
+        { key: "fda_black_box_warning_verified", label: "FDA Black Box Verified", className: "fda-year-cell", width: 160 },
+        { key: "mechanism_of_action", label: "Mechanism of Action", className: "mechanism-cell", width: 300 },
+        { key: "mechanism_source", label: "MOA Source", className: "mechanism-source-cell", width: 260 },
+        { key: "mechanism_source_tier", label: "MOA Source Tier", className: "mechanism-tier-cell", width: 150 },
+        { key: "mechanism_confidence", label: "MOA Confidence", className: "mechanism-confidence-cell", width: 150 },
+        { key: "enzyme_inducing_or_inhibiting", label: "Enzyme Inducing / Inhibiting", className: "enzyme-cell", width: 250 },
+        { key: "qt_interval_effect", label: "QT Interval Effect", className: "qt-cell", width: 250 },
+        { key: "adverse_symptoms_percentages", label: "Symptoms With Percentages", className: "symptom-cell", width: 310 },
+        { key: "formulations_available", label: "Formulations Available", className: "formulation-cell", width: 230 },
+        { key: "typical_doses_per_day", label: "Typical Doses Per Day", className: "dose-cell", width: 230 },
+        { key: "minimum_effective_dose", label: "Minimum Effective Dose", className: "approved-dose-cell", width: 220 },
+        { key: "maximum_approved_daily_dose", label: "Maximum Approved Daily Dose", className: "approved-dose-cell", width: 220 },
+        { key: "half_life_range", label: "Half-Life Range", className: "half-life-cell", width: 190 },
+        { key: "major_organ_for_metabolism", label: "Major Organ for Metabolism", className: "metabolism-cell", width: 190 },
+        { key: "status_or_notes", label: "Notes / Sources", className: "notes-cell", width: 340, render: (row) => `${escapeHtml(row.status_or_notes)}<p class="evidence">${escapeHtml(row.evidence_sources)}</p>` },
+        { key: "diff_50_responder_maximum_effective_dose", label: "Differential RR50: Maximum Effective Dose Only", className: "outcome-cell", width: 210 },
+        { key: "diff_median_pct_change_maximum_effective_dose", label: "Differential MPC: Maximum Effective Dose Only", className: "outcome-cell", width: 210 },
+        { key: "diff_seizure_freedom_maximum_effective_dose", label: "Differential Seizure Freedom: Maximum Effective Dose Only", className: "outcome-cell", width: 210 },
+        { key: "pubmed_phase_ii_iii_rct_links", label: "PubMed Phase II/III RCTs", className: "trials-cell", width: 260, render: (row, rowId) => renderPubMedLinks(row.pubmed_phase_ii_iii_rct_links, rowId) }
       ];
 
+      function visibleColumns() {
+        return columns.filter((column) => column.required || !hiddenColumns.has(column.key));
+      }
+
+      function tableWidth(activeColumns) {
+        return activeColumns.reduce((sum, column) => sum + (column.width || 180), 0);
+      }
+
       function headerClass(column) {
-        return `${column.className} ${hiddenColumns.has(column.key) ? "hidden-column" : ""}`;
+        return column.className;
       }
 
       function cellClass(column) {
-        return `${column.className} ${hiddenColumns.has(column.key) ? "hidden-column" : ""}`;
+        return column.className;
       }
 
       function renderHeader(column) {
@@ -1202,21 +1207,25 @@
           return;
         }
 
+        const activeColumns = visibleColumns();
         const body = rows.map((row, index) => {
           const rowId = `${index}-${row.generic_name.replace(/[^a-z0-9]+/gi, "-")}`;
 
           return `
             <tr>
-              ${columns.map((column) => renderCell(column, row, rowId)).join("")}
+              ${activeColumns.map((column) => renderCell(column, row, rowId)).join("")}
             </tr>
           `;
         }).join("");
 
         listEl.innerHTML = `
-          <table>
+          <table class="asm-table" style="width: ${tableWidth(activeColumns)}px;">
+            <colgroup>
+              ${activeColumns.map((column) => `<col style="width: ${column.width || 180}px;">`).join("")}
+            </colgroup>
             <thead>
               <tr>
-                ${columns.map(renderHeader).join("")}
+                ${activeColumns.map(renderHeader).join("")}
               </tr>
             </thead>
             <tbody>${body}</tbody>
@@ -1358,7 +1367,7 @@
       });
       selectNoColumnsEl.addEventListener("click", () => {
         hiddenColumns.clear();
-        columns.forEach((column) => hiddenColumns.add(column.key));
+        columns.filter((column) => !column.required).forEach((column) => hiddenColumns.add(column.key));
         syncColumnChecks();
         render(visibleRows);
       });
