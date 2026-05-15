@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent
 CSV_PATH = ROOT / "ASM-list.csv"
 HTML_PATH = ROOT / "index.html"
 RCT_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
+EFFICACY_OUTCOME_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "efficacy_outcome_audit.csv"
 SEIZURE_FREEDOM_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "seizure_freedom_audit.csv"
 FDA_BOXED_WARNING_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "fda_boxed_warning_audit.csv"
 EFETCH_DIR = ROOT / "pubmed_cache" / "efetch"
@@ -534,6 +535,56 @@ def validate_seizure_freedom(rows, issues):
             )
 
 
+def validate_efficacy_outcome_audit(rows, issues):
+    if not EFFICACY_OUTCOME_AUDIT_PATH.exists():
+        add_issue(issues, "error", "efficacy_outcome_audit", message="Efficacy outcome audit file is missing", source=str(EFFICACY_OUTCOME_AUDIT_PATH))
+        return
+    audit_rows = read_dicts(EFFICACY_OUTCOME_AUDIT_PATH)
+    if len(audit_rows) != 180:
+        add_issue(issues, "error", "efficacy_outcome_audit", message="Expected one efficacy audit row per included RCT", expected="180", observed=str(len(audit_rows)))
+
+    configs = [
+        ("rr50", "rr50_differential_percent", "rr50_included_in_csv_summary", "diff_50_responder_maximum_effective_dose"),
+        ("mpc", "mpc_differential_percent", "mpc_included_in_csv_summary", "diff_median_pct_change_maximum_effective_dose"),
+    ]
+    included = {name: defaultdict(list) for name, *_ in configs}
+    for audit in audit_rows:
+        for name, diff_field, include_field, _csv_field in configs:
+            if audit.get(include_field) == "yes" and audit.get(diff_field) != "":
+                included[name][audit["generic_name"]].append(float(audit[diff_field]))
+
+    for row in rows:
+        generic = row["generic_name"]
+        for name, _diff_field, _include_field, csv_field in configs:
+            value = row.get(csv_field, "")
+            values = included[name][generic]
+            if values:
+                low = min(values)
+                high = max(values)
+                expected = f"{format_number(low)} %" if low == high else f"{format_number(low)}-{format_number(high)} %"
+                if not value.startswith(expected):
+                    add_issue(
+                        issues,
+                        "error",
+                        "efficacy_outcome_rollup",
+                        row=generic,
+                        field=csv_field,
+                        message="CSV efficacy differential does not match RCT-level audit roll-up",
+                        expected=expected,
+                        observed=value,
+                    )
+            elif extract_percent_range(value):
+                add_issue(
+                    issues,
+                    "error",
+                    "efficacy_outcome_rollup",
+                    row=generic,
+                    field=csv_field,
+                    message="CSV contains numeric efficacy value but no included efficacy audit row supports it",
+                    observed=value,
+                )
+
+
 def validate_outcome_fields(rows, issues):
     for row in rows:
         generic = row["generic_name"]
@@ -755,6 +806,7 @@ def main():
 
     validate_sources(rows, issues, source_text_by_name)
     validate_rcts(rows, issues)
+    validate_efficacy_outcome_audit(rows, issues)
     validate_seizure_freedom(rows, issues)
     validate_outcome_fields(rows, issues)
     validate_non_rct_fact_format(rows, issues)
