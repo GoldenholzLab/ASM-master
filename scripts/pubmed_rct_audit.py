@@ -194,6 +194,7 @@ EXCLUDE_TITLE_TERMS = [
 
 SEIZURE_TERMS = [
     "epilepsy",
+    "epilepsies",
     "epileptic",
     "seizure",
     "seizures",
@@ -203,6 +204,32 @@ SEIZURE_TERMS = [
     "dravet",
     "status epilepticus",
 ]
+
+
+# Primary placebo-controlled randomized epilepsy trial reports that PubMed finds
+# but the conservative title heuristic can miss because the title lacks explicit
+# randomized/placebo wording, uses syndrome names, or reports a pediatric/
+# regional primary analysis without the usual trial-design phrase.
+FORCE_INCLUDE_PMIDS = {
+    "brivaracetam": {"24116853", "26666500"},
+    "cannabidiol": {"32119035"},
+    "cenobamate": {"31292226"},
+    "divalproex sodium": {"8559420"},
+    "eslicarbazepine acetate": {"19832771", "20299189"},
+    "ezogabine": {"20944074", "27376872"},
+    "felbamate": {"8347179", "7796796", "10210023"},
+    "gabapentin": {"1971862"},
+    "ganaxolone": {"35429480"},
+    "lacosamide": {"17635557", "31462582", "38375995"},
+    "lamotrigine": {"9400037", "10403222", "16847080", "17938371"},
+    "levetiracetam": {"19176965", "19243423"},
+    "pregabalin": {"15699378", "20696552"},
+    "rufinamide": {"18401024"},
+    "sultiame": {"14738417"},
+    "tiagabine": {"9152116"},
+    "topiramate": {"10612342", "12225311", "21672344"},
+    "vigabatrin": {"9924905"},
+}
 
 
 def slug(value):
@@ -445,6 +472,8 @@ def is_qualifying(article, row):
     title = article["title"].lower()
     text = f"{article['title']} {article['abstract']}".lower()
     pub_types = " ".join(article["pub_types"]).lower()
+    if article["pmid"] in FORCE_INCLUDE_PMIDS.get(row["generic_name"], set()):
+        return True, "qualifying PubMed placebo-controlled randomized clinical trial report"
 
     if not title_contains_drug(article, row):
         return False, "drug term not in title"
@@ -582,9 +611,9 @@ def apply_updates():
             highest_dose_value(row.get("diff_median_pct_change_maximum_effective_dose", ""), len(qualifying)),
         )
         row["rct_pubmed_verification_notes"] = (
-            f"PubMed loop {index}/65 on 2026-05-14: {len(qualifying)} qualifying placebo-controlled randomized clinical trial report(s) retained from "
+            f"PubMed loop {index}/65 on 2026-05-15: {len(qualifying)} qualifying placebo-controlled randomized clinical trial report(s) retained from "
             f"{len(candidate_ids)} PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. "
-            "Differential effectiveness columns summarize only maximum effective dose-arm values; lower-dose arms and studies not testing that maximum effective dose are not included."
+            "Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports."
         )
         updated_rows.append(row)
 

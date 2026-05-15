@@ -499,12 +499,13 @@ def format_number(value):
 
 def validate_seizure_freedom(rows, issues):
     audit_rows = read_dicts(SEIZURE_FREEDOM_AUDIT_PATH)
+    expected_rows = sum(1 for row in read_dicts(RCT_AUDIT_PATH) if row["status"] == "included")
     included = defaultdict(list)
     for row in audit_rows:
         if row["included_in_csv_summary"] == "yes":
             included[row["generic_name"]].append(float(row["differential_percent"]))
-    if len(audit_rows) != 180:
-        add_issue(issues, "error", "seizure_freedom_audit", message="Expected one seizure-freedom audit row per included RCT", expected="180", observed=str(len(audit_rows)))
+    if len(audit_rows) != expected_rows:
+        add_issue(issues, "error", "seizure_freedom_audit", message="Expected one seizure-freedom audit row per included RCT", expected=str(expected_rows), observed=str(len(audit_rows)))
     for row in rows:
         generic = row["generic_name"]
         value = row.get("diff_seizure_freedom_maximum_effective_dose", "")
@@ -540,8 +541,9 @@ def validate_efficacy_outcome_audit(rows, issues):
         add_issue(issues, "error", "efficacy_outcome_audit", message="Efficacy outcome audit file is missing", source=str(EFFICACY_OUTCOME_AUDIT_PATH))
         return
     audit_rows = read_dicts(EFFICACY_OUTCOME_AUDIT_PATH)
-    if len(audit_rows) != 180:
-        add_issue(issues, "error", "efficacy_outcome_audit", message="Expected one efficacy audit row per included RCT", expected="180", observed=str(len(audit_rows)))
+    expected_rows = sum(1 for row in read_dicts(RCT_AUDIT_PATH) if row["status"] == "included")
+    if len(audit_rows) != expected_rows:
+        add_issue(issues, "error", "efficacy_outcome_audit", message="Expected one efficacy audit row per included RCT", expected=str(expected_rows), observed=str(len(audit_rows)))
 
     configs = [
         ("rr50", "rr50_differential_percent", "rr50_included_in_csv_summary", "diff_50_responder_maximum_effective_dose"),

@@ -1,48 +1,4 @@
 severity,check,row,field,message,expected,observed,source
-info,online_source_review,,American Epilepsy Society 2024 U.S. ASM summary,Fetched registered source URL,,HTTP 200 application/pdf,https://cms.aesnet.org/docs/default-source/pdfs-clinical/42981132_aes_summary_of_antiseizure_medications_available_in_the_united_states_4th_edition_april_2024.pdf?sfvrsn=65016203_1
-info,online_source_review,,EMA Trobalt withdrawal page,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://www.ema.europa.eu/en/medicines/human/EPAR/trobalt
-info,online_source_review,,Epilepsy Foundation Australia ASM list,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://epilepsyfoundation.org.au/understanding-epilepsy/treatments-and-management/anti-seizure-medication/list-of-anti-seizure-medication-asms/
-info,online_source_review,,Epilepsy Society ASM list,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://epilepsysociety.org.uk/about-epilepsy/anti-seizure-medication/list-anti-seizure-medication
-info,online_source_review,,FDA/DailyMed labeling,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://dailymed.nlm.nih.gov/dailymed/
-info,online_source_review,,FDA/DailyMed labeling,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30
-info,online_source_review,,FDA Ztalmy approval/snapshot pages,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-ztalmy
-info,online_source_review,,FDA Ztalmy approval/snapshot pages,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-drug-treatment-seizures-associated-rare-disease-patients-two-years-age-and-older
-info,online_source_review,,Healthline ASM list,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://www.healthline.com/health/epilepsy/medications-list
-info,online_source_review,,ILAE/GSK discontinuation notice,Fetched registered source URL,,HTTP 200 text/html;charset=UTF-8,https://www.ilae.org/news-and-media/epilepsy-news-around-the-world/retigabine-to-be-discontinued-in-june
-info,online_source_review,,ILAE/GSK discontinuation notice,Fetched registered source URL,,HTTP 200 application/pdf,https://www.ilae.org/files/dmfile/GSK_RetigabineTrobalt-Reminder.pdf
-info,online_source_review,,NCBI LiverTox anticonvulsants table,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://www.ncbi.nlm.nih.gov/books/NBK548365/table/Anticonvulsants.Tc/
-info,online_source_review,,NCBI Bookshelf AED mechanism table,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://www.ncbi.nlm.nih.gov/books/NBK2513/table/A921/
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Barbexaclone
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Beclamide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Clorazepate
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Ethotoin
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Etiracetam
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Mephenytoin
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Mephobarbital
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Methazolamide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Methsuximide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Mirogabalin
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Nitrazepam
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Paraldehyde
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Paramethadione
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Phenacemide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Pheneturide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Phensuximide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-bromide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Primidone
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Progabide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Pyridoxine
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Seletracetam
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Temazepam
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Trimethadione
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Valnoctamide
-info,online_source_review,,NCBI PubChem pharmacology records,Fetched registered source URL,,HTTP 200 text/html,https://pubchem.ncbi.nlm.nih.gov/compound/Valpromide
-info,online_source_review,,Sills and Rogawski 2020 ASM mechanism review,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://eprints.gla.ac.uk/207782/
-info,online_source_review,,UK eMC SmPC labeling,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://www.medicines.org.uk/emc/product/100433/smpc
-info,online_source_review,,UK eMC SmPC labeling,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://www.medicines.org.uk/emc/product/101131/smpc
-info,online_source_review,,Sulthiame sodium-current mechanism study,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://pubmed.ncbi.nlm.nih.gov/11325350/
-info,online_source_review,,PMC valnoctamide GABA-A mechanism study,Fetched registered source URL,,HTTP 200 text/html; charset=utf-8,https://pmc.ncbi.nlm.nih.gov/articles/PMC4167227/
-info,online_source_review,,Wikipedia anticonvulsant drug-class list,Fetched registered source URL,,HTTP 200 text/html; charset=UTF-8,https://en.wikipedia.org/wiki/Anticonvulsant
 info,fact_source_coverage,acetazolamide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,acetazolamide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,acetazolamide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
