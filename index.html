@@ -402,6 +402,52 @@
         background: #dbe3ee;
       }
 
+      .legend-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        background: #0f766e;
+        box-shadow: 0 0 0 2px #ccfbf1;
+      }
+
+      .study-dot {
+        fill: #0f766e;
+        stroke: #ccfbf1;
+        stroke-width: 3;
+        cursor: pointer;
+      }
+
+      .study-point:hover .study-dot,
+      .study-point:focus .study-dot {
+        fill: #115e59;
+        stroke: #99f6e4;
+        stroke-width: 5;
+      }
+
+      .point-tooltip {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.12s ease;
+      }
+
+      .point-tooltip rect {
+        fill: #0f172a;
+        stroke: #334155;
+      }
+
+      .point-tooltip text {
+        fill: #fff;
+        font-size: 11px;
+        font-weight: 760;
+        text-decoration: underline;
+      }
+
+      .study-point:hover .point-tooltip,
+      .study-point:focus .point-tooltip {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       .chart-empty,
       .empty,
       .error {

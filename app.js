@@ -7,6 +7,7 @@ const EVIDENCE_KEY = "evidence_sources";
 const REFRESH_KEY = "data_most_recently_refreshed";
 const FILTER_PREFIX = "filter_";
 const GRAPH_PREFIX = "diff_";
+const PLOT_PREFIX = "plot_";
 const INTERNAL_COLUMNS = new Set([
   ALT_NAME_KEY,
   EVIDENCE_KEY,
@@ -124,7 +125,7 @@ function splitValues(value) {
 }
 
 function isInternalColumn(key) {
-  return key.startsWith(FILTER_PREFIX) || INTERNAL_COLUMNS.has(key);
+  return key.startsWith(FILTER_PREFIX) || key.startsWith(PLOT_PREFIX) || INTERNAL_COLUMNS.has(key);
 }
 
 function isRequiredColumn(key) {
@@ -272,11 +273,52 @@ function outcomeRange(row, columnKey) {
   };
 }
 
+function plotColumnKey(columnKey) {
+  return `${PLOT_PREFIX}${columnKey}`;
+}
+
+function parsePlotPoints(row, columnKey) {
+  const source = row[plotColumnKey(columnKey)] || "";
+  return splitValues(source)
+    .map((item) => {
+      const parts = item.split("|").map((part) => part.trim());
+      if (parts.length < 3) {
+        return null;
+      }
+      const value = Number(parts[1]);
+      if (!Number.isFinite(value)) {
+        return null;
+      }
+      return {
+        label: parts[0],
+        value: Math.max(0, Math.min(100, value)),
+        url: parts.slice(2).join("|")
+      };
+    })
+    .filter((point) => point && point.label && point.url);
+}
+
+function fallbackPlotPoints(row, columnKey) {
+  const range = outcomeRange(row, columnKey);
+  if (!range) {
+    return [];
+  }
+  return [{ label: row[NAME_KEY], value: range.max, url: "" }];
+}
+
 function graphData(rows, columnKey) {
   return rows
-    .map((row) => ({ row, range: outcomeRange(row, columnKey) }))
-    .filter((item) => item.range)
-    .sort((a, b) => b.range.max - a.range.max || a.row[NAME_KEY].localeCompare(b.row[NAME_KEY]));
+    .map((row) => {
+      const points = parsePlotPoints(row, columnKey);
+      const plottedPoints = points.length ? points : fallbackPlotPoints(row, columnKey);
+      return {
+        row,
+        points: plottedPoints,
+        max: plottedPoints.length ? Math.max(...plottedPoints.map((point) => point.value)) : null
+      };
+    })
+    .filter((item) => item.points.length)
+    .sort((a, b) => b.max - a.max || a.row[NAME_KEY].localeCompare(b.row[NAME_KEY]));
 }
 
 function activeFilterSummary() {
@@ -321,7 +363,7 @@ function renderChart(column, rows) {
   }
 
   const left = 210;
-  const right = 112;
+  const right = 142;
   const top = 34;
   const rowHeight = 34;
   const width = 920;
@@ -329,17 +371,30 @@ function renderChart(column, rows) {
   const scale = (value) => left + (value / 100) * (width - left - right);
   const ticks = [0, 25, 50, 75, 100];
 
+  const pointCount = data.reduce((count, item) => count + item.points.length, 0);
   const bars = data.map((item, index) => {
     const y = top + index * rowHeight;
-    const x1 = scale(item.range.min);
-    const x2 = scale(item.range.max);
+    const dots = item.points.map((point, pointIndex) => {
+      const x = scale(point.value);
+      const tooltipWidth = Math.max(86, Math.min(170, point.label.length * 7 + 28));
+      const tooltipX = Math.min(width - right - tooltipWidth, Math.max(left, x - tooltipWidth / 2));
+      const tooltipY = y < 58 ? y + 24 + (pointIndex % 2) * 24 : y - 24 - (pointIndex % 2) * 24;
+      const linkAttrs = point.url ? `href="${escapeHtml(point.url)}" target="_blank" rel="noopener"` : "";
+      return `
+        <g class="study-point" tabindex="0" aria-label="${escapeHtml(`${item.row[NAME_KEY]} ${point.label} ${point.value}%`)}">
+          <circle class="study-dot" cx="${x}" cy="${y + 15}" r="5.5" />
+          <a ${linkAttrs} class="point-tooltip">
+            <rect x="${tooltipX}" y="${tooltipY}" width="${tooltipWidth}" height="21" rx="5" />
+            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 14}" text-anchor="middle">${escapeHtml(point.label)}</text>
+          </a>
+        </g>
+      `;
+    }).join("");
     return `
       <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row[NAME_KEY])}</text>
       <line x1="${left}" y1="${y + 15}" x2="${width - right}" y2="${y + 15}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
-      <line x1="${x1}" y1="${y + 15}" x2="${x2}" y2="${y + 15}" stroke="#0f766e" stroke-width="8" stroke-linecap="round" />
-      <circle cx="${x1}" cy="${y + 15}" r="4" fill="#0f766e" />
-      <circle cx="${x2}" cy="${y + 15}" r="4" fill="#0f766e" />
-      <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(item.range.label)}</text>
+      ${dots}
+      <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(`${item.points.length} RCT${item.points.length === 1 ? "" : "s"}`)}</text>
     `;
   }).join("");
 
@@ -355,15 +410,17 @@ function renderChart(column, rows) {
         <h2>${escapeHtml(title)}</h2>
         <div class="chart-counts" aria-label="Chart counts">
           <span class="chart-pill">${rows.length} filtered</span>
-          <span class="chart-pill">${data.length} plotted</span>
+          <span class="chart-pill">${pointCount} RCT dots</span>
+          <span class="chart-pill">${data.length} drugs plotted</span>
           <span class="chart-pill">${missingCount} no numeric value</span>
         </div>
       </div>
-      <p class="chart-meta">Values are read from the CSV column named ${escapeHtml(column.key)}. Axis is fixed at 0-100%; rows are sorted by highest plotted value.</p>
+      <p class="chart-meta">Dots are read from the CSV column named ${escapeHtml(plotColumnKey(column.key))}. Axis is fixed at 0-100%; rows are sorted by highest plotted RCT value.</p>
       <p class="chart-filter-summary"><strong>Displayed set:</strong> ${escapeHtml(filterSummary)}</p>
       <div class="chart-legend" aria-label="Chart legend">
         <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
-        <span class="legend-item"><span class="legend-swatch"></span>reported range</span>
+        <span class="legend-item"><span class="legend-dot"></span>individual RCT differential</span>
+        <span class="legend-item">hover a dot for a PubMed link</span>
       </div>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
         <text x="0" y="14" font-size="11" fill="#637083">Differential %</text>
