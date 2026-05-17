@@ -519,7 +519,13 @@ function initializeFromCsv(text) {
   applyFilters();
 }
 
-fetch(CSV_URL)
+function csvRequestUrl() {
+  const url = new URL(CSV_URL, window.location.href);
+  url.searchParams.set("v", Date.now().toString());
+  return url.href;
+}
+
+fetch(csvRequestUrl(), { cache: "no-store" })
   .then((response) => {
     if (!response.ok) {
       throw new Error(`Could not load ${CSV_URL} (${response.status})`);
