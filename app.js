@@ -306,6 +306,31 @@ function fallbackPlotPoints(row, columnKey) {
   return [{ label: row[NAME_KEY], value: range.max, url: "" }];
 }
 
+function formatPercentValue(value) {
+  if (!Number.isFinite(value)) {
+    return "";
+  }
+  const rounded = Math.round(value * 100) / 100;
+  return Number.isInteger(rounded) ? `${rounded}` : `${rounded}`;
+}
+
+function pointSummary(points) {
+  const values = points
+    .map((point) => point.value)
+    .filter((value) => Number.isFinite(value))
+    .sort((a, b) => a - b);
+  if (!values.length) {
+    return "";
+  }
+  const middle = values.length / 2;
+  const median = values.length % 2
+    ? values[Math.floor(middle)]
+    : (values[middle - 1] + values[middle]) / 2;
+  const min = values[0];
+  const max = values[values.length - 1];
+  return `median ${formatPercentValue(median)}%; range ${formatPercentValue(min)}-${formatPercentValue(max)}%`;
+}
+
 function graphData(rows, columnKey) {
   return rows
     .map((row) => {
@@ -363,10 +388,10 @@ function renderChart(column, rows) {
   }
 
   const left = 210;
-  const right = 142;
+  const right = 210;
   const top = 34;
   const rowHeight = 34;
-  const width = 920;
+  const width = 1000;
   const height = top + data.length * rowHeight + 46;
   const scale = (value) => left + (value / 100) * (width - left - right);
   const ticks = [0, 25, 50, 75, 100];
@@ -376,16 +401,18 @@ function renderChart(column, rows) {
     const y = top + index * rowHeight;
     const dots = item.points.map((point, pointIndex) => {
       const x = scale(point.value);
-      const tooltipWidth = Math.max(86, Math.min(170, point.label.length * 7 + 28));
+      const tooltipLabel = `${point.label}: ${formatPercentValue(point.value)}%`;
+      const tooltipWidth = Math.max(118, Math.min(220, tooltipLabel.length * 7 + 30));
       const tooltipX = Math.min(width - right - tooltipWidth, Math.max(left, x - tooltipWidth / 2));
       const tooltipY = y < 58 ? y + 24 + (pointIndex % 2) * 24 : y - 24 - (pointIndex % 2) * 24;
       const linkAttrs = point.url ? `href="${escapeHtml(point.url)}" target="_blank" rel="noopener"` : "";
       return `
         <g class="study-point" tabindex="0" aria-label="${escapeHtml(`${item.row[NAME_KEY]} ${point.label} ${point.value}%`)}">
-          <circle class="study-dot" cx="${x}" cy="${y + 15}" r="5.5" />
-          <a ${linkAttrs} class="point-tooltip">
+          <a ${linkAttrs} class="study-link" aria-label="${escapeHtml(`${point.label} ${formatPercentValue(point.value)}%, open PubMed`)}">
+            <circle class="study-hit-area" cx="${x}" cy="${y + 15}" r="12" />
+            <circle class="study-dot" cx="${x}" cy="${y + 15}" r="5.5" />
             <rect x="${tooltipX}" y="${tooltipY}" width="${tooltipWidth}" height="21" rx="5" />
-            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 14}" text-anchor="middle">${escapeHtml(point.label)}</text>
+            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 14}" text-anchor="middle">${escapeHtml(tooltipLabel)}</text>
           </a>
         </g>
       `;
@@ -394,7 +421,7 @@ function renderChart(column, rows) {
       <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row[NAME_KEY])}</text>
       <line x1="${left}" y1="${y + 15}" x2="${width - right}" y2="${y + 15}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
       ${dots}
-      <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(`${item.points.length} RCT${item.points.length === 1 ? "" : "s"}`)}</text>
+      <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(pointSummary(item.points))}</text>
     `;
   }).join("");
 
@@ -420,7 +447,7 @@ function renderChart(column, rows) {
       <div class="chart-legend" aria-label="Chart legend">
         <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
         <span class="legend-item"><span class="legend-dot"></span>individual RCT differential</span>
-        <span class="legend-item">hover a dot for a PubMed link</span>
+        <span class="legend-item">hover for exact value; click any dot to open PubMed</span>
       </div>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
         <text x="0" y="14" font-size="11" fill="#637083">Differential %</text>

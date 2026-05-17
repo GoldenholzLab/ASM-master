@@ -417,6 +417,16 @@
         cursor: pointer;
       }
 
+      .study-hit-area {
+        fill: transparent;
+        cursor: pointer;
+      }
+
+      .study-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
       .study-point:hover .study-dot,
       .study-point:focus .study-dot {
         fill: #115e59;
@@ -424,28 +434,29 @@
         stroke-width: 5;
       }
 
-      .point-tooltip {
+      .study-link rect,
+      .study-link text {
         opacity: 0;
-        pointer-events: none;
         transition: opacity 0.12s ease;
       }
 
-      .point-tooltip rect {
+      .study-link rect {
         fill: #0f172a;
         stroke: #334155;
       }
 
-      .point-tooltip text {
+      .study-link text {
         fill: #fff;
         font-size: 11px;
         font-weight: 760;
         text-decoration: underline;
       }
 
-      .study-point:hover .point-tooltip,
-      .study-point:focus .point-tooltip {
+      .study-point:hover .study-link rect,
+      .study-point:hover .study-link text,
+      .study-point:focus .study-link rect,
+      .study-point:focus .study-link text {
         opacity: 1;
-        pointer-events: auto;
       }
 
       .chart-empty,
