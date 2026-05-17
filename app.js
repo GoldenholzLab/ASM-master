@@ -449,10 +449,7 @@ function renderChart(column, rows) {
       <div class="chart-legend" aria-label="Chart legend">
         <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
         <span class="legend-item"><span class="legend-dot"></span>individual RCT differential</span>
-        <span class="legend-item">hover or focus any dot for details; click a dot or study link to open PubMed</span>
-      </div>
-      <div class="study-detail" aria-live="polite">
-        <span class="study-detail-empty">Hover or focus any RCT dot for effect, study, and n.</span>
+        <span class="legend-item">hover or focus any dot for the fixed detail bar; click a dot or study link to open PubMed</span>
       </div>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
         <text x="0" y="14" font-size="11" fill="#637083">Differential %</text>
@@ -466,8 +463,8 @@ function renderChart(column, rows) {
 }
 
 function updateStudyDetail(pointEl) {
-  const chart = pointEl.closest(".chart");
-  const detail = chart?.querySelector(".study-detail");
+  const panel = pointEl.closest(".graph-panel");
+  const detail = panel?.querySelector(".study-detail");
   if (!detail) {
     return;
   }
@@ -488,7 +485,14 @@ function renderGraphs(rows) {
     listEl.innerHTML = '<p class="empty">No graphable differential columns are present in the CSV.</p>';
     return;
   }
-  listEl.innerHTML = `<div class="graph-panel">${state.graphColumns.map((column) => renderChart(column, rows)).join("")}</div>`;
+  listEl.innerHTML = `
+    <div class="graph-panel">
+      <div class="study-detail graph-study-detail" aria-live="polite">
+        <span class="study-detail-empty">Hover or focus any RCT dot for effect, study, and n.</span>
+      </div>
+      ${state.graphColumns.map((column) => renderChart(column, rows)).join("")}
+    </div>
+  `;
 }
 
 function visibleColumns() {
