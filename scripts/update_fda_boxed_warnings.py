@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "ASM-list.csv"
 AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "fda_boxed_warning_audit.csv"
 CACHE_DIR = ROOT / ".fda-label-cache"
-REFRESH_DATE = "05-15-2026"
+REFRESH_DATE = datetime.now().strftime("%m-%d-%Y")
 DAILYMED_SPL_SEARCH = "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name={term}"
 DAILYMED_SPL_XML = "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/{setid}.xml"
 DAILYMED_LABEL_URL = "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={setid}"
@@ -33,56 +33,6 @@ FIELDNAMES_TO_INSERT = [
 ]
 
 
-PREFERRED_TERMS = {
-    "adrenocorticotropic hormone": ["acthar", "acthar gel", "cortrophin gel", "corticotropin"],
-    "brivaracetam": ["briviact", "brivaracetam"],
-    "cannabidiol": ["epidiolex", "cannabidiol"],
-    "carbamazepine": ["tegretol", "carbatrol", "carbamazepine"],
-    "cenobamate": ["xcopri", "cenobamate"],
-    "clobazam": ["onfi", "sympazan", "clobazam"],
-    "clonazepam": ["klonopin", "clonazepam"],
-    "clorazepate": ["tranxene", "clorazepate"],
-    "diazepam": ["valtoco", "diastat", "diazepam"],
-    "divalproex sodium": ["depakote", "divalproex sodium"],
-    "eslicarbazepine acetate": ["aptiom", "eslicarbazepine acetate"],
-    "ethosuximide": ["zarontin", "ethosuximide"],
-    "everolimus": ["afinitor", "everolimus"],
-    "felbamate": ["felbatol", "felbamate"],
-    "fenfluramine": ["fintepla", "fenfluramine"],
-    "fosphenytoin": ["cerebyx", "fosphenytoin"],
-    "gabapentin": ["neurontin", "gabapentin"],
-    "ganaxolone": ["ztalmy", "ganaxolone"],
-    "lacosamide": ["vimpat", "lacosamide"],
-    "lamotrigine": ["lamictal", "lamotrigine"],
-    "levetiracetam": ["keppra", "levetiracetam"],
-    "lorazepam": ["ativan", "lorazepam"],
-    "methazolamide": ["methazolamide"],
-    "methsuximide": ["celontin", "methsuximide"],
-    "midazolam": ["nayzilam", "seizalam", "midazolam"],
-    "oxcarbazepine": ["trileptal", "oxcarbazepine"],
-    "perampanel": ["fycompa", "perampanel"],
-    "phenobarbital": ["sezaby", "phenobarbital"],
-    "phenytoin": ["phenytoin injection", "phenytoin sodium injection", "dilantin", "phenytoin"],
-    "pregabalin": ["lyrica", "pregabalin"],
-    "primidone": ["mysoline", "primidone"],
-    "rufinamide": ["banzel", "rufinamide"],
-    "sodium valproate": ["valproate sodium", "valproic acid"],
-    "stiripentol": ["diacomit", "stiripentol"],
-    "temazepam": ["restoril", "temazepam"],
-    "tiagabine": ["gabitril", "tiagabine"],
-    "topiramate": ["topamax", "topiramate"],
-    "valproic acid": ["depakene", "valproic acid"],
-    "vigabatrin": ["sabril", "vigabatrin"],
-    "zonisamide": ["zonegran", "zonisamide"],
-}
-
-MANUAL_SETIDS = {
-    # DailyMed drug-name search does not currently surface this injection label,
-    # but the current SPL is available by setid and contains the IV-infusion boxed warning.
-    "phenytoin": ["a52cf1bd-dc1f-47be-aba8-29066d9a50fb"],
-}
-
-
 def normalize_space(value):
     return re.sub(r"\s+", " ", value or "").strip()
 
@@ -93,6 +43,39 @@ def normalize_for_compare(value):
 
 def split_semicolon(value):
     return [part.strip() for part in (value or "").split(";") if part.strip()]
+
+
+def row_terms(row):
+    terms = [row.get("generic_name", "")]
+    terms.extend(split_semicolon(row.get("alternate_generic_names", "")))
+    terms.extend(split_semicolon(row.get("trade_names", "")))
+    terms.extend(split_semicolon(row.get("pubmed_search_aliases", "")))
+    cleaned = []
+    seen = set()
+    for term in terms:
+        term = re.sub(r"\s*\([^)]*\)", "", term).strip()
+        lowered = term.lower()
+        if not term:
+            continue
+        if "no human" in lowered or "veterinary" in lowered:
+            continue
+        if len(term) < 3 or len(term.split()) > 5:
+            continue
+        key = lowered
+        if key not in seen:
+            seen.add(key)
+            cleaned.append(term)
+    return cleaned
+
+
+def setids_from_existing_sources(row):
+    text = " ".join(
+        [
+            row.get("fda_black_box_warning_source", ""),
+            row.get("fda_black_box_warning", ""),
+        ]
+    )
+    return sorted(set(re.findall(r"setid=([0-9a-fA-F-]{20,})", text)))
 
 
 def slug(value):
@@ -200,27 +183,7 @@ def title_from_xml(xml_bytes):
 
 
 def terms_for_row(row):
-    generic = row["generic_name"]
-    terms = []
-    terms.extend(PREFERRED_TERMS.get(generic, []))
-    terms.append(generic)
-    terms.extend(split_semicolon(row.get("alternate_generic_names", "")))
-    for trade in split_semicolon(row.get("trade_names", "")):
-        lowered = trade.lower()
-        if "no human" in lowered or "veterinary" in lowered:
-            continue
-        terms.append(trade)
-    cleaned = []
-    for term in terms:
-        term = re.sub(r"\s*\([^)]*\)", "", term).strip()
-        if len(term) <= 5 and term.lower() not in PREFERRED_TERMS.get(generic, []):
-            continue
-        if len(term.split()) > 4 and term.lower() not in PREFERRED_TERMS.get(generic, []):
-            continue
-        key = term.lower()
-        if key not in [item.lower() for item in cleaned]:
-            cleaned.append(term)
-    return cleaned
+    return row_terms(row)
 
 
 def reject_title(title):
@@ -237,9 +200,7 @@ def candidate_is_relevant(row, candidate):
     original_title = candidate.get("title", "").lower()
     title = normalized_term(candidate.get("title", ""))
     generic = normalized_term(row["generic_name"])
-    acceptable = [generic]
-    acceptable.extend(normalized_term(term) for term in PREFERRED_TERMS.get(row["generic_name"], []))
-    acceptable.extend(normalized_term(term) for term in split_semicolon(row.get("trade_names", "")))
+    acceptable = [normalized_term(term) for term in row_terms(row)]
     acceptable = [term for term in acceptable if len(term) >= 5]
     if any(title.startswith(term) for term in acceptable):
         return True
@@ -260,14 +221,11 @@ def score_candidate(row, candidate, boxed_text):
     score = 0
     if boxed_text:
         score += 10000
-    for index, term in enumerate(PREFERRED_TERMS.get(row["generic_name"], [])):
+    for index, term in enumerate(row_terms(row)):
         if term.lower() in title_lower:
             score += 800 - index
     if generic in title_lower:
         score += 300
-    for trade in split_semicolon(row.get("trade_names", "")):
-        if trade.lower() in title_lower:
-            score += 250
     if "injection" in row.get("formulations_available", "").lower() and "injection" in title_lower:
         score += 120
     if any(bad in title_lower for bad in ["repack", "unit dose", "kit"]):
@@ -290,7 +248,7 @@ def source_string(candidate, search_terms, status):
 def select_label(row, refresh=False):
     search_terms = terms_for_row(row)
     candidates_by_setid = {}
-    for setid in MANUAL_SETIDS.get(row["generic_name"], []):
+    for setid in setids_from_existing_sources(row):
         try:
             xml_bytes = fetch_xml(setid, refresh=refresh)
             title = title_from_xml(xml_bytes)

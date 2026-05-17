@@ -7,6 +7,7 @@ import unicodedata
 import urllib.parse
 import xml.etree.ElementTree as ET
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 
 
@@ -16,94 +17,8 @@ CACHE = ROOT / "pubmed_cache"
 ESEARCH_DIR = CACHE / "esearch"
 EFETCH_DIR = CACHE / "efetch"
 REPORT_DIR = CACHE / "reports"
+REPORT_PATH = REPORT_DIR / "pubmed_rct_audit.csv"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
-
-
-EXTRA_ALIASES = {
-    "adrenocorticotropic hormone": ["ACTH", "corticotropin", "repository corticotropin"],
-    "brivaracetam": ["UCB 34714"],
-    "cannabidiol": ["CBD"],
-    "cenobamate": ["YKP3089"],
-    "eslicarbazepine acetate": ["BIA 2-093"],
-    "everolimus": ["RAD001"],
-    "ezogabine": ["retigabine"],
-    "fenfluramine": ["ZX008"],
-    "ganaxolone": ["CCD1042"],
-    "lacosamide": ["SPM 927"],
-    "midazolam": ["Nayzilam", "midazolam nasal spray"],
-    "perampanel": ["E2007"],
-    "pregabalin": ["CI-1008"],
-    "rufinamide": ["CGP 33101"],
-    "seletracetam": ["UCB 44212"],
-    "stiripentol": ["Diacomit"],
-    "tiagabine": ["NO-328"],
-    "vigabatrin": ["gamma-vinyl GABA"],
-}
-
-OUTCOME_OVERRIDES = {
-    "brivaracetam": {
-        "rr50": "13.9-39.1 % (highest effective dose arms across qualifying placebo-controlled RCTs; 50-200 mg/day depending on RCT)",
-        "mpc": "15.7-31.4 % (median seizure-frequency reduction difference at highest effective dose arms where extractable)",
-    },
-    "cannabidiol": {
-        "rr50": "16-25 % (oral cannabidiol highest approved/effective dose arms in Dravet/LGS RCTs where RR50 was extractable; TSC/focal transdermal trials not consistently extractable)",
-        "mpc": "21.0-30.1 % (placebo-adjusted median/percentage seizure reduction at highest approved/effective oral dose arms)",
-    },
-    "cenobamate": {
-        "rr50": "28.2-39.0 % (200-400 mg/day highest effective dose arms where RR50 was extractable)",
-        "mpc": "34.1-74.1 % (200-400 mg/day highest effective dose arms; includes Lee2025 400 mg/day placebo-adjusted median change)",
-    },
-    "eslicarbazepine acetate": {
-        "rr50": "19.5-24.1 % (1200 mg/day highest effective dose arms in focal-onset seizure RCTs)",
-        "mpc": "24.0-32.0 % (1200 mg/day highest effective dose arms in focal-onset seizure RCTs)",
-    },
-    "fenfluramine": {
-        "rr50": "49-68 % (0.4-0.7 mg/kg/day highest effective dose arms in Dravet syndrome RCTs)",
-        "mpc": "34-72 % (placebo-adjusted convulsive-seizure reduction at highest effective dose arms where extractable)",
-    },
-    "ganaxolone": {
-        "rr50": "9 % (1500 mg/day focal-onset phase II; responder difference not statistically significant)",
-        "mpc": "15.6 % (1500 mg/day focal-onset phase II mean/median seizure-reduction difference where extractable)",
-    },
-    "lacosamide": {
-        "rr50": "about 20 % (400 mg/day highest effective dose arms in focal-onset seizure RCTs where extractable)",
-        "mpc": "15.9 % (400 mg/day highest effective dose arms in focal-onset seizure RCTs where extractable)",
-    },
-    "lamotrigine": {
-        "rr50": "17.0-23.2 % (highest effective dose arms across qualifying focal/generalized seizure RCTs where extractable)",
-        "mpc": "22.1-31.6 % (highest effective dose arms where median percentage change was extractable)",
-    },
-    "levetiracetam": {
-        "rr50": "28.7 % (3000 mg/day highest effective dose arm in pivotal partial-onset seizure RCT extract)",
-        "mpc": "27.7-30.3 % (3000 mg/day highest effective dose arms in pivotal partial-onset seizure RCT extracts)",
-    },
-    "perampanel": {
-        "rr50": "16.7-23.5 % (12 mg/day/highest effective dose arms in focal/PGTC seizure RCTs where extractable)",
-        "mpc": "29.0-33.9 % (12 mg/day/highest effective dose arms in focal/PGTC seizure RCTs where extractable)",
-    },
-    "pregabalin": {
-        "rr50": "37.0-37.3 % (600 mg/day highest effective dose arms in partial-onset seizure RCTs)",
-        "mpc": "49.6 % (600 mg/day highest effective dose arm where median percentage change was extractable)",
-    },
-    "rufinamide": {
-        "rr50": "23 % (1600 mg/day proof-of-principle trial; other qualifying RCT RR50 not consistently extractable from PubMed abstracts)",
-        "mpc": "21.0-53.6 % (highest effective dose arms across total-seizure/adult partial-onset RCT extracts)",
-    },
-    "stiripentol": {
-        "rr50": "57.6-66.4 % (Dravet syndrome RCTs; highest effective stiripentol add-on arms)",
-        "mpc": "76 % (STICLO Dravet syndrome RCT: -69% stiripentol vs +7% placebo)",
-    },
-    "topiramate": {
-        "rr50": "19.0-43.0 % (highest effective dose arms across qualifying RCTs; excludes ineffective infant 25 mg/kg/day trial)",
-        "mpc": "19.9-54.0 % (highest effective dose arms across qualifying RCTs; excludes ineffective infant 25 mg/kg/day trial)",
-    },
-}
-
-# Keep the audit script aligned with the CSV schema: RR50/MPC fields must
-# summarize only maximum-effective-dose arms. The CSV is now the source for
-# those extracted max-dose values, so the older mixed-dose overrides above are
-# intentionally disabled.
-OUTCOME_OVERRIDES = {}
 
 
 EXCLUDE_TITLE_TERMS = [
@@ -206,32 +121,6 @@ SEIZURE_TERMS = [
 ]
 
 
-# Primary placebo-controlled randomized epilepsy trial reports that PubMed finds
-# but the conservative title heuristic can miss because the title lacks explicit
-# randomized/placebo wording, uses syndrome names, or reports a pediatric/
-# regional primary analysis without the usual trial-design phrase.
-FORCE_INCLUDE_PMIDS = {
-    "brivaracetam": {"24116853", "26666500"},
-    "cannabidiol": {"32119035"},
-    "cenobamate": {"31292226"},
-    "divalproex sodium": {"8559420"},
-    "eslicarbazepine acetate": {"19832771", "20299189"},
-    "ezogabine": {"20944074", "27376872"},
-    "felbamate": {"8347179", "7796796", "10210023"},
-    "gabapentin": {"1971862"},
-    "ganaxolone": {"35429480"},
-    "lacosamide": {"17635557", "31462582", "38375995"},
-    "lamotrigine": {"9400037", "10403222", "16847080", "17938371"},
-    "levetiracetam": {"19176965", "19243423"},
-    "pregabalin": {"15699378", "20696552"},
-    "rufinamide": {"18401024"},
-    "sultiame": {"14738417"},
-    "tiagabine": {"9152116"},
-    "topiramate": {"10612342", "12225311", "21672344"},
-    "vigabatrin": {"9924905"},
-}
-
-
 def slug(value):
     return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
 
@@ -239,6 +128,17 @@ def slug(value):
 def read_rows():
     with CSV_PATH.open(newline="") as f:
         return list(csv.DictReader(f))
+
+
+def existing_included_pmids():
+    included = defaultdict(set)
+    if not REPORT_PATH.exists():
+        return included
+    with REPORT_PATH.open(newline="") as f:
+        for row in csv.DictReader(f):
+            if row.get("status") == "included" and row.get("generic_name") and row.get("pmid"):
+                included[row["generic_name"]].add(row["pmid"])
+    return included
 
 
 def split_field(value):
@@ -254,7 +154,7 @@ def aliases_for(row):
     names = [row["generic_name"]]
     names.extend(split_field(row.get("alternate_generic_names", "")))
     names.extend(split_field(row.get("trade_names", "")))
-    names.extend(EXTRA_ALIASES.get(row["generic_name"], []))
+    names.extend(split_field(row.get("pubmed_search_aliases", "")))
 
     cleaned = []
     seen = set()
@@ -468,11 +368,11 @@ def title_names_primary_drug(article, row):
     return False
 
 
-def is_qualifying(article, row):
+def is_qualifying(article, row, forced_pmids=None):
     title = article["title"].lower()
     text = f"{article['title']} {article['abstract']}".lower()
     pub_types = " ".join(article["pub_types"]).lower()
-    if article["pmid"] in FORCE_INCLUDE_PMIDS.get(row["generic_name"], set()):
+    if forced_pmids and article["pmid"] in forced_pmids:
         return True, "qualifying PubMed placebo-controlled randomized clinical trial report"
 
     if not title_contains_drug(article, row):
@@ -565,6 +465,9 @@ def apply_updates():
     rows = read_rows()
     ids_by_drug = parse_esearch_ids()
     articles = parse_articles()
+    forced_by_drug = existing_included_pmids()
+    total = len(rows)
+    refresh_date = datetime.now().strftime("%m-%d-%Y")
     fieldnames = list(rows[0].keys())
     extra_fields = [
         "diff_50_responder_maximum_effective_dose",
@@ -586,7 +489,7 @@ def apply_updates():
             article = articles.get(pmid)
             if not article:
                 continue
-            ok, reason = is_qualifying(article, row)
+            ok, reason = is_qualifying(article, row, forced_by_drug.get(generic, set()))
             if ok:
                 qualifying.append(article)
             else:
@@ -601,17 +504,10 @@ def apply_updates():
         else:
             row["pubmed_phase_ii_iii_rct_links"] = "No PubMed phase II/III RCTs found"
 
-        override = OUTCOME_OVERRIDES.get(generic, {})
-        row["diff_50_responder_maximum_effective_dose"] = override.get(
-            "rr50",
-            highest_dose_value(row.get("diff_50_responder_maximum_effective_dose", ""), len(qualifying)),
-        )
-        row["diff_median_pct_change_maximum_effective_dose"] = override.get(
-            "mpc",
-            highest_dose_value(row.get("diff_median_pct_change_maximum_effective_dose", ""), len(qualifying)),
-        )
+        row["diff_50_responder_maximum_effective_dose"] = highest_dose_value(row.get("diff_50_responder_maximum_effective_dose", ""), len(qualifying))
+        row["diff_median_pct_change_maximum_effective_dose"] = highest_dose_value(row.get("diff_median_pct_change_maximum_effective_dose", ""), len(qualifying))
         row["rct_pubmed_verification_notes"] = (
-            f"PubMed loop {index}/65 on 2026-05-15: {len(qualifying)} qualifying placebo-controlled randomized clinical trial report(s) retained from "
+            f"PubMed loop {index}/{total} on {refresh_date}: {len(qualifying)} qualifying placebo-controlled randomized clinical trial report(s) retained from "
             f"{len(candidate_ids)} PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. "
             "Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports."
         )
@@ -647,7 +543,7 @@ def apply_updates():
                     "url": f"https://pubmed.ncbi.nlm.nih.gov/{item['pmid']}/",
                 }
             )
-        print(f"{index:02d}/65 {generic}: retained {len(qualifying)} of {len(candidate_ids)} candidate(s)")
+        print(f"{index:02d}/{total} {generic}: retained {len(qualifying)} of {len(candidate_ids)} candidate(s)")
 
     with CSV_PATH.open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -655,7 +551,7 @@ def apply_updates():
         writer.writerows(updated_rows)
 
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
-    with (REPORT_DIR / "pubmed_rct_audit.csv").open("w", newline="") as f:
+    with REPORT_PATH.open("w", newline="") as f:
         report_fields = ["generic_name", "status", "pmid", "label", "year", "first_author", "title", "pub_types", "reason", "url"]
         writer = csv.DictWriter(f, fieldnames=report_fields)
         writer.writeheader()

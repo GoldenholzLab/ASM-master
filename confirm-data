@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CSV_PATH = ROOT / "ASM-list.csv"
 HTML_PATH = ROOT / "index.html"
+APP_PATH = ROOT / "app.js"
 RCT_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
 EFFICACY_OUTCOME_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "efficacy_outcome_audit.csv"
 SEIZURE_FREEDOM_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "seizure_freedom_audit.csv"
@@ -58,6 +59,15 @@ REQUIRED_COLUMNS = [
     "fda_black_box_warning_verified",
     "rct_pubmed_verification_notes",
     "data_most_recently_refreshed",
+    "filter_availability",
+    "filter_metabolism",
+    "filter_mechanism",
+    "filter_epilepsy_type",
+    "filter_formulation",
+    "filter_enzyme_effect",
+    "filter_qt_effect",
+    "filter_symptom_category",
+    "pubmed_search_aliases",
 ]
 
 
@@ -93,118 +103,6 @@ RCT_DERIVED_FIELDS = [
     "diff_seizure_freedom_maximum_effective_dose",
     "rct_pubmed_verification_notes",
 ]
-
-
-SOURCE_REGISTRY = {
-    "American Epilepsy Society 2024 U.S. ASM summary": {
-        "urls": [
-            "https://cms.aesnet.org/docs/default-source/pdfs-clinical/42981132_aes_summary_of_antiseizure_medications_available_in_the_united_states_4th_edition_april_2024.pdf?sfvrsn=65016203_1"
-        ],
-        "markers": ["antiseizure medications", "american epilepsy society"],
-    },
-    "EMA Trobalt withdrawal page": {
-        "urls": ["https://www.ema.europa.eu/en/medicines/human/EPAR/trobalt"],
-        "markers": ["trobalt", "retigabine"],
-    },
-    "Epilepsy Foundation Australia ASM list": {
-        "urls": [
-            "https://epilepsyfoundation.org.au/understanding-epilepsy/treatments-and-management/anti-seizure-medication/list-of-anti-seizure-medication-asms/"
-        ],
-        "markers": ["anti-seizure medication", "epilepsy foundation"],
-    },
-    "Epilepsy Society ASM list": {
-        "urls": [
-            "https://epilepsysociety.org.uk/about-epilepsy/anti-seizure-medication/list-anti-seizure-medication"
-        ],
-        "markers": ["anti-seizure medication", "epilepsy society"],
-    },
-    "FDA/DailyMed labeling": {
-        "urls": [
-            "https://dailymed.nlm.nih.gov/dailymed/",
-            "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
-        ],
-        "markers": ["dailymed", "acthar", "corticotropin"],
-    },
-    "FDA Ztalmy approval/snapshot pages": {
-        "urls": [
-            "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-ztalmy",
-            "https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-drug-treatment-seizures-associated-rare-disease-patients-two-years-age-and-older",
-        ],
-        "markers": ["ztalmy", "ganaxolone"],
-    },
-    "Healthline ASM list": {
-        "urls": ["https://www.healthline.com/health/epilepsy/medications-list"],
-        "markers": ["epilepsy", "medications"],
-    },
-    "ILAE/GSK discontinuation notice": {
-        "urls": [
-            "https://www.ilae.org/news-and-media/epilepsy-news-around-the-world/retigabine-to-be-discontinued-in-june",
-            "https://www.ilae.org/files/dmfile/GSK_RetigabineTrobalt-Reminder.pdf",
-        ],
-        "markers": ["retigabine", "trobalt"],
-    },
-    "NCBI LiverTox anticonvulsants table": {
-        "urls": ["https://www.ncbi.nlm.nih.gov/books/NBK548365/table/Anticonvulsants.Tc/"],
-        "markers": ["anticonvulsants", "livertox"],
-    },
-    "NCBI Bookshelf AED mechanism table": {
-        "urls": ["https://www.ncbi.nlm.nih.gov/books/NBK2513/table/A921/"],
-        "markers": ["Commonly Used AEDs", "Proposed Mechanisms of Action"],
-    },
-    "NCBI PubChem pharmacology records": {
-        "urls": [
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Barbexaclone",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Beclamide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Clorazepate",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Ethotoin",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Etiracetam",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Mephenytoin",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Mephobarbital",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Methazolamide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Methsuximide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Mirogabalin",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Nitrazepam",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Paraldehyde",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Paramethadione",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Phenacemide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Pheneturide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Phensuximide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-bromide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Primidone",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Progabide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Pyridoxine",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Seletracetam",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Temazepam",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Trimethadione",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Valnoctamide",
-            "https://pubchem.ncbi.nlm.nih.gov/compound/Valpromide",
-        ],
-        "markers": ["PubChem", "Pharmacology"],
-    },
-    "Sills and Rogawski 2020 ASM mechanism review": {
-        "urls": ["https://eprints.gla.ac.uk/207782/"],
-        "markers": ["Mechanisms of action", "antiseizure drugs"],
-    },
-    "UK eMC SmPC labeling": {
-        "urls": [
-            "https://www.medicines.org.uk/emc/product/100433/smpc",
-            "https://www.medicines.org.uk/emc/product/101131/smpc",
-        ],
-        "markers": ["Summary of Product Characteristics", "Pharmacodynamic properties"],
-    },
-    "Sulthiame sodium-current mechanism study": {
-        "urls": ["https://pubmed.ncbi.nlm.nih.gov/11325350/"],
-        "markers": ["sulthiame", "sodium currents"],
-    },
-    "PMC valnoctamide GABA-A mechanism study": {
-        "urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC4167227/"],
-        "markers": ["Valnoctamide", "GABA"],
-    },
-    "Wikipedia anticonvulsant drug-class list": {
-        "urls": ["https://en.wikipedia.org/wiki/Anticonvulsant"],
-        "markers": ["anticonvulsant", "antiepileptic"],
-    },
-}
 
 
 def normalize_space(value):
@@ -353,17 +251,23 @@ def validate_schema(header, rows, issues):
     if duplicates:
         add_issue(issues, "error", "csv_schema", field="header", message="Duplicate CSV header(s)", observed=", ".join(duplicates))
     missing = [name for name in REQUIRED_COLUMNS if name not in counts]
-    extra = [name for name in header if name not in REQUIRED_COLUMNS]
     if missing:
         add_issue(issues, "error", "csv_schema", field="header", message="Required column(s) missing", observed=", ".join(missing))
-    if extra:
-        add_issue(issues, "warning", "csv_schema", field="header", message="Unexpected column(s)", observed=", ".join(extra))
-    if len(rows) != 65:
-        add_issue(issues, "error", "csv_schema", message="Unexpected ASM row count", expected="65", observed=str(len(rows)))
+    if not rows:
+        add_issue(issues, "error", "csv_schema", message="ASM-list.csv has no data rows")
     names = [row.get("generic_name", "") for row in rows]
     duplicate_names = sorted(name for name, count in Counter(names).items() if count > 1)
     if duplicate_names:
         add_issue(issues, "error", "csv_schema", field="generic_name", message="Duplicate generic name(s)", observed=", ".join(duplicate_names))
+    filter_columns = [name for name in header if name.startswith("filter_")]
+    if not filter_columns:
+        add_issue(issues, "error", "csv_schema", field="header", message="No CSV-defined filter columns found")
+    for row in rows:
+        generic = row.get("generic_name", "")
+        for column in filter_columns:
+            values = [item.strip() for item in row.get(column, "").split(";") if item.strip()]
+            if not values:
+                add_issue(issues, "error", "csv_schema", row=generic, field=column, message="CSV-defined filter column is blank")
 
 
 def validate_sources(rows, issues, source_text_by_name):
@@ -374,8 +278,6 @@ def validate_sources(rows, issues, source_text_by_name):
             add_issue(issues, "error", "source_section", row=generic, field="evidence_sources", message="No non-RCT evidence source listed")
             continue
         for source in sources:
-            if source not in SOURCE_REGISTRY:
-                add_issue(issues, "error", "source_section", row=generic, field="evidence_sources", message="Unregistered source", observed=source)
             if re.search(r"pubmed|clinicaltrials|trial|rct", source, re.I):
                 add_issue(
                     issues,
@@ -639,8 +541,6 @@ def validate_mechanism_fields(rows, issues):
         if not source:
             add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source", message="Mechanism source is blank")
         for item in split_sources(source):
-            if item not in SOURCE_REGISTRY:
-                add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source", message="Mechanism source is not registered", observed=item)
             if item not in evidence_sources:
                 add_issue(issues, "error", "mechanism_review", row=generic, field="evidence_sources", message="Mechanism source is not listed in evidence_sources", observed=item)
         if tier not in allowed_tiers:
@@ -716,52 +616,66 @@ def validate_fda_boxed_warnings(rows, issues):
 
 
 def validate_html(rows, issues):
-    text = HTML_PATH.read_text()
-    if 'fetch("ASM-list.csv")' not in text:
-        add_issue(issues, "error", "html_display", field="fetch", message="HTML does not fetch ASM-list.csv")
-    if "refreshDate" not in text or "data_most_recently_refreshed" not in text:
-        add_issue(issues, "error", "html_display", field="data_most_recently_refreshed", message="HTML does not display the CSV refresh date")
-    if "seizure_freedom_rct_rates" in text:
-        add_issue(issues, "error", "html_display", field="seizure_freedom_rct_rates", message="HTML still references obsolete active-rate seizure-freedom column")
-    if "diff_seizure_freedom_maximum_effective_dose" not in text:
-        add_issue(issues, "error", "html_display", field="diff_seizure_freedom_maximum_effective_dose", message="HTML does not display differential seizure freedom")
+    html_text = HTML_PATH.read_text()
+    app_text = APP_PATH.read_text() if APP_PATH.exists() else ""
+    combined = html_text + "\n" + app_text
 
-    displayed_keys = set(re.findall(r"\{\s*key:\s*\"([^\"]+)\"", text))
-    expected_display = set(REQUIRED_COLUMNS) - {
-        "alternate_generic_names",
-        "evidence_sources",
-        "rct_pubmed_verification_notes",
-        "data_most_recently_refreshed",
+    if 'src="app.js"' not in html_text:
+        add_issue(issues, "error", "html_display", field="app.js", message="HTML does not load the CSV-derived app script")
+    if "ASM-list.csv" not in combined:
+        add_issue(issues, "error", "html_display", field="fetch", message="App does not fetch ASM-list.csv")
+    if "refreshDate" not in combined or "data_most_recently_refreshed" not in combined:
+        add_issue(issues, "error", "html_display", field="data_most_recently_refreshed", message="App does not display the CSV refresh date")
+    if "seizure_freedom_rct_rates" in combined:
+        add_issue(issues, "error", "html_display", field="seizure_freedom_rct_rates", message="App still references obsolete active-rate seizure-freedom column")
+
+    required_derivations = {
+        "CSV-defined filter menus": ["FILTER_PREFIX", "startsWith(FILTER_PREFIX)", "state.filterColumns"],
+        "CSV-derived display columns": ["state.displayColumns", "state.headers", "isInternalColumn"],
+        "CSV-derived graph columns": ["GRAPH_PREFIX", "startsWith(GRAPH_PREFIX)", "state.graphColumns"],
+        "CSV-derived ASM selector": ["populateAsmChecks", "state.rows.map"],
     }
-    expected_display.add("status_or_notes")
-    missing_display = sorted(key for key in expected_display if key not in displayed_keys and key != "pubmed_phase_ii_iii_rct_links")
-    if "pubmed_phase_ii_iii_rct_links" not in displayed_keys:
-        missing_display.append("pubmed_phase_ii_iii_rct_links")
-    if missing_display:
-        add_issue(issues, "error", "html_display", message="CSV field(s) expected in table are missing from HTML columns", observed=", ".join(missing_display))
-    unknown_display = sorted(key for key in displayed_keys if key not in REQUIRED_COLUMNS and key != "status_or_notes")
-    if unknown_display:
-        add_issue(issues, "error", "html_display", message="HTML displays unknown CSV key(s)", observed=", ".join(unknown_display))
+    for label, snippets in required_derivations.items():
+        if not all(snippet in combined for snippet in snippets):
+            add_issue(issues, "error", "html_display", message=f"App does not clearly implement {label}")
+
+    forbidden_static_logic = [
+        "const columns = [",
+        "mechanismCategories",
+        "availabilityCategories",
+        "formulationCategories",
+        "enzymeCategories",
+        "qtCategories",
+        "symptomCategories",
+        "epilepsyTypeCategories",
+    ]
+    for snippet in forbidden_static_logic:
+        if snippet in combined:
+            add_issue(issues, "error", "html_display", message="App still contains hardcoded display/filter logic", observed=snippet)
 
 
-def review_sources_online(issues, strict):
-    source_text_by_name = {}
-    for source, config in SOURCE_REGISTRY.items():
-        combined = []
-        for url in config["urls"]:
-            try:
-                fetched = fetch_url(url)
-            except (urllib.error.URLError, TimeoutError, OSError) as exc:
-                add_issue(issues, "error" if strict else "warning", "online_source_review", field=source, message="Could not fetch registered source URL", observed=str(exc), source=url)
-                continue
-            text = fetched["text"]
-            combined.append(text)
-            marker_hits = [marker for marker in config.get("markers", []) if marker.lower() in text.lower()]
-            if not marker_hits and not fetched["content_type"].lower().startswith("application/pdf"):
-                add_issue(issues, "warning", "online_source_review", field=source, message="Fetched source did not contain expected marker text", expected=", ".join(config.get("markers", [])), source=url)
-            add_issue(issues, "info", "online_source_review", field=source, message="Fetched registered source URL", observed=f"HTTP {fetched['status']} {fetched['content_type']}", source=url)
-        source_text_by_name[source] = "\n".join(combined)
-    return source_text_by_name
+def source_urls_from_rows(rows):
+    urls = set()
+    source_fields = [
+        "evidence_sources",
+        "mechanism_source",
+        "fda_black_box_warning_source",
+    ]
+    for row in rows:
+        for field in source_fields:
+            urls.update(re.findall(r"https?://[^\s;,]+", row.get(field, "")))
+    return sorted(urls)
+
+
+def review_sources_online(rows, issues, strict):
+    for url in source_urls_from_rows(rows):
+        try:
+            fetched = fetch_url(url)
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            add_issue(issues, "error" if strict else "warning", "online_source_review", message="Could not fetch source URL listed in CSV", observed=str(exc), source=url)
+            continue
+        add_issue(issues, "info", "online_source_review", message="Fetched source URL listed in CSV", observed=f"HTTP {fetched['status']} {fetched['content_type']}", source=url)
+    return {}
 
 
 def write_reports(issues):
@@ -794,7 +708,7 @@ def write_reports(issues):
 
 def main():
     parser = argparse.ArgumentParser(description="Validate ASM-list.csv source coverage, RCT provenance, and HTML display wiring.")
-    parser.add_argument("--online", action="store_true", help="Fetch registered non-RCT source URLs and review accessibility/markers.")
+    parser.add_argument("--online", action="store_true", help="Fetch source URLs listed directly in the CSV and review accessibility.")
     parser.add_argument("--strict-online", action="store_true", help="Treat online source fetch failures as errors instead of warnings.")
     args = parser.parse_args()
 
@@ -804,7 +718,7 @@ def main():
 
     source_text_by_name = {}
     if args.online:
-        source_text_by_name = review_sources_online(issues, strict=args.strict_online)
+        source_text_by_name = review_sources_online(rows, issues, strict=args.strict_online)
 
     validate_sources(rows, issues, source_text_by_name)
     validate_rcts(rows, issues)
