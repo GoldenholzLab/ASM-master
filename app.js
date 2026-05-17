@@ -329,6 +329,9 @@ function pointSummary(points) {
     : (values[middle - 1] + values[middle]) / 2;
   const min = values[0];
   const max = values[values.length - 1];
+  if (values.length === 1) {
+    return `median ${formatPercentValue(median)}%`;
+  }
   return `median ${formatPercentValue(median)}%; range ${formatPercentValue(min)}-${formatPercentValue(max)}%`;
 }
 
@@ -391,45 +394,36 @@ function renderChart(column, rows) {
   const left = 210;
   const right = 210;
   const top = 34;
-  const rowHeight = 34;
+  const rowHeight = 42;
   const width = 1000;
   const height = top + data.length * rowHeight + 46;
   const scale = (value) => left + (value / 100) * (width - left - right);
   const ticks = [0, 25, 50, 75, 100];
+  const dotOffsets = [0, -7, 7, -13, 13];
 
   const pointCount = data.reduce((count, item) => count + item.points.length, 0);
   const bars = data.map((item, index) => {
     const y = top + index * rowHeight;
+    const rowCenter = y + 21;
     const dots = item.points.map((point, pointIndex) => {
       const x = scale(point.value);
-      const effectText = `Effect: ${formatPercentValue(point.value)}%`;
-      const studyText = `Study: ${point.label}`;
-      const nText = `n=${point.n || "NR"}`;
-      const tooltipLines = [effectText, studyText, nText];
-      const tooltipWidth = Math.max(142, Math.min(240, Math.max(...tooltipLines.map((line) => line.length)) * 7 + 30));
-      const tooltipHeight = 52;
-      const tooltipX = Math.min(width - right - tooltipWidth, Math.max(left, x - tooltipWidth / 2));
-      const tooltipY = y < 82 ? y + 24 + (pointIndex % 2) * (tooltipHeight + 5) : y - tooltipHeight - 6 - (pointIndex % 2) * (tooltipHeight + 5);
+      const dotY = rowCenter + dotOffsets[pointIndex % dotOffsets.length];
       const linkAttrs = point.url ? `href="${escapeHtml(point.url)}" target="_blank" rel="noopener"` : "";
       const ariaLabel = `${item.row[NAME_KEY]} ${point.label} effect ${formatPercentValue(point.value)}%, n=${point.n || "not reported"}, open PubMed`;
       return `
-        <g class="study-point" tabindex="0" aria-label="${escapeHtml(ariaLabel)}">
+        <g class="study-point" tabindex="0" aria-label="${escapeHtml(ariaLabel)}" data-drug="${escapeHtml(item.row[NAME_KEY])}" data-study="${escapeHtml(point.label)}" data-effect="${escapeHtml(formatPercentValue(point.value))}" data-n="${escapeHtml(point.n || "NR")}" data-url="${escapeHtml(point.url || "")}">
           <a ${linkAttrs} class="study-link" aria-label="${escapeHtml(ariaLabel)}">
-            <circle class="study-hit-area" cx="${x}" cy="${y + 15}" r="12" />
-            <circle class="study-dot" cx="${x}" cy="${y + 15}" r="5.5" />
-            <rect x="${tooltipX}" y="${tooltipY}" width="${tooltipWidth}" height="${tooltipHeight}" rx="5" />
-            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 15}" text-anchor="middle">
-              ${tooltipLines.map((line, lineIndex) => `<tspan x="${tooltipX + tooltipWidth / 2}" dy="${lineIndex === 0 ? 0 : 15}">${escapeHtml(line)}</tspan>`).join("")}
-            </text>
+            <circle class="study-hit-area" cx="${x}" cy="${dotY}" r="8" />
+            <circle class="study-dot" cx="${x}" cy="${dotY}" r="5.5" />
           </a>
         </g>
       `;
     }).join("");
     return `
-      <text x="0" y="${y + 13}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row[NAME_KEY])}</text>
-      <line x1="${left}" y1="${y + 15}" x2="${width - right}" y2="${y + 15}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
+      <text x="0" y="${rowCenter + 4}" font-size="12" font-weight="700" fill="#18212f">${escapeHtml(item.row[NAME_KEY])}</text>
+      <line x1="${left}" y1="${rowCenter}" x2="${width - right}" y2="${rowCenter}" stroke="#dbe3ee" stroke-width="8" stroke-linecap="round" />
       ${dots}
-      <text x="${width - right + 14}" y="${y + 19}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(pointSummary(item.points))}</text>
+      <text x="${width - right + 14}" y="${rowCenter + 4}" font-size="11.5" font-weight="700" fill="#334155">${escapeHtml(pointSummary(item.points))}</text>
     `;
   }).join("");
 
@@ -455,7 +449,10 @@ function renderChart(column, rows) {
       <div class="chart-legend" aria-label="Chart legend">
         <span class="legend-item"><span class="legend-swatch legend-track"></span>0-100% scale</span>
         <span class="legend-item"><span class="legend-dot"></span>individual RCT differential</span>
-        <span class="legend-item">hover for exact value; click any dot to open PubMed</span>
+        <span class="legend-item">hover or focus any dot for details; click a dot or study link to open PubMed</span>
+      </div>
+      <div class="study-detail" aria-live="polite">
+        <span class="study-detail-empty">Hover or focus any RCT dot for effect, study, and n.</span>
       </div>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)} chart">
         <text x="0" y="14" font-size="11" fill="#637083">Differential %</text>
@@ -465,6 +462,24 @@ function renderChart(column, rows) {
         <text x="${width - right}" y="${height - 32}" font-size="11" text-anchor="end" fill="#637083">100%</text>
       </svg>
     </section>
+  `;
+}
+
+function updateStudyDetail(pointEl) {
+  const chart = pointEl.closest(".chart");
+  const detail = chart?.querySelector(".study-detail");
+  if (!detail) {
+    return;
+  }
+  const { drug, study, effect, n, url } = pointEl.dataset;
+  const studyMarkup = url
+    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(study)}</a>`
+    : escapeHtml(study);
+  detail.innerHTML = `
+    <span><strong>${escapeHtml(drug)}</strong></span>
+    <span>Effect: <strong>${escapeHtml(effect)}%</strong></span>
+    <span>Study: ${studyMarkup}</span>
+    <span>n=${escapeHtml(n || "NR")}</span>
   `;
 }
 
@@ -637,6 +652,18 @@ symptomTextFilterEl.addEventListener("input", () => {
 });
 notSymptomFilterEl.addEventListener("change", () => applyFilters());
 graphToggleEl.addEventListener("change", () => render(state.visibleRows));
+listEl.addEventListener("pointerover", (event) => {
+  const point = event.target.closest?.(".study-point");
+  if (point) {
+    updateStudyDetail(point);
+  }
+});
+listEl.addEventListener("focusin", (event) => {
+  const point = event.target.closest?.(".study-point");
+  if (point) {
+    updateStudyDetail(point);
+  }
+});
 listEl.addEventListener("click", (event) => {
   const button = event.target.closest(".rct-toggle");
   if (!button) {

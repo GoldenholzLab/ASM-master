@@ -410,6 +410,32 @@
         box-shadow: 0 0 0 2px #ccfbf1;
       }
 
+      .study-detail {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 14px;
+        min-height: 34px;
+        margin: 0 0 10px;
+        padding: 7px 10px;
+        border: 1px solid #dbe3ee;
+        border-radius: 6px;
+        background: #f8fafc;
+        color: #263445;
+        font-size: 0.82rem;
+        line-height: 1.3;
+      }
+
+      .study-detail a {
+        color: var(--accent-dark);
+        font-weight: 760;
+        text-decoration: underline;
+      }
+
+      .study-detail-empty {
+        color: var(--muted);
+      }
+
       .study-dot {
         fill: #0f766e;
         stroke: #ccfbf1;
@@ -428,35 +454,11 @@
       }
 
       .study-point:hover .study-dot,
-      .study-point:focus .study-dot {
+      .study-point:focus .study-dot,
+      .study-point:focus-within .study-dot {
         fill: #115e59;
         stroke: #99f6e4;
         stroke-width: 5;
-      }
-
-      .study-link rect,
-      .study-link text {
-        opacity: 0;
-        transition: opacity 0.12s ease;
-      }
-
-      .study-link rect {
-        fill: #0f172a;
-        stroke: #334155;
-      }
-
-      .study-link text {
-        fill: #fff;
-        font-size: 11px;
-        font-weight: 760;
-        text-decoration: underline;
-      }
-
-      .study-point:hover .study-link rect,
-      .study-point:hover .study-link text,
-      .study-point:focus .study-link rect,
-      .study-point:focus .study-link text {
-        opacity: 1;
       }
 
       .chart-empty,
