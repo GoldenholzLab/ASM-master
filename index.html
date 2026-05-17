@@ -503,6 +503,10 @@
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script>
+      const appScript = document.createElement("script");
+      appScript.src = `app.js?v=${Date.now()}`;
+      document.body.append(appScript);
+    </script>
   </body>
 </html>

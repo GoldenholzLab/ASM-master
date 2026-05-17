@@ -620,7 +620,7 @@ def validate_html(rows, issues):
     app_text = APP_PATH.read_text() if APP_PATH.exists() else ""
     combined = html_text + "\n" + app_text
 
-    if 'src="app.js"' not in html_text:
+    if "app.js" not in html_text:
         add_issue(issues, "error", "html_display", field="app.js", message="HTML does not load the CSV-derived app script")
     if "ASM-list.csv" not in combined:
         add_issue(issues, "error", "html_display", field="fetch", message="App does not fetch ASM-list.csv")
