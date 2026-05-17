@@ -292,7 +292,8 @@ function parsePlotPoints(row, columnKey) {
       return {
         label: parts[0],
         value: Math.max(0, Math.min(100, value)),
-        url: parts.slice(2).join("|")
+        url: parts[2],
+        n: parts[3] || ""
       };
     })
     .filter((point) => point && point.label && point.url);
@@ -401,18 +402,25 @@ function renderChart(column, rows) {
     const y = top + index * rowHeight;
     const dots = item.points.map((point, pointIndex) => {
       const x = scale(point.value);
-      const tooltipLabel = `${point.label}: ${formatPercentValue(point.value)}%`;
-      const tooltipWidth = Math.max(118, Math.min(220, tooltipLabel.length * 7 + 30));
+      const effectText = `Effect: ${formatPercentValue(point.value)}%`;
+      const studyText = `Study: ${point.label}`;
+      const nText = `n=${point.n || "NR"}`;
+      const tooltipLines = [effectText, studyText, nText];
+      const tooltipWidth = Math.max(142, Math.min(240, Math.max(...tooltipLines.map((line) => line.length)) * 7 + 30));
+      const tooltipHeight = 52;
       const tooltipX = Math.min(width - right - tooltipWidth, Math.max(left, x - tooltipWidth / 2));
-      const tooltipY = y < 58 ? y + 24 + (pointIndex % 2) * 24 : y - 24 - (pointIndex % 2) * 24;
+      const tooltipY = y < 82 ? y + 24 + (pointIndex % 2) * (tooltipHeight + 5) : y - tooltipHeight - 6 - (pointIndex % 2) * (tooltipHeight + 5);
       const linkAttrs = point.url ? `href="${escapeHtml(point.url)}" target="_blank" rel="noopener"` : "";
+      const ariaLabel = `${item.row[NAME_KEY]} ${point.label} effect ${formatPercentValue(point.value)}%, n=${point.n || "not reported"}, open PubMed`;
       return `
-        <g class="study-point" tabindex="0" aria-label="${escapeHtml(`${item.row[NAME_KEY]} ${point.label} ${point.value}%`)}">
-          <a ${linkAttrs} class="study-link" aria-label="${escapeHtml(`${point.label} ${formatPercentValue(point.value)}%, open PubMed`)}">
+        <g class="study-point" tabindex="0" aria-label="${escapeHtml(ariaLabel)}">
+          <a ${linkAttrs} class="study-link" aria-label="${escapeHtml(ariaLabel)}">
             <circle class="study-hit-area" cx="${x}" cy="${y + 15}" r="12" />
             <circle class="study-dot" cx="${x}" cy="${y + 15}" r="5.5" />
-            <rect x="${tooltipX}" y="${tooltipY}" width="${tooltipWidth}" height="21" rx="5" />
-            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 14}" text-anchor="middle">${escapeHtml(tooltipLabel)}</text>
+            <rect x="${tooltipX}" y="${tooltipY}" width="${tooltipWidth}" height="${tooltipHeight}" rx="5" />
+            <text x="${tooltipX + tooltipWidth / 2}" y="${tooltipY + 15}" text-anchor="middle">
+              ${tooltipLines.map((line, lineIndex) => `<tspan x="${tooltipX + tooltipWidth / 2}" dy="${lineIndex === 0 ? 0 : 15}">${escapeHtml(line)}</tspan>`).join("")}
+            </text>
           </a>
         </g>
       `;

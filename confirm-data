@@ -44,8 +44,11 @@ REQUIRED_COLUMNS = [
     "major_organ_for_metabolism",
     "pubmed_phase_ii_iii_rct_links",
     "diff_50_responder_maximum_effective_dose",
+    "plot_diff_50_responder_maximum_effective_dose",
     "diff_median_pct_change_maximum_effective_dose",
+    "plot_diff_median_pct_change_maximum_effective_dose",
     "diff_seizure_freedom_maximum_effective_dose",
+    "plot_diff_seizure_freedom_maximum_effective_dose",
     "formulations_available",
     "typical_doses_per_day",
     "minimum_effective_dose",
@@ -99,8 +102,11 @@ NON_RCT_FACT_FIELDS = [
 RCT_DERIVED_FIELDS = [
     "pubmed_phase_ii_iii_rct_links",
     "diff_50_responder_maximum_effective_dose",
+    "plot_diff_50_responder_maximum_effective_dose",
     "diff_median_pct_change_maximum_effective_dose",
+    "plot_diff_median_pct_change_maximum_effective_dose",
     "diff_seizure_freedom_maximum_effective_dose",
+    "plot_diff_seizure_freedom_maximum_effective_dose",
     "rct_pubmed_verification_notes",
 ]
 
@@ -167,6 +173,32 @@ def parse_rct_links(value):
         match = re.search(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?", url)
         links.append({"label": label, "url": url, "pmid": match.group(1) if match else ""})
     return links
+
+
+def parse_plot_points(value):
+    points = []
+    for part in (value or "").split(";"):
+        part = part.strip()
+        if not part:
+            continue
+        pieces = [item.strip() for item in part.split("|")]
+        label = pieces[0] if pieces else ""
+        effect = pieces[1] if len(pieces) > 1 else ""
+        url = pieces[2] if len(pieces) > 2 else ""
+        n = pieces[3] if len(pieces) > 3 else ""
+        match = re.search(r"pubmed\.ncbi\.nlm\.nih\.gov/(\d+)/?", url)
+        points.append(
+            {
+                "raw": part,
+                "label": label,
+                "effect": effect,
+                "url": url,
+                "pmid": match.group(1) if match else "",
+                "n": n,
+                "field_count": len(pieces),
+            }
+        )
+    return points
 
 
 def label_from_author_year(first_author, year):
@@ -489,6 +521,84 @@ def validate_efficacy_outcome_audit(rows, issues):
                 )
 
 
+def validate_plot_outcome_points(rows, issues):
+    efficacy_rows = read_dicts(EFFICACY_OUTCOME_AUDIT_PATH) if EFFICACY_OUTCOME_AUDIT_PATH.exists() else []
+    seizure_rows = read_dicts(SEIZURE_FREEDOM_AUDIT_PATH) if SEIZURE_FREEDOM_AUDIT_PATH.exists() else []
+    configs = [
+        {
+            "plot_field": "plot_diff_50_responder_maximum_effective_dose",
+            "audit_rows": efficacy_rows,
+            "diff_field": "rr50_differential_percent",
+            "include_field": "rr50_included_in_csv_summary",
+        },
+        {
+            "plot_field": "plot_diff_median_pct_change_maximum_effective_dose",
+            "audit_rows": efficacy_rows,
+            "diff_field": "mpc_differential_percent",
+            "include_field": "mpc_included_in_csv_summary",
+        },
+        {
+            "plot_field": "plot_diff_seizure_freedom_maximum_effective_dose",
+            "audit_rows": seizure_rows,
+            "diff_field": "differential_percent",
+            "include_field": "included_in_csv_summary",
+        },
+    ]
+
+    for config in configs:
+        expected = {}
+        for audit in config["audit_rows"]:
+            if audit.get(config["include_field"]) == "yes" and audit.get(config["diff_field"]) != "":
+                expected[(audit["generic_name"], audit["pmid"])] = {
+                    "label": audit["label"],
+                    "effect": float(audit[config["diff_field"]]),
+                }
+
+        observed = {}
+        for row in rows:
+            generic = row["generic_name"]
+            for point in parse_plot_points(row.get(config["plot_field"], "")):
+                key = (generic, point["pmid"])
+                observed[key] = point
+                if point["field_count"] != 4:
+                    add_issue(
+                        issues,
+                        "error",
+                        "plot_outcome_point",
+                        row=generic,
+                        field=config["plot_field"],
+                        message="Plotted RCT point must use Study|effect|PubMedURL|n format",
+                        observed=point["raw"],
+                    )
+                if not point["pmid"]:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point URL does not contain a PubMed PMID", observed=point["raw"])
+                    continue
+                if not re.fullmatch(r"\d+", point["n"] or ""):
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point n must be a positive integer", observed=point["raw"])
+                elif int(point["n"]) <= 0:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point n must be greater than zero", observed=point["raw"])
+                try:
+                    effect = float(point["effect"])
+                except ValueError:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point effect is not numeric", observed=point["raw"])
+                    continue
+                if effect < 0 or effect > 100:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point effect is outside 0-100%", observed=point["raw"])
+                audit = expected.get(key)
+                if not audit:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT point is not supported by an included RCT outcome audit row", observed=point["raw"])
+                    continue
+                if point["label"] != audit["label"]:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT label does not match the outcome audit label", expected=audit["label"], observed=point["label"])
+                if abs(effect - audit["effect"]) > 0.01:
+                    add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Plotted RCT effect does not match the outcome audit differential", expected=format_number(audit["effect"]), observed=point["effect"])
+
+        missing = sorted(set(expected) - set(observed))
+        for generic, pmid in missing:
+            audit = expected[(generic, pmid)]
+            add_issue(issues, "error", "plot_outcome_point", row=generic, field=config["plot_field"], message="Included RCT outcome audit row is missing from the plotted CSV points", expected=f"{audit['label']}|{format_number(audit['effect'])}|https://pubmed.ncbi.nlm.nih.gov/{pmid}/|n")
+
+
 def validate_outcome_fields(rows, issues):
     for row in rows:
         generic = row["generic_name"]
@@ -724,6 +834,7 @@ def main():
     validate_rcts(rows, issues)
     validate_efficacy_outcome_audit(rows, issues)
     validate_seizure_freedom(rows, issues)
+    validate_plot_outcome_points(rows, issues)
     validate_outcome_fields(rows, issues)
     validate_non_rct_fact_format(rows, issues)
     validate_mechanism_fields(rows, issues)
