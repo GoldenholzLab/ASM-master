@@ -1892,216 +1892,6 @@
   {
     "severity": "info",
     "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "trade_names",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "status_or_notes",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "available_in_us",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "epilepsy_type",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "mechanism_of_action",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "mechanism_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "mechanism_source_tier",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "mechanism_confidence",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "half_life_range",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "major_organ_for_metabolism",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "formulations_available",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "typical_doses_per_day",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "minimum_effective_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "maximum_approved_daily_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "enzyme_inducing_or_inhibiting",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "qt_interval_effect",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "adverse_symptoms_percentages",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "year_fda_cleared",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "fda_black_box_warning",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "fda_black_box_warning_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "divalproex sodium",
-    "field": "fda_black_box_warning_verified",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
     "row": "eslicarbazepine acetate",
     "field": "trade_names",
     "message": "Field has non-RCT source coverage listed in evidence_sources",
@@ -7987,7 +7777,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -7997,7 +7787,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8007,7 +7797,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8017,7 +7807,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8027,7 +7817,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8037,7 +7827,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8047,7 +7837,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8057,7 +7847,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8067,7 +7857,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8077,7 +7867,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8087,7 +7877,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8097,7 +7887,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8107,7 +7897,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8117,7 +7907,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8127,7 +7917,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8137,7 +7927,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8147,7 +7937,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8157,7 +7947,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8167,7 +7957,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8177,7 +7967,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8187,7 +7977,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
+    "source": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory"
   },
   {
     "severity": "info",
@@ -8398,216 +8188,6 @@
     "expected": "",
     "observed": "",
     "source": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "trade_names",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "status_or_notes",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "available_in_us",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "epilepsy_type",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "mechanism_of_action",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "mechanism_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "mechanism_source_tier",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "mechanism_confidence",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "half_life_range",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "major_organ_for_metabolism",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "formulations_available",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "typical_doses_per_day",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "minimum_effective_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "maximum_approved_daily_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "enzyme_inducing_or_inhibiting",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "qt_interval_effect",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "adverse_symptoms_percentages",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "year_fda_cleared",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "fda_black_box_warning",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "fda_black_box_warning_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "seletracetam",
-    "field": "fda_black_box_warning_verified",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling"
   },
   {
     "severity": "info",
@@ -9662,222 +9242,12 @@
   {
     "severity": "info",
     "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "trade_names",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "status_or_notes",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "available_in_us",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "epilepsy_type",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "mechanism_of_action",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "mechanism_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "mechanism_source_tier",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "mechanism_confidence",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "half_life_range",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "major_organ_for_metabolism",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "formulations_available",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "typical_doses_per_day",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "minimum_effective_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "maximum_approved_daily_dose",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "enzyme_inducing_or_inhibiting",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "qt_interval_effect",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "adverse_symptoms_percentages",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "year_fda_cleared",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "fda_black_box_warning",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "fda_black_box_warning_source",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
-    "row": "valproate sodium",
-    "field": "fda_black_box_warning_verified",
-    "message": "Field has non-RCT source coverage listed in evidence_sources",
-    "expected": "",
-    "observed": "",
-    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "fact_source_coverage",
     "row": "valproic acid",
     "field": "trade_names",
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9887,7 +9257,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9897,7 +9267,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9907,7 +9277,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9917,7 +9287,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9927,7 +9297,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9937,7 +9307,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9947,7 +9317,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9957,7 +9327,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9967,7 +9337,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9977,7 +9347,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9987,7 +9357,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -9997,7 +9367,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10007,7 +9377,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10017,7 +9387,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10027,7 +9397,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10037,7 +9407,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10047,7 +9417,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10057,7 +9427,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10067,7 +9437,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10077,7 +9447,7 @@
     "message": "Field has non-RCT source coverage listed in evidence_sources",
     "expected": "",
     "observed": "",
-    "source": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review; NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list"
   },
   {
     "severity": "info",
@@ -10588,16 +9958,6 @@
     "expected": "",
     "observed": "",
     "source": "FDA/DailyMed labeling"
-  },
-  {
-    "severity": "info",
-    "check": "mechanism_review",
-    "row": "divalproex sodium",
-    "field": "mechanism_of_action",
-    "message": "MOA row has mechanism-specific source tier and confidence annotation",
-    "expected": "",
-    "observed": "",
-    "source": "FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review"
   },
   {
     "severity": "info",
@@ -10902,16 +10262,6 @@
   {
     "severity": "info",
     "check": "mechanism_review",
-    "row": "seletracetam",
-    "field": "mechanism_of_action",
-    "message": "MOA row has mechanism-specific source tier and confidence annotation",
-    "expected": "",
-    "observed": "",
-    "source": "NCBI PubChem pharmacology records"
-  },
-  {
-    "severity": "info",
-    "check": "mechanism_review",
     "row": "stiripentol",
     "field": "mechanism_of_action",
     "message": "MOA row has mechanism-specific source tier and confidence annotation",
@@ -10958,16 +10308,6 @@
     "expected": "",
     "observed": "",
     "source": "FDA Orange Book products file"
-  },
-  {
-    "severity": "info",
-    "check": "mechanism_review",
-    "row": "valproate sodium",
-    "field": "mechanism_of_action",
-    "message": "MOA row has mechanism-specific source tier and confidence annotation",
-    "expected": "",
-    "observed": "",
-    "source": "FDA/DailyMed labeling"
   },
   {
     "severity": "info",
@@ -11088,16 +10428,6 @@
     "expected": "",
     "observed": "",
     "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9"
-  },
-  {
-    "severity": "info",
-    "check": "fda_boxed_warning_review",
-    "row": "divalproex sodium",
-    "field": "fda_black_box_warning",
-    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
-    "expected": "",
-    "observed": "",
-    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dc024ce-efc8-4690-7cb5-639c728fccac"
   },
   {
     "severity": "info",
@@ -11402,16 +10732,6 @@
   {
     "severity": "info",
     "check": "fda_boxed_warning_review",
-    "row": "seletracetam",
-    "field": "fda_black_box_warning",
-    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
-    "expected": "",
-    "observed": "",
-    "source": ""
-  },
-  {
-    "severity": "info",
-    "check": "fda_boxed_warning_review",
     "row": "stiripentol",
     "field": "fda_black_box_warning",
     "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
@@ -11462,22 +10782,12 @@
   {
     "severity": "info",
     "check": "fda_boxed_warning_review",
-    "row": "valproate sodium",
-    "field": "fda_black_box_warning",
-    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
-    "expected": "",
-    "observed": "",
-    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8d5fc1c1-d3c0-497e-971b-6c4dba9a3fad"
-  },
-  {
-    "severity": "info",
-    "check": "fda_boxed_warning_review",
     "row": "valproic acid",
     "field": "fda_black_box_warning",
     "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
     "expected": "",
     "observed": "",
-    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8051ad62-3b6e-461e-8090-60f5c0a904f4"
+    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dc024ce-efc8-4690-7cb5-639c728fccac"
   },
   {
     "severity": "info",
