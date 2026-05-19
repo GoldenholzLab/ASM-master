@@ -263,7 +263,10 @@ def select_label(row, refresh=False):
                 continue
             if not candidate_is_relevant(row, hit):
                 continue
-            candidates_by_setid.setdefault(setid, hit)
+            if setid in candidates_by_setid:
+                candidates_by_setid[setid].update({key: value for key, value in hit.items() if value})
+            else:
+                candidates_by_setid[setid] = hit
             if len(candidates_by_setid) >= 24:
                 break
         if len(candidates_by_setid) >= 24:

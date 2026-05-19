@@ -157,9 +157,14 @@ def split_sources(value):
     return [part.strip() for part in (value or "").split(";") if part.strip()]
 
 
+def is_no_rct_value(value):
+    value = (value or "").strip()
+    return value.upper() == "N/A" or value.startswith("No PubMed")
+
+
 def parse_rct_links(value):
     value = value or ""
-    if value.startswith("No PubMed"):
+    if is_no_rct_value(value):
         return []
     links = []
     for part in value.split(";"):
@@ -384,7 +389,7 @@ def validate_rcts(rows, issues):
                 expected=", ".join(expected) or "none",
                 observed=", ".join(observed) or "none",
             )
-        if not expected and not row.get("pubmed_phase_ii_iii_rct_links", "").startswith("No PubMed"):
+        if not expected and not is_no_rct_value(row.get("pubmed_phase_ii_iii_rct_links", "")):
             add_issue(issues, "error", "rct_section", row=generic, field="pubmed_phase_ii_iii_rct_links", message="Expected no-RCT text")
         for link in links:
             pmid = link["pmid"]
@@ -413,7 +418,7 @@ def validate_rcts(rows, issues):
 
 
 def extract_percent_range(value):
-    if re.match(r"^(NR|No PubMed|No qualifying|No placebo|No numeric|not comparable|Greater than placebo|Statistically)", value or "", re.I):
+    if re.match(r"^(N/A|NR|No PubMed|No qualifying|No placebo|No numeric|not comparable|Greater than placebo|Statistically)", value or "", re.I):
         return None
     leading = (value or "").split("(", 1)[0]
     numbers = []
@@ -602,7 +607,7 @@ def validate_plot_outcome_points(rows, issues):
 def validate_outcome_fields(rows, issues):
     for row in rows:
         generic = row["generic_name"]
-        has_rcts = not row.get("pubmed_phase_ii_iii_rct_links", "").startswith("No PubMed")
+        has_rcts = not is_no_rct_value(row.get("pubmed_phase_ii_iii_rct_links", ""))
         for field in [
             "diff_50_responder_maximum_effective_dose",
             "diff_median_pct_change_maximum_effective_dose",
@@ -616,7 +621,7 @@ def validate_outcome_fields(rows, issues):
                     add_issue(issues, "error", "outcome_range", row=generic, field=field, message="Outcome percentage outside 0-100% or invalid range", observed=value)
                 if not has_rcts:
                     add_issue(issues, "error", "outcome_source", row=generic, field=field, message="Numeric RCT-derived outcome exists but RCT section has no PubMed RCT links", observed=value)
-            elif not re.search(r"NR|No PubMed|No placebo|not extractable|not comparable|Statistically|No qualifying", value or "", re.I):
+            elif not re.search(r"N/A|NR|No PubMed|No placebo|not extractable|not comparable|Statistically|No qualifying", value or "", re.I):
                 add_issue(issues, "warning", "outcome_range", row=generic, field=field, message="Outcome field is neither numeric nor a recognized non-extractable statement", observed=value)
 
 
@@ -629,7 +634,7 @@ def validate_non_rct_fact_format(rows, issues):
         symptoms = row.get("adverse_symptoms_percentages", "")
         if "%" not in symptoms:
             add_issue(issues, "error", "fact_format", row=generic, field="adverse_symptoms_percentages", message="Symptom field must include percentages or an explicit 0% limited-data statement", observed=symptoms)
-        if "No PubMed" not in row.get("pubmed_phase_ii_iii_rct_links", ""):
+        if not is_no_rct_value(row.get("pubmed_phase_ii_iii_rct_links", "")):
             for link in parse_rct_links(row.get("pubmed_phase_ii_iii_rct_links", "")):
                 if not re.match(r"^[A-Za-z][A-Za-z0-9]+\d{4}[a-z]?$", link["label"]):
                     add_issue(issues, "error", "rct_label_format", row=generic, field="pubmed_phase_ii_iii_rct_links", message="RCT label should be FirstAuthorYear", observed=link["label"])

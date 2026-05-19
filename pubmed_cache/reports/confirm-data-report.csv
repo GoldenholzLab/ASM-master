@@ -1,4 +1,25 @@
 severity,check,row,field,message,expected,observed,source
+info,fact_source_coverage,acetazolamide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,acetazolamide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,brivaracetam,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,brivaracetam,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,brivaracetam,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
@@ -125,6 +146,27 @@ info,fact_source_coverage,clonazepam,year_fda_cleared,Field has non-RCT source c
 info,fact_source_coverage,clonazepam,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,clonazepam,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,clonazepam,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,clorazepate dipotassium,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,diazepam,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling
 info,fact_source_coverage,diazepam,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling
 info,fact_source_coverage,diazepam,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling
@@ -188,6 +230,48 @@ info,fact_source_coverage,eslicarbazepine acetate,year_fda_cleared,Field has non
 info,fact_source_coverage,eslicarbazepine acetate,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,eslicarbazepine acetate,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,eslicarbazepine acetate,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethosuximide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,ethotoin,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,everolimus,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Healthline ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,everolimus,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Healthline ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,everolimus,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Healthline ASM list; FDA/DailyMed labeling
@@ -419,6 +503,69 @@ info,fact_source_coverage,lorazepam,year_fda_cleared,Field has non-RCT source co
 info,fact_source_coverage,lorazepam,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,lorazepam,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
 info,fact_source_coverage,lorazepam,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,mephenytoin,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,metharbital,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,methsuximide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,midazolam,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling
 info,fact_source_coverage,midazolam,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling
 info,fact_source_coverage,midazolam,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling
@@ -461,6 +608,27 @@ info,fact_source_coverage,oxcarbazepine,year_fda_cleared,Field has non-RCT sourc
 info,fact_source_coverage,oxcarbazepine,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,oxcarbazepine,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,oxcarbazepine,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,paramethadione,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,perampanel,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,perampanel,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,perampanel,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
@@ -482,6 +650,27 @@ info,fact_source_coverage,perampanel,year_fda_cleared,Field has non-RCT source c
 info,fact_source_coverage,perampanel,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,perampanel,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,perampanel,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phenacemide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,phenobarbital,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenobarbital,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenobarbital,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
@@ -503,6 +692,27 @@ info,fact_source_coverage,phenobarbital,year_fda_cleared,Field has non-RCT sourc
 info,fact_source_coverage,phenobarbital,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenobarbital,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenobarbital,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
+info,fact_source_coverage,phensuximide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,phensuximide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,phenytoin,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenytoin,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,phenytoin,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
@@ -566,6 +776,27 @@ info,fact_source_coverage,pregabalin,year_fda_cleared,Field has non-RCT source c
 info,fact_source_coverage,pregabalin,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,pregabalin,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,pregabalin,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,primidone,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,progabide,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
 info,fact_source_coverage,progabide,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
 info,fact_source_coverage,progabide,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
@@ -629,27 +860,6 @@ info,fact_source_coverage,seletracetam,year_fda_cleared,Field has non-RCT source
 info,fact_source_coverage,seletracetam,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
 info,fact_source_coverage,seletracetam,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
 info,fact_source_coverage,seletracetam,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,Wikipedia anticonvulsant drug-class list; NCBI PubChem pharmacology records; FDA/DailyMed labeling
-info,fact_source_coverage,sodium valproate,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
-info,fact_source_coverage,sodium valproate,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,stiripentol,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,stiripentol,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,stiripentol,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling
@@ -734,6 +944,48 @@ info,fact_source_coverage,topiramate,year_fda_cleared,Field has non-RCT source c
 info,fact_source_coverage,topiramate,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,topiramate,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,topiramate,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,trimethadione,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+info,fact_source_coverage,valproate sodium,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
 info,fact_source_coverage,valproic acid,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,valproic acid,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,fact_source_coverage,valproic acid,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
@@ -797,15 +1049,19 @@ info,fact_source_coverage,zonisamide,year_fda_cleared,Field has non-RCT source c
 info,fact_source_coverage,zonisamide,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,zonisamide,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
 info,fact_source_coverage,zonisamide,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling
+info,mechanism_review,acetazolamide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,brivaracetam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,cannabidiol,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary
 info,mechanism_review,carbamazepine,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,cenobamate,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,clobazam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,clonazepam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
+info,mechanism_review,clorazepate dipotassium,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,diazepam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,divalproex sodium,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,eslicarbazepine acetate,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,ethosuximide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,ethotoin,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
 info,mechanism_review,everolimus,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,ezogabine,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,EMA Trobalt withdrawal page; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,felbamate,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
@@ -817,59 +1073,79 @@ info,mechanism_review,lacosamide,mechanism_of_action,MOA row has mechanism-speci
 info,mechanism_review,lamotrigine,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,levetiracetam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,lorazepam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
+info,mechanism_review,mephenytoin,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
+info,mechanism_review,metharbital,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
+info,mechanism_review,methsuximide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,midazolam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling
 info,mechanism_review,oxcarbazepine,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,paramethadione,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
 info,mechanism_review,perampanel,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,phenacemide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
 info,mechanism_review,phenobarbital,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review
+info,mechanism_review,phensuximide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
 info,mechanism_review,phenytoin,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,piracetam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,UK eMC SmPC labeling
 info,mechanism_review,pregabalin,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,primidone,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,progabide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,NCBI PubChem pharmacology records
 info,mechanism_review,rufinamide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,seletracetam,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,NCBI PubChem pharmacology records
-info,mechanism_review,sodium valproate,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,stiripentol,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,sultiame,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,UK eMC SmPC labeling; Sulthiame sodium-current mechanism study
 info,mechanism_review,tiagabine,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,topiramate,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,mechanism_review,trimethadione,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
+info,mechanism_review,valproate sodium,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,valproic acid,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review
 info,mechanism_review,vigabatrin,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
 info,mechanism_review,zonisamide,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA/DailyMed labeling
+info,fda_boxed_warning_review,acetazolamide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4
 info,fda_boxed_warning_review,brivaracetam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c
 info,fda_boxed_warning_review,cannabidiol,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec
-info,fda_boxed_warning_review,carbamazepine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8d409411-aa9f-4f3a-a52c-fbcb0c3ec053
+info,fda_boxed_warning_review,carbamazepine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bc03e499-5bac-4293-bff4-6864153a624d
 info,fda_boxed_warning_review,cenobamate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072
 info,fda_boxed_warning_review,clobazam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de03bd69-2dca-459c-93b4-541fd3e9571c
 info,fda_boxed_warning_review,clonazepam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1
-info,fda_boxed_warning_review,diazepam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a8bcc90-68fa-474d-832c-0df01e825f39
+info,fda_boxed_warning_review,clorazepate dipotassium,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=919cbd07-f587-4005-acff-26213dd1d1fb
+info,fda_boxed_warning_review,diazepam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9
 info,fda_boxed_warning_review,divalproex sodium,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0dc024ce-efc8-4690-7cb5-639c728fccac
 info,fda_boxed_warning_review,eslicarbazepine acetate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d0c9554-eaeb-4694-8089-00133fcadce3
+info,fda_boxed_warning_review,ethosuximide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6
+info,fda_boxed_warning_review,ethotoin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,everolimus,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab
 info,fda_boxed_warning_review,ezogabine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,felbamate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2f522701-397a-11de-8a39-0800200c9a66
 info,fda_boxed_warning_review,fenfluramine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d
 info,fda_boxed_warning_review,fosphenytoin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a
-info,fda_boxed_warning_review,gabapentin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=97935fd9-1d4a-43b6-a5d9-de994591187b
+info,fda_boxed_warning_review,gabapentin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c486fc7-c8c4-4c6c-b30c-366dabaeaadd
 info,fda_boxed_warning_review,ganaxolone,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e
 info,fda_boxed_warning_review,lacosamide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9e79b42c-38a3-4b2c-a196-a5a1948250e2
-info,fda_boxed_warning_review,lamotrigine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3e2c9a35-6a39-41d7-ad84-3c0bb8894b09
+info,fda_boxed_warning_review,lamotrigine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678
 info,fda_boxed_warning_review,levetiracetam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2919e43b-69a8-434c-a2d2-1f3ecd7554c0
 info,fda_boxed_warning_review,lorazepam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5fc0e987-61c9-40c4-b0d5-fcea07c8733e
+info,fda_boxed_warning_review,mephenytoin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
+info,fda_boxed_warning_review,metharbital,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
+info,fda_boxed_warning_review,methsuximide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=64a6ee88-c6b1-4e13-8208-b6772ef65a74
 info,fda_boxed_warning_review,midazolam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3
-info,fda_boxed_warning_review,oxcarbazepine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c5c86c8-ab7f-4fcf-bc1b-5a0b1fd0691b
+info,fda_boxed_warning_review,oxcarbazepine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66
+info,fda_boxed_warning_review,paramethadione,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,perampanel,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71cf3309-e182-473c-8b0b-280cabd0e122
+info,fda_boxed_warning_review,phenacemide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,phenobarbital,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8c7d0402-4977-4c25-bc4b-11db91339e9a
+info,fda_boxed_warning_review,phensuximide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,phenytoin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb
 info,fda_boxed_warning_review,piracetam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,pregabalin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f280bbd8-2af2-444a-bd96-e409337ca6dd
+info,fda_boxed_warning_review,primidone,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af593171-dabb-4ea3-b44c-89ed457b2c46
 info,fda_boxed_warning_review,progabide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,rufinamide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d
 info,fda_boxed_warning_review,seletracetam,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
-info,fda_boxed_warning_review,sodium valproate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8d5fc1c1-d3c0-497e-971b-6c4dba9a3fad
 info,fda_boxed_warning_review,stiripentol,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58304ba8-9779-4658-811e-94ffe08c3f16
 info,fda_boxed_warning_review,sultiame,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
 info,fda_boxed_warning_review,tiagabine,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72b7f357-8827-4a8b-b55a-01fbce47ae80
-info,fda_boxed_warning_review,topiramate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21628112-0c47-11df-95b3-498d55d89593
+info,fda_boxed_warning_review,topiramate,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e2a4df59-fead-4a01-9021-9eda02c48010
+info,fda_boxed_warning_review,trimethadione,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
+info,fda_boxed_warning_review,valproate sodium,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8d5fc1c1-d3c0-497e-971b-6c4dba9a3fad
 info,fda_boxed_warning_review,valproic acid,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8051ad62-3b6e-461e-8090-60f5c0a904f4
-info,fda_boxed_warning_review,vigabatrin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a5d389d2-d0e1-4395-a2a2-b552808e7f98
+info,fda_boxed_warning_review,vigabatrin,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a88ac1b4-e2c9-45c0-b321-4785902172e3
 info,fda_boxed_warning_review,zonisamide,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d12de43e-3ac3-4335-bc85-70d7366a91eb
