@@ -8612,6 +8612,216 @@
   {
     "severity": "info",
     "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "trade_names",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "status_or_notes",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "available_in_us",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "epilepsy_type",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "mechanism_of_action",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "mechanism_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "mechanism_source_tier",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "mechanism_confidence",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "half_life_range",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "major_organ_for_metabolism",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "formulations_available",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "typical_doses_per_day",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "minimum_effective_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "maximum_approved_daily_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "enzyme_inducing_or_inhibiting",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "qt_interval_effect",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "adverse_symptoms_percentages",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "year_fda_cleared",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "fda_black_box_warning",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "fda_black_box_warning_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "repository corticotropin",
+    "field": "fda_black_box_warning_verified",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
     "row": "rufinamide",
     "field": "trade_names",
     "message": "Field has non-RCT source coverage listed in evidence_sources",
@@ -10912,6 +11122,16 @@
   {
     "severity": "info",
     "check": "mechanism_review",
+    "row": "repository corticotropin",
+    "field": "mechanism_of_action",
+    "message": "MOA row has mechanism-specific source tier and confidence annotation",
+    "expected": "",
+    "observed": "",
+    "source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)"
+  },
+  {
+    "severity": "info",
+    "check": "mechanism_review",
     "row": "rufinamide",
     "field": "mechanism_of_action",
     "message": "MOA row has mechanism-specific source tier and confidence annotation",
@@ -11408,6 +11628,16 @@
     "expected": "",
     "observed": "",
     "source": ""
+  },
+  {
+    "severity": "info",
+    "check": "fda_boxed_warning_review",
+    "row": "repository corticotropin",
+    "field": "fda_black_box_warning",
+    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
+    "expected": "",
+    "observed": "",
+    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30"
   },
   {
     "severity": "info",
