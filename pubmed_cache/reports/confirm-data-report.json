@@ -212,6 +212,216 @@
   {
     "severity": "info",
     "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "trade_names",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "status_or_notes",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "available_in_us",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "epilepsy_type",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "mechanism_of_action",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "mechanism_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "mechanism_source_tier",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "mechanism_confidence",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "half_life_range",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "major_organ_for_metabolism",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "formulations_available",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "typical_doses_per_day",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "minimum_effective_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "maximum_approved_daily_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "enzyme_inducing_or_inhibiting",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "qt_interval_effect",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "adverse_symptoms_percentages",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "year_fda_cleared",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "fda_black_box_warning",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "fda_black_box_warning_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "barbexaclone",
+    "field": "fda_black_box_warning_verified",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862); AIFA Barbesaclone distribution communication (https://www.aifa.gov.it/en/-/comunicazione-sul-medicinale-a-denominazione-generica-barbesaclone-25-mg-e-100-mg-compresse-rivestite-22-05-2014-); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
     "row": "brivaracetam",
     "field": "trade_names",
     "message": "Field has non-RCT source coverage listed in evidence_sources",
@@ -5462,6 +5672,216 @@
   {
     "severity": "info",
     "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "trade_names",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "status_or_notes",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "available_in_us",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "epilepsy_type",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "mechanism_of_action",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "mechanism_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "mechanism_source_tier",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "mechanism_confidence",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "half_life_range",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "major_organ_for_metabolism",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "formulations_available",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "typical_doses_per_day",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "minimum_effective_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "maximum_approved_daily_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "enzyme_inducing_or_inhibiting",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "qt_interval_effect",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "adverse_symptoms_percentages",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "year_fda_cleared",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "fda_black_box_warning",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "fda_black_box_warning_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "methylphenobarbital",
+    "field": "fda_black_box_warning_verified",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf); EMA methylphenobarbital nationally authorised products PSUSA/00002025/202303 (https://www.ema.europa.eu/en/documents/psusa/methylphenobarbital-list-nationally-authorised-medicinal-products-psusa-00002025-202303_en.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
     "row": "midazolam",
     "field": "trade_names",
     "message": "Field has non-RCT source coverage listed in evidence_sources",
@@ -7348,6 +7768,216 @@
     "expected": "",
     "observed": "",
     "source": "Epilepsy Society ASM list; UK eMC SmPC labeling; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "trade_names",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "status_or_notes",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "available_in_us",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "epilepsy_type",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "mechanism_of_action",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "mechanism_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "mechanism_source_tier",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "mechanism_confidence",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "half_life_range",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "major_organ_for_metabolism",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "formulations_available",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "typical_doses_per_day",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "minimum_effective_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "maximum_approved_daily_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "enzyme_inducing_or_inhibiting",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "qt_interval_effect",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "adverse_symptoms_percentages",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "year_fda_cleared",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "fda_black_box_warning",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "fda_black_box_warning_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "potassium bromide",
+    "field": "fda_black_box_warning_verified",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling"
   },
   {
     "severity": "info",
@@ -9878,6 +10508,16 @@
     "expected": "",
     "observed": "",
     "source": "FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "mechanism_review",
+    "row": "barbexaclone",
+    "field": "mechanism_of_action",
+    "message": "MOA row has mechanism-specific source tier and confidence annotation",
+    "expected": "",
+    "observed": "",
+    "source": "Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862)"
   },
   {
     "severity": "info",
@@ -10132,6 +10772,16 @@
   {
     "severity": "info",
     "check": "mechanism_review",
+    "row": "methylphenobarbital",
+    "field": "mechanism_of_action",
+    "message": "MOA row has mechanism-specific source tier and confidence annotation",
+    "expected": "",
+    "observed": "",
+    "source": "HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf)"
+  },
+  {
+    "severity": "info",
+    "check": "mechanism_review",
     "row": "midazolam",
     "field": "mechanism_of_action",
     "message": "MOA row has mechanism-specific source tier and confidence annotation",
@@ -10218,6 +10868,16 @@
     "expected": "",
     "observed": "",
     "source": "UK eMC SmPC labeling"
+  },
+  {
+    "severity": "info",
+    "check": "mechanism_review",
+    "row": "potassium bromide",
+    "field": "mechanism_of_action",
+    "message": "MOA row has mechanism-specific source tier and confidence annotation",
+    "expected": "",
+    "observed": "",
+    "source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf)"
   },
   {
     "severity": "info",
@@ -10348,6 +11008,16 @@
     "expected": "",
     "observed": "",
     "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4"
+  },
+  {
+    "severity": "info",
+    "check": "fda_boxed_warning_review",
+    "row": "barbexaclone",
+    "field": "fda_black_box_warning",
+    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
+    "expected": "",
+    "observed": "",
+    "source": ""
   },
   {
     "severity": "info",
@@ -10602,6 +11272,16 @@
   {
     "severity": "info",
     "check": "fda_boxed_warning_review",
+    "row": "methylphenobarbital",
+    "field": "fda_black_box_warning",
+    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
+    "expected": "",
+    "observed": "",
+    "source": ""
+  },
+  {
+    "severity": "info",
+    "check": "fda_boxed_warning_review",
     "row": "midazolam",
     "field": "fda_black_box_warning",
     "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
@@ -10688,6 +11368,16 @@
     "expected": "",
     "observed": "",
     "source": ""
+  },
+  {
+    "severity": "info",
+    "check": "fda_boxed_warning_review",
+    "row": "potassium bromide",
+    "field": "fda_black_box_warning",
+    "message": "FDA boxed-warning field matches generated DailyMed audit extraction",
+    "expected": "",
+    "observed": "",
+    "source": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c77c8feb-0240-4ea3-9c89-3b972feb0538"
   },
   {
     "severity": "info",
