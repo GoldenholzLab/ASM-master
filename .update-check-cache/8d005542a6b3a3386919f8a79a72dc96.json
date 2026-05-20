@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-05-19",
+    "results": {
+      "skip": 0,
+      "limit": 10,
+      "total": 3
+    }
+  },
+  "results": [
+    {
+      "effective_time": "20181228",
+      "inactive_ingredient": [
+        "Salix Alba, CBD, water, alcohol, glycerin, aloe barbadensis, inactive homeopathic proprietary blend."
+      ],
+      "purpose": [
+        "For topical use on traumatized muscles, nerves, skin and ligaments and tendons. Do not use on gaping wounds. No contraindications, nontoxic, harmless to humans and animals."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children."
+      ],
+      "warnings": [
+        "Keep out of reach of children."
+      ],
+      "spl_product_data_elements": [
+        "Repair Salix Alba Bark and Hemp Salix Alba Bark Salix Alba Bark Hemp Hemp Water Alcohol Aloe Vera Leaf Glycerin"
+      ],
+      "openfda": {},
+      "version": "1",
+      "dosage_and_administration": [
+        "Directions Apply 1 drop (covers eight square inches) to the affected area or along the spine."
+      ],
+      "package_label_principal_display_panel": [
+        "PRINCIPAL DISPLAY PANEL - 1 OZ Jar Key Origins REPAIR Muscles Nerves Skin 1 OZ PRINCIPAL DISPLAY PANEL - 1 OZ Jar"
+      ],
+      "indications_and_usage": [
+        "Descriptions For topical use on traumatized muscles, nerves, skin and ligaments and tendons. Do not use on gaping wounds. No contraindications, nontoxic, harmless to humans and animals."
+      ],
+      "set_id": "3e7efed6-e79c-4fcd-8dfe-a1b8369c7aa6",
+      "id": "df35b7ff-5622-4ce5-a276-a5f5be1beab3",
+      "active_ingredient": [
+        "Ingredients Salix Alba, CBD, water, alcohol, glycerin, aloe barbadensis, inactive homeopathic proprietary blend."
+      ]
+    },
+    {
+      "spl_product_data_elements": [
+        "Kaydia Patch Kaydia Patch CAMPHOR (NATURAL) CAMPHOR (NATURAL) LEVOMENTHOL LEVOMENTHOL WATER TARTARIC ACID DIHYDROXYALUMINUM AMINOACETATE ALCOHOL HYDANTOIN CANNABIDIOL CANNABIDIOL GLYCERIN SODIUM ACRYLATE DISODIUM EDTA-COPPER CU-64"
+      ],
+      "active_ingredient": [
+        "Active Ingredients CBD 0.15%, Camphor 3%, Mentholum 1%, Capsicum Annuum Extract 0.12%"
+      ],
+      "purpose": [
+        "​Purpose"
+      ],
+      "indications_and_usage": [
+        "​Uses"
+      ],
+      "warnings": [
+        "Warning For external use only, do not ingest Do not use on wounds,rash or damaged skin Do not use if you have skin allergy Not suitable for expectant mothers"
+      ],
+      "do_not_use": [
+        ""
+      ],
+      "when_using": [
+        "when using this product Use only as directed Apply on clean and dry skin only Avoid area near eye, mouth or other mucous opening Do not use with combination with a heating device Do not apply more than 1 large patch at a time"
+      ],
+      "stop_use": [
+        "Stop using this product and consult a doctor if:Condition worsens Allergic reaction like rash, itching and other skin irritation developed Keep out of reach of children If ingested, seek medical/poison control attention immediately"
+      ],
+      "keep_out_of_reach_of_children": [
+        ""
+      ],
+      "dosage_and_administration": [
+        "Directions 1.Remove backing film 2.Apply patch on dry and clean skin 3.Remove and discard patch after 8-10 hours"
+      ],
+      "storage_and_handling": [
+        "Other information ​Store in dry, cool place Avoid direct sunlight exposure Seal bag after opening to keep product fresh"
+      ],
+      "inactive_ingredient": [
+        "Inactive Ingredients Water 56.53%, glycerin 25%, ammonium polyacrylate 9%, alcohol 3%, sodium acrylate 1.5%, 2,4-Imidazolidinedione 0.2%, disodium edta 0.1%, tartaric acid 0.25%, aluminum glycinate 0.15%"
+      ],
+      "package_label_principal_display_panel": [
+        "Package Label - Principal Display Panel 166 g label"
+      ],
+      "set_id": "a52fb379-a3a4-fe09-e053-2a95a90a1284",
+      "id": "a4a162ad-0652-4e05-e053-2a95a90aad10",
+      "effective_time": "20200501",
+      "version": "1",
+      "openfda": {}
+    },
+    {
+      "spl_product_data_elements": [
+        "PureKana Pain Relief Ointment CANNABIGEROL MENTHOL, UNSPECIFIED FORM MENTHOL, UNSPECIFIED FORM STEARYL ALCOHOL CETYL ALCOHOL PHENOXYETHANOL XANTHAN GUM STEARIC ACID COCONUT OIL SHEA BUTTER WATER POLYSORBATE 60 CAPSAICIN CAPSAICIN TETRASODIUM GLUTAMATE DIACETATE CANNABIDIOL DIMETHYL SULFONE"
+      ],
+      "active_ingredient": [
+        "PureKana 100 mL CBD 1000mg CBG 400mg"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "For the temporary relief of minor aches and pains of msucles and joints associated with simple backache, arthritis, strains, bruises, and sprains."
+      ],
+      "warnings": [
+        "For external use only."
+      ],
+      "when_using": [
+        "Do not apply to irritated skin or if excessive irritation develops, avoid contact with eyes or mucous membranes, if condition worsens, or if symptoms persist more than 7 days or clear up and reoccur within a few days, discontinue the use of this product and consult a health care provider, do not bandage tightly"
+      ],
+      "stop_use": [
+        "On wounds or damaged skin, if seal is missing or broken"
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children, Consult a healthcare provider before use."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "Ask a healthcare provider before use"
+      ],
+      "dosage_and_administration": [
+        "Adults: apply to affected area no more than 3-4 times daily. Children: Consult a healthcare provider before use."
+      ],
+      "storage_and_handling": [
+        "Store at 20-25C (65-77F)"
+      ],
+      "inactive_ingredient": [
+        "Water, Organic Coconut Oil, Stearic Acid, Shea Butter, Emulsifying Wax (Cetyl Alcohol, Stearyl Alcohol, Polysorbate 60), Broad Spectrum Hemp Extract (CBD, CBG, CBN, CBDV*) (Arial Parts), Methylsulfonylmethane (MSM), Phenooxyethanol, Xanthan Gum, Tetrasodium Glutamate Diacetate. *CBD (Cannabidiol), CBG (Cannabigerol), CBN (Cannabinol), CBDV (Cannabidivarin)"
+      ],
+      "recent_major_changes": [
+        ""
+      ],
+      "package_label_principal_display_panel": [
+        "PureKana BS 100 mL CBD 1000mg CBG 400mg"
+      ],
+      "set_id": "c68de052-5133-39c8-e053-2995a90a9c10",
+      "id": "d505e67f-fd4a-1f62-e053-2a95a90a2953",
+      "effective_time": "20220107",
+      "version": "2",
+      "openfda": {}
+    }
+  ]
+}

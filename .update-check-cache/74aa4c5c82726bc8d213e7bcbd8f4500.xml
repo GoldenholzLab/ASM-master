@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="842763a1-63ca-4721-b127-f997ac4aa659"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>These highlights do not include all the information needed to use SEZABY safely and effectively. See full prescribing information for SEZABY.<br/>
+      <br/>SEZABY™ (phenobarbital sodium) for injection, for intravenous use, CIV<br/>Initial U.S. Approval: 2022</title>
+   <effectiveTime value="20251223"/>
+   <setId root="8c7d0402-4977-4c25-bc4b-11db91339e9a"/>
+   <versionNumber value="7"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="146974886" root="1.3.6.1.4.1.519.1"/>
+            <name>Sun Pharmaceutical Industries, Inc.</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="725420835" root="1.3.6.1.4.1.519.1"/>
+                        <name>Sun Pharmaceutical Medicare Limited</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="manufacture"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="62756-301" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="analysis"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="62756-301" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="6fe15a85-4e03-43f6-b181-90d3000cb154"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20240119"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="62756-301" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>SEZABY</name>
+                        <formCode code="C42946" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>phenobarbital sodium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="100"/>
+                              <denominator unit="1" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="SW9M9BB5K3" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>PHENOBARBITAL SODIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="YQE403BP4D" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>PHENOBARBITAL</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="1" value="1"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code code="62756-301-01" codeSystem="2.16.840.1.113883.6.69"/>
+                              <formCode code="C43215" displayName="VIAL, SINGLE-DOSE" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20221226"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value codeSystem="2.16.840.1.113883.3.26.1.1" code="C112160" displayName="Type 0: Not a Combination Product" xsi:type="CE"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA215910" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20221225"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48677" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CIV"/>
+                        </policy>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic>
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48325" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="WHITE" xsi:type="CE">
+                              <originalText>white to off-white</originalText>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38276" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAVENOUS"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="ID_b14a6485-23a8-4125-9071-d98b5293e98c">
+               <id root="3e7aa2d7-b3fd-431e-9e40-0f6829b968a5"/>
+               <code code="34066-1" codeSystem="2.16.840.1.113883.6.1" displayName="BOXED WARNING SECTION"/>
+               <title>WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; DEPENDENCE AND WITHDRAWAL REACTIONS AFTER USE OF SEZABY FOR A LONGER DURATION THAN RECOMMENDED; and ABUSE, MISUSE AND ADDICTION WITH UNAPPROVED USE IN ADOLESCENTS AND ADULTS </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold underline">Risks from Concomitant Use with Opioids</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Concomitant use of phenobarbital products, including SEZABY, and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. If a decision is made for concomitant use of these drugs, limit dosages and durations to the minimum required, and follow patients for signs and symptoms of respiratory depression and sedation </content>[see Warnings and Precautions (5.1) and Drug Interactions (7.3)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold underline">Dependence and Withdrawal Reactions After Use of SEZABY for a Longer Duration than Recommended</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">The continued use of phenobarbital may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although SEZABY is indicated only for short-term use [see Indications and Usage (1) and Dosage and Administration (2)], if used for a longer duration than recommended, abrupt discontinuation or rapid dosage reduction of SEZABY may precipitate acute withdrawal reactions, which can be life-threatening. For patients receiving SEZABY for longer duration than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue SEZABY </content>[see Warnings and Precautions (5.2)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold underline">Abuse, Misuse, and Addiction with Unapproved Use in Adolescents and Adults</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">SEZABY is not approved for use in adolescents or adults. The unapproved use of SEZABY, in adolescents and adults exposes them to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of phenobarbital commonly involve concomitant use of other drugs, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes </content>[see Warnings and Precaution (5.3)].</paragraph>
+               </text>
+               <effectiveTime value="20221215"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; DEPENDENCE AND WITHDRAWAL REACTIONS AFTER USE OF SEZABY FOR A LONGER DURATION THAN RECOMMENDED; and ABUSE, MISUSE, AND ADDICTION WITH UNAPPROVED USE IN ADOLESCENTS AND ADULTS </paragraph>
+                        <paragraph>
+                           <content styleCode="italics">See full prescribing information for complete boxed warning</content>.</paragraph>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>
+                              <content styleCode="bold">Concomitant use of phenobarbital products, including SEZABY, and opioids may result in profound sedation, respiratory depression, coma, and death. If a decision is made to use concomitantly, limit dosages and durations to the minimum required, and monitor patients for respiratory depression and sedation. (5.1, 7.3)</content>
+                           </item>
+                           <item>
+                              <content styleCode="bold">Although SEZABY is indicated only for short-term use (1, 2), if used for a longer duration than recommended, abrupt discontinuation or rapid dosage reduction may precipitate acute withdrawal reactions, which can be life-threatening. For patients receiving SEZABY for a longer duration than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue SEZABY. (5.2)</content>
+                           </item>
+                           <item>
+                              <content styleCode="bold">SEZABY is not approved for use in adolescents or adults. The unapproved use of SEZABY in adolescents and adults exposes them to risks of abuse, misuse, and addiction, which can lead to overdose or death. (5.3)</content>
+                           </item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="L8ae78773-c872-4f1e-99c9-c96f0801c7fb">
+               <id root="83da1b75-a3b4-41b7-98ac-369cef0f5c1a"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>1 INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>SEZABY is indicated for the treatment of neonatal seizures in term and preterm infants. </paragraph>
+               </text>
+               <effectiveTime value="20221122"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>SEZABY is a barbiturate indicated for the treatment of neonatal seizures in term and preterm infants. </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="L67fe54b0-88c9-45c2-a955-a8a64c8e854b">
+               <id root="af452f13-80d8-4e7d-bf76-eed3a3eb9b0c"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>2 DOSAGE AND ADMINISTRATION </title>
+               <text/>
+               <effectiveTime value="20221215"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>
+                              <content styleCode="underline">Loading Dose:</content> 20 mg/kg is administered by intravenous infusion over 15 minutes into a large peripheral vein. If clinically indicated, at least 15 minutes after completion of the initial loading dose, a second loading dose may be administered over the subsequent 15 minutes as 20 mg/kg for term infants or 10 mg/kg or 20 mg/kg for preterm infants. The maximum total loading dose is 40 mg/kg. (2.1)</item>
+                           <item>
+                              <content styleCode="underline">Maintenance Dosage:</content> starting 8 to 12 hours after first loading dose:<br/>4.5 mg/kg/day given in 2 or 3 divided doses (i.e., 1.5 mg/kg every 8 hours or 2.25 mg/kg every 12 hours) up to 5 days. (2.1). </item>
+                           <item>Must be reconstituted with 10 mL 0.9 % Sodium Chloride Injection, USP prior to administration. See additional preparation and administration instructions in the Full Prescribing Information. (2.3)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="ID_f99dd6b3-9563-4df4-b69b-b03908833154">
+                     <id root="2e41ed9a-df01-47ee-9936-20aadb3c808d"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>2.1 Recommended Dosage and Administration</title>
+                     <text>
+                        <paragraph>The recommended dosage of SEZABY in neonates consists of a loading dose(s) followed by maintenance dosage (see Table 1). Administer SEZABY by intravenous infusion (over 15 minutes) into a large peripheral vein to avoid local tissue toxicity<content styleCode="italics"> [see Warnings and Precautions (5.9)].</content> SEZABY is for intravenous use only. </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Table 1: Recommended Dosage of SEZABY for Neonatal Seizures</content>
+                        </paragraph>
+                        <table width="100%">
+                           <col width="34%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <thead>
+                              <tr>
+                                 <td colspan="3">
+                                    <paragraph>
+                                       <content styleCode="bold">Loading Dose</content> (maximum total loading dose is 40 mg/kg)</paragraph>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>First loading dose</paragraph>
+                                 </td>
+                                 <td colspan="2" styleCode="Rrule Botrule">
+                                    <paragraph>20 mg/kg </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="2" styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Second loading dose </paragraph>
+                                    <paragraph>(If clinically indicated)<sup>1</sup>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>Preterm Infants</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>        10 mg/kg or 20 mg/kg <content styleCode="italics">[see Clinical Pharmacology (12.3)]</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Term Infants</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>        20 mg/kg</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td colspan="3" styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="bold">Maintenance Dosage </content>(total daily dose is 4.5 mg/kg/day and the total duration is up to 5 days)</paragraph>
+                                    <paragraph>Initiate 8 to 12 hours after first loading dose</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>        Option 1 </paragraph>
+                                 </td>
+                                 <td colspan="2" styleCode="Rrule Botrule">
+                                    <paragraph>        1.5 mg/kg every 8 hours </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>        Option 2 </paragraph>
+                                 </td>
+                                 <td colspan="2" styleCode="Rrule Botrule">
+                                    <paragraph>        2.25 mg/kg every 12 hours </paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>
+                           <sup>1</sup>If seizures persist or recur any time 15 minutes after completion of the initial loading dose, administer a second loading dose. (Administer the second loading dose no sooner than 15 minutes after completion of the first loading dose.)</paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_69f5d42d-2b04-4503-b107-25ac52005207">
+                     <id root="b15ab9c9-48d8-4418-ba0e-c30bbe839ba7"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>2.2 Reconstitution and Additional Administration Instructions</title>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Determine the number of vials to be reconstituted based on the patient’s weight and recommended dose.</item>
+                           <item>Aseptically reconstitute the lyophilized powder in the vial using 10 mL of 0.9% Sodium Chloride Injection, USP.</item>
+                           <item>Swirl the vial gently until contents are completely dissolved. <list listType="unordered" styleCode="Circle">
+                                 <item>The reconstituted solution contains 100 mg per 10 mL (10 mg/mL) of phenobarbital sodium. </item>
+                                 <item>Inspect the vial visually for particulate matter and discoloration prior to administration (the reconstituted solution is clear, colorless, and free from visible particulate matter).</item>
+                              </list>
+                           </item>
+                           <item>Discard the reconstituted solution if it is discolored or contains foreign particles.</item>
+                           <item>Withdraw the appropriate volume from the reconstituted vial for intravenous infusion and administer immediately <content styleCode="italics">[see Dosage and Administration (2.3)]</content>.</item>
+                           <item>Discard any unused portion of the reconstituted solution left in the vial <content styleCode="italics">[see Description (11)].</content>
+                           </item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_4a2865a7-e83f-491e-9296-2fbe3cbf6ce7">
+                     <id root="94e310b1-ca8e-4589-b0ac-4eb699d6f1b7"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>2.3 Storage of Reconstituted Solution</title>
+                     <text>
+                        <paragraph>If the reconstituted solution is not administered immediately, place the vial back in the original carton to protect it from light and store at either room temperature at 20°C to 25°C (68°F to 77°F) for a maximum of 8 hours or in the refrigerator at 2°C to 8°C (36°F to 46°F) for a maximum of 24 hours. Discard any unused portion of the reconstituted solution after the recommended storage duration.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Lbaee042d-17b1-4f76-9bc7-e827b2ba71cc">
+               <id root="394ecc82-4f1a-42b4-ba7c-f2f75da6cd53"/>
+               <code code="43678-2" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE FORMS &amp; STRENGTHS SECTION"/>
+               <title>3 DOSAGE FORMS AND STRENGTHS</title>
+               <text>
+                  <paragraph>For injection: 100 mg of phenobarbital sodium as a white to off-white lyophilized powder in a single-dose vial for reconstitution.</paragraph>
+               </text>
+               <effectiveTime value="20221122"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>For injection: 100 mg of phenobarbital sodium lyophilized powder in a single-dose vial for reconstitution  </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="La0abda97-d93d-4009-8c49-892b02df8af7">
+               <id root="2721f57b-1c36-4015-b742-ec9a1a6e672b"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>4 CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>SEZABY is contraindicated in patients with: </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>acute porphyrias <content styleCode="italics">[see Warnings and Precautions (5.8)],</content> or</item>
+                     <item>a history of hypersensitivity reaction to phenobarbital or other barbiturates <content styleCode="italics">[see Warnings and Precautions (5.7)]</content>
+                     </item>
+                  </list>
+               </text>
+               <effectiveTime value="20221122"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Acute porphyrias (4)</item>
+                           <item>Hypersensitivity to phenobarbital or other barbiturates (4) </item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="L87d00b87-0bcb-413d-a0f5-e83ca8e095ab">
+               <id root="30bcefb6-f9d4-40f6-979d-356dd8033ea4"/>
+               <code code="43685-7" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS AND PRECAUTIONS SECTION"/>
+               <title>5 WARNINGS AND PRECAUTIONS</title>
+               <effectiveTime value="20221122"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>
+                              <content styleCode="underline">Respiratory Depression or Insufficiency:</content> Abnormal respiration has been observed; careful respiratory monitoring is recommended during and after treatment. (5.4) </item>
+                           <item>
+                              <content styleCode="underline">Serious Dermatologic Reactions: </content>Serious and sometimes fatal hypersensitivity reactions, including toxic epidermal necrolysis and Stevens-Johnson syndrome, have been reported. SEZABY should be discontinued at the first sign of a rash, unless the rash is clearly not drug related. (5.5)</item>
+                           <item>
+                              <content styleCode="underline">Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan hypersensitivity</content>: DRESS can be fatal or life-threatening. If signs or symptoms of DRESS are present, evaluate the patient immediately. Discontinue if an alternative etiology cannot be established. (5.6)</item>
+                           <item>
+                              <content styleCode="underline">Infusion Site Reactions</content>: SEZABY may cause tissue damage with necrosis; avoid perivascular extravasation or intra-arterial injection. Stop SEZABY if evidence of pain, swelling, discoloration, or temperature change in limb. (5.9)</item>
+                           <item>
+                              <content styleCode="underline">QT Prolongation</content>: Avoid concomitant use of SEZABY in patients who are at significant risk of developing torsade de pointes and with products that may increase the risk of the QTc interval prolongation or products that may increase concentrations of SEZABY. (5.10) </item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="ID_6e62f3f6-420f-4f55-8913-2bbda38b4597">
+                     <id root="b80a6199-b699-488a-b893-a6fe5ff1dfb0"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.1 Risks from Concomitant Use with Opioids</title>
+                     <text>
+                        <paragraph>Concomitant use of phenobarbital products, including SEZABY, and opioids may result in profound sedation, respiratory depression, coma, and death <content styleCode="italics">[see Drug Interactions (7.3)]</content>. </paragraph>
+                        <paragraph>Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. If a decision is made for concomitant use of these drugs, limit dosages and durations to the minimum required, and follow patients for signs and symptoms of respiratory depression and sedation. Practitioners administering SEZABY must have the skills necessary to manage serious cardiorespiratory adverse reactions, including skills in airway management.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_a296d073-5b2e-49bf-86e3-01012e07353c">
+                     <id root="be49b7ec-7f8b-421f-be23-4bad244657b7"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.2 Dependence and Withdrawal Reactions After Use of SEZABY for a Longer Duration Than Recommended</title>
+                     <text>
+                        <paragraph>The continued use of phenobarbital may lead to clinically significant physical dependence. Although SEZABY is indicated only for short-term use <content styleCode="italics">[see Indications and Usage (1) and Dosage and Administration (2)]</content>, if used for a longer duration than recommended, abrupt discontinuation or rapid dosage reduction of SEZABY may precipitate acute withdrawal reactions, which can be life-threatening (e.g., seizures) <content styleCode="italics">[see Drug Abuse and Dependence (9.3)]</content>.</paragraph>
+                        <paragraph>To reduce the risk of withdrawal reactions in patients receiving SEZABY for a longer duration than recommended, use a gradual taper to discontinue SEZABY (a patient-specific plan should be used to taper the dose). Patients at an increased risk of withdrawal adverse reactions after phenobarbital discontinuation or rapid dosage reduction include those who received higher dosages, or those who had longer durations of use.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_89a4b34b-f495-4b0c-9687-0cea77f086fb">
+                     <id root="ad9be3ac-7e5d-4c7b-aaf5-aae66488d96b"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.3 Abuse, Misuse, and Addiction with Unapproved Use in Adolescents and Adults</title>
+                     <text>
+                        <paragraph>SEZABY is not approved for use in adolescents or adults. The unapproved use of SEZABY in adolescents and adults exposes them to the risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of barbiturates, including phenobarbital, often (but not always) involve the use of doses exceeding the doses used in clinical practice and commonly involve concomitant use of other drugs, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death <content styleCode="italics">[see Drug Abuse and Dependence (9.2)]</content>. </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_5a7f080c-f520-478d-a3a7-5eddc2411de3">
+                     <id root="6c9a548a-06b8-4960-8018-66f1853b3748"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.4 Respiratory Depression or Insufficiency</title>
+                     <text>
+                        <paragraph>In Study 1, 25% of patients treated with phenobarbital developed abnormal respiration <content styleCode="italics">[see Adverse Reactions (6.1) and Clinical Studies (14)]</content>. Careful respiratory monitoring is needed during and after the administration of SEZABY. </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_2bc2053a-c626-4352-ac7e-5bdb2c70c46d">
+                     <id root="e86a97d9-2201-4d09-b6dc-0381326592d3"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.5 Serious Dermatologic Reactions</title>
+                     <text>
+                        <paragraph>Serious and sometimes fatal dermatologic reactions, including toxic epidermal necrolysis (TEN) and Stevens-Johnson syndrome (SJS), have been reported with the use of phenobarbital. </paragraph>
+                        <paragraph>SEZABY should be discontinued at the first sign of a rash, unless the rash is clearly not drug related. If signs or symptoms suggest SJS/TEN, use of SEZABY should not be resumed and alternative therapy should be considered. If a rash occurs, the patient should be evaluated for signs and symptoms of Drug Reaction with Eosinophilia and Systemic Symptoms <content styleCode="italics">[see Warnings and Precautions (5.6)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_5282ac37-38da-40aa-a232-f108e58d30d3">
+                     <id root="d105aba3-f36c-4004-9c2d-957aa4f43f3b"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.6 Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan Hypersensitivity</title>
+                     <text>
+                        <paragraph>Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS), also known as multiorgan hypersensitivity, has been reported in patients taking antiepileptic drugs, including phenobarbital. Some of these events have been fatal or life-threatening. DRESS typically, although not exclusively, presents with fever, rash, lymphadenopathy, and/or facial swelling, in association with other organ system involvement, such as hepatitis, nephritis, hematological abnormalities, myocarditis, or myositis sometimes resembling an acute viral infection. Eosinophilia is often present. Because this disorder is variable in its expression, other organ systems not noted here may be involved. It is important to note that early manifestations of hypersensitivity, such as fever or lymphadenopathy, may be present even though rash is not evident. </paragraph>
+                        <paragraph>If such signs or symptoms are present, the patient should be evaluated immediately. SEZABY should be discontinued if an alternative etiology for the signs or symptoms cannot be established.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_0797b8cf-c044-4fd2-be94-2c12abecdfef">
+                     <id root="fb370fa1-691c-49b1-b24d-590e6fa28669"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.7 Hypersensitivity Reactions </title>
+                     <text>
+                        <paragraph>Phenobarbital-associated hypersensitivity reactions may include symptoms and signs such as rash, fever, facial or limb edema, and lymphadenopathy. </paragraph>
+                        <paragraph>SEZABY is contraindicated in patients who have experienced hypersensitivity to phenobarbital or other barbiturates. Additionally, consider alternatives to structurally similar drugs such as carboxamides (e.g., carbamazepine) and hydantoins (e.g., phenytoin) in these same patients. Similarly, if there is a history of hypersensitivity reactions to these structurally similar drugs in the patient or immediate family members, consider alternatives to SEZABY. If signs or symptoms of hypersensitivity reactions are present in a patient treated with SEZABY, the patient should be evaluated immediately and SEZABY should be discontinued if an alternative etiology for the signs or symptoms cannot be established.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_20bc647f-3324-4421-a76b-3c7291b58042">
+                     <id root="1781d44a-3a5d-48d5-8d1f-707a18864d18"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.8 Exacerbation of Porphyria </title>
+                     <text>
+                        <paragraph>SEZABY may precipitate acute attacks in patients with acute porphyrias. These episodes may be life-threatening, and include symptoms and signs such as anxiety, confusion, limb or abdominal pain, hyponatremia, seizures, and muscle weakness. Therefore, SEZABY is contraindicated in patients with acute porphyrias <content styleCode="italics">[see Contraindications (4)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_3c84418b-67e8-4093-b120-53b3505331a6">
+                     <id root="8e7e94b3-75c2-4e96-80b9-4fbc5a0757c4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.9 Infusion Site Reactions </title>
+                     <text>
+                        <paragraph>SEZABY is highly alkaline <content styleCode="italics">[see Description (11)]</content>. Therefore, extreme care should be taken to avoid perivascular extravasation or intra-arterial injection. Extravascular injection may cause local tissue damage with subsequent necrosis; consequences of intraarterial injection may vary from transient pain to gangrene of the limb. Any evidence of pain, swelling, discoloration, or temperature change in the limb warrants stopping the injection.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_9d239f95-593a-4f20-be7b-dc98ad4d7b06">
+                     <id root="8897be2b-1052-47e0-87ec-1f5ccde7d03b"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.10 QT Prolongation </title>
+                     <text>
+                        <paragraph>SEZABY may prolong the QT interval <content styleCode="italics">[see Clinical Pharmacology (12.2)]</content>. </paragraph>
+                        <paragraph>Avoid use of SEZABY in patients who are at significant risk of developing torsade de pointes, including those with congenital long QT syndrome, uncontrolled or significant cardiac disease, recent myocardial infarction, heart failure, unstable angina, bradyarrhythmias, AV block, aortic stenosis, or uncontrolled hypothyroidism. If use cannot be avoided in these patients, collect ECGs during treatment at specified intervals as clinically indicated, and monitor serum electrolytes and correct abnormalities.</paragraph>
+                        <paragraph>Avoid the concomitant use of products that may increase the risk of QTc interval prolongation or products that may increase concentrations of phenobarbital <content styleCode="italics">[see Drug Interactions (7.3)]</content>. If concomitant use of a product that also prolongs the QTc interval or that increases SEZABY concentrations is unavoidable, monitor patients for increased risk of QTc interval prolongation.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_c1ce64b8-03ba-4f75-8d53-d2ddb8242e3c">
+                     <id root="3251d57a-8452-40f4-b6b1-3d328d15f602"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.11 Embryofetal Toxicity with Unapproved Use in Adolescents and Adults </title>
+                     <text>
+                        <paragraph>SEZABY is not approved for use in adolescents or adults. Based on findings from prospective controlled trials, cohort studies, pregnancy registries, and randomized controlled-trials, phenobarbital can cause fetal harm when administered during pregnancy. Data from observational studies suggest an increased risk of major congenital malformations in infants of mothers who received phenobarbital during pregnancy<content styleCode="italics">. </content>
+                        </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_fb28f550-ca9c-434f-8a63-894c1b3b23ca">
+                     <id root="cedc75e6-d44b-4a4f-a95b-9ecca0cffc89"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.12 Neonatal Adverse Reactions from Unapproved Maternal Phenobarbital Use </title>
+                     <text>
+                        <paragraph>SEZABY is not approved for use in adolescents or adults. Phenobarbital crosses the placenta and may produce respiratory depression, hypotonia, and sedation in neonates of mothers who received phenobarbital during pregnancy. The use of SEZABY late in pregnancy can result in the following adverse reactions in neonates:</paragraph>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Sedation (respiratory depression, lethargy, hypotonia) and/or</item>
+                           <item>Withdrawal reactions (hyperreflexia, irritability, restlessness, tremors, inconsolable crying and feeding difficulties). </item>
+                        </list>
+                        <paragraph>Neonatal coagulation defects have also been reported within the first 24 hours in neonates exposed to phenobarbital during pregnancy.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_c46baff8-1da2-4ef4-9cff-277f1502e792">
+                     <id root="2a4d2d7f-40f7-4cb1-879f-55ef9f4d2376"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.13 Sedation, Respiratory Depression, and Withdrawal in Neonates Exposed to Phenobarbital Through Breast Milk </title>
+                     <text>
+                        <paragraph>SEZABY is not approved for use in adolescents or adults. Phenobarbital is present and may accumulate in breast milk. Phenobarbital has been detected in some neonates exposed to breast milk from phenobarbital-treated mothers. There are reports of sedation, respiratory depression and withdrawal in infants exposed to phenobarbital through breast milk. </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_a41b04e7-7f17-4a09-b492-a9405f40ec3b">
+                     <id root="284e7871-560e-4b98-bf0b-f42329b1ea88"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.14 Suicidal Behavior and Ideation with Unapproved Use in Adolescents and Adults </title>
+                     <text>
+                        <paragraph>SEZABY is not approved for use in adolescents or adults. Antiepileptic drugs (AEDs) increase the risk of suicidal thoughts or behavior in adolescents and adults. </paragraph>
+                        <paragraph>Pooled analyses of 199 placebo-controlled clinical trials (mono- and adjunctive therapy) of 11 different AEDs showed that adult patients randomized to one of the AEDs had approximately twice the risk (adjusted relative risk 1.8, 95% confidence interval [CI]: 1.2, 2.7) of suicidal thinking or behavior compared to adult patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated adult patients was 0.43%, compared to 0.24% among 16,029 placebo-treated adult patients, representing an increase of approximately one case of suicidal thinking or behavior for every 530 adult patients treated. There were four suicides in drug-treated adult patients in the trials and none in placebo-treated adult patients, but the number was too small to allow any conclusion about AED effect on suicide.</paragraph>
+                        <paragraph>The increased risk of suicidal thoughts or behavior in adults with AEDs was observed as early as one week after starting AED treatment and persisted for the duration of treatment assessed. </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Lca7e3888-eae3-4b8d-9c74-cb34ceb6f237">
+               <id root="bc4a9d50-3b9b-4139-89b5-af2fc1d2b30f"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>6 ADVERSE REACTIONS</title>
+               <text>
+                  <paragraph>The following clinically significant adverse reactions are described elsewhere in the labeling:</paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Risks from Concomitant Use with Opioids<content styleCode="italics"> [see Warnings and Precautions (5.1)]</content>
+                     </item>
+                     <item>Dependence and Withdrawal Reactions After Use of SEZABY for a Longer Duration Than Recommended <content styleCode="italics">[see Warnings and Precautions (5.2)]</content>
+                     </item>
+                     <item>Abuse, Misuse, and Addiction with Unapproved Use in Adolescents and Adults <content styleCode="italics">[see Warnings and Precautions (5.3)]</content>
+                     </item>
+                     <item>Respiratory Depression or Insufficiency <content styleCode="italics">[see Warnings and Precautions (5.4)]</content>
+                     </item>
+                     <item>Serious Dermatologic Reactions <content styleCode="italics">[see Warnings and Precautions (5.5)]</content>
+                     </item>
+                     <item>Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan Hypersensitivity <content styleCode="italics">[see Warnings and Precautions (5.6)]</content>
+                     </item>
+                     <item>Hypersensitivity<content styleCode="italics"> [see Warnings and Precautions (5.7)]</content>
+                     </item>
+                     <item>Exacerbation of Porphyria <content styleCode="italics">[see Warnings and Precautions (5.8)]</content>
+                     </item>
+                     <item>Injection Site Reactions <content styleCode="italics">[see Warnings and Precautions (5.9)]</content>
+                     </item>
+                     <item>QT Prolongation <content styleCode="italics">[see Warnings and Precautions (5.10)]</content>
+                     </item>
+                     <item>Embryofetal Toxicity with Unapproved Use in Adolescents and Adults <content styleCode="italics">[see Warnings and Precautions (5.11)]</content>
+                     </item>
+                     <item>Neonatal Adverse Reactions from Unapproved Maternal Phenobarbital Use <content styleCode="italics">[see Warnings and Precautions (5.12)]</content>
+                     </item>
+                     <item>Sedation, Respiratory Depression, and Withdrawal in Neonates Exposed to Phenobarbital Through Breast Milk <content styleCode="italics">[see Warnings and Precautions (5.13)]</content>
+                     </item>
+                     <item>Suicidal Behavior and Ideation with Unapproved use in Adolescents and Adults <content styleCode="italics">[see Warnings and Precautions (5.14)]</content>
+                     </item>
+                  </list>
+               </text>
+               <effectiveTime value="20221215"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>The most common adverse reactions (incidence &gt; 5% patients overall) are abnormal respiration, sedation, feeding disorder, and hypotension. (6.1) </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact Sun Pharmaceutical Industries, Inc. at 1-800-818-4555 or FDA at 1-800-FDA-1088 or </content>
+                           <content styleCode="bold">
+                              <linkHtml href="http://www.fda.gov/medwatch">www.fda.gov/medwatch</linkHtml>
+                           </content>
+                           <content styleCode="bold">.</content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="ID_a06774cf-6b8a-4bab-bc9e-d56da0794146">
+                     <id root="d0372aec-dc6e-4a68-a231-cce183c8c106"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>6.1 Clinical Trials Experience</title>
+                     <text>
+                        <paragraph>Because clinical trials are conducted under widely varying conditions, adverse reaction rates observed in the clinical trials of a drug cannot be directly compared to rates in the clinical trials of another drug and may not reflect the rates observed in practice.</paragraph>
+                        <paragraph>The Study 1 was a multicenter, randomized, double-blind, active-controlled study in neonates who were experiencing seizures <content styleCode="italics">[see Clinical Studies (14)]</content>. Patients were infants younger than 14 days of age with gestational ages between 36 and 44 weeks. Overall, 106 neonates (51 female and 55 male) were randomized to receive either phenobarbital (N=42) or levetiracetam (N=64) as their initial treatment. Patients received up to two 15-minute infusions of their initially assigned treatment (loading dose(s)) followed by maintenance treatment of up to 5 days. Mean durations of phenobarbital and levetiracetam treatments were 4.3 and 4 days, respectively. </paragraph>
+                        <paragraph>Table 2 summarizes the adverse reactions that occurred in 2% or more of neonates in Study 1. Incidences are displayed for neonates who received phenobarbital only and for neonates who received levetiracetam only. Because patients in Study 1 were neonates, adverse reactions that are verbally reported could not be assessed in this study.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Table 2: Adverse Reactions That Occurred in At Least 2% of Neonates Overall in Study 1 by Treatment Received</content>
+                        </paragraph>
+                        <table width="100%">
+                           <col width="34%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <thead>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule">
+                                    <paragraph> </paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Phenobarbital</content>
+                                    </paragraph>
+                                    <paragraph>
+                                       <content styleCode="bold">(N = 32)*</content>
+                                    </paragraph>
+                                    <paragraph>
+                                       <content styleCode="bold">%</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Levetiracetam</content>
+                                    </paragraph>
+                                    <paragraph>
+                                       <content styleCode="bold">(N = 19)</content>
+                                    </paragraph>
+                                    <paragraph>
+                                       <content styleCode="bold">%</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule">
+                                    <paragraph>Respiration abnormal</paragraph>
+                                 </td>
+                                 <td styleCode="Toprule Rrule Botrule" align="center">
+                                    <paragraph>25</paragraph>
+                                 </td>
+                                 <td styleCode="Toprule Rrule Botrule" align="center">
+                                    <paragraph>5</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Sedation</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>16</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>5</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Feeding disorder</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>16</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>5</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Hypotension</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>16</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>0</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Bradycardia</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>3</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>0</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Hyponatremia</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>3</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>0</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>Sepsis</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>3</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>0</paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>* Fifty-five neonates received both phenobarbital and levetiracetam and they had a similar adverse reaction profile as neonates who received only phenobarbital.</paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_49695be1-3b73-4949-bd08-05a91fa4af03">
+                     <id root="7bdc8142-f235-436c-b894-7b4001930366"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>6.2 Postmarketing Experience</title>
+                     <text>
+                        <paragraph>The following adverse reactions associated with the use of phenobarbital in neonates were identified in the literature. Because these reactions are reported voluntarily from a population of uncertain size, it is not always possible to reliably estimate their frequency or establish a causal relationship to drug exposure.</paragraph>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>
+                              <content styleCode="underline">Cardiovascular System</content>: Bradycardia, patent ductus arteriosus </item>
+                           <item>
+                              <content styleCode="underline">Dermatologic Reactions</content>: Eczema </item>
+                           <item>
+                              <content styleCode="underline">Hepatic</content>: Abnormal liver function</item>
+                           <item>
+                              <content styleCode="underline">Musculoskeletal</content>: Hypotonia, absent deep tendon reflexes</item>
+                           <item>
+                              <content styleCode="underline">Nervous System</content>: Impaired consciousness, neurological impairment </item>
+                           <item>
+                              <content styleCode="underline">Renal</content>: Abnormal kidney function</item>
+                           <item>
+                              <content styleCode="underline">Respiratory System</content>: Bronchial secretion, respiratory depression</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="La8d47535-4509-4a24-a82f-4cef6cf960dc">
+               <id root="f40af155-99a1-464b-87c8-5c96c61e7856"/>
+               <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+               <title>7 DRUG INTERACTIONS</title>
+               <effectiveTime value="20221215"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>
+                              <content styleCode="underline">CYP2C9, 2C19, 2E1, UGT Inhibitors:</content> Closely monitor and decrease SEZABY dosage, if needed. (7.1)</item>
+                           <item>
+                              <content styleCode="underline">CYP3A4, 2B6, 2C, UGT Substrates:</content> Substrate dosage adjustment may be needed. (7.1)</item>
+                           <item>
+                              <content styleCode="underline">CNS depressants:</content> Closely monitor for sedation and respiratory depression. (7.2)</item>
+                           <item>
+                              <content styleCode="underline">Drugs that Prolong the QT Interval</content>: Avoid concomitant use. (7.3)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="ID_1a2c265c-bc40-4e5a-b0f1-a8e180f3c10f">
+                     <id root="a2402744-4ddc-4a88-a2d8-d26cfae7b508"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>7.1 Cytochrome P450- or Uridine 5’-diphospho-glucuronosyltransferase (UGT)-Based Interactions</title>
+                     <text>
+                        <paragraph>The drug interaction information in Table 3 is based upon published literature in non-neonatal populations, in vitro studies, and the mechanistic knowledge of phenobarbital metabolic pathways <content styleCode="italics">[see Clinical Pharmacology (12.3)]</content>. Although the data from the published literature regarding these drug interactions are from non-neonatal populations and the magnitude of the potential drug interactions in neonates have not been characterized, this information still warrants consideration given the potential impact of these possible drug interactions on the safety and efficacy of phenobarbital and CYP2B6, 2C9, 2C19, or UGT substrates in neonates.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Table 3: Drug Interactions with SEZABY </content>
+                        </paragraph>
+                        <table width="100%">
+                           <col width="50%" align="left" valign="middle"/>
+                           <col width="50%" align="left" valign="middle"/>
+                           <thead>
+                              <tr>
+                                 <td colspan="2" styleCode="Botrule Lrule Rrule Toprule">
+                                    <paragraph>
+                                       <content styleCode="bold">Effects of Other Drugs on SEZABY</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td colspan="2" styleCode="Botrule Lrule Rrule Toprule">
+                                    <paragraph>
+                                       <content styleCode="italics">CYP2C9, 2C19, 2E1, </content>Uridine 5'-diphospho-glucuronosyltransferases (<content styleCode="italics">UGT) Inhibitors or Inducers</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="italics">Prevention or Management</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>Closely monitor for adverse reactions (e.g., over sedation, prolonged QTc interval, etc.) when used concomitantly with inhibitors of these enzymes and reduced efficacy (e.g., breakthrough seizure) when used with inducers of these enzymes. Consider titration of the SEZABY maintenance dosage accordingly if concomitant use is unavoidable.</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="italics">Clinical Effect(s)</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>Phenobarbital is a substrate of CYP2C9, CYP2C19, CYP2E1, and UGTs <content styleCode="italics">[see Clinical Pharmacology (12.3)]</content>. It is likely that concomitant use will result in an increase in phenobarbital exposure when used with these inhibitors and a reduction when used with these inducers, which may increase the risk of SEZABY adverse reactions or reduce efficacy, respectively when concomitant use in neonates.</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2" styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="bold">Effects of Other Drugs on Sezaby</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2" styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="italics">CYP3A, 2B6, 2C(s), UGTs Substrates</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="italics">Prevention or Management</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>Closely monitor neonates when SEZABY is used concurrently with substrates of these enzymes and consider increasing the dosage of the substrate accordingly, unless otherwise advised in its Prescribing Information, if concomitant use is unavoidable.</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule">
+                                    <paragraph>
+                                       <content styleCode="italics">Clinical Effect(s)</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule">
+                                    <paragraph>Phenobarbital is an inducer of CYP3A, CYP2B6, CYP2C(s), and UGT(s) <content styleCode="italics">[see Clinical Pharmacology (12.3)]</content>. It is likely that concomitant use in neonates will result in a decrease in the exposure of these substrates, which may reduce efficacy. </paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_e6c7ef84-6046-433a-9863-7a5bd487ced3">
+                     <id root="965aa119-daf8-48a9-8c3b-5563961ca9b4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>7.2 CNS Depressants</title>
+                     <text>
+                        <paragraph>Closely monitor for signs of sedation and respiratory depression with concomitant use of SEZABY with other CNS depressants, including opioids <content styleCode="italics">[see Warnings and Precautions (5.1)]</content>. </paragraph>
+                        <paragraph>Phenobarbital may cause sedation and respiratory depression <content styleCode="italics">[see Warnings and Precautions (5.4) and Adverse Reactions (6.1)]</content>. Other products that may also cause these adverse reactions may have additive pharmacologic effect and may increase the risk of sedation and respiratory depression.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_4c754e5e-bf58-48e3-8ad3-2bda2d0ef669">
+                     <id root="31e6db18-ae37-4391-8034-9bcfeea973c8"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>7.3 Drugs that Prolong QT Interval</title>
+                     <text>
+                        <paragraph>SEZABY may prolong the QT interval <content styleCode="italics">[see Warnings and Precautions (5.10) and Clinical Pharmacology (12.2)]</content>. Other products that may also prolong the QTc interval may have additive effects, and products that may increase concentrations of phenobarbital <content styleCode="italics">[see Drug Interactions (7.1)] </content>may increase the QT prolongation risk; therefore, avoid concomitant use of SEZABY and these products. If concomitant use of a product that also prolongs the QTc interval or that increases SEZABY concentrations is unavoidable, monitor patients for increased risk of QTc interval prolongation.</paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L857d4769-3569-4a11-a87f-ebe22e425d7a">
+               <id root="f57b6ef3-caf8-4759-9349-f9aed6cc821d"/>
+               <code code="43684-0" codeSystem="2.16.840.1.113883.6.1" displayName="USE IN SPECIFIC POPULATIONS SECTION"/>
+               <title>8 USE IN SPECIFIC POPULATIONS</title>
+               <effectiveTime value="20221122"/>
+               <component>
+                  <section ID="Ld6670e3f-b3fb-4204-aefb-55d52f4a83af">
+                     <id root="3fd8cecc-5f25-4efa-b6d3-f95f0878210f"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>8.4 Pediatric Use</title>
+                     <text>
+                        <paragraph>The safety and effectiveness of SEZABY have been established for the treatment of neonatal seizures in term and preterm infants, and the information on this use is discussed throughout the labeling. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Juvenile Animal Studies</content>
+                        </paragraph>
+                        <paragraph>In published studies, administration of antiepileptic drugs, including phenobarbital, to neonatal rats during the period of synaptogenesis has been reported to result in widespread apoptotic neurodegeneration in the developing brain and neurobehavioral deficits that persist into adulthood at doses associated with plasma exposures similar to those anticipated at the doses proposed for humans. The synaptogenetic period in rats is generally thought to correspond in humans to the third trimester of pregnancy through the first 3 to 4 years of life.</paragraph>
+                        <paragraph>In rodents, exposure to phenobarbital during the neonatal period has been reported in published literature to result in permanent alterations in male and female reproductive function. Administration of phenobarbital to neonatal rats or hamsters resulted in disruption of testosterone secretory profiles and estrous cyclicity, changes in steroidogenesis, altered sexual behavior, and impaired fertility in adulthood.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L61ad2276-cfd3-479b-98f4-bc914611c681">
+               <id root="239c1659-801e-4d14-bab1-d4031acd90a9"/>
+               <code code="42227-9" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG ABUSE AND DEPENDENCE SECTION"/>
+               <title>9 DRUG ABUSE AND DEPENDENCE</title>
+               <effectiveTime value="20221122"/>
+               <component>
+                  <section ID="L4015a91a-bdca-4e07-bb8a-a75841520f82">
+                     <id root="fe64fda5-39a7-457b-afb3-cbe0bf59f928"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>9.1 Controlled Substance</title>
+                     <text>
+                        <paragraph>SEZABY contains phenobarbital, a Schedule IV controlled substance.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_c2b2745e-f785-4721-919d-0d61f6af617a">
+                     <id root="fa16271b-8408-4040-8700-8b226281ca20"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>9.2 Abuse</title>
+                     <text>
+                        <paragraph>SEZABY is a barbiturate and a CNS depressant with a potential for misuse, abuse, and addiction with unapproved use in adolescents and adults. </paragraph>
+                        <paragraph>Abuse is the intentional, non-therapeutic use of a drug, even once, for its desirable psychological or physiological effects. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a health care provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Even taking barbiturates as prescribed may put patients at risk for abuse and misuse of their medication. Abuse and misuse of barbiturates, including phenobarbital, may lead to addiction.</paragraph>
+                        <paragraph>Abuse and misuse of barbiturates often (but not always) involve the use of doses exceeding the doses used in clinical practice and commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death. Barbiturates, including phenobarbital, are often sought by individuals who abuse drugs and other substances, and by individuals with addictive disorders <content styleCode="italics">[see Warnings and Precautions (5.3)]</content>.</paragraph>
+                        <paragraph>Symptoms of acute intoxication with barbiturates include unsteady gait, slurred speech, and sustained nystagmus. Mental signs of chronic intoxication include confusion, poor judgment, irritability, insomnia, and somatic complaints. The use of phenobarbital alone can result in death; however, death is more often associated with phenobarbital use in the context of polysubstance use (especially with other CNS depressants, such as opioids and alcohol).</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_531e292b-94b0-4a4c-a2ba-e40668427f68">
+                     <id root="f6bb2381-1ea4-455f-8cf0-1dbf71e5d325"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>9.3 Dependence</title>
+                     <text>
+                        <paragraph>
+                           <content styleCode="underline">Physical Dependence</content>
+                        </paragraph>
+                        <paragraph>SEZABY may produce physical dependence. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Abrupt discontinuation or rapid dosage reduction of SEZABY may precipitate acute withdrawal reactions, including seizures, which can be life-threatening. Patients at an increased risk of withdrawal adverse reactions after SEZABY discontinuation or rapid dosage reduction include those administered higher dosages (i.e., higher and/or more frequent doses) and those who have had longer durations of use <content styleCode="italics">[see Warnings and Precautions (5.2)]</content>. </paragraph>
+                        <paragraph>Symptoms of barbiturate withdrawal, including with phenobarbital, can be severe and may cause life threatening seizures or death.</paragraph>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Minor withdrawal symptoms may appear 8 to 12 hours after the last barbiturate dose. These symptoms usually appear in the following order: anxiety, muscle twitching, tremor of hands and fingers, progressive weakness, dizziness, distortion in visual perception, nausea, vomiting, insomnia, and orthostatic hypotension.</item>
+                           <item>Major withdrawal symptoms (convulsions and delirium) may occur within 16 hours and last up to 5 days after abrupt cessation of barbiturates. </item>
+                        </list>
+                        <paragraph>The intensity of withdrawal symptoms gradually declines over a period of approximately 15 days. </paragraph>
+                        <paragraph>To reduce the risk of withdrawal reactions in patients using SEZABY for longer durations than recommended, use a gradual taper to discontinue SEZABY over an extended period of time (weeks to months) <content styleCode="italics">[see Warnings and Precautions (5.2)]</content>. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Tolerance </content>
+                        </paragraph>
+                        <paragraph>Tolerance to barbiturates may develop after continued use. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose). As tolerance to barbiturates develops, the amount needed to maintain the same level of intoxication increases; tolerance to a fatal dosage, however, does not increase more than two-fold. As this occurs, the margin between an intoxicating dosage and a fatal dosage becomes smaller.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Lbd82ea7d-6b26-44df-b1ab-2c8307e5fc74">
+               <id root="3511fba9-f1ef-4417-8b38-14a4d9fc7184"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>10 OVERDOSAGE</title>
+               <text>
+                  <paragraph>Overdosage of barbiturates, including phenobarbital, is characterized by central nervous system depression ranging from drowsiness to coma. </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>In mild to moderate cases, symptoms can include drowsiness, confusion, dysarthria, lethargy, hypnotic state, diminished reflexes, ataxia, and hypotonia. </item>
+                     <item>Rarely, paradoxical or disinhibitory reactions (including agitation, irritability, impulsivity, violent behavior, confusion, restlessness, excitement, and talkativeness) may occur. </item>
+                     <item>In severe overdosage cases, patients may develop respiratory depression and coma.</item>
+                     <item>Overdosage of barbiturates, particularly in combination with other CNS depressants (including alcohol and opioids) may be fatal <content styleCode="italics">[see Warnings and Precautions (5.3)]</content>. </item>
+                     <item>Markedly elevated blood pressure, heart rate, or respiratory rate raise the concern that additional drugs are involved in the overdosage.</item>
+                  </list>
+                  <paragraph>In managing SEZABY overdosage, employ general supportive measures, including intravenous fluids, pressors, and airway maintenance. Consider contacting a poison center (1-800-221-2222) or a medical toxicologist for additional overdosage management recommendations. </paragraph>
+               </text>
+               <effectiveTime value="20221122"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Lc0a28046-91ef-45fd-9c41-c2dc860c82d5">
+               <id root="4c3b4bc6-ee71-4ecc-b3b1-282bddad910d"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>11 DESCRIPTION</title>
+               <text>
+                  <paragraph>Phenobarbital is a barbiturate. Chemically, phenobarbital sodium is 2,4,6(1H,3H,5H)-Pyrimidinetrione, 5-ethyl-5-phenyl-, monosodium salt and has the following structural formula:</paragraph>
+                  <renderMultiMedia referencedObject="MM101"/>
+                  <paragraph>C<sub>12</sub>H<sub>11</sub>N<sub>2</sub>NaO<sub>3</sub> MW 254.22</paragraph>
+                  <paragraph>The sodium salt of phenobarbital occurs as a white, slightly bitter powder, crystalline granules or flaky crystals; it is very soluble in water, soluble in alcohol and practically insoluble in ether or chloroform.</paragraph>
+                  <paragraph>SEZABY (phenobarbital sodium) for injection, for intravenous use, is supplied as sterile white to off white lyophilized powder in a 10 mL tubular glass vial. Each single-dose vial contains 100 mg of phenobarbital sodium, USP (equivalent to 91.35 mg of phenobarbital). The pH range is 9.20-10.00. SEZABY does not contain benzyl alcohol or propylene glycol.</paragraph>
+               </text>
+               <effectiveTime value="20210311"/>
+               <component>
+                  <observationMedia ID="MM101">
+                     <text>sezaby-1</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="sezaby-1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L0eabbf63-aa48-4a8b-bea4-b89e7eecb245">
+               <id root="ccec6c92-bfc6-4dfa-a975-ed9d90523bb5"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>12 CLINICAL PHARMACOLOGY</title>
+               <effectiveTime value="20221215"/>
+               <component>
+                  <section ID="L021a418f-b5ba-495c-a89e-f686e7cf8a09">
+                     <id root="902897e9-d399-4fe8-8182-3f534e4f9ec4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>12.1 Mechanism of Action</title>
+                     <text>
+                        <paragraph>The precise mechanism of action for phenobarbital for the treatment of neonatal seizures is not fully understood, but it is thought to involve potentiation of synaptic inhibition through an action on the GABA<sub>A</sub> receptor.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_70b9a7ab-8085-499b-bc56-b5ebf3a5b941">
+                     <id root="9769f08c-89ad-4692-8799-4180567d6cc9"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>12.2 Pharmacodynamics</title>
+                     <text>
+                        <paragraph>Phenobarbital exposure-response relationships and the time course of pharmacodynamic response of phenobarbital in neonates are unknown.</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Cardiac Electrophysiology</content>
+                        </paragraph>
+                        <paragraph>The effect of SEZABY on the QTc interval has not been adequately characterized. Nonclinical data suggest a potential for phenobarbital to inhibit the hERG potassium cardiac ionic channel, and QTc prolongation was reported in the literature in adult patients with post-stroke seizures at a mean phenobarbital dose of 130 mg (approximately 1.5 times the recommended loading dose in an average 4.4 kg neonate at 4 weeks) <content styleCode="italics">[see Indications and Usage (1), Dosage and Administration (2.1), and Warnings and Precautions (5.10)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_e5e1ef14-63e5-499a-97bd-9e99cad16d52">
+                     <id root="dca7473a-3fb1-40c0-a36e-7cdbd693ba73"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>12.3 Pharmacokinetics</title>
+                     <text>
+                        <paragraph>Mean (± standard deviation) total (bound + unbound) phenobarbital concentrations were evaluated (see Table 4) in term infants younger than 14 days old with gestational ages between 36 and 44 weeks who received either one loading dose (20 mg/kg) or two loading doses (20 mg/kg each) based upon seizure persistence or reoccurrence <content styleCode="italics">[see Clinical Studies 14)]</content>. The loading dose(s) was followed by a maintenance dosage of 1.5 mg/kg every 8 hours (total daily dose 4.5 mg/kg/day). </paragraph>
+                        <paragraph>A clinically significant difference between term and preterm infants in phenobarbital PK following the first SEZABY loading dose was not predicted. A second loading dose of either 10 mg/kg or 20 mg/kg of phenobarbital in preterm infants is expected to result in similar plasma concentrations compared to a second loading dose of 20 mg/kg in term infants. In addition, administration of a phenobarbital maintenance dosage of 1.5 mg/kg every 8 hours or 2.25 mg/kg every 12 hours is not expected to result in a clinically significant difference in total phenobarbital plasma concentrations. </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Table 4: Observed Phenobarbital Concentration Following Intravenous Phenobarbital Administration in Study 1</content>
+                        </paragraph>
+                        <table width="100%">
+                           <col width="34%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <col width="33%" align="left" valign="middle"/>
+                           <thead>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Time (Hours)</content>
+                                    </paragraph>
+                                 </td>
+                                 <td colspan="2" styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Phenobarbital Concentration (mcg/mL)</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule">
+                                    <paragraph> </paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">One Loading Dose Followed by the Maintenance Dosage</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Two Loading Doses</content>
+                                       <sup>1</sup>
+                                       <content styleCode="bold"> Followed by the Maintenance Dosage</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule" align="center">
+                                    <paragraph>1</paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>23 (± 2.7)</paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>26 (± 5.8)</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule" align="center">
+                                    <paragraph>24</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>23 (± 1.3)</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>39 (± 9.1)</paragraph>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Rrule Lrule Botrule" align="center">
+                                    <paragraph>48</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>25 (± 1.8)</paragraph>
+                                 </td>
+                                 <td styleCode="Rrule Botrule" align="center">
+                                    <paragraph>39 (± 8.2)</paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>
+                           <sup>1</sup> Second loading dose administered if seizures persisted or reoccurred more than 15 minutes after the first infusion</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Elimination</content>
+                        </paragraph>
+                        <paragraph>Published literature reports that the elimination t<sub>1/2</sub> of phenobarbital in neonates is approximately 1 week.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Metabolism</content>
+                        </paragraph>
+                        <paragraph>Published literature reports that phenobarbital is primarily metabolized by CYP2C9 and to a lesser extent by CYP2C19, CYP2E1, and UGTs. At birth, expression of CYP2C9 is negligible, which results in the longer half-life in neonates compared to older populations in the published literature. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Specific Populations</content>
+                        </paragraph>
+                        <paragraph>There are no clinically significant differences in pharmacokinetics of phenobarbital in neonates administered therapeutic hypothermia. The effect of sex, race, ethnicity, renal impairment, or hepatic impairment on phenobarbital pharmacokinetics in neonates is unknown.</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Drug Interaction Studies</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Clinical Studies and Published Literature</content>
+                        </paragraph>
+                        <paragraph>No dedicated clinical studies have been conducted in neonates that evaluated the effect of concomitant use of SEZABY with: </paragraph>
+                        <paragraph>     • CYP2C9, 2C19, 2E1, or UGT inhibitors or inducers on phenobarbital pharmacokinetics</paragraph>
+                        <paragraph>     • CYP2B6, 2C9, 2C19, or UGT substrates on the pharmacokinetics of these substrates </paragraph>
+                        <paragraph>Published literature regarding these interactions in non-neonatal populations should not be used to estimate the magnitude of the change in phenobarbital exposure in neonates due to differences in the expression of CYP2C9 and possibly other phenobarbital metabolic enzymes in term and preterm infants. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Midazolam:</content> Published literature reports a 2.3-fold increase in the clearance of midazolam (CYP3A substrate) with concurrent use with phenobarbital in 68 neonates with hypoxic ischemic encephalopathy<content styleCode="italics"> [see Drug Interactions (7.1)].</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Theophylline or Chloramphenicol:</content> Published literature reports no change in theophylline or chloramphenicol clearance with concomitant use of phenobarbital in neonates.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">In Vitro Studies</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Cytochrome P450 (CYP) Enzymes: </content>Phenobarbital is an inhibitor of CYP2B6, CYP2C8, CYP2C9, CYP2C19, and CYP3A4. Phenobarbital is an inducer of CYP3A4, CYP2B6, and CYP2Cs <content styleCode="italics">[see Drug Interactions (7.1)]</content>. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Uridine diphosphate (UDP)-glucuronosyl transferase (UGT) Enzymes:</content> Phenobarbital is an inhibitor of UGT1A1 and UGT2B7. Published literature reports that phenobarbital is an inducer for UGTs <content styleCode="italics">[see Drug Interactions (7.1)]</content>.</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Transporter Systems:</content> Phenobarbital is an inhibitor of BCRP, OAT1, OAT3, OCT2, OATP1B1, MATE1, and MATE2K. Phenobarbital is not a substrate of OAT1, OAT3, OCT2, OATP1B1, OATP1B3, MATE1, or MATE2K transporters. </paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L38417f57-561f-4baf-a7c5-86a2df1db9f0">
+               <id root="f58a7d5d-8664-4038-813f-3c40ea0c7375"/>
+               <code code="43680-8" codeSystem="2.16.840.1.113883.6.1" displayName="NONCLINICAL TOXICOLOGY SECTION"/>
+               <title>13 NONCLINICAL TOXICOLOGY</title>
+               <effectiveTime value="20221122"/>
+               <component>
+                  <section ID="ID_3f335b5a-50df-47b0-8598-b9ae01d38484">
+                     <id root="95dd1068-38ed-4037-b436-7c8f7a9c5500"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>13.1 Carcinogenesis, Mutagenesis, Impairment of Fertility </title>
+                     <text>
+                        <paragraph>
+                           <content styleCode="underline">Carcinogenesis</content>
+                        </paragraph>
+                        <paragraph>Phenobarbital is a rodent carcinogen that has been demonstrated to produce hepatocellular adenomas and carcinomas in rats and mice following lifetime administration. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Mutagenesis</content>
+                        </paragraph>
+                        <paragraph>The genotoxic potential of phenobarbital has not been adequately assessed. </paragraph>
+                        <paragraph>
+                           <content styleCode="underline">Impairment of Fertility</content>
+                        </paragraph>
+                        <paragraph>In a published study, administration of phenobarbital (subcutaneous doses up to 60 mg/kg/day) to adult rats prior to and during mating and continuing throughout pregnancy was reported to produce no adverse effects on fertility. </paragraph>
+                     </text>
+                     <effectiveTime value="20221122"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L72d6300a-7b93-43ce-8e98-4ab2e0f75bce">
+               <id root="95ec4b3a-cc86-4004-ade6-0504b7c4b462"/>
+               <code code="34092-7" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL STUDIES SECTION"/>
+               <title>14 CLINICAL STUDIES</title>
+               <text>
+                  <paragraph>The effectiveness of phenobarbital for the treatment of neonatal seizures was established in a randomized, double-blind, active-controlled study in neonates who were experiencing seizures (Study 1; NCT01720667). Patients were neonates younger than 14 days of age with gestational ages between 36 and 44 weeks. Fifty-two percent of patients were male. Fifty-six percent of patients were White, 9% were Native Hawaiian or other Pacific Islander, 5% were Black or African American, 5% were Asian, 4% were mixed race, 1% were American Indian or Alaska Native, and 22% were identified as other, or were missing or unknown. Twenty-six percent of patients were Hispanic or Latino, 60% were not Hispanic or Latino, and 14% were not reported, missing, or unknown.</paragraph>
+                  <paragraph>Eligible patients who experienced electrographically-confirmed seizures were randomized to receive either intravenous phenobarbital (N=42) or levetiracetam (N=64). </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Patients received an initial 15-minute infusion (loading dose) of either 20 mg/kg phenobarbital or 40 mg/kg levetiracetam. </item>
+                     <item>If electroencephalographic seizures persisted or recurred any time 15 minutes after the initial infusion completion, an additional infusion of the same treatment was administered (the second loading dose was 20 mg/kg infused over 15 minutes for both drugs). </item>
+                     <item>After loading dose(s) of phenobarbital or levetiracetam were administered, maintenance dosing of that treatment was administered regardless of whether seizures subsided. Maintenance regimens of 1.5 mg/kg/dose of phenobarbital and/or 10 mg/kg/dose of levetiracetam were administered via infusion every 8 hours and continued for up to 5 days. Mean durations of phenobarbital and levetiracetam treatments were 4.3 and 4 days, respectively.</item>
+                  </list>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>If seizures persisted or recurred any time 15 minutes after the second loading dose was completed, the patient also received alternate treatment. </item>
+                  </list>
+                  <paragraph>The primary endpoint in Study 1 was the percentage of neonates whose seizures were terminated for at least 24 hours without the need for a second drug for the treatment of their seizures. A total of 94 patients who had neurophysiologist-confirmed seizures were included in the efficacy analysis. </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Efficacy Results</content>
+                  </paragraph>
+                  <paragraph>A statistically significantly greater percentage of phenobarbital-treated patients met Study 1’s primary efficacy endpoint, compared to levetiracetam-treated patients. Table 5 presents the results of the trial’s primary and secondary efficacy analyses.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Table 5: Seizure Efficacy Results in Neonates (Study 1)</content>
+                  </paragraph>
+                  <table width="100%">
+                     <col width="25%" align="left" valign="middle"/>
+                     <col width="25%" align="left" valign="middle"/>
+                     <col width="25%" align="left" valign="middle"/>
+                     <col width="25%" align="left" valign="middle"/>
+                     <thead>
+                        <tr>
+                           <td styleCode="Botrule Lrule Rrule Toprule">
+                              <paragraph> </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule Toprule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">Phenobarbital</content>
+                                 <br/>
+                                 <content styleCode="bold">(N=33)</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule Toprule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">Levetiracetam</content>
+                                 <br/>
+                                 <content styleCode="bold">(N=61)</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule Toprule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">P-value*</content>
+                              </paragraph>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td colspan="4" styleCode="Botrule Lrule Rrule Toprule">
+                              <paragraph>
+                                 <content styleCode="bold">Primary Endpoint</content>
+                              </paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Rrule Lrule Botrule">
+                              <paragraph>Percentage of patients with seizure termination &gt; 24 hours<sup>1</sup>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>73%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>25%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>&lt;0.001</paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Rrule Lrule Botrule">
+                              <paragraph>
+                                 <content styleCode="bold">Secondary Endpoints</content>
+                              </paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Rrule Lrule Botrule">
+                              <paragraph>Percentage of patients with seizure termination &gt; 48 hours<sup>1</sup>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>55%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>13%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>&lt;0.001</paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Rrule Lrule Botrule">
+                              <paragraph>Percentage of patients with seizure termination &gt; 1 hour<sup>1</sup>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>85%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>43%</paragraph>
+                           </td>
+                           <td styleCode="Rrule Botrule" align="center">
+                              <paragraph>&lt;0.001**</paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Rrule Lrule Botrule">
+                              <paragraph>
+                                 <sup>1</sup> Without need for a second drug to treat seizures</paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Rrule Lrule Botrule">
+                              <paragraph>N = Total number of patients in each treatment group.</paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Rrule Lrule Botrule">
+                              <paragraph>*P-value was based on two-sided Fisher’s Exact Test for categorical variables comparing phenobarbital and levetiracetam groups.</paragraph>
+                              <paragraph>**Nominal: not controlled for Type I error</paragraph>
+                              <paragraph>The outcome of 11 patients who had missing data (3 in the phenobarbital group and 8 in the levetiracetam group) was imputed as not successfully terminating seizures.</paragraph>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <effectiveTime value="20221215"/>
+            </section>
+         </component>
+         <component>
+            <section ID="L4c243b4a-2b34-4a7c-8937-a5f4abb4ad7d">
+               <id root="dfbe78ae-84a4-42c1-b169-3fe4cd11c522"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>16 HOW SUPPLIED/STORAGE AND HANDLING</title>
+               <effectiveTime value="20221215"/>
+               <component>
+                  <section ID="L426851b2-8083-4872-b43e-64f2bae4d474">
+                     <id root="27f02959-9bf1-4db6-854f-73b865bebca6"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>16.1 How Supplied</title>
+                     <text>
+                        <paragraph>SEZABY (phenobarbital sodium) for injection is supplied as a sterile white to off-white, lyophilized powder in single-dose clear glass vials containing 100 mg of phenobarbital sodium.</paragraph>
+                        <table width="100%">
+                           <col width="50%" align="left" valign="middle"/>
+                           <col width="50%" align="left" valign="middle"/>
+                           <thead>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">Carton Contents</content>
+                                    </paragraph>
+                                 </td>
+                                 <td styleCode="Botrule Rrule Toprule" align="center">
+                                    <paragraph>
+                                       <content styleCode="bold">NDC</content>
+                                    </paragraph>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Botrule Lrule Rrule Toprule" align="center">
+                                    <paragraph>One 100 mg single-dose vial</paragraph>
+                                 </td>
+                                 <td styleCode="Toprule Rrule Botrule" align="center">
+                                    <paragraph>NDC 62756-301-01</paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>The vial stopper is not made with natural rubber latex.</paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="ID_a4f6123e-f72f-471c-966e-4f6464797b6c">
+                     <id root="f5603e3d-6f8e-4de9-ab8c-50588be56fb0"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>16.2 Storage and Handling</title>
+                     <text>
+                        <paragraph>Store unopened vials of SEZABY in original cartons at 20°C to 25°C (68°F to 77°F); excursions permitted between 15°C and 30°C (59°F and 86°F) [see USP Controlled Room Temperature]. Retain in the original carton until use to protect from light.</paragraph>
+                        <paragraph>For information on storage of the reconstituted SEZABY, see <content styleCode="italics">Dosage and Administration (2.3)</content>.</paragraph>
+                        <paragraph>Manufactured by: </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Sun Pharmaceutical Medicare Ltd., </content>
+                        </paragraph>
+                        <paragraph>Baska Ujeti Road, Ujeti,</paragraph>
+                        <paragraph>Halol -389350, Gujarat, India</paragraph>
+                        <paragraph>Distributed by: </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Sun Pharmaceutical Industries, Inc., </content>
+                        </paragraph>
+                        <paragraph>Cranbury, NJ 08512</paragraph>
+                        <paragraph>ISS. 02/2023</paragraph>
+                        <paragraph>5237784</paragraph>
+                        <paragraph>SEZABY is a trademark of Sun Pharma Advanced Research Company Ltd., used under license</paragraph>
+                     </text>
+                     <effectiveTime value="20221215"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Lfa51b358-0ff4-4fd4-ae7a-e89e1b569145">
+               <id root="a47ce78d-e9c5-4f0f-ad3c-537a29f9f942"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PACKAGE/LABEL PRINCIPAL DISPLAY PANEL - Vial Label</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">NDC 62756-301-01</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Sezaby</content>
+                     <sup>TM </sup>
+                     <content styleCode="bold">(phenobarbital sodium) for injection CIV</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">100 mg/vial</content>
+                  </paragraph>
+                  <paragraph>For slow intravenous use only after reconstitution.</paragraph>
+                  <paragraph>Single-dose vial.</paragraph>
+                  <paragraph>Discard unused portion.</paragraph>
+                  <paragraph>Sterile, Lyophilized</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <paragraph> </paragraph>
+                  <renderMultiMedia referencedObject="MM102"/>
+               </text>
+               <effectiveTime value="20221215"/>
+               <component>
+                  <observationMedia ID="MM102">
+                     <text>sezaby 2</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="sezaby 2.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="ID_f1460b1f-12d7-4b6b-a3bd-6b2a4c611072">
+               <id root="58c55a34-1d4e-4b6e-b256-5b284285ff38"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Package/Label Display Panel – Carton Label </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">NDC 62756-301-01</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Sezaby</content>
+                     <sup>TM </sup>
+                     <content styleCode="bold">(phenobarbital sodium) for injection CIV</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">100 mg/vial</content>
+                  </paragraph>
+                  <paragraph>For slow intravenous use only after reconstitution.</paragraph>
+                  <paragraph>Single-dose vial.</paragraph>
+                  <paragraph>Discard unused portion.</paragraph>
+                  <paragraph>Sterile, Lyophilized</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+                  <renderMultiMedia referencedObject="MM103"/>
+               </text>
+               <effectiveTime value="20221215"/>
+               <component>
+                  <observationMedia ID="MM103">
+                     <text>sezaby</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="sezaby.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

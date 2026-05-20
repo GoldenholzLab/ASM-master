@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="5e1a40d6-bf15-4ec2-a12a-cb8ac1116ffb"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>
+      <content styleCode="bold">Phenytoin Sodium Injection, USP<br/>Rx Only<br/>These highlights do not include all the information needed to use PHENYTOIN SODIUM INJECTION safely and effectively. See full prescribing information for PHENYTOIN SODIUM INJECTION.</content>
+      <content styleCode="bold">PHENYTOIN Sodium Injection for intravenous or intramuscular use</content>
+      <content styleCode="bold">Initial U.S. Approval: 1953</content>
+   </title>
+   <effectiveTime value="20241226"/>
+   <setId root="a52cf1bd-dc1f-47be-aba8-29066d9a50fb"/>
+   <versionNumber value="1"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id root="1.3.6.1.4.1.519.1" extension="012430880"/>
+            <name>Henry Schein, Inc.</name>
+            <assignedEntity>
+               <assignedOrganization/>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="9b26de8f-6eb5-4a94-bd4f-b4631a1cf299"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL product data elements section"/>
+               <title/>
+               <text/>
+               <effectiveTime value="20241226"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="0404-9808" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>PHENYTOIN SODIUM</name>
+                        <formCode code="C42946" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>phenytoin sodium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <asEquivalentEntity classCode="EQUIV">
+                           <code code="C64637" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <definingMaterialKind>
+                              <code code="0641-2555" codeSystem="2.16.840.1.113883.6.69"/>
+                           </definingMaterialKind>
+                        </asEquivalentEntity>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="50" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="4182431BJH" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>PHENYTOIN SODIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="6158TKW0C5" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>PHENYTOIN</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator value="0.4" unit="mL"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="6DC9Q167V3" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>PROPYLENE GLYCOL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator value="0.1" unit="mL"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="3K9958V90M" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ALCOHOL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="059QF0KO0R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>WATER</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM HYDROXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="5" unit="mL"/>
+                              <denominator value="1" unit="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <formCode code="C43226" displayName="VIAL" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1" unit="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="0404-9808-05" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43167" displayName="BAG" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20241226"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20241226"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA084307" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAMUSCULAR"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38276" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAVENOUS"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="Ld26619cd-26d3-46b7-a2f5-37fdcd19f9f1">
+               <id root="bff325ae-b4ea-4b85-b5c7-56fda9376978"/>
+               <code code="34066-1" codeSystem="2.16.840.1.113883.6.1" displayName="BOXED WARNING SECTION"/>
+               <title>
+                  <content styleCode="bold">WARNING: CARIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION<br/>
+                  </content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minutes in adults and 1 to 3 mg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.1) and Warnings and Precautions (5.1)].</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20250109"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>
+                           <content styleCode="italics">
+                              <content styleCode="bold">See full prescribing information for complete boxed warning.</content>
+                           </content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">•</content>
+                           <content styleCode="bold">The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">• Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">• Reduction in rate of administration or discontinuation of dosing may be needed (2.1, 5.1)</content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="L3d5de794-4d81-4312-8e57-34fc2782939b">
+               <id root="fb1ccb0b-4d01-4450-a659-c8798f38b88e"/>
+               <code code="43683-2" codeSystem="2.16.840.1.113883.6.1" displayName="RECENT MAJOR CHANGES SECTION"/>
+               <title>
+                  <content styleCode="bold">RECENT MAJOR CHANGES</content>
+               </title>
+               <text>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Warnings and Precautions (5.3) 02/2021</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Lf70a55cc-b94e-4632-a87a-8ef447eca6cd">
+               <id root="93f06184-bc43-4304-8162-1a863bc39b94"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>
+                  <content styleCode="bold">1 INDICATIONS AND USAGE</content>
+               </title>
+               <text>
+                  <paragraph>Parenteral Phenytoin Sodium Injection is indicated for the treatment of generalized tonic-clonic status epilepticus, and prevention and treatment of seizures occurring during neurosurgery. Intravenous phenytoin can also be substituted, as short-term use, for oral phenytoin. Parenteral phenytoin should be used only when oral phenytoin administration is not possible [see Dosage and Administration (2.1, 2.3) and Warnings and Precautions (5.1)].</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Parenteral Phenytoin Sodium Injection is indicated for the treatment of generalized tonic clonic status epilepticus and prevention and treatment of seizures occurring during neurosurgery. Intravenous phenytoin can also be substituted, as short-term use, for oral phenytoin. Parenteral phenytoin should be used only when oral phenytoin administration is not possible. (1)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="L29385007-3df3-4f2e-aa70-a03db772ea4a">
+               <id root="a3d73951-db9f-47fd-9eed-c4df38a2ccab"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>
+                  <content styleCode="bold">2 DOSAGE AND ADMINISTRATION</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">2.1 General Dosing Information</content>
+                  </paragraph>
+                  <paragraph>Because of the increased risk of adverse cardiovascular reactions associated with rapid administration, intravenous administration should not exceed 50 mg per minute in adults. In pediatric patients, the drug should be administered at a rate not exceeding 1 to 3 mg/kg/min or 50 mg per minute, whichever is slower.</paragraph>
+                  <paragraph>As non-emergency therapy, Phenytoin Sodium Injection should be administered more slowly as either a loading dose or by intermittent infusion. Because of the risks of cardiac and local toxicity associated with intravenous phenytoin, oral phenytoin should be used whenever possible.</paragraph>
+                  <paragraph>Because adverse cardiovascular reactions have occurred during and after infusions, careful cardiac monitoring is needed during and after the administration of intravenous Phenytoin Sodium Injection. Reduction in rate of administration or discontinuation of dosing may be needed.</paragraph>
+                  <paragraph>Because of the risk of local toxicity, intravenous Phenytoin Sodium Injection should be administered directly into a large peripheral or central vein through a large-gauge catheter. Prior to the administration, the patency of the intravenous (IV) catheter should be tested with a flush of sterile saline. Each injection of parenteral Phenytoin Sodium Injection should then be followed by a flush of sterile saline through the same catheter to avoid local venous irritation due to the alkalinity of the solution.</paragraph>
+                  <paragraph>Phenytoin Sodium Injection can be given diluted with normal saline. The additional of parenteral Phenytoin Sodium Injection to dextrose and dextrose-containing solutions should be avoided due to lack of solubility and resultant precipitation.</paragraph>
+                  <paragraph>Treatment with Phenytoin Sodium Injection can be initiated either with a loading dose or an infusion:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Loading Dose:</content> A loading dose of parenteral Phenytoin Sodium Injection should be injected slowly, not exceeding 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Infusion:</content> For infusion administration, parenteral Phenytoin Sodium Injection should be diluted in normal saline with the final concentration of phenytoin sodium in the solution no less than 5 mg/mL. Administration should commence immediately after the mixture has been prepared and must be completed within 1 to 4 hours (the infusion mixture should not be refrigerated). An in-line filter (0.22 to 0.55 microns) should be used.</paragraph>
+                  <paragraph>Parenteral drug products should be inspected visually for particulate matter and discoloration prior to administration, whenever solution or container permit.</paragraph>
+                  <paragraph>The diluted infusion mixture (Phenytoin Sodium Injection plus normal saline) should not be refrigerated. If the undiluted parenteral Phenytoin Sodium Injection is refrigerated or frozen, a precipitate might form: this will dissolve again after the solution is allowed to stand at room temperature. The product is still suitable for use. A faint yellow coloration may develop, however this has no effect on the potency of the solution.</paragraph>
+                  <paragraph>For single-dose only. After opening, any unused product should be discarded.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Monitoring Levels:</content> Trough levels provide information about clinically effective serum level range and are obtained just prior to the patient’s next scheduled dose. Peak levels indicate an individual’s threshold for emergence of dose-related side effects and are obtained at the time of expected peak concentration. Therapeutic effect without clinical signs of toxicity occurs more often with serum total concentrations between 10 to 20 mcg/mL (unbound phenytoin concentrations of 1 to 2 mcg/mL), although some mild cases of tonic-clonic (grand mal) epilepsy may be controlled with lower serum levels of phenytoin. In patients with renal or hepatic disease, or in those with hypoalbuminemia, the monitoring of unbound phenytoin concentrations may be more relevant [see Dosage and Administration (2.3)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.2 Status Epilepticus</content>
+                  </paragraph>
+                  <paragraph>In adults, a loading dose of 10 to 15 mg/kg should be administered slowly intravenously, at a rate not exceeding 50 mg per minute (this will require approximately 20 minutes in a 70-kg patient). The loading dose should be followed by maintenance doses of 100 mg orally or intravenously every 6 to 8 hours.</paragraph>
+                  <paragraph>In the pediatric population, a loading dose of 15 to 20 mg/kg of phenytoin sodium intravenously will usually produce serum concentrations of phenytoin within the generally accepted serum total concentrations between 10 to 20 mcg/mL (unbound phenytoin concentrations of 1 to 2 mcg/mL). The drug should be injected slowly intravenously at a rate not exceeding 1 to 3 mg/kg/min or 50 mg per minute, whichever is slower.</paragraph>
+                  <paragraph>Continuous monitoring of the electrocardiogram and blood pressure is essential. The patient should be observed for signs of respiratory depression.</paragraph>
+                  <paragraph>Determination of phenytoin serum levels is advised when using phenytoin in the management of status epileptics and in the subsequent establishment of maintenance dosage.</paragraph>
+                  <paragraph>Other measures, including concomitant administration of an intravenous benzodiazepine such as diazepam, or an intravenous short-acting barbiturate, will usually be necessary for rapid control of seizures because of the required slow rate of administration of phenytoin.</paragraph>
+                  <paragraph>If administration of parenteral Phenytoin Sodium Injection does not terminate seizures, the use of other anticonvulsants, intravenous barbiturates, general anesthesia, and other appropriate measures should be considered.</paragraph>
+                  <paragraph>Intramuscular administration should not be used in the treatment of status epilepticus because the attainment of peak serum levels may require up to 24 hours.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.3 Non-emergent Loading and Maintenance Dosing</content>
+                  </paragraph>
+                  <paragraph>Because of the risks of cardiac and local toxicity associated with intravenous phenytoin, oral phenytoin should be used whenever possible. In adults, a loading dose of 10 to 15 mg/kg should be administered slowly. The rate of intravenous administration should not exceed 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients.</paragraph>
+                  <paragraph>Slower administration rates are recommended to minimize the cardiovascular adverse reactions. Continuous monitoring of the electrocardiogram, blood pressure, and respiratory function is essential.</paragraph>
+                  <paragraph>The loading dose should be followed by maintenance doses of oral or intravenous phenytoin every 6 to 8 hours. Ordinarily, Phenytoin Sodium Injection should not be given intramuscularly because of the risk of necrosis, abscess formation, and erratic absorption. If intramuscular administration is required, compensating dosage adjustments are necessary to maintain therapeutic serum levels. An intramuscular dose 50% greater than the oral dose is necessary to maintain these levels. When returned to oral administration, the dose should be reduced by 50% of the original oral dose for one week to prevent excessive serum levels due to sustained release from intramuscular tissue sites.</paragraph>
+                  <paragraph>Monitoring serum levels would help prevent a fall into the subtherapeutic range. Serum blood level determinations are especially helpful when possible drug interactions are suspected.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.4 Parenteral Substitution for Oral Phenytoin Therapy</content>
+                  </paragraph>
+                  <paragraph>When treatment with oral phenytoin is not possible, IV phenytoin can be substituted for oral phenytoin at the same total daily dose. Phenytoin capsules are approximately 90% bioavailable by the oral route. Phenytoin is 100% bioavailable by the IV route. For this reason, serum phenytoin concentrations may crease modestly when IV phenytoin is substituted for oral phenytoin sodium therapy. The rate of administration for IV phenytoin should be no greater than 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients.</paragraph>
+                  <paragraph>When intramuscular administration may be required, a sufficient dose must be administered intramuscularly to maintain the serum level within the therapeutic range. Where oral dose is resumed following intramuscular usage, the oral dose should be properly adjusted to compensate for the slow, continuing IM absorption to minimize toxic symptoms [see Clinical Pharmacology (12.3)].</paragraph>
+                  <paragraph>Serum concentrations should be monitored and care should be taken when switching a patient from the sodium salt to the free acid form. Phenytoin Sodium Injection is formulated with the sodium salt of phenytoin. Because there is approximately an 8% increase in drug content with the free acid form over that of the sodium salt, dosage adjustments and serum level monitoring may be necessary when switching from a product formulated with the free acid to a product formulated with the sodium salt and vice versa.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.5 Dosing in Patients with Renal or Hepatic Impairment or Hypoalbuminemia</content>
+                  </paragraph>
+                  <paragraph>Because the fraction of unbound phenytoin is increased in patients with renal or hepatic disease, or in those with hypoalbuminemia, the monitoring of phenytoin serum levels should be based on the unbound fraction in those patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.6 Dosing in Geriatrics</content>
+                  </paragraph>
+                  <paragraph>Phenytoin clearance is decreased slightly in elderly patients and lower or less frequent dosing may be required [see Clinical Pharmacology (12.3)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.7 Dosing During Pregnancy</content>
+                  </paragraph>
+                  <paragraph>Decreased serum concentrations of phenytoin may occur during pregnancy because of altered phenytoin pharmacokinetics. Periodic measurement of serum phenytoin concentrations should be performed during pregnancy, and the Phenytoin Sodium Injection dosage should be adjusted as necessary. Postpartum restoration of the original dosage will probably be indicated [see Use in Specific Populations (8.1)]. Because of potential changes in protein binding during pregnancy, the monitoring of phenytoin serum levels should be based on the unbound fraction.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">2.8 Dosing in Pediatrics</content>
+                  </paragraph>
+                  <paragraph>A loading dose of 15 to 20 mg/kg of Phenytoin Sodium injection intravenously will usually produce serum concentrations of phenytoin within the generally accepted serum total concentrations between 10 and 20 mcg/mL (unbound phenytoin concentrations of 1 to 2 mcg/mL). The drug should be injected slowly intravenously at a rate not exceeding 1 to 3 mg/kg/min or 50 mg per minute, whichever is slower.</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>For Status Epilepticus and Non-emergent Loading Dose:<br/>• Adult loading dose is 10 to 15 mg/kg at a rate not exceeding 50 mg/min. (2.2)<br/>• Pediatric loading dose is 15 to 20 mg/kg at a rate not exceeding 1 to 3 mg/kg/min or 50 mg/min, whichever is slower. (2.8)<br/>• Continuous monitoring of the electrocardiogram, blood pressure, and respiratory function is essential. (2.2)</paragraph>
+                        <paragraph>Maintenance Dosing:<br/>• Initial loading dose should be followed by maintenance doses of oral or intravenous Phenytoin Sodium Injection every 6 to 8 hours. (2.2, 2.3)</paragraph>
+                        <paragraph>Intramuscular Administration:<br/>• Because of erratic absorption and local toxicity, Phenytoin Sodium Injection should ordinarily not be given intramuscularly. (2.2, 2.3)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Lec757b20-70e2-4316-bee9-76605a0569f7">
+               <id root="f2597790-169e-4f45-9f73-11c3f1011bfc"/>
+               <code code="43678-2" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE FORMS &amp; STRENGTHS SECTION"/>
+               <title>
+                  <content styleCode="bold">3 DOSAGE FORMS AND STRENGTHS</content>
+               </title>
+               <text>
+                  <paragraph>Phenytoin Sodium Injection, USP: 50 mg phenytoin sodium per milliliter is available as:</paragraph>
+                  <paragraph>• 2 mL (100 mg) Single Dose vials</paragraph>
+                  <paragraph>• 5 mL (250 mg) Single Dose vials</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Injection: 50 mg phenytoin sodium per milliliter in:</paragraph>
+                        <paragraph>• 2 mL and 5 mL single dose vials (3)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="La7bb661f-0374-42d5-891b-34c21d04f1e3">
+               <id root="b5021128-b09e-4528-89f3-67a2fcd53017"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>
+                  <content styleCode="bold">4 CONTRAINDICATIONS</content>
+               </title>
+               <text>
+                  <paragraph>Phenytoin Sodium Injection is contraindicated in patients with:</paragraph>
+                  <paragraph> • A history of hypersensitivity to phenytoin, its inactive ingredients, or other hydantoins [see Warnings and Precautions (5.5)].</paragraph>
+                  <paragraph> • Sinus bradycardia, sino-atrial block, second and third degree A-V block, and Adams-Stokes syndrome because of the effect of parenteral phenytoin on ventricular automaticity.</paragraph>
+                  <paragraph> • A history of prior acute hepatotoxicity attributable to phenytoin [see Warnings and Precautions (5.6)].</paragraph>
+                  <paragraph> • Coadministration with delavirdine because of the potential for loss of virologic response and possible resistance to delavirdine or to the class of non-nucleoside reverse transcriptase inhibitors.</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>• Hypersensitivity to phenytoin, its ingredients, or other hydantoins (4)</paragraph>
+                        <paragraph>• Sinus bradycardia, sino-atrial block, second and third degree A-V block, and Adams-Stokes syndrome (4)</paragraph>
+                        <paragraph>• A history of prior acute hepatotoxicity attributable to phenytoin (4, 5.6)</paragraph>
+                        <paragraph>• Coadministration with delavirdine (4)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Lf3ec503f-3739-4b37-b32b-aefb90979df7">
+               <id root="94435cee-d30f-48dc-b719-886d682d15ea"/>
+               <code code="43685-7" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS AND PRECAUTIONS SECTION"/>
+               <title>
+                  <content styleCode="bold">5 WARNINGS AND PRECAUTIONS</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">5.1 Cardiovascular Risk Associated with Rapid Infusion</content>
+                     <br/>Rapid intravenous administration of Phenytoin Sodium Injection increases the risk of adverse cardiovascular reactions, including severe hypotension and cardiac arrhythmias. Cardiac arrhythmias have included bradycardia, heart block, ventricular tachycardia, and ventricular fibrillation which have resulted in asystole, cardiac arrest, and death. Severe complications are most commonly encountered in critically ill patients, elderly patients, and patients with hypotension and severe myocardial insufficiency. However, cardiac events have also been reported in adults and children without underlying cardiac disease or comorbidities and at recommended doses and infusion rates.</paragraph>
+                  <paragraph>Intravenous administration should not exceed 50 mg per minute in adults. In pediatric patients, administer the drug at a rate not exceeding 1 to 3 mg/kg/min or 50 mg per minute, whichever is slower.</paragraph>
+                  <paragraph>Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate.</paragraph>
+                  <paragraph>As non-emergency therapy, Phenytoin Sodium Injection should be administered more slowly as either a loading dose or by intermittent infusion. Because of the risks of cardiac and local toxicity associated with intravenous phenytoin, oral phenytoin should be used whenever possible.</paragraph>
+                  <paragraph>Because adverse cardiovascular reactions have occurred during and after infusions, careful cardiac and respiratory monitoring is needed during and after the administration of intravenous Phenytoin Sodium Injection. Reduction in rate of administration or discontinuation of dosing may be needed.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.2 Withdrawal Precipitated Seizure, Status Epilepticus</content>
+                     <br/>Antiepileptic drugs should not be abruptly discontinued because of the possibility of increased seizure frequency, including status epilepticus. When, in the judgment of the clinician, the need for dosage reduction, discontinuation, or substitution of alternative antiepileptic medication arises, this should be done gradually. However, in the event of an allergic or hypersensitivity reaction, rapid substitution of alternative therapy may be necessary. In this case, alternative therapy should be an antiepileptic drug not belonging to the hydantoin chemical class.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.3 Serious Dermatologic Reactions</content>
+                     <br/>Serious and sometimes fatal dermatologic reactions, including toxic epidermal necrolysis (TEN) and Stevens-Johnson syndrome (SJS), have been reported with phenytoin treatment. The onset of symptoms is usually within 28 days, but can occur later. Phenytoin should be discontinued at the first sign of a rash, unless the rash is clearly not drug-related. If signs or symptoms suggest SJS/TEN, use of this drug should not be resumed and alternative therapy should be considered. If a rash occurs, the patient should be evaluated for signs and symptoms of Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS) [see Warnings and Precautions (5.4)].</paragraph>
+                  <paragraph>Studies in patients of Chinese ancestry have found a strong association between the risk of developing SJS/TEN and the presence of HLA-B*1502, an inherited allelic variant of the HLA B gene, in patients using carbamazepine. Limited evidence suggests that HLA-B*1502 may be a risk factor for the development of SJS/TEN in patients of Asian ancestry taking other antiepileptic drugs associated with SJS/TEN, including phenytoin. In addition, retrospective, case-control, genome-wide association studies in patients of southeast Asian ancestry have also identified an increased risk of SCARs in carriers of the decreased function CYP2C9*3 variant, which has also been associated with decreased clearance of phenytoin. Consider avoiding Phenytoin Sodium Injection as an alternative to carbamazepine in patients who are positive for HLA-B*1502 or in CYP2C9*3 carriers [see Use in Specific Populations (8.7) and Clinical Pharmacology (12.5)].</paragraph>
+                  <paragraph>The use of HLA-B*1502 or CYP2C9 genotyping has important limitations and must never substitute for appropriate clinical vigilance and patient management. The role of other possible factors in the development of, and morbidity from, SJS/TEN, such as antiepileptic drug (AED) dose, compliance, concomitant medications, comorbidities, and the level of dermatologic monitoring have not been studied.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.4 Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan Hypersensitivity</content>
+                     <br/>Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS), also known as Multiorgan Hypersensitivity, has been reported in patients taking antiepileptic drugs, including phenytoin. Some of these events have been fatal or life-threatening. DRESS typically, although not exclusively, presents with fever, rash, lymphadenopathy, and/or facial swelling, in association with other organ system involvement, such as hepatitis, nephritis, hematological abnormalities, myocarditis, or myositis sometimes resembling an acute viral infection. Eosinophilia is often present. Because this disorder is variable in its expression, other organ systems not noted here may be involved. It is important to note that early manifestations of hypersensitivity, such as fever or lymphadenopathy, may be present even though rash is not evident. If such signs or symptoms are present, the patient should be evaluated immediately. Phenytoin Sodium Injection should be discontinued if an alternative etiology for the signs or symptoms cannot be established.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.5 Hypersensitivity</content>
+                     <br/>Phenytoin and other hydantoins are contraindicated in patients who have experienced phenytoin hypersensitivity [see Contraindications (4)]. Additionally, consider alternatives to structurally similar drugs such as carboxamides (e.g., carbamazepine), barbiturates, succinimides, and oxazolidinediones (e.g., trimethadione) in these same patients. Similarly, if there is a history of hypersensitivity reactions to these structurally similar drugs in the patient or immediate family members, consider alternatives to phenytoin.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.6 Hepatic Injury</content>
+                     <br/>Cases of acute hepatotoxicity, including infrequent cases of acute hepatic failure, have been reported with phenytoin. These events may be part of the spectrum of DRESS or may occur in isolation [see Warnings and Precautions (5.4)]. Other common manifestations include jaundice, hepatomegaly, elevated serum transaminase levels, leukocytosis, and eosinophilia. The clinical course of acute phenytoin hepatotoxicity ranges from prompt recovery to fatal outcomes. In these patients with acute hepatotoxicity, phenytoin should be immediately discontinued and not re-administered.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.7 Hematopoietic Complications</content>
+                     <br/>Hematopoietic complications, some fatal, have occasionally been reported in association with administration of phenytoin. These have included thrombocytopenia, leukopenia, granulocytopenia, agranulocytosis, and pancytopenia with or without bone marrow suppression.</paragraph>
+                  <paragraph>There have been a number of reports suggesting a relationship between phenytoin and the development of lymphadenopathy (local or generalized) including benign lymph node hyperplasia, pseudolymphoma, lymphoma, and Hodgkin's disease. Although a cause and effect relationship has not been established, the occurrence of lymphadenopathy indicates the need to differentiate such a condition from other types of lymph node pathology. Lymph node involvement may occur with or without symptoms and signs resembling DRESS [see Warnings and Precautions (5.4)].</paragraph>
+                  <paragraph>In all cases of lymphadenopathy, follow-up observation for an extended period is indicated and every effort should be made to achieve seizure control using alternative antiepileptic drugs.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.8 Local Toxicity (Including Purple Glove Syndrome)</content>
+                     <br/>Soft tissue irritation and inflammation has occurred at the site of injection with and without extravasation of intravenous phenytoin.</paragraph>
+                  <paragraph>Edema, discoloration and pain distal to the site of injection (described as “purple glove syndrome”) have also been reported following peripheral intravenous phenytoin injection. Soft tissue irritation may vary from slight tenderness to extensive necrosis, and sloughing. The syndrome may not develop for several days after injection. Although resolution of symptoms may be spontaneous, skin necrosis and limb ischemia have occurred and required such interventions as fasciotomies, skin grafting, and, in rare cases, amputation.</paragraph>
+                  <paragraph>Because of the risk of local toxicity, intravenous Phenytoin Sodium Injection should be administered directly into a large peripheral or central vein through a large-gauge catheter. Prior to the administration, the patency of the IV catheter should be tested with a flush of sterile saline. Each injection of parenteral Phenytoin Sodium Injection should then be followed by a flush of sterile saline through the same catheter to avoid local venous irritation caused by the alkalinity of the solution.</paragraph>
+                  <paragraph>Intramuscular Phenytoin Sodium Injection administration may cause pain, necrosis, and abscess formation at the injection site [see Dosage and Administration (2.3)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.9 Renal or Hepatic Impairment or Hypoalbuminemia</content>
+                     <br/>Because the fraction of unbound phenytoin is increased in patients with renal or hepatic disease, or in those with hypoalbuminemia, the monitoring of phenytoin serum levels should be based on the unbound fraction in those patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.10 Exacerbation of Porphyria</content>
+                     <br/>In view of isolated reports associating phenytoin with exacerbation of porphyria, caution should be exercised in using this medication in patients suffering from this disease.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.11 Teratogenicity and Other Harm to the Newborn</content>
+                     <br/>Phenytoin Sodium Injection may cause fetal harm when administered to a pregnant woman. Prenatal exposure to phenytoin may increase the risks for congenital malformations and other adverse developmental outcomes [see Use in Specific Populations (8.1)].</paragraph>
+                  <paragraph>Increased frequencies of major malformations (such as orofacial clefts and cardiac defects), and abnormalities characteristic of fetal hydantoin syndrome, including dysmorphic skull and facial features, nail and digit hypoplasia, growth abnormalities (including microcephaly), and cognitive deficits, have been reported among children born to epileptic women who took phenytoin alone or in combination with other antiepileptic drugs during pregnancy. There have been several reported cases of malignancies, including neuroblastoma.</paragraph>
+                  <paragraph>A potentially life-threatening bleeding disorder related to decreased levels of vitamin K-dependent clotting factors may occur in newborns exposed to phenytoin in utero. This drug-induced condition can be prevented with vitamin K administration to the mother before delivery and to the neonate after birth.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.12 Hyperglycemia</content>
+                     <br/>Hyperglycemia, resulting from the drug's inhibitory effect on insulin release, has been reported. Phenytoin may also raise the serum glucose level in diabetic patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">5.13 Serum Phenytoin Levels Above Therapeutic Range</content>
+                     <br/>Serum levels of phenytoin sustained above the therapeutic range may produce confusional states referred to as "delirium", "psychosis", or "encephalopathy", or rarely irreversible cerebellar dysfunction and/or cerebellar atrophy. Accordingly, at the first sign of acute toxicity, serum levels should be immediately checked. Dose reduction of phenytoin therapy is indicated if serum levels are excessive; if symptoms persist, termination is recommended.</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>• Withdrawal Precipitated Seizure: May precipitate status epilepticus. Dose reductions or discontinuation should be done gradually. (5.2)</paragraph>
+                        <paragraph>• Serious Dermatologic Reactions: Discontinue phenytoin at the first sign of a rash, unless the rash is clearly not drug-related. If signs or symptoms suggest SJS/TEN, use of this drug should not be resumed and alternative therapy should be considered. (5.3)</paragraph>
+                        <paragraph>• Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan hypersensitivity: If signs or symptoms of hypersensitivity are present, evaluate the patient immediately. Discontinue if an alternative etiology cannot be established. (5.4)</paragraph>
+                        <paragraph>• Hematopoietic Complications: If occurs, follow-up observation is indicated and an alternative antiepileptic treatment should be used. (5.7)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Lf9623057-23f6-43d0-acbc-22c9007b65b5">
+               <id root="b7652093-2d2b-4a43-8b59-ec4c288b8324"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>
+                  <content styleCode="bold">6 ADVERSE REACTIONS</content>
+               </title>
+               <text>
+                  <paragraph>The following serious adverse reactions are described elsewhere in the labeling:</paragraph>
+                  <paragraph>• Cardiovascular Risk Associated with Rapid Infusion [see Warnings and Precautions (5.1)]</paragraph>
+                  <paragraph>• Withdrawal Precipitated Seizure, Status Epilepticus [see Warnings and Precautions (5.2)]</paragraph>
+                  <paragraph>• Serious Dermatologic Reactions [see Warnings and Precautions (5.3)]</paragraph>
+                  <paragraph>• Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multiorgan Hypersensitivity [see Warnings and Precautions (5.4)]</paragraph>
+                  <paragraph>• Hypersensitivity [see Warnings and Precautions (5.5)]</paragraph>
+                  <paragraph>• Hepatic Injury [see Warnings and Precautions (5.6)]</paragraph>
+                  <paragraph>• Hematopoietic Complications [see Warnings and Precautions (5.7)]</paragraph>
+                  <paragraph>• Local toxicity (Including Purple Glove Syndrome) [see Warnings and Precautions (5.8)]</paragraph>
+                  <paragraph>• Exacerbation of Porphyria [see Warnings and Precautions (5.10)]</paragraph>
+                  <paragraph>• Teratogenicity and Other Harm to the Newborn [see Warnings and Precautions (5.11)]</paragraph>
+                  <paragraph>• Hyperglycemia [see Warnings and Precautions (5.13)]</paragraph>
+                  <paragraph>The following adverse reactions associated with the use of Phenytoin Sodium Injection were identified in clinical studies or postmarking reports. Because these reactions are reported voluntarily from a population of uncertain size, it is not always possible to reliably estimate their frequency or establish a causal relationship to drug exposure.</paragraph>
+                  <paragraph>The most notable signs of toxicity associated with the intravenous use of this drug are cardiovascular collapse and/or CNS depression. Hypotension does occur when the drug is administered rapidly by the intravenous route. The rate of administration is very important; it should not exceed 50 mg per minute in adults, and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients [see Boxed Warning, Dosage and Administration (2.1), and Warnings and Precautions (5.1)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Body as a Whole:</content> Allergic reactions in the form of rash and rarely more serious forms (see Skin and Appendages paragraph below) and DRESS [see Warnings and Precautions (5.4)] have been observed. Anaphylaxis has also been reported.</paragraph>
+                  <paragraph>There have also been reports of coarsening of facial features, systemic lupus erythematosus, periarteritis nodosa, and immunoglobulin abnormalities.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Cardiovascular:</content> Severe cardiovascular events and fatalities have been reported with atrial and ventricular conduction depression and ventricular fibrillation. Severe complications are most commonly encountered in elderly or critically ill patients [see Boxed Warning and Warnings and Precautions (5.1)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Digestive System:</content> Acute hepatic failure [see Warnings and Precautions (5.6)], toxic hepatitis, liver damage, nausea, vomiting, constipation, enlargement of the lips, and gingival hyperplasia.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Hematologic and Lymphatic System:</content> Hematopoietic complications, some fatal, have occasionally been reported in association with administration of phenytoin [see Warnings and Precautions (5.7)]. These have included thrombocytopenia, leukopenia, granulocytopenia, agranulocytosis, and pancytopenia with or without bone marrow suppression. While macrocytosis and megaloblastic anemia have occurred, these conditions usually respond to folic acid therapy. Lymphadenopathy, including benign lymph node hyperplasia, pseudolymphoma, lymphoma, and Hodgkin’s Disease have been reported [see Warnings and Precautions (5.7)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Laboratory Test Abnormality:</content> Phenytoin may decrease serum concentrations of thyroid hormone (T4 and T3), sometimes with an accompanying increase in thyroid-stimulating hormone (TSH), but usually in the absence of clinical hypothyroidism. Phenytoin may also produce lower than normal values for dexamethasone or metyrapone tests. Phenytoin may also cause increased serum levels of glucose, alkaline phosphatase, and gamma glutamyl transpeptidase (GGT).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Nervous System:</content> The most common adverse reactions encountered with phenytoin therapy are nervous system reactions and are usually dose-related. Reactions include nystagmus, ataxia, slurred speech, decreased coordination, somnolence, and mental confusion. Dizziness, vertigo, insomnia, transient nervousness, motor twitchings, paresthesia, and headaches have also been observed. There have also been rare reports of phenytoin induced dyskinesias, including chorea, dystonia, tremor and asterixis, similar to those induced by phenothiazine and other neuroleptic drugs. Cerebellar atrophy has been reported, and appears more likely in settings of elevated phenytoin levels and/or long-term phenytoin use [see Warnings and Precautions (5.14)].</paragraph>
+                  <paragraph>A predominantly sensory peripheral polyneuropathy has been observed in patients receiving long-term phenytoin therapy.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Skin and Appendages:</content> Dermatological manifestations sometimes accompanied by fever have included scarlatiniform or morbilliform rashes. A morbilliform rash (measles-like) is the most common; other types of dermatitis are seen more rarely. Other more serious forms which may be fatal have included bullous, exfoliative or purpuric dermatitis, Stevens-Johnson syndrome, and toxic epidermal necrolysis [see Warnings and Precautions (5.3)]. There have also been reports of hypertrichosis. Local irritation, inflammation, tenderness, necrosis, and sloughing have been reported with or without extravasation of intravenous phenytoin [see Warnings and Precautions (5.8)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Special Senses:</content> Altered taste sensation including metallic taste.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Urogenital:</content> Peyronie’s disease</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>The most common adverse reactions are nervous system reactions, including nystagmus, ataxia, slurred speech, decreased coordination, somnolence, and mental confusion. (6)</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact West-Ward Pharmaceuticals Corp. at 1-877-845-0689 or FDA at 1-800-FDA-1088 or <content styleCode="underline">www.fda.gov/medwatch.</content>
+                           </content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="La5b04437-cb69-4d33-a939-78c9cd8f45e8">
+               <id root="14ae0156-11de-457e-9f12-a9660f62be23"/>
+               <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+               <title>
+                  <content styleCode="bold">7 DRUG INTERACTIONS</content>
+               </title>
+               <text>
+                  <paragraph>Phenytoin is extensively bound to plasma proteins and is prone to competitive displacement. Phenytoin is metabolized by hepatic cytochrome P450 enzymes CYP2C9 and CYP2C19 and is particularly susceptible to inhibitory drug interactions because it is subject to saturable metabolism. Inhibition of metabolism may produce significant increases in circulating phenytoin concentrations and enhance the risk of drug toxicity. Monitoring of phenytoin serum levels is recommended when a drug interaction is suspected.</paragraph>
+                  <paragraph>Phenytoin is a potent inducer of hepatic drug-metabolizing enzymes.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">7.1 Drugs That Affect Phenytoin Concentrations</content>
+                  </paragraph>
+                  <paragraph>Table 1 includes commonly occurring drug interactions that affect phenytoin concentrations. However, this list is not intended to be inclusive or comprehensive. Individual prescribing information from relevant drugs should be consulted.</paragraph>
+                  <paragraph>The addition or withdrawal of these agents in patients on phenytoin therapy may require an adjustment of the phenytoin dose to achieve optimal clinical outcome.</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="L272f87d2-157c-4d1d-b269-8d114549cf55"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">7.2 Drugs Affected by Phenytoin</content>
+                  </paragraph>
+                  <paragraph>Table 2 includes commonly occurring drug interactions affected by phenytoin. However, this list is not intended to be inclusive or comprehensive. Individual drug package inserts should be consulted. The addition or withdrawal of phenytoin during concomitant therapy with these agents may require adjustment to the dose of these agents to achieve optimal clinical outcome.</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="L628bed34-4d8b-4042-acba-db95fe7e07f9"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">7.3 Drug/Laboratory Test Interactions</content>
+                  </paragraph>
+                  <paragraph>Care should be taken when using immunoanalytical methods to measure serum phenytoin concentrations following fosphenytoin administration.</paragraph>
+               </text>
+               <effectiveTime value="20250109"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Multiple drug interactions because of extensive plasma protein binding, saturable metabolism and potent induction of hepatic enzymes. (7.1, 7.2)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <observationMedia ID="L272f87d2-157c-4d1d-b269-8d114549cf55">
+                     <text>Image1.jpg</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="Image1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+               <component>
+                  <observationMedia ID="L628bed34-4d8b-4042-acba-db95fe7e07f9">
+                     <text>Image2.jpg</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="Image2.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Laf509c9f-e9f2-4abf-85b6-a188815480b5">
+               <id root="9521a576-41d3-4dea-bd55-80273dd56e04"/>
+               <code code="43684-0" codeSystem="2.16.840.1.113883.6.1" displayName="USE IN SPECIFIC POPULATIONS SECTION"/>
+               <title>
+                  <content styleCode="bold">8 USE IN SPECIFIC POPULATIONS</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">8.1 Pregnancy</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Pregnancy Exposure Registry</content>
+                  </paragraph>
+                  <paragraph>There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to antiepileptic drugs (AEDs), such as Phenytoin Sodium Injection, during pregnancy. Physicians are advised to recommend that pregnant patients taking phenytoin enroll in the North American Antiepileptic Drug (NAAED) Pregnancy Registry. This can be done by calling the toll free number 1-888-233-2334, and must be done by patients themselves. Information on the registry can also be found at the website http://www.aedpregnancyregistry.org/.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Risk Summary</content>
+                  </paragraph>
+                  <paragraph>In humans, prenatal exposure to phenytoin may increase the risk for congenital malformations and other adverse developmental outcomes. Prenatal phenytoin exposure is associated with an increased incidence of major malformations (including orofacial clefts and cardiac defects). In addition, the fetal hydantoin syndrome a pattern of abnormalities including dysmorphic skull and facial features, nail and digit hypoplasia, growth abnormalities (including microcephaly), and cognitive deficits has been reported among children born to epileptic women who took phenytoin alone or in combination with other antiepileptic drugs during pregnancy [see Data]. There have been several reported cases of malignancies, including neuroblastoma, in children whose mothers received phenytoin during pregnancy.</paragraph>
+                  <paragraph>Administration of phenytoin to pregnant animals resulted in an increased incidence of fetal malformations and other manifestations of developmental toxicity (including embryofetal death, growth impairment, and behavior abnormalities) in multiple species at clinically relevant doses [see Data].</paragraph>
+                  <paragraph>In the U.S. general population, the estimated background risk of major birth defects and of miscarriage in clinically recognized pregnancies is 2 to 4% and 15 to 20%, respectively. The background risk of major birth defects and miscarriage for the indicated population is unknown.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Clinical Considerations</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Disease-associated maternal risk</content>
+                  </paragraph>
+                  <paragraph>An increase in seizure frequency may occur during pregnancy because of altered phenytoin pharmacokinetics. Periodic measurement of serum phenytoin concentrations may be valuable in the management of pregnant women as a guide to appropriate adjustment of dosage [see Dosage and Administration (2.1, 2.7)]. However, postpartum restoration of the original dosage will probably be indicated.</paragraph>
+                  <paragraph>Fetal/Neonatal adverse reactions</paragraph>
+                  <paragraph>A potentially life-threatening bleeding disorder related to decreased levels of vitamin K-dependent clotting factors may occur in newborns exposed to phenytoin in utero. This drug-induced condition can be prevented with vitamin K administration to the mother before delivery and to the neonate after birth.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Data</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Human Data</content>
+                  </paragraph>
+                  <paragraph>Meta-analyses using data from published observational studies and registries have estimated an approximately 2.4-fold increased risk for any major malformation in children with prenatal phenytoin exposure compared to controls. An increased risk of heart defects, facial clefts, and digital hypoplasia has been reported. The fetal hydantion syndrome is a pattern of congenital anomalies including craniofacial anomalies, nail and digit hypoplasia, prenatal-onset growth deficiency, and neurodevelopmental deficiencies.</paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Animal Data</content>
+                  </paragraph>
+                  <paragraph>Administration of phenytoin to pregnant rats, rabbits, and mice during organogenesis resulted in embryofetal death, fetal malformations, and decreased fetal growth retardation. Malformations (including craniofacial, cardiovascular, neural, limb, and digit abnormalities) were observed in rats, rabbits, and mice at doses as low as 100, 75, and 12.5 mg/kg, respectively.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">8.2 Lactation</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Risk Summary</content>
+                  </paragraph>
+                  <paragraph>Phenytoin is secreted in human milk. The developmental and health benefits of breastfeeding should be considered along with the mother’s clinical need for Phenytoin Sodium Injection and any potential adverse effects on the breastfed infant from Phenytoin Sodium Injection or from the underlying maternal condition.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">8.4 Pediatric Use</content>
+                  </paragraph>
+                  <paragraph>A loading dose of 15 to 20 mg/kg of Phenytoin Sodium Injection intravenously will usually produce serum concentrations of phenytoin within the generally accepted serum total concentrations between 10 to 20 mcg/mL (unbound phenytoin concentrations of 1 to 2 mcg/mL). Because of the increased risk of adverse cardiovascular reactions associated with rapid administration Phenytoin Sodium Injection should be injected slowly intravenously at a rate not exceeding 1 to 3 mg/kg/min or 50 mg per minute, whichever is slower [see Dosage and Administration (2.8) and Warnings and Precautions(5.1)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">8.5 Geriatric Use</content>
+                  </paragraph>
+                  <paragraph>Phenytoin clearance tends to decrease with increasing age [see Clinical Pharmacology (12.3)]. Lower or less frequent dosing may be required [see Dosage and Administration (2.6)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">8.6 Renal and/or Hepatic Impairment or Hypoalbuminemia</content>
+                  </paragraph>
+                  <paragraph>The liver is the site of biotransformation. Patients with impaired liver function, elderly patients, or those who are gravely ill may show early toxicity.</paragraph>
+                  <paragraph>Because of the fraction of unbound phenytoin is increased in patients with renal or hepatic disease, or in those with hypoalbuminemia, the monitoring of phenytoin serum levels should be based on the unbound fraction in those patients.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">8.7 Use in Patients with Decreased CYP2C9 Function</content>
+                     <br/>Patients who are intermediate or poor metabolizers of CYP2C9 substrates (e.g.,*1/*3, *2/*2, *3/*3) may exhibit increased phenytoin serum concentrations compared to patients who are normal metabolizers (e.g., *1/*1 ). Thus, patients who are known to be intermediate or poor metabolizers may ultimately require lower doses of phenytoin to maintain similar steady-state concentrations compared to normal metabolizers. If early signs of dose-related central nervous system (CNS) toxicity develop, serum concentrations should be checked immediately [see Clinical Pharmacology (12.5)].</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>• Pregnancy: Prenatal exposure to phenytoin may increase the risks for congenital malformations and other adverse developmental outcomes. (5.11, 8.1)</paragraph>
+                        <paragraph>• Renal and/or Hepatic Impairment or Hypoalbuminemia: Monitor unbound phenytoin concentrations in these patients. (8.6)</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">See 17 for PATIENT COUNSELING INFORMATION.</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Revised: 12/2022</content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Lab9dff27-3e45-4bdd-8950-d643f9c424a8">
+               <id root="aa246fb8-2b33-4ede-a7d4-5e98298c9424"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>
+                  <content styleCode="bold">10 OVERDOSAGE</content>
+               </title>
+               <text>
+                  <paragraph>The lethal dose in pediatric patients is not known. The lethal dose in adult is estimated to be 2 to 5 grams. The initial symptoms are nystagmus, ataxia, and dysarthria. Other signs are tremor, hyperreflexia, lethargy, slurred speech, blurred vision, nausea, and vomiting. The patient may become comatose and hypotensive. Death is caused by respiratory and circulatory depression.</paragraph>
+                  <paragraph>There are marked variations among individuals with respect to phenytoin serum levels where toxicity may occur. Nystagmus, on lateral gaze, usually appears at 20 mcg/mL, ataxia at 30 mcg/mL, dysarthria and lethargy appear when the serum concentration is over 40 mcg/mL, but as high a concentration as 50 mcg/mL has been reported without evidence of toxicity. As much as 25 times the therapeutic dose has been taken to result in a serum concentration over 100 mcg/mL with complete recovery. Irreversible cerebellar dysfunction and atrophy have been reported.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Treatment:</content> Treatment is nonspecific since there is no known antidote.</paragraph>
+                  <paragraph>The adequacy of the respiratory and circulatory systems should be carefully observed and appropriate supportive measures employed. Hemodialysis can be considered since phenytoin is not completely bound to plasma proteins. Total exchange transfusion has been used in the treatment of severe intoxication in pediatric patients.</paragraph>
+                  <paragraph>In acute overdosage the possibility of other CNS depressants, including alcohol, should be borne in mind.</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Lbd53d185-b58f-4634-b76c-94200564625f">
+               <id root="e4c06f32-9f7f-481f-957e-22411b42a9b7"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>
+                  <content styleCode="bold">11 DESCRIPTION</content>
+               </title>
+               <text>
+                  <paragraph>Phenytoin Sodium Injection, USP is a sterile solution containing in each mL phenytoin sodium 50 mg, propylene glycol 0.4 mL and alcohol 0.1 mL in Water for Injection. pH 10.0-12.3; sodium hydroxide added, if needed, for pH adjustment.</paragraph>
+                  <paragraph>Phenytoin sodium is related to the barbiturates in chemical structure, but has a five-membered ring. The chemical name is sodium 5,5-diphenyl-2,4-imidazolidinedione represented by the following structural formula:</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="Lb6dfdc70-1929-4913-bb2a-878b3f666f15"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20250109"/>
+               <component>
+                  <observationMedia ID="Lb6dfdc70-1929-4913-bb2a-878b3f666f15">
+                     <text>Formula1.jpg</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="Formula1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L85ad8bc9-5038-4fd0-959a-0fe71e2dbc55">
+               <id root="ea7106d7-9d92-4257-939a-b525c6450907"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>
+                  <content styleCode="bold">12 CLINICAL PHARMACOLOGY</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">12.1 Mechanism of Action</content>
+                  </paragraph>
+                  <paragraph>The precise mechanism by which phenytoin exerts its therapeutic effect has not been established but is thought to involve the voltage-dependent blockade of membrane sodium channels resulting in a reduction in sustained high-frequency neuronal discharges.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">12.3 Pharmacokinetics</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Absorption</content>
+                  </paragraph>
+                  <paragraph>A fall in serum levels may occur when patients are changed from oral to intramuscular administration. The drop is caused by slower absorption, as compared to oral administration, because of the poor water solubility of phenytoin. Intravenous administration is the preferred route for producing rapid therapeutic serum levels.</paragraph>
+                  <paragraph>Patients stabilized on a daily oral regimen of phenytoin experience a drop in peak blood levels to 50 to 60 percent of stable levels if crossed over to an equal dose administered intramuscularly. However, the intramuscular depot of poorly soluble material is eventually absorbed, as determined by urinary excretion of 5-(p-hydroxyphenyl)-5-phenylhydantoin (HPPH), the principal metabolite, as well as the total amount of drug eventually appearing in the blood. As phenytoin is highly protein bound, free phenytoin levels may be altered in patients whose protein binding characteristics differ from normal.</paragraph>
+                  <paragraph>A short-term (one week) study indicates that patients do not experience the expected drop in blood levels when cross over to the intramuscular route if the phenytoin IMG dose is increased by 50 percent over the previously established oral dose. To avoid drug accumulation caused by absorption from the muscle depots, it is recommended that for the first week back on oral phenytoin, the dose be reduced to half of the original oral dose (one-third of the IM dose). Experience for periods greater than one week is lacking and blood level monitoring is recommended.</paragraph>
+                  <paragraph>Therapeutic effect without clinical signs of toxicity occurs most often with serum total concentrations between 10 and 20 mcg/mL (unbound phenytoin concentrations of 1 to 2 mcg/mL).</paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Distribution</content>
+                  </paragraph>
+                  <paragraph>Phenytoin is extensively bound to plasma proteins and is prone to competitive displacement.</paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Elimination</content>
+                  </paragraph>
+                  <paragraph>The serum half-life in man after intravenous administration ranges from 10 to 15 hours.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Metabolism</content>
+                  </paragraph>
+                  <paragraph>Phenytoin is metabolized by the cytochrome P450 enzymes CYP2C9 and CYP2C19.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Excretion</content>
+                  </paragraph>
+                  <paragraph>Most of the drug is excreted in the bile as inactive metabolites. Urinary excretion of phenytoin and its metabolites occurs partly by glomerular filtration but, more importantly, by tubular secretion.</paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Specific Populations</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Age: Geriatric Population:</content>
+                  </paragraph>
+                  <paragraph>Phenytoin clearance tends to decrease with increasing age (20% less in patients over 70 years of age relative to that in patients 20 to 30 years of age). Since phenytoin clearance is decreased slightly in elderly patients, lower or less frequent dosing may be required [see Dosage and Administration, (2.6)].</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Sex/Race:</content>
+                  </paragraph>
+                  <paragraph>Gender and race have no significant impact on phenytoin pharmacokinetics.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Renal and Hepatic Impairment:</content>
+                  </paragraph>
+                  <paragraph>Increased fraction of unbound phenytoin in patients with renal or hepatic disease, or in those with hypoalbuminemia has been reported.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Pregnancy:</content>
+                  </paragraph>
+                  <paragraph>It has been reported in the literature that the plasma clearance of phenytoin generally increased during pregnancy, reached a peak in the third trimester and returned to the level of pre-pregnancy after few weeks or months of delivery.</paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Drug Interaction Studies</content>
+                  </paragraph>
+                  <paragraph>Phenytoin is metabolized by the cytochrome P450 enzymes CYP2C9 and CYP2C19.</paragraph>
+                  <paragraph>Phenytoin is a potent inducer of hepatic drug-metabolizing enzymes [see Drug Interactions (7.1, 7.2)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">12.5 Pharmacogenomics</content>
+                     <br/>CYP2C9 activity is decreased in individuals with genetic variants such as the CYP2C9*2 and CYP2C9*3 alleles. Carriers of variant alleles, resulting in intermediate (e.g., *1/*3, *2/*2) or poor metabolism (e.g., *2/*3, *3/*3) have decreased clearance of phenytoin. Other decreased or nonfunctional CYP2C9 alleles may also result in decreased clearance of phenytoin (e.g., *5, *6, *8, *11 ).</paragraph>
+                  <paragraph>The prevalence of the CYP2C9 poor metabolizer phenotype is approximately 2-3% in the White population, 0.5-4% in the Asian population, and &lt;1 % in the African American population. The CYP2C9 intermediate phenotype prevalence is approximately 35% in the White population, 24% in the African American population, and 15-36% in the Asian population [see Warnings and Precautions (5.3) and Use in Specific Populations (8.7)].</paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20241226"/>
+            </section>
+         </component>
+         <component>
+            <section ID="L6c18ad5a-539d-4461-8a3c-63216ebfdef1">
+               <id root="50f451ed-97e6-42ed-97ab-f74949697325"/>
+               <code code="43680-8" codeSystem="2.16.840.1.113883.6.1" displayName="NONCLINICAL TOXICOLOGY SECTION"/>
+               <title>
+                  <content styleCode="bold">13 NONCLINICAL TOXICOLOGY</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">13.1 Carcinogenesis, Mutagenesis, Impairment of Fertility</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Carcinogenesis</content> [see Warnings and Precautions (5.7)]</paragraph>
+                  <paragraph>In carcinogenicity studies, phenytoin was administrated in the diet to mice (10, 25, or 45 mg/kg/day) and rats (25, 50, or 100 mg/kg/day) for 2 years. The incidences of hepat0cellular tumors were increased in male and female mice at the highest dose. No increases in tumor incidence were observed in rats. The highest doses tested in these studies were associated with peak serum phenytoin levels below human therapeutic concentrations.</paragraph>
+                  <paragraph>In carcinogenicity studies reported in the literature, phenytoin was administered in the diet for 2 years at doses up to 600 ppm (approximately 90 mg/kg/day) to mice and up to 2400 ppm (approximately 120 mg/kg/day) to rats. The incidences of hepatocellular tumors were increased in female mice at all but the lowest dose tested. No increases in tumor incidence were observed in rats.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Mutagenesis</content>
+                  </paragraph>
+                  <paragraph>Phenytoin was negative in the Ames test and in the in vitro clastogenicity assay in Chinese hamster ovary (CHO) cells.</paragraph>
+                  <paragraph>In studies reported in the literature, phenytoin was negative in the in vitro mouse lymphoma assay and the in vivo micronucleus assay in mouse. Phenytoin was clastogenic in the in vitro sister chromatid exchange assay in CHO cells.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Fertility</content>
+                  </paragraph>
+                  <paragraph>Phenytoin has not been adequately assessed for effects on male or female fertility.</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+            </section>
+         </component>
+         <component>
+            <section ID="L3d00ebf0-9d24-4e84-8548-f7095fb74148">
+               <id root="71c24f01-4346-4513-87ce-6deb6bdbec64"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>
+                  <content styleCode="bold">16 HOW SUPPLIED</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">16.1 How Supplied</content>
+                  </paragraph>
+                  <paragraph>Phenytoin Sodium Injection, USP 50 mg/mL</paragraph>
+                  <paragraph>2 mL (100 mg) Single Dose vials packaged in 25s (NDC 0641-0493-25)</paragraph>
+                  <paragraph>5 mL (250 mg) Single Dose vials packaged in 25s (NDC 0641-2555-45)</paragraph>
+                  <table width="100%">
+                     <caption>Product repackaged by: Henry Schein, Inc., Bastian, VA 24314 </caption>
+                     <tbody>
+                        <tr>
+                           <td>From Original Manufacturer/Distributor's NDC and Unit of Sale</td>
+                           <td>To Henry Schein Repackaged Product NDC and Unit of Sale</td>
+                           <td>Total Strength/Total Volume (Concentration) per unit </td>
+                        </tr>
+                        <tr>
+                           <td>NDC 0641-0493-25<br/>Single Dose vials packaged in 25s</td>
+                           <td>NDC 0404-9932-02<br/>1 2mL Single Dose Vial in a bag<br/>(Vial bears NDC 0641-0493-21)</td>
+                           <td>50 mg/mL<br/>2 ml (100 mg)</td>
+                        </tr>
+                        <tr>
+                           <td>NDC 0641-2555-45<br/>Single Dose vials packaged in 25s</td>
+                           <td>NDC 0404-9933-05<br/>1 5 mL Single Dose Vial in a bag<br/>(Vial bears NDC 0641-2555-41)</td>
+                           <td>50 mg/mL<br/>5 mL (250 mg)</td>
+                        </tr>
+                        <tr>
+                           <td>NDC 0641-2555-10<br/>Single Dose vials packaged in 10s</td>
+                           <td>NDC 0404-9808-05<br/>1 5 mL Single Dose Vial in a bag<br/>(Vial bears NDC 0641-2555-41)</td>
+                           <td>50 mg/mL<br/>5 mL (250 mg)</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>
+                     <content styleCode="bold">16.2 Storage and Handling</content>
+                  </paragraph>
+                  <paragraph>For single-dose only. After opening, any unused product should be discarded.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Store at 20°-25°C (68°-77°F), excursions permitted to 15°-30°C (59°-86°F) [See USP Controlled Room Temperature].</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Lea62e93e-14e8-4a5e-b995-fe3639a57778">
+               <id root="926ca692-bedf-4a0c-b2c2-12dceaede8ff"/>
+               <code code="88436-1" codeSystem="2.16.840.1.113883.6.1" displayName="PATIENT COUNSELING INFORMATION"/>
+               <title>
+                  <content styleCode="bold">17 PATIENT COUNSELING INFORMATION</content>
+               </title>
+               <text>
+                  <paragraph>
+                     <content styleCode="underline">Withdrawal of Antiepileptic Drugs</content>
+                  </paragraph>
+                  <paragraph>Advise patients not to discontinue use of phenytoin without consulting with their healthcare provider. Phenytoin should normally be gradually withdrawn to reduce the potential for increased seizure frequency and status epilepticus [see Warnings and Precautions (5.2)].</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Potential Signs of Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS) and Other Systemic Reactions</content>
+                  </paragraph>
+                  <paragraph>Advise patients of the early toxic signs and symptoms of potential hematologic, dermatologic, hypersensitivity, or hepatic reactions. These symptoms may include, but are not limited to, fever, sore throat, rash, ulcers in the mouth, easy bruising, lymphadenopathy, facial swelling, and petechial or purpuric hemorrhage, and in the case of liver reactions, anorexia, nausea/vomiting, or jaundice. Advise the patient that, because these signs and symptoms may signal a serious reaction, that they must report any occurrence immediately to a physician. In addition, advise the patient that these signs and symptoms should be reported even if mild or when occurring after extended use [see Warnings and Precautions (5.3, 5.4, 5.5, 5.6, 5.7)].</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Effects of Alcohol Use and Other Drugs and Over-the-Counter Drug Interactions</content>
+                  </paragraph>
+                  <paragraph>Caution patients against the use of other drugs or alcoholic beverages without first seeking their physician’s advice [see Warnings and Precautions (5.9) and Drug Interactions (7.1, 7.2)].</paragraph>
+                  <paragraph>Inform patients that certain over-the-counter medications (e.g., cimetidine and omeprazole), vitamins (e.g., folic acid), and herbal supplements (e.g., St. John’s wort) can alter their phenytoin levels.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Hyperglycemia</content>
+                  </paragraph>
+                  <paragraph>Advise patients that phenytoin may cause an increase in blood glucose levels [see Warnings and Precautions (5.13)].</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Gingival Hyperplasia</content>
+                  </paragraph>
+                  <paragraph>Advise patients of the importance of good dental hygiene in order to minimize the development of gingival hyperplasia and its complications.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Neurologic Effects</content>
+                  </paragraph>
+                  <paragraph>Counsel patients that phenytoin may cause dizziness, gait disturbance, decreased coordination and somnolence. Advise patients taking phenytoin not to drive, operate complex machinery, or engage in other hazardous activities until they have become accustomed to any such effects associated with phenytoin.</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Use in Pregnancy</content>
+                  </paragraph>
+                  <paragraph>Inform pregnant women and women of childbearing potential that use of phenytoin during pregnancy can cause fetal harm, including an increased risk of cleft lip and/or cleft palate (oral clefts), cardiac defects, dysmorphic skull and facial features, nail and digit hypoplasia, growth abnormalities (including microcephaly), and cognitive deficits. When appropriate, counsel pregnant women and women of childbearing potential about alternative therapeutic options. Advise women of childbearing potential who are not planning a pregnancy to use effective contraception while using phenytoin, keeping in mind that there is a potential for decreased hormonal contraceptive efficacy [see Drug Interactions (7.2)].</paragraph>
+                  <paragraph>Instruct patients to notify their physician if they become pregnant or intend to become pregnant during therapy, and to notify their physician if they are breastfeeding or intend to breastfeed during therapy [see Use in Specific Populations (8.1, 8.2)].</paragraph>
+                  <paragraph>Encourage patients to enroll in the North American Antiepileptic Drug (NAAED) Pregnancy Registry if they become pregnant. This registry is collecting information about the safety of antiepileptic drugs during pregnancy [see Use in Specific Populations (8.1)].</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Manufactured by:</content>
+                  </paragraph>
+                  <paragraph>Hikma Pharmaceuticals USA Inc.<br/>Berkeley Heights, NJ 07922</paragraph>
+                  <paragraph>Revised December 2022</paragraph>
+                  <paragraph>462-348-13</paragraph>
+               </text>
+               <effectiveTime value="20241226"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Lce681c76-669b-4753-bbaf-7660e85ae09c">
+               <id root="6aa5f944-7eec-4344-88ee-e19dc3d8cee0"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Sample Package Label</title>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="Ld8e9a6ef-9923-4589-ad2f-6522a29945f8"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20250109"/>
+               <component>
+                  <observationMedia ID="Ld8e9a6ef-9923-4589-ad2f-6522a29945f8">
+                     <text>Label1.jpg</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="Label1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

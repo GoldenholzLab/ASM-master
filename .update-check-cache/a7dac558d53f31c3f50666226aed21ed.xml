@@ -1,0 +1,1932 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:voc="urn:hl7-org:v3/voc" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="ab0eda3d-5823-2483-7ecc-aa22d0a9e25f"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>
+      <content styleCode="bold">Clorazepate Dipotassium Tablets, USP CIV 3.75 mg, 7.5 mg, 15 mg</content>
+   </title>
+   <effectiveTime value="20250917"/>
+   <setId root="6e07efe5-29b6-6d1e-661a-f696c4b17f43"/>
+   <versionNumber value="4"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="845263701" root="1.3.6.1.4.1.519.1"/>
+            <name>Apotex Corp.</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <id extension="209429182" root="1.3.6.1.4.1.519.1"/>
+                  <name>Apotex Inc.</name>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="2061936d-187d-c6b6-6083-ffdb6250a405"/>
+               <code code="48780-1" displayName="SPL PRODUCT DATA ELEMENTS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <effectiveTime value="20250917"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="60505-4754" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Clorazepate Dipotassium</name>
+                        <formCode code="C42998" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TABLET"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Clorazepate Dipotassium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="3.75"/>
+                              <denominator unit="mg" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="63FN7G03XY" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CLORAZEPATE DIPOTASSIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="D51WO0G0L4" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>Clorazepic Acid</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ETJ7Z6XBU4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SILICON DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="3A3U0GI71G" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM OXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="70097M6I30" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM STEARATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="4AQJ3LG584" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C BLUE NO. 2 ALUMINUM LAKE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="BQN1B9B9HA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CARBONATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="660YQ98I10" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="WJE3T5596E" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C RED NO. 4 FREE ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="H77VEI93A8" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C YELLOW NO. 6</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="30"/>
+                              <denominator unit="1" value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4754-3"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="100"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4754-1"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="500"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4754-5"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="1000"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4754-7"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20220922"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA215566" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48333" displayName="BLUE" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText>Light Blue</originalText>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48348" displayName="ROUND" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText/>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value value="2" xsi:type="INT"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value unit="mm" value="8" xsi:type="PQ"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48677" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CIV"/>
+                        </policy>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="60505-4755" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Clorazepate Dipotassium</name>
+                        <formCode code="C42998" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TABLET"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Clorazepate Dipotassium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="7.5"/>
+                              <denominator unit="mg" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="63FN7G03XY" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CLORAZEPATE DIPOTASSIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="D51WO0G0L4" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>Clorazepic Acid</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ETJ7Z6XBU4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SILICON DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="3A3U0GI71G" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM OXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="70097M6I30" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM STEARATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="4AQJ3LG584" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C BLUE NO. 2 ALUMINUM LAKE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="BQN1B9B9HA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CARBONATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="660YQ98I10" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="WJE3T5596E" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C RED NO. 4 FREE ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="H77VEI93A8" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C YELLOW NO. 6</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="30"/>
+                              <denominator unit="1" value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4755-3"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="100"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4755-1"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="500"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4755-5"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="1000"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4755-7"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20220922"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA215566" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48348" displayName="ROUND" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText/>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value value="2" xsi:type="INT"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value unit="mm" value="8" xsi:type="PQ"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLIMPRINT" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="ST">C</value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48331" displayName="ORANGE" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText>Light Peach</originalText>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48677" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CIV"/>
+                        </policy>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="60505-4756" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Clorazepate Dipotassium</name>
+                        <formCode code="C42998" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TABLET"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Clorazepate Dipotassium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="15"/>
+                              <denominator unit="mg" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="63FN7G03XY" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CLORAZEPATE DIPOTASSIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="D51WO0G0L4" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>Clorazepic Acid</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ETJ7Z6XBU4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SILICON DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="3A3U0GI71G" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM OXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="70097M6I30" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM STEARATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="4AQJ3LG584" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C BLUE NO. 2 ALUMINUM LAKE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="BQN1B9B9HA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CARBONATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="660YQ98I10" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="WJE3T5596E" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C RED NO. 4 FREE ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="H77VEI93A8" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C YELLOW NO. 6</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="30"/>
+                              <denominator unit="1" value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4756-3"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="100"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4756-1"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="500"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4756-5"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mg" value="1000"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code codeSystem="2.16.840.1.113883.6.69" code="60505-4756-7"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20220922"/>
+                                    <high value="20220922"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" displayName="Type 0: Not a Combination Product" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20220922"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA215566" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48677" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CIV"/>
+                        </policy>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48348" displayName="ROUND" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText/>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value value="2" xsi:type="INT"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value unit="mm" value="8" xsi:type="PQ"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLIMPRINT" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="ST">C;21</value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48328" displayName="PINK" codeSystem="2.16.840.1.113883.3.26.1.1" xsi:type="CE">
+                              <originalText/>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <component>
+                  <section>
+                     <id root="7591c0a7-e691-ff8d-8a7e-f85fa9b750d9"/>
+                     <code code="42229-5" displayName="SPL UNCLASSIFIED SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+                     <effectiveTime value="20201124"/>
+                     <component>
+                        <observationMedia ID="MM916927174775">
+                           <text>structure</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="structure.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM870667574737">
+                           <text>3.75mg30s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="3.75mg30s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM390600973493">
+                           <text>3.75mg100s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="3.75mg100s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM631479145405">
+                           <text>3.75mg500s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="3.75mg500s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM642074287723">
+                           <text>3.75mg1000s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="3.75mg1000s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM90901152913">
+                           <text>7.5mg30s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="7.5mg30s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM978518641748">
+                           <text>7.5mg100s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="7.5mg100s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM288509765350">
+                           <text>7.5mg500s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="7.5mg500s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM467243344708">
+                           <text>7.5mg1000s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="7.5mg1000s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM673689016934">
+                           <text>15mg30s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="15mg30s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM354622346038">
+                           <text>15mg100s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="15mg100s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM753289977809">
+                           <text>15mg500s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="15mg500s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                     <component>
+                        <observationMedia ID="MM688194385410">
+                           <text>15mg1000s</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="15mg1000s.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="_25b04fb7-c705-ca78-6955-29708c217b2c">
+               <id root="1f3613a6-1d68-0e7c-2304-dfdb36383f41"/>
+               <code code="42229-5" displayName="SPL UNCLASSIFIED SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20201130"/>
+            </section>
+         </component>
+         <component>
+            <section ID="BOXED_WARNING">
+               <id root="b09ae5d5-da70-04ba-004e-fb9ff81f6cad"/>
+               <code code="34066-1" displayName="BOXED WARNING SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">
+                        <content styleCode="bold">WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS</content>
+                     </content>
+                  </paragraph>
+                  <paragraph/>
+                  <list>
+                     <item>
+                        <content styleCode="bold"> Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (See WARNINGS and PRECAUTIONS).</content>
+                     </item>
+                     <item>
+                        <content styleCode="bold"> The use of benzodiazepines, including clorazepate dipotassium tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing clorazepate dipotassium tablets and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction (See WARNINGS). </content>
+                     </item>
+                     <item>
+                        <content styleCode="bold">The continued use of benzodiazepines, including clorazepate dipotassium tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium tablets after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium tablets or reduce the dosage (See DOSAGE AND ADMINISTRATION and WARNINGS). </content>
+                     </item>
+                  </list>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_79e12734-d8d1-234e-fd44-c54dd019a597">
+               <id root="57f75f9a-23cc-d9ab-a148-d725c2c26850"/>
+               <code code="34089-3" displayName="DESCRIPTION SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>DESCRIPTION</title>
+               <text>
+                  <paragraph>Chemically, clorazepate dipotassium is a benzodiazepine. The molecular formula is C<sub>16</sub>H<sub>11</sub>ClK<sub>2</sub>N<sub>2</sub>O<sub>4</sub>; the molecular weight is 408.92 g/mol; 1<content styleCode="italics">H</content>-1, 4 Benzodiazepine-3-carboxylic acid, 7-chloro-2, 3-dihydro-2-oxo-5-phenyl-, potassium salt compound with potassium hydroxide (1:1) and the structural formula may be represented as follows:­-</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM916927174775"/>
+                  </paragraph>
+                  <paragraph>The compound occurs as a white or light yellow crystalline powder. It is insoluble in the common organic solvents, but very soluble in water. Aqueous solutions are unstable, clear, light yellow, and alkaline.</paragraph>
+                  <paragraph>Each tablet contains 3.75 mg, 7.5 mg and 15 mg of Clorazepate Dipotassium, USP equivalent to 2.9 mg, 5.8 mg and 11.5 mg of Clorazepate.</paragraph>
+                  <paragraph>Inactive ingredients for clorazepate dipotassium tablets, USP: Colloidal silicon dioxide, FD&amp;C Blue No. 2 Aluminum Lake (3.75 mg only), FD&amp;C Red No. 40 Aluminum Lake (15 mg only), FD&amp;C Yellow No. 6 Aluminum Lake (7.5 mg only), magnesium oxide, magnesium stearate, microcrystalline cellulose, potassium carbonate, and potassium chloride.</paragraph>
+                  <paragraph/>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20201124"/>
+            </section>
+         </component>
+         <component>
+            <section ID="CLINICAL_PHARMACOLOGY">
+               <id root="d623a332-4101-828b-bc36-d46693bcbe5f"/>
+               <code code="34090-1" displayName="CLINICAL PHARMACOLOGY SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>CLINICAL PHARMACOLOGY</title>
+               <text>
+                  <paragraph>Pharmacologically, clorazepate dipotassium has the characteristics of the benzodiazepines. It has depressant effects on the central nervous system. The primary metabolite, nordiazepam, quickly appears in the blood stream. The serum half-life is about 2 days. The drug is metabolized in the liver and excreted primarily in the urine.</paragraph>
+                  <paragraph>Studies in healthy men have shown that clorazepate dipotassium has depressant effects on the central nervous system. Prolonged administration of single daily doses as high as 120 mg was without toxic effects. Abrupt cessation of high doses was followed in some patients by nervousness, insomnia, irritability, diarrhea, muscle aches, or memory impairment.</paragraph>
+                  <paragraph>Since orally administered clorazepate dipotassium is rapidly decarboxylated to form nordiazepam, there is essentially no circulating parent drug. Nordiazepam, the primary metabolite, quickly appears in the blood and is eliminated from the plasma with an apparent half-life of about 40 to 50 hours. Plasma levels of nordiazepam increase proportionally with clorazepate dipotassium dose and show moderate accumulation with repeated administration. The protein binding of nordiazepam in plasma is high (97 to 98%).</paragraph>
+                  <paragraph>Within 10 days after oral administration of a 15 mg (50 mcCi) dose of <sup>14</sup>C-clorazepate dipotassium to two volunteers, 62 to 67% of the radioactivity was excreted in the urine and 15 to 19% was eliminated in the feces. Both subjects were still excreting measurable amounts of radioactivity in the urine (about 1% of the <sup>14</sup>C-dose) on day ten.</paragraph>
+                  <paragraph>Nordiazepam is further metabolized by hydroxylation. The major urinary metabolite is conjugated oxazepam (3-hydroxynordiazepam), and smaller amounts of conjugated p-hydroxynordiazepam and nordiazepam are also found in the urine.</paragraph>
+               </text>
+               <effectiveTime value="20201124"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_04287586-8e6b-7471-40b8-cddd5c64372b">
+               <id root="86f8ac0e-d73a-22ed-43b2-02be31964973"/>
+               <code code="34067-9" displayName="INDICATIONS &amp; USAGE SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>Clorazepate dipotassium tablets are indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets are indicated as adjunctive therapy in the management of partial seizures.</paragraph>
+                  <paragraph>The effectiveness of clorazepate dipotassium tablets in long-term management of anxiety, that is, more than 4 months, has not been assessed by systematic clinical studies. Long-term studies in epileptic patients, however, have shown continued therapeutic activity. The physician should reassess periodically the usefulness of the drug for the individual patient.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets are indicated for the symptomatic relief of acute alcohol withdrawal.</paragraph>
+               </text>
+               <effectiveTime value="20201124"/>
+            </section>
+         </component>
+         <component>
+            <section ID="CONTRAINDICATIONS">
+               <id root="f480066f-52da-9355-c75a-c76b739d1260"/>
+               <code code="34070-3" displayName="CONTRAINDICATIONS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>Clorazepate dipotassium tablets are contraindicated in patients with a known hypersensitivity to the drug and in those with acute narrow angle glaucoma.</paragraph>
+               </text>
+               <effectiveTime value="20201124"/>
+            </section>
+         </component>
+         <component>
+            <section ID="WARNINGS">
+               <id root="b3badcba-a56a-da6d-455a-d7fb5e82cb18"/>
+               <code code="34071-1" displayName="WARNINGS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>WARNINGS</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Risks from Concomitant Use with Opioids: </content>Concomitant use of benzodiazepines, including clorazepate dipotassium, and opioids may result in profound sedation, respiratory depression, coma, and death. Because of these risks, reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate.</paragraph>
+                  <paragraph>Observational studies have demonstrated that concomitant use of opioid analgesics and benzodiazepines increases the risk of drug-related mortality compared to use of opioids alone. If a decision is made to prescribe clorazepate dipotassium tablets concomitantly with opioids, prescribe the lowest effective dosages and minimum durations of concomitant use, and follow patients closely for signs and symptoms of respiratory depression and sedation. In patients already receiving an opioid analgesic, prescribe a lower initial dose of clorazepate dipotassium tablets than indicated in the absence of an opioid and titrate based on clinical response. If an opioid is initiated in a patient already taking clorazepate dipotassium tablets, prescribe a lower initial dose of the opioid and titrate based upon clinical response.</paragraph>
+                  <paragraph>Advise both patients and caregivers about the risks of respiratory depression and sedation when clorazepate dipotassium tablets are used with opioids. Advise patients not to drive or operate heavy machinery until the effects of concomitant use with the opioid have been determined (see <content styleCode="none">PRECAUTIONS: Drug Interactions).</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Abuse, Misuse, and Addiction: </content>The use of benzodiazepines, including clorazepate dipotassium tablets, exposes users to the risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines often (but not always) involve the use of doses greater than the maximum recommended dosage and commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death (see DRUG ABUSE AND DEPENDENCE: Abuse).   </paragraph>
+                  <paragraph>Before prescribing clorazepate dipotassium tablets and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction (e.g., using a standardized screening tool). Use of clorazepate dipotassium tablets, particularly in patients at elevated risk, necessitates counseling about the risks and proper use of clorazepate dipotassium tablets along with monitoring for signs and symptoms of abuse, misuse, and addiction. Prescribe the lowest effective dosage; avoid or minimize concomitant use of CNS depressants and other substances associated with abuse, misuse, and addiction (e.g., opioid analgesics, stimulants); and advise patients on the proper disposal of unused drug. If a substance use disorder is suspected, evaluate the patient and institute (or refer them for) early treatment, as appropriate. </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Dependence and Withdrawal Reactions: </content>To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium tablets or reduce the dosage (a patient-specific plan should be used to taper the dose) (see DOSAGE AND ADMINISTRATION: Discontinuation of Dosage Reduction of clorazepate dipotassium tablets).   </paragraph>
+                  <paragraph>Patients at an increased risk of withdrawal adverse reactions after benzodiazepine discontinuation or rapid dosage reduction include those who take higher dosages, and those who have had longer durations of use.   Acute Withdrawal Reactions The continued use of benzodiazepines, including clorazepate dipotassium tablets, may lead to clinically significant physical dependence. Abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium tablets after continued use, or administration of flumazenil (a benzodiazepine antagonist) may precipitate acute withdrawal reactions, which can be life-threatening (e.g., seizures) (see DRUG ABUSE AND DEPENDENCE: Dependence).   </paragraph>
+                  <paragraph> Protracted Withdrawal Syndrome In some cases, benzodiazepine users have developed a protracted withdrawal syndrome with withdrawal symptoms lasting weeks to more than 12 months (see DRUG ABUSE AND DEPENDENCE).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Use in Depressive Neuroses or Psychotic Reactions: </content>Clorazepate dipotassium tablets are not recommended for use in depressive neuroses or in psychotic reactions.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Use in Children: </content>Because of the lack of sufficient clinical experience, clorazepate dipotassium tablets are not recommended for use in patients less than 9 years of age.</paragraph>
+                  <paragraph>
+                     <content styleCode="none">
+                        <content styleCode="bold">Interference with Psychomotor Performance: </content>Patients taking clorazepate dipotassium tablets should be cautioned against engaging in hazardous occupations requiring mental alertness, such as operating dangerous machinery including motor vehicles.</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Concomitant Use with CNS Depressants: </content>Since clorazepate dipotassium has a central nervous system depressant effect, patients should be advised against the simultaneous use of other CNS depressant drugs, and cautioned that the effects of alcohol may be increased.</paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">Suicidal Behavior and Ideation: </content>Antiepileptic drugs (AEDs), including clorazepate dipotassium tablets, increase the risk of suicidal thoughts or behavior in patients taking these drugs for any indication. Patients treated with any AED for any indication should be monitored for the emergence or worsening of depression, suicidal thoughts or behavior, and/or any unusual changes in mood or behavior.</paragraph>
+                  <paragraph>Pooled analyses of 199 placebo-controlled clinical trials (mono- and adjunctive therapy) of 11 different AEDs showed that patients randomized to one of the AEDs had approximately twice the risk (adjusted Relative Risk 1.8, 95% CI:1.2, 2.7) of suicidal thinking or behavior compared to patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated patients was 0.43%, compared to 0.24% among 16,029 placebo-treated patients, representing an increase of approximately one case of suicidal thinking or behavior for every 530 patients treated. There were four suicides in drug-treated patients in the trials and none in placebo-treated patients, but the number is too small to allow any conclusion about drug effect on suicide.</paragraph>
+                  <paragraph>The increased risk of suicidal thoughts or behavior with AEDs was observed as early as one week after starting drug treatment with AEDs and persisted for the duration of treatment assessed. Because most trials included in the analysis did not extend beyond 24 weeks, the risk of suicidal thoughts or behavior beyond 24 weeks could not be assessed.</paragraph>
+                  <paragraph>The risk of suicidal thoughts or behavior was generally consistent among drugs in the data analyzed. The finding of increased risk with AEDs of varying mechanisms of action and across a range of indications suggests that the risk applies to all AEDs used for any indication. The risk did not vary substantially by age (5 to 100 years) in the clinical trials analyzed. Table 1 shows absolute and relative risk by indication for all evaluated AEDs.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Table 1: Risk by indication for antiepileptic drugs in the pooled analysis</content>
+                  </paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>Indication</td>
+                           <td>Placebo Patients with Events Per 1000 Patients</td>
+                           <td>Drug Patients withEvents Per 1000 Patients</td>
+                           <td>Relative Risk: Incidence of Events in Drug Patients/Incidence in Placebo Patients</td>
+                           <td>Risk Difference: Additional Drug Patients with Events Per 1000 Patients</td>
+                        </tr>
+                        <tr>
+                           <td>Epilepsy</td>
+                           <td>1</td>
+                           <td>3.4</td>
+                           <td>3.5</td>
+                           <td>2.4</td>
+                        </tr>
+                        <tr>
+                           <td>Psychiatric</td>
+                           <td>5.7</td>
+                           <td>8.5</td>
+                           <td>1.5</td>
+                           <td>2.9</td>
+                        </tr>
+                        <tr>
+                           <td>Other</td>
+                           <td>1</td>
+                           <td>1.8</td>
+                           <td>1.9</td>
+                           <td>0.9</td>
+                        </tr>
+                        <tr>
+                           <td>Total</td>
+                           <td>2.4</td>
+                           <td>4.3</td>
+                           <td>1.8</td>
+                           <td>1.9</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>The relative risk for suicidal thoughts or behavior was higher in clinical trials for epilepsy than in clinical trials for psychiatric or other conditions, but the absolute risk differences were similar for the epilepsy and psychiatric indications.</paragraph>
+                  <paragraph>Anyone considering prescribing clorazepate dipotassium tablets or any other AED must balance the risk of suicidal thoughts or behavior with the risk of untreated illness. Epilepsy and many other illnesses for which AEDs are prescribed are themselves associated with morbidity and mortality and an increased risk of suicidal thoughts and behavior. Should suicidal thoughts and behavior emerge during treatment, the prescriber needs to consider whether the emergence of these symptoms in any given patient may be related to the illness being treated.</paragraph>
+                  <paragraph>Patients, their caregivers, and families should be informed that AEDs increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of the signs and symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self- harm. Behaviors of concern should be reported immediately to healthcare providers.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold"/>Neonatal Sedation and Withdrawal Syndrome: Use of clorazepate dipotassium tablets late in pregnancy can result in sedation (respiratory depression, lethargy, hypotonia) and/or withdrawal symptoms (hyperreflexia, irritability, restlessness, tremors, inconsolable crying, and feeding difficulties) in the neonate (see PRECAUTIONS: Pregnancy). Monitor neonates exposed to clorazepate dipotassium tablets during pregnancy or labor for signs of sedation and monitor neonates exposed to clorazepate dipotassium tablets during pregnancy for signs of withdrawal; manage these neonates accordingly.</paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="PRECAUTIONS">
+               <id root="fddabd22-b42a-1f4e-9f5f-d2e5e195ea0d"/>
+               <code code="42232-9" displayName="PRECAUTIONS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>PRECAUTIONS</title>
+               <text>
+                  <paragraph>In those patients in which a degree of depression accompanies the anxiety, suicidal tendencies may be present and protective measures may be required. The least amount of drug that is feasible should be available to the patient.</paragraph>
+                  <paragraph>Patients taking clorazepate dipotassium tablets for prolonged periods should have blood counts and liver function tests periodically. The usual precautions in treating patients with impaired renal or hepatic function should also be observed.</paragraph>
+                  <paragraph>In elderly or debilitated patients, the initial dose should be small, and increments should be made gradually, in accordance with the response of the patient, to preclude ataxia or excessive sedation.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Information for Patients</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold"/>Advise the patient to read the FDA-approved patient labeling (Medication Guide).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Risks from Concomitant Use with Opioids</content>
+                  </paragraph>
+                  <paragraph> Advise both patients and caregivers about the risks of potentially fatal respiratory depression and sedation when clorazepate dipotassium tablets is used with opioids and not to use such drugs concomitantly unless supervised by a health care provider. Advise patients not to drive or operate heavy machinery until the effects of concomitant use with the opioid have been determined (see WARNINGS, Risks from Concomitant Use with Opioids and PRECAUTIONS, Drug Interactions).   <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Abuse, Misuse, and Addiction: </content>
+                  </paragraph>
+                  <paragraph>Inform patients that the use of clorazepate dipotassium tablets, even at recommended dosages, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose and death, especially when used in combination with other medications (e.g., opioid analgesics), alcohol, and/or illicit substances. Inform patients about the signs and symptoms of benzodiazepine abuse, misuse, and addiction; to seek medical help if they develop these signs and/or symptoms; and on the proper disposal of unused drug (see WARNINGS and DRUG ABUSE AND DEPENDENCE).   <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Withdrawal Reactions: </content>
+                  </paragraph>
+                  <paragraph>Inform patients that the continued use of clorazepate dipotassium tablets may lead to clinically significant physical dependence and that abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium tablets may precipitate acute withdrawal reactions, which can be life-threatening. Inform patients that in some cases, patients taking benzodiazepines have developed a protracted withdrawal syndrome with withdrawal symptoms lasting weeks to more than 12 months. Instruct patients that discontinuation or dosage reduction of clorazepate dipotassium tablets may require a slow taper (see WARNINGS and DRUG ABUSE AND DEPENDENCE).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Suicidal Thinking and Behavior: </content>Patients, their caregivers, and families should be counseled that AEDs, including clorazepate dipotassium tablets, may increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Pregnancy: </content>Advise pregnant females that use of clorazepate dipotassium tablets late in pregnancy can result in sedation (respiratory depression, lethargy, hypotonia) and/or withdrawal symptoms (hyperreflexia, irritability, restlessness, tremors, inconsolable crying, and feeding difficulties) in newborns (<content styleCode="bold">see Warnings, </content>
+                     <content styleCode="bold">Neonatal Sedation and Withdrawal Syndrome and </content>
+                     <content styleCode="bold">Precautions, Pregnancy</content>). Instruct patients to inform their healthcare provider if they are pregnant.   </paragraph>
+                  <paragraph>Advise patients that there is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to clorazepate dipotassium tablets during pregnancy (<content styleCode="bold">see </content>
+                     <content styleCode="bold">Precautions, Pregnancy</content>).   <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Nursing</content>: Advise patients that breastfeeding is not recommended during treatment with clorazepate dipotassium tablets (<content styleCode="bold">see </content>
+                     <content styleCode="bold">Precautions, Nursing Mothers</content>).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_b7e77d29-b466-4b9f-0dc0-a1b1aa428474">
+               <id root="89a39386-349b-39f9-0c33-47b0ec8b1d5a"/>
+               <code code="34073-7" displayName="DRUG INTERACTIONS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>DRUG INTERACTIONS </title>
+               <text>
+                  <paragraph>The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at GABAA sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen opioid-related respiratory depression exists. Limit dosage and duration of concomitant use of benzodiazepines and opioids, and monitor patients closely for respiratory depression and sedation.   </paragraph>
+                  <paragraph> If clorazepate dipotassium tablets is to be combined with other drugs acting on the central nervous system, careful consideration should be given to the pharmacology of the agents to be employed. Animal experience indicates that clorazepate dipotassium prolongs the sleeping time after hexobarbital or after ethyl alcohol, increases the inhibitory effects of chlorpromazine, but does not exhibit monoamine oxidase inhibition. Clinical studies have shown increased sedation with concurrent hypnotic medications. The actions of the benzodiazepines may be potentiated by barbiturates, narcotics, phenothiazines, monoamine oxidase inhibitors or other antidepressants.   </paragraph>
+                  <paragraph>If clorazepate dipotassium tablets are used to treat anxiety associated with somatic disease states, careful attention must be paid to possible drug interaction with concomitant medication.   </paragraph>
+                  <paragraph> In bioavailability studies with normal subjects, the concurrent administration of antacids at therapeutic levels did not significantly influence the bioavailability of clorazepate dipotassium tablets.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Pregnancy: </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">  Pregnancy Exposure Registry</content>
+                  </paragraph>
+                  <paragraph> There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to psychiatric medications, including clorazepate dipotassium tablets, during pregnancy. Healthcare providers are encouraged to register patients calling the National Pregnancy Registry for Psychiatric Medications at 1-866-961-2388 or visiting online at https://womensmentalhealth.org/pregnancyregistry/. </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Risk Summary</content>
+                  </paragraph>
+                  <paragraph> Neonates born to mothers using benzodiazepines late in pregnancy have been reported to experience symptoms of sedation and/or neonatal withdrawal (see <content styleCode="bold">WARNINGS: Neonatal Sedation and Withdrawal Syndrome</content> and <content styleCode="italics">Clinical Considerations</content>). Available data from published observational studies of pregnant women exposed to benzodiazepines do not report a clear association with benzodiazepines and major birth defects (<content styleCode="italics">see Data</content>). </paragraph>
+                  <paragraph>The background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2 to 4% and 15 to 20%, respectively. </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">Clinical Considerations</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">  Fetal/Neonatal Adverse Reactions</content>
+                  </paragraph>
+                  <paragraph>  Benzodiazepines cross the placenta and may produce respiratory depression, hypotonia, and sedation in neonates. Monitor neonates exposed to clorazepate dipotassium tablets during pregnancy or labor for signs of sedation, respiratory depression, hypotonia, and feeding problems. Monitor neonates exposed to clorazepate dipotassium tablets during pregnancy for signs of withdrawal. Manage these neonates accordingly (see <content styleCode="bold">WARNINGS: Neonatal Sedation and Withdrawal Syndrome</content>). </paragraph>
+                  <paragraph>Data </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">  Human Data</content>
+                  </paragraph>
+                  <paragraph> Published data from observational studies on the use of benzodiazepines during pregnancy do not report a clear association with benzodiazepines and major birth defects. Although early studies reported an increased risk of congenital malformations with diazepam and chlordiazepoxide, there was no consistent pattern noted. In addition, the majority of more recent case-control and cohort studies of benzodiazepine use during pregnancy, which were adjusted for confounding exposures to alcohol, tobacco and other medications, have not confirmed these findings. </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Animal Data</content>
+                  </paragraph>
+                  <paragraph> In animal reproduction studies, oral administration of clorazepate to pregnant rats and rabbits at doses up to 150 and 15 mg/kg, respectively, did not cause fetal toxicities or malformation. However, the sedative effects of high dose clorazepate interfered with the maternal care of the offspring. </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">N</content>
+                     <content styleCode="bold">ursing Mothers: </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="underline">  Risk Summary</content>
+                  </paragraph>
+                  <paragraph> Clorazepate and its active metabolite, nordiazepam, are present in breast milk. There are reports of sedation, poor feeding and poor weight gain in infants exposed to benzodiazepines through breast milk. The effects of clorazepate on milk production are unknown. Because of the potential for serious adverse reactions, including sedation and withdrawal symptoms in infants, advise patients that breastfeeding is not recommended during treatment with clorazepate dipotassium tablets. </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Pediatric Use: </content>See <content styleCode="bold">WARNINGS. </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Geriatric Use: </content>Clinical studies of clorazepate dipotassium tablets were not adequate to determine whether subjects aged 65 and over respond differently than younger subjects. Elderly or debilitated patients may be especially sensitive to the effects of all benzodiazepines, including clorazepate dipotassium tablets. In general, elderly or debilitated patients should be started on lower doses of clorazepate dipotassium tablets and observed closely, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and concomitant disease or other drug therapy. Dose adjustments should also be made slowly, and with more caution in this patient population (see <content styleCode="bold">PRECAUTIONS and DOSAGE AND ADMINISTRATION</content>).</paragraph>
+                  <paragraph/>
+                  <paragraph/>
+                  <paragraph/>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_047e8f97-d783-dfa0-f23f-84caafdbb431">
+               <id root="d6298964-ef3c-6b2c-937c-eb9d70e3e852"/>
+               <code code="34084-4" displayName="ADVERSE REACTIONS SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>ADVERSE REACTIONS</title>
+               <text>
+                  <paragraph>The side effect most frequently reported was drowsiness. Less commonly reported (in descending order of occurrence) were: dizziness, various gastrointestinal complaints, nervousness, blurred vision, dry mouth, headache, and mental confusion. Other side effects included insomnia, transient skin rashes, fatigue, ataxia, genitourinary complaints, irritability, diplopia, depression, tremor, and slurred speech.</paragraph>
+                  <paragraph>There have been reports of abnormal liver and kidney function tests and of decrease in hematocrit.</paragraph>
+                  <paragraph>Decrease in systolic blood pressure has been observed.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact Apotex Corp. at 1-800-706-5575 or FDA at 1-800-­FDA-1088 or www.fda.gov/medwatch.</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_e81dfd30-4211-0d48-cb1b-59fe59079a9c">
+               <id root="66160b66-db13-1186-8a49-5196b80734d9"/>
+               <code code="42227-9" displayName="DRUG ABUSE AND DEPENDENCE SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>DRUG ABUSE AND DEPENDENCE</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Controlled Substance </content>
+                  </paragraph>
+                  <paragraph> Clorazepate dipotassium tablets contains clorazepate, a Schedule IV controlled substance. <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Abuse </content>
+                  </paragraph>
+                  <paragraph> Clorazepate dipotassium tablets is a benzodiazepine and a CNS depressant with a potential for abuse and addiction. Abuse is the intentional, non-therapeutic use of a drug, even once, for its desirable psychological or physiological effects. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a health care provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Even taking benzodiazepines as prescribed may put patients at risk for abuse and misuse of their medication. </paragraph>
+                  <paragraph>Abuse and misuse of benzodiazepines may lead to addiction. Abuse and misuse of benzodiazepines often (but not always) involve the use of doses greater than the maximum recommended dosage and commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death. Benzodiazepines are often sought by individuals who abuse drugs and other substances, and by individuals with addictive disorders (see WARNINGS: Abuse, Misuse, and Addiction). </paragraph>
+                  <paragraph>The following adverse reactions have occurred with benzodiazepine abuse and/or misuse: abdominal pain, amnesia, anorexia, anxiety, aggression, ataxia, blurred vision, confusion, depression, disinhibition, disorientation, dizziness, euphoria, impaired concentration and memory, indigestion, irritability, muscle pain, slurred speech, tremors, and vertigo. </paragraph>
+                  <paragraph>The following severe adverse reactions have occurred with benzodiazepine abuse and/or misuse: delirium, paranoia, suicidal ideation and behavior, seizures, coma, breathing difficulty, and death. Death is more often associated with polysubstance use (especially benzodiazepines with other CNS depressants such as opioids and alcohol).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Dependence </content>
+                  </paragraph>
+                  <paragraph> Physical Dependence </paragraph>
+                  <paragraph>Clorazepate dipotassium tablets may produce physical dependence from continued therapy. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Abrupt discontinuation or rapid dosage reduction of benzodiazepines or administration of flumazenil, a benzodiazepine antagonist, may precipitate acute withdrawal reactions, including seizures, which can be life-threatening. Patients at an increased risk of withdrawal adverse reactions after benzodiazepine discontinuation or rapid dosage reduction include those who take higher dosages (i.e., higher and/or more frequent doses) and those who have had longer durations of use (see WARNINGS: Dependence and Withdrawal Reactions). </paragraph>
+                  <paragraph>To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium tablets or reduce the dosage (see DOSAGE and ADMINISTRATION: Discontinuation or Dosage Reduction of clorazepate dipotassium tablets and WARNINGS: Dependence and Withdrawal Reactions). </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Acute Withdrawal Signs and Symptoms</content>
+                  </paragraph>
+                  <paragraph>Acute withdrawal signs and symptoms associated with benzodiazepines have included abnormal involuntary movements, anxiety, blurred vision, depersonalization, depression, derealization, dizziness, fatigue, gastrointestinal adverse reactions (e.g., nausea, vomiting, diarrhea, weight loss, decreased appetite), headache, hyperacusis, hypertension, irritability, insomnia, memory impairment, muscle pain and stiffness, panic attacks, photophobia, restlessness, tachycardia, and tremor. More severe acute withdrawal signs and symptoms, including life-threatening reactions, have included catatonia, convulsions, delirium tremens, depression, hallucinations, mania, psychosis, seizures and suicidality. </paragraph>
+                  <paragraph>
+                     <content styleCode="italics">Protracted Withdrawal Syndrome </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="italics"/>Protracted withdrawal syndrome associated with benzodiazepines is characterized by anxiety, cognitive impairment, depression, insomnia, formication, motor symptoms (e.g., weakness, tremor, muscle twitches), paresthesia, and tinnitus that persists beyond 4 to 6 weeks after initial benzodiazepine withdrawal. Protracted withdrawal symptoms may last weeks to more than 12 months. As a result, there may be difficulty in differentiating withdrawal symptoms from potential re-emergence or continuation of symptoms for which the benzodiazepine was being used. <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Tolerance </content>
+                  </paragraph>
+                  <paragraph> Tolerance to clorazepate dipotassium tablets may develop from continued therapy. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose). Tolerance to the therapeutic effect of clorazepate dipotassium tablets may develop; however, little tolerance develops to the amnestic reactions and other cognitive impairments caused by benzodiazepines.</paragraph>
+               </text>
+               <effectiveTime value="20210430"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_baa82690-ad1a-58b2-3a34-0b02fb48915e">
+               <id root="5f86a330-20c8-71b6-43f1-858129c30fa5"/>
+               <code code="34088-5" displayName="OVERDOSAGE SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>OVERDOSAGE </title>
+               <text>
+                  <paragraph>Overdosage of benzodiazepines is characterized by central nervous system depression ranging from drowsiness to coma. In mild to moderate cases, symptoms can include drowsiness, confusion, dysarthria, lethargy, hypnotic state, diminished reflexes, ataxia, and hypotonia. Rarely, paradoxical or disinhibitory reactions (including agitation, irritability, impulsivity, violent behavior, confusion, restlessness, excitement, and talkativeness) may occur. In severe overdosage cases, patients may develop respiratory depression and coma. Overdosage of benzodiazepines in combination with other CNS depressants (including alcohol and opioids) may be fatal (see <content styleCode="bold">WARNINGS: Dependence and Withdrawal Reactions</content>). Markedly abnormal (lowered or elevated) blood pressure, heart rate, or respiratory rate raise the concern that additional drugs and/or alcohol are involved in the overdosage. </paragraph>
+                  <paragraph>In managing benzodiazepine overdosage, employ general supportive measures, including intravenous fluids and airway management. Flumazenil, a specific benzodiazepine receptor antagonist indicated for the complete or partial reversal of the sedative effects of benzodiazepines in the management of benzodiazepine overdosage, can lead to withdrawal and adverse reactions, including seizures, particularly in the context of mixed overdosage with drugs that increase seizure risk (e.g., tricyclic and tetracyclic antidepressants) and in patients with long-term benzodiazepine use and physical dependency. The risk of withdrawal seizures with flumazenil use may be increased in patients with epilepsy. Flumazenil is contraindicated in patients who have received a benzodiazepine for control of a potentially life-threatening condition (e.g., status epilepticus). If the decision is made to use flumazenil, it should be used as an adjunct to, not as a substitute for, supportive management of benzodiazepine overdosage. See the flumazenil injection Prescribing Information. </paragraph>
+                  <paragraph>Consider contacting the Poison Help line (1-800-222-1222) or a medical toxicologist for additional overdosage management recommendations. </paragraph>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_5be5b03d-b619-9d36-de00-43f5bdb0d4be">
+               <id root="d55efa16-23bd-d999-2351-856c42595ae9"/>
+               <code code="34068-7" displayName="DOSAGE &amp; ADMINISTRATION SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>DOSAGE AND ADMINISTRATION</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">For the Symptomatic Relief of Anxiety: </content>Clorazepate dipotassium tablets are administered orally in divided doses. The usual daily dose is 30 mg. The dose should be adjusted gradually within the range of 15 to 60 mg daily in accordance with the response of the patient. In elderly or debilitated patients it is advisable to initiate treatment at a daily dose of 7.5 to 15 mg.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets may also be administered in a single dose daily at bedtime; the recommended initial dose is 15 mg. After the initial dose, the response of the patient may require adjustment of subsequent dosage. Lower doses may be indicated in the elderly patient. Drowsiness may occur at the initiation of treatment and with dosage increment.</paragraph>
+                  <paragraph>For the Symptomatic Relief of Acute Alcohol Withdrawal:</paragraph>
+                  <paragraph>The following dosage schedule is recommended:</paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>1st 24 hours<br/>(Day 1)</td>
+                           <td>30 mg initially; followed by 30 to 60 mg in divided doses</td>
+                        </tr>
+                        <tr>
+                           <td>2nd 24 hours<br/>(Day 2)</td>
+                           <td>45 to 90 mg in divided doses</td>
+                        </tr>
+                        <tr>
+                           <td>3rd 24 hours<br/>(Day 3)</td>
+                           <td>22.5 to 45 mg in divided doses</td>
+                        </tr>
+                        <tr>
+                           <td>Day 4</td>
+                           <td>15 to 30 mg in divided doses</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>Thereafter, gradually reduce the daily dose to 7.5 to 15 mg. Discontinue drug therapy as soon as patient’s condition is stable.</paragraph>
+                  <paragraph>The maximum recommended total daily dose is 90 mg. Avoid excessive reductions in the total amount of drug administered on successive days.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">As an Adjunct to Antiepileptic Drugs: </content>In order to minimize drowsiness, the recommended initial dosages and dosage increments should not be exceeded.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Adults: </content>The maximum recommended initial dose in patients over 12 years old is 7.5 mg three times a day. Dosage should be increased by no more than 7.5 mg every week and should not exceed 90 mg/day.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Children (9-12 years): </content>The maximum recommended initial dose is 7.5 mg two times a day. Dosage should be increased by no more than 7.5 mg every week and should not exceed 60 mg/day.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Discontinuation or Dosage Reduction of</content>
+                     <content styleCode="bold"> Clorazepate Dipotassium Tablets:</content> To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium tablets or reduce the dosage. If a patient develops withdrawal reactions, consider pausing the taper or increasing the dosage to the previous tapered dosage level. Subsequently decrease the dosage more slowly (see WARNINGS and DRUG ABUSE AND DEPENDENCE).</paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20210430"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_5cd06707-ab7b-4ed4-0364-32e9cb2120d1">
+               <id root="19d51408-9e97-2f8d-d536-2376cd8b41eb"/>
+               <code code="34091-9" displayName="ANIMAL PHARMACOLOGY &amp; OR TOXICOLOGY SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>ANIMAL PHARMACOLOGY AND TOXICOLOGY</title>
+               <text>
+                  <paragraph>Studies in rats and monkeys have shown a substantial difference between doses producing tranquilizing, sedative and toxic effects. In rats, conditioned avoidance response was inhibited at an oral dose of 10 mg/kg; sedation was induced at 32 mg/kg; the LD<sub>50</sub> was 1320 mg/kg. In monkeys aggressive behavior was reduced at an oral dose of 0.25 mg/kg; sedation (ataxia) was induced at 7.5 mg/kg; the LD<sub>50</sub> could not be determined because of the emetic effect of large doses, but the LD<sub>50</sub> exceeds 1600 mg/kg.</paragraph>
+                  <paragraph>Twenty-four dogs were given clorazepate dipotassium orally in a 22-month toxicity study; doses up to 75 mg/kg were given. Drug-related changes occurred in the liver; weight was increased and cholestasis with minimal hepatocellular damage was found, but lobular architecture remained well preserved.</paragraph>
+                  <paragraph>Eighteen rhesus monkeys were given oral doses of clorazepate dipotassium from 3 to 36 mg/kg daily for 52 weeks. All treated animals remained similar to control animals. Although total leucocyte count remained within normal limits it tended to fall in the female animals on the highest doses.</paragraph>
+                  <paragraph>Examination of all organs revealed no alterations attributable to clorazepate dipotassium. There was no damage to liver function or structure.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Reproduction Studies: </content>In fertility studies, clorazepate did not alter the fertility indices or reproductive capacity of adult animals  (see <content styleCode="bold">Pregnancy</content>).</paragraph>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_eed12056-dde0-75fa-17d0-fbeaccfc63bf">
+               <id root="bf7d2ceb-a148-78d9-5a46-6e22aa4fd96a"/>
+               <code code="34069-5" displayName="HOW SUPPLIED SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>HOW SUPPLIED</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="underline">3.75 mg Tablets</content>
+                  </paragraph>
+                  <paragraph>Clorazepate dipotassium tablets, USP are available as light blue colored, round, mottled uncoated tablets, debossed with "C" above the bisect, "19" below the bisect on one side and plain on other side. Each tablet contains 3.75 mg of clorazepate dipotassium.</paragraph>
+                  <paragraph>Bottles of 30 (NDC 60505-4754-3)</paragraph>
+                  <paragraph>Bottles of 100 (NDC 60505-4754-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 60505-4754-5)</paragraph>
+                  <paragraph>Bottles of 1000 (NDC 60505-4754-7)</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">7.5 mg Tablets</content>
+                  </paragraph>
+                  <paragraph>Clorazepate dipotassium tablets, USP are available as light peach colored, round, mottled uncoated tablets, debossed with "C" above the bisect, "20" below the bisect on one side and plain on other side. Each tablet contains 7.5 mg of clorazepate dipotassium.</paragraph>
+                  <paragraph>Bottles of 30 (NDC 60505-4755-3)</paragraph>
+                  <paragraph>Bottles of 100 (NDC 60505-4755-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 60505-4755-5)</paragraph>
+                  <paragraph>Bottles of 1000 (NDC 60505-4755-7)</paragraph>
+                  <paragraph>
+                     <content styleCode="underline">15 mg Tablets</content>
+                  </paragraph>
+                  <paragraph>Clorazepate dipotassium tablets, USP are available as pink colored, round, mottled uncoated tablets, debossed with "C" above the bisect, "21" below the bisect on one side and plain on other side. Each tablet contains 15 mg of clorazepate dipotassium.</paragraph>
+                  <paragraph>Bottles of 30 (NDC 60505-4756-3)</paragraph>
+                  <paragraph>Bottles of 100 (NDC 60505-4756-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 60505-4756-5)</paragraph>
+                  <paragraph>Bottles of 1000 (NDC 60505-4756-7)</paragraph>
+                  <paragraph>Recommended storage: Protect from moisture. Keep bottle tightly closed. Store at 20°C to 25°C (68°F to 77°F). [See USP Controlled Room Temperature]. Dispense in a USP tight, light-resistant container.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">APOTEX INC.</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Clorazepate Dipotassium Tablets, USP</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">3.75 mg, 7.5 mg and 15 mg</content>
+                  </paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <content styleCode="bold">Manufactured by:</content>
+                           </td>
+                           <td>
+                              <content styleCode="bold">Manufactured for:</content>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>CorePharma, LLC </td>
+                           <td>Apotex Corp.</td>
+                        </tr>
+                        <tr>
+                           <td>215 Wood Avenue,</td>
+                           <td>Weston, Florida</td>
+                        </tr>
+                        <tr>
+                           <td>Middlesex, NJ 08846, USA</td>
+                           <td>USA 33326</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>Revised: May 2023</paragraph>
+                  <paragraph>Rev: 4</paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_743773e8-dac9-e379-d5d1-6a115fb4b0f8">
+               <id root="eb584e85-bc60-ab19-e974-3e75a3d1e43c"/>
+               <code code="42231-1" displayName="SPL MEDGUIDE SECTION" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>
+                  <content styleCode="bold">MEDICATION GUIDE </content>
+               </title>
+               <text>
+                  <content styleCode="bold"/>
+                  <paragraph>
+                     <content styleCode="bold">Clorazepate Dipotassium Tablets, USP CIV</content>
+                     <content styleCode="bold"/>
+                     <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">(klor az’ e pate dye" poe tas’ ee um)</content> </paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">What is the most important information I should know about clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <list>
+                     <item>
+                        <content styleCode="bold">
+                           <content styleCode="bold">Clorazepate dipotassium is a benzodiazepine medicine. Taking benzodiazepines with opioid medicines, alcohol, or other central nervous system (CNS) depressants (including street drugs) can cause severe drowsiness, breathing problems (respiratory depression), coma and death. </content>
+                        </content>Get emergency help right away if any of the following happens: <list>
+                           <item>shallow or slowed breathing</item>
+                           <item>breathing stops (which may lead to the heart stopping)</item>
+                           <item>excessive sleepiness (sedation)<paragraph>Do not drive or operate heavy machinery until you know how taking clorazepate dipotassium tablets and opioids affects you.</paragraph>
+                           </item>
+                        </list>
+                     </item>
+                  </list>
+                  <list>
+                     <item>
+                        <content styleCode="bold">Risk of abuse, misuse, and addiction.</content> There is a risk of abuse, misuse, and addiction with benzodiazepines including clorazepate dipotassium tablets which can lead to overdose and serious side effects including coma and death.<list>
+                           <item>
+                              <content styleCode="bold">Serious side effects including coma and death have happened in people who have abused or misused benzodiazepines, including clorazepate dipotassium tablets.</content> These serious side effects may also include delirium, paranoia, suicidal thoughts or actions, seizures, and difficulty breathing. <content styleCode="bold">Call your healthcare provider or go to the nearest hospital emergency room right away if you get any of these serious side effects.</content>
+                           </item>
+                           <item>You can develop an addiction even if you take clorazepate dipotassium tablets as prescribed by your healthcare provider </item>
+                           <item>
+                              <content styleCode="bold">Take clorazepate dipotassium tablets exactly as your healthcare provider prescribed. </content>
+                           </item>
+                           <item>Do not share your clorazepate dipotassium tablets with other people. </item>
+                           <item>Keep clorazepate dipotassium tablets in a safe place and away from children.</item>
+                        </list>
+                     </item>
+                  </list>
+                  <list>
+                     <item>
+                        <content styleCode="bold">Physical dependence and withdrawal reactions. </content>Clorazepate dipotassium tablets can cause physical dependence and withdrawal reactions,.<list>
+                           <item>
+                              <content styleCode="bold">Do not suddenly stop taking clorazepate dipotassium tablets</content>. Stopping clorazepate dipotassium tablets suddenly can cause serious and life-threatening side effects, including, unusual movements, responses, or expressions, seizures, sudden and severe mental or nervous system changes, depression, seeing or hearing things that others do not see or hear, an extreme increase in activity or talking, losing touch with reality, and suicidal thoughts or actions. <content styleCode="bold">Call your healthcare provider or go to the nearest hospital emergency room right away if you get any of these symptoms. </content>
+                           </item>
+                           <item>
+                              <content styleCode="bold">Some people who suddenly stop benzodiazepines have symptoms that can last for several weeks to more than 12 months,</content> including, anxiety, trouble remembering, learning, or concentrating, depression, problems sleeping, feeling like insects are crawling under your skin, weakness, shaking, muscle twitching, burning or prickling feeling in your hands, arms, legs or feet, and ringing in your ears. </item>
+                           <item>Physical dependence is not the same as drug addiction. Your healthcare provider can tell you more about the differences between physical dependence and drug addiction.</item>
+                           <item>
+                              <content styleCode="bold">Do not take more clorazepate dipotassium tablets than prescribed or take clorazepate dipotassium tablets for longer than prescribed.</content>
+                           </item>
+                        </list>
+                     </item>
+                  </list>
+                  <list>
+                     <item>
+                        <content styleCode="bold">Like other antiepileptic medicines, clorazepate dipotassium tablets may cause suicidal thoughts or actions in a very small number of people, about 1 in 500.</content>
+                     </item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Call your healthcare provider right away if you have any of these symptoms, especially if they are new, worse, or worry you:</content>
+                  </paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <list>
+                                 <item>thoughts about suicide or dying</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>feeling agitated or restless</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>acting aggressive, being angry, or violent</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <list>
+                                 <item>attempts to commit suicide</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>panic attacks</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>acting on dangerous impulses</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <list>
+                                 <item>new or worse depression</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>trouble sleeping (insomnia)</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>an extreme increase in activity and talking (mania)</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <list>
+                                 <item>new or worse anxiety</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>new or worse irritability</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list>
+                                 <item>other unusual changes in behavior or mood</item>
+                              </list>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>
+                     <content styleCode="bold">How can I watch for early symptoms of suicidal thoughts and actions?</content>
+                  </paragraph>
+                  <list>
+                     <item>Pay attention to any changes, especially sudden changes, in mood, behaviors, thoughts, or feelings.</item>
+                     <item>Keep all follow-up visits with your healthcare provider as scheduled.</item>
+                  </list>
+                  <paragraph>Call your healthcare provider between visits as needed, especially if you are worried about symptoms.</paragraph>
+                  <paragraph>Stopping a seizure medicine suddenly in a patient who has epilepsy can cause seizures that will not stop (status epilepticus).</paragraph>
+                  <paragraph>Suicidal thoughts or actions can be caused by things other than medicines. If you have suicidal thoughts or actions, your healthcare provider may check for other causes.</paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">What are clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <paragraph>Clorazepate dipotassium tablets are a prescription medicine used:</paragraph>
+                  <list>
+                     <item>to treat anxiety disorders</item>
+                     <item>with other medicines to treat partial seizures</item>
+                     <item>to treat the symptoms of sudden alcohol withdrawal</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">clorazepate dipotassium tablets is a federally controlled substance (C-IV) because it contains clorazepate dipotassium that can be abused or lead to dependence. </content>Keep clorazepate dipotassium tablets in a safe place to prevent misuse and abuse. Selling or giving away clorazepate dipotassium tablets may harm others, and is against the law. Tell your healthcare provider if you have ever abused or been dependent on alcohol, prescription medicines or street drugs.</paragraph>
+                  <paragraph>It is not known if clorazepate dipotassium tablets are safe and effective in children less than 9 years of age.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Do not take clorazepate dipotassium tablets if you:</content>
+                  </paragraph>
+                  <list>
+                     <item>are allergic to clorazepate dipotassium or any of the ingredients in clorazepate dipotassium tablets. See the end of this Medication Guide for a complete list of ingredients in clorazepate dipotassium tablets.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Before you take clorazepate dipotassium tablets, tell your healthcare provider about all your medical conditions, including if you:</content>
+                  </paragraph>
+                  <list>
+                     <item>have liver or kidney problems</item>
+                     <item>have or have had depression, mood problems, or suicidal thoughts or behavior</item>
+                     <item>have a history of abnormal thinking and behavior (psychotic reactions)</item>
+                     <item>are pregnant or plan to become pregnant. <list>
+                           <item>Taking clorazepate dipotassium tablets late in pregnancy may cause your baby to have symptoms of sedation (breathing problems, sluggishness, low muscle tone), and/or withdrawal symptoms (jitteriness, irritability, restlessness, shaking, excessive crying, feeding problems). </item>
+                           <item>Tell your healthcare provider right away if you become pregnant or think you are pregnant during treatment with clorazepate dipotassium tablets. </item>
+                           <item>There is a pregnancy registry for women who take clorazepate dipotassium tablets during pregnancy. The purpose of the registry is to collect information about the health of you and your baby. If you become pregnant during treatment with clorazepate dipotassium tablets, talk to your healthcare provider about registering with the National Pregnancy Registry for Psychiatric Medications. You can register by calling 1­866-961-2388-or visiting https://womensmentalhealth.org/pregnancyregistry/. </item>
+                        </list>
+                     </item>
+                  </list>
+                  <list>
+                     <item>are breastfeeding or plan to breastfeed. Clorazepate dipotassium passes into breast milk. </item>
+                     <item>Talk to your healthcare provider about the best way to feed your baby if you take clorazepate dipotassium tablets. </item>
+                     <item>Breastfeeding is not recommended during treatment with clorazepate dipotassium tablets</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Tell your healthcare provider about all the medicines you take,</content> including prescription and over-the-counter medicines, vitamins, and herbal supplements.</paragraph>
+                  <paragraph>Taking clorazepate dipotassium tablets with certain other medicines can cause side effects or affect how well clorazepate dipotassium tablets or the other medicines work. Do not start or stop other medicines without talking to your healthcare provider.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">How should I take clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <list>
+                     <item>Take clorazepate dipotassium tablets exactly as your healthcare provider tells you to take it. Your healthcare provider will tell you how much clorazepate dipotassium tablets to take and when to take it.</item>
+                     <item>Your healthcare provider may change your dose if needed. Do not change your dose of clorazepate dipotassium tablets without talking to your healthcare provider.</item>
+                     <item>Do not stop taking clorazepate dipotassium tablets without first talking to your healthcare provider. Stopping clorazepate dipotassium tablets suddenly can cause serious problems.</item>
+                     <item>If you take too much clorazepate dipotassium tablets, call your healthcare provider or go to the nearest hospital emergency room right away.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">What are the possible side effects of clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Clorazepate dipotassium tablets may cause serious side effects, including: See "What is the most important information I should know about clorazepate dipotassium tablets?"</content>
+                  </paragraph>
+                  <list>
+                     <item>
+                        <content styleCode="bold">clorazepate dipotassium tablets can make you sleepy or dizzy and can slow your thinking and motor skills. </content>Do not drive, operate heavy machinery, or do other dangerous activities until you know how clorazepate dipotassium tablets affects you. </item>
+                     <item>
+                        <content styleCode="bold">Do not drink alcohol or take other drugs that may make you sleepy or dizzy while taking </content>
+                        <content styleCode="bold">clorazepate dipotassium tablets without first talking to your healthcare provider. </content>When taken with alcohol or drugs that cause sleepiness or dizziness, clorazepate dipotassium tablets may make your sleepiness or dizziness much worse. </item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">The most common side effects of clorazepate dipotassium tablets include:</content>
+                  </paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>• drowsiness <content styleCode="bold"/>
+                           </td>
+                           <td> • upset stomach<content styleCode="bold"/>
+                           </td>
+                           <td> • dry mouth<content styleCode="bold"/>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>• dizziness<content styleCode="bold"/>
+                           </td>
+                           <td>• blurred vision<content styleCode="bold"/>
+                           </td>
+                           <td>
+                              <content styleCode="bold"> </content>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>These are not all the possible side effects of clorazepate dipotassium tablets. For more information, ask your healthcare provider or pharmacist.</paragraph>
+                  <paragraph>Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA­-1088.</paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">How should I store clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <list>
+                     <item>Store clorazepate dipotassium tablets at room temperature between 68ºF to 77ºF (20ºC to 25ºC).</item>
+                     <item>Keep clorazepate dipotassium tablets in a tightly closed container, dry, and out of the light.</item>
+                     <item>
+                        <content styleCode="bold">Keep clorazepate dipotassium tablets and all medicines out of the reach of children.</content>
+                     </item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">General Information about the safe and effective use of clorazepate dipotassium tablets.</content>
+                  </paragraph>
+                  <paragraph>Medicines are sometimes prescribed for purposes other than those listed in a Medication Guide. Do not use clorazepate dipotassium tablets for a condition for which it was not prescribed. Do not give clorazepate dipotassium tablets to other people, even if they have the same symptoms that you have. It may harm them. You can ask your pharmacist or healthcare provider for information about clorazepate dipotassium tablets that is written for health professionals.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What are the ingredients in clorazepate dipotassium tablets?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Active ingredient: </content>clorazepate dipotassium</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Inactive ingredients: </content>colloidal silicon dioxide, FD&amp;C Blue No. 2 Aluminum Lake (3.75 mg only), FD&amp;C Red No. 40 Aluminum Lake (15 mg only), FD&amp;C Yellow No. 6 Aluminum Lake (7.5 mg only), magnesium oxide, magnesium stearate, microcrystalline cellulose, potassium carbonate, and potassium chloride.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">APOTEX INC.</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Clorazepate Dipotassium Tablets, USP </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">3.75 mg, 7.5 mg and 15 mg</content>
+                  </paragraph>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <content styleCode="bold">Manufactured by:</content> </td>
+                           <td>
+                              <content styleCode="bold">Manufactured for:</content> </td>
+                        </tr>
+                        <tr>
+                           <td>CorePharma, LLC </td>
+                           <td>Apotex Corp.</td>
+                        </tr>
+                        <tr>
+                           <td>215 Wood Avenue,</td>
+                           <td>Weston, Florida</td>
+                        </tr>
+                        <tr>
+                           <td>Middlesex, NJ 08846, USA</td>
+                           <td>USA 33326</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph/>
+                  <paragraph>For more information, call Apotex Corp. at 1-800-706-5575 or go to www.apotex.com.</paragraph>
+                  <paragraph>This Medication Guide has been approved by the U.S. Food and Drug Administration.</paragraph>
+                  <paragraph>Revised: May 2023</paragraph>
+                  <paragraph>Rev. 4</paragraph>
+                  <paragraph/>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20230824"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_a35435ce-4d46-8749-fd0d-7573c2c5a636">
+               <id root="e52c0d23-ec18-99c3-65b1-f13065deb9e1"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>3.75 mg 30s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 3.75 mg Bottle Label </paragraph>
+                  <paragraph> NDC 60505-4754-3</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>37.5 mg </paragraph>
+                  <paragraph>Rx Only </paragraph>
+                  <paragraph>30 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM870667574737"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_37dde8e1-deb4-032b-40a3-1934907574be">
+               <id root="7ede521b-6c5a-9edd-372c-f86859300e19"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>3.75 mg 100s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 3.75 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4754-1</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>37.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>100 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM390600973493"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_cf3d46e5-196b-ca83-331f-455388900049">
+               <id root="e6b85b48-452c-76e2-26a9-30b441f2d342"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>3.75 mg 500s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 3.75 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4754-5</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>37.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>500 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM631479145405"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_fd176ad0-3434-edfd-a9f6-f6d2e7377493">
+               <id root="85e3b4b0-afb9-db58-347e-1034a7c4ed0a"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>3.75 mg 1000s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 3.75 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4754-7</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>37.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>1000 Tablets</paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM642074287723"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_580e3f3e-18e5-940e-a167-3242cf0aeb01">
+               <id root="9a2094d3-7886-0c55-1683-f0b1c97656a2"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>7.5 mg 30s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 7.5 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4755-3</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>7.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>30 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM90901152913"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_4d2bfcf9-59c6-f9fb-e26d-53dc767a4f4a">
+               <id root="b402603e-32fb-0deb-1d3e-87c5f9734e98"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>7.5 mg 100s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 7.5 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4755-1</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>7.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>100 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM978518641748"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_7528d5ca-f7b1-28cc-540d-901bcc8997bf">
+               <id root="952f7ba2-1507-b6ed-1f01-0d856a883552"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>7.5 mg 500s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 7.5 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4755-5</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>7.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>500 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM288509765350"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_d422c838-aacf-25f3-dbc1-422800432d09">
+               <id root="41aa9b8a-28bf-8665-ea58-fa7b0e99e24c"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>7.5 mg 1000s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 7.5 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4755-7</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>7.5 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>1000 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM467243344708"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_750eb2ae-cdb1-ab93-8fd6-d1f7dde86032">
+               <id root="cb31beb1-e47d-c86b-e7f8-8adf5bd145cd"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>15 mg 30s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 15 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4756-3</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>15 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>30 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM673689016934"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_5c6b59a2-bbd6-7bd3-c3c4-17622cb99291">
+               <id root="df92eaf7-9533-5c5e-428e-c46ae9e4f027"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>15 mg 100s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 15 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4756-1</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>15 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>100 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM354622346038"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_a8e88428-ce98-ec26-8f96-ad6106785571">
+               <id root="77af0797-5919-6aad-1789-f4c35e3bd370"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>15 mg 500s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 15 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4756-5</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>15 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>500 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM753289977809"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+         <component>
+            <section ID="_74054593-e8aa-eec3-ada5-2e45f1bb6120">
+               <id root="6e269194-2094-e798-ee6d-9842a7cdb494"/>
+               <code code="51945-4" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL" codeSystem="2.16.840.1.113883.6.1"/>
+               <title>15 mg 1000s</title>
+               <text>
+                  <paragraph>PRINCIPAL DISPLAY PANEL - 15 mg Bottle Label</paragraph>
+                  <paragraph>NDC 60505-4756-7</paragraph>
+                  <paragraph>Clorazepate DipotassiumTablets, USP</paragraph>
+                  <paragraph>15 mg</paragraph>
+                  <paragraph>Rx Only</paragraph>
+                  <paragraph>1000 Tablets</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM688194385410"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20240923"/>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

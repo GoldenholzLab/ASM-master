@@ -1,0 +1,921 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-05-19",
+    "results": {
+      "skip": 0,
+      "limit": 10,
+      "total": 29
+    }
+  },
+  "results": [
+    {
+      "spl_product_data_elements": [
+        "Magsoothium CBD Body Menthol 1,2-HEXANEDIOL CAPRYLHYDROXAMIC ACID LOBELIA INFLATA WHOLE MAGNESIUM SULFATE, UNSPECIFIED FORM PROPANEDIOL CITRIC ACID MONOHYDRATE POLYSORBATE 20 GLYCERIN SODIUM BENZOATE ARNICA MONTANA FLOWER HAMAMELIS VIRGINIANA TOP PHENOXYETHANOL ETHYLHEXYLGLYCERIN PEPPERMINT OIL POTASSIUM SORBATE ALOE VERA LEAF ARGAN OIL APRICOT KERNEL OIL OLIVE OIL JOJOBA OIL WATER MENTHOL MENTHOL POLYOXYL 40 HYDROGENATED CASTOR OIL"
+      ],
+      "active_ingredient": [
+        "Active Ingredients Menthol USP 5.0% Purpose Pain Reliever"
+      ],
+      "purpose": [
+        "Uses: Temporarily relieves minor aches and pains associated with sore muscles and joints arthritis backache muscle strains sprains bruises"
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. In case of accidental ingestion get medical help or contact a Poison Control Center immediately."
+      ],
+      "indications_and_usage": [
+        "Stop use and ask a doctor if: Condition worsens or symptoms persist for more than 7 days or clear up and recur Redness is present or irritation develops"
+      ],
+      "warnings": [
+        "Warnings: For external use only When using this product: use only as directed Do not bandage or cover the area being treated Do not apply ice or heating pad in conjunction with this product Do not use with any medical device or other device Do not combine with any other topical treatment Avoid contact with eyes or mucous membrane Do not apply to wounds or damaged skin If pregnant or breast-feeding: Ask a health professional before use"
+      ],
+      "dosage_and_administration": [
+        "Directions: Adults and children over the age of 2 years old: Apply generously with gentle rubbing to the affected area 2-3 times daily or as needed Children less than 2 years of age: Consult a doctor."
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients: Water, PEG-40 Hydrogenated Castor Oil, Magnesium Sulfate Hamamelis Virginiana (Witch Hazel) Bark/Leaf/Twig Extract, Arnica Montana Flower Extract, Phenoxyethanol, Sodium Benzoate, Ethylhexylglycerin, Mentha Piperita (Peppermint) Oil, Potassium Sorbate, Aloe Barbadensis Leaf Extract, Citric Acid, Propanediol, Polysorbate 20, 1,2-Hexanediol, Caprylhydroxamic Acid, Glycerin, Argania Spinosa Kernel Oil, Prunus Armeniaca (Apricot) Kernel Oil, Olea Europaea (Olive) Fruit Oil, Simmondsia Chinensis (Jojoba) Seed Oil, Lobelia inflata Extract"
+      ],
+      "package_label_principal_display_panel": [
+        "Magsoothium Body Spray Helps Relieve Minor Aches & Pains Homeopathic Pain Reliever magnesium & arnica based formula Net Contents: 4 fl oz. (118.3ml) Made in U.S.A spray label"
+      ],
+      "set_id": "00b2ef34-42d7-523c-e063-6294a90a753d",
+      "id": "4615f436-a473-9178-e063-6394a90a70e9",
+      "effective_time": "20251216",
+      "version": "3",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "Magsoothium CBD Body"
+        ],
+        "generic_name": [
+          "MENTHOL"
+        ],
+        "manufacturer_name": [
+          "Ubu/Elements, Inc."
+        ],
+        "product_ndc": [
+          "83262-004"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "4615f436-a473-9178-e063-6394a90a70e9"
+        ],
+        "spl_set_id": [
+          "00b2ef34-42d7-523c-e063-6294a90a753d"
+        ],
+        "package_ndc": [
+          "83262-004-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "AY BENDITO - CBD CAMPHOR, MENTHOL TROLAMINE GLUCOSAMINE SULFATE WATER GLYCERIN ARNICA MONTANA FLOWER MENTHOL MENTHOL SODIUM CHONDROITIN SULFATE (PORCINE; 5500 MW) METHYLCHLOROISOTHIAZOLINONE METHYLISOTHIAZOLINONE FD&C BLUE NO. 1 POLYSORBATE 20 METHYL SALICYLATE ROSMARINUS OFFICINALIS WHOLE CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) CARBOMER 940 MINERAL OIL ALCOHOL CANNABIDIOL CANNABIS SATIVA SEED OIL FD&C YELLOW NO. 5 Light"
+      ],
+      "active_ingredient": [
+        "Camphor ………………. 6% Menthol …………….…. 4%"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "Aid for temporary local relief of minor pain in muscles or joints."
+      ],
+      "warnings": [
+        "For external use only."
+      ],
+      "when_using": [
+        "Use only as directed Do not bandage tightly or use with a heating pad Avoid contact with eyes and mucous membranes Do not apply to wounds or damaged, broken or irritated skin A transient burning sensation or redness may occur upon application but generally disappears in several days If you experience an allergic reaction, discontinue use and consult a doctor Do not expose the area treated with product to heat or direct sunlight."
+      ],
+      "stop_use": [
+        "STOP USE AND ASK A DOCTOR IF: Condition worsens Redness is present Irritation develops Symptoms persist for more than 7 days or clear up occur again within a few days You experience signs injury, such as pain, swelling or blistering where the product was applied."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "IF PREGNANT OR BREAST – FEEDING: Ask a health professional before use."
+      ],
+      "keep_out_of_reach_of_children": [
+        "If swallowed, get medical help or contact a Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS: Adults and Children over 12 years of age: Apply a small amount on the affected area. Massage in circular motion, let set for a few seconds. Repeat as necessary, but no more than 3 to 4 times daily. Children under 12 years of age: do not use, consult a doctor."
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Store tightly closed in a dry place at controlled room temperature between 59°-86° F (15°-30° C)."
+      ],
+      "inactive_ingredient": [
+        "Water (Aqua), Alcohol Denat, Glycerin, Paraffinum Liquidum, Triethanolamine, Arnica Montana Flower Extract, Polysorbate 20, Carbomer, Methyl Salicylate, Sodium Chondroitin Sulfate, Glucosamine Sulfate, Rosmarinus Officinalis (Rosemary) Extract, Methylchloroisothiazolinone, Methylisothiazolinone, FD&C Blue No.1 (CI 42090)."
+      ],
+      "questions": [
+        "QUESTION OR COMMENTS? Call: +1-787-421-6423"
+      ],
+      "package_label_principal_display_panel": [
+        "AY BENDITO - CBD ROLL ON AY BENDITO CBD OIL ROLL ON",
+        "AY BENDITO - CBD SACHET AY BENDITO CBD OIL SACHET"
+      ],
+      "set_id": "04b1d605-60aa-56f4-e063-6294a90ae760",
+      "id": "43d61244-db33-d2af-e063-6294a90a82de",
+      "effective_time": "20251117",
+      "version": "3",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "AY BENDITO - CBD"
+        ],
+        "generic_name": [
+          "CAMPHOR, MENTHOL"
+        ],
+        "manufacturer_name": [
+          "AY BENDITO INTERNATIONAL, INC"
+        ],
+        "product_ndc": [
+          "72524-009"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)",
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "43d61244-db33-d2af-e063-6294a90a82de"
+        ],
+        "spl_set_id": [
+          "04b1d605-60aa-56f4-e063-6294a90ae760"
+        ],
+        "package_ndc": [
+          "72524-009-04",
+          "72524-009-17"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0862158000277",
+          "0850027973180"
+        ],
+        "unii": [
+          "5TJD82A1ET",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "ETERNAL SPIRIT BEAUTY PAINLESS WITH CBD 3000 Menthol, Camphor SODIUM COCOYL WHEAT AMINO ACIDS WATER CETYL ALCOHOL GLYCERETH-26 METHYLPARABEN TRIBUTYL CITRATE BUTETH-3 PANTHENOL DIAZOLIDINYL UREA CANNABIDIOL HYALURONATE SODIUM DIMETHICONE 1000 GLYCERIN HYDROXYPROLINE SYMPHYTUM OFFICINALE WHOLE TRIDECETH-6 SODIUM BENZOTRIAZOLYL BUTYLPHENOL SULFONATE CETOSTEARYL ALCOHOL GLYCERYL STEARATE SE ALCOHOL 95% ACRYLAMIDE MENTHOL, UNSPECIFIED FORM MENTHOL, UNSPECIFIED FORM CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) MINERAL OIL .ALPHA.-TOCOPHEROL ACETATE, D- CAPRYLIC/CAPRIC/LAURIC TRIGLYCERIDE POLYSORBATE 20 PROPYLPARABEN STEARIC ACID"
+      ],
+      "active_ingredient": [
+        "Camphor 3% Menthol 10%"
+      ],
+      "purpose": [
+        "External Analgesic"
+      ],
+      "indications_and_usage": [
+        "USES: For the temporary relief of minor aches and pains of muscles and joints associated with simple backache, arthritis, sprains and strains."
+      ],
+      "warnings": [
+        "For external use only. Use only as directed. Do not bandage tightly. Do not use with heating pad, pack, wrap, hot water bottle or any heating element."
+      ],
+      "ask_doctor": [
+        "ASK A DOCTOR BEFORE USE IF YOU HAVE Redness over affected area"
+      ],
+      "when_using": [
+        "Avoid contact with eyes Do not apply to wounds or damaged skin. If confition worsens, or if symptoms persist for more than 7 days or clear up and occur again within a few days, discontinue use of this product, and consult a doctor."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breast-feeding ask a proffesional before use"
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or call a Poison Control Center right away"
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS: Adults and children over 12 years of age *Apply a thin layer to affected area and rub gently not more than 3 to 4 times a day. *Wash hands with soap and water after use. Children under 12 years of age; do not use unless directed by doctor"
+      ],
+      "storage_and_handling": [
+        "OTHER INFORMATION: Store at room temperature 15° - 30°C (59° - 86°F)"
+      ],
+      "inactive_ingredient": [
+        "Water (Aqua), Ethyl Alcohol, Paraffinum Liquidum, Cetearyl Alcohol, Cetyl Alcohol, Stearic Acid, Dimethicone, Glyceryl Stearate, Tocopheryl Acetate, Glycereth-26, Caprylic/Capric Triglyceride, Polysorbate 60, Acrylamide/Sodium Acrylate Copolymer, Trideceth-6, Propylene Glycol, Stearyl Alcohol, Polysorbate 20, Diazolidinyl Urea, Triethanolamine, Cannabidiol, Methylparaben, Propylparaben, Sodium Hyaluronate, Sodium PCA, Wheat Amino Acids, Panthenol, Symphytum Officinale (Comfrey) Extract, Hydroxyproline, Sodium Benzotriazolyl Butylphenol Sulfonate, Buteth-3, Tributyl Citrate, FD&C Blue No.1 (CI 42090), FD&C Yellow No.5 (CI 19140)."
+      ],
+      "questions": [
+        "QUESTIONS OR COMMENTS? Contact us +1-305-468-8790"
+      ],
+      "package_label_principal_display_panel": [
+        "ETERNAL SPIRIT BEAUTY PAINLESS WITH CBD 3000 PAINLESS WITH CBD 3000 JAR",
+        "ETERNAL SPIRIT BEAUTY PAINLESS WITH CBD 3000 SACHET PAINLESS WITH CBD 3000 SACHET"
+      ],
+      "set_id": "0816cc8f-8d0b-de27-e063-6294a90a8a9d",
+      "id": "43d677ed-a243-88a0-e063-6294a90ad94c",
+      "effective_time": "20251117",
+      "version": "2",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "ETERNAL SPIRIT BEAUTY PAINLESS WITH CBD 3000"
+        ],
+        "generic_name": [
+          "MENTHOL, CAMPHOR"
+        ],
+        "manufacturer_name": [
+          "Worldwide Cosmetics, Inc"
+        ],
+        "product_ndc": [
+          "70947-130"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)",
+          "MENTHOL, UNSPECIFIED FORM"
+        ],
+        "spl_id": [
+          "43d677ed-a243-88a0-e063-6294a90ad94c"
+        ],
+        "spl_set_id": [
+          "0816cc8f-8d0b-de27-e063-6294a90a8a9d"
+        ],
+        "package_ndc": [
+          "70947-130-02",
+          "70947-130-33"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0787790465454"
+        ],
+        "unii": [
+          "5TJD82A1ET",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "JUST CBD SOOTHING MENTHOL, CAMPHOR PROPYLENE GLYCOL LINALOOL, (+/-)- WATER MINERAL OIL CETOSTEARYL ALCOHOL PROPYLPARABEN CANNABIDIOL TROLAMINE STEARIC ACID GLYCERYL STEARATE SE GLYCERETH-26 DIAZOLIDINYL UREA METHYLPARABEN TRIDECETH-6 GERANIOL COUMARIN COMFREY LEAF BUTETH-3 AMINO ACIDS, WHEAT CETYL ALCOHOL .ALPHA.-TOCOPHEROL ACETATE SODIUM PYRROLIDONE CARBOXYLATE HYDROXYPROLINE TRIBUTYL CITRATE DIMETHICONE 1000 POLYSORBATE 60 STEARYL ALCOHOL POLYSORBATE 20 HYALURONATE SODIUM ALCOHOL SODIUM BENZOTRIAZOLYL BUTYLPHENOL SULFONATE MENTHOL, UNSPECIFIED FORM MENTHOL, UNSPECIFIED FORM PANTHENOL CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) LIMONENE, (+)- BENZYL BENZOATE"
+      ],
+      "active_ingredient": [
+        "Camphor 3% Menthol 10%"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "USE For the temporary relief of minor aches and pains of muscles and joints associated with simple backache, arthritis, sprains and strains."
+      ],
+      "warnings": [
+        "For external use only. Ask a doctor before use if you have redness over affected area."
+      ],
+      "when_using": [
+        "• Use only as directed. • Do not bandage tightly. • Do not use with heating pad, pack, wrap, hot water bottle or any heating element. • In case of accidental ingestion, contact doctor immediately. • If prone to allergic reaction to the product, consult to a doctor before using."
+      ],
+      "stop_use": [
+        "• Condition worsens. • Redness is present. • Irritation develops. • Symptoms persist for more than 7 days or clear up occur again within a few days. • You experience signs injury, such as pain, swelling or blistering where the product was applied."
+      ],
+      "keep_out_of_reach_of_children": [
+        "If swallowed, get medical help or contact a Poison Control Center right away."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breast-feeding Ask a health professional before use."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Adults over 21 years • Apply a thin layer to the affected area and rub gently not more than 3 to 4 times a day. • Wash hands with soap and water after use."
+      ],
+      "other_safety_information": [
+        "Store tighly closed in a dry place at controlled room temperature between 59°-86° F (15°-30° C). This product is intended only for use by healthy adults aged 21 years & older."
+      ],
+      "inactive_ingredient": [
+        "Water (Aqua), Paraffinum Liquidum, Alcohol Denat, Cetearyl Alcohol, Cetyl Alcohol, Stearic Acid, Dimethicone, Glyceryl Stearate, Glycereth-26, Tocopheryl Acetate, Propylene Glycol, Polysorbate 60, Diazolidinyl Urea, Methylparaben, Propylparaben, Acrylamide/Sodium Acrylate Copolymer, Trideceth-6, Stearyl Alcohol, Polysorbate 20, Triethanolamine, Fragrance (Parfum), Sodium Hyaluronate, Sodium PCA, Wheat Amino Acids, Panthenol, Symphytum Officinale (Comfrey) Extract, Hydroxyproline, Sodium Benzotriazolyl Butylphenol Sulfonate, Buteth-3, Tributyl Citrate, Cannabidiol, Limonene, Linalool, Benzyl Benzoate, Coumarin, Geraniol."
+      ],
+      "package_label_principal_display_panel": [
+        "JUST CBD SOOTHING CREAM WITH MENTHOL 4 FL OZ SOOTHING CREAM 4",
+        "JUST CBD SOOTHING CREAM WITH MENTHOL 8 FL OZ SOOTHING CREAM 8"
+      ],
+      "set_id": "0abece07-976c-4881-e063-6294a90a5c1b",
+      "id": "43d6f651-5d85-8618-e063-6394a90a3c4b",
+      "effective_time": "20251117",
+      "version": "5",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "JUST CBD SOOTHING"
+        ],
+        "generic_name": [
+          "MENTHOL, CAMPHOR"
+        ],
+        "manufacturer_name": [
+          "Just Brands LLC"
+        ],
+        "product_ndc": [
+          "73647-103"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)",
+          "MENTHOL, UNSPECIFIED FORM"
+        ],
+        "spl_id": [
+          "43d6f651-5d85-8618-e063-6394a90a3c4b"
+        ],
+        "spl_set_id": [
+          "0abece07-976c-4881-e063-6294a90a5c1b"
+        ],
+        "package_ndc": [
+          "73647-103-08",
+          "73647-103-04"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0696831885949",
+          "0696831885956"
+        ],
+        "unii": [
+          "5TJD82A1ET",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "AY BENDITO - CBD CAMPHOR, MENTHOL METHYLCHLOROISOTHIAZOLINONE METHYLISOTHIAZOLINONE FD&C BLUE NO. 1 POLYSORBATE 20 METHYL SALICYLATE ROSMARINUS OFFICINALIS WHOLE CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) CARBOMER 940 MINERAL OIL FD&C YELLOW NO. 5 ALCOHOL CANNABIDIOL CANNABIS SATIVA SEED OIL C13-14 ISOPARAFFIN LAURETH-7 TROLAMINE GLUCOSAMINE SULFATE WATER GLYCERIN ARNICA MONTANA FLOWER MENTHOL MENTHOL SODIUM CHONDROITIN SULFATE (PORCINE; 5500 MW) Light"
+      ],
+      "active_ingredient": [
+        "Camphor ………………. 6% Menthol …………….…. 4%"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "Aid for temporary local relief of minor pain in muscles or joints."
+      ],
+      "warnings": [
+        "For external use only."
+      ],
+      "when_using": [
+        "Use only as directed Do not bandage tightly or use with a heating pad Avoid contact with eyes and mucous membranes Do not apply to wounds or damaged, broken or irritated skin A transient burning sensation or redness may occur upon application but generally disappears in several days If you experience an allergic reaction, discontinue use and consult a doctor Do not expose the area treated with product to heat or direct sunlight."
+      ],
+      "stop_use": [
+        "Condition worsens Redness is present Irritation develops Symptoms persist for more than 7 days or clear up occur again within a few days You experience signs injury, such as pain, swelling or blistering where the product was applied."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "IF PREGNANT OR BREAST – FEEDING: Ask a health professional before use."
+      ],
+      "keep_out_of_reach_of_children": [
+        "If swallowed, get medical help or contact a Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Adults and Children over 12 years of age: Apply a small amount on the affected area. Massage in circular motion, let set for a few seconds. Repeat as necessary, but no more than 3 to 4 times daily. Children under 12 years of age: do not use, consult a doctor."
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Store tightly closed in a dry place at controlled room temperature between 59°-86° F (15°-30° C)."
+      ],
+      "inactive_ingredient": [
+        "Water (Aqua), Alcohol Denat, Glycerin, Paraffinum Liquidum, Triethanolamine, Arnica Montana Flower Extract, Polysorbate 20, Carbomer, Methyl Salicylate, Sodium Chondroitin Sulfate, Glucosamine Sulfate, Rosmarinus Officinalis (Rosemary) Extract, Methylchloroisothiazolinone, Methylisothiazolinone, FD&C Blue No.1 (CI 42090)."
+      ],
+      "questions": [
+        "QUESTION OR COMMENTS? Call: +1-787-421-6423"
+      ],
+      "package_label_principal_display_panel": [
+        "AY BENDITO - CBD OIL JAR CBD JAR",
+        "AY BENDITO - CBD OIL TUBE CBD TUBE"
+      ],
+      "set_id": "0f1406fe-3a2f-bf36-e063-6294a90a7e5e",
+      "id": "43d61ffe-447a-a5ae-e063-6294a90a1831",
+      "effective_time": "20251117",
+      "version": "2",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "AY BENDITO - CBD"
+        ],
+        "generic_name": [
+          "CAMPHOR, MENTHOL"
+        ],
+        "manufacturer_name": [
+          "AY BENDITO INTERNATIONAL, INC"
+        ],
+        "product_ndc": [
+          "72524-064"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)",
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "43d61ffe-447a-a5ae-e063-6294a90a1831"
+        ],
+        "spl_set_id": [
+          "0f1406fe-3a2f-bf36-e063-6294a90a7e5e"
+        ],
+        "package_ndc": [
+          "72524-064-40",
+          "72524-064-04"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0850027973241",
+          "0850027973234"
+        ],
+        "unii": [
+          "5TJD82A1ET",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "Perricone MD Hypoallergenic CBD Sensitive Skin Therapy Ultra-Lightweight Calming SPF 35 Veil Zinc Oxide SODIUM CHLORIDE GLYCERIN PROPANEDIOL LEVOMENOL STEAROYL GLUTAMIC ACID POTASSIUM SORBATE GLUCONOLACTONE ROSEMARY WATER COCO-CAPRYLATE/CAPRATE POLYGLYCERYL-4 DIISOSTEARATE/POLYHYDROXYSTEARATE/SEBACATE CALENDULA OFFICINALIS FLOWER PROPYLENE CARBONATE CITRIC ACID MONOHYDRATE TOCOPHEROL ALKYL (C12-15) BENZOATE GLYCYRRHIZINATE DIPOTASSIUM STEARALKONIUM HECTORITE SUNFLOWER OIL BUTYLOCTYL SALICYLATE CANNABIDIOL XANTHAN GUM LINGONBERRY CANNABIS SATIVA SEED OIL C9-12 ALKANE SODIUM BENZOATE ISODODECANE ZINC OXIDE ZINC OXIDE OCTYLDODECANOL RICE BRAN CASTOR OIL/IPDI COPOLYMER CALCIUM GLUCONATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER POLYHYDROXYSTEARIC ACID (2300 MW) HYDROXYACETOPHENONE MEDIUM-CHAIN TRIGLYCERIDES BUTYL ACRYLATE/METHYL METHACRYLATE/METHACRYLIC ACID COPOLYMER (18000 MW) TRIHEPTANOIN"
+      ],
+      "active_ingredient": [
+        "Zinc Oxide 15.45 Sunscreen"
+      ],
+      "purpose": [
+        "Sunscreen"
+      ],
+      "indications_and_usage": [
+        "Helps prevent sunburn. If used as directed with other sun protection measures (see Directions), decreases the risk of skin cancer and early skin aging caused by the sun."
+      ],
+      "warnings": [
+        "For external use only. if rash occurs. on damaged or broken skin. keep out of eyes. Rinse with water to remove If swallowed, get medical help or contact a Poison Control Center. Not suitable for pregnant or lactating women."
+      ],
+      "stop_use": [
+        "if rash occurs."
+      ],
+      "do_not_use": [
+        "on damaged or broken skin."
+      ],
+      "when_using": [
+        "keep out of eyes. Rinse with water to remove"
+      ],
+      "keep_out_of_reach_of_children": [
+        "If swallowed, get medical help or contact a Poison Control Center."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "Not suitable for pregnant or lactating women."
+      ],
+      "dosage_and_administration": [
+        "Shake well & apply liberally to face & neck using a gentle upward motion prior to sun exposure. For Sunscreen Use: Apply liberally 15 minutes before sun exposure. Use a water resistant sunscreen if swimming or sweating. Reapply at least every 2 hours. Not for use on children. Sun Protection Measures: Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF value of 15 or higher and other sun protection measures including: limit time in the sun, especially from 10 a.m.–2 p.m. wear long-sleeved shirts, pants, hats, and sunglasses."
+      ],
+      "other_safety_information": [
+        "Protect the product in this container from excessive heat and direct sun."
+      ],
+      "inactive_ingredient": [
+        "Water/Aqua/Eau, Isododecane, Caprylic/Capric Triglyceride, Coco-Caprylate/Caprate, Acrylates Copolymer, C12-15 Alkyl Benzoate, Butyloctyl Salicylate, Polyglyceryl-4 Diisostearate/Polyhydroxystearate/Sebacate, Glycerin, Propanediol, Cannabis Sativa Seed Oil, Sodium Chloride, Polyhydroxystearic Acid, Cannabidiol, Triheptanoin, Stearalkonium Hectorite, Calendula Officinalis Flower Extract, Stearoyl Glutamic Acid, Hydroxyacetophenone, Xanthan Gum, C9-12 Alkane, Dilinoleic Acid/Butanediol Copolymer, Propylene Carbonate, Sodium Benzoate, Dipotassium Glycyrrhizate, Vaccinium Vitis-Idaea Fruit Extract, Potassium Sorbate, Bisabolol, Oryza Sativa (Rice) Bran Extract, Castor Oil/IPDI Copolymer, Octyldodecanol, Helianthus Annuus (Sunflower) Extract, Citric Acid, Gluconolactone, Rosmarinus Officinalis (Rosemary) Leaf Extract, Tocopherol, Calcium Gluconate"
+      ],
+      "questions": [
+        "1-888-823-7837"
+      ],
+      "package_label_principal_display_panel": [
+        "PACKAGE LABEL PRINCIPAL DISPLAY PANEL",
+        "15mL"
+      ],
+      "set_id": "2392c772-c251-1597-e063-6394a90a52f2",
+      "id": "42b2d10e-765c-90f2-e063-6294a90a3707",
+      "effective_time": "20251103",
+      "version": "2",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "Perricone MD Hypoallergenic CBD Sensitive Skin Therapy Ultra-Lightweight Calming SPF 35 Veil"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "THG Beauty USA LLC"
+        ],
+        "product_ndc": [
+          "84448-615"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "42b2d10e-765c-90f2-e063-6294a90a3707"
+        ],
+        "spl_set_id": [
+          "2392c772-c251-1597-e063-6394a90a52f2"
+        ],
+        "package_ndc": [
+          "84448-615-15",
+          "84448-615-50"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "Magsoothium CBD Cooling Roll on Relief Menthol MENTHOL MENTHOL PHENOXYETHANOL AMINOMETHYL PROPANOL ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER (60000 MPA.S) ARNICA MONTANA FLOWER WATER WITCH HAZEL T-BUTYL ALCOHOL ETHYLHEXYLGLYCERIN ALCOHOL MENTHA PIPERITA (PEPPERMINT) OIL CANNABIS SATIVA SEED OIL CAPRYLHYDROXAMIC ACID PROPANEDIOL 1,2-HEXANEDIOL GLYCERIN MAGNESIUM SULFATE"
+      ],
+      "active_ingredient": [
+        "Active Ingredients Purpose Menthol USP 5.0% Pain reliever"
+      ],
+      "purpose": [
+        "Uses: Temporarily relieves minor aches and pains associated with sore musclesand joins arthritis backache muscle strains sprains bruises"
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. In case of accidental ingestion get medical help or contact a Poison Control Center immediately."
+      ],
+      "indications_and_usage": [
+        "Stop use and ask a doctor if: Condition worsens or symptoms persist for more than 7 days or clear up and recur redness is present or irritation develops"
+      ],
+      "warnings": [
+        "Warnings: For external use only When using this product: use only as directed Do not bandage or cover the are being treated Do not apply ice or heating pad in conjunction with this product Do not use with any medical device or other device Do not combine with any other topical treatment Avoid contact with eyes or mucouys membrane Do not apply to wounds or damaged skin"
+      ],
+      "dosage_and_administration": [
+        "Directions: Adults and children over the age of 2 years old: Apply generously with gentle rubbing to the affected area 2-3 times daily or as needed. Children less than 2 years of age: Consult a doctor"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients: Alcohol, Water, Glycerin, Hamamelis Virginiana (Witch Hazel) Bark/Leaf/Twig Extract, Arnica Montana Flower Extract, Acrylates/ C10-30 Alkyl Acrylate Crosspolymer, Aminomethyl Propanol, Mentha Piperita (Peppermint) Oil, Magnesium Sulfate, Cannabis Sativa Seed Oil, t-Butyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, Propanediol, 1,2-Hexanediol, Caprylhydroxamic Acid"
+      ],
+      "package_label_principal_display_panel": [
+        "Broad Spectrum Hemp CBD Cooling Roll On Relief Net Contents: 3 fl. oz. (89ml) Acro Roll on"
+      ],
+      "set_id": "2cf05dcd-6a44-de08-e063-6394a90aaba0",
+      "id": "2cf05dcd-6a45-de08-e063-6394a90aaba0",
+      "effective_time": "20250130",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "Magsoothium CBD Cooling Roll on Relief"
+        ],
+        "generic_name": [
+          "MENTHOL"
+        ],
+        "manufacturer_name": [
+          "Ubu/Elements, Inc."
+        ],
+        "product_ndc": [
+          "83262-005"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "2cf05dcd-6a45-de08-e063-6394a90aaba0"
+        ],
+        "spl_set_id": [
+          "2cf05dcd-6a44-de08-e063-6394a90aaba0"
+        ],
+        "package_ndc": [
+          "83262-005-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "AY BENDITO CBD MENTHOL, CAMPHOR WATER CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) SALICYLIC ACID SORBIC ACID BENZYL ALCOHOL ALCOHOL GLYCERIN MENTHOL MENTHOL ALOE VERA LEAF JUICE CANNABIDIOL CANNABIS SATIVA SEED OIL"
+      ],
+      "active_ingredient": [
+        "Camphor 6% Menthol 4%"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "Use For temporary relief of minor pains on muscles or joints."
+      ],
+      "warnings": [
+        "For external use only. Do not apply to wounds or damaged skin, with a heating pad or on a child under 12 years of age. Flammable Keep away from fire or flame. Use only as directed. Do not bandage tightly. Avoid contact with eyes and mucous membranes. If you experience an allergic reaction, discontinue use, and consult a doctor. Do not expose the area treated with product to heat or direct sunlight. Stop use and ask a doctor if Condition worsens. Redness is present. Irritation develops. Symptoms persist for more than 7 days or clear up occur again within a few days. You experience signs of injury, such as pain, swelling or blistering where the product was applied. If pregnant or breast – feeding Ask a health professional before use. Keep out of reach of children If swallowed, get medical help, or contact a Poison Control Center right away."
+      ],
+      "safe_handling_warning": [
+        "Flammable Keep away from fire or flame."
+      ],
+      "when_using": [
+        "Use only as directed. Do not bandage tightly. Avoid contact with eyes and mucous membranes. If you experience an allergic reaction, discontinue use, and consult a doctor. Do not expose the area treated with product to heat or direct sunlight."
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if Condition worsens. Redness is present. Irritation develops. Symptoms persist for more than 7 days or clear up occur again within a few days. You experience signs of injury, such as pain, swelling or blistering where the product was applied."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breast – feeding Ask a health professional before use."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children If swallowed, get medical help, or contact a Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "Directions Adults and Children over 12 years of age Spray two to three pumps or as necessary to cover the affected area not more than three to four times daily. Children under 12 years of age: do not use, consult a doctor."
+      ],
+      "other_safety_information": [
+        "Store tightly closed in a dry place at controlled room temperature between 59°F - 86° F (15°C - 30° C)."
+      ],
+      "inactive_ingredient": [
+        "Alcohol Denat, Water (Aqua), Glycerin, Aloe Barbadensis (Aloe Vera) Leaf Juice, Cannabidiol, Cannabis Sativa (Hemp) Seed Oil, Benzyl Alcohol, Sorbic Acid, Salicylic Acid."
+      ],
+      "questions": [
+        "Call +1-787-421-6423"
+      ],
+      "package_label_principal_display_panel": [
+        "AY BENDITO CBD OIL SPRAY 2 FL OZ AY BENDITO 2 CBD",
+        "AY BENDITO CBD OIL SPRAY 4 FL OZ AY BENDITO 4 CBD"
+      ],
+      "set_id": "30a1c6b7-e37e-32c2-e063-6394a90aa354",
+      "id": "43d6276a-e0eb-57a9-e063-6394a90a6005",
+      "effective_time": "20251117",
+      "version": "2",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "AY BENDITO CBD"
+        ],
+        "generic_name": [
+          "MENTHOL, CAMPHOR"
+        ],
+        "manufacturer_name": [
+          "AY BENDITO INTERNATIONAL, INC"
+        ],
+        "product_ndc": [
+          "72524-900"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)",
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "43d6276a-e0eb-57a9-e063-6394a90a6005"
+        ],
+        "spl_set_id": [
+          "30a1c6b7-e37e-32c2-e063-6394a90aa354"
+        ],
+        "package_ndc": [
+          "72524-900-02",
+          "72524-900-04"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0850027973326",
+          "0850027973333"
+        ],
+        "unii": [
+          "5TJD82A1ET",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "CBD Clinic Deep-Rub Pain Relief - Level 5 Camphor, Menthol COTTONSEED OIL CAMPHOR (NATURAL) CAMPHOR (NATURAL) MENTHOL MENTHOL HEMP JOJOBA OIL"
+      ],
+      "active_ingredient": [
+        "Active ingredients Camphor USP, 5% Menthol USP, 15%"
+      ],
+      "purpose": [
+        "Purpose Camphor USP, 5%....................Topical analgesic Menthol USP, 15%....................Topical analgesic"
+      ],
+      "indications_and_usage": [
+        "Uses For the temporary relief of minor aches and pains of muscles and joints associated with simple backache, arthritis, strains, bruises, and sprains."
+      ],
+      "warnings": [
+        "Warnings Do not use on wounds or damaged skin When using this product avoid contact with eyes or mucous membranes do not bandage tightly or use with a heating pad Discontinue use of this product and consult a physician if condition worsens symptoms persist for more than 7 days symptoms clear up and occur again within a few days excessive skin irritation develops If pregnant or breastfeeding, currently taking medication, or are under eighteen years of age ,ask a health professional before use. Keep out of reach of children and pets. If swallowed, get medical help or contact a Poison Control Center immediately."
+      ],
+      "do_not_use": [
+        "Do not use on wounds or damaged skin"
+      ],
+      "when_using": [
+        "When using this product avoid contact with eyes or mucous membranes do not bandage tightly or use with a heating pad"
+      ],
+      "stop_use": [
+        "Discontinue use of this product and consult a physician if condition worsens symptoms persist for more than 7 days symptoms clear up and occur again within a few days excessive skin irritation develops"
+      ],
+      "pregnancy_or_breast_feeding": [
+        "If pregnant or breastfeeding, currently taking medication, or are under eighteen years of age ,ask a health professional before use."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children and pets. If swallowed, get medical help or contact a Poison Control Center immediately."
+      ],
+      "dosage_and_administration": [
+        "Directions Adults and children 2 years of age and older Apply to affected area not more than 3 to 4 times daily. Children under 2 years of age Do not use, consult a physician. Store in a cool, dry place away from direct sunlight"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Hemp oil, cottonseed oil, jojoba seed oil"
+      ],
+      "questions": [
+        "Questions? Call 1-888-422-3254"
+      ],
+      "package_label_principal_display_panel": [
+        "Maximum Strength CBD Clinic Professional Care. Powerful Relief. Deep-Rub Pain Relief Oil Camphor 5% | Menthol 15% Naturally Derived Ingredients Level 05 Clinical Strength Net Wt 12 fl oz (287.55 g) 1"
+      ],
+      "set_id": "31e2e5cd-d33e-f058-e063-6394a90af7d2",
+      "id": "31e2e5cd-d33f-f058-e063-6394a90af7d2",
+      "effective_time": "20250114",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "CBD Clinic Deep-Rub Pain Relief - Level 5"
+        ],
+        "generic_name": [
+          "CAMPHOR, MENTHOL"
+        ],
+        "manufacturer_name": [
+          "ABACUS HEALTH PRODUCTS, INC."
+        ],
+        "product_ndc": [
+          "73096-754"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (NATURAL)",
+          "MENTHOL"
+        ],
+        "spl_id": [
+          "31e2e5cd-d33f-f058-e063-6394a90af7d2"
+        ],
+        "spl_set_id": [
+          "31e2e5cd-d33e-f058-e063-6394a90af7d2"
+        ],
+        "package_ndc": [
+          "73096-754-28"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "upc": [
+          "0857526006180"
+        ],
+        "unii": [
+          "N20HL7Q941",
+          "L7T10EIP3A"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "JUST CBD ROLL-ON WARMING CAMPHOR WATER CETEARETH-25 SALICYLIC ACID FD&C YELLOW NO. 6 CAMPHOR (SYNTHETIC) CAMPHOR (SYNTHETIC) CARBOMER 940 CANNABIS SATIVA SEED OIL CALENDULA OFFICINALIS FLOWER BENZYL ALCOHOL SORBIC ACID SODIUM HYDROXIDE METHYL SALICYLATE ALCOHOL MEDIUM-CHAIN TRIGLYCERIDES GLYCERIN"
+      ],
+      "active_ingredient": [
+        "Camphor ………………………………...…………………………….…. 4%"
+      ],
+      "purpose": [
+        "Topical Analgesic"
+      ],
+      "indications_and_usage": [
+        "Use Aid for temporary local relief of minor pain in muscles and joints."
+      ],
+      "warnings": [
+        "• For external use only. • Ask a doctor before use if you have redness over affected area."
+      ],
+      "when_using": [
+        "Avoid contact with the eyes or mucous membranes. Do not apply to wounds or damaged skin. Do not apply to the irritated skin or if excessive irritation develops. Do not bandage. Do not use with heating pad or device. Stop use and ask a doctor if condition worsens, or if symptoms persist for more than 7 days, or clear up and occur again within a few days."
+      ],
+      "pregnancy_or_breast_feeding": [
+        "Ask a health professional before use."
+      ],
+      "keep_out_of_reach_of_children": [
+        "If swallowed, get medical help, or contact a Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "Directions Adults and Children over 12 years of age. ● Apply a small amount on the affected area. ● Massage in circular motion, let set for a few seconds. ● Repeat as necessary, but no more than 3 to 4 times daily. Children under 12 years of age: Do not use, consult a doctor"
+      ],
+      "other_safety_information": [
+        "Other information Store tightly closed in a dry place at controlled room temperature between 59°-86° F (15°-30° C)."
+      ],
+      "inactive_ingredient": [
+        "Water (Aqua), Alcohol Denat, Ceteareth-25, Glycerin, Caprylic/Capric Triglyceride, Calendula Officinalis Extract, Cannabis Sativa Seed Oil, Carbomer, Sodium Hydroxide, Methyl Salicylate, Benzyl Alcohol, Salicylic Acid, Sorbic Acid, FD&C Yellow No.6 (CI 15985)."
+      ],
+      "questions": [
+        "Questions or comments Contact us +1-833-458-7822"
+      ],
+      "package_label_principal_display_panel": [
+        "JUST CBD ROLL-ON WARMING GEL +1500 JBCD W 1500 RO"
+      ],
+      "set_id": "44779065-5f57-8f01-e063-6394a90a3f8e",
+      "id": "447776be-7c9d-0015-e063-6394a90aa06e",
+      "effective_time": "20251125",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M017"
+        ],
+        "brand_name": [
+          "JUST CBD ROLL-ON WARMING"
+        ],
+        "generic_name": [
+          "CAMPHOR"
+        ],
+        "manufacturer_name": [
+          "Just Brands LLC"
+        ],
+        "product_ndc": [
+          "73647-403"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "CAMPHOR (SYNTHETIC)"
+        ],
+        "spl_id": [
+          "447776be-7c9d-0015-e063-6394a90aa06e"
+        ],
+        "spl_set_id": [
+          "44779065-5f57-8f01-e063-6394a90a3f8e"
+        ],
+        "package_ndc": [
+          "73647-403-03"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "5TJD82A1ET"
+        ]
+      }
+    }
+  ]
+}

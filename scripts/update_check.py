@@ -115,15 +115,25 @@ RCT_EXCLUDE_TITLE_TERMS = [
     "veterinary",
 ]
 
+RCT_REPORT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
+OUTCOME_REPORT_PATH = ROOT / "pubmed_cache" / "reports" / "efficacy_outcome_audit.csv"
+
+RR50_FIELD = "diff_50_responder_maximum_effective_dose"
+MPC_FIELD = "diff_median_pct_change_maximum_effective_dose"
+SF_FIELD = "diff_seizure_freedom_maximum_effective_dose"
+PLOT_RR50_FIELD = "plot_diff_50_responder_maximum_effective_dose"
+PLOT_MPC_FIELD = "plot_diff_median_pct_change_maximum_effective_dose"
+PLOT_SF_FIELD = "plot_diff_seizure_freedom_maximum_effective_dose"
+
 SEMICOLON_FIELDS = {
     "alternate_generic_names",
     "trade_names",
     "evidence_sources",
     "pubmed_phase_ii_iii_rct_links",
     "pubmed_search_aliases",
-    PLOT_RR50_FIELD if "PLOT_RR50_FIELD" in globals() else "plot_diff_50_responder_maximum_effective_dose",
-    PLOT_MPC_FIELD if "PLOT_MPC_FIELD" in globals() else "plot_diff_median_pct_change_maximum_effective_dose",
-    PLOT_SF_FIELD if "PLOT_SF_FIELD" in globals() else "plot_diff_seizure_freedom_maximum_effective_dose",
+    PLOT_RR50_FIELD,
+    PLOT_MPC_FIELD,
+    PLOT_SF_FIELD,
 }
 
 FILTER_DEFAULTS = {
@@ -136,16 +146,6 @@ FILTER_DEFAULTS = {
     "filter_qt_effect": "Needs review",
     "filter_symptom_category": "Needs review",
 }
-
-RCT_REPORT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
-OUTCOME_REPORT_PATH = ROOT / "pubmed_cache" / "reports" / "efficacy_outcome_audit.csv"
-
-RR50_FIELD = "diff_50_responder_maximum_effective_dose"
-MPC_FIELD = "diff_median_pct_change_maximum_effective_dose"
-SF_FIELD = "diff_seizure_freedom_maximum_effective_dose"
-PLOT_RR50_FIELD = "plot_diff_50_responder_maximum_effective_dose"
-PLOT_MPC_FIELD = "plot_diff_median_pct_change_maximum_effective_dose"
-PLOT_SF_FIELD = "plot_diff_seizure_freedom_maximum_effective_dose"
 
 OUTCOME_SPECS = [
     (RR50_FIELD, PLOT_RR50_FIELD, "rr50_differential_percent", "rr50_included_in_csv_summary", "RR50 differential"),
@@ -304,11 +304,19 @@ class SourceError(RuntimeError):
 
 
 class HttpClient:
-    def __init__(self, cache_dir: Path, refresh: bool = False, offline: bool = False, throttle: float = 0.05):
+    def __init__(
+        self,
+        cache_dir: Path,
+        refresh: bool = False,
+        offline: bool = False,
+        throttle: float = 0.05,
+        max_429_retries: int = 7,
+    ):
         self.cache_dir = cache_dir
         self.refresh = refresh
         self.offline = offline
         self.throttle = throttle
+        self.max_429_retries = max_429_retries
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
     def get_bytes(self, url: str, suffix: str = ".txt") -> bytes:
@@ -325,13 +333,33 @@ class HttpClient:
                 "Accept": "application/json,text/html,application/xml;q=0.9,*/*;q=0.8",
             },
         )
-        try:
-            with urllib.request.urlopen(request, timeout=60) as response:
-                data = response.read()
-        except urllib.error.HTTPError as exc:
-            raise SourceError(f"HTTP {exc.code} for {url}") from exc
-        except urllib.error.URLError as exc:
-            raise SourceError(f"network error for {url}: {exc.reason}") from exc
+        data = None
+        for attempt in range(self.max_429_retries + 1):
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    data = response.read()
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code != 429 or attempt >= self.max_429_retries:
+                    raise SourceError(f"HTTP {exc.code} for {url}") from exc
+                retry_after = exc.headers.get("Retry-After")
+                try:
+                    delay = float(retry_after) if retry_after else 0.0
+                except ValueError:
+                    delay = 0.0
+                if delay <= 0:
+                    delay = min(180.0, 8.0 * (2**attempt))
+                self.throttle = max(self.throttle, min(delay, 30.0))
+                print(
+                    f"HTTP 429 from {urllib.parse.urlparse(url).netloc}; "
+                    f"sleeping {delay:.0f}s before retry {attempt + 1}/{self.max_429_retries}.",
+                    flush=True,
+                )
+                time.sleep(delay)
+            except urllib.error.URLError as exc:
+                raise SourceError(f"network error for {url}: {exc.reason}") from exc
+        if data is None:
+            raise SourceError(f"no response data for {url}")
         path.write_bytes(data)
         time.sleep(self.throttle)
         return data
@@ -349,6 +377,13 @@ class HttpClient:
 
 def normalize_space(value: str | None) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
+
+
+def report_preview(value: str, limit: int = 700) -> str:
+    value = normalize_space(value)
+    if len(value) <= limit:
+        return value
+    return value[: limit - 3].rstrip() + "..."
 
 
 def strip_html(value: str) -> str:
@@ -946,6 +981,183 @@ def split_openfda_names(names: list[str]) -> list[str]:
     return output
 
 
+def quote_openfda_phrase(value: str) -> str:
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def openfda_query_records(client: HttpClient, search: str, limit: int = 10) -> tuple[list[dict[str, Any]], str]:
+    url = openfda_url({"search": search, "limit": str(limit)})
+    try:
+        data = client.get_json(url)
+    except SourceError as exc:
+        if "HTTP 404" in str(exc):
+            return [], url
+        raise
+    return data.get("results", []), url
+
+
+def openfda_record_names(record: dict[str, Any]) -> list[str]:
+    openfda = record.get("openfda", {})
+    names = []
+    for field_name in ["generic_name", "brand_name", "substance_name"]:
+        names.extend(split_openfda_names(openfda.get(field_name, [])))
+    names.extend(split_openfda_names(record.get("active_ingredient", [])))
+    cleaned: list[str] = []
+    seen: set[str] = set()
+    for name in names:
+        key = normalize_key(name)
+        if key and key not in seen:
+            seen.add(key)
+            cleaned.append(name)
+    return cleaned
+
+
+def openfda_record_text(record: dict[str, Any]) -> str:
+    chunks: list[str] = []
+    for key, value in record.items():
+        if key in {"openfda", "id", "set_id", "version"}:
+            continue
+        if isinstance(value, list):
+            chunks.extend(str(item) for item in value if isinstance(item, str))
+        elif isinstance(value, str):
+            chunks.append(value)
+    return normalize_space(" ".join(chunks))
+
+
+def openfda_record_boxed_warning(record: dict[str, Any]) -> str:
+    return normalize_space(" ".join(record.get("boxed_warning", []) or []))
+
+
+def openfda_record_title(record: dict[str, Any]) -> str:
+    openfda = record.get("openfda", {})
+    brand = "; ".join(openfda.get("brand_name", []) or [])
+    generic = "; ".join(openfda.get("generic_name", []) or [])
+    return normalize_space(" / ".join(part for part in [brand, generic] if part))
+
+
+def openfda_spl_set_id(record: dict[str, Any]) -> str:
+    openfda = record.get("openfda", {})
+    return (openfda.get("spl_set_id") or [""])[0]
+
+
+def openfda_record_is_relevant(row: dict[str, str], record: dict[str, Any]) -> bool:
+    row_keys = {normalize_key(term) for term in row_terms(row)}
+    row_keys.update(strip_form_modifiers(term) for term in row_terms(row))
+    row_keys = {key for key in row_keys if key}
+    record_keys = {normalize_key(name) for name in openfda_record_names(record)}
+    record_keys.update(strip_form_modifiers(name) for name in openfda_record_names(record))
+    record_keys = {key for key in record_keys if key}
+    if row_keys.intersection(record_keys):
+        return True
+    generic = normalize_key(row.get("generic_name", ""))
+    return bool(generic and any(generic in key or key in generic for key in record_keys))
+
+
+def score_openfda_label(row: dict[str, str], record: dict[str, Any]) -> float:
+    boxed_warning = openfda_record_boxed_warning(record)
+    text = openfda_record_text(record).lower()
+    names = " ".join(openfda_record_names(record)).lower()
+    generic = row.get("generic_name", "").lower()
+    score = 0.0
+    if boxed_warning:
+        score += 10000
+    if text_has_seizure_context(text):
+        score += 900
+    for index, term in enumerate(row_terms(row)):
+        if term.lower() in names:
+            score += 800 - index
+    if generic and generic in names:
+        score += 300
+    if any(bad in names for bad in ["veterinary", "animal", "homeopathic"]):
+        score -= 500
+    score += parse_date(record.get("effective_time", "")).toordinal() / 1000000
+    return score
+
+
+def fda_source_string(record: dict[str, Any] | None, search_terms: list[str], status: str, api_url: str = "") -> str:
+    if not record:
+        return f"FDA/openFDA label API search on {TODAY}: no current FDA label found for terms [{'; '.join(search_terms)}]."
+    setid = openfda_spl_set_id(record)
+    return (
+        f"FDA/openFDA drug label API; status={status}; spl_set_id={setid}; "
+        f"effective_time={record.get('effective_time', '')}; title={openfda_record_title(record)}; "
+        f"api_url={api_url or SOURCE_URLS['openFDA labels']}"
+    )
+
+
+def select_fda_boxed_warning_label(client: HttpClient, row: dict[str, str]) -> dict[str, Any]:
+    search_terms = row_terms(row) or [row.get("generic_name", "")]
+    records_by_key: dict[str, tuple[dict[str, Any], str]] = {}
+
+    for setid in setids_from_existing_sources(row):
+        records, url = openfda_query_records(client, f"openfda.spl_set_id:{quote_openfda_phrase(setid)}", limit=5)
+        for record in records:
+            key = record.get("id") or openfda_spl_set_id(record) or hashlib.sha256(json.dumps(record, sort_keys=True).encode()).hexdigest()
+            records_by_key.setdefault(key, (record, url))
+
+    for term in search_terms:
+        quoted = quote_openfda_phrase(term)
+        searches = [
+            f"openfda.generic_name:{quoted} OR openfda.brand_name:{quoted} OR openfda.substance_name:{quoted}",
+            f"active_ingredient:{quoted}",
+        ]
+        for search in searches:
+            records, url = openfda_query_records(client, search, limit=10)
+            for record in records:
+                if not openfda_record_is_relevant(row, record):
+                    continue
+                key = record.get("id") or openfda_spl_set_id(record) or hashlib.sha256(json.dumps(record, sort_keys=True).encode()).hexdigest()
+                records_by_key.setdefault(key, (record, url))
+            if len(records_by_key) >= 30:
+                break
+        if len(records_by_key) >= 30:
+            break
+
+    evaluated = [
+        {"record": record, "api_url": url, "score": score_openfda_label(row, record)}
+        for record, url in records_by_key.values()
+    ]
+    if not evaluated:
+        return {
+            "status": "no_current_fda_label",
+            "warning": "No current FDA/openFDA label identified.",
+            "source": fda_source_string(None, search_terms, "no_current_fda_label"),
+            "candidate": {},
+            "search_terms": search_terms,
+            "boxed_title": "",
+            "boxed_code": "",
+            "indications": "",
+            "label_text": "",
+            "evidence_url": SOURCE_URLS["openFDA labels"],
+        }
+
+    selected = max(evaluated, key=lambda item: item["score"])
+    record = selected["record"]
+    api_url = selected["api_url"]
+    warning = openfda_record_boxed_warning(record)
+    if warning:
+        status = "boxed_warning_found"
+    else:
+        status = "no_boxed_warning_in_selected_fda_label"
+        warning = "No FDA boxed warning identified in selected current FDA/openFDA label."
+    return {
+        "status": status,
+        "warning": warning,
+        "source": fda_source_string(record, search_terms, status, api_url),
+        "candidate": {
+            "spl_set_id": openfda_spl_set_id(record),
+            "effective_time": record.get("effective_time", ""),
+            "title": openfda_record_title(record),
+        },
+        "search_terms": search_terms,
+        "boxed_title": "boxed_warning" if status == "boxed_warning_found" else "",
+        "boxed_code": "openFDA.boxed_warning" if status == "boxed_warning_found" else "",
+        "indications": normalize_space(" ".join(record.get("indications_and_usage", []) or [])),
+        "label_text": openfda_record_text(record),
+        "evidence_url": api_url,
+    }
+
+
 def collect_openfda_candidates(client: HttpClient, since_ymd: str | None = None, limit: int = 100) -> list[SourceObservation]:
     observations: list[SourceObservation] = []
     query_terms = [
@@ -982,7 +1194,7 @@ def collect_openfda_candidates(client: HttpClient, since_ymd: str | None = None,
             brand_names = split_openfda_names(openfda.get("brand_name", []))
             effective_time = record.get("effective_time", "")
             setid = (openfda.get("spl_set_id") or [""])[0]
-            evidence_url = DAILYMED_LABEL_URL.format(setid=setid) if setid else SOURCE_URLS["openFDA labels"]
+            evidence_url = url
             for name in candidate_names:
                 observations.append(
                     SourceObservation(
@@ -1293,6 +1505,15 @@ def source_for_detailed_field(row: dict[str, str], field_name: str) -> str:
     if field_name in {RR50_FIELD, MPC_FIELD, SF_FIELD, PLOT_RR50_FIELD, PLOT_MPC_FIELD, PLOT_SF_FIELD}:
         return row.get("rct_pubmed_verification_notes", "") or row.get("pubmed_phase_ii_iii_rct_links", "")
     return row.get("evidence_sources", "")
+
+
+def is_no_fda_boxed_warning_text(value: str) -> bool:
+    value = normalize_space(value).lower()
+    return (
+        value.startswith("no fda boxed warning identified")
+        or value.startswith("no current fda/openfda label identified")
+        or value.startswith("no current fda/dailymed label identified")
+    )
 
 
 def salient_terms(value: str, generic_name: str = "") -> list[str]:
@@ -1828,6 +2049,9 @@ class UpdateCheck:
         print("Local RCT outcome concordance: completed")
 
     def check_outcome_row_math(self, outcome: dict[str, str]) -> None:
+        audit_note = outcome.get("audit_note", "").lower()
+        if "model-based" in audit_note or "placebo-adjusted" in audit_note:
+            return
         specs = [
             ("rr50_active_percent", "rr50_placebo_percent", "rr50_differential_percent"),
             ("mpc_active_percent", "mpc_placebo_percent", "mpc_differential_percent"),
@@ -1905,9 +2129,9 @@ class UpdateCheck:
         for index, row in enumerate(self.rows, start=1):
             generic = row.get("generic_name", "")
             try:
-                label = select_dailymed_label(self.client, row)
+                label = select_fda_boxed_warning_label(self.client, row)
             except SourceError as exc:
-                self.add_source_error("FDA/DailyMed", SOURCE_URLS["DailyMed"], exc)
+                self.add_source_error("FDA/openFDA", SOURCE_URLS["openFDA labels"], exc)
                 continue
             self.review_fda_warning(row, label)
             self.review_dailymed_fact_concordance(row, label)
@@ -1918,31 +2142,37 @@ class UpdateCheck:
         proposed_warning = label.get("warning", "")
         current_warning = row.get("fda_black_box_warning", "")
         proposed_source = label.get("source", "")
-        evidence_url = label.get("evidence_url", "") or SOURCE_URLS["DailyMed"]
+        evidence_url = label.get("evidence_url", "") or SOURCE_URLS["openFDA labels"]
         updates = {
             "fda_black_box_warning": proposed_warning,
             "fda_black_box_warning_source": proposed_source,
             "fda_black_box_warning_verified": TODAY,
             "data_most_recently_refreshed": TODAY,
-            "evidence_sources": "FDA/DailyMed labeling",
+            "evidence_sources": "FDA/openFDA labeling",
         }
-        if normalize_for_compare(current_warning) == normalize_for_compare(proposed_warning):
-            # Metadata refresh only; the warning text itself did not change.
+        no_warning_text_refresh = is_no_fda_boxed_warning_text(current_warning) and is_no_fda_boxed_warning_text(proposed_warning)
+        if normalize_for_compare(current_warning) == normalize_for_compare(proposed_warning) or no_warning_text_refresh:
+            # Metadata refresh only, or a non-substantive source wording refresh from DailyMed to FDA/openFDA.
             metadata_updates = {
+                "fda_black_box_warning": proposed_warning,
                 "fda_black_box_warning_source": proposed_source,
                 "fda_black_box_warning_verified": TODAY,
                 "data_most_recently_refreshed": TODAY,
-                "evidence_sources": "FDA/DailyMed labeling",
+                "evidence_sources": "FDA/openFDA labeling",
             }
-            if row.get("fda_black_box_warning_source", "") != proposed_source or row.get("fda_black_box_warning_verified", "") != TODAY:
+            if (
+                row.get("fda_black_box_warning_source", "") != proposed_source
+                or row.get("fda_black_box_warning_verified", "") != TODAY
+                or row.get("fda_black_box_warning", "") != proposed_warning
+            ):
                 self.findings.append(
                     make_finding(
                         kind="fda_warning_metadata_refresh",
                         severity="info",
                         generic_name=generic,
-                        source="FDA/DailyMed",
+                        source="FDA/openFDA",
                         evidence_url=evidence_url,
-                        summary="FDA boxed-warning text matches current CSV; source metadata can be refreshed.",
+                        summary="FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed.",
                         column="fda_black_box_warning_source",
                         current_value=row.get("fda_black_box_warning_source", ""),
                         proposed_value=proposed_source,
@@ -1958,9 +2188,9 @@ class UpdateCheck:
                     kind="fda_warning_added",
                     severity="high",
                     generic_name=generic,
-                    source="FDA/DailyMed",
+                    source="FDA/openFDA",
                     evidence_url=evidence_url,
-                    summary="FDA boxed-warning field is empty or unreviewed; current DailyMed warning can be added.",
+                    summary="FDA boxed-warning field is empty or unreviewed; current FDA/openFDA warning can be added.",
                     column="fda_black_box_warning",
                     current_value=current_warning,
                     proposed_value=proposed_warning,
@@ -1976,10 +2206,10 @@ class UpdateCheck:
                 kind="fda_warning_contradiction",
                 severity="critical",
                 generic_name=generic,
-                source="FDA/DailyMed",
+                source="FDA/openFDA",
                 evidence_url=evidence_url,
                 summary=(
-                    "Current FDA/DailyMed boxed-warning extraction differs from the CSV. "
+                    "Current FDA/openFDA boxed-warning extraction differs from the CSV. "
                     "This is a direct contradiction and will not be applied without approval."
                 ),
                 column="fda_black_box_warning",
@@ -1996,14 +2226,14 @@ class UpdateCheck:
         label_text = label.get("label_text", "")
         if not label_text:
             return
-        evidence_url = label.get("evidence_url", "") or SOURCE_URLS["DailyMed"]
+        evidence_url = label.get("evidence_url", "") or SOURCE_URLS["openFDA labels"]
         generic = row.get("generic_name", "")
         for field_name in DETAILED_FACT_FIELDS:
             value = row.get(field_name, "")
             if is_blankish(value):
                 continue
             source_text = source_for_detailed_field(row, field_name)
-            if "FDA/DailyMed" not in source_text and "FDA label" not in source_text:
+            if "FDA/DailyMed" not in source_text and "FDA/openFDA" not in source_text and "FDA label" not in source_text:
                 continue
             numeric_required = field_name in {
                 "half_life_range",
@@ -2017,7 +2247,7 @@ class UpdateCheck:
             if not result.get("checked") or result.get("ok"):
                 continue
             note = (
-                f"update_check on {TODAY}: {field_name} was not concordant with the selected DailyMed label "
+                f"update_check on {TODAY}: {field_name} was not concordant with the selected FDA/openFDA label "
                 f"({evidence_url}); review current text before relying on it."
             )
             self.findings.append(
@@ -2025,9 +2255,9 @@ class UpdateCheck:
                     kind="source_fact_concordance_problem",
                     severity="high" if numeric_required else "medium",
                     generic_name=generic,
-                    source="FDA/DailyMed",
+                    source="FDA/openFDA",
                     evidence_url=evidence_url,
-                    summary=f"{field_name} could not be verified against the selected FDA/DailyMed label.",
+                    summary=f"{field_name} could not be verified against the selected FDA/openFDA label.",
                     column=field_name,
                     current_value=value,
                     proposed_value=note,
@@ -2166,23 +2396,23 @@ class UpdateCheck:
         evidence_sources = sorted({obs.source for obs in observations})
         source_summary = "; ".join(obs.summary for obs in observations[:3])
         candidate_name = display_name(key)
-        dailymed_label: dict[str, Any] | None = None
+        fda_label: dict[str, Any] | None = None
         if self.enabled("fda") and not self.args.no_confirm_missing_with_dailymed:
             try:
                 probe_row = {"generic_name": candidate_name, "alternate_generic_names": "", "trade_names": ""}
-                dailymed_label = select_dailymed_label(self.client, probe_row)
+                fda_label = select_fda_boxed_warning_label(self.client, probe_row)
             except SourceError:
-                dailymed_label = None
+                fda_label = None
 
         fda_confirmed = False
-        if dailymed_label:
-            indications = dailymed_label.get("indications", "")
-            fda_confirmed = dailymed_label.get("status") != "no_current_fda_label" and text_has_seizure_context(indications)
+        if fda_label:
+            indications = fda_label.get("indications", "")
+            fda_confirmed = fda_label.get("status") != "no_current_fda_label" and text_has_seizure_context(indications)
         source_has_fda = any(obs.source.startswith("FDA") for obs in observations)
         safe = source_has_fda or fda_confirmed
         severity = "high" if safe else "medium"
         kind = "new_or_missing_approved_asm" if safe else "source_list_missing_medication"
-        proposed_row = self.build_new_medication_row(candidate_name, observations, dailymed_label if fda_confirmed else None)
+        proposed_row = self.build_new_medication_row(candidate_name, observations, fda_label if fda_confirmed else None)
         self.findings.append(
             make_finding(
                 kind=kind,
@@ -2192,7 +2422,7 @@ class UpdateCheck:
                 evidence_url=observations[0].evidence_url,
                 summary=(
                     f"Medication candidate '{candidate_name}' was found in external source(s) but not in ASM-list.csv. "
-                    + ("FDA/DailyMed confirmation supports adding a skeletal row." if safe else "No FDA/DailyMed seizure indication confirmation was found; manual review recommended.")
+                    + ("FDA/openFDA confirmation supports adding a skeletal row." if safe else "No FDA/openFDA seizure indication confirmation was found; manual review recommended.")
                     + f" Evidence: {source_summary}"
                 ),
                 column="generic_name",
@@ -2203,7 +2433,7 @@ class UpdateCheck:
                 details={
                     "observations": [asdict(obs) for obs in observations],
                     "fda_confirmed": fda_confirmed,
-                    "dailymed_label": dailymed_label or {},
+                    "fda_label": fda_label or {},
                     "proposed_row": proposed_row,
                 },
             )
@@ -2213,7 +2443,7 @@ class UpdateCheck:
         self,
         candidate_name: str,
         observations: list[SourceObservation],
-        dailymed_label: dict[str, Any] | None,
+        fda_label: dict[str, Any] | None,
     ) -> dict[str, str]:
         row = {field: "" for field in self.fieldnames}
         source_names = sorted({obs.source for obs in observations})
@@ -2227,21 +2457,21 @@ class UpdateCheck:
                 "manually curate indication, dosing, mechanism, safety, and outcome columns before clinical use."
             )
         if "evidence_sources" in row:
-            additions = source_names + (["FDA/DailyMed labeling"] if dailymed_label else [])
+            additions = source_names + (["FDA/openFDA labeling"] if fda_label else [])
             row["evidence_sources"] = "; ".join(dict.fromkeys(additions))
         if "available_in_us" in row:
-            row["available_in_us"] = "Yes" if dailymed_label else "Needs review"
+            row["available_in_us"] = "Yes" if fda_label else "Needs review"
         if "pubmed_phase_ii_iii_rct_links" in row:
             row["pubmed_phase_ii_iii_rct_links"] = "Needs review"
         if "rct_pubmed_verification_notes" in row:
             row["rct_pubmed_verification_notes"] = "Needs PubMed RCT audit after source-list discovery."
         if "data_most_recently_refreshed" in row:
             row["data_most_recently_refreshed"] = TODAY
-        if dailymed_label:
+        if fda_label:
             if "fda_black_box_warning" in row:
-                row["fda_black_box_warning"] = dailymed_label.get("warning", "")
+                row["fda_black_box_warning"] = fda_label.get("warning", "")
             if "fda_black_box_warning_source" in row:
-                row["fda_black_box_warning_source"] = dailymed_label.get("source", "")
+                row["fda_black_box_warning_source"] = fda_label.get("source", "")
             if "fda_black_box_warning_verified" in row:
                 row["fda_black_box_warning_verified"] = TODAY
             if "filter_availability" in row:
@@ -2325,6 +2555,10 @@ class UpdateCheck:
             lines.append(f"- Apply: safe={finding.safe_to_apply}; approval_required={finding.requires_approval}")
             lines.append(f"- Evidence: {finding.evidence_url}")
             lines.append(f"- Summary: {finding.summary}")
+            if finding.current_value:
+                lines.append(f"- Current: {report_preview(finding.current_value)}")
+            if finding.proposed_value or finding.proposed_updates:
+                lines.append(f"- Proposed: {report_preview(finding.proposed_value) if finding.proposed_value else '<empty>'}")
             lines.append("")
         paths["md"].write_text("\n".join(lines), encoding="utf-8")
 
@@ -2494,8 +2728,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ilae-drugs-html", help="Optional saved HTML snapshot of the ILAE antiepileptic drugs page.")
     parser.add_argument(
         "--no-confirm-missing-with-dailymed",
+        dest="no_confirm_missing_with_dailymed",
         action="store_true",
-        help="Do not use DailyMed to confirm source-list-only missing medication candidates.",
+        help="Deprecated alias: do not use FDA/openFDA to confirm source-list-only missing medication candidates.",
+    )
+    parser.add_argument(
+        "--no-confirm-missing-with-fda",
+        dest="no_confirm_missing_with_dailymed",
+        action="store_true",
+        help="Do not use FDA/openFDA to confirm source-list-only missing medication candidates.",
     )
     parser.add_argument("--throttle", type=float, default=0.05, help="Seconds to sleep after uncached HTTP requests.")
     args = parser.parse_args()

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="1b7b23aa-fc6d-4b37-b5db-7fd7bc994bf3"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>
+      <content styleCode="bold">These highlights do not include all the information needed to use Ciclopirox Shampoo safely and effectively.  See full prescribing information for CICLOPIROX SHAMPOO.</content>
+      <br/>
+      <br/>
+      <content styleCode="bold">Ciclopirox Shampoo 1% For topical use</content>
+      <br/>
+      <content styleCode="bold">Initial U.S. Approval: 1982</content>
+   </title>
+   <effectiveTime value="20260130"/>
+   <setId root="cb456f2e-6645-4cc4-8e71-299c47ccb6b7"/>
+   <versionNumber value="1"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="116982244" root="1.3.6.1.4.1.519.1"/>
+            <name>Encube Ethicals, Inc.</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="725076298" root="1.3.6.1.4.1.519.1"/>
+                        <name>Encube Ethicals Private Limited</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84731" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="pack"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="21922-105" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84732" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="label"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="21922-105" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="manufacture"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="21922-105" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="analysis"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="21922-105" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="253e6378-be80-4f14-97b6-b0e0f7b4cd56"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20260130"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="21922-105" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>CICLOPIROX</name>
+                        <formCode code="C42981" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="SHAMPOO"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>ciclopirox</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="g" value="1"/>
+                              <denominator unit="mL" value="100"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="19W019ZDRJ" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CICLOPIROX</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="19W019ZDRJ" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>CICLOPIROX</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ZZQ59TY3KG" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM LAURETH-2 SULFATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="D6DH1DTN7E" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>DISODIUM LAURETH SULFOSUCCINATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="451W47IQ8X" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="D4D38LT1L5" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>LAURETH-2</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="059QF0KO0R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>WATER</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator unit="mL" value="120"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <formCode code="C43169" displayName="BOTTLE" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator unit="1" value="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="21922-105-52" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43182" displayName="CARTON" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20251203"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic classCode="OBS">
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value codeSystem="2.16.840.1.113883.3.26.1.1" code="C112160" displayName="Type 0: Not a Combination Product" xsi:type="CE"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA209975" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20251203"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38304" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TOPICAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="S-6346148c-f87e-4380-8e41-6b678bc142e3">
+               <id root="e3b6a7a9-3ff3-45b7-94ac-cf0a830b34bd"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>1 INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>Ciclopirox shampoo, 1 % is indicated for the topical treatment of seborrheic dermatitis of the scalp in adults.</paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Ciclopirox shampoo is an antifungal indicated for the topical treatment of seborrheic dermatitis of the scalp in adults. (<content styleCode="underline">
+                                 <linkHtml href="#S-6346148c-f87e-4380-8e41-6b678bc142e3">1</linkHtml>
+                              </content>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="S-bdf0f646-1c58-4d45-8e34-fefa97bdd88f">
+               <id root="f31a732a-7502-4ea1-be7c-49fc80b9e0e3"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>2 DOSAGE AND ADMINISTRATION</title>
+               <text>
+                  <paragraph>Ciclopirox shampoo is not for ophthalmic, oral, or intravaginal use.</paragraph>
+                  <paragraph>Wet hair and apply approximately 1 teaspoon (5 mL) of ciclopirox shampoo to the scalp. Up to 2 teaspoons (10 ml) may be used for long hair. Lather and leave on hair and scalp for 3 minutes. A timer may be used. Avoid contact with eyes. Rinse off. Treatment should be repeated twice per week for 4 weeks, with a minimum of 3 days between applications.</paragraph>
+                  <paragraph>If a patient with seborrheic dermatitis shows no clinical improvement after 4 weeks of treatment with ciclopirox shampoo, the diagnosis should be reviewed.</paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>Apply approximately 1 teaspoon of ciciopirox shampoo to the scalp twice per week for 4 weeks. (<content styleCode="underline">
+                                 <linkHtml href="#S-bdf0f646-1c58-4d45-8e34-fefa97bdd88f">2</linkHtml>
+                              </content>)</item>
+                           <item>For topical use only. Not for ophthalmic, oral, or intravaginal use. (<content styleCode="underline">
+                                 <linkHtml href="#S-bdf0f646-1c58-4d45-8e34-fefa97bdd88f">2</linkHtml>
+                              </content>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="fce4daf3-7732-4706-baad-9a0b4acb011e"/>
+               <code code="43678-2" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE FORMS &amp; STRENGTHS SECTION"/>
+               <title>3 DOSAGE FORMS AND STRENGTHS</title>
+               <text>
+                  <paragraph>Ciclopirox is a shampoo containing 1 % ciclopirox.</paragraph>
+                  <paragraph>Each gram (equivalent to 0.96 mL) of ciclopirox shampoo contains 10 mg ciclopirox in a colorless and translucent shampoo base.</paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Shampoo, 1%</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="8e8696a4-5783-4568-9949-93465808b439"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>4 CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>None.</paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>None</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="828d41aa-5e68-4989-a107-1bd6621f6f16"/>
+               <code code="43685-7" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS AND PRECAUTIONS SECTION"/>
+               <title>5 WARNINGS AND PRECAUTIONS</title>
+               <text/>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>If signs of irritation occur, discontinue use. (<content styleCode="underline">
+                                 <linkHtml href="#S-687afd10-5799-4e1b-a536-ca4dfee9ca9e">5.1</linkHtml>
+                              </content>)</item>
+                           <item>Avoid contact with eyes. (<content styleCode="underline">
+                                 <linkHtml href="#S-687afd10-5799-4e1b-a536-ca4dfee9ca9e">5.1</linkHtml>
+                              </content>)</item>
+                           <item>Hair discoloration has been reported with ciclopirox use. (<content styleCode="underline">
+                                 <linkHtml href="#S-687afd10-5799-4e1b-a536-ca4dfee9ca9e">5.1</linkHtml>
+                              </content>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S-687afd10-5799-4e1b-a536-ca4dfee9ca9e">
+                     <id root="05b13199-1df9-4537-bf9b-aa37c0829a1d"/>
+                     <code code="34071-1" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS SECTION"/>
+                     <title>5.1 Local Effects</title>
+                     <text>
+                        <paragraph>If a reaction suggesting sensitivity or irritation occurs with the use of ciclopirox shampoo, treatment should be discontinued and appropriate therapy instituted.</paragraph>
+                        <paragraph>Contact of cicloplrox shampoo with the eyes should be avoided. If contact occurs, rinse thoroughly with water. </paragraph>
+                        <paragraph>In patients with lighter hair color, hair discoloration has been reported.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="457899bf-7de7-408e-8b30-96b7728558c2"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>6 ADVERSE REACTIONS</title>
+               <text/>
+               <effectiveTime value="20260130"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="Disc">
+                           <item>The most frequently reported adverse reactions are pruritus, burning, and erythema. (<content styleCode="underline">
+                                 <linkHtml href="#S-b832b8de-7f48-4e8c-9427-43507c89bc2a">6.1</linkHtml>
+                              </content>)</item>
+                        </list>
+                        <paragraph>
+                           <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact Encube Ethicals Private Limited at 1-833-285-4151, and/or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.</content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S-b832b8de-7f48-4e8c-9427-43507c89bc2a">
+                     <id root="3ef2c18f-d9bf-495f-924f-60d851606b0f"/>
+                     <code code="90374-0" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL TRIALS EXPERIENCE SECTION"/>
+                     <title>6.1 CLINICAL TRIALS EXPERIENCE</title>
+                     <text>
+                        <paragraph>Because clinical trials are conducted under widely varying conditions, adverse reaction rates observed in the clinical trials of a drug cannot be directly compared to rates in the clinical trials of another drug and may not reflect the rates observed in clinical practice.</paragraph>
+                        <paragraph>In 626 subjects treated with ciclopirox shampoo twice weekly in the two pivotal clinical trials, the most frequent adverse events were increased itching in 1% of subjects, and application site reactions, such as burning, erythema, and itching, also in 1 % of subjects.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="a4b3632d-4c89-4b9d-b480-e313aec8f75f"/>
+                     <code code="90375-7" codeSystem="2.16.840.1.113883.6.1" displayName="POSTMARKETING EXPERIENCE SECTION"/>
+                     <title>6.2 POSTMARKETING EXPERIENCE</title>
+                     <text>
+                        <paragraph>The following adverse reactions have been identified during post approval use of ciclopirox shampoo: hair discoloration and abnormal hair texture, alopecia, irritation and rash. Because these events are reported voluntarily from a population of uncertain size, it is not possible to reliably estimate their frequency or establish a causal relationship to drug exposure.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="e553bffa-a0f6-4c92-a854-d9e166f2b5aa"/>
+               <code code="43684-0" codeSystem="2.16.840.1.113883.6.1" displayName="USE IN SPECIFIC POPULATIONS SECTION"/>
+               <title>8 USE IN SPECIFIC POPULATIONS</title>
+               <text/>
+               <effectiveTime value="20260130"/>
+               <component>
+                  <section>
+                     <id root="460818f5-aa45-4862-a1f2-6472464a393c"/>
+                     <code code="42228-7" codeSystem="2.16.840.1.113883.6.1" displayName="PREGNANCY SECTION"/>
+                     <title>8.1 PREGNANCY</title>
+                     <text>
+                        <paragraph>Teratogenic Effects: Pregnancy Category B</paragraph>
+                        <paragraph>There are no adequate or well-controlled studies in pregnant women. Therefore, ciclopirox shampoo should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus.</paragraph>
+                        <paragraph>Oral embryofetal developmental studies were conducted in mice, rats, rabbits and monkeys. Ciclopirox or ciclopirox olamine was orally administered during the period of organogenesis. No maternal toxicity, embryotoxicity or teratogenicity were noted at the highest doses of 77, 125, 80 and 38.5 mg/kg/day ciclopirox in mice, rats, rabbits and monkeys, respectively (approximately 13, 42, 54 and 26 times the maximum recommended human dose based on body surface area comparisons, respectively).</paragraph>
+                        <paragraph>Dermal embryofetal developmental studies were conducted in rats and rabbits with ciclopirox olamine dissolved in PEG 400. Ciclopirox olamine was topically administered during the period of organogenesis. No maternal toxicity, embryotoxicity or teratogenicity were noted at the highest doses of 92 mg/kg/day and 77 mg/kg/day ciclopirox in rats and rabbits, respectively (approximately 31 and 54 times the maximum recommended human dose based on body surface area comparisons, respectively).</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2df76236-3f54-42c2-9867-6d454ab9a6f6"/>
+                     <code code="34080-2" codeSystem="2.16.840.1.113883.6.1" displayName="NURSING MOTHERS SECTION"/>
+                     <title>8.3 NURSING MOTHERS</title>
+                     <text>
+                        <paragraph>It is not known whether this drug is excreted in human milk. Because many drugs are excreted in human milk, caution should be exercised when ciclopirox shampoo is administered to a nursing woman.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="6a0d7334-b070-4042-ae5b-0c2681e1cd40"/>
+                     <code code="34081-0" codeSystem="2.16.840.1.113883.6.1" displayName="PEDIATRIC USE SECTION"/>
+                     <title>8.4 PEDIATRIC USE</title>
+                     <text>
+                        <paragraph>No clinical trials have been conducted in subjects younger than 16 years.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="e3a4df9d-46d2-4319-aeaa-125ae9af9e80"/>
+                     <code code="34082-8" codeSystem="2.16.840.1.113883.6.1" displayName="GERIATRIC USE SECTION"/>
+                     <title>8.5 GERIATRIC USE</title>
+                     <text>
+                        <paragraph>In clinical trials, the safety and tolerability of ciclopirox shampoo in the population 65 years and older was comparable to that of younger subjects. Results of the efficacy analysis in those subjects 65 years and older showed effectiveness in 25 of 85 (29%) subjects treated with ciclopirox shampoo, and in 15 of 61 (25%) subjects treated with the vehicle; due to the small sample size, a statistically significant difference was not demonstrated. Other reported clinical experience has not identified differences in responses between the elderly and younger subjects, but greater sensitivity to adverse effects in some older individuals cannot be ruled out.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="71cc606f-b6a6-45b9-a56e-aed466b72cc1"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>11 DESCRIPTION</title>
+               <text>
+                  <paragraph>Ciclopirox shampoo 1 % contains the synthetic antifungal agent, ciclopirox for topical use. Each gram (equivalent to 0.96 ml) of ciclopirox shampoo contains 10 mg ciclopirox m a shampoo base consisting of disodium laureth sulfosuccinate, laureth-2, purified water, sodium chloride, and sodium laureth sulfate.</paragraph>
+                  <paragraph>Ciclopirox shampoo is a colorless, translucent solution. The chemical name for ciclopirox is 6-cyclohexyl-1-hydroxy-4-methyl-2(1<content styleCode="italics">H</content>)-pyridone, with the empirical formula C<sub>12</sub>H<sub>17</sub>NO<sub>2</sub> and a molecular weight of 207.27. The GAS Registry Number is [29342-05-0]. The chemical structure is:</paragraph>
+                  <table styleCode="Noautorules" width="100%">
+                     <col width="100%" align="center" valign="top"/>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <renderMultiMedia referencedObject="MM101"/>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <effectiveTime value="20260130"/>
+               <component>
+                  <observationMedia ID="MM101">
+                     <text>structure</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="structure.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="5b19d212-4ae2-4ad4-936e-0d0cf653a036"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>12 CLINICAL PHARMACOLOGY</title>
+               <text/>
+               <effectiveTime value="20260130"/>
+               <component>
+                  <section>
+                     <id root="43151452-bb76-46f2-a316-2369e46737f9"/>
+                     <code code="43679-0" codeSystem="2.16.840.1.113883.6.1" displayName="MECHANISM OF ACTION SECTION"/>
+                     <title>12.1 MECHANISM OF ACTION</title>
+                     <text>
+                        <paragraph>Ciclopirox is a hydroxypyridone antifungal agent although the relevance of this property for the indication of seborrheic dermatitis is not known. Ciclopirox acts by chelation of polyvalent cations (Fe<sup>3+</sup> or Al<sup>3+</sup>), resulting in the Inhibition of the metal-dependent enzymes that are responsible for the degradation of peroxides within the fungal cell.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="d251f861-8fb4-4928-b03c-40a5b9be91b9"/>
+                     <code code="43681-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACODYNAMICS SECTION"/>
+                     <title>12.2 PHARMACODYNAMICS</title>
+                     <text>
+                        <paragraph>The pharmacodynamics of clcloplrox shampoo are unknown.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="a5b1f78e-665d-4061-8dd1-1eece6e1503b"/>
+                     <code code="43682-4" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACOKINETICS SECTION"/>
+                     <title>12.3 PHARMACOKINETICS</title>
+                     <text>
+                        <paragraph>In a study in patients with seborrheic dermatitis of the scalp, application of 5 mL ciclopirox shampoo, 1 % twice weekly for 4 weeks, with an exposure time of 3 minutes per application, resulted in detectable serum concentrations of ciclopirox in 6 out of 18 patients. The serum concentrations measured throughout the dosing interval on Days 1 and 29 ranged from 10.3 ng/mL to 13.2 ng/ml. Total urinary excretion of ciclopirox was less than 0.5% of the administered dose.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2110ba6e-cd20-423f-a22e-42515bb69f63"/>
+                     <code code="49489-8" codeSystem="2.16.840.1.113883.6.1" displayName="MICROBIOLOGY SECTION"/>
+                     <title>12.4 MICROBIOLOGY</title>
+                     <text>
+                        <paragraph>Ciclopirox is fungicidal<content styleCode="italics">in vitro against Malassezia furfur (Pityrosporum spp.), P. ovale, and P. orbiculare.</content>
+                        </paragraph>
+                        <paragraph>The clinical significance of antifungal activity in the treatment of seborrheic dermatitis is not known.</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="df2250bf-b327-4342-a9ea-c68a82c5aaf9"/>
+               <code code="43680-8" codeSystem="2.16.840.1.113883.6.1" displayName="NONCLINICAL TOXICOLOGY SECTION"/>
+               <title>13 NONCLINICAL TOXICOLOGY</title>
+               <text/>
+               <effectiveTime value="20260130"/>
+               <component>
+                  <section>
+                     <id root="e14e6a62-8716-42f2-929b-71a6e2671f75"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>13.1 CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY</title>
+                     <text>
+                        <paragraph>A 104-week dermal carcinogenicity study in mice was conducted with ciclopirox cream applied at doses up to 1.93% (100 mg/kg/day or 300 mglm2/day). No increase in drug related neoplasms was noted when compared to control.</paragraph>
+                        <paragraph>The following In vitro genotoxicity tests have been conducted with ciclopirox: evaluation of gene mutation in the Ames Salmonella and E. coli assays (negative); chromosome aberration assays in V79 Chinese hamster lung fibroblast cells, with and without metabolic activation (positive); chromosome aberration assays in V79 Chinese hamster lung fibroblast cells in the presence of supplemental Fe3+, with and without metabolic activation (negative); gene mutation assays in the HGPRT-test with V79 Chinese hamster lung fibroblast cells (negative); and a primary DNA damage assay (i.e., unscheduled DNA synthesis assay in A549 human cells) (negative). An in vitro cell transformation assay in BALB/c 3T3 cells was negative for cell transformation. In an in vivo Chinese hamster bone marrow cytogenetic assay, ciclopirox was negative for chromosome aberrations at a dosage of 5,000 mg/kg body weight.</paragraph>
+                        <paragraph>A combined oral fertility and embryofetal developmental study was conducted in rats with ciclopirox olamine. No effect on fertility or reproductive performance was noted at the highest dose tested of 3.85 mg/kg/day ciclopirox (approximately 1.3 times the maximum recommended human dose based on body surface area comparisons).</paragraph>
+                     </text>
+                     <effectiveTime value="20260130"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="f0b1e9cd-ceca-4a2b-af05-510da0050dab"/>
+               <code code="34092-7" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL STUDIES SECTION"/>
+               <title>14 CLINICAL STUDIES</title>
+               <text>
+                  <paragraph>In two randomized, double-blind clinical trials, subjects 16 years and older with seborrheic dermatitis of the scalp applied ciclopirox shampoo or its vehicle twice weekly for 4 weeks. Subjects who were immune- compromised, those with psoriasis or atopic dermatitis, women of childbearing potential not using adequate contraception, and pregnant or lactating women were excluded from the clinical trials. An evaluation of the overall status of the seborrheic dermatitis, the presence and severity of erythema or inflammation, and scaling, was made at Week 4, using a scale of 0 = none, 1 = slight, 2 = mild, 3 = moderate, 4 = pronounced, and 5 = severe. Effective treatment was defined as achieving a score of o (or a score of 1 If the baseline score was ≥ 3) simultaneously for status of the seborrheic dermatitis, erythema or inflammation, and scaling at Week 4.</paragraph>
+                  <paragraph>Ciclopirox shampoo was shown to be statistically significantly more effective than vehicle in both trials. Efficacy results for the two trials are presented in Table 1 below.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Table 1. Effective Treatment Rates at Week 4 in Trials 1 and 2</content>
+                  </paragraph>
+                  <table width="100%">
+                     <col width="34%" align="left" valign="middle"/>
+                     <col width="33%" align="left" valign="middle"/>
+                     <col width="33%" align="left" valign="middle"/>
+                     <thead align="center">
+                        <tr>
+                           <th styleCode="Botrule Lrule Rrule Toprule" align="center"/>
+                           <th styleCode="Botrule Rrule Toprule" align="center">
+                              <content styleCode="bold">Clcloplrox Shampoo</content>
+                           </th>
+                           <th styleCode="Botrule Rrule Toprule" align="center">
+                              <content styleCode="bold">Vehicle</content>
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td styleCode="Botrule Lrule Rrule Toprule">
+                              <paragraph>
+                                 <content styleCode="bold">Study 1</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule Toprule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">220/380 (58%)</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule Toprule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">60/192 (31%)</content>
+                              </paragraph>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Botrule Lrule Rrule">
+                              <paragraph>
+                                 <content styleCode="bold">Study 2</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">65/250 (26%)</content>
+                              </paragraph>
+                           </td>
+                           <td styleCode="Botrule Rrule" align="center">
+                              <paragraph>
+                                 <content styleCode="bold">32/249 (1 3%)</content>
+                              </paragraph>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>Efficacy for African American subjects was not demonstrated, although only 53African American subjects were enrolled in the two pivotal trials.              </paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2708b8e6-bd17-4d44-8350-940940368076"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>16 HOW SUPPLIED</title>
+               <text>
+                  <paragraph>Ciclopirox shampoo, 1 % is colorless and translucent, and supplied in 120 mL plastic bottles (NOC 21922-105-52).</paragraph>
+                  <paragraph>Discard unused product after initial treatment duration. Store between 15°C and 30°C (59° F and 86° F).</paragraph>
+                  <paragraph>Keep out of reach of children.</paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="881ca2ca-2e95-47bb-8f8c-2946ad68f54d"/>
+               <code code="34076-0" codeSystem="2.16.840.1.113883.6.1" displayName="INFORMATION FOR PATIENTS SECTION"/>
+               <title>17 PATIENT COUNSELING INFORMATION</title>
+               <text>
+                  <paragraph>Advise the patient to read the FDA-approved patient labeling (Patient Information).</paragraph>
+                  <paragraph>The patient should be instructed to:</paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Use cicloplrox shampoo as directed by the physician. Avoid contact with the eyes. If contact occurs, rinse thoroughly with water. Ciclopirox shampoo is for external use on the scalp only. Do not swallow.</item>
+                     <item>Use ciclopirox shampoo for seborrheic dermatitis for the full treatment time even though symptoms may have improved. Notify the physician if there is no improvement after 4 weeks.</item>
+                     <item>Inform the physician if the area of application shows signs of increased initation (redness, itching, burning, blistering, swelling, or oozing).</item>
+                  </list>
+                  <paragraph>Manufactured by:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Encube Ethicals Pvt. Ltd.</content>
+                  </paragraph>
+                  <paragraph>Plot No. C-1, Madkaim</paragraph>
+                  <paragraph>Industrial Estate, Madkaim,</paragraph>
+                  <paragraph>Post: Mardol, Panda,</paragraph>
+                  <paragraph>Goa - 403 404, India.</paragraph>
+                  <paragraph/>
+                  <paragraph>Distributed by:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Encube Ethicals, Inc.</content>
+                  </paragraph>
+                  <paragraph>200 Meredith Drive,</paragraph>
+                  <paragraph>Suite 202, Durham,</paragraph>
+                  <paragraph>NC27713 USA</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Revision: 05/2025</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20260130"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="179594f3-0e60-4255-80fe-8dcff2e14c77"/>
+               <code code="42230-3" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PATIENT PACKAGE INSERT SECTION"/>
+               <title>PATIENT INFORMATION</title>
+               <text>
+                  <paragraph>Ciclopirox (sye" kloe pir' ox) Shampoo</paragraph>
+                  <table width="100%">
+                     <colgroup>
+                        <col width="100%" align="left" valign="middle"/>
+                     </colgroup>
+                     <tbody>
+                        <tr>
+                           <td styleCode="Botrule Lrule Rrule Toprule" align="justify">
+                              <paragraph>Important: For use on the scalp only. Do not get ciclopirox shampoo in your eyes, mouth, or vagina.</paragraph>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">What is ciclopirox shampoo? </content>
+                  </paragraph>
+                  <paragraph>Ciclopirox shampoo is a prescription medicine used on the scalp to treat adults with a skin condition called seborrheic dermatitis.</paragraph>
+                  <paragraph>It is not known if ciclopirox shampoo is safe and effective in children under 16 years of age.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What should I tell my doctor before using ciclopirox shampoo?</content>
+                  </paragraph>
+                  <paragraph>Before using ciclopirox shampoo, tell your doctor if you:</paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>have any other medical conditions</item>
+                     <item>are pregnant or plan to become pregnant. It is not known if ciclopirox shampoo will harm your unborn baby.</item>
+                     <item>are breastfeeding or plan to breastfeed. It is not known if ciclopirox shampoo passes into your breast milk.</item>
+                     <item>are taking prescription and nonprescription medicines, vitamins, and herbal supplements.</item>
+                  </list>
+                  <paragraph>Know the medicines you take. Keep a list of them to show your doctor and pharmacist when you get a new medicine.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">How should I use ciclopirox shampoo?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Use ciclopirox shampoo exactly as your doctor tells you to use it.</item>
+                     <item>Wash your hair using ciclopirox shampoo 2 times each week for 4 weeks. There should be at least 3 days between each time you use ciclopirox shampoo.</item>
+                     <item>Use ciclopirox shampoo for 4 weeks even if your skin condition improves.</item>
+                     <item>Tell your doctor if your scalp condition is not getting better after you have used ciclopirox shampoo for 4 weeks.</item>
+                     <item>Do not swallow ciclopirox shampoo.</item>
+                     <item>Avoid getting ciclopirox shampoo in your eyes. If ciclopirox shampoo gets into your eyes, rinse them well with water.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">How should I apply ciclopirox shampoo?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Wet your hair and apply approximately 1 teaspoon of ciclopirox shampoo to your scalp. You may use up to 2 teaspoons of ciclopirox shampoo if you have long hair. Lather and leave ciclopirox shampoo on your hair and scalp for 3 minutes. You may use a timer.</item>
+                     <item>After 3 minutes have passed, rinse your hair and scalp.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">What are the possible side effects of ciclopirox shampoo?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">The most common side effects of ciclopirox shampoo include: </content>itching, burning, and redness of the scalp. Tell your doctor if you get any of these symptoms and they become worse or do not go away, or if you get blistering, swelling, or oozing in your scalp.</paragraph>
+                  <paragraph>These are not all the possible side effects of ciclopirox shampoo. For more information, ask your doctor.</paragraph>
+                  <paragraph>Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA-1088.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">How should I store ciclopirox shampoo?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>Store ciclopirox shampoo at room temperature, between 59°F to 86°F (15°Cto30°C).</item>
+                     <item>Safely throw away any unused ciclopirox shampoo after you finish your treatment.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Keep ciclopirox shampoo and all medicines out of the reach of children.</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">General information about ciclopirox shampoo</content>
+                  </paragraph>
+                  <paragraph>Medicines are sometimes prescribed for purposes other than those listed in a Patient Information leaflet. Do not use ciclopirox shampoo for a condition for which it was not prescribed. Do not give ciclopirox shampoo to other people, even if they have the same symptoms you have. It may harm them.</paragraph>
+                  <paragraph>You can ask your pharmacist or doctor for information about ciclopirox shampoo that is written for health professionals.</paragraph>
+                  <paragraph>For more information about ciclopirox shampoo, call 1-833-285-4151.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What are the ingredients in ciclopirox shampoo?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Active ingredient:</content> ciclopirox</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Inactive ingredients:</content> disodium laureth sulfosuccinate, laureth-2, purified water, sodium chloride, and sodium laureth sulfate.</paragraph>
+                  <paragraph>This Patient Information has been approved by the U.S. Food and Drug Administration.</paragraph>
+                  <paragraph>Manufactured by:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Encube Ethicals Pvt. Ltd. </content>
+                  </paragraph>
+                  <paragraph>PlotNo. C-1, Madkaim</paragraph>
+                  <paragraph>Industrial Estate, Madkaim,</paragraph>
+                  <paragraph>Post: Mardol, Panda,</paragraph>
+                  <paragraph>Goa - 403 404, India.</paragraph>
+                  <paragraph/>
+                  <paragraph>Distributed by:</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Encube Ethicals, Inc.</content>
+                  </paragraph>
+                  <paragraph>200 Meredith Drive,</paragraph>
+                  <paragraph>Suite 202, Durham,</paragraph>
+                  <paragraph>NC 27713 USA</paragraph>
+                  <paragraph/>
+                  <paragraph>
+                     <content styleCode="bold">Revision: 05/2025</content>
+                  </paragraph>
+                  <paragraph/>
+               </text>
+               <effectiveTime value="20260130"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="1592c7e0-5c78-4b70-828f-c41b61c2a02a"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PACKAGE LABEL.PRINCIPAL DISPLAY PANEL</title>
+               <text>
+                  <paragraph/>
+                  <paragraph>NDC 21922-<content styleCode="bold">105</content>-52</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Ciclopirox Shampoo 1%</content>
+                  </paragraph>
+                  <paragraph>For Topical Use Only</paragraph>
+                  <paragraph>Not for Ophthalmic, </paragraph>
+                  <paragraph>Oral or Intravaginal Use.</paragraph>
+                  <paragraph>Keep Out of Reach of Children</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">RX only</content>
+                  </paragraph>
+                  <paragraph>120 mL</paragraph>
+                  <renderMultiMedia referencedObject="MM102"/>
+               </text>
+               <effectiveTime value="20260130"/>
+               <component>
+                  <observationMedia ID="MM102">
+                     <text>carton</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="carton.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

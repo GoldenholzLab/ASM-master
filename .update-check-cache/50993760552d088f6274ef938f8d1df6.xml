@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="2ccafa6f-08ea-91c7-e063-6294a90aa353"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>Clorazepate Dipotassium Tablets USP, 3.75 mg, 7.5 mg, &amp; 15 mg</title>
+   <effectiveTime value="20250128"/>
+   <setId root="2ccaf945-0369-3129-e063-6394a90a2740"/>
+   <versionNumber value="1"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id root="1.3.6.1.4.1.519.1" extension="119003108"/>
+            <name>Coupler LLC</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id root="1.3.6.1.4.1.519.1" extension="119003108"/>
+                        <name>Coupler LLC</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C73606" displayName="repack" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="67046-1501" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="2ccb61f0-2108-f61b-e063-6294a90a2f87"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL product data elements section"/>
+               <effectiveTime value="20250128"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="67046-1501" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Clorazepate Dipotassium</name>
+                        <formCode code="C42998" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TABLET"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Clorazepate Dipotassium</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <asEquivalentEntity classCode="EQUIV">
+                           <code code="C64637" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <definingMaterialKind>
+                              <code code="51672-4044" codeSystem="2.16.840.1.113883.6.69"/>
+                           </definingMaterialKind>
+                        </asEquivalentEntity>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ETJ7Z6XBU4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SILICON DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="3A3U0GI71G" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM OXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="70097M6I30" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MAGNESIUM STEARATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="BQN1B9B9HA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CARBONATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="660YQ98I10" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>POTASSIUM CHLORIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="7SEV7J4R1U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>TALC</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="K4XZD9W99K" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>D&amp;C RED NO. 6 BARIUM LAKE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="WZB9127XOA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C RED NO. 40</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="15"/>
+                              <denominator unit="1" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="63FN7G03XY" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CLORAZEPATE DIPOTASSIUM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="D51WO0G0L4" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>CLORAZEPIC ACID</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="30" unit="1"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code code="67046-1501-3" codeSystem="2.16.840.1.113883.6.69"/>
+                              <formCode code="C43168" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BLISTER PACK"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20250128"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA075731" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20250128"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48328" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="pink" xsi:type="CE">
+                              <originalText>pale pink</originalText>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value value="2" xsi:type="INT"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48348" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ROUND" xsi:type="CE">
+                              <originalText>flat beveled edge, slightly mottled</originalText>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value unit="mm" value="9" xsi:type="PQ"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLIMPRINT" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="ST">T;47</value>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48677" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CIV"/>
+                        </policy>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-08eb-91c7-e063-6294a90aa353"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">CIV</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Rx only</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="BOX">
+               <id root="2ccafa6f-08ec-91c7-e063-6294a90aa353"/>
+               <code code="34066-1" codeSystem="2.16.840.1.113883.6.1" displayName="BOXED WARNING SECTION"/>
+               <title>WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS</title>
+               <text>
+                  <list listType="unordered" styleCode="Disc">
+                     <item>
+                        <content styleCode="bold">Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see
+   
+    <linkHtml href="#WARN">WARNINGS</linkHtml>and
+   
+    <linkHtml href="#PC">PRECAUTIONS</linkHtml>).
+  
+   </content>
+                     </item>
+                     <item>
+                        <content styleCode="bold">The use of benzodiazepines, including clorazepate dipotassium, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing clorazepate dipotassium and throughout out treatment, assess each patient's risk for abuse, misuse, and addiction (see
+   
+    <linkHtml href="#WARN">WARNINGS</linkHtml>).
+  
+   </content>
+                     </item>
+                     <item>
+                        <content styleCode="bold">The continued use of benzodiazepines, including clorazepate dipotassium, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium or reduce the dosage (see
+   
+    <linkHtml href="#DA">DOSAGE AND ADMINISTRATION</linkHtml>and
+   
+    <linkHtml href="#WARN">WARNINGS</linkHtml>).
+  
+   </content>
+                     </item>
+                  </list>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_2ccb6f37-2b7d-2ce6-e063-6294a90a4e8e">
+               <id root="2ccb6f37-2b7c-2ce6-e063-6294a90a4e8e"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>DESCRIPTION</title>
+               <text>
+                  <paragraph>Chemically, clorazepate dipotassium USP is a benzodiazepine. The empirical formula is C 
+  <sub>16</sub>H 
+  <sub>11</sub>ClK 
+  <sub>2</sub>N 
+  <sub>2</sub>O 
+  <sub>4</sub>; the molecular weight is 408.92; 1 
+  <content styleCode="italics">H</content>-1, 4-Benzodiazepine-3-carboxylic acid, 7-chloro-2,3-dihydro-2-oxo-5-phenyl-, potassium salt compound with potassium hydroxide (1:1) and the structural formula may be represented as follows:
+ </paragraph>
+                  <paragraph/>
+                  <paragraph>The compound occurs as a fine, light yellow, practically odorless powder. It is insoluble in the common organic solvents, but very soluble in water. Aqueous solutions are unstable, clear, light yellow, and alkaline.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets USP contain 3.75 mg, 7.5 mg or 15 mg of clorazepate dipotassium USP. In addition, each tablet contains the following inactive ingredients: colloidal silicon dioxide, magnesium oxide heavy, magnesium stearate, microcrystalline cellulose, potassium carbonate anhydrous, potassium chloride, talc and the following coloring agents:</paragraph>
+                  <paragraph>3.75 mg - FD&amp;C Blue No. 2 Lake and FD&amp;C Red No. 40 Lake</paragraph>
+                  <paragraph>7.5 mg - D&amp;C Red No. 6 Barium Lake and D&amp;C Yellow No. 10 Lake</paragraph>
+                  <paragraph>15 mg - D&amp;C Red No. 6 Barium Lake and FD&amp;C Red No. 40 Lake</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-08ee-91c7-e063-6294a90aa353"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>CLINICAL PHARMACOLOGY</title>
+               <text>
+                  <paragraph>Pharmacologically, clorazepate dipotassium has the characteristics of the benzodiazepines. It has depressant effects on the central nervous system. The primary metabolite, nordiazepam, quickly appears in the blood stream. The serum half-life is about 2 days. The drug is metabolized in the liver and excreted primarily in the urine.</paragraph>
+                  <paragraph>Studies in healthy men have shown that clorazepate dipotassium has depressant effects on the central nervous system. Prolonged administration of single daily doses as high as 120 mg was without toxic effects. Abrupt cessation of high doses was followed in some patients by nervousness, insomnia, irritability, diarrhea, muscle aches, or memory impairment.</paragraph>
+                  <paragraph>Since orally administered clorazepate dipotassium is rapidly decarboxylated to form nordiazepam, there is essentially no circulating parent drug. Nordiazepam, the primary metabolite, quickly appears in the blood and is eliminated from the plasma with an apparent half-life of about 40 to 50 hours. Plasma levels of nordiazepam increase proportionally with clorazepate dipotassium dose and show moderate accumulation with repeated administration. The protein binding of nordiazepam in plasma is high (97 to 98%).</paragraph>
+                  <paragraph>Within 10 days after oral administration of a 15 mg (50 μCi) dose of
+ 
+  <sup>14</sup>C-clorazepate dipotassium to two volunteers, 62 to 67% of the radioactivity was excreted in the urine and 15 to 19% was eliminated in the feces. Both subjects were still excreting measurable amounts of radioactivity in the urine (about 1% of the
+ 
+  <sup>14</sup>C-dose) on day ten.
+
+ </paragraph>
+                  <paragraph>Nordiazepam is further metabolized by hydroxylation. The major urinary metabolite is conjugated oxazepam (3-hydroxynordiazepam), and smaller amounts of conjugated p-hydroxynordiazepam and nordiazepam are also found in the urine.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-08ef-91c7-e063-6294a90aa353"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>Clorazepate dipotassium is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets are indicated as adjunctive therapy in the management of partial seizures.</paragraph>
+                  <paragraph>The effectiveness of clorazepate dipotassium tablets in long-term management of anxiety, that is, more than 4 months, has not been assessed by systematic clinical studies. Long-term studies in epileptic patients, however, have shown continued therapeutic activity. The physician should reassess periodically the usefulness of the drug for the individual patient.</paragraph>
+                  <paragraph>Clorazepate dipotassium tablets are indicated for the symptomatic relief of acute alcohol withdrawal.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="CON">
+               <id root="2ccafa6f-08f0-91c7-e063-6294a90aa353"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>Clorazepate dipotassium tablets are contraindicated in patients with a known hypersensitivity to the drug and in those with acute narrow angle glaucoma.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="WARN">
+               <id root="2ccafa6f-08f1-91c7-e063-6294a90aa353"/>
+               <code code="34071-1" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS SECTION"/>
+               <title>WARNINGS</title>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section ID="Risks">
+                     <id root="2ccafa6f-08f2-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Risks from Concomitant Use with Opioids</title>
+                     <text>
+                        <paragraph>Concomitant use of benzodiazepines, including clorazepate dipotassium, and opioids may result in profound sedation, respiratory depression, coma, and death. Because of these risks, reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate.</paragraph>
+                        <paragraph>Observational studies have demonstrated that concomitant use of opioid analgesics and benzodiazepines increases the risk of drug-related mortality compared to use of opioids alone. If a decision is made to prescribe clorazepate dipotassium concomitantly with opioids, prescribe the lowest effective dosages and minimum durations of concomitant use, and follow patients closely for signs and symptoms of respiratory depression and sedation. In patients already receiving an opioid analgesic, prescribe a lower initial dose of clorazepate dipotassium than indicated in the absence of an opioid and titrate based on clinical response. If an opioid is initiated in a patient already taking clorazepate dipotassium, prescribe a lower initial dose of the opioid and titrate based upon clinical response.</paragraph>
+                        <paragraph>Advise both patients and caregivers about the risks of respiratory depression and sedation when clorazepate dipotassium is used with opioids. Advise patients not to drive or operate heavy machinery until the effects of concomitant use with the opioid have been determined (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#DI">PRECAUTIONS: Drug Interactions</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="AMA">
+                     <id root="2ccafa6f-08f3-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Abuse, Misuse, and Addiction</title>
+                     <text>
+                        <paragraph>The use of benzodiazepines, including clorazepate dipotassium, exposes users to the risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines often (but not always) involve the use of doses greater than the maximum recommended dosage and commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#Abuse">DRUG ABUSE AND DEPENDENCE: Abuse</linkHtml>
+                           </content>).
+
+ </paragraph>
+                        <paragraph>Before prescribing clorazepate dipotassium and throughout treatment, assess each patient's risk for abuse, misuse, and addiction (e.g., using a standardized screening tool). Use of clorazepate dipotassium, particularly in patients at elevated risk, necessitates counseling about the risks and proper use of clorazepate dipotassium along with monitoring for signs and symptoms of abuse, misuse, and addiction. Prescribe the lowest effective dosage; avoid or minimize concomitant use of CNS depressants and other substances associated with abuse, misuse, and addiction (e.g., opioid analgesics, stimulants); and advise patients on the proper disposal of unused drug. If a substance use disorder is suspected, evaluate the patient and institute (or refer them for) early treatment, as appropriate.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="DWR">
+                     <id root="2ccafa6f-08f4-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Dependence and Withdrawal Reactions</title>
+                     <text>
+                        <paragraph>To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium or reduce the dosage (a patient-specific plan should be used to taper the dose) (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#Discontinuation">DOSAGE AND ADMINISTRATION: Discontinuation of Dosage Reduction of Clorazepate Dipotassium</linkHtml>
+                           </content>).
+
+ </paragraph>
+                        <paragraph>Patients at an increased risk of withdrawal adverse reactions after benzodiazepine discontinuation or rapid dosage reduction include those who take higher dosages, and those who have had longer durations of use.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                     <component>
+                        <section>
+                           <id root="2ccafa6f-08f5-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Acute Withdrawal Reactions</title>
+                           <text>
+                              <paragraph>The continued use of benzodiazepines, including clorazepate dipotassium, may lead to clinically significant physical dependence. Abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium after continued use, or administration of flumazenil (a benzodiazepine antagonist) may precipitate acute withdrawal reactions, which can be life-threatening (e.g., seizures) (see
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#Dependence">DRUG ABUSE AND DEPENDENCE: Dependence</linkHtml>
+                                 </content>).
+
+ </paragraph>
+                           </text>
+                           <effectiveTime value="20231109"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="2ccafa6f-08f6-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Protracted Withdrawal Syndrome</title>
+                           <text>
+                              <paragraph>In some cases, benzodiazepine users have developed a protracted withdrawal syndrome with withdrawal symptoms lasting weeks to more than 12 months (see
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#DAD">DRUG ABUSE AND DEPENDENCE</linkHtml>
+                                 </content>).
+
+ </paragraph>
+                           </text>
+                           <effectiveTime value="20231109"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08f7-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Use in Depressive Neuroses or Psychotic Reactions</title>
+                     <text>
+                        <paragraph>Clorazepate dipotassium tablets are not recommended for use in depressive neuroses or in psychotic reactions.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08f8-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Use in Children</title>
+                     <text>
+                        <paragraph>Because of the lack of sufficient clinical experience, clorazepate dipotassium tablets are not recommended for use in patients less than 9 years of age.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08f9-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Interference with Psychomotor Performance</title>
+                     <text>
+                        <paragraph>Patients taking clorazepate dipotassium tablets should be cautioned against engaging in hazardous occupations requiring mental alertness, such as operating dangerous machinery including motor vehicles.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08fa-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Concomitant Use with CNS Depressants</title>
+                     <text>
+                        <paragraph>Since clorazepate dipotassium has a central nervous system depressant effect, patients should be advised against the simultaneous use of other CNS depressant drugs, and cautioned that the effects of alcohol may be increased.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08fb-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Suicidal Behavior and Ideation</title>
+                     <text>
+                        <paragraph>Antiepileptic drugs (AEDs), including clorazepate dipotassium, increase the risk of suicidal thoughts or behavior in patients taking these drugs for any indication. Patients treated with any AED for any indication should be monitored for the emergence or worsening of depression, suicidal thoughts or behavior, and/or any unusual changes in mood or behavior.</paragraph>
+                        <paragraph>Pooled analyses of 199 placebo-controlled clinical trials (mono- and adjunctive therapy) of 11 different AEDs showed that patients randomized to one of the AEDs had approximately twice the risk (adjusted Relative Risk 1.8, 95% CI:1.2, 2.7) of suicidal thinking or behavior compared to patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated patients was 0.43%, compared to 0.24% among 16,029 placebo-treated patients, representing an increase of approximately one case of suicidal thinking or behavior for every 530 patients treated. There were four suicides in drug-treated patients in the trials and none in placebo-treated patients, but the number is too small to allow any conclusion about drug effect on suicide.</paragraph>
+                        <paragraph>The increased risk of suicidal thoughts or behavior with AEDs was observed as early as one week after starting drug treatment with AEDs and persisted for the duration of treatment assessed. Because most trials included in the analysis did not extend beyond 24 weeks, the risk of suicidal thoughts or behavior beyond 24 weeks could not be assessed.</paragraph>
+                        <paragraph>The risk of suicidal thoughts or behavior was generally consistent among drugs in the data analyzed. The finding of increased risk with AEDs of varying mechanisms of action and across a range of indications suggests that the risk applies to all AEDs used for any indication. The risk did not vary substantially by age (5 to 100 years) in the clinical trials analyzed. Table 1 shows absolute and relative risk by indication for all evaluated AEDs.</paragraph>
+                        <table width="80%">
+                           <caption>Table 1: Risk by indication for antiepileptic drugs in the pooled analysis</caption>
+                           <col width="20%" align="left" valign="top"/>
+                           <col width="20%" align="center" valign="top"/>
+                           <col width="20%" align="center" valign="top"/>
+                           <col width="20%" align="center" valign="top"/>
+                           <col width="20%" align="center" valign="top"/>
+                           <thead>
+                              <tr>
+                                 <th align="left" styleCode="Lrule Rrule">Indication</th>
+                                 <th align="left" styleCode="Rrule">Placebo Patients with Events Per 1000 Patients</th>
+                                 <th align="left" styleCode="Rrule">Drug Patients with Events Per 1000 Patients</th>
+                                 <th align="left" styleCode="Rrule">Relative Risk: 
+     <br/>  Incidence of Events in Drug Patients/Incidence in Placebo Patients
+    </th>
+                                 <th align="left" styleCode="Rrule">Risk Difference: 
+     <br/>  Additional Drug Patients with Events Per 1000 Patients
+    </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">Epilepsy</td>
+                                 <td styleCode="Rrule">1.0</td>
+                                 <td styleCode="Rrule">3.4</td>
+                                 <td styleCode="Rrule">3.5</td>
+                                 <td styleCode="Rrule">2.4</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">Psychiatric</td>
+                                 <td styleCode="Rrule">5.7</td>
+                                 <td styleCode="Rrule">8.5</td>
+                                 <td styleCode="Rrule">1.5</td>
+                                 <td styleCode="Rrule">2.9</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">Other</td>
+                                 <td styleCode="Rrule">1.0</td>
+                                 <td styleCode="Rrule">1.8</td>
+                                 <td styleCode="Rrule">1.9</td>
+                                 <td styleCode="Rrule">0.9</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule">Total</td>
+                                 <td styleCode="Rrule">2.4</td>
+                                 <td styleCode="Rrule">4.3</td>
+                                 <td styleCode="Rrule">1.8</td>
+                                 <td styleCode="Rrule">1.9</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>The relative risk for suicidal thoughts or behavior was higher in clinical trials for epilepsy than in clinical trials for psychiatric or other conditions, but the absolute risk differences were similar for the epilepsy and psychiatric indications.</paragraph>
+                        <paragraph>Anyone considering prescribing clorazepate dipotassium tablets or any other AED must balance the risk of suicidal thoughts or behavior with the risk of untreated illness. Epilepsy and many other illnesses for which AEDs are prescribed are themselves associated with morbidity and mortality and an increased risk of suicidal thoughts and behavior. Should suicidal thoughts and behavior emerge during treatment, the prescriber needs to consider whether the emergence of these symptoms in any given patient may be related to the illness being treated.</paragraph>
+                        <paragraph>Patients, their caregivers, and families should be informed that AEDs increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of the signs and symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="NN">
+                     <id root="2ccafa6f-08fc-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Neonatal Sedation and Withdrawal Syndrome</title>
+                     <text>
+                        <paragraph>Use of clorazepate dipotassium late in pregnancy can result in sedation (respiratory depression, lethargy, hypotonia) and/or withdrawal symptoms (hyperreflexia, irritability, restlessness, tremors, inconsolable crying, and feeding difficulties) in the neonate (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#precaupreg">PRECAUTIONS: Pregnancy</linkHtml>
+                           </content>). Monitor neonates exposed to clorazepate dipotassium during pregnancy or labor for signs of sedation and monitor neonates exposed to clorazepate dipotassium during pregnancy for signs of withdrawal; manage these neonates accordingly.
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="PC">
+               <id root="2ccafa6f-08fd-91c7-e063-6294a90aa353"/>
+               <code code="42232-9" codeSystem="2.16.840.1.113883.6.1" displayName="PRECAUTIONS SECTION"/>
+               <title>PRECAUTIONS</title>
+               <text>
+                  <paragraph>In those patients in which a degree of depression accompanies the anxiety, suicidal tendencies may be present and protective measures may be required. The least amount of drug that is feasible should be available to the patient.</paragraph>
+                  <paragraph>Patients taking clorazepate dipotassium tablets for prolonged periods should have blood counts and liver function tests periodically. The usual precautions in treating patients with impaired renal or hepatic function should also be observed.</paragraph>
+                  <paragraph>In elderly or debilitated patients, the initial dose should be small, and increments should be made gradually, in accordance with the response of the patient, to preclude ataxia or excessive sedation.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08fe-91c7-e063-6294a90aa353"/>
+                     <code code="34076-0" codeSystem="2.16.840.1.113883.6.1" displayName="INFORMATION FOR PATIENTS SECTION"/>
+                     <title>Information for Patients</title>
+                     <text>
+                        <paragraph>Advise the patient to read the FDA-approved patient labeling (Medication Guide).</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-08ff-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Risks from Concomitant Use with Opioids</title>
+                     <text>
+                        <paragraph>Advise both patients and caregivers about the risks of potentially fatal respiratory depression and sedation when clorazepate dipotassium is used with opioids and not to use such drugs concomitantly unless supervised by a health care provider. Advise patients not to drive or operate heavy machinery until the effects of concomitant use with the opioid have been determined (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#Risks">WARNINGS, Risks from Concomitant Use with Opioids</linkHtml>and
+  
+   <linkHtml href="#DI">PRECAUTIONS, Drug Interactions</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0900-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Abuse, Misuse, and Addiction</title>
+                     <text>
+                        <paragraph>Inform patients that the use of clorazepate dipotassium, even at recommended dosages, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose and death, especially when used in combination with other medications (e.g., opioid analgesics), alcohol, and/or illicit substances. Inform patients about the signs and symptoms of benzodiazepine abuse, misuse, and addiction; to seek medical help if they develop these signs and/or symptoms; and on the proper disposal of unused drug (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#WARN">WARNINGS</linkHtml>and
+  
+   <linkHtml href="#DAD">DRUG ABUSE AND DEPENDENCE</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0901-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Withdrawal Reactions</title>
+                     <text>
+                        <paragraph>Inform patients that the continued use of clorazepate dipotassium may lead to clinically significant physical dependence and that abrupt discontinuation or rapid dosage reduction of clorazepate dipotassium may precipitate acute withdrawal reactions, which can be life-threatening. Inform patients that in some cases, patients taking benzodiazepines have developed a protracted withdrawal syndrome with withdrawal symptoms lasting weeks to more than 12 months. Instruct patients that discontinuation or dosage reduction of clorazepate dipotassium may require a slow taper (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#WARN">WARNINGS</linkHtml>and
+  
+   <linkHtml href="#DAD">DRUG ABUSE AND DEPENDENCE</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0902-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Suicidal Thinking and Behavior</title>
+                     <text>
+                        <paragraph>Patients, their caregivers, and families should be counseled that AEDs, including clorazepate dipotassium, may increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="precaupreg">
+                     <id root="2ccafa6f-0903-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Pregnancy</title>
+                     <text>
+                        <paragraph>Advise pregnant females that use of clorazepate dipotassium late in pregnancy can result in sedation (respiratory depression, lethargy, hypotonia) and/or withdrawal symptoms (hyperreflexia, irritability, restlessness, tremors, inconsolable crying, and feeding difficulties) in newborns (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#NN">Warnings, Neonatal Sedation and Withdrawal Syndrome</linkHtml>and
+  
+   <linkHtml href="#precaupreg">Precautions, Pregnancy</linkHtml>
+                           </content>). Instruct patients to inform their healthcare provider if they are pregnant.
+
+ </paragraph>
+                        <paragraph/>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0904-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Nursing</title>
+                     <text>
+                        <paragraph>Advise patients that breastfeeding is not recommended during treatment with clorazepate dipotassium (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#NM">Precautions, Nursing Mothers</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="DI">
+                     <id root="2ccafa6f-0905-91c7-e063-6294a90aa353"/>
+                     <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+                     <title>DRUG INTERACTIONS</title>
+                     <text>
+                        <paragraph>The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at GABAA sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen opioid-related respiratory depression exists. Limit dosage and duration of concomitant use of benzodiazepines and opioids, and monitor patients closely for respiratory depression and sedation.</paragraph>
+                        <paragraph>If clorazepate dipotassium is to be combined with other drugs acting on the central nervous system, careful consideration should be given to the pharmacology of the agents to be employed. Animal experience indicates that clorazepate dipotassium prolongs the sleeping time after hexobarbital or after ethyl alcohol, increases the inhibitory effects of chlorpromazine, but does not exhibit monoamine oxidase inhibition. Clinical studies have shown increased sedation with concurrent hypnotic medications. The actions of the benzodiazepines may be potentiated by barbiturates, narcotics, phenothiazines, monoamine oxidase inhibitors or other antidepressants.</paragraph>
+                        <paragraph>If clorazepate dipotassium tablets are used to treat anxiety associated with somatic disease states, careful attention must be paid to possible drug interaction with concomitant medication.</paragraph>
+                        <paragraph>In bioavailability studies with normal subjects, the concurrent administration of antacids at therapeutic levels did not significantly influence the bioavailability of clorazepate dipotassium tablets.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                     <component>
+                        <section ID="preg">
+                           <id root="2ccafa6f-0906-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Pregnancy</title>
+                           <effectiveTime value="20231109"/>
+                           <component>
+                              <section>
+                                 <id root="2ccafa6f-0907-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Risk Summary</title>
+                                 <text>
+                                    <paragraph>Neonates born to mothers using benzodiazepines late in pregnancy have been reported to experience symptoms of sedation and/or neonatal withdrawal (see
+ 
+  <content styleCode="bold">
+                                          <linkHtml href="#NN">WARNINGS: Neonatal Sedation and Withdrawal Syndrome</linkHtml>
+                                       </content>and
+ 
+  <content styleCode="italics">
+                                          <linkHtml href="#clincon">Clinical Considerations</linkHtml>
+                                       </content>). Available data from published observational studies of pregnant women exposed to benzodiazepines do not report a clear association with benzodiazepines and major birth defects
+ 
+  <content styleCode="italics">(see
+  
+   <linkHtml href="#data">Data</linkHtml>)
+ 
+  </content>.
+
+ </paragraph>
+                                    <paragraph>The background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2 to 4% and 15 to 20%, respectively.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20231109"/>
+                              </section>
+                           </component>
+                           <component>
+                              <section ID="clincon">
+                                 <id root="2ccafa6f-0908-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Clinical Considerations</title>
+                                 <effectiveTime value="20231109"/>
+                                 <component>
+                                    <section>
+                                       <id root="2ccafa6f-0909-91c7-e063-6294a90aa353"/>
+                                       <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                       <title>Fetal/Neonatal Adverse Reactions</title>
+                                       <text>
+                                          <paragraph>Benzodiazepines cross the placenta and may produce respiratory depression, hypotonia, and sedation in neonates. Monitor neonates exposed to clorazepate dipotassium during pregnancy or labor for signs of sedation, respiratory depression, hypotonia, and feeding problems. Monitor neonates exposed to clorazepate dipotassium during pregnancy for signs of withdrawal. Manage these neonates accordingly (see
+ 
+  <content styleCode="bold">
+                                                <linkHtml href="#NN">WARNINGS: Neonatal Sedation and Withdrawal Syndrome</linkHtml>
+                                             </content>).
+
+ </paragraph>
+                                       </text>
+                                       <effectiveTime value="20231109"/>
+                                    </section>
+                                 </component>
+                              </section>
+                           </component>
+                           <component>
+                              <section ID="data">
+                                 <id root="2ccafa6f-090a-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Data</title>
+                                 <effectiveTime value="20231109"/>
+                                 <component>
+                                    <section>
+                                       <id root="2ccafa6f-090b-91c7-e063-6294a90aa353"/>
+                                       <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                       <title>Human Data</title>
+                                       <text>
+                                          <paragraph>Published data from observational studies on the use of benzodiazepines during pregnancy do not report a clear association with benzodiazepines and major birth defects. Although early studies reported an increased risk of congenital malformations with diazepam and chlordiazepoxide, there was no consistent pattern noted. In addition, the majority of more recent case-control and cohort studies of benzodiazepine use during pregnancy, which were adjusted for confounding exposures to alcohol, tobacco and other medications, have not confirmed these findings.</paragraph>
+                                       </text>
+                                       <effectiveTime value="20231109"/>
+                                    </section>
+                                 </component>
+                                 <component>
+                                    <section>
+                                       <id root="2ccafa6f-090c-91c7-e063-6294a90aa353"/>
+                                       <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                       <title>Animal Data</title>
+                                       <text>
+                                          <paragraph>In animal reproduction studies, oral administration of clorazepate to pregnant rats and rabbits at doses up to 150 and 15 mg/kg, respectively, did not cause fetal toxicities or malformation. However, the sedative effects of high dose clorazepate interfered with the maternal care of the offspring.</paragraph>
+                                       </text>
+                                       <effectiveTime value="20231109"/>
+                                    </section>
+                                 </component>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="NM">
+                           <id root="2ccafa6f-090d-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Nursing Mothers</title>
+                           <effectiveTime value="20231109"/>
+                           <component>
+                              <section>
+                                 <id root="2ccafa6f-090e-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Risk Summary</title>
+                                 <text>
+                                    <paragraph>Clorazepate and its active metabolite, nordiazepam, are present in breast milk. There are reports of sedation, poor feeding and poor weight gain in infants exposed to benzodiazepines through breast milk. The effects of clorazepate on milk production are unknown. Because of the potential for serious adverse reactions, including sedation and withdrawal symptoms in infants, advise patients that breastfeeding is not recommended during treatment with clorazepate dipotassium.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20231109"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="2ccafa6f-090f-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Pediatric Use</title>
+                           <text>
+                              <paragraph>See
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#WARN">WARNINGS</linkHtml>
+                                 </content>.
+
+ </paragraph>
+                           </text>
+                           <effectiveTime value="20231109"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="2ccafa6f-0910-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Geriatric Use</title>
+                           <text>
+                              <paragraph>Clinical studies of clorazepate dipotassium were not adequate to determine whether subjects aged 65 and over respond differently than younger subjects. Elderly or debilitated patients may be especially sensitive to the effects of all benzodiazepines, including clorazepate dipotassium. In general, elderly or debilitated patients should be started on lower doses of clorazepate dipotassium and observed closely, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and concomitant disease or other drug therapy. Dose adjustments should also be made slowly, and with more caution in this patient population (see
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#PC">PRECAUTIONS</linkHtml>and
+  
+   <linkHtml href="#DA">DOSAGE AND ADMINISTRATION</linkHtml>
+                                 </content>).
+
+ </paragraph>
+                           </text>
+                           <effectiveTime value="20231109"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-0911-91c7-e063-6294a90aa353"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>ADVERSE REACTIONS</title>
+               <text>
+                  <paragraph>The side effect most frequently reported was drowsiness. Less commonly reported (in descending order of occurrence) were: dizziness, various gastrointestinal complaints, nervousness, blurred vision, dry mouth, headache, and mental confusion. Other side effects included insomnia, transient skin rashes, fatigue, ataxia, genitourinary complaints, irritability, diplopia, depression, tremor, and slurred speech.</paragraph>
+                  <paragraph>There have been reports of abnormal liver and kidney function tests and of decrease in hematocrit.</paragraph>
+                  <paragraph>Decrease in systolic blood pressure has been observed.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact Taro Pharmaceuticals U.S.A., Inc. at 1-866-923-4914 or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="DAD">
+               <id root="2ccafa6f-0912-91c7-e063-6294a90aa353"/>
+               <code code="42227-9" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG ABUSE AND DEPENDENCE SECTION"/>
+               <title>DRUG ABUSE AND DEPENDENCE</title>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0913-91c7-e063-6294a90aa353"/>
+                     <code code="34085-1" codeSystem="2.16.840.1.113883.6.1" displayName="CONTROLLED SUBSTANCE SECTION"/>
+                     <title>Controlled Substance</title>
+                     <text>
+                        <paragraph>Clorazepate dipotassium tablets contain clorazepate, a Schedule IV controlled substance.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Abuse">
+                     <id root="2ccafa6f-0914-91c7-e063-6294a90aa353"/>
+                     <code code="34086-9" codeSystem="2.16.840.1.113883.6.1" displayName="ABUSE SECTION"/>
+                     <title>Abuse</title>
+                     <text>
+                        <paragraph>Clorazepate dipotassium is a benzodiazepine and a CNS depressant with a potential for abuse and addiction. Abuse is the intentional, non-therapeutic use of a drug, even once, for its desirable psychological or physiological effects. Misuse is the intentional use, for therapeutic purposes, of a drug by an individual in a way other than prescribed by a health care provider or for whom it was not prescribed. Drug addiction is a cluster of behavioral, cognitive, and physiological phenomena that may include a strong desire to take the drug, difficulties in controlling drug use (e.g., continuing drug use despite harmful consequences, giving a higher priority to drug use than other activities and obligations), and possible tolerance or physical dependence. Even taking benzodiazepines as prescribed may put patients at risk for abuse and misuse of their medication. Abuse and misuse of benzodiazepines may lead to addiction.</paragraph>
+                        <paragraph>Abuse and misuse of benzodiazepines often (but not always) involve the use of doses greater than the maximum recommended dosage and commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes, including respiratory depression, overdose, or death. Benzodiazepines are often sought by individuals who abuse drugs and other substances, and by individuals with addictive disorders (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#AMA">WARNINGS: Abuse, Misuse, and Addiction</linkHtml>
+                           </content>).
+
+ </paragraph>
+                        <paragraph>The following adverse reactions have occurred with benzodiazepine abuse and/or misuse: abdominal pain, amnesia, anorexia, anxiety, aggression, ataxia, blurred vision, confusion, depression, disinhibition, disorientation, dizziness, euphoria, impaired concentration and memory, indigestion, irritability, muscle pain, slurred speech, tremors, and vertigo.</paragraph>
+                        <paragraph>The following severe adverse reactions have occurred with benzodiazepine abuse and/or misuse: delirium, paranoia, suicidal ideation and behavior, seizures, coma, breathing difficulty, and death. Death is more often associated with polysubstance use (especially benzodiazepines with other CNS depressants such as opioids and alcohol).</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Dependence">
+                     <id root="2ccafa6f-0915-91c7-e063-6294a90aa353"/>
+                     <code code="34087-7" codeSystem="2.16.840.1.113883.6.1" displayName="DEPENDENCE SECTION"/>
+                     <title>Dependence</title>
+                     <effectiveTime value="20231109"/>
+                     <component>
+                        <section>
+                           <id root="2ccafa6f-0916-91c7-e063-6294a90aa353"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <title>Physical Dependence</title>
+                           <text>
+                              <paragraph>Clorazepate dipotassium may produce physical dependence from continued therapy. Physical dependence is a state that develops as a result of physiological adaptation in response to repeated drug use, manifested by withdrawal signs and symptoms after abrupt discontinuation or a significant dose reduction of a drug. Abrupt discontinuation or rapid dosage reduction of benzodiazepines or administration of flumazenil, a benzodiazepine antagonist, may precipitate acute withdrawal reactions, including seizures, which can be life-threatening. Patients at an increased risk of withdrawal adverse reactions after benzodiazepine discontinuation or rapid dosage reduction include those who take higher dosages (i.e., higher and/or more frequent doses) and those who have had longer durations of use (see
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#DWR">WARNINGS: Dependence and Withdrawal Reactions</linkHtml>
+                                 </content>).
+
+ </paragraph>
+                              <paragraph>To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium or reduce the dosage (see
+ 
+  <content styleCode="bold">
+                                    <linkHtml href="#Discontinuation">DOSAGE AND ADMINISTRATION: Discontinuation or Dosage Reduction of Clorazepate Dipotassium</linkHtml>and
+  
+   <linkHtml href="#DWR">WARNINGS: Dependence and Withdrawal Reactions</linkHtml>
+                                 </content>).
+
+ </paragraph>
+                           </text>
+                           <effectiveTime value="20231109"/>
+                           <component>
+                              <section>
+                                 <id root="2ccafa6f-0917-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Acute Withdrawal Signs and Symptoms</title>
+                                 <text>
+                                    <paragraph>Acute withdrawal signs and symptoms associated with benzodiazepines have included abnormal involuntary movements, anxiety, blurred vision, depersonalization, depression, derealization, dizziness, fatigue, gastrointestinal adverse reactions (e.g., nausea, vomiting, diarrhea, weight loss, decreased appetite), headache, hyperacusis, hypertension, irritability, insomnia, memory impairment, muscle pain and stiffness, panic attacks, photophobia, restlessness, tachycardia, and tremor. More severe acute withdrawal signs and symptoms, including life-threatening reactions, have included catatonia, convulsions, delirium tremens, depression, hallucinations, mania, psychosis, seizures and suicidality.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20231109"/>
+                              </section>
+                           </component>
+                           <component>
+                              <section>
+                                 <id root="2ccafa6f-0918-91c7-e063-6294a90aa353"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <title>Protracted Withdrawal Syndrome</title>
+                                 <text>
+                                    <paragraph>Protracted withdrawal syndrome associated with benzodiazepines is characterized by anxiety, cognitive impairment, depression, insomnia, formication, motor symptoms (e.g., weakness, tremor, muscle twitches), paresthesia, and tinnitus that persists beyond 4 to 6 weeks after initial benzodiazepine withdrawal. Protracted withdrawal symptoms may last weeks to more than 12 months. As a result, there may be difficulty in differentiating withdrawal symptoms from potential re-emergence or continuation of symptoms for which the benzodiazepine was being used.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20231109"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0919-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Tolerance</title>
+                     <text>
+                        <paragraph>Tolerance to clorazepate dipotassium may develop from continued therapy. Tolerance is a physiological state characterized by a reduced response to a drug after repeated administration (i.e., a higher dose of a drug is required to produce the same effect that was once obtained at a lower dose). Tolerance to the therapeutic effect of clorazepate dipotassium may develop; however, little tolerance develops to the amnestic reactions and other cognitive impairments caused by benzodiazepines.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-091a-91c7-e063-6294a90aa353"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>OVERDOSAGE</title>
+               <text>
+                  <paragraph>Overdosage of benzodiazepines is characterized by central nervous system depression ranging from drowsiness to coma. In mild to moderate cases, symptoms can include drowsiness, confusion, dysarthria, lethargy, hypnotic state, diminished reflexes, ataxia, and hypotonia. Rarely, paradoxical or disinhibitory reactions (including agitation, irritability, impulsivity, violent behavior, confusion, restlessness, excitement, and talkativeness) may occur. In severe overdosage cases, patients may develop respiratory depression and coma. Overdosage of benzodiazepines in combination with other CNS depressants (including alcohol and opioids) may be fatal (see
+ 
+  <content styleCode="bold">
+                        <linkHtml href="#DWR">WARNINGS: Dependence and Withdrawal Reactions</linkHtml>
+                     </content>). Markedly abnormal (lowered or elevated) blood pressure, heart rate, or respiratory rate raise the concern that additional drugs and/or alcohol are involved in the overdosage.
+
+ </paragraph>
+                  <paragraph>In managing benzodiazepine overdosage, employ general supportive measures, including intravenous fluids and airway management. Flumazenil, a specific benzodiazepine receptor antagonist indicated for the complete or partial reversal of the sedative effects of benzodiazepines in the management of benzodiazepine overdosage, can lead to withdrawal and adverse reactions, including seizures, particularly in the context of mixed overdosage with drugs that increase seizure risk (e.g., tricyclic and tetracyclic antidepressants) and in patients with long-term benzodiazepine use and physical dependency. The risk of withdrawal seizures with flumazenil use may be increased in patients with epilepsy. Flumazenil is contraindicated in patients who have received a benzodiazepine for control of a potentially life-threatening condition (e.g., status epilepticus). If the decision is made to use flumazenil, it should be used as an adjunct to, not as a substitute for, supportive management of benzodiazepine overdosage. See the flumazenil injection Prescribing Information.</paragraph>
+                  <paragraph>Consider contacting the Poison Help line (1-800-222-1222) or a medical toxicologist for additional overdosage management recommendations.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="DA">
+               <id root="2ccafa6f-091b-91c7-e063-6294a90aa353"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>DOSAGE AND ADMINISTRATION</title>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-091c-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>For the Symptomatic Relief of Anxiety</title>
+                     <text>
+                        <paragraph>Clorazepate dipotassium tablets are administered orally in divided doses. The usual daily dose is 30 mg. The dose should be adjusted gradually within the range of 15 to 60 mg daily in accordance with the response of the patient. In elderly or debilitated patients it is advisable to initiate treatment at a daily dose of 7.5 to 15 mg.</paragraph>
+                        <paragraph>Clorazepate dipotassium tablets may also be administered in a single dose daily at bedtime; the recommended initial dose is 15 mg. After the initial dose, the response of the patient may require adjustment of subsequent dosage. Lower doses may be indicated in the elderly patient. Drowsiness may occur at the initiation of treatment and with dosage increment.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-091d-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>For the Symptomatic Relief of Acute Alcohol Withdrawal</title>
+                     <text>
+                        <paragraph>The following dosage schedule is recommended:</paragraph>
+                        <table width="75%">
+                           <col width="30%" align="left" valign="top"/>
+                           <col width="70%" align="left" valign="top"/>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">1st 24 hours (Day 1)</td>
+                                 <td styleCode="Rrule">30 mg initially; followed by 30 to 60 mg in divided doses</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">2nd 24 hours (Day 2)</td>
+                                 <td styleCode="Rrule">45 to 90 mg in divided doses</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule">3rd 24 hours (Day 3)</td>
+                                 <td styleCode="Rrule">22.5 to 45 mg in divided doses</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule">Day 4</td>
+                                 <td styleCode="Rrule">15 to 30 mg in divided doses</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>Thereafter, gradually reduce the daily dose to 7.5 to 15 mg. Discontinue drug therapy as soon as patient's condition is stable.</paragraph>
+                        <paragraph>The maximum recommended total daily dose is 90 mg. Avoid excessive reductions in the total amount of drug administered on successive days.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-091e-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>As an Adjunct to Antiepileptic Drugs</title>
+                     <text>
+                        <paragraph>In order to minimize drowsiness, the recommended initial dosages and dosage increments should not be exceeded.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-091f-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Adults</title>
+                     <text>
+                        <paragraph>The maximum recommended initial dose in patients over 12 years old is 7.5 mg three times a day. Dosage should be increased by no more than 7.5 mg every week and should not exceed 90 mg/day.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0920-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Children (9 to 12 years)</title>
+                     <text>
+                        <paragraph>The maximum recommended initial dose is 7.5 mg two times a day. Dosage should be increased by no more than 7.5 mg every week and should not exceed 60 mg/day.</paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Discontinuation">
+                     <id root="2ccafa6f-0921-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Discontinuation or Dosage Reduction of Clorazepate Dipotassium</title>
+                     <text>
+                        <paragraph>To reduce the risk of withdrawal reactions, use a gradual taper to discontinue clorazepate dipotassium or reduce the dosage. If a patient develops withdrawal reactions, consider pausing the taper or increasing the dosage to the previous tapered dosage level. Subsequently decrease the dosage more slowly (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#WARN">WARNINGS</linkHtml>and
+  
+   <linkHtml href="#DAD">DRUG ABUSE AND DEPENDENCE</linkHtml>).
+ 
+  </content>
+                        </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-0922-91c7-e063-6294a90aa353"/>
+               <code code="34091-9" codeSystem="2.16.840.1.113883.6.1" displayName="ANIMAL PHARMACOLOGY &amp; OR TOXICOLOGY SECTION"/>
+               <title>ANIMAL PHARMACOLOGY AND TOXICOLOGY</title>
+               <text>
+                  <paragraph>Studies in rats and monkeys have shown a substantial difference between doses producing tranquilizing, sedative and toxic effects. In rats, conditioned avoidance response was inhibited at an oral dose of 10 mg/kg; sedation was induced at 32 mg/kg; the LD
+ 
+  <sub>50</sub>was 1320 mg/kg. In monkeys aggressive behavior was reduced at an oral dose of 0.25 mg/kg; sedation (ataxia) was induced at 7.5 mg/kg; the LD
+ 
+  <sub>50</sub>could not be determined because of the emetic effect of large doses, but the LD
+ 
+  <sub>50</sub>exceeds 1600 mg/kg.
+
+ </paragraph>
+                  <paragraph>Twenty-four dogs were given clorazepate dipotassium orally in a 22-month toxicity study; doses up to 75 mg/kg were given. Drug-related changes occurred in the liver; weight was increased and cholestasis with minimal hepatocellular damage was found, but lobular architecture remained well preserved.</paragraph>
+                  <paragraph>Eighteen rhesus monkeys were given oral doses of clorazepate dipotassium from 3 to 36 mg/kg daily for 52 weeks. All treated animals remained similar to control animals.</paragraph>
+                  <paragraph>Although total leucocyte count remained within normal limits it tended to fall in the female animals on the highest doses.</paragraph>
+                  <paragraph>Examination of all organs revealed no alterations attributable to clorazepate dipotassium. There was no damage to liver function or structure.</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section>
+                     <id root="2ccafa6f-0923-91c7-e063-6294a90aa353"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Reproduction Studies</title>
+                     <text>
+                        <paragraph>In fertility studies, clorazepate did not alter the fertility indices or reproductive capacity of adult animals (see
+ 
+  <content styleCode="bold">
+                              <linkHtml href="#precaupreg">Pregnancy</linkHtml>
+                           </content>).
+
+ </paragraph>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="2ccafa6f-0924-91c7-e063-6294a90aa353"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>HOW SUPPLIED</title>
+               <text>
+                  <paragraph>Clorazepate Dipotassium Tablets USP are available as tablets containing 3.75 mg, 7.5 mg or 15 mg of clorazepate dipotassium, USP.</paragraph>
+                  <paragraph>The 3.75 mg tablets are round flat beveled edge, pale violet colored slightly mottled tablet. One side is scored and engraved with "T" above the score and "45" below the score. Other side is plain.</paragraph>
+                  <paragraph>Bottles of 100 (NDC 51672-4042-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 51672-4042-2)</paragraph>
+                  <paragraph>Bottles of 1,000 (NDC 51672-4042-3)</paragraph>
+                  <paragraph>The 7.5 mg tablets are round flat beveled edge, orange colored, slightly mottled tablet. One side is scored and engraved with "T" above the score and "46" below the score. Other side is plain. Bottles of 100 (NDC 51672-4043-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 51672-4043-2)</paragraph>
+                  <paragraph>Bottles of 1,000 (NDC 51672-4043-3)</paragraph>
+                  <paragraph>The 15 mg tablets are round flat beveled edge, pale pink colored, slightly mottled tablet. One side is scored and engraved with "T" above the score and"47" below the score. Other side is plain.</paragraph>
+                  <paragraph>Bottles of 100 (NDC 51672-4044-1)</paragraph>
+                  <paragraph>Bottles of 500 (NDC 51672-4044-2)</paragraph>
+                  <paragraph>Bottles of 1,000 (NDC 51672-4044-3)</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+               <component>
+                  <section ID="id_link_22e3a260-225b-3792-e063-6394a90a0d95">
+                     <id root="2ccafa6f-0925-91c7-e063-6294a90aa353"/>
+                     <code code="44425-7" codeSystem="2.16.840.1.113883.6.1" displayName="STORAGE AND HANDLING SECTION"/>
+                     <title>Recommended storage</title>
+                     <text>
+                        <paragraph>Protect from moisture. Keep bottle tightly closed.
+ 
+  <content styleCode="bold">Store at 20° to 25°C (68° to 77°F)</content>[see USP Controlled Room Temperature]. Dispense in a USP tight, light-resistant container.
+
+ </paragraph>
+                        <paragraph/>
+                     </text>
+                     <effectiveTime value="20231109"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_22e3841a-133b-e6cb-e063-6394a90adfbb">
+               <id root="2ccafa6f-0926-91c7-e063-6294a90aa353"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <text>
+                  <paragraph>Manufactured by: Taro Pharmaceutical Industries Ltd. 
+  <br/>  Haifa Bay, Israel 2624761 
+  <br/>  Distributed by:
+ 
+  <content styleCode="bold">Taro Pharmaceuticals U.S.A., Inc.</content>
+                     <br/>  Hawthorne, NY 10532 
+  <br/>  Revised: September 2024
+
+ </paragraph>
+                  <paragraph>5200400-0924-07</paragraph>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_22e382fc-ee12-24b7-e063-6394a90a35e6">
+               <id root="2ccafa6f-0927-91c7-e063-6294a90aa353"/>
+               <code code="42231-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL MEDGUIDE SECTION"/>
+               <text>
+                  <table width="100%">
+                     <col align="left" valign="top" width="4%"/>
+                     <col align="left" valign="top" width="32%"/>
+                     <col align="left" valign="top" width="32%"/>
+                     <col align="left" valign="top" width="32%"/>
+                     <tfoot>
+                        <tr>
+                           <td align="left" colspan="4">This Medication Guide has been approved by the U.S. Food and Drug Administration. 
+     <br/>  Revised: September 2024 
+     <br/>  5200400-0924-07
+    </td>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <tr styleCode="Botrule">
+                           <td align="center" colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">MEDICATION GUIDE 
+      <br/>  CLORAZEPATE DIPOTASSIUM
+     </content>
+                              <br/>
+                              <content styleCode="bold">(klor azʹ e pate dyeʺ poe tasʹ ee um) TABLETS CIV</content>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <paragraph>
+                                 <content styleCode="bold">What is the most important information I should know about clorazepate dipotassium tablets?</content>
+                              </paragraph>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>
+                                    <content styleCode="bold">Clorazepate dipotassium tablets is a benzodiazepine medicine. Taking benzodiazepines with opioid medicines, alcohol, or other central nervous system (CNS) depressants (including street drugs) can cause severe drowsiness, breathing problems (respiratory depression), coma and death.</content>Get emergency help right away if any of the following happens:
+      
+       <list listType="unordered" styleCode="Circle">
+                                       <item>shallow or slowed breathing</item>
+                                       <item>breathing stops (which may lead to the heart stopping)</item>
+                                       <item>excessive sleepiness (sedation) 
+         <br/>  Do not drive or operate heavy machinery until you know how taking clorazepate dipotassium tablets and opioids affects you.
+        </item>
+                                    </list>
+                                 </item>
+                                 <item>
+                                    <content styleCode="bold">Risk of abuse, misuse, and addiction.</content>There is a risk of abuse, misuse, and addiction with benzodiazepines including clorazepate dipotassium tablets which can lead to overdose and serious side effects including coma and death.
+      
+       <list listType="unordered" styleCode="Circle">
+                                       <item>
+                                          <content styleCode="bold">Serious side effects including coma and death have happened in people who have abused or misused benzodiazepines, including clorazepate dipotassium tablets.</content>These serious side effects may also include delirium, paranoia, suicidal thoughts or actions, seizures, and difficulty breathing.
+        
+         <content styleCode="bold">Call your healthcare provider or go to the nearest hospital emergency room right away if you get any of these serious side effects.</content>
+                                       </item>
+                                       <item>You can develop an addiction even if you take clorazepate dipotassium tablets as prescribed by your healthcare provider.</item>
+                                       <item>
+                                          <content styleCode="bold">Take clorazepate dipotassium tablets exactly as your healthcare provider prescribed.</content>
+                                       </item>
+                                       <item>Do not share your clorazepate dipotassium tablets with other people.</item>
+                                       <item>Keep clorazepate dipotassium tablets in a safe place and away from children.</item>
+                                    </list>
+                                 </item>
+                                 <item>
+                                    <content styleCode="bold">Physical dependence and withdrawal reactions.</content>Clorazepate dipotassium tablets can cause physical dependence and withdrawal reactions.
+      
+       <list listType="unordered" styleCode="Circle">
+                                       <item>
+                                          <content styleCode="bold">Do not suddenly stop taking clorazepate dipotassium tablets.</content>Stopping clorazepate dipotassium tablets suddenly can cause serious and life-threatening side effects, including, unusual movements, responses, or expressions, seizures, sudden and severe mental or nervous system changes, depression, seeing or hearing things that others do not see or hear, an extreme increase in activity or talking, losing touch with reality, and suicidal thoughts or actions.
+        
+         <content styleCode="bold">Call your healthcare provider or go to the nearest hospital emergency room right away if you get any of these symptoms.</content>
+                                       </item>
+                                       <item>
+                                          <content styleCode="bold">Some people who suddenly stop benzodiazepines have symptoms that can last for several weeks to more than 12 months,</content>including, anxiety, trouble remembering, learning, or concentrating, depression, problems sleeping, feeling like insects are crawling under your skin, weakness, shaking, muscle twitching, burning or prickling feeling in your hands, arms, legs or feet, and ringing in your ears.
+       
+        </item>
+                                       <item>Physical dependence is not the same as drug addiction. Your healthcare provider can tell you more about the differences between physical dependence and drug addiction.</item>
+                                       <item>
+                                          <content styleCode="bold">Do not take more clorazepate dipotassium tablets than prescribed or take clorazepate dipotassium tablets for longer than prescribed.</content>
+                                       </item>
+                                    </list>
+                                 </item>
+                                 <item>
+                                    <content styleCode="bold">Like other antiepileptic medicines, clorazepate dipotassium may cause suicidal thoughts or actions in a very small number of people, about 1 in 500.</content>
+                                 </item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Call your healthcare provider right away if you have any of these symptoms, especially if they are new, worse, or worry you:</content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule"/>
+                           <td>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>thoughts about suicide or dying</item>
+                                 <item>attempts to commit suicide</item>
+                                 <item>new or worse depression</item>
+                                 <item>new or worse anxiety</item>
+                                 <item>feeling agitated or restless</item>
+                                 <item>panic attacks</item>
+                                 <item>trouble sleeping (insomnia)</item>
+                              </list>
+                           </td>
+                           <td colspan="2" styleCode="Rrule">
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>new or worse irritability</item>
+                                 <item>acting aggressive, being angry, or violent</item>
+                                 <item>acting on dangerous impulses</item>
+                                 <item>an extreme increase in activity and talking (mania)</item>
+                                 <item>other unusual changes in behavior or mood</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">How can I watch for early symptoms of suicidal thoughts and actions?</content>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>Pay attention to any changes, especially sudden changes, in mood, behaviors, thoughts, or feelings.</item>
+                                 <item>Keep all follow-up visits with your healthcare provider as scheduled.</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">Call your healthcare provider between visits as needed, especially if you are worried about symptoms.</td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">Stopping a seizure medicine suddenly in a patient who has epilepsy can cause seizures that will not stop (status epilepticus).</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">Suicidal thoughts or actions can be caused by things other than medicines. If you have suicidal thoughts or actions, your healthcare provider may check for other causes.</td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">What is clorazepate dipotassium?</content>
+                              <br/>  Clorazepate dipotassium is a prescription medicine used:
+   
+    </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>to treat anxiety disorders</item>
+                                 <item>with other medicines to treat partial seizures</item>
+                                 <item>to treat the symptoms of sudden alcohol withdrawal</item>
+                              </list>
+                              <content styleCode="bold">Clorazepate dipotassium tablets is a federally controlled substance (C-IV) because it contains clorazepate dipotassium that can be abused or lead to dependence.</content>Keep clorazepate dipotassium tablets in a safe place to prevent misuse and abuse. Selling or giving away clorazepate dipotassium tablets may harm others, and is against the law. Tell your healthcare provider if you have ever abused or been dependent on alcohol, prescription medicines or street drugs. 
+     <br/>  It is not known if clorazepate dipotassium is safe and effective in children less than 9 years of age.
+   
+    </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Do not take clorazepate dipotassium if you:</content>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>are allergic to clorazepate dipotassium or any of the ingredients in clorazepate dipotassium tablets. See the end of this Medication Guide for a complete list of ingredients in clorazepate dipotassium tablets.</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Before you take clorazepate dipotassium, tell your healthcare provider about all your medical conditions, including if you:</content>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>have liver or kidney problems</item>
+                                 <item>have or have had depression, mood problems, or suicidal thoughts or behavior</item>
+                                 <item>have a history of abnormal thinking and behavior (psychotic reactions)</item>
+                                 <item>are pregnant or plan to become pregnant.
+      
+       <list listType="unordered" styleCode="Disc">
+                                       <item>Taking clorazepate dipotassium late in pregnancy may cause your baby to have symptoms of sedation (breathing problems, sluggishness, low muscle tone), and/or withdrawal symptoms (jitteriness, irritability, restlessness, shaking, excessive crying, feeding problems).</item>
+                                       <item>Tell your healthcare provider right away if you become pregnant or think you are pregnant during treatment with clorazepate dipotassium.</item>
+                                       <item>are breastfeeding or plan to breastfeed. Clorazepate dipotassium passes into breast milk.</item>
+                                    </list>
+                                 </item>
+                                 <item>Talk to your healthcare provider about the best way to feed your baby if you take clorazepate dipotassium tablets.</item>
+                                 <item>Breastfeeding is not recommended during treatment with clorazepate dipotassium.</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Tell your healthcare provider about all the medicines you take,</content>including prescription and over-the-counter medicines, vitamins, and herbal supplements.
+   
+    </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">Taking clorazepate dipotassium with certain other medicines can cause side effects or affect how well clorazepate dipotassium or the other medicines work. Do not start or stop other medicines without talking to your healthcare provider.</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">How should I take clorazepate dipotassium tablets?</content>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>Take clorazepate dipotassium tablets exactly as your healthcare provider tells you to take it. Your healthcare provider will tell you how much clorazepate dipotassium to take and when to take it.</item>
+                                 <item>Your healthcare provider may change your dose if needed. Do not change your dose of clorazepate dipotassium tablets without talking to your healthcare provider.</item>
+                                 <item>Do not stop taking clorazepate dipotassium tablets without first talking to your healthcare provider. Stopping clorazepate dipotassium tablets suddenly can cause serious problems.</item>
+                                 <item>If you take too much clorazepate dipotassium tablets, call your healthcare provider or go to the nearest hospital emergency room right away.</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">What are the possible side effects of clorazepate dipotassium tablets? 
+      <br/>  Clorazepate dipotassium tablets may cause serious side effects, including: See "
+     
+      <linkHtml href="#IMPORTANT">What is the most important information I should know about clorazepate dipotassium tablets?</linkHtml>"
+    
+     </content>
+                              <list listType="unordered" styleCode="Circle">
+                                 <item>
+                                    <content styleCode="bold">Clorazepate dipotassium tablets can make you sleepy or dizzy and can slow your thinking and motor skills.</content>Do not drive, operate heavy machinery, or do other dangerous activities until you know how clorazepate dipotassium tablets affects you.
+     
+      </item>
+                                 <item>
+                                    <content styleCode="bold">Do not drink alcohol or take other drugs that may make you sleepy or dizzy while taking clorazepate dipotassium tablets without first talking to your healthcare provider.</content>When taken with alcohol or drugs that cause sleepiness or dizziness, clorazepate dipotassium tablets may make your sleepiness or dizziness much worse.
+     
+      </item>
+                              </list>
+                              <content styleCode="bold">The most common side effects of clorazepate dipotassium tablets include:</content>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Lrule"/>
+                           <td>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>drowsiness</item>
+                                 <item>dizziness</item>
+                              </list>
+                           </td>
+                           <td>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>upset stomach</item>
+                                 <item>blurred vision</item>
+                              </list>
+                           </td>
+                           <td styleCode="Rrule">
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>dry mouth</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">These are not all the possible side effects of clorazepate dipotassium. For more information, ask your healthcare provider or pharmacist.</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA-1088.</content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">How should I store clorazepate dipotassium tablets?</content>
+                              <list listType="unordered" styleCode="Disc">
+                                 <item>Store clorazepate dipotassium tablets between 68ºF to 77ºF (20ºC to 25ºC).</item>
+                                 <item>Keep clorazepate dipotassium tablets in a tightly closed container, dry, and out of the light.</item>
+                                 <item>
+                                    <content styleCode="bold">Keep clorazepate dipotassium tablets and all medicines out of the reach of children.</content>
+                                 </item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">General information about the safe and effective use of clorazepate dipotassium tablets.</content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">Medicines are sometimes prescribed for purposes other than those listed in a Medication Guide. Do not use clorazepate dipotassium for a condition for which it was not prescribed. Do not give clorazepate dipotassium to other people, even if they have the same symptoms that you have. It may harm them. You can ask your pharmacist or healthcare provider for information about clorazepate dipotassium that is written for health professionals.</td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">What are the ingredients in clorazepate dipotassium tablets?</content>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Active ingredient:</content>clorazepate dipotassium
+   
+    </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">
+                              <content styleCode="bold">Inactive ingredients:</content>colloidal silicon dioxide, magnesium oxide heavy, magnesium stearate, microcrystalline cellulose, potassium carbonate anhydrous, potassium chloride, talc and the following coloring agents: 
+     <br/>  3.75 mg - FD&amp;C Blue No. 2 Lake and FD&amp;C Red No. 40 Lake 
+     <br/>  7.5 mg - D&amp;C Red No. 6 Barium Lake and D&amp;C Yellow No. 10 Lake 
+     <br/>  15 mg - D&amp;C Red No. 6 Barium Lake and FD&amp;C Red No. 40 Lake
+   
+    </td>
+                        </tr>
+                        <tr>
+                           <td colspan="4" styleCode="Lrule Rrule">For more information about clorazepate dipotassium, go to www.taro.com or call Taro Pharmaceuticals U.S.A., Inc. at 1-866-923-4914.</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td colspan="4" styleCode="Lrule Rrule">Manufactured by: Taro Pharmaceutical Industries Ltd., Haifa Bay, Israel 2624761 
+     <br/>  Distributed by:
+    
+     <content styleCode="bold">Taro Pharmaceuticals U.S.A., Inc.,</content>Hawthorne, NY 10532
+   
+    </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <effectiveTime value="20231109"/>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_2ccb25ae-9922-beb8-e063-6394a90a7d6b">
+               <id root="2ccb25ae-9925-beb8-e063-6394a90a7d6b"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_2ccb1ae2-45df-bfa3-e063-6394a90af8a2"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20250128"/>
+               <component>
+                  <observationMedia ID="img_2ccb1ae2-45df-bfa3-e063-6394a90af8a2">
+                     <text>label</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="clorazepate dipotassium 15mg.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

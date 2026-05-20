@@ -1,0 +1,879 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-05-19",
+    "results": {
+      "skip": 0,
+      "limit": 10,
+      "total": 16
+    }
+  },
+  "results": [
+    {
+      "spl_product_data_elements": [
+        "VERSED DAILY SUNSCREEN SPF 50 HOMOSALATE, OCTISALATE, AVOBENZONE THREONINE PHENYLALANINE SHOREA STENOPTERA SEED BUTTER SODIUM PCA TROMETHAMINE PENTYLENE GLYCOL VP/HEXADECENE COPOLYMER GLYCINE VALINE HISTIDINE ALANINE SERINE BISABOLOL DIBUTYL ETHYLHEXANOYL GLUTAMIDE DIBUTYL LAUROYL GLUTAMIDE CARBOMER DIPOTASSIUM GLYCYRRHIZATE SODIUM LACTATE ARGININE PHENOXYETHANOL BUTYLOCTYL SALICYLATE AMMONIUM ACRYLOYLDIMETHYLTAURATE/VP COPOLYMER SPIRODELA POLYRHIZA ISOLEUCINE PROLINE WATER AVOBENZONE AVOBENZONE HOMOSALATE HOMOSALATE HYDROXYACETOPHENONE CAPRYLIC/CAPRIC TRIGLYCERIDE BETAINE CERAMIDE NP ASPARTIC ACID OCTISALATE OCTISALATE DIPROPYLENE GLYCOL ETHYLHEXYL METHOXYCRYLENE PCA"
+      ],
+      "active_ingredient": [
+        "Active ingredients Avobenzone 3% Homosalate 7.3% Octisalate 5%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove. Stop use and ask a doctor if rash occurs. Keep out of reach of children . If product is swallowed, get medical help or contact a Poison Control center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove."
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children . If product is swallowed, get medical help or contact a Poison Control center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply generously and evenly 15 minutes before sun exposure. Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF value of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10am-2pm Wear long-sleeved shirts, pants, hats, and sunglasses. Reapply at least every 2 hours Use a water resistant sunscreen if swimming or sweating."
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive Ingredients Water, Caprylic/Capric Triglyceride, Butyloctyl Salicylate, Ethylhexyl Methoxycrylene, Dipropylene Glycol, Betaine, Shorea Stenoptera Seed Butter, VP/Hexadecene Copolymer, Ceramide NP, Arginine, Serine, Alanine, Glycine, Threonine, Proline, Valine, Histidine, Isoleucine, Phenylalanine, Aspartic Acid, Spirodela Polyrhiza Extract, PCA, Sodium PCA, Bisabolol, Hydroxyacetophenone, Dibutyl Lauroyl Glutamide, Dibutyl Ethylhexanoyl Glutamide, Glycolipids, Dipotassium Glycyrrhizate, Sodium Lactate, Ammonium Acryloyldimethyltaurate/VP Copolymer, Carbomer, Pentylene Glycol, Tromethamine, Phenoxyethanol"
+      ],
+      "package_label_principal_display_panel": [
+        "Tube Carton"
+      ],
+      "set_id": "468dd98e-9578-955b-e063-6294a90ada53",
+      "id": "468dd98e-9579-955b-e063-6294a90ada53",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED DAILY SUNSCREEN SPF 50"
+        ],
+        "generic_name": [
+          "HOMOSALATE, OCTISALATE, AVOBENZONE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-203"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "AVOBENZONE",
+          "HOMOSALATE",
+          "OCTISALATE"
+        ],
+        "spl_id": [
+          "468dd98e-9579-955b-e063-6294a90ada53"
+        ],
+        "spl_set_id": [
+          "468dd98e-9578-955b-e063-6294a90ada53"
+        ],
+        "package_ndc": [
+          "68577-203-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "G63QQF2NOX",
+          "V06SV4M95S",
+          "4X49Y0596W"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE ZINC OXIDE ZINC OXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "Bottle Back Label"
+      ],
+      "set_id": "4695572e-2c8c-34cf-e063-6294a90a4c95",
+      "id": "4695572e-2c8d-34cf-e063-6294a90a4c95",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-204"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4695572e-2c8d-34cf-e063-6294a90a4c95"
+        ],
+        "spl_set_id": [
+          "4695572e-2c8c-34cf-e063-6294a90a4c95"
+        ],
+        "package_ndc": [
+          "68577-204-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT NEUTRAL ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "469677ae-65bb-9928-e063-6294a90a592d",
+      "id": "469677ae-65ba-9928-e063-6294a90a592d",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT NEUTRAL"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-205"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "469677ae-65ba-9928-e063-6294a90a592d"
+        ],
+        "spl_set_id": [
+          "469677ae-65bb-9928-e063-6294a90a592d"
+        ],
+        "package_ndc": [
+          "68577-205-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT PEACH ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "Bottle Label"
+      ],
+      "set_id": "46976f4d-fde1-8546-e063-6394a90ad091",
+      "id": "46976f34-e93c-abf1-e063-6394a90ab8f8",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT PEACH"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-206"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "46976f34-e93c-abf1-e063-6394a90ab8f8"
+        ],
+        "spl_set_id": [
+          "46976f4d-fde1-8546-e063-6394a90ad091"
+        ],
+        "package_ndc": [
+          "68577-206-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT WRM ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "4697878e-a9d2-a2b4-e063-6394a90af89d",
+      "id": "469788c8-f678-32fd-e063-6294a90a2a83",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT WRM"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-207"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "469788c8-f678-32fd-e063-6294a90a2a83"
+        ],
+        "spl_set_id": [
+          "4697878e-a9d2-a2b4-e063-6394a90af89d"
+        ],
+        "package_ndc": [
+          "68577-207-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT MEDIUM NEUTRAL ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "469788c8-f679-32fd-e063-6294a90a2a83",
+      "id": "4697963a-f9ec-4252-e063-6294a90a81ad",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT MEDIUM NEUTRAL"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-208"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4697963a-f9ec-4252-e063-6294a90a81ad"
+        ],
+        "spl_set_id": [
+          "469788c8-f679-32fd-e063-6294a90a2a83"
+        ],
+        "package_ndc": [
+          "68577-208-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 MEDIUM COOL ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "4697a959-d535-7f33-e063-6294a90af35d",
+      "id": "4697b8e1-cefb-e585-e063-6394a90afa33",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 MEDIUM COOL"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-210"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4697b8e1-cefb-e585-e063-6394a90afa33"
+        ],
+        "spl_set_id": [
+          "4697a959-d535-7f33-e063-6294a90af35d"
+        ],
+        "package_ndc": [
+          "68577-210-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT MEDIUM OLIVE ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "4697b46c-f8ed-812d-e063-6294a90a0b3f",
+      "id": "4697bc2d-bb2a-df73-e063-6294a90a3155",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 LIGHT MEDIUM OLIVE"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-209"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4697bc2d-bb2a-df73-e063-6294a90a3155"
+        ],
+        "spl_set_id": [
+          "4697b46c-f8ed-812d-e063-6294a90a0b3f"
+        ],
+        "package_ndc": [
+          "68577-209-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 MEDIUM PEACH ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "4697ec4a-74ad-e36a-e063-6294a90a6494",
+      "id": "4697ed4d-fc2c-56e7-e063-6394a90ab140",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 MEDIUM PEACH"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-211"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4697ed4d-fc2c-56e7-e063-6394a90ab140"
+        ],
+        "spl_set_id": [
+          "4697ec4a-74ad-e36a-e063-6294a90a6494"
+        ],
+        "package_ndc": [
+          "68577-211-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    },
+    {
+      "spl_product_data_elements": [
+        "VERSED MULTI SERUM SKIN TINT SPF 40 TAN NEUTRAL ZINC OXIDE COCO-CAPRYLATE/CAPRATE C9-12 ALKANE PROPANEDIOL POLYHYDROXYSTEARIC ACID (2300 MW) MAGNESIUM SULFATE ALPHA-TOCOPHEROL ACETATE DILINOLEIC ACID/BUTANEDIOL COPOLYMER CASTOR OIL/IPDI COPOLYMER SORBITAN ISOSTEARATE TITANIUM DIOXIDE FERROUS OXIDE POLYGLYCERYL-3 PENTARICINOLEATE BUTYLOCTYL SALICYLATE POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE QUATERNIUM-90 BENTONITE PHENOXYETHANOL SODIUM HYALURONATE C15-19 ALKANE KAKADU PLUM JOJOBA OIL, RANDOMIZED POLYGLYCERYL-4 ISOSTEARATE ETHYLHEXYLGLYCERIN DISTEARDIMONIUM HECTORITE TRIETHYL CITRATE MICA HYDROXYACETOPHENONE TRIHEPTANOIN WATER GLYCERIN ZINC OXIDE ZINC OXIDE"
+      ],
+      "active_ingredient": [
+        "Active ingredients Zinc Oxide 13.1%"
+      ],
+      "purpose": [
+        "Purpose Sunscreen"
+      ],
+      "indications_and_usage": [
+        "USES Use Helps prevent sunburn"
+      ],
+      "warnings": [
+        "Warnings For external use only Do not use on damaged or broken skin When using this product keep out of eyes. Rinse with water to remove Stop use and ask a doctor if rash occurs. Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "do_not_use": [
+        "Do not use on damaged or broken skin"
+      ],
+      "when_using": [
+        "When using this product keep out of eyes. Rinse with water to remove"
+      ],
+      "stop_use": [
+        "Stop use and ask a doctor if rash occurs."
+      ],
+      "keep_out_of_reach_of_children": [
+        "Keep out of reach of children. If swallowed, get medical help or contact Poison Control Center right away."
+      ],
+      "dosage_and_administration": [
+        "DIRECTIONS Directions Apply liberally and evenly 15 minutes before sun exposure Sun Protection Measures. Spending time in the sun increases your risk of skin cancer and early skin aging. To decrease this risk, regularly use a sunscreen with a Broad Spectrum SPF valuer of 15 or higher and other sun protection measures including: Limit time in the sun, especially from 10 a.m. - 2 p.m. Wear long-sleeved shirts, pants, hats, and sunglasses Reapply at least every 2 hours Use a water-resistant sunscreen if swimming or sweating"
+      ],
+      "other_safety_information": [
+        "OTHER INFORMATION Other information Protect the product in this container from excessive heat and direct sun"
+      ],
+      "inactive_ingredient": [
+        "Inactive ingredients Water, Coco-Caprylate/Caprate, C9-12 Alkane, Propanediol, Butyloctyl Salicylate, Glycerin, Polyglyceryl-2 Dipolyhydroxystearate, C15-19 Alkane, Polyglyceryl-4 Isostearate, Polyhydroxystearic Acid, Magnesium Sulfate, Tocopheryl Acetate, Terminalia Ferdinandiana Fruit Extract, Jojoba Esters, Hydrolyzed Sodium Hyaluronate, Hydroxyacetophenone, Triheptanoin, Triethyl Citrate, Polyglyceryl-3 Polyricinoleate, Dilinoleic Acid/Butanediol Copolymer, Castor Oil/IPDI Copolymer, Sorbitan Isostearate, Mica, Disteardimonium Hectorite, Quaternium-90 Bentonite, Phenoxyethanol, Ethylhexylglycerin, Titanium Dioxide, Iron Oxides."
+      ],
+      "package_label_principal_display_panel": [
+        "BOTTLE LABEL"
+      ],
+      "set_id": "4698084f-51b3-8a66-e063-6394a90a4ad1",
+      "id": "4698084f-51b4-8a66-e063-6394a90a4ad1",
+      "effective_time": "20251222",
+      "version": "1",
+      "openfda": {
+        "application_number": [
+          "M020"
+        ],
+        "brand_name": [
+          "VERSED MULTI SERUM SKIN TINT SPF 40 TAN NEUTRAL"
+        ],
+        "generic_name": [
+          "ZINC OXIDE"
+        ],
+        "manufacturer_name": [
+          "COSMAX USA, CORP"
+        ],
+        "product_ndc": [
+          "68577-212"
+        ],
+        "product_type": [
+          "HUMAN OTC DRUG"
+        ],
+        "route": [
+          "TOPICAL"
+        ],
+        "substance_name": [
+          "ZINC OXIDE"
+        ],
+        "spl_id": [
+          "4698084f-51b4-8a66-e063-6394a90a4ad1"
+        ],
+        "spl_set_id": [
+          "4698084f-51b3-8a66-e063-6394a90a4ad1"
+        ],
+        "package_ndc": [
+          "68577-212-01"
+        ],
+        "is_original_packager": [
+          true
+        ],
+        "unii": [
+          "SOI2LOH54Z"
+        ]
+      }
+    }
+  ]
+}

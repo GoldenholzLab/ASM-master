@@ -1,0 +1,1757 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="7957cc22-2e0f-489d-9fa1-99520f615934"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="Human Prescription Drug Label"/>
+   <title>These highlights do not include all the information needed to use BRIVARACETAM ORAL SOLUTION safely and effectively. See full prescribing information for BRIVARACETAM ORAL SOLUTION.<br/> BRIVARACETAM oral solution, CV<br/> Initial U.S. Approval: 2016<br/>
+   </title>
+   <effectiveTime value="20260217"/>
+   <setId root="7957cc22-2e0f-489d-9fa1-99520f615934"/>
+   <versionNumber value="1"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id root="1.3.6.1.4.1.519.1" extension="084014259"/>
+            <name>Florida Pharmaceutical Products, LLC</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="918608431" root="1.3.6.1.4.1.519.1"/>
+                        <name>INDOCO REMEDIES LIMITED</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANALYSIS"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="71921-410" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84732" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="LABEL"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="71921-410" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="71921-410" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C84731" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PACK"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="71921-410" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="5d611e24-3c56-44f8-8f5b-f563ebb29d09"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20260224"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="71921-410" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Brivaracetam oral Solution<suffix/>
+                        </name>
+                        <formCode code="C42986" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="SOLUTION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Brivaracetam oral</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="10" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="U863JGG2IA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>BRIVARACETAM</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="U863JGG2IA" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>BRIVARACETAM</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="XF417D3PSL" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ANHYDROUS CITRIC ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="K679OBS311" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>CARBOXYMETHYLCELLULOSE SODIUM</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="PDC6A3C0OX" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>GLYCERIN</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="CR6K9C2NHK" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>METHYLPARABEN SODIUM</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="059QF0KO0R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>WATER</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="1Q73Q2JULR" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM CITRATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="506T60A25R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SORBITOL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="96K6UQ3ZD4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SUCRALOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="300" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="71921-410-72" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43182" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CARTON"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20260224"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="ANDA220385" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73584" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20260224"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <policy classCode="DEADrugSchedule">
+                           <code code="C48679" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CV"/>
+                        </policy>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLFLAVOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C73413" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="RASPBERRY" xsi:type="CV"/>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="rcm">
+               <id root="b13c2374-5870-4ffa-a3cd-8f4c3367046b"/>
+               <code code="43683-2" codeSystem="2.16.840.1.113883.6.1" displayName="RECENT MAJOR CHANGES SECTION"/>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Warnings and Precautions (5.5)  08/2025</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_1">
+               <id root="d2825f5a-bfd7-4cad-bd4d-bbf301835553"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>1 INDICATIONS &amp; USAGE</title>
+               <text>
+                  <br/>
+                  <paragraph>Brivaracetam oral solution is indicated for the treatment of partial-onset seizures in patients 1 month of age and older.</paragraph>
+               </text>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam oral solution is indicated for the treatment of partial-onset seizures in patients 1 month of age and older. (<linkHtml href="#Section_1">1</linkHtml>)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_2">
+               <id root="1a4fad54-3274-4ec9-8392-c3294d4344e1"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>2 DOSAGE &amp; ADMINISTRATION</title>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="disc">
+                           <item>Adults (16 Years and Older): The recommended starting dosage for monotherapy or adjunctive therapy is 50 mg twice daily (100 mg per day).<br/>     Based on individual patient tolerability and therapeutic response, the dosage may be adjusted down to 25 mg twice daily (50 mg per day) or up to 100 mg twice daily (200 mg per day). (<linkHtml href="#Section_2.1">2.1</linkHtml>)</item>
+                           <item>Pediatric Patients (1 Month to less than 16 Years): The recommended dosage is based on body weight and is administered orally twice daily (<linkHtml href="#Section_2.1">2.1</linkHtml>)</item>
+                           <item>Hepatic Impairment: Dose adjustment is recommended for all stages of hepatic impairment. (<linkHtml href="#Section_2.5">2.5</linkHtml>)</item>
+                        </list>
+                        <br/>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="Section_2.1">
+                     <id root="987b8e0f-2d14-4880-8635-928db91e83b8"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>2.1 Dosage Information</title>
+                     <text>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Monotherapy or Adjunctive Therapy</content>
+                           <br/>The recommended dosage for patients 1 month of age and older is included in Table 1. In pediatric patients weighing less than 50 kg, the recommended dosing regimen is dependent upon body weight. When initiating treatment, gradual dose escalation is not required. Dosage should be adjusted based on clinical response and tolerability.</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="bold">Table 1: Recommended Dosage for Patients 1 Month of Age and Older</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold"> </content>
+                        </paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Age and Body<br/>             Weight</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Initial Dosage </content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Minimum and Maximum<br/>             Maintenance Dosage</content> </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>Adults (16 years and older)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 50 mg twice daily<br/>             (100 mg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 25 mg to 100 mg twice daily<br/>             (50 mg to 200 mg per day)</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing<br/>             50 kg or more</td>
+                                 <td styleCode="Rrule" valign="middle">25 mg to 50 mg twice daily<br/>             (50 mg to 100 mg per day) </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>25 mg to 100 mg twice daily<br/>             (50 mg to 200 mg per day) </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>Pediatric patients<br/>             weighing 20 kg to less<br/>             than 50 kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.5 mg/kg to 1 mg/kg twice daily<br/>             (1 mg/kg to 2 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.5 mg/kg to 2 mg/kg twice daily<br/>             (1 mg/kg to 4 mg/kg per day)</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing 11 kg to less<br/>             than 20 kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>0.5 mg/kg to 1.25 mg/kg twice daily<br/>             (1 mg/kg to 2.5 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.5 mg/kg to 2.5 mg/kg twice daily<br/>             (1 mg/kg to 5 mg/kg per day)</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>Pediatric patients<br/>             weighing less than 11<br/>             kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>0.75 mg/kg to 1.5 mg/kg twice daily<br/>             (1.5 mg/kg to 3 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.75 mg/kg to 3 mg/kg twice daily<br/>             (1.5 mg/kg to 6 mg/kg per day</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_2.2">
+                     <id root="a28ac030-7f54-4352-ab34-59fc49bf8a3f"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>2.2	Administration Instructions for Brivaracetam Oral Solution</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam oral solution can be initiated with oral administration.<br/>
+                           <br/>Brivaracetam oral solution may be taken with or without food.<br/>
+                           <br/>
+                           <content styleCode="underline">Brivaracetam Oral Solution</content>
+                           <br/> A calibrated measuring device is recommended to measure and deliver the prescribed dose accurately. A household teaspoon or tablespoon is not an adequate measuring device.<br/>
+                           <br/> When using brivaracetam oral solution, no dilution is necessary. Brivaracetam oral solution may also be administered using a nasogastric tube or gastrostomy tube.<br/>
+                           <br/> Discard any unused brivaracetam oral solution remaining after 5 months of first opening the bottle.</paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_2.4">
+                     <id root="18598475-6bdc-4ac4-8743-4a0a59bd7cf4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>2.4	Discontinuation of Brivaracetam Oral Solution</title>
+                     <text>
+                        <br/>
+                        <paragraph>Avoid abrupt withdrawal from brivaracetam in order to minimize the risk of increased seizure frequency and status epilepticus <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.6</linkHtml>) and Clinical Studies (<linkHtml href="#Section_14">14</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_2.5">
+                     <id root="4f5a345b-1869-4fc7-99dc-bc05b3247335"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>2.5	Patients with Hepatic Impairment</title>
+                     <text>
+                        <br/>
+                        <paragraph>The recommended dosage for patients with hepatic impairment is included in Table 2 <content styleCode="italics">[see Use in Specific Populations (<linkHtml href="#Section_8.8">8.7</linkHtml>) and Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.<br/>
+                           <br/>
+                           <content styleCode="bold">Table 2: Recommended Dosage for Patients with Hepatic Impairment</content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold"> </content>
+                        </paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Age and Body Weight </content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Initial Dosage </content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Maximum Maintenance Dosage </content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Adults (16 years and<br/>             older)</td>
+                                 <td styleCode="Rrule" rowspan="2" align="center" valign="middle">
+                                    <br/> 25 mg twice daily<br/>             (50 mg per day)<br/> </td>
+                                 <td styleCode="Rrule" rowspan="2" align="center" valign="middle">
+                                    <br/> 75 mg twice daily<br/>             (150 mg per day)<br/> </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing<br/>             50 kg or more</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing 20 kg to less<br/>             than 50 kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.5 mg/kg twice daily<br/>             (1 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>1.5 mg/kg twice daily<br/>             (3 mg/kg per day) </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing 11 kg to less<br/>             than 20 kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.5 mg/kg twice daily<br/>             (1 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 2 mg/kg twice daily<br/>             (4 mg/kg per day)</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/> Pediatric patients<br/>             weighing less than 11<br/>             kg</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0.75 mg/kg twice daily<br/>             (1.5 mg/kg per day)</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>2.25 mg/kg twice daily<br/>             (4.5 mg/kg per day)</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_2.6">
+                     <id root="7c015e80-43c5-4a47-b3ab-cec82695f2ed"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>2.6	Co-administration with Rifampin</title>
+                     <text>
+                        <br/>
+                        <paragraph>Increase the brivaracetam oral solution dosage in patients on concomitant rifampin by up to 100% (i.e., double the dosage) <content styleCode="italics">[see Drug Interactions (<linkHtml href="#Section_7.1">7.1</linkHtml>) and Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_3">
+               <id root="2f32ede7-c806-4e75-9a92-80edb3668294"/>
+               <code code="43678-2" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE FORMS &amp; STRENGTHS SECTION"/>
+               <title>3 DOSAGE FORMS &amp; STRENGTHS</title>
+               <text>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="underline">Oral Solution</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>10 mg/mL: slightly viscous, clear, colorless to yellowish, raspberry-flavored liquid.<br/>
+                        <br/> </item>
+                  </list>
+               </text>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="disc">
+                           <item>Oral solution: 10 mg/mL (<linkHtml href="#Section_3">3</linkHtml>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_4">
+               <id root="a72986ee-cf2a-4f80-9879-1509d6aea123"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>4 CONTRAINDICATIONS</title>
+               <text>
+                  <br/>
+                  <paragraph>Hypersensitivity to brivaracetam or any of the inactive ingredients in brivaracetam oral solution (bronchospasm and angioedema have occurred)<content styleCode="italics"> [see Warnings and Precautions (<linkHtml href="#Section_5.4">5.4</linkHtml>)]</content>.</paragraph>
+               </text>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <br/>
+                        <paragraph>Hypersensitivity to brivaracetam or any of the inactive ingredients in brivaracetam oral solution. (<linkHtml href="#Section_4">4</linkHtml>)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_5">
+               <id root="9bb66586-dbe3-486f-9e68-431e4b404e63"/>
+               <code code="43685-7" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS AND PRECAUTIONS SECTION"/>
+               <title>5 WARNINGS AND PRECAUTIONS</title>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="disc">
+                           <item>Suicidal Behavior and Ideation: Monitor patients for suicidal behavior and ideation. (<linkHtml href="#Section_5.1">5.1</linkHtml>)</item>
+                           <item>Neurological Adverse Reactions: Monitor for somnolence and fatigue, and advise patients not to drive or operate machinery until they have gained sufficient experience on brivaracetam oral solution. (<linkHtml href="#Section_5.2">5.2</linkHtml>)</item>
+                           <item>Psychiatric Adverse Reactions: Behavioral reactions including psychotic symptoms, irritability, depression, aggressive behavior, and anxiety; monitor patients for symptoms. (<linkHtml href="#Section_5.3">5.3</linkHtml>)</item>
+                           <item>Hypersensitivity: Bronchospasm and Angioedema: Advise patients to seek immediate medical care. Discontinue and do not restart brivaracetam oral solution if hypersensitivity occurs. (<linkHtml href="#Section_5.4">5.4</linkHtml>)</item>
+                           <item>S<content styleCode="italics">erious Dermatologic Reactions:</content> Discontinue brivaracetam oral solution unless an alternative etiology is established (5.5)</item>
+                           <item>Withdrawal of Antiepileptic Drugs: Brivaracetam oral solution should be gradually withdrawn. (5.6)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="Section_5.1">
+                     <id root="2823841f-ffff-4657-8252-72caf5a4413e"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.1	Suicidal Behavior and Ideation</title>
+                     <text>
+                        <br/>
+                        <paragraph>Antiepileptic drugs (AEDs), including brivaracetam, increase the risk of suicidal thoughts or behavior in patients taking these drugs for any indication. Patients treated with any AED for any indication should be monitored for the emergence or worsening of depression, suicidal thoughts or behavior, and/or any unusual changes in mood or behavior.<br/>
+                           <br/> Pooled analyses of 199 placebo-controlled clinical trials (mono- and adjunctive therapy) of 11 different AEDs showed that patients randomized to one of the AEDs had approximately twice the risk (adjusted Relative Risk 1.8, 95% CI:1.2, 2.7) of suicidal thinking or behavior compared to patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated patients was 0.43%, compared to 0.24% among 16,029 placebo-treated patients, representing an increase of approximately one case of suicidal thinking or behaviour for every 530 patients treated. There were four suicides in drug-treated patients in the trials and none in placebo-treated patients, but the number is too small to allow any conclusion about drug effect on suicide.<br/>
+                           <br/> The increased risk of suicidal thoughts or behavior with AEDs was observed as early as one week after starting drug treatment with AEDs and persisted for the duration of treatment assessed. Because most trials included in the analysis did not extend beyond 24 weeks, the risk of suicidal thoughts or behavior beyond 24 weeks could not be assessed.<br/>
+                           <br/> The risk of suicidal thoughts or behavior was generally consistent among drugs in the data analyzed. The finding of increased risk with AEDs of varying mechanisms of action and across a range of indications suggests that the risk applies to all AEDs used for any indication. The risk did not vary substantially by age (5-100 years) in the clinical trials analyzed. Table 3 shows absolute and relative risk by indication for all evaluated AEDs.<br/>
+                           <br/>
+                           <content styleCode="bold">Table 3: Risk of Suicidal Thoughts or Behaviors by Indication for Antiepileptic Drugs in the Pooled Analysis</content>
+                        </paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">
+                                    <content styleCode="bold"> Indication </content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold">Placebo<br/>             Patients with<br/>             Events Per<br/>             1000<br/>             Patients</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold"> Drug<br/>             Patients with<br/>             Events Per<br/>             1000<br/>             Patients</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold">Relative Risk:<br/>             Incidence of Events<br/>             in Drug<br/>             Patients/Incidence<br/>             in Placebo Patients</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold"> Risk Difference:<br/>             Additional Drug<br/>             Patients with<br/>             Events Per 1000<br/>             Patients</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Epilepsy</td>
+                                 <td styleCode="Rrule" valign="middle">1.0</td>
+                                 <td styleCode="Rrule" valign="middle">3.4 </td>
+                                 <td styleCode="Rrule" valign="middle">3.5</td>
+                                 <td styleCode="Rrule" valign="middle">2.4</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Psychiatric</td>
+                                 <td styleCode="Rrule" valign="middle">5.7</td>
+                                 <td styleCode="Rrule" valign="middle">8.5</td>
+                                 <td styleCode="Rrule" valign="middle">1.5</td>
+                                 <td styleCode="Rrule" valign="middle">2.9</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Other</td>
+                                 <td styleCode="Rrule" valign="middle">1.0</td>
+                                 <td styleCode="Rrule" valign="middle">1.8</td>
+                                 <td styleCode="Rrule" valign="middle">1.9</td>
+                                 <td styleCode="Rrule" valign="middle">0.9</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="middle"> Total</td>
+                                 <td styleCode="Rrule" valign="middle">2.4</td>
+                                 <td styleCode="Rrule" valign="middle">4.3</td>
+                                 <td styleCode="Rrule" valign="middle">1.8</td>
+                                 <td styleCode="Rrule" valign="middle">1.9</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>
+                           <content styleCode="bold"> </content>
+                        </paragraph>
+                        <paragraph>The relative risk for suicidal thoughts or behavior was higher in clinical trials in patients with epilepsy than in clinical trials in patients with psychiatric or other conditions, but the absolute risk differences were similar for the epilepsy and psychiatric indications.<br/>
+                           <br/> Anyone considering prescribing brivaracetam or any other AED must balance the risk of suicidal thoughts or behaviors with the risk of untreated illness. Epilepsy and many other illnesses for which AEDs are prescribed are themselves associated with morbidity and mortality and an increased risk of suicidal thoughts and behavior. Should suicidal thoughts and behavior emerge during treatment, consider whether the emergence of these symptoms in any given patient may be related to the illness being treated.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_5.2">
+                     <id root="f76c3bb0-3013-4661-8a48-c0a184a176ca"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.2	Neurological Adverse Reactions</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam causes somnolence, fatigue, dizziness, and disturbance in coordination. Patients should be monitored for these signs and symptoms and advised not to drive or operate machinery until they have gained sufficient experience on brivaracetam to gauge whether it adversely affects their ability to drive or operate machinery.</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Somnolence and Fatigue</content>
+                           <br/> Brivaracetam causes dose-dependent increases in somnolence and fatigue-related adverse reactions (fatigue, asthenia, malaise, hypersomnia, sedation, and lethargy) <content styleCode="italics">[see Adverse Reactions (<linkHtml href="#Section_6.1">6.1</linkHtml>)]</content>. In the Phase 3 controlled adjunctive epilepsy trials, these events were reported in 25% of patients randomized to receive brivaracetam at least 50 mg/day (20% at 50 mg/day, 26% at 100 mg/day, and 27% at 200 mg/day) compared to 14% of patients who received placebo. The risk is greatest early in treatment but can occur at any time.<br/>
+                           <br/>
+                           <content styleCode="underline">Dizziness and Disturbance in Gait and Coordination</content>
+                           <br/> Brivaracetam causes adverse reactions related to dizziness and disturbance in gait and coordination (dizziness, vertigo, balance disorder, ataxia, nystagmus, gait disturbance, and abnormal coordination) <content styleCode="italics">[see Adverse Reactions (<linkHtml href="#Section_6.1">6.1</linkHtml>)]</content>. In the Phase 3 controlled adjunctive epilepsy trials, these events were reported in 16% of patients randomized to receive brivaracetam at least 50 mg/day compared to 10% of patients who received placebo. The risk is greatest early in treatment but can occur at any time.</paragraph>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_5.3">
+                     <id root="ad08f2ea-63e8-480c-9409-c048623cd122"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.3	Psychiatric Adverse Reactions</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam causes psychiatric adverse reactions. In the Phase 3 controlled adjunctive epilepsy trials, psychiatric adverse reactions were reported in approximately 13% of patients who received brivaracetam (at least 50 mg/day) compared to 8% of patients who received placebo. Psychiatric events included both non-psychotic symptoms (irritability, anxiety, nervousness, aggression, belligerence, anger, agitation, restlessness, depression, depressed mood, tearfulness, apathy, altered mood, mood swings, affect lability, psychomotor hyperactivity, abnormal behavior, and adjustment disorder) and psychotic symptoms (psychotic disorder along with hallucination, paranoia, acute psychosis, and psychotic behavior). A total of 1.7% of adult patients treated with brivaracetam discontinued treatment because of psychiatric reactions compared to 1.3% of patients who received placebo.<br/>
+                           <br/> Psychiatric adverse reactions were also observed in open-label pediatric trials and were generally similar to those observed in adults <content styleCode="italics">[see Adverse Reactions (<linkHtml href="#Section_6.1">6.1</linkHtml>) and Use in Specific Populations (<linkHtml href="#Section_8.4">8.4</linkHtml>)].</content>
+                        </paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_5.4">
+                     <id root="4219991e-5fc5-4529-ade6-f805595accf3"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.4	Hypersensitivity: Bronchospasm and Angioedema</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam oral solution can cause hypersensitivity reactions. Bronchospasm and angioedema have been reported in patients taking brivaracetam oral solution. If a patient develops hypersensitivity reactions after treatment with brivaracetam oral solution, the drug should be discontinued. Brivaracetam oral solution is contraindicated in patients with a prior hypersensitivity reaction to brivaracetam or any of the inactive ingredients <content styleCode="italics">[see Contraindications (<linkHtml href="#Section_4">4</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_5.5">
+                     <id root="91343012-f730-49c4-8da3-4f7c0e2701f8"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.5	Serious Dermatologic Reactions</title>
+                     <text>
+                        <br/>
+                        <paragraph>Serious dermatologic reactions, including Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN), have been reported in patients treated with brivaracetam oral solution. Time to onset of the serious dermatologic reaction ranged from 3 to 45 days after brivaracetam oral solution initiation in reported cases. Brivaracetam oral solution should be discontinued at the first sign of a rash, unless the rash is clearly not drug-related. If signs or symptoms suggest a serious dermatologic reaction, use of brivaracetam oral solution should not be resumed and alternative therapy should be considered.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_5.6">
+                     <id root="20c3f105-990c-4b74-a0a3-69e72cc7c7be"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>5.6 Withdrawal of Antiepileptic Drugs</title>
+                     <text>
+                        <paragraph>As with most antiepileptic drugs, brivaracetam should generally be withdrawn gradually because of the risk of increased seizure frequency and status epilepticus <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.4">2.4</linkHtml>) and Clinical Studies (<linkHtml href="#Section_14">14</linkHtml>)]</content>. But if withdrawal is needed because of a serious adverse event, rapid discontinuation can be considered.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_6">
+               <id root="bdb3b302-bc0f-48ea-a5aa-07f45cd367dc"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>6 ADVERSE REACTIONS</title>
+               <text>
+                  <br/>
+                  <paragraph>The following serious adverse reactions are described elsewhere in labeling:</paragraph>
+                  <br/>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Suicidal Behavior and Ideation <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.1">5.1</linkHtml>)]</content>
+                     </item>
+                     <item>Neurological Adverse Reactions <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.2">5.2</linkHtml>)]</content>
+                     </item>
+                     <item>Psychiatric Adverse Reactions <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.3">5.3</linkHtml>)]</content>
+                     </item>
+                     <item>Hypersensitivity: Bronchospasm and Angioedema<content styleCode="italics"> [see Warnings and Precautions (<linkHtml href="#Section_5.4">5.4</linkHtml>)]</content>
+                     </item>
+                     <item>Serious Dermatologic Reactions<content styleCode="italics"> [see Warnings and Precautions (<linkHtml href="#Section_5.6">5.5</linkHtml>)]</content>
+                     </item>
+                     <item>Withdrawal of Antiepileptic Drugs <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.6</linkHtml>)]</content>
+                     </item>
+                  </list>
+               </text>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <br/>
+                        <paragraph>Adults: Most common adverse reactions (at least 5% for brivaracetam oral solution and at least 2% more frequently than placebo) are somnolence/sedation, dizziness, fatigue, and nausea/vomiting. (<linkHtml href="#Section_6.1">6.1</linkHtml>)<br/> Pediatric Patients: Most common adverse reactions are similar to those seen in adult patients. (<linkHtml href="#Section_6.1">6.1</linkHtml>)</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact at +1 833 856 0880  or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.</content>
+                        </paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="Section_6.1">
+                     <id root="9684f554-1635-432b-9246-9f6d50c98da1"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>6.1 Clinical Trials Experience</title>
+                     <text>
+                        <br/>
+                        <paragraph>Because clinical trials are conducted under widely varying conditions, adverse reaction rates observed in the clinical trials of a drug cannot be directly compared to rates in the clinical trials of another drug and may not reflect the rates observed in practice.<br/>
+                           <br/> In all controlled and uncontrolled trials performed in adult epilepsy patients, brivaracetam was administered as adjunctive therapy to 2437 patients. Of these patients, 1929 were treated for at least 6 months, 1500 for at least 12 months, 1056 for at least 24 months, and 758 for at least 36 months. A total of 1558 patients (1099 patients treated with brivaracetam and 459 patients treated with placebo) constituted the safety population in the pooled analysis of Phase 3 placebo-controlled studies in patients with partial-onset seizures (Studies 1, 2, and 3) <content styleCode="italics">[see Clinical Studies (<linkHtml href="#Section_14">14</linkHtml>)]</content>. The adverse reactions presented in Table 4 are based on this safety population; the median length of treatment in these studies was 12 weeks. Of the patients in those studies, approximately 51% were male, 74% were Caucasian, and the mean age was 38 years.<br/>
+                           <br/> In the Phase 3 controlled epilepsy studies, adverse events occurred in 68% of patients treated with brivaracetam and 62% treated with placebo. The most common adverse reactions occurring at a frequency of at least 5% in patients treated with brivaracetam doses of at least 50 mg/day and greater than placebo were somnolence and sedation (16%), dizziness (12%), fatigue (9%), and nausea and vomiting symptoms (5%).<br/>
+                           <br/>  The discontinuation rates due to adverse events were 5%, 8%, and 7% for patients randomized to receive brivaracetam at the recommended doses of 50 mg, 100 mg, and 200 mg/day, respectively, compared to 4% in patients randomized to receive placebo.<br/>
+                           <br/> Table 4 lists adverse reactions for brivaracetam that occurred at least 2% more frequently for brivaracetam doses of at least 50 mg/day than placebo.<br/>
+                           <br/>
+                           <content styleCode="bold">Table 4: Adverse Reactions in Pooled Placebo-Controlled Adjunctive Therapy Studies in Adult Patients with Partial- Onset Seizures (Brivaracetam 50 mg/day, 100 mg/day, and 200 mg/day)</content>
+                        </paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold"> Adverse Reactions</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold"> Brivaracetam<br/>             (N=803)<br/>             %</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/>
+                                    <content styleCode="bold">Placebo<br/>             (N=459)<br/>             %</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" colspan="3" valign="middle"> <content styleCode="bold">Gastrointestinal disorders</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Nausea/vomiting symptoms</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 5</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 3</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Constipation</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 2</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 0</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" colspan="3" valign="middle"> <content styleCode="bold">Nervous system disorders</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Somnolence and sedation</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 16</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 8</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Dizziness</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 12</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 7</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Fatigue</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 9</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 4</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Cerebellar coordination and balance disturbances*</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 3</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 1</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" colspan="3" valign="middle">
+                                    <content styleCode="bold">Psychiatric disorders</content>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="middle">Irritability</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 3</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">
+                                    <br/> 1</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>* Cerebellar coordination and balance disturbances includes ataxia, balance disorder, coordination abnormal, and nystagmus.<content styleCode="bold">
+                              <br/>
+                           </content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">  </content>
+                        </paragraph>
+                        <paragraph>There was no apparent dose-dependent increase in adverse reactions listed in Table 4 with the exception of somnolence and sedation.<br/>
+                           <br/>
+                           <content styleCode="underline">Pediatric Patients</content>
+                           <br/> Safety of Brivaracetam was evaluated in two open-label, safety and pharmacokinetic trials in pediatric patients 2 months to less than 16 years of age. Across studies of pediatric patients with partial onset seizures, 186 patients received brivaracetam oral solution or tablet, of whom 123 received brivaracetam for at least 12 months. Adverse reactions reported in clinical studies of pediatric patients were generally similar to those seen in adult patients. Decreased appetite was also observed in these pediatric trials.<br/>
+                           <br/>
+                           <content styleCode="underline">Hematologic Abnormalities</content>
+                           <br/> Brivaracetam can cause hematologic abnormalities. In the Phase 3 controlled adjunctive epilepsy studies, a total of 1.8% of brivaracetam-treated patients and 1.1% of placebo-treated patients had at least one clinically significant decreased white blood cell count (&lt;3.0 x 109/L), and 0.3% of brivaracetam-treated patients and 0% of placebo-treated patients had at least one clinically significant decreased neutrophil count (&lt;1.0 x 109/L).<br/>
+                           <br/>
+                           <content styleCode="underline">Comparison by Sex</content>
+                           <br/> There were no significant differences by sex in the incidence of adverse reactions.<content styleCode="bold">
+                              <br/>
+                           </content>
+                        </paragraph>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_6.2">
+                     <id root="22c87d6d-be29-406c-8ec6-e033cbead13d"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>6.2 Postmarketing Experience</title>
+                     <text>
+                        <br/>
+                        <paragraph>The following adverse reactions have been identified during post approval use of brivaracetam oral solution. Because these reactions are reported voluntarily from a population of uncertain size, it is not always possible to reliably estimate their frequency or establish a causal relationship to drug exposure.<br/>
+                           <br/> Skin and Subcutaneous Tissue Disorders: Serious dermatologic reactions (e.g., Stevens-Johnson syndrome and toxic epidermal necrolysis) <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.5</linkHtml>)]</content>
+                        </paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_7">
+               <id root="5bd3def6-a7c6-4a56-9767-297bfb29ab63"/>
+               <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+               <title>7 DRUG INTERACTIONS</title>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered" styleCode="disc">
+                           <item>Rifampin: Because of decreased concentrations, increasing brivaracetam oral solution dosage in patients on concomitant rifampin is recommended. (<linkHtml href="#Section_2.6">2.6</linkHtml>, <linkHtml href="#Section_7.1">7.1</linkHtml>)</item>
+                           <item>Carbamazepine: Because of increased exposure to carbamazepine metabolite, if tolerability issues arise, consider reducing carbamazepine dosage in patients on concomitant brivaracetam oral solution. (<linkHtml href="#Section_7.2">7.2</linkHtml>)</item>
+                           <item>Phenytoin: Because phenytoin concentrations can increase, phenytoin levels should be monitored in patients on concomitant brivaracetam oral solution. (<linkHtml href="#Section_7.3">7.3</linkHtml>)</item>
+                           <item>Levetiracetam: Brivaracetam oral solution had no added therapeutic benefit when co-administered with levetiracetam. (<linkHtml href="#Section_7.4">7.4</linkHtml>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="Section_7.1">
+                     <id root="cbe325e5-9afb-41f1-929d-a9bc3788c686"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>7.1 Rifampin</title>
+                     <text>
+                        <br/>
+                        <paragraph>Co-administration with rifampin decreases brivaracetam plasma concentrations likely because of CYP2C19 induction <content styleCode="italics">[see Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>. Prescribers should increase the brivaracetam dose by up to 100% (i.e., double the dosage) in patients while receiving concomitant treatment with rifampin<content styleCode="italics"> [see Dosage and Administration (<linkHtml href="#Section_2.6">2.6</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_7.2">
+                     <id root="1e9e6875-12e8-431c-b4cf-4045966f88d9"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>7.2 Carbamazepine</title>
+                     <text>
+                        <br/>
+                        <paragraph>Co-administration with carbamazepine may increase exposure to carbamazepine-epoxide, the active metabolite of carbamazepine. Though available data did not reveal any safety concerns, if tolerability issues arise when co-administered, carbamazepine dose reduction should be considered <content styleCode="italics">[see Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_7.3">
+                     <id root="16e4e8fc-b394-468c-ae67-fe3f140193b4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>7.3 Phenytoin</title>
+                     <text>
+                        <br/>
+                        <paragraph>Because brivaracetam can increase plasma concentrations of phenytoin, phenytoin levels should be monitored in patients when concomitant brivaracetam is added to or discontinued from ongoing phenytoin therapy <content styleCode="italics">[see Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_7.4">
+                     <id root="5cc650a1-c87e-4db1-a0d4-a7c8ff585c49"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>7.4 Levetiracetam</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam provided no added therapeutic benefit to levetiracetam when the two drugs were co-administered <content styleCode="italics">[see Clinical Studies (<linkHtml href="#Section_14">14</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_8">
+               <id root="58013e4f-54ae-4ea4-909e-b56fba41c6de"/>
+               <code code="43684-0" codeSystem="2.16.840.1.113883.6.1" displayName="USE IN SPECIFIC POPULATIONS SECTION"/>
+               <title>8 USE IN SPECIFIC POPULATIONS</title>
+               <effectiveTime value="20260224"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <br/>
+                        <paragraph>Pregnancy: Based on animal data, may cause fetal harm. (<linkHtml href="#Section_8.1">8.1</linkHtml>)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="Section_8.1">
+                     <id root="08d42f58-f689-469f-8b89-c67c352ed649"/>
+                     <code code="42228-7" codeSystem="2.16.840.1.113883.6.1" displayName="PREGNANCY SECTION"/>
+                     <title>8.1 Pregnancy</title>
+                     <text>
+                        <br/>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Risk Summary</content>
+                           <br/>Available data from the North American Antiepileptic Drug (NAAED) pregnancy registry, a prospective cohort study, case reports, and a case series are insufficient to identify a risk of major birth defects, miscarriage or other maternal or fetal outcomes associated with brivaracetam use during pregnancy. In animal studies, brivaracetam produced evidence of developmental toxicity (increased embryofetal mortality and decreased fetal body weights in rabbits; decreased growth, delayed sexual maturation, and long-term neurobehavioral changes in rat offspring) at maternal plasma exposures greater than clinical exposures<content styleCode="italics"> [see Data]</content>.<br/> The background risk of major birth defects and miscarriage for the indicated population is unknown. All pregnancies have a background risk of birth defect, loss, or other adverse outcomes. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2-4% and 15-20%, respectively.<br/>
+                           <br/>
+                           <content styleCode="underline">Data</content>
+                           <br/>
+                           <content styleCode="italics">Animal Data</content>
+                           <br/> Oral administration of brivaracetam (0, 150, 300, or 600 mg/kg/day) to pregnant rats during the period of organogenesis did not produce any significant maternal or embryofetal toxicity. The highest dose tested was associated with maternal plasma exposures (AUC) approximately 30 times exposures in humans at the maximum recommended dose (MRD) of 200 mg/day.<br/>
+                           <br/> Oral administration of brivaracetam (0, 30, 60, 120, or 240 mg/kg/day) to pregnant rabbits during the period of organogenesis resulted in embryofetal mortality and decreased fetal body weights at the highest dose tested, which was also maternally toxic. The highest no-effect dose (120 mg/kg/day) was associated with maternal plasma exposures approximately 4 times human exposures at the MRD.<br/>
+                           <br/> When brivaracetam (0, 150, 300, or 600 mg/kg/day) was orally administered to rats throughout pregnancy and lactation, decreased growth, delayed sexual maturation (female), and long-term neurobehavioral changes were observed in the offspring at the highest dose. The highest no-effect dose (300 mg/kg/day) was associated with maternal plasma exposures approximately 7 times human exposures at the MRD.<br/>
+                           <br/> Brivaracetam was shown to readily cross the placenta in pregnant rats after a single oral (5 mg/kg) dose of 14C-brivaracetam. From 1 hour post dose, radioactivity levels in fetuses, amniotic fluid, and placenta were similar to those measured in maternal blood.</paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_8.6">
+                     <id root="02dbfdf1-4171-4a9b-8853-436a846687bf"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>8.2 Lactation</title>
+                     <text>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Risk Summary</content>
+                           <br/> Data from published literature indicate that brivaracetam is present in human milk. There is insufficient information on the effects of brivaracetam on the breastfed infant or on milk production.<br/>
+                           <br/> The developmental and health benefits of breastfeeding should be considered along with the mother’s clinical need for brivaracetam and any potential adverse effects on the breastfed infant from brivaracetam or from the underlying maternal condition.</paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_8.4">
+                     <id root="da6b44c0-7b79-4db2-be31-94aba23a7c1b"/>
+                     <code code="34081-0" codeSystem="2.16.840.1.113883.6.1" displayName="PEDIATRIC USE SECTION"/>
+                     <title>8.4 Pediatric Use</title>
+                     <text>
+                        <br/>
+                        <paragraph>Safety and effectiveness of brivaracetam have been established in pediatric patients 1 month to less than 16 years of age. Use of brivaracetam in these age groups is supported by evidence from adequate and well-controlled studies of brivaracetam in adults with partial-onset seizures, pharmacokinetic data from adult and pediatric patients, and safety data in pediatric patients 2 months to less than 16 years of age <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.1">2.1</linkHtml>), Warnings and Precautions (<linkHtml href="#Section_5.3">5.3</linkHtml>), Adverse Reactions (<linkHtml href="#Section_6.1">6.1</linkHtml>), Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>), and Clinical Studies (<linkHtml href="#Section_14">14</linkHtml>)]</content>.<br/>
+                           <br/> Safety and effectiveness in pediatric patients below the age of 1 month have not been established.</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Juvenile Animal Toxicity Data</content>
+                           <br/> The potential adverse effects of brivaracetam on postnatal growth and development were investigated in juvenile rats and dogs. Oral administration (0, 150, 300, or 600 mg/kg/day) to rats during the neonatal and juvenile periods of development (approximately equivalent to neonatal through adolescent development in humans) resulted in increased mortality, decreased body weight gain, delayed male sexual maturation, and adverse neurobehavioral effects at the highest dose tested and decreased brain size and weight at all doses. Therefore, a no-effect dose was not established; the lowest dose tested in juvenile rats was associated with plasma exposures (AUC) approximately 2 times those in children and adolescents at the recommended maintenance dose. In dogs, oral administration (0, 15, 30, or 100 mg/kg/day) throughout the neonatal and juvenile periods of development induced liver changes similar to those observed in adult animals at the highest dose but produced no adverse effects on growth, bone density or strength, neurological testing, or neuropathology evaluation. The overall no-effect dose (30 mg/kg/day) and the no-effect dose for adverse effects on developmental parameters (100 mg/kg/day) were associated with plasma exposures approximately equal to and 4 times, respectively, those in children and adolescents at the recommended maintenance dose.</paragraph>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_8.5">
+                     <id root="29270dbc-9ead-4a9a-8430-642a00c449d2"/>
+                     <code code="34082-8" codeSystem="2.16.840.1.113883.6.1" displayName="GERIATRIC USE SECTION"/>
+                     <title>8.5 Geriatric Use</title>
+                     <text>
+                        <br/>
+                        <paragraph>There were insufficient numbers of patients 65 years of age and older in the double-blind, placebo-controlled epilepsy trials (n=38) to allow adequate assessment of the effectiveness of brivaracetam in this population. In general, dose selection for an elderly patient should be judicious, usually starting at the low end of the dosing range, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and of concomitant disease or other drug therapy<content styleCode="italics"> [see Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_8.7">
+                     <id root="b66de92d-15fa-43e8-9ba1-834074085456"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>8.6 Renal Impairment</title>
+                     <text>
+                        <br/>
+                        <paragraph>Dose adjustments are not required for patients with impaired renal function. There are no data in patients with end-stage renal disease undergoing dialysis, and use of brivaracetam is not recommended in this patient population<content styleCode="italics"> [see Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_8.8">
+                     <id root="7ba1a9a5-69ed-4fff-bd2e-eec893ceea9d"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>8.7 Hepatic Impairment</title>
+                     <text>
+                        <br/>
+                        <paragraph>Because of increases in brivaracetam exposure, dosage adjustment is recommended for all stages of hepatic impairment <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.5">2.5</linkHtml>) and Clinical Pharmacology (<linkHtml href="#Section_12.3">12.3</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_9">
+               <id root="908bcf80-ae72-47f4-b23f-78155d027699"/>
+               <code code="42227-9" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG ABUSE AND DEPENDENCE SECTION"/>
+               <title>9 DRUG ABUSE AND DEPENDENCE</title>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <section ID="Section_9.1">
+                     <id root="fd4cffb2-a872-4d56-91bd-2e00091de697"/>
+                     <code code="34085-1" codeSystem="2.16.840.1.113883.6.1" displayName="CONTROLLED SUBSTANCE SECTION"/>
+                     <title>9.1 Controlled Substance</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam oral solution contains brivaracetam and is listed as a Schedule V controlled substance.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_9.2">
+                     <id root="411157af-5f75-49a3-beb4-f5000555880f"/>
+                     <code code="34086-9" codeSystem="2.16.840.1.113883.6.1" displayName="ABUSE SECTION"/>
+                     <title>9.2 Abuse</title>
+                     <text>
+                        <br/>
+                        <paragraph>In a human abuse potential study, single doses of brivaracetam at therapeutic and supratherapeutic doses were compared to alprazolam (C-IV) (1.5 mg and 3 mg). Brivaracetam at the recommended single dose (50 mg) caused fewer sedative and euphoric effects than alprazolam; however, brivaracetam at supratherapeutic single doses (200 mg and 1000 mg) was similar to alprazolam on other measures of abuse.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_9.3">
+                     <id root="fcbb814f-98ae-4cc9-b6c5-4aeb3e6cec7d"/>
+                     <code code="34087-7" codeSystem="2.16.840.1.113883.6.1" displayName="DEPENDENCE SECTION"/>
+                     <title>9.3 Dependence</title>
+                     <text>
+                        <br/>
+                        <paragraph>There was no evidence of physical dependence potential or a withdrawal syndrome with brivaracetam oral solution in a pooled review of placebo-controlled adjunctive therapy studies <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.6</linkHtml>)]</content>.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_10">
+               <id root="29b6d4cd-5960-4b75-9f9e-8f22703a3e05"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>10 OVERDOSAGE</title>
+               <text>
+                  <br/>
+                  <paragraph>There is limited clinical experience with brivaracetam overdose in humans. Somnolence and dizziness were reported in a patient taking a single dose of 1400 mg (14 times the highest recommended single dose) of brivaracetam. The following adverse reactions were reported with brivaracetam overdose: vertigo, balance disorder, fatigue, nausea, diplopia, anxiety, and bradycardia. In general, the adverse reactions associated with brivaracetam overdose were consistent with the known adverse reactions.<br/>
+                     <br/> There is no specific antidote for overdose with brivaracetam. In the event of overdose, standard medical practice for the management of any overdose should be used. An adequate airway, oxygenation, and ventilation should be ensured; monitoring of cardiac rate and rhythm and vital signs is recommended. A certified poison control center should be contacted for updated information on the management of overdose with brivaracetam. There are no data on the removal of brivaracetam using hemodialysis, but because less than 10% of brivaracetam is excreted in urine, hemodialysis is not expected to enhance brivaracetam clearance.</paragraph>
+                  <br/>
+                  <br/>
+               </text>
+               <effectiveTime value="20260224"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_11">
+               <id root="ef091a4d-fc71-44ff-93cd-473b20fece56"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>11 DESCRIPTION</title>
+               <text>
+                  <br/>
+                  <paragraph>The chemical name of brivaracetam is (2S)-2-[(4R)-2-oxo-4-propyltetrahydro-1H-pyrrol-1-yl] butanamide. Its molecular formula is C<sub>11</sub>H<sub>20</sub>N<sub>2</sub>O<sub>2</sub> and its molecular weight is 212.29. The chemical structure is:</paragraph>
+                  <renderMultiMedia referencedObject="MM1"/>
+                  <br/>
+                  <br/>
+                  <paragraph>Brivaracetam is a white to off-white crystalline powder. It is very soluble in water, buffer (pH 1.2, 4.5, and 7.4), ethanol, methanol, and glacial acetic acid. It is freely soluble in acetonitrile and acetone and soluble in toluene. It is very slightly soluble in n-hexane.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="underline">Oral Solution</content>
+                     <br/> Brivaracetam oral solution contains 10 mg of brivaracetam per mL. The inactive ingredients are anhydrous citric acid, carboxymethylcellulose sodium, glycerine, methylparaben sodium, purified water, raspberry flavour, sodium citrate, sorbitol solution, sucralose.</paragraph>
+               </text>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <observationMedia ID="MM1">
+                     <text>brivaracetam-fstructure</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="brivaracetam-structure.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_12">
+               <id root="dad289a7-2539-4894-ad0c-82cf1899d733"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>12 CLINICAL PHARMACOLOGY</title>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <section ID="Section_12.1">
+                     <id root="bf8a97e7-70d2-4c01-8829-7784e730b418"/>
+                     <code code="43679-0" codeSystem="2.16.840.1.113883.6.1" displayName="MECHANISM OF ACTION SECTION"/>
+                     <title>12.1 Mechanism of Action</title>
+                     <text>
+                        <br/>
+                        <paragraph>The precise mechanism by which brivaracetam exerts its anticonvulsant activity is not known. Brivaracetam displays a high and selective affinity for synaptic vesicle protein 2A (SV2A) in the brain, which may contribute to the anticonvulsant effect.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_12.2">
+                     <id root="0b970243-a330-450f-ba06-266afdb44c21"/>
+                     <code code="43681-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACODYNAMICS SECTION"/>
+                     <title>12.2 Pharmacodynamics</title>
+                     <text>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Interactions with Alcohol</content>
+                           <br/> In a pharmacokinetic and pharmacodynamic interaction study in healthy subjects, co-administration of brivaracetam (single dose 200 mg [2 times greater than the highest recommended single dose]) and ethanol (continuous intravenous infusion to achieve a blood alcohol concentration of 60 mg/100 mL during 5 hours) increased the effects of alcohol on psychomotor function, attention, and memory. Co-administration of brivaracetam and ethanol caused a larger decrease from baseline in saccadic peak velocity, smooth pursuit, adaptive tracking performance, and Visual Analog Scale (VAS) alertness, and a larger increase from baseline in body sway and in saccadic reaction time compared with brivaracetam alone or ethanol alone. The immediate word recall scores were generally lower for brivaracetam when co-administered with ethanol.</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Cardiac Electrophysiology</content>
+                           <br/> At a dose 4 times the maximum recommended dose, brivaracetam did not prolong the QT interval to a clinically relevant extent.</paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_12.3">
+                     <id root="c3b3667a-6ee1-4495-9769-e2224507bf98"/>
+                     <code code="43682-4" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACOKINETICS SECTION"/>
+                     <title>12.3 Pharmacokinetics</title>
+                     <text>
+                        <br/>
+                        <paragraph>Brivaracetam tablets, oral solution, and injection can be used interchangeably. Brivaracetam exhibits linear and time-independent pharmacokinetics at the approved doses.<br/>
+                           <br/> The pharmacokinetics of brivaracetam are similar when used as monotherapy or as adjunctive therapy for the treatment of partial onset seizures.<br/>
+                           <br/>
+                           <content styleCode="underline">Absorption</content>
+                           <br/> Brivaracetam is highly permeable and is rapidly and almost completely absorbed after oral administration. Pharmacokinetics is dose-proportional from 10 to 600 mg (a range that extends beyond the minimum and maximum single-administration dose levels described in Dosage and Administration <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.1">2.1</linkHtml>)]</content>. The median T<sub>max</sub> for tablets taken without food is 1 hour (range 0.25 to 3 hours). Co-administration with a high-fat meal slowed absorption, but the extent of absorption remained unchanged. Specifically, when a 50 mg tablet was administered with a high-fat meal, C<sub>max</sub> (maximum brivaracetam plasma concentration during a dose interval, an exposure metric) was decreased by 37% and T<sub>max</sub> was delayed by 3 hours, but AUC (area under the brivaracetam plasma concentration versus time curve, an exposure metric) was essentially unchanged (decreased by 5%).<br/>
+                           <br/>
+                           <br/>Distribution<br/> Brivaracetam is weakly bound to plasma proteins (≤20%). The volume of distribution is 0.5 L/kg, a value close to that of the total body water. Brivaracetam is rapidly and evenly distributed in most tissues.<br/>
+                           <br/>
+                           <content styleCode="underline">Elimination</content>
+                           <br/>
+                           <content styleCode="italics">Metabolism</content>
+                           <br/> Brivaracetam is primarily metabolized by hydrolysis of the amide moiety to form the corresponding carboxylic acid metabolite, and secondarily by hydroxylation on the propyl side chain to form the hydroxy metabolite. The hydrolysis reaction is mediated by hepatic and extra-hepatic amidase. The hydroxylation pathway is mediated primarily by CYP2C19. In human subjects possessing genetic variations in CYP2C19, production of the hydroxy metabolite is decreased 2-fold or 10-fold, while the blood level of brivaracetam itself is increased by 22% or 42%, respectively, in individuals with one or both mutated alleles. CYP2C19 poor metabolizers and patients using inhibitors of CYP2C19 may require dose reduction. An additional hydroxyl acid metabolite is created by hydrolysis of the amide moiety on the hydroxy metabolite or hydroxylation of the propyl side chain on the carboxylic acid metabolite (mainly by CYP2C9). None of the 3 metabolites are pharmacologically active.<br/>
+                           <br/>
+                           <content styleCode="italics">Excretion</content>
+                           <br/> Brivaracetam is eliminated primarily by metabolism and by excretion in the urine. More than 95% of the dose, including metabolites, is excreted in the urine within 72 hours after intake. Fecal excretion accounts for less than 1% of the dose. Less than 10% of the dose is excreted unchanged in the urine. Thirty-four percent of the dose is excreted as the carboxylic acid metabolite in urine. The terminal plasma half-life (t1/2) is approximately 9 hours.<br/>
+                           <br/>
+                           <content styleCode="underline">Specific Populations</content>
+                           <br/>
+                           <content styleCode="italics">Age</content>
+                           <br/> Pediatric Patients (2 months to less than 16 years): An open-label, single-arm, multicenter, pharmacokinetic study with a 3- week evaluation period and fixed 3-step up-titration using brivaracetam oral solution was conducted in 99 pediatric patients 2 months to less than 16 years of age. In those patients, plasma concentrations were shown to be dose-proportional. The pediatric pharmacokinetic profile for brivaracetam was determined in a population pharmacokinetic analysis using sparse plasma concentration data obtained in three open-label studies in 255 adult and pediatric patients with epilepsy 2 months to 22 years of age that received intravenous, oral solution, or oral tablet formulations.<br/>
+                           <br/> A weight-based dosing regimen is necessary to achieve brivaracetam exposures in pediatric patients 1 month to less than 16 years of age that are similar to those observed in adults treated at effective doses of brivaracetam <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.2">2.2</linkHtml>)]</content>. The estimated plasma clearance was 1.09 L/h, 1.81 L/h, and 3.11 L/h for pediatric patients weighing 11 kg, 20 kg, and 50 kg, respectively. In comparison, plasma clearance was estimated at 3.58 L/h in adult patients (70 kg body weight).<br/>
+                           <br/> Geriatric Population: In a study in elderly subjects (65 to 79 years old; creatinine clearance 53 to 98 mL/min/1.73 m²) receiving brivaracetam 200 mg twice daily (2 times the highest recommended dosage), the plasma half-life of brivaracetam was 7.9 hours and 9.3 hours in the 65 to 75 and &gt;75 years groups, respectively. The steady-state plasma clearance of brivaracetam was slightly lower (0.76 mL/min/kg) than in young healthy controls (0.83 mL/min/kg).<br/>
+                           <br/>
+                           <content styleCode="italics">Sex</content>
+                           <br/> There were no differences observed in the pharmacokinetics of brivaracetam between male and female subjects.<br/>
+                           <br/>
+                           <content styleCode="italics">Race/Ethnicity</content>
+                           <br/> A population pharmacokinetic analysis comparing Caucasian and non-Caucasian patients showed no significant pharmacokinetic difference.<br/>
+                           <br/>
+                           <content styleCode="italics">Renal Impairment</content>
+                           <br/> A study in adult subjects with severe renal impairment (creatinine clearance &lt;30 mL/min/1.73m² and not requiring dialysis) revealed that the plasma AUC of brivaracetam was moderately increased (21%) relative to healthy controls, while the AUCs of the acid, hydroxy, and hydroxyacid metabolites were increased 3-fold, 4-fold, and 21-fold, respectively. The renal clearance of these inactive metabolites was decreased 10-fold. Brivaracetam has not been studied in patients undergoing hemodialysis <content styleCode="italics">[see Use in Specific Populations (<linkHtml href="#Section_8.7">8.6</linkHtml>)]</content>.<br/>
+                           <br/>
+                           <content styleCode="italics">Hepatic Impairment</content>
+                           <br/> A pharmacokinetic study in adult subjects with hepatic cirrhosis, Child-Pugh grades A, B, and C, showed 50%, 57%, and 59% increases in brivaracetam exposure, respectively, compared to matched healthy controls. The effect of hepatic impairment on brivaracetam pharmacokinetics in pediatric patients is expected to be comparable to the effect observed in adults <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.5">2.5</linkHtml>) and Use in Specific Populations (<linkHtml href="#Section_8.8">8.7</linkHtml>)]</content>.<br/>
+                           <br/>Drug Interaction Studies<br/>
+                           <content styleCode="italics">
+                              <br/> In Vitro Assessment of Drug Interactions</content>
+                           <br/>
+                           <content styleCode="italics"> </content>
+                           <br/>
+                           <content styleCode="italics">
+                              <content styleCode="underline">Drug-Metabolizing Enzyme Inhibition</content>
+                           </content>
+                           <br/> Brivaracetam did not inhibit CYP1A2, 2A6, 2B6, 2C8, 2C9, 2D6, or 3A4. Brivaracetam weakly inhibited CYP2C19 and would not be expected to cause significant inhibition of CYP2C19 in humans. Brivaracetam was an inhibitor of epoxide hydrolase, (IC50 = 8.2 μM), suggesting that brivaracetam can inhibit the enzyme in vivo.<br/>
+                           <br/>
+                           <content styleCode="underline">
+                              <content styleCode="italics">Drug-Metabolizing Enzyme Induction</content>
+                           </content>
+                           <br/> Brivaracetam at concentrations up to 10 μM caused little or no change of mRNA expression of CYP1A2, 2B6, 2C9, 2C19, 3A4, and epoxide hydrolase. It is unlikely that brivaracetam will induce these enzymes in vivo.<br/>
+                           <br/>
+                           <content styleCode="underline">
+                              <content styleCode="italics">Transporters</content>
+                           </content>
+                           <br/> Brivaracetam was not a substrate of P-gp, MRP1, or MRP2. Brivaracetam did not inhibit or weakly inhibit BCRP, BSEP, MATE1, MATE2/K, MRP2, OAT1, OAT3, OCT1, OCT2, OATP1B1, OATP1B3, or P-gp, suggesting that brivaracetam is unlikely to inhibit these transporters in vivo.<br/>
+                           <br/>
+                           <content styleCode="italics">In Vivo Assessment of Drug Interactions</content>
+                           <br/>
+                           <content styleCode="italics"> </content>
+                           <br/>
+                           <content styleCode="underline">
+                              <content styleCode="italics">Drug Interaction Studies with Antiepileptic Drugs (AEDs)</content>
+                           </content>
+                           <br/> Potential interactions between brivaracetam (25 mg twice daily to 100 mg twice daily) and other AEDs were investigated in a pooled analysis of plasma drug concentrations from all Phase 2 and 3 studies and in a population exposure-response analysis of placebo-controlled, Phase 3 studies in adjunctive therapy in the treatment of partial-onset seizures. None of the interactions require changes in the dose of brivaracetam. Interactions with carbamazepine and phenytoin can be clinically important <content styleCode="italics">[see Drug Interactions (<linkHtml href="#Section_7.2">7.2</linkHtml>) and (<linkHtml href="#Section_7.3">7.3</linkHtml>)]</content>. The interactions are summarized in Table 5.<br/>
+                           <br/>
+                           <br/>
+                           <content styleCode="bold">Table 5: Drug Interactions Between Brivaracetam and Concomitant Antiepileptic Drugs</content>
+                        </paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">
+                                    <content styleCode="bold">Concomitant AED </content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold">Influence of AED on Brivaracetam </content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">
+                                    <content styleCode="bold">Influence of Brivaracetam on AED </content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle"> Carbamazepine</td>
+                                 <td styleCode="Rrule" valign="middle">26% decrease in plasma concentration</td>
+                                 <td styleCode="Rrule" valign="middle">None for carbamazepine<br/>             Increase of carbamazepine-epoxide metabolite*<br/>
+                                    <content styleCode="italics">[see Drug Interactions (7.2)]</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Lacosamide</td>
+                                 <td styleCode="Rrule" valign="middle">No data</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Lamotrigine</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Levetiracetam</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Oxcarbazepine</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                                 <td styleCode="Rrule" valign="middle">None on the active monohydroxy<br/>             metabolite derivative (MHD)</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Phenobarbital</td>
+                                 <td styleCode="Rrule" valign="middle">19% decrease in plasma concentration</td>
+                                 <td styleCode="Rrule" valign="middle"> None</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Phenytoin</td>
+                                 <td styleCode="Rrule" valign="middle">21% decrease in plasma concentration</td>
+                                 <td styleCode="Rrule" valign="middle"> Up to 20% increase in plasma concentration<br/>
+                                    <content styleCode="italics">[see Drug Interactions (7.3)]**</content>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Pregabalin</td>
+                                 <td styleCode="Rrule" valign="middle">No data</td>
+                                 <td styleCode="Rrule" valign="middle">None<br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Topiramate</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">Valproic acid</td>
+                                 <td styleCode="Rrule" valign="middle">None<br/>
+                                 </td>
+                                 <td styleCode="Rrule" valign="middle">None</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="middle">Zonisamide</td>
+                                 <td styleCode="Rrule" valign="middle">No data</td>
+                                 <td styleCode="Rrule" valign="middle">None<br/>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <br/>
+                           </content>* Brivaracetam is a reversible inhibitor of epoxide hydrolase resulting in an increased concentration of carbamazepine epoxide, an active metabolite of carbamazepine. The carbamazepine epoxide plasma concentration increased up to 198% at a brivaracetam dose of 100 mg twice daily.<br/> ** At a supratherapeutic dose of 400 mg/day brivaracetam, there was a 20% increase in phenytoin plasma concentration.</paragraph>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="italics">Drug Interaction Studies with Other Drugs</content>
+                           <br/>
+                           <br/>
+                           <content styleCode="italics">
+                              <content styleCode="underline">Effect of Other Drugs on Brivaracetam</content>
+                           </content>
+                           <br/> Co-administration with CYP inhibitors or transporter inhibitors is unlikely to significantly affect brivaracetam exposure.<br/>
+                           <br/> Co-administration with rifampin decreases brivaracetam plasma concentrations by 45%, an effect that is probably the result of CYP2C19 induction <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.6">2.6</linkHtml>) and Drug Interactions (<linkHtml href="#Section_7.1">7.1</linkHtml>)]</content>.<br/>
+                           <br/>
+                           <content styleCode="underline">
+                              <content styleCode="italics">Oral Contraceptives</content>
+                           </content>
+                           <br/> Co-administration of brivaracetam 200 mg twice daily (twice the recommended maximum daily dosage) with an oral contraceptive containing ethinylestradiol (0.03 mg) and levonorgestrel (0.15 mg) reduced estrogen and progestin AUCs by 27% and 23%, respectively, without impact on suppression of ovulation. However, co-administration of brivaracetam 50 mg twice daily with an oral contraceptive containing ethinylestradiol (0.03 mg) and levonorgestrel (0.15 mg) did not significantly influence the pharmacokinetics of either substance. The interaction is not expected to be of clinical significance.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_13">
+               <id root="f18f0318-4b56-4df7-904c-eefbecbd559d"/>
+               <code code="43680-8" codeSystem="2.16.840.1.113883.6.1" displayName="NONCLINICAL TOXICOLOGY SECTION"/>
+               <title>13 NONCLINICAL TOXICOLOGY</title>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <section ID="Section_13.1">
+                     <id root="cc7498fa-d494-484b-8ef1-33ffb7171a5e"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>13.1 Carcinogenesis &amp; Mutagenesis &amp; Impairment Of Fertility</title>
+                     <text>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Carcinogenesis</content>
+                           <br/> In a carcinogenicity study in mice, oral administration of brivaracetam (0, 400, 550, or 700 mg/kg/day) for 104 weeks increased the incidence of liver tumors (hepatocellular adenoma and carcinoma) in male mice at the two highest doses tested. At the dose (400 mg/kg) not associated with an increase in liver tumors, plasma exposures (AUC) were approximately equal to those in humans at the maximum recommended dose (MRD) of 200 mg/day. Oral administration (0, 150, 230, 450, or 700 mg/kg/day) to rats for 104 weeks resulted in an increased incidence of thymus tumors (benign thymoma) in female rats at the highest dose tested. At the highest dose not associated with an increase in thymus tumors, plasma exposures were approximately 9 times those in humans at the MRD.<br/>
+                           <br/>
+                           <content styleCode="underline">Mutagenesis</content>
+                           <br/> Brivaracetam was negative for genotoxicity in in vitro (Ames, mouse lymphoma, and CHO chromosomal aberration) and in vivo (rat bone marrow micronucleus) assays.<br/>
+                           <br/>
+                           <content styleCode="underline">Impairment of Fertility</content>
+                           <br/> Oral administration of brivaracetam (0, 100, 200, or 400 mg/kg/day) to male and female rats prior to and throughout mating and early gestation produced no adverse effects on fertility. The highest dose tested was associated with plasma exposures approximately 6 (males) and 13 (females) times those in humans at the MRD.</paragraph>
+                        <br/>
+                        <br/>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_14">
+               <id root="9ab6fd59-9099-4395-a164-6c7336d3f358"/>
+               <code code="34092-7" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL STUDIES SECTION"/>
+               <title>14 CLINICAL STUDIES</title>
+               <text>
+                  <br/>
+                  <paragraph>The effectiveness of brivaracetam in partial-onset seizures with or without secondary generalization was established in 3 fixed-dose, randomized, double-blind, placebo-controlled, multicenter studies (Studies 1, 2, and 3), which included 1550 patients. Patients enrolled had partial-onset seizures that were not adequately controlled with 1 to 2 concomitant antiepileptic drugs (AEDs). In each of these studies, 72% to 86% of patients were taking 2 or more concomitant AEDs with or without vagal nerve stimulation. The median baseline seizure frequency across the 3 studies was 9 seizures per 28 days. Patients had a mean duration of epilepsy of approximately 23 years.<br/>
+                     <br/> All trials had an 8-week baseline period, during which patients were required to have at least 8 partial-onset seizures. The baseline period was followed by a 12-week treatment period. There was no titration period in these studies. Study 1 compared doses of brivaracetam 50 mg/day and 100 mg/day with placebo. Study 2 compared a dose of brivaracetam 50 mg/day with placebo. Study 3 compared doses of brivaracetam 100 mg/day and 200 mg/day with placebo. Brivaracetam was administered in equally divided twice daily doses. Upon termination of brivaracetam treatment, patients were down-titrated over a 1-, 2-, and 4-week duration for patients receiving 25, 50, and 100 mg twice daily brivaracetam, respectively.<br/>
+                     <br/> The primary efficacy outcome in Study 1 and Study 2 was the percent reduction in 7-day partial-onset seizure frequency over placebo, while the primary outcome for Study 3 was the percent reduction in 28-day partial-onset seizure frequency over placebo. The criteria for statistical significance for all 3 studies was p&lt;0.05. Table 6 presents the primary efficacy outcome of the percent change in seizure frequency over placebo, based upon each study’s protocol-defined 7- and 28-day seizure frequency efficacy outcome.<br/>
+                     <br/>
+                     <content styleCode="bold">Table 6: Percent Reduction in Partial-Onset Seizure Frequency over Placebo (Studies 1, 2, and 3)</content>
+                  </paragraph>
+                  <table cellspacing="0" cellpadding="0" border="0">
+                     <tbody>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle"> </td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/>
+                              <content styleCode="bold"> Percent Reduction Over Placebo<br/>             (%) </content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" colspan="2" valign="middle">
+                              <content styleCode="bold">STUDY 1<sup>a</sup>
+                              </content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">Placebo<br/>             (n=100) </td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/> ------</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">50 mg/day<br/>             (n=99)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/> 9.5</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">100 mg/day<br/>             (n=100)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/> 17.0</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" colspan="2" valign="middle">
+                              <content styleCode="bold">STUDY 2<sup>a</sup>
+                              </content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle"> Placebo<br/>             (n=96)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/> <br/> ------</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">50 mg/day<br/>             (n=101)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/>16.9* </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" colspan="2" valign="middle">
+                              <content styleCode="bold">STUDY 3<sup>b</sup>
+                              </content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle"> Placebo<br/>             (n=259)<br/>
+                              <br/> </td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/> <br/> ------</td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">100 mg/day<br/>             (n=252)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/>25.2* </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Lrule Rrule" valign="middle">200 mg/day<br/>             (n= 249)</td>
+                           <td styleCode="Rrule" align="center" valign="middle">
+                              <br/>25.7*              </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <br/>
+                  <br/>
+                  <paragraph>* Statistically significant based on testing procedure with alpha = 0.05<br/>
+                     <sup>a</sup> Based upon 7-day seizure frequency<br/>
+                     <sup>b</sup> Based upon 28-day seizure frequency</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>Figure 1 presents the percentage of patients by category of reduction from baseline in partial-onset seizure frequency per 28 days for all pooled patients in the 3 pivotal studies. Patients in whom the seizure frequency increased are shown at left as “worse.” Patients with an improvement in percent reduction from baseline partial-onset seizure frequency are shown in the 4 right-most categories.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">Figure 1: Proportion of Patients by Category of Seizure Response for Brivaracetam and Placebo Across all Three Double- Blind Trials</content>
+                  </paragraph>
+                  <paragraph>  </paragraph>
+                  <renderMultiMedia referencedObject="MM2"/>
+                  <paragraph>
+                     <content styleCode="underline">Treatment with Levetiracetam</content>
+                     <br/> In Studies 1 and 2, which evaluated brivaracetam dosages of 50 mg and 100 mg daily, approximately 20% of the patients were on concomitant levetiracetam. Although the numbers of patients were limited, brivaracetam provided no added benefit when it was added to levetiracetam.<br/>
+                     <br/> Although patients on concomitant levetiracetam were excluded from Study 3, which evaluated 100 and 200 mg daily, approximately 54% of patients in this study had prior exposure to levetiracetam.</paragraph>
+               </text>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <observationMedia ID="MM2">
+                     <text>brivaracetam-fig-1</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="brivaracetam-figure-1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_17">
+               <id root="15972838-804e-4a9e-9983-2304047827b3"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>16 HOW SUPPLIED/STORAGE AND HANDLING</title>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <section ID="Section_17.1">
+                     <id root="3a0dcbcf-bd9c-4180-857b-5aff008bd0fb"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>16.1 How Supplied</title>
+                     <text>
+                        <br/>
+                        <paragraph>
+                           <content styleCode="underline">Brivaracetam Oral Solution</content>
+                        </paragraph>
+                        <list listType="unordered" styleCode="disc">
+                           <item>10 mg/mL is a slightly viscous, clear, colorless to yellowish, raspberry-flavored liquid. It is supplied in amber glass bottles:<br/>
+                              <br/>     300 mL bottles NDC 71921-410-72<br/>
+                              <br/> </item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Section_17.2">
+                     <id root="66ec60b7-e17a-469b-912c-620425ee58be"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>16.2 Storage and Handling</title>
+                     <text>
+                        <br/>
+                        <paragraph>Store at 20º to 25ºC (68º to 77ºF); excursions permitted to 15° to 30°C (59° to 86°F) [See USP Controlled Room Temperature].<br/> Do not freeze brivaracetam oral solution.<br/>
+                           <br/> Discard any unused brivaracetam oral solution remaining after 5 months of first opening the bottle.</paragraph>
+                     </text>
+                     <effectiveTime value="20260224"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_16">
+               <id root="eaabc6f8-1577-492b-affd-0f5cd3e97cb2"/>
+               <code code="34076-0" codeSystem="2.16.840.1.113883.6.1" displayName="INFORMATION FOR PATIENTS SECTION"/>
+               <title>17 PATIENT COUNSELING INFORMATION</title>
+               <text>
+                  <br/>
+                  <paragraph>Advise the patient to read the FDA-approved patient labeling (Medication Guide). The Medication Guide accompanies the product and can also be accessed on www.briviact.com or by calling +1 833 856 0880.<br/>
+                     <br/>
+                     <content styleCode="underline">Suicidal Behavior and Ideation</content>
+                     <br/> Counsel patients, their caregivers, and/or families that antiepileptic drugs, including brivaracetam oral solution, may increase the risk of suicidal thoughts and behavior, and advise patients to be alert for the emergence or worsening of symptoms of depression; unusual changes in mood or behavior; or suicidal thoughts, behavior, or thoughts about self-harm. Advise patients, their caregivers, and/or families to report behaviors of concern immediately to a healthcare provider <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.1">5.1</linkHtml>)]</content>.<br/>
+                     <br/>
+                     <content styleCode="underline">Neurological Adverse Reactions</content>
+                     <br/> Counsel patients that brivaracetam oral solution causes somnolence, fatigue, dizziness, and gait disturbance. These adverse reactions, if observed, are more likely to occur early in treatment but can occur at any time. Advise patients not to drive or operate machinery until they have gained sufficient experience on brivaracetam oral solution to gauge whether it adversely affects their ability to drive or operate machinery <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.2">5.2</linkHtml>)]</content>.<br/>
+                     <br/>
+                     <content styleCode="underline">Psychiatric Adverse Reactions</content>
+                     <br/> Advise patients that brivaracetam oral solution causes changes in behavior (e.g., aggression, agitation, anger, anxiety, and irritability) and psychotic symptoms. Instruct patients to report these symptoms immediately to their healthcare provider <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.3">5.3</linkHtml>)]</content>.<br/>
+                     <br/>
+                     <content styleCode="underline">Hypersensitivity: Bronchospasm and Angioedema</content>
+                     <br/> Advise patients that symptoms of hypersensitivity including bronchospasm and angioedema can occur with brivaracetam oral solution. Instruct them to seek immediate medical care should they experience signs and symptoms of hypersensitivity <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.4">5.4</linkHtml>)]</content>.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="underline">Serious Dermatologic Reactions<br/>
+                     </content>Advise patients of the early signs and symptoms of serious dermatologic adverse reactions and to report any occurrence immediately to a healthcare provider <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.5</linkHtml>)]</content>.</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="underline">Withdrawal of Antiepileptic Drugs</content>
+                     <br/> Advise patients not to discontinue use of brivaracetam oral solution without consulting with their healthcare provider. Brivaracetam oral solution should normally be gradually withdrawn to reduce the potential for increased seizure frequency and status epilepticus <content styleCode="italics">[see Warnings and Precautions (<linkHtml href="#Section_5.6">5.6</linkHtml>)].</content>
+                     <br/>
+                     <br/>Pregnancy<br/> Advise patients to notify their healthcare provider if they become pregnant or intend to become pregnant during brivaracetam oral solution therapy. <content styleCode="italics">[see Use in Specific Populations (8.1)]</content>.<br/>
+                     <br/>
+                     <br/>
+                     <content styleCode="underline">Lactation</content>
+                     <br/> Counsel patients that brivaracetam, the active ingredient in brivaracetam oral solution, is present in breast milk. Instruct patients to discuss with their healthcare provider if they are breastfeeding or intend to breastfeed<content styleCode="italics"> [see Use in Specific Populations (<linkHtml href="#Section_8.6">8.2</linkHtml>)].</content>
+                     <br/>
+                     <br/>
+                     <content styleCode="underline">Dosing Instructions</content>
+                     <br/> Counsel patients that brivaracetam oral solution may be taken with or without food.<br/>
+                     <br/> Advise patients that the dosage of brivaracetam oral solution should be measured using a calibrated measuring device and not a household teaspoon. Instruct patients to discard any unused brivaracetam oral solution after 5 months of first opening the bottle <content styleCode="italics">[see Dosage and Administration (<linkHtml href="#Section_2.2">2.2</linkHtml>)]</content>.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">Manufactured By:<br/>
+                     </content> Indoco Remedies Ltd.<br/> Verna Industrial Area,<br/> Verna, Goa 403722, India.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">Manufactured For:</content>
+                  </paragraph>
+                  <paragraph>Florida Pharmaceutical Products, LLC</paragraph>
+                  <paragraph>Boca Raton, FL 33487</paragraph>
+                  <paragraph>Toll-Free # 1-833-856-0880</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">MEDICATION GUIDE<br/> Brivaracetam (briv″ a ra′ se tam) oral solution, CV</content>
+                     <br/>
+                     <content styleCode="bold"> </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What is the most important information I should know about brivaracetam oral solution?<br/> Brivaracetam is a federally controlled substance (CV) because it can be abused or lead to dependence. <br/> Keep brivaracetam oral solution in a safe place to prevent misuse and abuse. Selling or giving away brivaracetam oral solution may harm others and is against the law.<br/> Like other antiepileptic drugs, brivaracetam oral solution may cause suicidal thoughts or actions in a very small number of people, about 1 in 500 people taking it.<br/> Call a healthcare provider right away if you have any of these symptoms, especially if they are new, worse, or worry you:</content>
+                  </paragraph>
+                  <paragraph>• thoughts about suicide or dying                                        • attempts to commit suicide<br/> • new or worse depression                                                • new or worse anxiety<br/> • feeling agitated or restless                                                • panic attacks<br/> • trouble sleeping (insomnia)                                                • new or worse irritability<br/> • acting aggressive, feeling angry, or being violent                • acting on dangerous impulses<br/> • an extreme increase in activity and talking (mania)        • other unusual changes in behavior or mood</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>Suicidal thoughts or actions can be caused by things other than medicines. If you have suicidal thoughts or actions, your healthcare provider may check for other causes</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">How can I watch for early symptoms of suicidal thoughts and actions?<br/>
+                     </content>• Pay attention to any changes, especially sudden changes, in mood, behaviors, thoughts, or feelings.<br/> • Keep all follow-up visits with your healthcare provider as scheduled.<br/> Call your healthcare provider between visits as needed, especially if you are worried about symptoms.<br/>
+                     <content styleCode="bold">Do not stop brivaracetam oral solution without first talking to a healthcare provider.<br/>
+                     </content>• Stopping brivaracetam oral solution suddenly can cause serious problems.<br/> • Stopping a seizure medicine suddenly can cause seizures that will not stop (status epilepticus).</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">What is brivaracetam oral solution?<br/>
+                     </content>Brivaracetam oral solution is a prescription medicine used to treat partial-onset seizures in people 1 month of age and older.<br/> It is not known if brivaracetam oral solution is safe and effective in children younger than 1 month of age.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">Who should not take brivaracetam oral solution?<br/>
+                     </content>Do not take brivaracetam oral solution if you are allergic to brivaracetam or any of the ingredients in brivaracetam oral solution. <br/> See the end of this Medication Guide for a complete list of ingredients in brivaracetam oral solution.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">What should I tell my healthcare provider before starting brivaracetam oral solution?<br/> Before taking brivaracetam oral solution, tell your healthcare provider about all of your medical conditions, including if you:</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>
+                        <content styleCode="bold"> </content>have or had depression, mood problems, or suicidal thoughts or behavior.</item>
+                     <item>have liver problems.</item>
+                     <item>have abused or been dependent on prescription medicines, street drugs, or alcohol.</item>
+                     <item>are pregnant or plan to become pregnant. It is not known if brivaracetam oral solution will harm your unborn baby. Tell your healthcare provider right away if you become pregnant while taking brivaracetam oral solution. You and your healthcare provider will have to decide if you should take brivaracetam oral solution while you are pregnant.</item>
+                     <item>are breastfeeding or plan to breastfeed. Brivaracetam passes into your breast milk. Talk to your healthcare provider about the best way to feed your baby if you take brivaracetam oral solution.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Tell your healthcare provider about all the medicines you take</content>, including prescription and over-the-counter medicines, vitamins, and herbal supplements. Brivaracetam oral solution may affect the way other medicines work, and other medicines may affect how brivaracetam oral solution works. Do not start a new medicine without first talking with your healthcare provider. Know the medicines you take. Keep a list of them to show your healthcare provider and pharmacist each time you get a new medicine.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">How should I take brivaracetam oral solution?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Take brivaracetam oral solution exactly as your healthcare provider tells you. </item>
+                     <item>Your healthcare provider will tell you how much brivaracetam oral solution to take and when to take it.</item>
+                     <item>Your healthcare provider may change your dose if needed. Do not change your dose without talking to your healthcare provider.</item>
+                     <item>Take brivaracetam oral solution with or without food.</item>
+                     <item>If your healthcare provider has prescribed brivaracetam oral solution, be sure to ask your pharmacist for a medicine dropper or medicine cup to help you measure the correct amount of brivaracetam oral solution. Do not use a household teaspoon or tablespoon. Ask your pharmacist for instructions on how to use the measuring device the right way.</item>
+                     <item>If you take too much brivaracetam oral solution, call your Poison Control Center or go to the nearest emergency room right away.</item>
+                  </list>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">What should I avoid while taking brivaracetam oral solution?<br/>
+                     </content>Do not drive or operate machinery until you know how brivaracetam oral solution affects you. Brivaracetam oral solution may cause drowsiness, tiredness, dizziness, and problems with your balance and coordination.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">What are the possible side effects of brivaracetam oral solution?</content>
+                     <content styleCode="bold"/>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold"> Brivaracetam oral solution may cause serious side effects, including:<br/>
+                     </content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>See <content styleCode="bold">“What is the most important information I should know about brivaracetam oral solution?”</content>
+                        <br/>
+                        <content styleCode="bold"/>
+                     </item>
+                     <item>
+                        <content styleCode="bold"> Nervous system problems.</content> Drowsiness, tiredness, and dizziness are common with brivaracetam oral solution, but can be severe.<br/>     See “<content styleCode="bold">What should I avoid while taking brivaracetam oral solution?”</content> Brivaracetam oral solution can also cause problems with balance and coordination.<br/>
+                        <content styleCode="bold"/>
+                     </item>
+                     <item>
+                        <content styleCode="bold"> Mental (psychiatric) symptoms.</content> Brivaracetam oral solution can cause mood and behavior changes such as aggression, agitation, anger, anxiety, apathy, mood swings, depression, hostility, and irritability. Irritability and anxiety are common with brivaracetam oral solution, and can be severe. People who take brivaracetam oral solution can also get psychotic symptoms such as hallucinations (seeing or hearing things that are really not there), delusions (false or strange thoughts or beliefs), and unusual behavior.</item>
+                     <item>Serious allergic reactions. Stop taking brivaracetam oral solution and call your healthcare provider right away if you have any of these signs of a serious allergic reaction:</item>
+                  </list>
+                  <paragraph>     o   swelling of your face, mouth, lips, gums, tongue, throat, or neck<br/>      o   trouble breathing</paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Serious skin rashes. brivaracetam oral solution may cause a severe rash with blisters and peeling skin. This may occur around the mouth, nose, eyes, and genitals or over much of the body. A mild rash may become a serious reaction and may cause death. Call your healthcare provider right away if you have a rash, skin blisters, sores in the mouth, or hives. Do not stop taking brivaracetam oral solution without first talking to your healthcare provider.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">The most common side effects of brivaracetam oral solution in adults include:<br/>
+                     </content>• sleepiness • feeling tired<br/> • dizziness   • nausea and vomiting</paragraph>
+                  <paragraph>Side effects of brivaracetam oral solution in children 1 month to less than 16 years of age are similar to those seen in adults. These are not all the possible side effects of brivaracetam oral solution. For more information, ask your healthcare provider or pharmacist. Tell your healthcare provider about any side effect that bothers you or that does not go away. Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA-1088.</paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">How should I store brivaracetam oral solution?<br/>
+                     </content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Store brivaracetam oral solution at room temperature between 59°F to 86°F (15°C to 30°C).</item>
+                     <item>Do not freeze brivaracetam oral solution.</item>
+                     <item>Safely throw away any opened bottle of brivaracetam oral solution after 5 months of first opening the bottle, even if there is medicine left in the bottle.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Keep brivaracetam oral solution and all medicines out of the reach of children.</content>
+                  </paragraph>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">General information about the safe and effective use of brivaracetam oral solution.<br/>
+                     </content>
+                  </paragraph>
+                  <br/>
+                  <paragraph>Medicines are sometimes prescribed for purposes other than those listed in a Medication Guide. Do not use brivaracetam oral solution for a condition for which it was not prescribed. Do not give brivaracetam oral solution to other people, even if they have the same symptoms that you have. It may harm them.</paragraph>
+                  <br/>
+                  <paragraph> This Medication Guide summarizes the most important information about brivaracetam oral solution. If you would like more information, talk with your healthcare provider. You can ask your pharmacist or healthcare provider for information about brivaracetam oral solution that is written for health professionals.</paragraph>
+                  <br/>
+                  <br/>
+                  <paragraph>
+                     <content styleCode="bold">What are the ingredients in brivaracetam oral solution?<br/> Active ingredient:</content> brivaracetam<br/>
+                     <content styleCode="bold">Oral solution inactive ingredients:</content> anhydrous citric acid, carboxymethylcellulose sodium, glycerine, methylparaben sodium, purified water, raspberry flavour, sodium citrate, sorbitol solution, sucralose.<br/>
+                     <br/>
+                     <content styleCode="bold">Manufactured by </content>
+                     <br/> Indoco Remedies Ltd.<br/> Verna Industrial Area,<br/> Verna, Goa 403722, India<br/>
+                     <br/>
+                     <content styleCode="bold">Manufactured For:<br/>
+                     </content>Florida Pharmaceutical Products, LLC<br/> Boca Raton, FL 33487<br/>Toll-Free # 1-833-856-0880<br/>
+                     <br/>  This Medication Guide has been approved by the U.S. Food and Drug Administration                                                                         Revised: 02/2026</paragraph>
+               </text>
+               <effectiveTime value="20260224"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Section_18">
+               <id root="afa6107b-b704-414c-ae89-62b76bd38cca"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PACKAGE LABEL.PRINCIPAL DISPLAY PANEL</title>
+               <text>
+                  <paragraph>Brivaracetam Oral Solution 10 mg/mL </paragraph>
+                  <paragraph>NDC 71921-410-72</paragraph>
+                  <paragraph>Carton Label </paragraph>
+                  <renderMultiMedia referencedObject="MM3"/>
+                  <br/>
+                  <br/>
+                  <paragraph>Brivaracetam Oral Solution 10 mg/mL <br/> NDC 71921-410-72</paragraph>
+                  <paragraph>Container Label</paragraph>
+                  <renderMultiMedia referencedObject="MM4"/>
+                  <br/>
+                  <br/>
+               </text>
+               <effectiveTime value="20260224"/>
+               <component>
+                  <observationMedia ID="MM3">
+                     <text>Brivaracetam-Carton</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="brivaracetam-carton.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+               <component>
+                  <observationMedia ID="MM4">
+                     <text>Brivaracetam-Container</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="brivaracetam-container.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

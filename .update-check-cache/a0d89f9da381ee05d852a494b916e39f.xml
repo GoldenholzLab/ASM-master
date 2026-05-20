@@ -1,0 +1,2148 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="e3848741-066e-4ee2-bf13-0b4c1d32b3c2"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="Human Prescription Drug Label"/>
+   <title>ZONEGRAN<sup>®</sup> (zonisamide) capsules, for oral administration<br/>
+      <br/> Rx Only</title>
+   <effectiveTime value="20250912"/>
+   <setId root="d12de43e-3ac3-4335-bc85-70d7366a91eb"/>
+   <versionNumber value="12"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="118997081" root="1.3.6.1.4.1.519.1"/>
+            <name>Advanz Pharma (US) Corp.</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="293175951" root="1.3.6.1.4.1.519.1"/>
+                        <name>Eurofins Pharma Quality Control</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANALYSIS"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="59212-680" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ANALYSIS"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="59212-681" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="f5d91c8f-163d-44ae-b477-1cafc2e6da52"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20251001"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="59212-681" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Zonegran<suffix/>
+                        </name>
+                        <formCode code="C25158" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CAPSULE"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Zonisamide</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="25" unit="mg"/>
+                              <denominator value="1" unit="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="459384H98V" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ZONISAMIDE</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="459384H98V" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>ZONISAMIDE</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="A2M91M918C" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROGENATED SOYBEAN OIL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="368GB5141J" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM LAURYL SULFATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="2G86QN327L" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>GELATIN, UNSPECIFIED</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="15FIX9V2JP" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>TITANIUM DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="100" unit="1"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code code="59212-681-10" codeSystem="2.16.840.1.113883.6.69"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20000327"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA020789" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20000327"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="CV" code="C48325" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="WHITE"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="CV" code="C48336" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CAPSULE"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="PQ" unit="mm" value="14"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="INT" value="1"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLIMPRINT" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="ST">ZONEGRAN;25</value>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="59212-680" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Zonegran<suffix/>
+                        </name>
+                        <formCode code="C25158" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CAPSULE"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Zonisamide</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="100" unit="mg"/>
+                              <denominator value="1" unit="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="459384H98V" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ZONISAMIDE</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="459384H98V" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>ZONISAMIDE</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="OP1R32D61U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MICROCRYSTALLINE CELLULOSE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="A2M91M918C" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROGENATED SOYBEAN OIL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="368GB5141J" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM LAURYL SULFATE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="2G86QN327L" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>GELATIN, UNSPECIFIED</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="15FIX9V2JP" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>TITANIUM DIOXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="WZB9127XOA" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C RED NO. 40</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="H77VEI93A8" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>FD&amp;C YELLOW NO. 6</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="100" unit="1"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code code="59212-680-10" codeSystem="2.16.840.1.113883.6.69"/>
+                              <formCode code="C43169" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE"/>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                           <subjectOf>
+                              <marketingAct>
+                                 <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                 <statusCode code="active"/>
+                                 <effectiveTime>
+                                    <low value="20000327"/>
+                                 </effectiveTime>
+                              </marketingAct>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA020789" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20000327"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="CV" code="C48325" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="WHITE"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="CV" code="C48326" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="RED"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSHAPE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="CV" code="C48336" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CAPSULE"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSIZE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="PQ" unit="mm" value="19"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLSCORE" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="INT" value="1"/>
+                        </characteristic>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLIMPRINT" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value xsi:type="ST">ZONEGRAN;100</value>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="ORAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_89c5a78e-64bd-4324-9a98-f2bae424b187">
+               <id root="2263d82e-f8fa-41e6-9a7b-2e4444aa7f32"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>DESCRIPTION</title>
+               <text>
+                  <paragraph>ZONEGRAN<sup>®</sup> (zonisamide) is an antiseizure drug chemically classified as a sulfonamide and unrelated to other antiseizure agents. The active ingredient is zonisamide, 1,2-benzisoxazole-3-methanesulfonamide. The empirical formula is C<sub>8</sub>H<sub>8</sub>N<sub>2</sub>O<sub>3</sub>S with a molecular weight of 212.23. Zonisamide is a white powder, pKa = 10.2, and is moderately soluble in water (0.80 mg/mL) and 0.1 N HCl (0.50 mg/mL).</paragraph>
+                  <paragraph>The chemical structure is:</paragraph>
+                  <renderMultiMedia referencedObject="MM1"/>
+                  <paragraph>ZONEGRAN is supplied for oral administration as capsules containing 25 mg or 100 mg zonisamide.</paragraph>
+                  <paragraph>Each 25 mg capsule contains the labeled amount of zonisamide plus the following inactive ingredients: microcrystalline cellulose, hydrogenated vegetable oil, sodium lauryl sulfate, gelatin, and titanium dioxide.</paragraph>
+                  <paragraph>Each 100 mg capsule contains the labeled amount of zonisamide plus the following inactive ingredients: microcrystalline cellulose, hydrogenated vegetable oil, sodium lauryl sulfate, gelatin, titanium dioxide, FD&amp;C Red No. 40 and FD&amp;C Yellow No. 6.</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <observationMedia ID="MM1">
+                     <text>zonegran-01</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="zonegran-1.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_239d72a4-9ad0-48ec-85c2-08cbf7641029">
+               <id root="0a9aa455-740c-47ea-9b6a-1adfa75c9ccc"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>CLINICAL PHARMACOLOGY</title>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_60e53059-c09b-431d-a2f6-dbe5512159d6">
+                     <id root="bb5eab3a-9cd0-476e-8bc7-13b768e3ebf0"/>
+                     <code code="43679-0" codeSystem="2.16.840.1.113883.6.1" displayName="MECHANISM OF ACTION SECTION"/>
+                     <title>Mechanism of Action:</title>
+                     <text>
+                        <paragraph>The precise mechanism(s) by which zonisamide exerts its antiseizure effect is unknown. Zonisamide demonstrated anticonvulsant activity in several experimental models. In animals, zonisamide was effective against tonic extension seizures induced by maximal electroshock but ineffective against clonic seizures induced by subcutaneous pentylenetetrazol. Zonisamide raised the threshold for generalized seizures in the kindled rat model and reduced the duration of cortical focal seizures induced by electrical stimulation of the visual cortex in cats. Furthermore, zonisamide suppressed both interictal spikes and the secondarily generalized seizures produced by cortical application of tungstic acid gel in rats or by cortical freezing in cats. The relevance of these models to human epilepsy is unknown.</paragraph>
+                        <paragraph>Zonisamide may produce these effects through action at sodium and calcium channels. In vitro pharmacological studies suggest that zonisamide blocks sodium channels and reduces voltage-dependent, transient inward currents (T-type Ca<sup>2+</sup> currents), consequently stabilizing neuronal membranes and suppressing neuronal hypersynchronization. In vitro binding studies have demonstrated that zonisamide binds to the GABA/benzodiazepine receptor ionophore complex in an allosteric fashion which does not produce changes in chloride flux. Other in vitro studies have demonstrated that zonisamide (10–30 µg/mL) suppresses synaptically-driven electrical activity without affecting postsynaptic GABA or glutamate responses (cultured mouse spinal cord neurons) or neuronal or glial uptake of [<sup>3</sup>H]-GABA (rat hippocampal slices). Thus, zonisamide does not appear to potentiate the synaptic activity of GABA. In vivo microdialysis studies demonstrated that zonisamide facilitates both dopaminergic and serotonergic neurotransmission.</paragraph>
+                        <paragraph>Zonisamide is a carbonic anhydrase inhibitor. The contribution of this pharmacological action to the therapeutic effects of zonisamide is unknown. However, as a carbonic anhydrase inhibitor, zonisamide may cause metabolic acidosis (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="Lae4c1189-f202-4c2f-80b0-c0a01defdea1">
+                     <id root="a0a2fe34-facf-4d6e-8c80-9cbb5e8a26cf"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Pharmacokinetics:</title>
+                     <effectiveTime value="20251001"/>
+                     <component>
+                        <section ID="Lae4c1189-f202-4c2f-80b0-c0a01defdea1.1">
+                           <id root="44ed685c-44e9-48e1-a8f0-951bd4c85ec9"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                           <title>
+                              <content styleCode="bold">Absorption</content>
+                           </title>
+                           <text>
+                              <paragraph>Following a 200-400 mg oral zonisamide dose, peak plasma concentrations (range: 2-5 µg/mL) in normal volunteers occur within 2-6 hours. In the presence of food, the time to maximum concentration is delayed, occurring at 4-6 hours, but food has no effect on the bioavailability of zonisamide. Zonisamide absorption is dose-proportional in the range of 200-400 mg. Cmax and AUC, however, increase disproportionately at 800 mg, possibly due to saturable binding of zonisamide to red blood cells. Once a stable dose is reached, steady state is achieved within 14 days.</paragraph>
+                           </text>
+                           <effectiveTime value="20251001"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section ID="L92284f98-b2e1-4747-91c3-731d270c2a83">
+                     <id root="30d2524c-06fc-4522-a144-0e32afab0190"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Distribution</title>
+                     <text>
+                        <paragraph>The apparent volume of distribution (V/F) of zonisamide is about 1.45 L/kg following a 400 mg oral dose. Zonisamide, at concentrations of 1.0–7.0 µg/mL, is approximately 40% bound to human plasma proteins. Zonisamide extensively binds to erythrocytes, resulting in an eight-fold higher concentration of zonisamide in red blood cells than in plasma. Protein binding of zonisamide is unaffected in the presence of therapeutic concentrations of phenytoin, phenobarbital or carbamazepine.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_323b7193-04c7-4369-bf59-636b8220a5fd">
+                     <id root="f9f7cb67-e1b6-4de6-a0c2-39eceb71ca6a"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Metabolism and Elimination</title>
+                     <text>
+                        <paragraph>Following oral administration of <sup>14</sup>C-zonisamide to healthy volunteers, only zonisamide was detected in plasma. Zonisamide is excreted primarily in urine as parent drug and as the glucuronide of a metabolite. Following multiple dosing, 62% of the radiolabeled dose was recovered in the urine, with 3% in the feces by day 10. Zonisamide undergoes acetylation by N-acetyl-transferases to form N-acetyl zonisamide and reduction to form the open ring metabolite, 2–sulfamoylacetyl phenol (SMAP). Of the excreted dose, 35% was recovered as zonisamide, 15% as N-acetyl zonisamide, and 50% as the glucuronide of SMAP. Reduction of zonisamide to SMAP is mediated by cytochrome P450 isozyme 3A4 (CYP3A4). Zonisamide does not induce its own metabolism. The plasma clearance of oral zonisamide is approximately 0.30–0.35 mL/min/kg in patients not receiving enzyme-inducing antiepilepsy drugs (AEDs). The clearance of zonisamide is increased to 0.5 mL/min/kg in patients concurrently on enzyme-inducing AEDs.</paragraph>
+                        <paragraph>After a single-dose administration, renal clearance of zonisamide is approximately 3.5 mL/min. The clearance of an oral dose of zonisamide from red blood cells is 2 mL/min. The elimination half-life of zonisamide in plasma is approximately 63 hours. The elimination half-life of zonisamide in red blood cells is approximately 105 hours.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_24f92643-91eb-447f-a124-50ba66999741">
+                     <id root="58bfd3fa-a41f-47ba-a4ed-be7234961745"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Specific Populations:</title>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">Renal Impairment:</content> Single 300 mg zonisamide doses were administered to three groups of volunteers. Group 1 was a healthy group with a creatinine clearance ranging from 70–152 mL/min. Group 2 and Group 3 had creatinine clearances ranging from 14.5–59 mL/min and 10–20 mL/min, respectively. Zonisamide renal clearance decreased with decreasing renal function (3.42, 2.50, 2.23 mL/min, respectively). Marked renal impairment (creatinine clearance &lt; 20 mL/min) was associated with an increase in zonisamide AUC of 35% (see <content styleCode="bold">
+                              <linkHtml href="#LINK_a74b7fb2-de9c-410b-8530-e182abd302ea">DOSAGE AND ADMINISTRATION</linkHtml>
+                           </content> section).</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Hepatic Impairment:</content> The pharmacokinetics of zonisamide in patients with impaired liver function have not been studied (see <content styleCode="bold">
+                              <linkHtml href="#LINK_a74b7fb2-de9c-410b-8530-e182abd302ea">DOSAGE AND ADMINISTRATION</linkHtml>
+                           </content> section).</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Age:</content> The pharmacokinetics of a 300 mg single dose of zonisamide was similar in young (mean age 28 years) and elderly subjects (mean age 69 years).</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Gender and Race:</content> Information on the effect of gender and race on the pharmacokinetics of zonisamide is not available.</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">
+                              <content styleCode="bold">Effects of ZONEGRAN on cytochrome P450 enzymes</content>
+                           </content>
+                        </paragraph>
+                        <paragraph>In vitro studies using human liver microsomes show insignificant (&lt;25%) inhibition of cytochrome P450 isozymes 1A2, 2A6, 2C9, 2C19, 2D6, 2E1, 3A4, 2B6 or 2C8 at zonisamide levels approximately two-fold or greater than clinically relevant unbound serum concentrations. Therefore, ZONEGRAN is not expected to affect the pharmacokinetics of other drugs via cytochrome P450-mediated mechanisms.</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">
+                              <content styleCode="bold">Potential for ZONEGRAN to affect other drugs</content>
+                           </content>
+                        </paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Anti-epileptic drugs</content>
+                        </paragraph>
+                        <paragraph>In epileptic patients, steady state dosing with ZONEGRAN resulted in no clinically relevant pharmacokinetic effects on carbamazepine, lamotrigine, phenytoin, or sodium valproate.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Oral contraceptives</content>
+                        </paragraph>
+                        <paragraph>In healthy subjects, steady state dosing with ZONEGRAN did not affect serum concentrations of ethinylestradiol or norethisterone in a combined oral contraceptive.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">CYP2D6 substrates</content>
+                        </paragraph>
+                        <paragraph>Coadministration of multiple dosing of zonisamide up to 400 mg/day with single 50-mg doses of desipramine did not significantly affect the pharmacokinetic parameters of desipramine, a probe drug for CYP2D6 activity.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">P-gp substrate</content>
+                           <br/> An in vitro study showed that zonisamide is a weak inhibitor of P-gp (MDR1) with an IC<sub>50</sub> of 267 µmol/L. There is a theoretical potential for zonisamide to affect the pharmacokinetics of drugs which are P-gp substrates.</paragraph>
+                        <paragraph>Caution is advised when starting or stopping ZONEGRAN or changing the ZONEGRAN dose in patients who are also receiving drugs which are P-gp substrates (e.g., digoxin, quinidine)</paragraph>
+                        <paragraph>
+                           <content styleCode="underline">
+                              <content styleCode="bold">Potential for Medicinal Products to Affect ZONEGRAN</content>
+                           </content>
+                        </paragraph>
+                        <paragraph>Concomitant medications that can induce or inhibit CYP3A4 or N-acetyl-transferases may affect the pharmacokinetics of zonisamide. Drugs which inhibit or induce glucuronide conjugation are not expected to influence the pharmacokinetics of zonisamide.</paragraph>
+                        <paragraph>The absence of a clinically significant pharmacokinetic interaction between zonisamide and lamotrigine indicates a low potential for zonisamide to interact with substances which are metabolized by UDP-GT.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">CYP3A4 Induction:</content> Drugs that induce liver enzymes increase the metabolism and clearance of zonisamide and decrease its half-life. The half-life of zonisamide following a 400 mg dose in patients concurrently on enzyme-inducing AEDs such as phenytoin, carbamazepine, or phenobarbital was between 27-38 hours; the half-life of zonisamide in patients concurrently on the non-enzyme inducing AED, valproate, was 46 hours.</paragraph>
+                        <paragraph>These effects are unlikely to be of clinical significance when ZONEGRAN is added to existing therapy; however, changes in zonisamide concentrations may occur if concomitant CYP3A4 inducing anti-epileptic or other drugs are withdrawn, dose adjusted or introduced, an adjustment of the ZONEGRAN dose may be required. If co-administration with a potent CYP3A4 inducer (e.g., rifampicin) is necessary, the patient should be closely monitored and the dose of ZONEGRAN and other drugs that are CYP3A4 substrate may need to be adjusted.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">CYP3A4 Inhibition:</content> Steady-state dosing of either ketoconazole (400 mg/day) or cimetidine (1200 mg/day) had no clinically relevant effects on the single dose pharmacokinetics of zonisamide given to healthy subjects. Therefore, modification of ZONEGRAN dosing is not necessary when co-administered with known CYP3A4 inhibitors.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Interactions of Zonisamide with Other Carbonic Anhydrase Inhibitors</content>: </paragraph>
+                        <paragraph>Concomitant use of ZONEGRAN, a carbonic anhydrase inhibitor, with any other carbonic anhydrase inhibitor (e.g., topiramate, acetazolamide or dichlorphenamide), may increase the severity of metabolic acidosis and may also increase the risks of hyperammonemia and kidney stone formation. Therefore, if ZONEGRAN is given concomitantly with another carbonic anhydrase inhibitor, the patient should be monitored for the appearance or worsening of metabolic acidosis (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection and <content styleCode="bold">
+                              <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.11">Hyperammonemia and Encephalopathy</linkHtml>
+                           </content> subsection and <content styleCode="bold">
+                              <content styleCode="bold">
+                                 <linkHtml href="#LINK_9927967c-8828-4216-8d99-4fa48caed09c">PRECAUTIONS, Drug Interactions</linkHtml>
+                              </content>
+                           </content> subsection).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_afa32912-48b9-4763-b01a-59bb2fe41af4">
+                     <id root="f94678a5-c73c-49b4-9e8d-07bb7d9f40f5"/>
+                     <code code="34092-7" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL STUDIES SECTION"/>
+                     <title>Clinical Studies:</title>
+                     <text>
+                        <paragraph>The effectiveness of ZONEGRAN as adjunctive therapy (added to other antiepilepsy drugs) has been established in three multicenter, placebo-controlled, double blind, 3-month clinical trials (two domestic, one European) in 499 patients with refractory partial onset seizures with or without secondary generalization. Each patient had a history of at least four partial onset seizures per month in spite of receiving one or two antiepilepsy drugs at therapeutic concentrations. The 499 patients (209 women, 290 men) ranged in age from 13–68 years with a mean age of about 35 years. In the two US studies, over 80% of patients were Caucasian; 100% of patients in the European study were Caucasian. ZONEGRAN or placebo was added to the existing therapy. The primary measure of effectiveness was median percent reduction from baseline in partial seizure frequency. The secondary measure was proportion of patients achieving a 50% or greater seizure reduction from baseline (responders). The results described below are for all partial seizures in the intent-to-treat populations.</paragraph>
+                        <paragraph>In the first study (n = 203), all patients had a 1-month baseline observation period, then received placebo or ZONEGRAN in one of two dose escalation regimens; either 1) 100 mg/day for five weeks, 200 mg/day for one week, 300 mg/day for one week, and then 400 mg/day for five weeks; or 2) 100 mg/day for one week, followed by 200 mg/day for five weeks, then 300 mg/day for one week, then 400 mg/day for five weeks. This design allowed a 100 mg vs. placebo comparison over weeks 1–5, and a 200 mg vs. placebo comparison over weeks 2–6; the primary comparison was 400 mg (both escalation groups combined) vs. placebo over weeks 8–12. The total daily dose was given as twice a day dosing. Statistically significant treatment differences favoring ZONEGRAN were seen for doses of 100, 200, and 400 mg/day.</paragraph>
+                        <paragraph>In the second (n = 152) and third (n = 138) studies, patients had a 2–3 month baseline, then were randomly assigned to placebo or ZONEGRAN for three months. ZONEGRAN was introduced by administering 100 mg/day for the first week, 200 mg/day the second week, then 400 mg/day for two weeks, after which the dose (ZONEGRAN or placebo) could be adjusted as necessary to a maximum dose of 20 mg/kg/day or a maximum plasma level of 40 µg/mL. In the second study, the total daily dose was given as twice a day dosing; in the third study, it was given as a single daily dose. The average final maintenance doses received in the studies were 530 and 430 mg/day in the second and third studies, respectively. Both studies demonstrated statistically significant differences favoring ZONEGRAN for doses of 400–600 mg/day, and there was no apparent difference between once daily and twice daily dosing (in different studies). Analysis of the data (first 4 weeks) during titration demonstrated statistically significant differences favoring ZONEGRAN at doses between 100 and 400 mg/day. The primary comparison in both trials was for any dose over Weeks 5–12.</paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0" width="50%">
+                           <caption>Table 1. Median % Reduction in All Partial Seizures and % Responders in Primary Efficacy Analyses: Intent-To-Treat Analysis  
+			</caption>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Study</content>
+                                 </td>
+                                 <td styleCode="Rrule" colspan="2" align="center" valign="top">
+                                    <content styleCode="bold">Median % reduction</content>
+                                    <br/>
+                                    <content styleCode="bold">in partial seizures<br/>
+                                    </content>
+                                    <br/>
+                                 </td>
+                                 <td styleCode="Rrule" colspan="2" align="center" valign="top">
+                                    <content styleCode="bold">% Responders</content>
+                                    <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top">  ZONEGRAN <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="bottom">  Placebo <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="bottom">  ZONEGRAN <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="bottom">  Placebo <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Study 1:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=98 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=72 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=98 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=72 <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 8-12:</content>
+                                    <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  40.5%*<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  9.0% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  41.8%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  22.2% <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Study 2:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=69 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=72 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=69 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=72 <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 5-12:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  29.6%*<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  -3.2% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  29.0% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  15.0% <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Study 3:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=67 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=66 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=67 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=66 <br/>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 5-12:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  27.2%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  -1.1% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  28.0%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  12.0% <br/>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>* p&lt;0.05 compared to placebo</paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0" width="50%">
+                           <caption>Table 2. Median % Reduction in All Partial Seizures and % Responders for Dose Analyses in Study 1: Intent-To-Treat Analysis  
+			</caption>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Dose Group</content>
+                                 </td>
+                                 <td styleCode="Rrule" colspan="2" align="center" valign="top">
+                                    <content styleCode="bold">Median % reduction</content>
+                                    <br/>
+                                    <content styleCode="bold">in partial seizures<br/>
+                                    </content>
+                                    <br/>
+                                 </td>
+                                 <td styleCode="Rrule" colspan="2" align="center" valign="top">
+                                    <content styleCode="bold">% Responders</content>
+                                    <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top">  ZONEGRAN <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Placebo <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  ZONEGRAN <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Placebo <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">100-400 mg/day:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=112 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=83 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=112 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=83 <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 1-12:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  32.3%*<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  5.6% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  32.1%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  9.6% <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">100 mg/day:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=56 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=80 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=56 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=80 <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 1-5:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  24.7%*<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  8.3% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  25.0%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  11.3% <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">200 mg/day:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=55 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=82 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=55 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  n=82 <br/>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">Weeks 2-6:</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  20.4%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  4.0% <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  25.5%* <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  9.8% <br/>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>  * p&lt;0.05 compared to placebo </paragraph>
+                        <paragraph>Figure 1 presents the proportion of patients (X-axis) whose percentage reduction from baseline in the all partial seizure rate was at least as great as that indicated on the Y-axis in the second and third placebo-controlled trials. A positive value on the Y-axis indicates an improvement from baseline (i.e., a decrease in seizure rate), while a negative value indicates a worsening from baseline (i.e., an increase in seizure rate). Thus, in a display of this type, the curve for an effective treatment is shifted to the left of the curve for placebo. The proportion of patients achieving any particular level of reduction in seizure rate was consistently higher for the ZONEGRAN groups compared to the placebo groups. For example, Figure 1 indicates that approximately 27% of patients treated with ZONEGRAN experienced a 75% or greater reduction, compared to approximately 12% in the placebo groups.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Figure 1 Proportion of Patients Achieving Differing Levels of Seizure Reduction in ZONEGRAN and Placebo Groups in Studies 2 and 3</content>
+                        </paragraph>
+                        <renderMultiMedia referencedObject="MM2"/>
+                        <paragraph>No differences in efficacy based on age, sex or race, as measured by a change in seizure frequency from baseline, were detected.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                     <component>
+                        <observationMedia ID="MM2">
+                           <text>zonegran-02</text>
+                           <value xsi:type="ED" mediaType="image/jpeg">
+                              <reference value="zonegran-2.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_c1ffb1e9-41a5-4218-8a6f-f114a8bace60">
+               <id root="8d5efad9-1434-40de-aad3-de6b7ea081ff"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>ZONEGRAN is indicated as adjunctive therapy in the treatment of partial seizures in adults with epilepsy.</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_6287415e-5075-4443-bb44-c3eb7a0df5a9">
+               <id root="79320c1b-a95d-449e-9fdd-cdf8e1b517ec"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>ZONEGRAN is contraindicated in patients who have demonstrated hypersensitivity to sulfonamides or zonisamide. </paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb">
+               <id root="0eea9145-2586-4832-b54e-50a42065e6ef"/>
+               <code code="34071-1" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS SECTION"/>
+               <title>WARNINGS</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="italics">Potentially Fatal Reactions to Sulfonamides: Fatalities have occurred, although rarely, as a result of severe reactions to sulfonamides (zonisamide is a sulfonamide) including Stevens-Johnson syndrome, toxic epidermal necrolysis, fulminant hepatic necrosis, agranulocytosis, aplastic anemia, and other blood dyscrasias. Such reactions may occur when a sulfonamide is readministered irrespective of the route of administration. If signs of hypersensitivity or other serious reactions occur, discontinue zonisamide immediately. Specific experience with sulfonamide-type adverse reaction to zonisamide is described below.</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_39c6f6c5-7527-4c7b-8335-bcfe4cf90125">
+                     <id root="97f1fe47-ddf2-44fc-a80f-8642b079d337"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">Serious Skin Reactions:<br/> Consideration should be given to discontinuing ZONEGRAN in patients who develop an otherwise unexplained rash. If the drug is not discontinued, patients should be observed frequently.</content> Seven deaths from severe rash [i.e., Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN)] were reported in the first 11 years of marketing in Japan. All of the patients were receiving other drugs in addition to zonisamide. In post-marketing experience from Japan, a total of 49 cases of SJS or TEN have been reported, a reporting rate of 46 per million patient-years of exposure. Although this rate is greater than background, it is probably an underestimate of the true incidence because of under-reporting. There were no confirmed cases of SJS or TEN in the US, European, or Japanese development programs.</paragraph>
+                        <paragraph>In the US and European randomized controlled trials, 6 of 269 (2.2%) zonisamide patients discontinued treatment because of rash compared to none on placebo. Across all trials during the US and European development, rash that led to discontinuation of zonisamide was reported in 1.4% of patients (12.0 events per 1000 patient-years of exposure). During Japanese development, serious rash or rash that led to study drug discontinuation was reported in 2.0% of patients (27.8 events per 1000 patient-years). Rash usually occurred early in treatment, with 85% reported within 16 weeks in the US and European studies and 90% reported within two weeks in the Japanese studies. There was no apparent relationship of dose to the occurrence of rash.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_5468cf26-95a1-4070-96a0-71698d692fc7">
+                     <id root="80f3ad59-f4b2-4658-9ce3-0c9cd43a3e09"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">Serious Hematologic Events:<br/>
+                           </content>Two confirmed cases of aplastic anemia and one confirmed case of agranulocytosis were reported in the first 11 years of marketing in Japan, rates greater than generally accepted background rates. There were no cases of aplastic anemia and two confirmed cases of agranulocytosis in the US, European, or Japanese development programs. There is inadequate information to assess the relationship, if any, between dose and duration of treatment and these events.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_39c6f6c5-7527-4c7b-8335-bcfe4cf90236">
+                     <id root="79cebef5-7fcd-4806-8dbf-cfc819c680b4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS)/Multi-Organ Hypersensitivity:<br/>
+                           </content>Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS), also known as multi-organ hypersensitivity, has occurred with ZONEGRAN. Some of these events have been fatal or life-threatening. DRESS typically, although not exclusively, presents with fever, rash, lymphadenopathy and/or facial swelling, in association with other organ system involvement, such as hepatitis, nephritis, hematologic abnormalities, myocarditis, or myositis, sometimes resembling an acute viral infection. Eosinophilia is often present. This disorder is variable in its expression, and other organ systems not noted here may be involved. It is important to note that early manifestations of hypersensitivity (e.g., fever, lymphadenopathy) may be present even though rash is not evident. If such signs or symptoms are present, the patient should be evaluated immediately. ZONEGRAN should be discontinued if an alternative etiology for the signs or symptoms cannot be established.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_05445745-e4a9-45c4-b057-c570478a6d1f">
+                     <id root="ebd0b3f1-315d-4ff3-b277-e72fd87db4a3"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Oligohidrosis and Hyperthermia in Pediatric Patients:</title>
+                     <text>
+                        <paragraph>Oligohidrosis, sometimes resulting in heat stroke and hospitalization, is seen in association with zonisamide in pediatric patients.</paragraph>
+                        <paragraph>During the pre-approval development program in Japan, one case of oligohidrosis was reported in 403 pediatric patients, an incidence of 1 case per 285 patient-years of exposure. While there were no cases reported in the US or European development programs, fewer than 100 pediatric patients participated in these trials.</paragraph>
+                        <paragraph>In the first 11 years of marketing in Japan, 38 cases were reported, an estimated reporting rate of about 1 case per 10,000 patient-years of exposure. In the first year of marketing in the US, 2 cases were reported, an estimated reporting rate of about 12 cases per 10,000 patient-years of exposure. These rates are underestimates of the true incidence because of under-reporting. There has also been one report of heat stroke in an 18-year-old patient in the US.</paragraph>
+                        <paragraph>Decreased sweating and an elevation in body temperature above normal characterized these cases. Many cases were reported after exposure to elevated environmental temperatures. Heat stroke, requiring hospitalization, was diagnosed in some cases. There have been no reported deaths.</paragraph>
+                        <paragraph>Pediatric patients appear to be at an increased risk for zonisamide-associated oligohidrosis and hyperthermia. Patients, especially pediatric patients, treated with ZONEGRAN should be monitored closely for evidence of decreased sweating and increased body temperature, especially in warm or hot weather. Caution should be used when zonisamide is prescribed with other drugs that predispose patients to heat-related disorders; these drugs include, but are not limited to, carbonic anhydrase inhibitors and drugs with anticholinergic activity.</paragraph>
+                        <paragraph>The practitioner should be aware that the safety and effectiveness of zonisamide in pediatric patients have not been established, and that zonisamide is not approved for use in pediatric patients.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.10">
+                     <id root="c48f37e5-320d-474f-9651-50426bb5a4bb"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>Acute Myopia and Secondary Angle Closure Glaucoma:</title>
+                     <text>
+                        <paragraph>Acute myopia and secondary angle closure glaucoma have been reported in patients receiving ZONEGRAN. Elevated intraocular pressure can lead to serious sequelae, including permanent vision loss, if left untreated.<br/>
+                           <br/> Symptoms in reported cases have included acute onset of decreased visual acuity and/or ocular pain. Ophthalmologic findings can include myopia, anterior chamber shallowing, ocular hyperemia (redness), and increased intraocular pressure. Mydriasis may or may not be present. This syndrome may be associated with ciliochoroidal effusion resulting in anterior displacement of the lens and iris, with secondary angle closure glaucoma. Symptoms typically occur within one month after initiating ZONEGRAN therapy.<br/>
+                           <br/> In contrast to primary narrow angle glaucoma, which is rare under 40 years of age, secondary angle closure glaucoma associated with ZONEGRAN has been reported both in pediatric patients and in adults. The primary treatment to reverse symptoms is discontinuation of ZONEGRAN as rapidly as possible, according to the judgment of the treating physician. Other therapeutic measures, in conjunction with discontinuation of ZONEGRAN, may be helpful. Myopia and secondary angle closure glaucoma usually resolve or improve after discontinuation of ZONEGRAN.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_3f0ecc43-0c67-4893-8113-ea937e66cffc">
+                     <id root="4839a54c-7025-4b9b-a2a3-f8fa2ed95190"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Suicidal Behavior and Ideation:</title>
+                     <text>
+                        <paragraph>Antiepileptic drugs (AEDs), including ZONEGRAN, increase the risk of suicidal thoughts or behavior in patients taking these drugs for any indication. Patients treated with any AED for any indication should be monitored for the emergence or worsening of depression, suicidal thoughts or behavior, and/or any unusual changes in mood or behavior.</paragraph>
+                        <paragraph>Pooled analyses of 199 placebo-controlled clinical trials (mono- and adjunctive therapy) of 11 different AEDs showed that patients randomized to one of the AEDs had approximately twice the risk (adjusted Relative Risk 1.8, 95% CI:1.2, 2.7) of suicidal thinking or behavior compared to patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated patients was 0.43%, compared to 0.24% among 16,029 placebo-treated patients, representing an increase of approximately one case of suicidal thinking or behavior for every 530 patients treated. There were four suicides in drug-treated patients in the trials and none in placebo-treated patients, but the number is too small to allow any conclusion about drug effect on suicide.</paragraph>
+                        <paragraph>The increased risk of suicidal thoughts or behavior with AEDs was observed as early as one week after starting drug treatment with AEDs and persisted for the duration of treatment assessed. Because most trials included in the analysis did not extend beyond 24 weeks, the risk of suicidal thoughts or behavior beyond 24 weeks could not be assessed.</paragraph>
+                        <paragraph>The risk of suicidal thoughts or behavior was generally consistent among drugs in the data analyzed. The finding of increased risk with AEDs of varying mechanisms of action and across a range of indications suggests that the risk applies to all AEDs used for any indication. The risk did not vary substantially by age (5-100 years) in the clinical trials analyzed.</paragraph>
+                        <paragraph>Table 3 shows absolute and relative risk by indication for all evaluated AEDs.</paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0" width="55%">
+                           <caption>Table 3. Risk by Indication for Antiepileptic Drugs in the Pooled Analysis  
+			</caption>
+                           <colgroup/>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" align="center" valign="top">  Indication<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Placebo Patients<br/>with Events <br/>Per 1000 Patients<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Drug Patients <br/>with Events Per <br/>1000 Patients<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Relative Risk:<br/>Incidence of<br/>Events in Drug<br/>Patients/Incidence<br/>in Placebo Patients<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">  Risk Difference: <br/>Additional Drug <br/>Patients with<br/>Events Per 1000 <br/>Patients<br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">  Epilepsy</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.0<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  3.4<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  3.5<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  2.4<br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">  Psychiatric</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  5.7<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  8.5<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.5<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  2.9<br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="middle">  Other</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.0<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.8<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.9<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  0.9<br/>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="middle">  Total</td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  2.4<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  4.3<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.8<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="middle">  1.9<br/>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph>The relative risk for suicidal thoughts or behavior was higher in clinical trials for epilepsy than in clinical trials for psychiatric or other conditions, but the absolute risk differences were similar for the epilepsy and psychiatric indications.</paragraph>
+                        <paragraph>Anyone considering prescribing ZONEGRAN or any other AED must balance the risk of suicidal thoughts or behavior with the risk of untreated illness. Epilepsy and many other illnesses for which AEDs are prescribed are themselves associated with morbidity and mortality and an increased risk of suicidal thoughts and behavior. Should suicidal thoughts and behavior emerge during treatment, the prescriber needs to consider whether the emergence of these symptoms in any given patient may be related to the illness being treated.</paragraph>
+                        <paragraph>Patients, their caregivers, and families should be informed that AEDs increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of the signs and symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers (see <content styleCode="bold">
+                              <linkHtml href="#LINK_5efefca3-c872-426d-abb2-51090210bf4e">WARNINGS, Cognitive/Neuropsychiatric Adverse Events</linkHtml>
+                           </content> subsection below).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_4372e117-5cbe-4253-a820-f793165a6c10">
+                     <id root="2c6d139a-7e79-406b-93b5-4a1d0992b83a"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Metabolic Acidosis:</title>
+                     <text>
+                        <paragraph>Zonisamide causes hyperchloremic, non-anion gap, metabolic acidosis (i.e., decreased serum bicarbonate below the normal reference range in the absence of chronic respiratory alkalosis) (see <content styleCode="bold">
+                              <linkHtml href="#LINK_f784420c-7f9d-4867-924a-673d141b02e0">PRECAUTIONS, Laboratory Tests</linkHtml>
+                           </content>subsection). This metabolic acidosis is caused by renal bicarbonate loss due to the inhibitory effect of zonisamide on carbonic anhydrase. Generally, zonisamide-induced metabolic acidosis occurs early in treatment, but it can develop at any time during treatment. Metabolic acidosis generally appears to be dose-dependent and can occur at doses as low as 25 mg daily.</paragraph>
+                        <paragraph>Conditions or therapies that predispose to acidosis (such as renal disease, severe respiratory disorders, status epilepticus, diarrhea, ketogenic diet, or specific drugs) may be additive to the bicarbonate lowering effects of zonisamide.</paragraph>
+                        <paragraph>Some manifestations of acute or chronic metabolic acidosis include hyperventilation, nonspecific symptoms such as fatigue and anorexia, or more severe sequelae including cardiac arrhythmias or stupor. Chronic, untreated, metabolic acidosis may increase the risk for nephrolithiasis or nephrocalcinosis. Nephrolithiasis has been observed in the clinical development program in 4% of adults treated with ZONEGRAN, has also been detected by renal ultrasound in 8% of pediatric treated patients who had at least one ultrasound prospectively collected, and was reported as an adverse event in 3% (4/133) of pediatric patients (see <content styleCode="bold">
+                              <linkHtml href="#LINK_8fe8b5c0-a91c-4fde-adce-282560eb251c">PRECAUTIONS, Kidney Stones</linkHtml>
+                           </content> subsection). Metabolic acidosis can also increase the risk for hyperammonemia, particularly in the presence of drugs which can cause hyperammonemia.</paragraph>
+                        <paragraph>Chronic, untreated metabolic acidosis may result in osteomalacia (referred to as rickets in pediatric patients) and/or osteoporosis with an increased risk for fracture. Of potential relevance, zonisamide treatment was associated with reductions in serum phosphorus and increases in serum alkaline phosphatase, changes that may be related to metabolic acidosis and osteomalacia (see <content styleCode="bold">
+                              <content styleCode="bold">
+                                 <linkHtml href="#LINK_f784420c-7f9d-4867-924a-673d141b02e0">PRECAUTIONS, Laboratory Tests</linkHtml>
+                              </content>
+                           </content> subsection).</paragraph>
+                        <paragraph>Chronic, untreated metabolic acidosis in pediatric patients may reduce growth rates. A reduction in growth rate may eventually decrease the maximal height achieved. The effect of zonisamide on growth and bone-related sequelae has not been systematically investigated.</paragraph>
+                        <paragraph>Measurement of baseline and periodic serum bicarbonate during treatment is recommended. If metabolic acidosis develops and persists, consideration should be given to reducing the dose or discontinuing zonisamide (using dose tapering). If the decision is made to continue patients on zonisamide in the face of persistent acidosis, alkali treatment should be considered.</paragraph>
+                        <paragraph>Serum bicarbonate was not measured in the adjunctive controlled trials of adults with epilepsy. However, serum bicarbonate was studied in three clinical trials for indications which have not been approved: a placebo-controlled trial for migraine prophylaxis in adults, a controlled trial for monotherapy in epilepsy in adults, and an open label trial for adjunctive treatment of epilepsy in pediatric patients (3-16 years). In adults, mean serum bicarbonate reductions ranged from approximately 2 mEq/L at daily doses of 100 mg to nearly 4 mEq/L at daily doses of 300 mg.  In pediatric patients, mean serum bicarbonate reductions ranged from approximately 2 mEq/L at daily doses from above 100 mg up to 300 mg, to nearly 4 mEq/L at daily doses from above 400 mg up to 600 mg.</paragraph>
+                        <paragraph>In two controlled studies in adults, the incidence of a persistent treatment-emergent decrease in serum bicarbonate to less than 20 mEq/L (observed at 2 or more consecutive visits or the final visit) was dose-related at relatively low zonisamide doses. In the monotherapy trial of epilepsy, the incidence of a persistent treatment-emergent decrease in serum bicarbonate was 21% for daily zonisamide doses of 25 mg or 100 mg, and was 43% at a daily dose of 300 mg. In a placebo-controlled trial for prophylaxis of migraine, the incidence of a persistent treatment-emergent decrease in serum bicarbonate was 7% for placebo, 29% for 150 mg daily, and 34% for 300 mg daily. The incidence of persistent markedly abnormally low serum bicarbonate (decrease to less than 17 mEq/L and more than 5 mEq/L from a pretreatment value of at least 20 mEq/L) in these controlled trials was 2% or less.</paragraph>
+                        <paragraph>In the pediatric study, the incidence of persistent, treatment-emergent decreases in serum bicarbonate to levels less than 20 mEq/L was 52% at doses up to 100 mg daily, was 90% for a wide range of doses up to 600 mg daily, and generally appeared to increase with higher doses. The incidence of a persistent markedly abnormally low serum bicarbonate value was 4% at doses up to 100 mg daily, was 18% for a wide range of doses up to 600 mg daily, and generally appeared to increase with higher doses. Some patients experienced moderately severe serum bicarbonate decrements down to a level as low as 10 mEq/L.</paragraph>
+                        <paragraph>The relatively high frequencies of varying severities of metabolic acidosis observed in this study of pediatric patients (compared to the frequency and severity observed in various clinical trial development programs in adults) suggest that pediatric patients may be more likely to develop metabolic acidosis than adults.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_43ec2f38-ab8e-436d-93ae-1c1d3bc2ca7d">
+                     <id root="e4aacb74-3183-43f5-ba66-0b5810b35114"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Seizures on Withdrawal:</title>
+                     <text>
+                        <paragraph>As with other AEDs, abrupt withdrawal of ZONEGRAN in patients with epilepsy may precipitate increased seizure frequency or status epilepticus. Dose reduction or discontinuation of zonisamide should be done gradually.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_9f0d9cb2-6092-43d9-bd08-0302bc18301d">
+                     <id root="573fd586-09f0-4631-b124-86ea0f939a15"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Teratogenicity:</title>
+                     <text>
+                        <paragraph>Women of child bearing potential who are given zonisamide should be advised to use effective contraception. Zonisamide was teratogenic in mice, rats, and dogs and embryolethal in monkeys when administered during the period of organogenesis. A variety of fetal abnormalities, including cardiovascular defects, and embryo-fetal deaths occurred at maternal plasma levels similar to or lower than therapeutic levels in humans. These findings suggest that the use of ZONEGRAN during pregnancy in humans may present a significant risk to the fetus (see <content styleCode="bold">
+                              <linkHtml href="#LINK_cf83ae51-d30a-483c-a38c-6968b5bcb0f3">PRECAUTIONS, Pregnancy</linkHtml>
+                           </content> subsection). Zonisamide should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_5efefca3-c872-426d-abb2-51090210bf4e">
+                     <id root="b6e4b1a1-93de-43f4-bd07-d5148f5cdc2f"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Cognitive/Neuropsychiatric Adverse Events:</title>
+                     <text>
+                        <paragraph>Use of ZONEGRAN was frequently associated with central nervous system-related adverse events. The most significant of these can be classified into three general categories: 1) psychiatric symptoms, including depression and psychosis, 2) psychomotor slowing, difficulty with concentration, and speech or language problems, in particular, word-finding difficulties, and 3) somnolence or fatigue.</paragraph>
+                        <paragraph>In placebo-controlled trials, 2.2% of patients discontinued ZONEGRAN or were hospitalized for depression compared to 0.4% of placebo patients. Among all epilepsy patients treated with ZONEGRAN, 1.4% were discontinued and 1.0% were hospitalized because of reported depression or suicide attempts. In placebo-controlled trials, 2.2% of patients discontinued ZONEGRAN or were hospitalized due to psychosis or psychosis-related symptoms compared to none of the placebo patients. Among all epilepsy patients treated with ZONEGRAN, 0.9% were discontinued and 1.4% were hospitalized because of reported psychosis or related symptoms.</paragraph>
+                        <paragraph>Psychomotor slowing and difficulty with concentration occurred in the first month of treatment and were associated with doses above 300 mg/day. Speech and language problems tended to occur after 6–10 weeks of treatment and at doses above 300 mg/day. Although in most cases these events were of mild to moderate severity, they at times led to withdrawal from treatment.</paragraph>
+                        <paragraph>Somnolence and fatigue were frequently reported CNS adverse events during clinical trials with ZONEGRAN. Although in most cases these events were of mild to moderate severity, they led to withdrawal from treatment in 0.2% of the patients enrolled in controlled trials. Somnolence and fatigue tended to occur within the first month of treatment. Somnolence and fatigue occurred most frequently at doses of 300–500 mg/day. Patients should be cautioned about this possibility and special care should be taken by patients if they drive, operate machinery, or perform any hazardous task.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.11">
+                     <id root="b2ac876a-083a-469a-b95f-b049d934994b"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="Spl Unclassified Section"/>
+                     <title>Hyperammonemia and Encephalopathy:</title>
+                     <text>
+                        <paragraph>Hyperammonemia and encephalopathy have been reported with the postmarketing use of zonisamide. Zonisamide treatment inhibits carbonic anhydrase activity, which may cause metabolic acidosis that is associated with an increased risk for developing hyperammonemia. Hyperammonemia resulting from zonisamide can also be asymptomatic.<br/>
+                           <br/> The risks of hyperammonemia and various manifestations of encephalopathy may be increased in patients treated with zonisamide and concomitantly taking other medications that can cause hyperammonemia, including valproic acid or topiramate (see <content styleCode="bold">
+                              <linkHtml href="#LINK_59cfd380-4338-4cf5-900e-3cf6b715e9b1">PRECAUTIONS</linkHtml>
+                           </content>). Patients with inborn errors of metabolism or reduced hepatic mitochondrial activity may be at an increased risk for hyperammonemia with or without encephalopathy and this risk may be increased by zonisamide use.<br/>
+                           <br/> Measure serum ammonia concentration if signs or symptoms (e.g., unexplained change in mental status, vomiting, or lethargy) of encephalopathy occur. Hyperammonemia resulting from zonisamide resolves when zonisamide is discontinued. Hyperammonemia from zonisamide may resolve or decrease in severity with a decrease of the daily dose.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_59cfd380-4338-4cf5-900e-3cf6b715e9b1">
+               <id root="132f53fc-9256-49c2-bbc0-c58e7b82d1f3"/>
+               <code code="42232-9" codeSystem="2.16.840.1.113883.6.1" displayName="PRECAUTIONS SECTION"/>
+               <title>PRECAUTIONS</title>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_88ffc871-c269-424c-9191-d0d9e7e48d23">
+                     <id root="c024ad90-cf1f-49c0-8480-579290a173fe"/>
+                     <code code="34072-9" codeSystem="2.16.840.1.113883.6.1" displayName="GENERAL PRECAUTIONS SECTION"/>
+                     <title>General:</title>
+                     <text>
+                        <paragraph>Somnolence is commonly reported, especially at higher doses of ZONEGRAN (see <content styleCode="bold">
+                              <linkHtml href="#LINK_5efefca3-c872-426d-abb2-51090210bf4e">WARNINGS: Cognitive/ Neuropsychiatric Adverse Events</linkHtml>
+                           </content> subsection). Zonisamide is metabolized by the liver and eliminated by the kidneys; caution should therefore be exercised when administering ZONEGRAN to patients with hepatic and renal dysfunction (see <content styleCode="bold">
+                              <linkHtml href="#LINK_24f92643-91eb-447f-a124-50ba66999741">CLINICAL PHARMACOLOGY, Specific Populations</linkHtml>
+                           </content> subsection).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_8fe8b5c0-a91c-4fde-adce-282560eb251c">
+                     <id root="2c3e1214-7c1a-4e83-a198-f05b788012ec"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Kidney Stones:</title>
+                     <text>
+                        <paragraph>Among 991 patients treated during the development of ZONEGRAN, 40 patients (4.0%) with epilepsy receiving ZONEGRAN developed clinically possible or confirmed kidney stones (e.g., clinical symptomatology, sonography, etc.), a rate of 34 per 1000 patient-years of exposure (40 patients with 1168 years of exposure). Of these, 12 were symptomatic, and 28 were described as possible kidney stones based on sonographic detection. In nine patients, the diagnosis was confirmed by a passage of a stone or by a definitive sonographic finding. The rate of occurrence of kidney stones was 28.7 per 1000 patient-years of exposure in the first six months, 62.6 per 1000 patient-years of exposure between 6 and 12 months, and 24.3 per 1000 patient-years of exposure after 12 months of use. There are no normative sonographic data available for either the general population or patients with epilepsy. Although the clinical significance of the sonographic findings may not be certain, the development of nephrolithiasis may be related to metabolic acidosis (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection). The analyzed stones were composed of calcium or urate salts. In general, increasing fluid intake and urine output can help reduce the risk of stone formation, particularly in those with predisposing risk factors. It is unknown, however, whether these measures will reduce the risk of stone formation in patients treated with ZONEGRAN.</paragraph>
+                        <paragraph>Although not approved in pediatric patients, sonographic findings consistent with nephrolithiasis were also detected in 8% of a subset of ZONEGRAN treated pediatric patients who had at least one renal ultrasound prospectively performed in a clinical development program investigating open-label treatment. The incidence of kidney stone as an adverse event was 3% (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_aa73c734-6e0c-476c-99b4-39b8d3e7ad9f">
+                     <id root="8376d152-716d-49b7-9d74-6285a238a567"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Effect on Renal Function:</title>
+                     <text>
+                        <paragraph>In several clinical studies, zonisamide was associated with a statistically significant 8% mean increase from baseline of serum creatinine and blood urea nitrogen (BUN) compared to essentially no change in the placebo patients. The increase appeared to persist over time but was not progressive; this has been interpreted as an effect on glomerular filtration rate (GFR). There were no episodes of unexplained acute renal failure in clinical development in the US, Europe, or Japan. The decrease in GFR appeared within the first 4 weeks of treatment. In a 30-day study, the GFR returned to baseline within 2–3 weeks of drug discontinuation. There is no information about reversibility, after drug discontinuation, of the effects on GFR after long-term use. ZONEGRAN should be discontinued in patients who develop acute renal failure or a clinically significant sustained increase in the creatinine/BUN concentration. ZONEGRAN should not be used in patients with renal failure (estimated GFR &lt; 50 mL/min) as there has been insufficient experience concerning drug dosing and toxicity.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_c97aaa86-b59f-4102-9c6c-ecba71bedbed">
+                     <id root="98a0ab76-e80a-41f9-a7e5-d1bf3531ffe0"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Status Epilepticus:</title>
+                     <text>
+                        <paragraph>Estimates of the incidence of treatment emergent status epilepticus in ZONEGRAN treated patients are difficult because a standard definition was not employed. Nonetheless, in controlled trials, 1.1% of patients treated with ZONEGRAN had an event labeled as status epilepticus compared to none of the patients treated with placebo. Among patients treated with ZONEGRAN across all epilepsy studies (controlled and uncontrolled), 1.0% of patients had an event reported as status epilepticus.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_65e848d8-0e51-4d60-a8e4-88363e83d70e">
+                     <id root="18b849eb-431a-41f7-871b-bfebcb7cbb60"/>
+                     <code code="34076-0" codeSystem="2.16.840.1.113883.6.1" displayName="INFORMATION FOR PATIENTS SECTION"/>
+                     <title>Information for Patients:</title>
+                     <text>
+                        <paragraph>Inform patients of the availability of a Medication Guide, and instruct them to read the Medication Guide prior to taking ZONEGRAN.  Instruct patients to take ZONEGRAN only as prescribed.<br/>   </paragraph>
+                        <paragraph>Advise patients as follows: (See Medication Guide)</paragraph>
+                        <list listType="ordered" styleCode="Arabic">
+                           <item>ZONEGRAN may produce drowsiness, especially at higher doses. Patients should be advised not to drive a car or operate other complex machinery until they have gained experience on ZONEGRAN sufficient to determine whether it affects their performance. Because of the potential of zonisamide to cause CNS depression, as well as other cognitive and/or neuropsychiatric adverse events, ZONEGRAN should be used with caution if used in combination with alcohol or other CNS depressants.</item>
+                           <item>Patients should contact their physicians immediately if a skin rash develops (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_39c6f6c5-7527-4c7b-8335-bcfe4cf90125">WARNINGS, Serious Skin Reactions</linkHtml>
+                              </content> subsection).</item>
+                           <item>Instruct patients to seek immediate medical attention if they experience blurred vision, visual disturbances, or periorbital pain (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.10">WARNINGS, Acute Myopia and Secondary Angle Closure Glaucoma</linkHtml>
+                              </content> subsection).</item>
+                           <item>Patients should contact their physician immediately if they develop signs or symptoms, such as sudden back pain, abdominal pain, and/or blood in the urine, that could indicate a kidney stone. Increasing fluid intake and urine output may reduce the risk of stone formation, particularly in those with predisposing risk factors for stones (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_8fe8b5c0-a91c-4fde-adce-282560eb251c">PRECAUTIONS, Kidney Stones</linkHtml>
+                              </content> subsection).</item>
+                           <item>Patients should contact their physician immediately if a child has been taking ZONEGRAN and is not sweating as usual with or without a fever (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_05445745-e4a9-45c4-b057-c570478a6d1f">WARNINGS, Oligohidrosis and Hyperthermia in Pediatric Patients</linkHtml>
+                              </content> subsection).</item>
+                           <item>Because zonisamide can cause hematological complications, patients should contact their physician immediately if they develop a fever, sore throat, oral ulcers, or easy bruising (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_5468cf26-95a1-4070-96a0-71698d692fc7">WARNINGS, Serious Hematologic Events</linkHtml>
+                              </content> subsection).</item>
+                           <item>Counsel patients and caregivers that AEDs, including ZONEGRAN, may increase the risk of suicidal thoughts and behavior and advise them of the need to be alert for the emergence or worsening of symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm.  Behaviors of concern should be reported immediately to healthcare providers (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_3f0ecc43-0c67-4893-8113-ea937e66cffc">WARNINGS, Suicidal Behavior and Ideation</linkHtml>
+                              </content> subsection).</item>
+                           <item>Warn patients about the possible development of hyperammonemia with or without encephalopathy. Although hyperammonemia may be asymptomatic, clinical symptoms of hyperammonemic encephalopathy often include acute alterations in level of consciousness and/or cognitive function with lethargy and/or vomiting. Instruct patients to contact their physician if they develop unexplained lethargy, vomiting, or changes in mental status (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.11">WARNINGS, Hyperammonemia and Encephalopathy</linkHtml>
+                              </content> subsection).</item>
+                           <item>Patients should contact their physician immediately if they develop fast breathing, fatigue/tiredness, loss of appetite, or irregular heart beat or palpitations, which are possible manifestations of metabolic acidosis (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                              </content> subsection).</item>
+                           <item>As with other AEDs, patients should contact their physician if they intend to become pregnant or are pregnant during ZONEGRAN therapy. Patients should notify their physician if they intend to breast-feed or are breast-feeding an infant (see <content styleCode="bold">
+                                 <content styleCode="bold">
+                                    <linkHtml href="#LINK_270ebb86-b1f1-465b-b4f9-bb6c92223636">PRECAUTIONS, Use in Nursing Mothers</linkHtml>
+                                 </content>  </content>subsection).</item>
+                           <item>Encourage patients to enroll in the North American Antiepileptic Drug (NAAED) Pregnancy Registry if they become pregnant.  This registry is collecting information about the safety of antiepileptic drugs during pregnancy.  To enroll, patients can call the toll-free number 1-888-233-2334 (see <content styleCode="bold">
+                                 <linkHtml href="#LINK_cf83ae51-d30a-483c-a38c-6968b5bcb0f3">PRECAUTIONS, Pregnancy</linkHtml>
+                              </content> subsection).</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_f784420c-7f9d-4867-924a-673d141b02e0">
+                     <id root="55d59b05-8196-4e37-a97c-f274f77aee78"/>
+                     <code code="34075-2" codeSystem="2.16.840.1.113883.6.1" displayName="LABORATORY TESTS SECTION"/>
+                     <title>Laboratory Tests:</title>
+                     <text>
+                        <paragraph>In several clinical studies, zonisamide was associated with a mean increase in the concentration of serum creatinine and blood urea nitrogen (BUN) of approximately 8% over the baseline measurement. Consideration should be given to monitoring renal function periodically (see <content styleCode="bold">
+                              <linkHtml href="#LINK_aa73c734-6e0c-476c-99b4-39b8d3e7ad9f">PRECAUTIONS, Effect on Renal Function</linkHtml>
+                           </content> subsection).</paragraph>
+                        <paragraph>Zonisamide increases serum chloride and alkaline phosphatase and decreases serum bicarbonate (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection), phosphorus, calcium, and albumin.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_9927967c-8828-4216-8d99-4fa48caed09c">
+                     <id root="7d0217cb-01c1-4cd6-bcbd-ffa289cb0e77"/>
+                     <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="italics">Drug Interactions with CNS Depressants:</content> Concomitant administration of ZONEGRAN and alcohol or other CNS depressant drugs has not been evaluated in clinical studies. Because of the potential of zonisamide to cause CNS depression, as well as other cognitive and/or neuropsychiatric adverse events, zonisamide should be used with caution if used in combination with alcohol or other CNS depressants.</paragraph>
+                        <paragraph>
+                           <content styleCode="italics">Other Carbonic Anhydrase Inhibitors:</content> Concomitant use of ZONEGRAN, a carbonic anhydrase inhibitor, with any other carbonic anhydrase inhibitor (e.g., topiramate, acetazolamide or dichlorphenamide), may increase the severity of metabolic acidosis and may also increase the risk of kidney stone formation or the risk of hyperammonemia. Therefore, if ZONEGRAN is given concomitantly with another carbonic anhydrase inhibitor, the patient should be monitored for the appearance or worsening of metabolic acidosis (see <content styleCode="bold">
+                              <linkHtml href="#LINK_24f92643-91eb-447f-a124-50ba66999741">CLINICAL PHARMACOLOGY, Interactions of Zonisamide with Other Carbonic Anhydrase Inhibitors</linkHtml>
+                           </content> subsection and <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection and <content styleCode="bold">
+                              <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.11">Hyperammonemia and Encephalopathy</linkHtml>
+                           </content> subsection).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_ca8a7e54-dd23-4013-87ce-6d39206e9942">
+                     <id root="9839af25-4965-40a1-8599-b4724cfd1ec7"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>Carcinogenicity, Mutagenesis, Impairment of Fertility:</title>
+                     <text>
+                        <paragraph>No evidence of carcinogenicity was found in mice or rats following dietary administration of zonisamide for two years at doses of up to 80 mg/kg/day. In mice, this dose is approximately equivalent to the maximum recommended human dose (MRHD) of 400 mg/day on a mg/m<sup>2</sup> basis. In rats, this dose is 1–2 times the MRHD on a mg/m<sup>2</sup> basis.</paragraph>
+                        <paragraph>Zonisamide was mutagenic in an in vitro chromosomal aberration assay in CHL cells. Zonisamide was not mutagenic or clastogenic in other in vitro assays (Ames, mouse lymphoma tk assay, chromosomal aberration in human lymphocytes) or in the in vivo rat bone marrow cytogenetics assay.</paragraph>
+                        <paragraph>Rats treated with zonisamide (20, 60, or 200 mg/kg) before mating and during the initial gestation phase showed signs of reproductive toxicity (decreased corpora lutea, implantations, and live fetuses) at all doses. The low dose in this study is approximately 0.5 times the maximum recommended human dose (MRHD) on a mg/m<sup>2</sup> basis.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_cf83ae51-d30a-483c-a38c-6968b5bcb0f3">
+                     <id root="9964eed8-bc08-4010-894c-f4bfd8373e03"/>
+                     <code code="42228-7" codeSystem="2.16.840.1.113883.6.1" displayName="PREGNANCY SECTION"/>
+                     <text>
+                        <paragraph>
+                           <content styleCode="bold">Pregnancy:</content> (see <content styleCode="bold">
+                              <linkHtml href="#LINK_9f0d9cb2-6092-43d9-bd08-0302bc18301d">WARNINGS, Teratogenicity</linkHtml>
+                           </content> subsection):</paragraph>
+                        <paragraph>Zonisamide may cause serious adverse fetal effects, based on clinical and nonclinical data. Zonisamide was teratogenic in multiple animal species.</paragraph>
+                        <paragraph>Zonisamide treatment causes metabolic acidosis in humans. The effect of zonisamide-induced metabolic acidosis has not been studied in pregnancy; however, metabolic acidosis in pregnancy (due to other causes) may be associated with decreased fetal growth, decreased fetal oxygenation, and fetal death, and may affect the fetus's ability to tolerate labor. Pregnant patients should be monitored for metabolic acidosis and treated as in the non-pregnant state. (See <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection.)</paragraph>
+                        <paragraph>Newborns of mothers treated with zonisamide should be monitored for metabolic acidosis because of transfer of zonisamide to the fetus and possible occurrence of transient metabolic acidosis following birth. Transient metabolic acidosis has been reported in neonates born to mothers treated during pregnancy with a different carbonic anhydrase inhibitor.</paragraph>
+                        <paragraph>Zonisamide was teratogenic in mice, rats, and dogs and embryolethal in monkeys when administered during the period of organogenesis. Fetal abnormalities or embryo-fetal deaths occurred in these species at zonisamide dosage and maternal plasma levels similar to or lower than therapeutic levels in humans, indicating that use of this drug in pregnancy entails a significant risk to the fetus. A variety of external, visceral, and skeletal malformations was produced in animals by prenatal exposure to zonisamide. Cardiovascular defects were prominent in both rats and dogs.</paragraph>
+                        <paragraph>Following administration of zonisamide (10, 30, or 60 mg/kg/day) to pregnant dogs during organogenesis, increased incidences of fetal cardiovascular malformations (ventricular septal defects, cardiomegaly, various valvular and arterial anomalies) were found at doses of 30 mg/kg/day or greater. The low effect dose for malformations produced peak maternal plasma zonisamide levels (25 μg/mL) about 0.5 times the highest plasma levels measured in patients receiving the maximum recommended human dose (MRHD) of 400 mg/day. In dogs, cardiovascular malformations were found in approximately 50% of all fetuses exposed to the high dose, which was associated with maternal plasma levels (44 μg/mL) approximately equal to the highest levels measured in humans receiving the MRHD. Incidences of skeletal malformations were also increased at the high dose, and fetal growth retardation and increased frequencies of skeletal variations were seen at all doses in this study. The low dose produced maternal plasma levels (12 μg/mL) about 0.25 times the highest human levels.</paragraph>
+                        <paragraph>In cynomolgus monkeys, administration of zonisamide (10 or 20 mg/kg/day) to pregnant animals during organogenesis resulted in embryo-fetal deaths at both doses. The possibility that these deaths were due to malformations cannot be ruled out. The lowest embryolethal dose in monkeys was associated with peak maternal plasma zonisamide levels (5 μg/mL) approximately 0.1 times the highest levels measured in patients at the MRHD.</paragraph>
+                        <paragraph>In a mouse embryo-fetal development study, treatment of pregnant animals with zonisamide (125, 250, or 500 mg/kg/day) during the period of organogenesis resulted in increased incidences of fetal malformations (skeletal and/or craniofacial defects) at all doses tested. The low dose in this study is approximately 1.5 times the MRHD on a mg/m<sup>2</sup> basis. In rats, increased frequencies of malformations (cardiovascular defects) and variations (persistent cords of thymic tissue, decreased skeletal ossification) were observed among the offspring of dams treated with zonisamide (20, 60, or 200 mg/kg/day) throughout organogenesis at all doses. The low effect dose is approximately 0.5 times the MRHD on a mg/m<sup>2</sup> basis.</paragraph>
+                        <paragraph>Perinatal death was increased among the offspring of rats treated with zonisamide (10, 30, or 60 mg/kg/day) from the latter part of gestation up to weaning at the high dose, or approximately 1.4 times the MRHD on a mg/m<sup>2</sup> basis. The no effect level of 30 mg/kg/day is approximately 0.7 times the MRHD on a mg/m<sup>2</sup> basis.</paragraph>
+                        <paragraph>There are no adequate and well-controlled studies in pregnant women. ZONEGRAN should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus.</paragraph>
+                        <paragraph>To provide information regarding the effects of in utero exposure to ZONEGRAN, physicians are advised to recommend that pregnant patients taking ZONEGRAN enroll in the NAAED Pregnancy Registry. This can be done by calling the toll free number 1-888-233-2334, and must be done by patients themselves. Information on the registry can also be found at the website http://www.aedpregnancyregistry.org/.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_9ad56953-dc73-40a3-a718-58ce4dbe0a0d">
+                     <id root="fc79b3d4-bb77-438e-b012-cebdd3b208b3"/>
+                     <code code="34079-4" codeSystem="2.16.840.1.113883.6.1" displayName="LABOR &amp; DELIVERY SECTION"/>
+                     <title>Labor and Delivery:</title>
+                     <text>
+                        <paragraph>The effects of ZONEGRAN on labor and delivery in humans are unknown.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_270ebb86-b1f1-465b-b4f9-bb6c92223636">
+                     <id root="581e26f4-a5b5-4b7d-b2e2-8e9afbb87039"/>
+                     <code code="34080-2" codeSystem="2.16.840.1.113883.6.1" displayName="NURSING MOTHERS SECTION"/>
+                     <title>Use in Nursing Mothers:</title>
+                     <text>
+                        <paragraph>Zonisamide is excreted in human milk. Because of the potential for serious adverse reactions in nursing infants from ZONEGRAN, a decision should be made whether to discontinue nursing or to discontinue drug, taking into account the importance of the drug to the mother.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_6a3f8ed1-8244-42a9-98b4-67c9fcfae206">
+                     <id root="57059e8e-ec2b-4bfe-be50-f2d63212bea6"/>
+                     <code code="34081-0" codeSystem="2.16.840.1.113883.6.1" displayName="PEDIATRIC USE SECTION"/>
+                     <title>Pediatric Use:</title>
+                     <text>
+                        <paragraph>The safety and effectiveness of ZONEGRAN in children under age 16 have not been established. Acute myopia and secondary angle closure glaucoma have been reported in pediatric patients (see <content styleCode="bold">
+                              <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.10">WARNINGS, Acute Myopia and Secondary Angle Closure Glaucoma</linkHtml>
+                           </content>  subsection). Cases of oligohidrosis and hyperpyrexia have been reported (see <content styleCode="bold">
+                              <linkHtml href="#LINK_05445745-e4a9-45c4-b057-c570478a6d1f">WARNINGS, Oligohidrosis and Hyperthermia in Pediatric Patients</linkHtml>
+                           </content> subsection). Zonisamide commonly causes metabolic acidosis in pediatric patients (see <content styleCode="bold">
+                              <linkHtml href="#LINK_4372e117-5cbe-4253-a820-f793165a6c10">WARNINGS, Metabolic Acidosis</linkHtml>
+                           </content> subsection).  Hyperammonemia with encephalopathy has been reported in pediatric patients (see <content styleCode="bold">
+                              <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb.11">WARNINGS, Hyperammonemia and Encephalopathy</linkHtml>
+                           </content> subsection). Chronic untreated metabolic acidosis in pediatric patients may cause nephrolithiasis and/or nephrocalcinosis, osteoporosis and/or osteomalacia (potentially resulting in rickets), and may reduce growth rates.  A reduction in growth rate may eventually decrease the maximal height achieved. The effect of zonisamide on growth and bone-related sequelae has not been systematically investigated.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_127d4154-b738-4708-be6d-fcaf7d0363b2">
+                     <id root="63f040eb-4fc0-4e74-b1f9-6b4488db784e"/>
+                     <code code="34082-8" codeSystem="2.16.840.1.113883.6.1" displayName="GERIATRIC USE SECTION"/>
+                     <title>Geriatric Use:</title>
+                     <text>
+                        <paragraph>Single dose pharmacokinetic parameters are similar in elderly and young healthy volunteers (see <content styleCode="bold">
+                              <linkHtml href="#LINK_24f92643-91eb-447f-a124-50ba66999741">CLINICAL PHARMACOLOGY, Specific Populations</linkHtml>
+                           </content> subsection). Clinical studies of zonisamide did not include sufficient numbers of subjects aged 65 and over to determine whether they respond differently from younger subjects. Other reported clinical experience has not identified differences in responses between the elderly and younger patients. In general, dose selection for an elderly patient should be cautious, usually starting at the low end of the dosing range, reflecting the greater frequency of decreased hepatic, renal, or cardiac function, and of concomitant disease or other drug therapy.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_f8aeca03-ae5c-4f9f-b233-78bee6146c1e">
+               <id root="9b302cc0-f890-4c3d-9353-4827e4006a2e"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>ADVERSE REACTIONS</title>
+               <text>
+                  <paragraph>The most common adverse reactions with ZONEGRAN (an incidence at least 4% greater than placebo) in controlled clinical trials and shown in descending order of frequency were somnolence, anorexia, dizziness, ataxia, agitation/irritability, and difficulty with memory and/or concentration.</paragraph>
+                  <paragraph>In controlled clinical trials, 12% of patients receiving ZONEGRAN as adjunctive therapy discontinued due to an adverse reaction compared to 6% receiving placebo. Approximately 21% of the 1,336 patients with epilepsy who received ZONEGRAN in clinical studies discontinued treatment because of an adverse reaction. The most common adverse reactions leading to discontinuation were somnolence, fatigue and/or ataxia (6%), anorexia (3%), difficulty concentrating (2%), difficulty with memory, mental slowing, nausea/vomiting (2%), and weight loss (1%). Many of these adverse reactions were dose-related (see <content styleCode="bold">
+                        <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb">WARNINGS</linkHtml>
+                     </content> and <content styleCode="bold">
+                        <linkHtml href="#LINK_59cfd380-4338-4cf5-900e-3cf6b715e9b1">PRECAUTIONS</linkHtml>
+                     </content>).</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_15adbb5c-7e22-42f2-b23b-9c7caf91b2fd">
+                     <id root="c2e0b193-1c7c-4b05-b6f0-de73d08b4469"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Adverse Reaction Incidence in Controlled Clinical Trials:</title>
+                     <text>
+                        <paragraph>Table 4 lists adverse reactions that occurred in at least 2% of patients treated with ZONEGRAN in controlled clinical trials that were numerically more common in the ZONEGRAN group. In these studies, either ZONEGRAN or placebo was added to the patient's current AED therapy.</paragraph>
+                        <table cellspacing="0" cellpadding="0" border="0" width="884">
+                           <caption>Table 4. Adverse Reactions in Placebo-Controlled, Add-On Trials (Events that occurred in at least 2% of ZONEGRAN-treated patients and occurred more frequently in ZONEGRAN-treated than placebo-treated patients)  
+			</caption>
+                           <colgroup/>
+                           <tbody>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">BODY SYSTEM/PREFERRED TERM</content>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">
+                                    <content styleCode="bold">ZONEGRAN</content>
+                                    <br/>
+                                    <content styleCode="bold">(n=269)</content>
+                                    <br/>
+                                    <content styleCode="bold">%</content>
+                                    <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top">
+                                    <content styleCode="bold">PLACEBO</content>
+                                    <br/>
+                                    <content styleCode="bold">(n=230)</content>
+                                    <br/>
+                                    <content styleCode="bold">%</content>
+                                    <br/>
+                                 </td>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">BODY AS A WHOLE</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Headache</td>
+                                 <td styleCode="Rrule" valign="top">       10</td>
+                                 <td styleCode="Rrule" align="center" valign="top">8<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Abdominal Pain</td>
+                                 <td styleCode="Rrule" valign="top">        6</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 3<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Flu Syndrome</td>
+                                 <td styleCode="Rrule" valign="top">        4</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 3<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">DIGESTIVE</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Anorexia</td>
+                                 <td styleCode="Rrule" valign="top">       13</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 6 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Nausea</td>
+                                 <td styleCode="Rrule" valign="top">         9</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 6 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Diarrhea</td>
+                                 <td styleCode="Rrule" valign="top">         5</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  2  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Dyspepsia</td>
+                                 <td styleCode="Rrule" valign="top">         3</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  1  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Constipation</td>
+                                 <td styleCode="Rrule" valign="top">         2</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 1 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Dry Mouth</td>
+                                 <td styleCode="Rrule" valign="top">         2</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 1 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">HEMATOLOGIC AND LYMPHATIC</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Ecchymosis</td>
+                                 <td styleCode="Rrule" valign="top">         2</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 1<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">METABOLIC AND NUTRITIONAL</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Weight Loss</td>
+                                 <td styleCode="Rrule" valign="top">         3</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 2 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">NERVOUS SYSTEM</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Dizziness</td>
+                                 <td styleCode="Rrule" valign="top">        13</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  7  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Ataxia</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">1  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Nystagmus</td>
+                                 <td styleCode="Rrule" valign="top">          4</td>
+                                 <td styleCode="Rrule" align="center" valign="top">2 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Paresthesia</td>
+                                 <td styleCode="Rrule" valign="top">          4</td>
+                                 <td styleCode="Rrule" align="center" valign="top">1  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">NEUROPSYCHIATRIC AND COGNITIVE DYSFUNCTION-ALTERED COGNITIVE FUNCTION</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top">
+                                    <content styleCode="bold"/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Confusion</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">3  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Difficulty Concentrating</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">2  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Difficulty with Memory</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">2  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Mental Slowing</td>
+                                 <td styleCode="Rrule" valign="top">          4</td>
+                                 <td styleCode="Rrule" align="center" valign="top">2  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold"> NEUROPSYCHIATRIC AND COGNITIVE DYSFUNCTION-BEHAVIORAL ABNORMALITIES (NON-PSYCHOSIS-RELATED)</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top">
+                                    <content styleCode="bold"/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Agitation/Irritability</td>
+                                 <td styleCode="Rrule" valign="top">          9</td>
+                                 <td styleCode="Rrule" align="center" valign="top">4  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Depression</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">3 <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Insomnia</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top">3  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Anxiety</td>
+                                 <td styleCode="Rrule" valign="top">          3</td>
+                                 <td styleCode="Rrule" align="center" valign="top">2  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Nervousness</td>
+                                 <td styleCode="Rrule" valign="top">          2</td>
+                                 <td styleCode="Rrule" align="center" valign="top">1  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold"> NEUROPSYCHIATRIC AND COGNITIVE DYSFUNCTION-BEHAVIORAL ABNORMALITIES (PSYCHOSIS-RELATED)</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top">
+                                    <content styleCode="bold"/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Schizophrenic/Schizophreniform Behavior</td>
+                                 <td styleCode="Rrule" valign="top">          2</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 0<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold"> NEUROPSYCHIATRIC AND COGNITIVE DYSFUNCTION-CNS DEPRESSION</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top">
+                                    <content styleCode="bold"/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Somnolence</td>
+                                 <td styleCode="Rrule" valign="top">         17</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  7  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Fatigue</td>
+                                 <td styleCode="Rrule" valign="top">          8</td>
+                                 <td styleCode="Rrule" align="center" valign="top">6  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Tiredness</td>
+                                 <td styleCode="Rrule" valign="top">          7</td>
+                                 <td styleCode="Rrule" align="center" valign="top">5  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold"> NEUROPSYCHIATRIC AND COGNITIVE DYSFUNCTION-SPEECH AND LANGUAGE ABNORMALITIES</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top">
+                                    <content styleCode="bold"/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Speech Abnormalities</td>
+                                 <td styleCode="Rrule" valign="top">          5</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 2<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Difficulties in Verbal Expression</td>
+                                 <td styleCode="Rrule" valign="top">          2</td>
+                                 <td styleCode="Rrule" align="center" valign="top">&lt;1  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold"> RESPIRATORY</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Rhinitis</td>
+                                 <td styleCode="Rrule" valign="top">          2</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  1<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">SKIN AND APPENDAGES</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Rash</td>
+                                 <td styleCode="Rrule" valign="top">          3</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  2<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top">
+                                    <content styleCode="bold">SPECIAL SENSES</content>
+                                 </td>
+                                 <td styleCode="Rrule" valign="top"/>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr styleCode="Botrule">
+                                 <td styleCode="Lrule Rrule" valign="top"> Diplopia</td>
+                                 <td styleCode="Rrule" valign="top">          6</td>
+                                 <td styleCode="Rrule" align="center" valign="top"> 3<br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Lrule Rrule" valign="top"> Taste Perversion</td>
+                                 <td styleCode="Rrule" valign="top">          2</td>
+                                 <td styleCode="Rrule" align="center" valign="top">  0  <br/>
+                                 </td>
+                                 <td styleCode="Rrule" align="center" valign="top"/>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_a3f16c70-da86-4bcb-9376-bc9fdb34e2ec">
+                     <id root="ef78d964-2565-4dbf-bf23-feb98e982cc8"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Other Adverse Reactions in Clinical Trials:</title>
+                     <text>
+                        <paragraph>ZONEGRAN has been administered to 1,598 individuals during all clinical trials, only some of which were placebo-controlled. The frequencies represent the proportion of the 1,598 individuals exposed to ZONEGRAN who experienced an event on at least one occasion. All events are included except those already listed in the previous table or discussed in <content styleCode="bold">
+                              <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb">WARNINGS</linkHtml>
+                           </content> or <content styleCode="bold">
+                              <linkHtml href="#LINK_59cfd380-4338-4cf5-900e-3cf6b715e9b1">PRECAUTIONS</linkHtml>
+                           </content>, trivial events, those too general to be informative, and those not reasonably associated with ZONEGRAN.</paragraph>
+                        <paragraph>Events are further classified within each category and listed in order of decreasing frequency as follows: <content styleCode="underline">frequent</content> occurring in at least 1:100 patients; <content styleCode="underline">infrequent</content> occurring in 1:100 to 1:1000 patients; <content styleCode="underline">rare</content> occurring in fewer than 1:1000 patients.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Body as a Whole:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Accidental injury, asthenia. <content styleCode="italics">Infrequent:</content> Chest pain, flank pain, malaise, allergic reaction, face edema, neck rigidity. <content styleCode="italics">Rare:</content> Lupus erythematosus.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Cardiovascular:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Palpitation, tachycardia, vascular insufficiency, hypotension, hypertension, thrombophlebitis, syncope, bradycardia. <content styleCode="italics">Rare:</content> Atrial fibrillation, heart failure, pulmonary embolus, ventricular extrasystoles.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Digestive:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Vomiting. <content styleCode="italics">Infrequent:</content> Flatulence, gingivitis, gum hyperplasia, gastritis, gastroenteritis, stomatitis, cholelithiasis, glossitis, melena, rectal hemorrhage, ulcerative stomatitis, gastro-duodenal ulcer, dysphagia, gum hemorrhage. <content styleCode="italics">Rare:</content> Cholangitis, hematemesis, cholecystitis, cholestatic jaundice, colitis, duodenitis, esophagitis, fecal incontinence, mouth ulceration.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Hematologic and Lymphatic:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Leukopenia, anemia, immunodeficiency, lymphadenopathy. <content styleCode="italics">Rare:</content> Thrombocytopenia, microcytic anemia, petechia.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Metabolic and Nutritional:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Peripheral edema, weight gain, edema, thirst, dehydration. <content styleCode="italics">Rare:</content> Hypoglycemia, hyponatremia, lactic dehydrogenase increased, SGOT increased, SGPT increased.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Musculoskeletal:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Leg cramps, myalgia, myasthenia, arthralgia, arthritis.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Nervous System:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Tremor, convulsion, abnormal gait, hyperesthesia, incoordination. <content styleCode="italics">Infrequent:</content> Hypertonia, twitching, abnormal dreams, vertigo, libido decreased, neuropathy, hyperkinesia, movement disorder, dysarthria, cerebrovascular accident, hypotonia, peripheral neuritis, reflexes increased. <content styleCode="italics">Rare:</content> Dyskinesia, dystonia, encephalopathy, facial paralysis, hypokinesia, hyperesthesia, myoclonus, oculogyric crisis.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Behavioral Abnormalities –Non-Psychosis-Related:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Euphoria.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Respiratory:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Pharyngitis, cough increased. <content styleCode="italics">Infrequent</content>: Dyspnea. <content styleCode="italics">Rare:</content> Apnea, hemoptysis.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Skin and Appendages:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Pruritus. <content styleCode="italics">Infrequent:</content> Maculopapular rash, acne, alopecia, dry skin, sweating, eczema, urticaria, hirsutism, pustular rash, vesiculobullous rash.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Special Senses:</content>
+                           </content>
+                           <content styleCode="italics"> Frequent:</content> Amblyopia, tinnitus. <content styleCode="italics">Infrequent:</content> Conjunctivitis, parosmia, deafness, visual field defect, glaucoma. <content styleCode="italics">Rare:</content> Photophobia, iritis.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">
+                              <content styleCode="underline">Urogenital:</content>
+                           </content>
+                           <content styleCode="italics"> Infrequent:</content> Urinary frequency, dysuria, urinary incontinence, hematuria, impotence, urinary retention, urinary urgency, amenorrhea, polyuria, nocturia. <content styleCode="italics">Rare:</content> Albuminuria, enuresis, bladder pain, bladder calculus, gynecomastia, mastitis, menorrhagia.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_dc7e9ddd-bf0e-4407-b0dd-52ccff3654ef">
+               <id root="f5129eaa-e31c-4fb2-b6ca-ee73fad4c3ba"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <title>POST MARKETING EXPERIENCE</title>
+               <text>
+                  <paragraph>The following serious adverse reactions have been reported since approval and use of ZONEGRAN worldwide. These reactions are reported voluntarily from a population of uncertain size; therefore, it is not possible to estimate their frequency or establish a causal relationship to drug exposure.</paragraph>
+                  <paragraph>Acute pancreatitis, rhabdomyolysis, increased creatine phosphokinase, drug reaction with eosinophilia and systemic symptoms (DRESS), acute myopia and secondary angle closure glaucoma, and hyperammonemia and encephalopathy (see <content styleCode="bold">
+                        <linkHtml href="#LINK_bd1161d2-5a65-43a0-894c-9693b7389bcb">WARNINGS</linkHtml>
+                     </content>).</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact Advanz Pharma (US) Corp. at 1-877-370-1142 or the FDA at 1-800-FDA-1088<br/> or www.fda.gov/medwatch.</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_174816da-3f4d-4a96-b784-64d77f0c128a">
+               <id root="80e3b362-ec3e-4299-aec2-8e22ea72621b"/>
+               <code code="42227-9" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG ABUSE AND DEPENDENCE SECTION"/>
+               <title>DRUG ABUSE AND DEPENDENCE</title>
+               <text>
+                  <paragraph>The abuse and dependence potential of ZONEGRAN has not been evaluated in human studies (see <content styleCode="bold">
+                        <linkHtml href="#LINK_5efefca3-c872-426d-abb2-51090210bf4e">WARNINGS, Cognitive/Neuropsychiatric Adverse Events</linkHtml>
+                     </content> subsection). In a series of animal studies, zonisamide did not demonstrate abuse liability and dependence potential. Monkeys did not self-administer zonisamide in a standard reinforcing paradigm. Rats exposed to zonisamide did not exhibit signs of physical dependence of the CNS-depressant type. Rats did not generalize the effects of diazepam to zonisamide in a standard discrimination paradigm after training, suggesting that zonisamide does not have abuse potential of the benzodiazepine-CNS depressant type.</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_c87cc9f4-0996-4573-8f30-b5b28bd85cf1">
+               <id root="f849a3a2-cfc6-44b7-a4c1-84a544160e89"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>OVERDOSAGE</title>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_ef21beb9-a78a-49c7-b64f-7c255c0d5d7e">
+                     <id root="f6360303-a63b-44cf-a909-d59c43e544c2"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Human Experience:</title>
+                     <text>
+                        <paragraph>Experience with ZONEGRAN daily doses over 800 mg/day is limited. During ZONEGRAN clinical development, three patients ingested unknown amounts of ZONEGRAN as suicide attempts, and all three were hospitalized with CNS symptoms. One patient became comatose and developed bradycardia, hypotension, and respiratory depression; the zonisamide plasma level was 100.1 μg/mL measured 31 hours post-ingestion. Zonisamide plasma levels fell with a half-life of 57 hours, and the patient became alert five days later.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_585b15af-0b0c-4808-b288-d0d8de48a022">
+                     <id root="be7ac793-0bcd-414a-9a17-85894202c7e2"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Management:</title>
+                     <text>
+                        <paragraph>No specific antidotes for ZONEGRAN overdosage are available. Following a suspected recent overdose, emesis should be induced or gastric lavage performed with the usual precautions to protect the airway. General supportive care is indicated, including frequent monitoring of vital signs and close observation.</paragraph>
+                        <paragraph>Zonisamide has a long half-life (see <content styleCode="bold">
+                              <linkHtml href="#LINK_239d72a4-9ad0-48ec-85c2-08cbf7641029">CLINICAL PHARMACOLOGY</linkHtml>
+                           </content> section). Due to the low protein binding of zonisamide (40%), renal dialysis may be effective. The effectiveness of renal dialysis as a treatment of overdose has not been formally studied. A poison control center should be contacted for information on the management of ZONEGRAN overdosage.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_a74b7fb2-de9c-410b-8530-e182abd302ea">
+               <id root="71e726f4-058c-46c9-804c-61cdab67f4e1"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>DOSAGE AND ADMINISTRATION</title>
+               <text>
+                  <paragraph>ZONEGRAN (zonisamide) is recommended as adjunctive therapy for the treatment of partial seizures in adults. Safety and efficacy in pediatric patients below the age of 16 have not been established. ZONEGRAN should be administered once or twice daily, using 25 mg or 100 mg capsules. ZONEGRAN is given orally and can be taken with or without food. Capsules should be swallowed whole.</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <section ID="LINK_058e54e6-fa1b-4d52-90d4-12ab2a394526">
+                     <id root="150bb391-07e3-47ee-b602-bc021e7e0977"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Adults over Age 16:</title>
+                     <text>
+                        <paragraph>The prescriber should be aware that, because of the long half-life of zonisamide, up to two weeks may be required to achieve steady state levels upon reaching a stable dose or following dosage adjustment. Although the regimen described below is one that has been shown to be tolerated, the prescriber may wish to prolong the duration of treatment at the lower doses in order to fully assess the effects of zonisamide at steady state, noting that many of the side effects of zonisamide are more frequent at doses of 300 mg per day and above. Although there is some evidence of greater response at doses above 100–200 mg/day, the increase appears small and formal dose-response studies have not been conducted.</paragraph>
+                        <paragraph>The initial dose of ZONEGRAN should be 100 mg daily. After two weeks, the dose may be increased to 200 mg/day for at least two weeks. It can be increased to 300 mg/day and 400 mg/day, with the dose stable for at least two weeks to achieve steady state at each level. Evidence from controlled trials suggests that ZONEGRAN doses of 100–600 mg/day are effective, but there is no suggestion of increasing response above 400 mg/day (see <content styleCode="bold">
+                              <linkHtml href="#LINK_afa32912-48b9-4763-b01a-59bb2fe41af4">CLINICAL PHARMACOLOGY, Clinical Studies</linkHtml>
+                           </content> subsection). There is little experience with doses greater than 600 mg/day.</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="LINK_d19f9c26-655e-432f-a64f-04fc80e14cba">
+                     <id root="e527f115-5099-41e3-ac3d-54ea07674541"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>Patients with Renal or Hepatic Disease:</title>
+                     <text>
+                        <paragraph>Because zonisamide is metabolized in the liver and excreted by the kidneys, patients with renal or hepatic disease should be treated with caution, and might require slower titration and more frequent monitoring (see <content styleCode="bold">
+                              <linkHtml href="#LINK_239d72a4-9ad0-48ec-85c2-08cbf7641029">CLINICAL PHARMACOLOGY</linkHtml>
+                           </content> and <content styleCode="bold">
+                              <linkHtml href="#LINK_59cfd380-4338-4cf5-900e-3cf6b715e9b1">PRECAUTIONS</linkHtml>
+                           </content>).</paragraph>
+                     </text>
+                     <effectiveTime value="20251001"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_059acfab-cba8-4f46-a6f6-a3365dc7dad2">
+               <id root="f989566e-7856-4f4e-8279-4659327ce326"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>HOW SUPPLIED</title>
+               <text>
+                  <paragraph>ZONEGRAN is available as 25 mg and 100 mg two-piece hard gelatin capsules. The capsules are printed in black with “ZONEGRAN 25” or “ZONEGRAN 100,” respectively. ZONEGRAN is available in bottles of 100 with strengths and colors as follows:</paragraph>
+                  <table cellspacing="0" cellpadding="0" border="0">
+                     <colgroup/>
+                     <tbody>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">
+                              <content styleCode="bold">Dosage Strength</content>
+                           </td>
+                           <td styleCode="Rrule" valign="middle">
+                              <content styleCode="bold">Capsule Colors</content>
+                           </td>
+                           <td styleCode="Rrule" valign="middle">
+                              <content styleCode="bold">NDC #</content>
+                           </td>
+                        </tr>
+                        <tr styleCode="Botrule">
+                           <td styleCode="Lrule Rrule" valign="middle">25 mg </td>
+                           <td styleCode="Rrule" valign="middle">White opaque body with white opaque cap. </td>
+                           <td styleCode="Rrule" valign="middle">59212-681-10 </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Lrule Rrule" valign="middle">100 mg </td>
+                           <td styleCode="Rrule" valign="middle">White opaque body with red opaque cap. </td>
+                           <td styleCode="Rrule" valign="middle">59212-680-10 </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <paragraph>Store at 25°C (77°F), excursions permitted to 15–30°C (59–86°F) [see USP Controlled Room Temperature], in a dry place and protected from light.</paragraph>
+                  <br/>
+                  <paragraph>Manufactured for:<br/> Advanz Pharma (US) Corp.<br/> Bannockburn, IL 60015</paragraph>
+                  <br/>
+                  <paragraph>ZONEGRAN® is a registered trademark of Mercury Pharma Group Limited in the United States and Puerto Rico.<br/> Distributed by Advanz Pharma (US) Corp. under license.</paragraph>
+                  <br/>
+                  <paragraph>Revised: 11/2023</paragraph>
+                  <br/>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_f5874df0-4809-47e9-bda7-8082d7684ac5">
+               <id root="5bf24087-9bff-4375-ba69-57f74448f1b8"/>
+               <code code="42231-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL MEDGUIDE SECTION"/>
+               <title>Medication Guide</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">ZONEGRAN<sup>®</sup> (ZO-nuh-gran)</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">(zonisamide) capsules</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What is the most important information I should know about ZONEGRAN?</content>
+                  </paragraph>
+                  <paragraph>ZONEGRAN may cause serious side effects, including:</paragraph>
+                  <list listType="ordered" styleCode="Arabic">
+                     <item>Serious skin rash that can cause death.</item>
+                     <item>Serious allergic reactions that may affect different parts of the body.</item>
+                     <item>Less sweating and increase in your body temperature (fever).</item>
+                     <item>Serious eye problems</item>
+                     <item>Suicidal thoughts or actions in some people.</item>
+                     <item>Increased level of acid in your blood (metabolic acidosis).</item>
+                     <item>Problems with your concentration, attention, memory, thinking, speech, or language.</item>
+                     <item>Blood cell changes such as reduced red and white blood cell counts.</item>
+                  </list>
+                  <paragraph>These serious side effects are described below.</paragraph>
+                  <list listType="ordered" styleCode="Arabic">
+                     <item>ZONEGRAN may cause a serious skin rash that can cause death. These serious skin reactions are more likely to happen when you begin taking ZONEGRAN within the first 4 months of treatment but may occur at later times.</item>
+                     <item>ZONEGRAN can cause other types of allergic reactions or serious problems that may affect different parts of the body such as your liver, kidneys, heart, or blood cells. You may or may not have a rash with these types of reactions. These reactions can be very serious and can cause death. Call your health care provider right away if you have:     <list listType="unordered" styleCode="disc">
+                           <item>fever</item>
+                           <item>severe muscle pain</item>
+                           <item>rash</item>
+                           <item>swollen lymph glands</item>
+                           <item>swelling of your face</item>
+                           <item>unusual bruising or bleeding</item>
+                           <item>weakness, fatigue</item>
+                           <item>yellowing of your skin or the white part of your eyes</item>
+                        </list>
+                     </item>
+                     <item>ZONEGRAN may cause you to sweat less and to increase your body temperature (fever). You may need to be hospitalized for this. You should watch for decreased sweating and fever, especially when it is hot and especially in children taking ZONEGRAN.<br/>     Call your health care provider right away if you have:     <list listType="unordered" styleCode="disc">
+                           <item>high fever, recurring fever, or long lasting fever</item>
+                           <item>less sweat than normal</item>
+                        </list>
+                     </item>
+                     <item>ZONEGRAN may cause eye problems. Serious eye problems include:<br/>     • sudden decrease in vision with or without eye pain and redness<br/>     • a blockage of fluid in the eye causing increased pressure in the eye (secondary angle closure glaucoma)<br/>     These eye problems can lead to permanent loss of vision if not treated.<br/>     Call your healthcare provider right away if you have any new eye symptoms, including any eye pain or redness or any new problems with your vision.</item>
+                     <item>Like other antiepileptic drugs, ZONEGRAN may cause suicidal thoughts or actions in a very small number of people, about 1 in 500.<br/>     Call a healthcare provider right away if you have any of these symptoms, especially if they are new, worse, or worry you:     <list listType="unordered" styleCode="disc">
+                           <item>thoughts about suicide or dying</item>
+                           <item>attempt to commit suicide</item>
+                           <item>new or worse depression</item>
+                           <item>new or worse anxiety</item>
+                           <item>feeling agitated or restless</item>
+                           <item>panic attacks</item>
+                           <item>trouble sleeping (insomnia)</item>
+                           <item>new or worse irritability</item>
+                           <item>acting aggressive, being angry, or violent</item>
+                           <item>acting on dangerous impulses</item>
+                           <item>an extreme increase in activity and talking (mania)</item>
+                           <item>other unusual changes in behavior or mood</item>
+                           <item>Suicidal thoughts or actions can be caused by things other than medicines. If you have suicidal thoughts or actions, your healthcare provider may check for other causes.</item>
+                        </list>     How can I watch for early symptoms of suicidal thoughts and actions?     <list listType="unordered" styleCode="disc">
+                           <item>Pay attention to any changes, especially sudden changes, in mood, behaviors, thoughts, or feelings.</item>
+                           <item>Keep all follow-up visits with your healthcare provider as scheduled.</item>
+                        </list>     Call your healthcare provider between visits as needed, especially if you are worried about symptoms.<br/>     Do not stop ZONEGRAN without first talking to a healthcare provider. <br/>     Stopping ZONEGRAN suddenly can cause serious problems. Stopping a seizure medicine suddenly in a patient who has epilepsy can cause seizures that will not stop (status epilepticus).</item>
+                     <item>ZONEGRAN can increase the level of acid in your blood (metabolic acidosis). If left untreated, metabolic acidosis can cause brittle or soft bones (osteoporosis, osteomalacia, osteopenia), kidney stones and can slow the rate of growth in children. Metabolic acidosis can happen with or without symptoms.<br/>     Sometimes people with metabolic acidosis will:     <list listType="unordered" styleCode="disc">
+                           <item>feel tired</item>
+                           <item>not feel hungry (loss of appetite)</item>
+                           <item>feel changes in heartbeat</item>
+                           <item>have trouble thinking clearly</item>
+                        </list>     Your healthcare provider should do a blood test to measure the level of acid in your blood before and during your treatment with ZONEGRAN.</item>
+                     <item>ZONEGRAN may cause problems with your concentration, attention, memory, thinking, speech, or language.</item>
+                     <item>ZONEGRAN can cause blood cell changes such as reduced red and white blood cell counts. Call your healthcare provider if you develop fever, sore throat, sores in your mouth, or unusual bruising.</item>
+                  </list>
+                  <paragraph>ZONEGRAN can have other serious side effects. For more information ask your healthcare provider or pharmacist. Tell your healthcare provider if you have any side effect that bothers you. Be sure to read the section titled "What are the possible side effects of ZONEGRAN?" </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What is ZONEGRAN?</content>
+                     <br/> ZONEGRAN is a prescription medicine that is used with other medicines to treat partial seizures in adults.<br/> It is not known if ZONEGRAN is safe or effective in children under 16 years of age.<br/>
+                     <br/>
+                     <content styleCode="bold">Do not take ZONEGRAN:</content>
+                     <br/> Do not take ZONEGRAN if you are allergic to medicines that contain sulfa.<br/>
+                     <content styleCode="bold">
+                        <br/> Before taking ZONEGRAN, tell your healthcare provider about all your medical conditions, including if you:</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>have or have had depression, mood problems or suicidal thoughts or behavior</item>
+                     <item>have kidney problems</item>
+                     <item>have liver problems</item>
+                     <item>have a history of metabolic acidosis (too much acid in your blood)</item>
+                     <item>have weak, brittle bones or soft bones (osteomalacia, osteopenia or osteoporosis)</item>
+                     <item>have a growth problem</item>
+                     <item>are on a diet high in fat called a ketogenic diet</item>
+                     <item>have diarrhea</item>
+                     <item>have high blood levels of ammonia</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Tell your healthcare provider if you:</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>are pregnant or plan to become pregnant. ZONEGRAN may harm your unborn baby. Women who can become pregnant should use effective birth control. Tell your healthcare provider right away if you become pregnant while taking ZONEGRAN.<br/>     You and your healthcare provider should decide if you should take ZONEGRAN while you are pregnant.<br/>     If you become pregnant while taking ZONEGRAN, talk to your healthcare provider about registering with the North American Antiepileptic Drug Pregnancy Registry. You can enroll in this registry by calling 1-888-233-2334. The purpose of this registry is to collect information about the safety of antiepileptic drugs during pregnancy.</item>
+                     <item>are breastfeeding or plan to breastfeed. ZONEGRAN can pass into your breast milk. It is not known if ZONEGRAN in your breast milk can harm your baby. Talk to your healthcare provider about the best way to feed your baby if you take ZONEGRAN.</item>
+                  </list>
+                  <paragraph>Tell your healthcare provider about all the medicines you take, including prescription and over-the-counter medicines, vitamins and herbal supplements.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">How should I take ZONEGRAN?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Take ZONEGRAN exactly as prescribed. Your healthcare prescriber may change your dose. Your healthcare provider will tell you how much ZONEGRAN to take.</item>
+                     <item>Take ZONEGRAN with or without food.</item>
+                     <item>Swallow the capsules whole.</item>
+                     <item>If you take too much ZONEGRAN, call your local Poison Control Center or go to the nearest emergency room right away.</item>
+                     <item>Do not stop taking ZONEGRAN without talking to your healthcare provider. Stopping ZONEGRAN suddenly can cause serious problems, including seizures that will not stop (status epilepticus).</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">What should I avoid while taking ZONEGRAN?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Do not drink alcohol or take other drugs that make you sleepy or dizzy while taking ZONEGRAN until you talk to your health care provider. ZONEGRAN taken with alcohol or drugs that cause sleepiness or dizziness may make your sleepiness or dizziness worse.</item>
+                     <item>Do not drive, operate heavy machinery, or do other dangerous activities until you know how ZONEGRAN affects you. ZONEGRAN can slow your thinking and motor skills.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">What are the possible side effects of ZONEGRAN?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">ZONEGRAN can cause serious side effects. See <linkHtml href="#LINK_f5874df0-4809-47e9-bda7-8082d7684ac5">"What is the most important information I should know about ZONEGRAN?"</linkHtml>
+                     </content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Other serious side effects include:</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>
+                        <content styleCode="bold">kidney stones.</content> Back pain, stomach pain, or blood in your urine may mean you have kidney stones. Drink plenty of fluids while you take ZONEGRAN to lower your chance of getting kidney stones.</item>
+                     <item>
+                        <content styleCode="bold">problems with mood or thinking</content> (new or worse depression; sudden changes in mood, behavior, or loss of contact with reality, sometimes associated with hearing voices or seeing things that are not really there; feeling sleepy or tired; trouble concentrating; speech and language problems). Call your healthcare provider right away if you have any of the symptoms listed above.</item>
+                     <item>
+                        <content styleCode="bold">high blood ammonia levels.</content> High ammonia in the blood can affect your mental activities, slow your alertness, make you feel tired, or cause vomiting.</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">The most common side effects of ZONEGRAN include:</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>drowsiness</item>
+                     <item>loss of appetite</item>
+                     <item>dizziness</item>
+                     <item>problems with concentration or memory</item>
+                     <item>trouble with walking and coordination</item>
+                     <item>agitation or irritability</item>
+                  </list>
+                  <paragraph>Side effects can happen at any time, but are more likely to happen during the first several weeks after starting ZONEGRAN.</paragraph>
+                  <paragraph>These are not all of the possible side effects of ZONEGRAN. Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA-1088.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">How should I store ZONEGRAN?</content>
+                  </paragraph>
+                  <list listType="unordered" styleCode="disc">
+                     <item>Store ZONEGRAN between 59°F to 86°F (15°C to 30°C)</item>
+                     <item>Keep ZONEGRAN dry and away from light</item>
+                  </list>
+                  <paragraph>
+                     <content styleCode="bold">Keep ZONEGRAN and all medicines out of the reach of children.</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">General Information about the safe and effective use of ZONEGRAN</content>
+                  </paragraph>
+                  <paragraph>Medicines are sometimes prescribed for purposes other than those listed in a Medication Guide. Do not use ZONEGRAN for a condition for which it was not prescribed. Do not give ZONEGRAN to other people, even if they have the same symptoms that you have. It may harm them. You can ask your pharmacist or healthcare provider for information about ZONEGRAN that is written for health professionals.</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">What are the ingredients in ZONEGRAN?</content>
+                  </paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Active ingredient:</content> zonisamide</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Inactive ingredients in ZONEGRAN 25 mg capsules</content>: microcrystalline cellulose, hydrogenated vegetable oil, sodium lauryl sulfate, gelatin, and titanium dioxide</paragraph>
+                  <paragraph>
+                     <content styleCode="bold">Inactive ingredients in ZONEGRAN 100 mg capsules</content>: microcrystalline cellulose, hydrogenated vegetable oil, sodium lauryl sulfate, gelatin, and titanium dioxide, FD&amp;C Red No. 40 and FD&amp;C Yellow No. 6 </paragraph>
+                  <br/>
+                  <paragraph>Manufactured for:<br/> Advanz Pharma (US) Corp.<br/> Bannockburn, IL 60015</paragraph>
+                  <paragraph>
+                     <br/> ZONEGRAN® is a registered trademark of Mercury Pharma Group Limited in the United States and Puerto Rico.<br/> Distributed by Advanz Pharma (US) Corp. under license.</paragraph>
+                  <paragraph>
+                     <br/> This Medication Guide has been approved by the U.S. Food and Drug Administration.</paragraph>
+                  <br/>
+                  <paragraph>Revised: November 2023</paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_48297fec-05f6-4ee4-be38-64622e067c2c">
+               <id root="7fd129aa-b366-4c3c-ad6c-89e6c569cbc1"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">PRINCIPAL DISPLAY PANEL - 25 mg Capsules</content>
+                  </paragraph>
+                  <paragraph>NDC 59212-681-10</paragraph>
+                  <paragraph>Zonegran<sup>®</sup>
+                     <br/> (zonisamide) capsules<br/> 25 mg                         100 capsules</paragraph>
+                  <paragraph>Rx only</paragraph>
+                  <paragraph>Dispense accompanying Medication Guide to each patient.</paragraph>
+                  <paragraph>Mfd. for:ADVANZ PHARMA</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM3"/>
+                  </paragraph>
+                  <br/>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <observationMedia ID="MM3">
+                     <text>3</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="25-mg.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="LINK_800703e9-a6df-46b8-bf34-d86b3dc55d8e">
+               <id root="9ff64d26-4e20-4d23-ac31-aa8911eb0022"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">PRINCIPAL DISPLAY PANEL - 100 mg Capsules</content>
+                  </paragraph>
+                  <paragraph>NDC 59212-680-10</paragraph>
+                  <paragraph>Zonegran<sup>®</sup>
+                     <br/> (zonisamide) capsules<br/> 100 mg               100 capsules</paragraph>
+                  <paragraph>Rx only</paragraph>
+                  <paragraph>Dispense accompanying Medication Guide to each patient.</paragraph>
+                  <paragraph>Mfd. for:ADVANZ PHARMA</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="MM4"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20251001"/>
+               <component>
+                  <observationMedia ID="MM4">
+                     <text>2</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="100-mg.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

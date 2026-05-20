@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="http://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="f3437a1b-f4a6-4533-ad22-d31879c0d742"/>
+   <code code="34390-5" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN OTC DRUG LABEL"/>
+   <title>MD SCIENCE™ CANNABIDIOL</title>
+   <effectiveTime value="20200207"/>
+   <setId root="4b8f2496-4672-4f1d-bbeb-5e0a61dcda45"/>
+   <versionNumber value="1"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id extension="080706676" root="1.3.6.1.4.1.519.1"/>
+            <name>MD NATURAL HEALTH LLC</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id extension="054705875" root="1.3.6.1.4.1.519.1"/>
+                        <name>PACKAGE SOLUTIONS LLC</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="MANUFACTURE"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="73615-101" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section ID="DLDE">
+               <id root="51c2b911-8c75-4cfe-9e5c-4e22de79fb9c"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL PRODUCT DATA ELEMENTS SECTION"/>
+               <effectiveTime value="20200207"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="73615-101" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>MD SCIENCE CANNABIDIOL</name>
+                        <formCode code="C28944" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CREAM"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>Lidocaine and Histamine Dihydrochloride</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="37.8" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="98PI200987" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Lidocaine</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="98PI200987" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>Lidocaine</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator value="0.041" unit="mg"/>
+                              <denominator value="1" unit="mL"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="3POA0Q644U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Histamine Dihydrochloride</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="820484N8I3" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>Histamine</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="ZY81Z83H0X" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Aloe Vera Leaf</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="UPY805K99W" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Caprylhydroxamic Acid</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="00YIU5438U" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Caprylyl Glycol</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="4Q93RCW27E" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Carbomer Homopolymer Type C (Allyl Pentaerythritol Crosslinked)</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="19GBJ60SN5" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Cannabidiol</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="D072FFP9GU" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Cetyl Esters Wax</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="Q9L0O73W7L" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Coconut Oil</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="344821WD61" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Emu Oil</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="PDC6A3C0OX" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Glycerin</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="230OU9XXE4" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Glyceryl Monostearate</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="8CRQ2TH63M" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Isopropyl Palmitate</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="9H4PO4Z4FT" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Dimethyl Sulfone</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Sodium Hydroxide</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="506T60A25R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Sorbitol</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="53J3F32P58" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Steareth-21</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="2KR89I4H1Y" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>Stearyl Alcohol</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="59" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43173" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE, PLASTIC"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="73615-101-02" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43178" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOX"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20200215"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator value="118" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43173" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOTTLE, PLASTIC"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="73615-101-04" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43178" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="BOX"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20200215"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="part348" root="2.16.840.1.113883.3.149"/>
+                           <code code="C73604" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="OTC monograph not final"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20200215"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <subjectOf>
+                        <characteristic classCode="OBS">
+                           <code code="SPLCOLOR" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                           <value code="C48328" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="PINK" xsi:type="CE">
+                              <originalText/>
+                           </value>
+                        </characteristic>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38304" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="TOPICAL"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="6026e6e2-0827-4297-9390-cc923d253404"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold italics">Drug Facts</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="6635c2c5-21e1-4237-9825-8406b1b0dbc7"/>
+               <code code="55106-9" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - ACTIVE INGREDIENT SECTION"/>
+               <effectiveTime value="20200207"/>
+               <component>
+                  <section>
+                     <id root="b33652b7-aeaa-4d4f-9304-ee4925e443d9"/>
+                     <code code="55105-1" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - PURPOSE SECTION"/>
+                     <text>
+                        <table width="50%">
+                           <col width="75%" align="left" valign="top"/>
+                           <col width="25%" align="right" valign="top"/>
+                           <thead>
+                              <tr>
+                                 <th>
+                                    <content styleCode="bold italics">Active Ingredients</content>
+                                 </th>
+                                 <th>
+                                    <content styleCode="bold italics">Purpose  </content>
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Lidocaine 4%</td>
+                                 <td>Analgesic</td>
+                              </tr>
+                              <tr>
+                                 <td>Histamine Dihydrochloride 0.08%</td>
+                                 <td>Counterirritant</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="8023b175-83b3-426f-93c5-9422af54d675"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>Use</title>
+               <text>
+                  <paragraph>Helps in temporary pain relief</paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="7cfd68fd-7697-4183-ade0-357b9bd460a9"/>
+               <code code="34071-1" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS SECTION"/>
+               <title>Warnings</title>
+               <text>
+                  <paragraph>If this product, used as directed, does not provide relief, discontinue use and consult a doctor.</paragraph>
+                  <list listType="unordered" styleCode="square">
+                     <item>For topical use only.</item>
+                     <item>Do not bandage tightly</item>
+                  </list>
+               </text>
+               <effectiveTime value="20200207"/>
+               <component>
+                  <section>
+                     <id root="d50255f5-4834-4267-90e9-b9a17d9b83f3"/>
+                     <code code="50570-1" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - DO NOT USE SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>Do not use if you are allergic to Lidocaine or topical anesthetics.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="f044afed-020b-45a6-974e-51d849d1f0cd"/>
+                     <code code="50566-9" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - STOP USE SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>Discontinue use if you develop a rash or irritation, such as burning or itching.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="b9d8dd71-eda3-4b7e-9e99-70bfd4a93825"/>
+                     <code code="50569-3" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - ASK DOCTOR SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>If symptoms persist, consult a doctor.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="f8d41592-60fa-41a0-bc10-f6b1ebf4ebeb"/>
+                     <code code="50570-1" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - DO NOT USE SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>Do not use on broken, irritated or sensitive skin.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="c635903b-8431-4341-90fd-191c198622a3"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>Avoid contact with eyes.</item>
+                           <item>
+                              <content styleCode="bold">For external use only.</content>
+                           </item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="7d577d81-b8d3-4bb8-bcfc-d0365876d18a"/>
+                     <code code="50565-1" codeSystem="2.16.840.1.113883.6.1" displayName="OTC - KEEP OUT OF REACH OF CHILDREN SECTION"/>
+                     <text>
+                        <list listType="unordered" styleCode="square">
+                           <item>
+                              <content styleCode="bold">Keep out of reach of children.</content>
+                           </item>
+                           <item>If swallowed, get medical help or contact a Poison Control Center.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20200207"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="16d44586-5442-46f5-9652-752803dc42e6"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>Directions</title>
+               <text>
+                  <paragraph>Apply desired amount directly to the area to be affected.</paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="5c500290-c856-451c-b866-4fa93ee1ec3d"/>
+               <code code="44425-7" codeSystem="2.16.840.1.113883.6.1" displayName="STORAGE AND HANDLING SECTION"/>
+               <title>Other Information</title>
+               <text>
+                  <paragraph>STORE AT 20-25° C (68-77° F)</paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="5cb43dd8-4694-436d-8f99-7aeb6130f570"/>
+               <code code="51727-6" codeSystem="2.16.840.1.113883.6.1" displayName="INACTIVE INGREDIENT SECTION"/>
+               <title>Inactive Ingredients</title>
+               <text>
+                  <paragraph>
+                     <content styleCode="italics">Aloe Barbadensis (Aloe) Leaf Juice, Caprylhydroxamic Acid, Caprylyl Glycol, Carbomer, CBG (Cannabigerol), Cetyl Esters, Cocos Nucifera (Coconut) Oil, Emu Oil, Glycerin, Glyceryl Stearate, Isopropyl Palmitate, Methylsulfonylmethane (MSM), Sodium Hydroxide, Sorbitol, Steareth-21, Stearyl Alcohol, Water.</content>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="790cf836-1b22-4409-b678-d67d29e54d11"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <text>
+                  <paragraph>
+                     <content styleCode="bold">Distributed By:<br/>MD Natural Health</content>
+                     <br/>2590 N. Powerline Rd<br/>Pompano Beach<br/>Florida 33069</paragraph>
+               </text>
+               <effectiveTime value="20200207"/>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="b579cbbc-d233-47ca-b6a9-3930f0150bd4"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>PRINCIPAL DISPLAY PANEL - 59 ML Bottle Box</title>
+               <text>
+                  <paragraph>MDSCIENCE™<br/>CANNABIDIOL<br/>THE SCIENCE OF HEALTHY</paragraph>
+                  <paragraph>CBD</paragraph>
+                  <paragraph>250MG TOTAL CBD<br/>MUSCLE AND JOINT<br/>PAIN RELIEF<br/>CREAM</paragraph>
+                  <paragraph>2FL OZ (59ML)</paragraph>
+                  <renderMultiMedia referencedObject="MM1"/>
+               </text>
+               <effectiveTime value="20200207"/>
+               <component>
+                  <observationMedia ID="MM1">
+                     <text>PRINCIPAL DISPLAY PANEL - 59 ML Bottle Box</text>
+                     <value xsi:type="ED" mediaType="image/jpeg">
+                        <reference value="cannabidiol-01.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>
