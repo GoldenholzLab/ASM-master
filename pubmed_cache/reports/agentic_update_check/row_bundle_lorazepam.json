@@ -1,0 +1,590 @@
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: sedation 16%, CNS: dizziness 7%, constitutional: weakness 4%, respiratory: respiratory depression 3%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; glucuronidated",
+    "epilepsy_type": "Status epilepticus; Seizure clusters / rescue",
+    "evidence_sources": "Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS ; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including ATIVAN Injection, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ATIVAN Injection and throughout treatment, assess each patient\u2019s risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines for several days to weeks may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although ATIVAN Injection is indicated only for intermittent use (see INDICATIONS AND USAGE and DOSAGE AND ADMINISTRATION ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of ATIVAN Injection may precipitate acute withdrawal reactions, which can be life-threatening. For patients using ATIVAN Injection more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue ATIVAN Injection (see WARNINGS ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=5fc0e987-61c9-40c4-b0d5-fcea07c8733e; published=Apr 10, 2023; title=ATIVAN (LORAZEPAM) INJECTION [HIKMA PHARMACEUTICALS USA INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5fc0e987-61c9-40c4-b0d5-fcea07c8733e",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect",
+    "filter_epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "filter_formulation": "IV/IM injection; Liquid; Tablet",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Constitutional; Respiratory",
+    "formulations_available": "Tablet; oral concentrate; IV/IM injection",
+    "generic_name": "lorazepam",
+    "half_life_range": "10-20 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Acute seizure dosing individualized",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition and is used acutely for seizure termination.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Acute seizure/status dosing individualized",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Walker1984|https://pubmed.ncbi.nlm.nih.gov/6378615/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 29/65 on 2026-05-15: 1 qualifying placebo-controlled randomized clinical trial report(s) retained from 11 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Benzodiazepine used for status epilepticus/emergency seizure treatment; also used for anxiety, sedation, and other indications.",
+    "trade_names": "Ativan; Loreev XR",
+    "typical_doses_per_day": "Status epilepticus IV dosing is acute/intermittent; oral use for anxiety not chronic ASM dosing",
+    "year_fda_cleared": "1977"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Walker1984|https://pubmed.ncbi.nlm.nih.gov/6378615/",
+      "label": "Walker1984",
+      "pmid": "6378615",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6378615/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: sedation 16%, CNS: dizziness 7%, constitutional: weakness 4%, respiratory: respiratory depression 3%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; glucuronidated",
+    "epilepsy_type": "Status epilepticus; Seizure clusters / rescue",
+    "evidence_sources": "Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS ; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including ATIVAN Injection, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ATIVAN Injection and throughout treatment, assess each patient\u2019s risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines for several days to weeks may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although ATIVAN Injection is indicated only for intermittent use (see INDICATIONS AND USAGE and DOSAGE AND ADMINISTRATION ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of ATIVAN Injection may precipitate acute withdrawal reactions, which can be life-threatening. For patients using ATIVAN Injection more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue ATIVAN Injection (see WARNINGS ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=5fc0e987-61c9-40c4-b0d5-fcea07c8733e; published=Apr 10, 2023; title=ATIVAN (LORAZEPAM) INJECTION [HIKMA PHARMACEUTICALS USA INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5fc0e987-61c9-40c4-b0d5-fcea07c8733e",
+    "formulations_available": "Tablet; oral concentrate; IV/IM injection",
+    "half_life_range": "10-20 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Acute seizure dosing individualized",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition and is used acutely for seizure termination.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Acute seizure/status dosing individualized",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Walker1984|https://pubmed.ncbi.nlm.nih.gov/6378615/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Ativan; Loreev XR",
+    "typical_doses_per_day": "Status epilepticus IV dosing is acute/intermittent; oral use for anxiety not chronic ASM dosing",
+    "year_fda_cleared": "1977"
+  },
+  "generic_name": "lorazepam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning",
+      "current_value": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS ; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including ATIVAN Injection, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ATIVAN Injection and throughout treatment, assess each patient\u2019s risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines for several days to weeks may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although ATIVAN Injection is indicated only for intermittent use (see INDICATIONS AND USAGE and DOSAGE AND ADMINISTRATION ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of ATIVAN Injection may precipitate acute withdrawal reactions, which can be life-threatening. For patients using ATIVAN Injection more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue ATIVAN Injection (see WARNINGS ).",
+      "details": {
+        "candidate": {
+          "effective_time": "20250709",
+          "spl_set_id": "89057c93-8155-4040-acec-64e877bd2b4c",
+          "title": "Ativan / LORAZEPAM"
+        },
+        "status": "boxed_warning_found"
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10",
+      "generic_name": "lorazepam",
+      "id": "fda_warning_contradiction-7c4911e7c162",
+      "kind": "fda_warning_contradiction",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS \u2022 Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). \u2022 The use of benzodiazepines, including Ativan, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Ativan and throughout treatment, assess each patient\u2019s risk for abuse, misuse, and addiction (see WARNINGS ). \u2022 The continued use of benzodiazepines, including Ativan, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Ativan after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ATIVAN or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ).",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=89057c93-8155-4040-acec-64e877bd2b4c; effective_time=20250709; title=Ativan / LORAZEPAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS \u2022 Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). \u2022 The use of benzodiazepines, including Ativan, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Ativan and throughout treatment, assess each patient\u2019s risk for abuse, misuse, and addiction (see WARNINGS ). \u2022 The continued use of benzodiazepines, including Ativan, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Ativan after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ATIVAN or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ).",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "critical",
+      "source": "FDA/openFDA",
+      "summary": "Current FDA/openFDA boxed-warning extraction differs from the CSV. This is a direct contradiction and will not be applied without approval."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1977",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1977"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10",
+      "generic_name": "lorazepam",
+      "id": "source_fact_concordance_problem-5236cad63e5b",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "NA",
+        "brief_summary": "Status epilepticus (SE) represents the most common life-threatening neurological emergency requiring treatment on an intensive care unit. The incidence in Western European countries is about 12-18/100'000. Immediate and effective treatment of SE is obviously essential because of the deleterious effects of continuous seizures on the brain and the whole organism. Guidelines emphasize the use of benzodiazepines (BZD) as first-line anticonvulsive drugs. Alternatively, i/v Phenytoin (PHE), fosphenytoin (FOS), and valproate (VPA) were also tested as first-line anticonvulsants in SE. Direct comparison of PHE with lorazepam (LZP) showed significant superiority of LZP (evidence class I). Other trials i/v PHE or -VPA are of evidence class III or IV. BZD, VPA, and PHE have clinical and pharmacological disadvantages. BZD may cause respiratory depression or sedation and may be not suitable for patients with COPD or ambiguous in patients with BZD addiction. Some compounds also may induce tachyphylaxis or accumulate under concomitant renal failure. PHE has saturable metabolism subject to Michaelis-Menten kinetics increasing the risk of overdosing in an acute setting causing liver damage, serious cardiac arrhythmias, hypotension, cerebellar degeneration, peripheral neuropathy and local/systemic skin reactions. Although of unequivocal efficacy, PHE should no longer be used for long-term because of its adverse effects after chronic administration (irreversible cerebellar degeneration causing debilitating ataxia, painful polyneuropathy, and osteopenia increasing the risk of fractures). Metabolism by and self-induction of the hepatic CYP450 system make PHE prone to interactions with several other drugs, notably other antiepileptics. VPA may cause liver failure, hemorrhagic complications, pancreatitis, and hyperammonemic encephalopathy. To summarize, these three first-line agents for the treatment of SE may cause serious side effects in several patients with SE.\n\nLevetiracetam (LEV) is broad-spectrum antiepileptic drug. It binds to the presynaptic vesicular protein 2A abundantly present in different regions of the brain; LEV presynaptically modulates transmitter release, but the exact mechanism(s) remain unclear. Data also revealed that LEV stabilizes GABAA receptors upon repetitive activation what is important in treatment of SE because GABAA receptors undergo significant changes of subunit conformation within minutes after sustained activation like during SE. These changes render GABAA receptors the less anticonvulsive, the longer SE lasts. Levetiracetam has a favorable pharmacological profile with large safety margins. Its partly extrahepatic hydrolyzation bypasses the CYP450 system; renal excretion is 60-70% unchanged, and 23-27% metabolized. Dosage needs adjustment when renal function is impaired. LEV lacks interactions with any drugs yet. Drowsiness is the most common side-effect while respiration, liver and kidney function, and the blood system are not affected. LEV shows an important clinical effect even after the first dose and maximal efficacy within the first week of drug-intake. The favorable clinico-pharmacological profile predilects LEV for the first-line treatment of SE, especially in patients with multi-organ failure, sepsis, coma etc.. About 10 % of comatous patients may be in non-convulsive SE (NCSE) on ICU's. These patients are under polymedication whereby interactions of the anticonvulsants approved yet for the treatment of NCSE with their other drugs may have fatal effects. Conversely, non-interacting anticonvulsants would represent an advantage for the treatment of NCSE for these patients.\n\nRecently, the i/v formulation of LEV was approved by the FDA for the use in patients, but not specifically for the treatment of SE. Data about the single-dose bioavailability of i/v-LEV in comparison to oral tablets as well as multiple-dose pharmacokinetics and tolerability in healthy subjects were recently published. In addition, the administration of i/v-LEV dosages ranging from 2000-4000 mg within 15 minutes and of dosages ranging from 1500-2500 mg within 5 minutes was safe and well tolerated, and led to efficacious drug levels in a randomized, single-blind, placebo-controlled safety and pharmacokinetic study in healthy volunteers.\n\nSlight somnolence is expected to be the only adverse effect of i/v LEV, sharply contrasting with the sedation up to coma after i/v benzodiazepines. Thus, even severely ill patients will be accessible to neurological tests under LEV which is a big advantage in this clinical difficult setting of NCSE.\n\nI-v LEV is considered an ideal candidate for the first-line use (before benzodiazepines) in patients with NCSE, especially in those with important comorbidity and concomitant polymedication. Thus, we would like to test the feasibility, safety, and efficacy of i/v-LEV as first-line medication in a open-label, single-center, prospective pilot study as outlined below.",
+        "interventions": [
+          "first-line i/v-levetiracetam"
+        ],
+        "masking": "NONE",
+        "nct_id": "NCT00603135",
+        "new_reference_pmids": [
+          "17161587",
+          "12628059",
+          "16886975",
+          "16861095"
+        ],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "17161587",
+          "12628059",
+          "16886975",
+          "16861095"
+        ],
+        "title": "Intravenous Levetiracetam as First-line Anticonvulsive Treatment in Patients With Non-convulsive Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00603135",
+      "generic_name": "lorazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-477d4b9b267c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Intravenous Levetiracetam as First-line Anticonvulsive Treatment in Patients With Non-convulsive Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The main purpose of this study is to know on one hand if lorazepam is more (effective) than clonazepam and on the other hand if lorazepam is also effective as the association clonazepam + fosphenytoin in out-of-hospital treatment of the generalized convulsive status epilepticus in adult patients.",
+        "interventions": [
+          "Clonazepam",
+          "Fosphenytoin",
+          "Placebo",
+          "Lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01870024",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01870024",
+      "generic_name": "lorazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-63bf70a50d0a",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "OBJECTIVES: I. Compare the efficacy, onset of clinical anticonvulsant activity, and complications of diazepam and lorazepam given intravenously as prehospital therapy to patients in status epilepticus.\n\nII. Determine the effect of prehospital therapy on the incidence of status epilepticus at the subsequent emergency department admission.\n\nIII. Establish whether prehospital therapy alters hospital management of these patients and ultimately affects patient outcome.",
+        "interventions": [
+          "diazepam",
+          "lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00004297",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Phase III Randomized Study of Diazepam Vs Lorazepam Vs Placebo for Prehospital Treatment of Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00004297",
+      "generic_name": "lorazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-2e08fbd6daf5",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Phase III Randomized Study of Diazepam Vs Lorazepam Vs Placebo for Prehospital Treatment of Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "PF-06372865 in subjects with photosensitive epilepsy",
+        "interventions": [
+          "PF-06372865",
+          "Placebo",
+          "Lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT02564029",
+        "new_reference_pmids": [
+          "30877186"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "30877186"
+        ],
+        "title": "PF-06372865 in Subjects With Photosensitive Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02564029",
+      "generic_name": "lorazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c4fd824c8ee0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: PF-06372865 in Subjects With Photosensitive Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The overarching aim of STILL is assessment of IV LEV in the management of seizures in the ED setting. The main study endpoints are considered in the two patient groups of interest (SE and non-SE):\n\n* For non-SE patients, STILL will compare IV LEV vs. the current standard-care of placebo, with respect to the following questions:\n* Does IV LEV administration result in lower seizure duration and/or recurrence rate than does administration of placebo? (Ho: No difference in seizure duration or recurrence rates between the two groups.)\n* Is IV LEV associated with a different rate of significant side effects than placebo? (Ho: No difference in significant side effect rates between the two groups.)\n* For SE patients, STILL will compare \\[IV LEV + lorazepam 2mg\\] vs. \\[lorazepam 3 mg\\], with respect to the following questions:\n* Does addition of IV LEV to a BZD allow for a BZD-sparing effect (i.e. achievement of seizure control with lower dose of BZD)? (Ho: No difference in seizure duration and/or recurrence rates between the two groups.)\n* Is IV LEV + lower-dose BZD associated with a different rate of significant side effects than the higher-dose BZD administered as monotherapy? (Ho: No difference in significant side effect rates between the two groups.)",
+        "interventions": [
+          "Levetiracetam 1 g IV + Lorazepam 2 mg IV",
+          "Placebo + Lorazepam 3 mg IV"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00465244",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2",
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Seizure Therapy With Intravenous Levetiracetam and Lorazepam"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00465244",
+      "generic_name": "lorazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-3f3799ba4874",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Seizure Therapy With Intravenous Levetiracetam and Lorazepam"
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Status epilepticus; Seizure clusters / rescue",
+      "details": {
+        "checked": true,
+        "matched_terms": [
+          "seizure"
+        ],
+        "missing_numbers": [],
+        "missing_terms": [
+          "status",
+          "epilepticus",
+          "clusters",
+          "rescue"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "status",
+          "epilepticus",
+          "seizure",
+          "clusters",
+          "rescue"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10",
+      "generic_name": "lorazepam",
+      "id": "source_fact_concordance_problem-18a40000fd47",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "enzyme_inducing_or_inhibiting",
+      "current_value": "Not a CYP inducer/inhibitor; glucuronidated",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "inducer",
+          "inhibitor",
+          "glucuronidated"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "inducer",
+          "inhibitor",
+          "glucuronidated"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10",
+      "generic_name": "lorazepam",
+      "id": "source_fact_concordance_problem-8bae2dfdc701",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22Ativan%22+OR+openfda.brand_name%3A%22Ativan%22+OR+openfda.substance_name%3A%22Ativan%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "enzyme_inducing_or_inhibiting could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Ativan; Loreev XR",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22status+epilepticus%22&limit=100",
+      "generic_name": "lorazepam",
+      "id": "trade_name_addition-b9b43c47fc78",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Lorazepam"
+      },
+      "proposed_value": "Lorazepam",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Lorazepam."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Small crossover trial reports fewer seizures during lorazepam treatment but not extractable active/placebo RR50, MPC, or seizure-freedom percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lorazepam",
+      "label": "Walker1984",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6378615",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6378615/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Lorazepam: a controlled trial in patients with intractable partial complex seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Walker",
+      "generic_name": "lorazepam",
+      "label": "Walker1984",
+      "pmid": "6378615",
+      "pub_types": "Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, Non-P.H.S.",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lorazepam: a controlled trial in patients with intractable partial complex seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6378615/",
+      "year": "1984"
+    },
+    {
+      "first_author": "Rosenberg",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "41350162",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A Randomized Controlled Trial of the Safety and Efficacy of Dronabinol for Agitation in Alzheimer's Disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41350162/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Gurrell",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "30877186",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Photosensitive epilepsy: Robust clinical efficacy of a selective GABA potentiator.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30877186/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Kellinghaus",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "26554812",
+      "pub_types": "Journal Article; Multicenter Study; Observational Study; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Making SENSE--Sustained Effort Network for treatment of Status Epilepticus as a multicenter prospective registry.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26554812/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Mueller",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "24351375",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A randomized, double-blind, placebo-controlled dose range study of dexmedetomidine as adjunctive therapy for alcohol withdrawal.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24351375/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Ohlraun",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "23806032",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "CARbon DIoxide for the treatment of Febrile seizures: rationale, feasibility, and design of the CARDIF-study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23806032/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Bravo",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "23269105",
+      "pub_types": "Case Reports; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of selective serotonin reuptake inhibitors on the frequency of psychogenic nonepileptic seizures: a critically appraised topic.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23269105/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Loring",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "23103305",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Acute lorazepam effects on neurocognitive performance.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23103305/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Alldredge",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "11547716",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "A comparison of lorazepam, diazepam, and placebo for the treatment of out-of-hospital status epilepticus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11547716/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Lowenstein",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "11384791",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The prehospital treatment of status epilepticus (PHTSE) study: design and methodology.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11384791/",
+      "year": "2001"
+    },
+    {
+      "first_author": "D'Onofrio",
+      "generic_name": "lorazepam",
+      "label": "",
+      "pmid": "10094637",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Lorazepam for the prevention of recurrent seizures related to alcohol.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10094637/",
+      "year": "1999"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

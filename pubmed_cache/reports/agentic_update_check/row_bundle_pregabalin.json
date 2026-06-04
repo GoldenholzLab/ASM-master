@@ -1,0 +1,1174 @@
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 29%, CNS: somnolence 22%, neurologic: ataxia 13%, ophthalmologic: blurred vision 6%, metabolic: weight gain 5%, peripheral: edema 6%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "15-40 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Antinew2019 pregabalin 10 mg/kg/day or 14 mg/kg/day if <30 kg 18%; Baulac2010 pregabalin up to 600 mg/day 15%; Beydoun2005 pregabalin 600 mg/day TID 40%; Arroyo2004 pregabalin 600 mg/day TID 37.3%; French2003 pregabalin 600 mg/day BID 37%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.9-54 % (drug minus placebo MPC differential at maximum effective dose/regimen: Mann2020 pregabalin 14 mg/kg/day 35%; Antinew2019 pregabalin 10 mg/kg/day or 14 mg/kg/day if <30 kg 19.9%; Baulac2010 pregabalin up to 600 mg/day 20%; Elger2005 pregabalin 600 mg/day BID fixed dose 38.7%; Beydoun2005 pregabalin 600 mg/day TID 54%; Arroyo2004 pregabalin 600 mg/day TID 49.6%; French2003 pregabalin 600 mg/day BID 47%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not metabolized; not an enzyme inducer/inhibitor",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=f280bbd8-2af2-444a-bd96-e409337ca6dd; published=Apr 15, 2026; title=LYRICA CR (PREGABALIN) TABLET, FILM COATED, EXTENDED RELEASE [VIATRIS SPECIALTY LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f280bbd8-2af2-444a-bd96-e409337ca6dd",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer; No major enzyme effect",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Capsule; Liquid; Long acting; Tablet",
+    "filter_mechanism": "Calcium channel / alpha-2-delta",
+    "filter_metabolism": "Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Metabolic; Neurologic; Ophthalmologic; Peripheral",
+    "formulations_available": "Capsule; oral solution; extended-release tablet for non-epilepsy indications",
+    "generic_name": "pregabalin",
+    "half_life_range": "~6 h",
+    "major_organ_for_metabolism": "Not metabolized; renal excretion",
+    "maximum_approved_daily_dose": "600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Mechanism is not fully elucidated; pregabalin binds alpha-2-delta subunits of voltage-gated calcium channels, which may be involved in anti-seizure effects.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "150 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Antinew2019|18|https://pubmed.ncbi.nlm.nih.gov/30688135/|295; Baulac2010|15|https://pubmed.ncbi.nlm.nih.gov/20696552/|434; Beydoun2005|40|https://pubmed.ncbi.nlm.nih.gov/15699378/|312; Arroyo2004|37.3|https://pubmed.ncbi.nlm.nih.gov/14692903/|287; French2003|37|https://pubmed.ncbi.nlm.nih.gov/12771254/|453",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Mann2020|35|https://pubmed.ncbi.nlm.nih.gov/32189338/|175; Antinew2019|19.9|https://pubmed.ncbi.nlm.nih.gov/30688135/|295; Baulac2010|20|https://pubmed.ncbi.nlm.nih.gov/20696552/|434; Elger2005|38.7|https://pubmed.ncbi.nlm.nih.gov/16393158/|341; Beydoun2005|54|https://pubmed.ncbi.nlm.nih.gov/15699378/|312; Arroyo2004|49.6|https://pubmed.ncbi.nlm.nih.gov/14692903/|287; French2003|47|https://pubmed.ncbi.nlm.nih.gov/12771254/|453",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Driscoll2021|https://pubmed.ncbi.nlm.nih.gov/34033265/; Mann2020|https://pubmed.ncbi.nlm.nih.gov/32189338/; Antinew2019|https://pubmed.ncbi.nlm.nih.gov/30688135/; French2014b|https://pubmed.ncbi.nlm.nih.gov/24962242/; French2014|https://pubmed.ncbi.nlm.nih.gov/24415567/; Baulac2010|https://pubmed.ncbi.nlm.nih.gov/20696552/; Lee2009|https://pubmed.ncbi.nlm.nih.gov/19222545/; Elger2005|https://pubmed.ncbi.nlm.nih.gov/16393158/; Beydoun2005|https://pubmed.ncbi.nlm.nih.gov/15699378/; Arroyo2004|https://pubmed.ncbi.nlm.nih.gov/14692903/; French2003|https://pubmed.ncbi.nlm.nih.gov/12771254/",
+    "pubmed_search_aliases": "CI-1008",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 48/65 on 2026-05-15: 11 qualifying placebo-controlled randomized clinical trial report(s) retained from 26 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current adjunctive ASM for focal/partial seizures; also used for neuropathic pain, fibromyalgia, and generalized anxiety disorder in some markets.",
+    "trade_names": "Alzain; Lyrica",
+    "typical_doses_per_day": "Adjunctive focal seizures: 150-600 mg/day divided BID/TID",
+    "year_fda_cleared": "2005"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Driscoll2021|https://pubmed.ncbi.nlm.nih.gov/34033265/",
+      "label": "Driscoll2021",
+      "pmid": "34033265",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34033265/"
+    },
+    {
+      "entry": "Mann2020|https://pubmed.ncbi.nlm.nih.gov/32189338/",
+      "label": "Mann2020",
+      "pmid": "32189338",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32189338/"
+    },
+    {
+      "entry": "Antinew2019|https://pubmed.ncbi.nlm.nih.gov/30688135/",
+      "label": "Antinew2019",
+      "pmid": "30688135",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30688135/"
+    },
+    {
+      "entry": "French2014b|https://pubmed.ncbi.nlm.nih.gov/24962242/",
+      "label": "French2014b",
+      "pmid": "24962242",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24962242/"
+    },
+    {
+      "entry": "French2014|https://pubmed.ncbi.nlm.nih.gov/24415567/",
+      "label": "French2014",
+      "pmid": "24415567",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24415567/"
+    },
+    {
+      "entry": "Baulac2010|https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "label": "Baulac2010",
+      "pmid": "20696552",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20696552/"
+    },
+    {
+      "entry": "Lee2009|https://pubmed.ncbi.nlm.nih.gov/19222545/",
+      "label": "Lee2009",
+      "pmid": "19222545",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19222545/"
+    },
+    {
+      "entry": "Elger2005|https://pubmed.ncbi.nlm.nih.gov/16393158/",
+      "label": "Elger2005",
+      "pmid": "16393158",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16393158/"
+    },
+    {
+      "entry": "Beydoun2005|https://pubmed.ncbi.nlm.nih.gov/15699378/",
+      "label": "Beydoun2005",
+      "pmid": "15699378",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15699378/"
+    },
+    {
+      "entry": "Arroyo2004|https://pubmed.ncbi.nlm.nih.gov/14692903/",
+      "label": "Arroyo2004",
+      "pmid": "14692903",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14692903/"
+    },
+    {
+      "entry": "French2003|https://pubmed.ncbi.nlm.nih.gov/12771254/",
+      "label": "French2003",
+      "pmid": "12771254",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12771254/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 29%, CNS: somnolence 22%, neurologic: ataxia 13%, ophthalmologic: blurred vision 6%, metabolic: weight gain 5%, peripheral: edema 6%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "15-40 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Antinew2019 pregabalin 10 mg/kg/day or 14 mg/kg/day if <30 kg 18%; Baulac2010 pregabalin up to 600 mg/day 15%; Beydoun2005 pregabalin 600 mg/day TID 40%; Arroyo2004 pregabalin 600 mg/day TID 37.3%; French2003 pregabalin 600 mg/day BID 37%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.9-54 % (drug minus placebo MPC differential at maximum effective dose/regimen: Mann2020 pregabalin 14 mg/kg/day 35%; Antinew2019 pregabalin 10 mg/kg/day or 14 mg/kg/day if <30 kg 19.9%; Baulac2010 pregabalin up to 600 mg/day 20%; Elger2005 pregabalin 600 mg/day BID fixed dose 38.7%; Beydoun2005 pregabalin 600 mg/day TID 54%; Arroyo2004 pregabalin 600 mg/day TID 49.6%; French2003 pregabalin 600 mg/day BID 47%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not metabolized; not an enzyme inducer/inhibitor",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=f280bbd8-2af2-444a-bd96-e409337ca6dd; published=Apr 15, 2026; title=LYRICA CR (PREGABALIN) TABLET, FILM COATED, EXTENDED RELEASE [VIATRIS SPECIALTY LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f280bbd8-2af2-444a-bd96-e409337ca6dd",
+    "formulations_available": "Capsule; oral solution; extended-release tablet for non-epilepsy indications",
+    "half_life_range": "~6 h",
+    "major_organ_for_metabolism": "Not metabolized; renal excretion",
+    "maximum_approved_daily_dose": "600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Mechanism is not fully elucidated; pregabalin binds alpha-2-delta subunits of voltage-gated calcium channels, which may be involved in anti-seizure effects.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "150 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Antinew2019|18|https://pubmed.ncbi.nlm.nih.gov/30688135/|295; Baulac2010|15|https://pubmed.ncbi.nlm.nih.gov/20696552/|434; Beydoun2005|40|https://pubmed.ncbi.nlm.nih.gov/15699378/|312; Arroyo2004|37.3|https://pubmed.ncbi.nlm.nih.gov/14692903/|287; French2003|37|https://pubmed.ncbi.nlm.nih.gov/12771254/|453",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Mann2020|35|https://pubmed.ncbi.nlm.nih.gov/32189338/|175; Antinew2019|19.9|https://pubmed.ncbi.nlm.nih.gov/30688135/|295; Baulac2010|20|https://pubmed.ncbi.nlm.nih.gov/20696552/|434; Elger2005|38.7|https://pubmed.ncbi.nlm.nih.gov/16393158/|341; Beydoun2005|54|https://pubmed.ncbi.nlm.nih.gov/15699378/|312; Arroyo2004|49.6|https://pubmed.ncbi.nlm.nih.gov/14692903/|287; French2003|47|https://pubmed.ncbi.nlm.nih.gov/12771254/|453",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Driscoll2021|https://pubmed.ncbi.nlm.nih.gov/34033265/; Mann2020|https://pubmed.ncbi.nlm.nih.gov/32189338/; Antinew2019|https://pubmed.ncbi.nlm.nih.gov/30688135/; French2014b|https://pubmed.ncbi.nlm.nih.gov/24962242/; French2014|https://pubmed.ncbi.nlm.nih.gov/24415567/; Baulac2010|https://pubmed.ncbi.nlm.nih.gov/20696552/; Lee2009|https://pubmed.ncbi.nlm.nih.gov/19222545/; Elger2005|https://pubmed.ncbi.nlm.nih.gov/16393158/; Beydoun2005|https://pubmed.ncbi.nlm.nih.gov/15699378/; Arroyo2004|https://pubmed.ncbi.nlm.nih.gov/14692903/; French2003|https://pubmed.ncbi.nlm.nih.gov/12771254/",
+    "pubmed_search_aliases": "CI-1008",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Alzain; Lyrica",
+    "typical_doses_per_day": "Adjunctive focal seizures: 150-600 mg/day divided BID/TID",
+    "year_fda_cleared": "2005"
+  },
+  "generic_name": "pregabalin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Baulac2010|https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "details": {
+        "article": {
+          "abstract": "This study assessed the comparative efficacy of pregabalin for refractory partial seizures. Four-hundred and thirty-four patients with partial seizures were randomized to pregabalin, lamotrigine, or placebo as adjunctive therapy for 17 weeks of double-blind treatment. In phase I (11 weeks), pregabalin was titrated over 1 week and lamotrigine over 5 weeks to fixed dosages of 300mg/day for both. In phase II (6 weeks), patients not yet seizure-free were increased to pregabalin 600mg/day or lamotrigine 400mg/day. During phase I, there was a nonsignificant trend toward a greater reduction in seizures with pregabalin versus placebo and lamotrigine. Across the 17 weeks of treatment, pregabalin showed a median percentage reduction from baseline in seizure frequency of -20.0% (p=.001) versus placebo, and -9.7% (p=.080) versus lamotrigine. The responder rate (> or =50% reduction in seizure frequency) for pregabalin exceeded that of placebo (36% vs 21%; p=.007) and lamotrigine (36% vs 24%; p=.04). Adverse events were consistent with the known safety profiles of pregabalin and lamotrigine. Pregabalin was demonstrated to be noninferior to lamotrigine in the treatment of refractory partial seizures. Overall conclusions were complicated by an unusually large and heterogeneous placebo response. Copyright 2010. Published by Elsevier B.V.",
+          "first_author": "Baulac",
+          "pmid": "20696552",
+          "pub_types": [
+            "Clinical Trial, Phase I",
+            "Clinical Trial, Phase II",
+            "Comparative Study",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "A comparison of pregabalin, lamotrigine, and placebo as adjunctive therapy in patients with refractory partial-onset seizures.",
+          "year": "2010"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "generic_name": "pregabalin",
+      "id": "rct_pubmed_concordance_problem-a55a14877293",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 20696552 needs manual review for pregabalin; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 20696552 needs manual review for pregabalin; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Beydoun2005|https://pubmed.ncbi.nlm.nih.gov/15699378/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate the efficacy, tolerability, and safety of two pregabalin regimens administered as adjunctive therapy to that of placebo in patients with medically refractory partial epilepsy. A multicenter, double-blind, randomized, parallel-group, placebo-controlled trial was performed. Following a prospective 8-week baseline phase, patients were randomized to 12 weeks of double-blind treatment with placebo or pregabalin 600 mg/day administered twice daily (BID) or three times daily (TID). Primary efficacy was measured as change in seizure frequency from baseline of either pregabalin regimen compared with placebo. Secondary efficacy comparisons included the proportion of patients experiencing > or =50% reduction in seizure frequency (responder rate) and median percentage change from baseline in seizure frequency. Safety/tolerability assessments included adverse events (AEs), physical and neurologic examinations, and clinical laboratory evaluation. Efficacy and safety analyses were performed on the intent-to-treat (ITT) population. Pregabalin treatment resulted in seizure frequency reductions: 53% for pregabalin TID (p < or = 0.0001) and 44% for pregabalin BID (p < or = 0.0001) compared with a 1% increase for placebo. Responder rates were 49% for pregabalin TID and 43% for pregabalin BID compared with 9% for placebo (p < or = 0.001). Both pregabalin regimens were similar in efficacy and tolerability. The most common AEs were dizziness, somnolence, and ataxia. Pregabalin administered at 600 mg/day is safe, generally well tolerated, and efficacious as adjunctive therapy for the treatment of patients with partial seizures, with or without secondary generalizations. This dose can be administered on a twice daily or three times daily schedule with similar efficacy and tolerability results.",
+          "first_author": "Beydoun",
+          "pmid": "15699378",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Safety and efficacy of two pregabalin regimens for add-on treatment of partial epilepsy.",
+          "year": "2005"
+        },
+        "reason": "drug appears in title but not as primary intervention"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/15699378/",
+      "generic_name": "pregabalin",
+      "id": "rct_pubmed_concordance_problem-d00bf38cfd49",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 15699378 needs manual review for pregabalin; PubMed validation reason: drug appears in title but not as primary intervention.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 15699378 needs manual review for pregabalin; PubMed validation reason: drug appears in title but not as primary intervention.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: drug appears in title but not as primary intervention."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2005",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2005"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+      "generic_name": "pregabalin",
+      "id": "source_fact_concordance_problem-17122bd43f54",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of the study is to evaluate the safety, tolerability, and pharmacokinetics of multiple doses of pregabalin in pediatric patients with partial onset seizures that are incompletely controlled on their current medications.",
+        "interventions": [
+          "Placebo",
+          "Pregabalin"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00437281",
+        "new_reference_pmids": [
+          "25377429"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE1",
+          "PHASE2"
+        ],
+        "pmids": [
+          "25377429"
+        ],
+        "title": "Safety, Tolerability, and Pharmacokinetic Study of Pregabalin in Pediatric Patients With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00437281",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-831ced3f8bc7",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Safety, Tolerability, and Pharmacokinetic Study of Pregabalin in Pediatric Patients With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The study is designed to evaluate the safety, tolerability and efficacy of two doses of pregabalin as add-on treatment in pediatric and adult subjects with Primary Generalized Tonic-Clonic (PGTC) seizures as compared to placebo. It is hypothesized that both doses of pregabalin will demonstrated superior efficacy when compared to placebo by reducing PGTC seizure frequency and that pregabalin will be safe and well tolerated.",
+        "interventions": [
+          "Pregabalin Dose Level 1",
+          "Pregabalin Dose Level 2",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT01747915",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "34033265"
+        ],
+        "title": "A Safety, Efficacy and Tolerability Trial of Pregabalin as Add-On Treatment in Pediatric and Adult Subjects With Primary Generalized Tonic-Clonic (i.e., Grand Mal) Seizures."
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01747915",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-59cd766fa5ee",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Safety, Efficacy and Tolerability Trial of Pregabalin as Add-On Treatment in Pediatric and Adult Subjects With Primary Generalized Tonic-Clonic (i.e., Grand Mal) Seizures."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is designed to evaluate the effectiveness of 2 doses of pregabalin to reduce seizure frequency as an add on therapy in pediatric subjects 1 month to \\<4 years of age with refractory partial onset seizures. It is hypothesized that both doses of pregabalin will demonstrate superior efficacy when compared to placebo by reducing the partial onset seizure frequency and that pregabalin will be safe and well tolerated.",
+        "interventions": [
+          "Pregabalin Dose Level 1",
+          "Pregabalin Dose Level 2",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02072824",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "32189338"
+        ],
+        "title": "A Safety, Efficacy, and Tolerability Trial of Pregabalin as Add-On Treatment in Pediatric Subjects <4 Years of Age With Partial Onset Seizures."
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02072824",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c762239b97cd",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Safety, Efficacy, and Tolerability Trial of Pregabalin as Add-On Treatment in Pediatric Subjects <4 Years of Age With Partial Onset Seizures."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the efficacy of pregabalin as adjunctive therapy, using a flexible, optimized dose schedule with dose adjustment based on clinical response and tolerability, compared to placebo in subjects with partial seizures",
+        "interventions": [
+          "pregabalin"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00141258",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Pregabalin Epilepsy Add-On Trial"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00141258",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-fbb56d1c5368",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Pregabalin Epilepsy Add-On Trial"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to determine the effects of pregabalin on sleep problems in patients with seizures.",
+        "interventions": [
+          "Pregabalin",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00643136",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "A Study of Lyrica as Treatment for Sleep Problems in Patients With Sleep Problems and Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00643136",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-f5ba764e330d",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study of Lyrica as Treatment for Sleep Problems in Patients With Sleep Problems and Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Approximately 30% percent of subjects with partial seizures are refractory to treatment with single or combination antiepileptic drugs. The present study will compare the efficacy of two different dosages of pregabalin CR dosed once daily as compared to placebo, when used as adjunctive therapy in subjects requiring adjunctive therapy for partial onset epilepsy, using a randomized, parallel group design.",
+        "interventions": [
+          "pregabalin",
+          "pregabalin",
+          "pregabalin",
+          "pregabalin",
+          "pregabalin",
+          "pregabalin",
+          "placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01262677",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "24962242"
+        ],
+        "title": "Once-A-Day Pregabalin For Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01262677",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-3850b7912de2",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Once-A-Day Pregabalin For Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Study A0081041 is a double blind, placebo controlled, randomized, parallel group, multicenter study to evaluate the safety and efficacy of two dose levels of pregabalin administered in equally divided daily doses, in either capsule or oral liquid formulation, as adjunctive therapy in pediatric subjects 4 to 16 years of age with partial onset seizures.",
+        "interventions": [
+          "Pregabalin add-on therapy",
+          "Pregabalin add-on therapy",
+          "Pregabalin add-on therapy"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT01389596",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30688135"
+        ],
+        "title": "A Study of the Efficacy and Safety of Pregabalin as Add-On Therapy for Partial Onset Seizures in Children Ages 4-16 Years"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01389596",
+      "generic_name": "pregabalin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-700a247cd096",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study of the Efficacy and Safety of Pregabalin as Add-On Therapy for Partial Onset Seizures in Children Ages 4-16 Years"
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+      "generic_name": "pregabalin",
+      "id": "source_fact_concordance_problem-ade8eae67f58",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "enzyme_inducing_or_inhibiting",
+      "current_value": "Not metabolized; not an enzyme inducer/inhibitor",
+      "details": {
+        "checked": true,
+        "matched_terms": [
+          "enzyme"
+        ],
+        "missing_numbers": [],
+        "missing_terms": [
+          "metabolized",
+          "inducer",
+          "inhibitor"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "metabolized",
+          "enzyme",
+          "inducer",
+          "inhibitor"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+      "generic_name": "pregabalin",
+      "id": "source_fact_concordance_problem-8987a56a7909",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "enzyme_inducing_or_inhibiting could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Alzain; Lyrica",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22partial-onset+seizures%22&limit=100",
+      "generic_name": "pregabalin",
+      "id": "trade_name_addition-38974123d586",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "PREGABALIN"
+      },
+      "proposed_value": "PREGABALIN",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: PREGABALIN."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=f280bbd8-2af2-444a-bd96-e409337ca6dd; published=Apr 15, 2026; title=LYRICA CR (PREGABALIN) TABLET, FILM COATED, EXTENDED RELEASE [VIATRIS SPECIALTY LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f280bbd8-2af2-444a-bd96-e409337ca6dd",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+      "generic_name": "pregabalin",
+      "id": "fda_warning_metadata_refresh-bdc5f477d132",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=f280bbd8-2af2-444a-bd96-e409337ca6dd; effective_time=20260312; title=Lyrica CR / PREGABALIN; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=f280bbd8-2af2-444a-bd96-e409337ca6dd; effective_time=20260312; title=Lyrica CR / PREGABALIN; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22f280bbd8-2af2-444a-bd96-e409337ca6dd%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Generalized tonic-clonic seizure trial showed no significant pregabalin-placebo difference and did not report extractable responder percentages in the abstract.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "pregabalin",
+      "label": "Driscoll2021",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "34033265",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34033265/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin as adjunctive therapy in adult and pediatric patients with generalized tonic-clonic seizures: A randomized, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports a 35% placebo-relative reduction in log-transformed video-EEG seizure rate for 14 mg/kg/day.",
+      "dose_or_regimen": "pregabalin 14 mg/kg/day",
+      "endpoint": "focal-onset seizures in children aged 1 month to <4 years",
+      "generic_name": "pregabalin",
+      "label": "Mann2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "35.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "32189338",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32189338/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin adjunctive therapy for focal onset seizures in children 1 month to <4 years of age: A double-blind, placebo-controlled, video-electroencephalographic trial."
+    },
+    {
+      "audit_note": "Abstract reports high pediatric dose responder rate and improvement over placebo.",
+      "dose_or_regimen": "pregabalin 10 mg/kg/day or 14 mg/kg/day if <30 kg",
+      "endpoint": "pediatric focal-onset seizures",
+      "generic_name": "pregabalin",
+      "label": "Antinew2019",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "19.9",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "30688135",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/30688135/",
+      "rr50_active_percent": "40.6",
+      "rr50_differential_percent": "18.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "22.6",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin as Adjunctive Treatment for Focal Onset Seizures in Pediatric Patients: A Randomized Controlled Trial."
+    },
+    {
+      "audit_note": "Controlled-release pregabalin trial did not demonstrate efficacy versus placebo; numeric values were not included in the maximum-effective-dose rollup.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "pregabalin",
+      "label": "French2014b",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "24962242",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24962242/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive use of controlled-release pregabalin in adults with treatment-resistant partial seizures: a double-blind, randomized, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Historical-controlled conversion-to-monotherapy trial; no concurrent placebo arm for drug-minus-placebo differential.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "pregabalin",
+      "label": "French2014",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "24415567",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24415567/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin monotherapy in patients with partial-onset seizures: a historical-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports responder rates and a placebo-comparator median percentage reduction across treatment.",
+      "dose_or_regimen": "pregabalin up to 600 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "pregabalin",
+      "label": "Baulac2010",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "20.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "20696552",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "rr50_active_percent": "36.0",
+      "rr50_differential_percent": "15.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "21.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A comparison of pregabalin, lamotrigine, and placebo as adjunctive therapy in patients with refractory partial-onset seizures."
+    },
+    {
+      "audit_note": "Flexible-dose trial reports response-ratio least-squares means but not RR50, MPC, or seizure-freedom percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "pregabalin",
+      "label": "Lee2009",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "19222545",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/19222545/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin add-on therapy using a flexible, optimized dose schedule in refractory partial epilepsies: a double-blind, randomized, placebo-controlled, multicenter trial."
+    },
+    {
+      "audit_note": "Abstract reports fixed-dose 600 mg/day and placebo seizure-frequency reductions; flexible-dose regimen was lower.",
+      "dose_or_regimen": "pregabalin 600 mg/day BID fixed dose",
+      "endpoint": "partial seizures",
+      "generic_name": "pregabalin",
+      "label": "Elger2005",
+      "mpc_active_percent": "49.3",
+      "mpc_differential_percent": "38.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "10.6",
+      "pmid": "16393158",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16393158/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin add-on treatment in patients with partial seizures: a novel evaluation of flexible-dose and fixed-dose treatment in a double-blind, placebo-controlled study."
+    },
+    {
+      "audit_note": "Abstract reports 600 mg/day TID responder and seizure-frequency reduction values; BID was similar but slightly lower.",
+      "dose_or_regimen": "pregabalin 600 mg/day TID",
+      "endpoint": "partial seizures",
+      "generic_name": "pregabalin",
+      "label": "Beydoun2005",
+      "mpc_active_percent": "53.0",
+      "mpc_differential_percent": "54.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-1.0",
+      "pmid": "15699378",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/15699378/",
+      "rr50_active_percent": "49.0",
+      "rr50_differential_percent": "40.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "9.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Safety and efficacy of two pregabalin regimens for add-on treatment of partial epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports 600 mg/day responder and seizure-frequency reduction values.",
+      "dose_or_regimen": "pregabalin 600 mg/day TID",
+      "endpoint": "partial seizures",
+      "generic_name": "pregabalin",
+      "label": "Arroyo2004",
+      "mpc_active_percent": "47.8",
+      "mpc_differential_percent": "49.6",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-1.8",
+      "pmid": "14692903",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/14692903/",
+      "rr50_active_percent": "43.5",
+      "rr50_differential_percent": "37.3",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "6.2",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Pregabalin add-on treatment: a randomized, double-blind, placebo-controlled, dose-response study in adults with partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports 600 mg/day responder and seizure-frequency reduction values.",
+      "dose_or_regimen": "pregabalin 600 mg/day BID",
+      "endpoint": "partial seizures",
+      "generic_name": "pregabalin",
+      "label": "French2003",
+      "mpc_active_percent": "54.0",
+      "mpc_differential_percent": "47.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "7.0",
+      "pmid": "12771254",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/12771254/",
+      "rr50_active_percent": "51.0",
+      "rr50_differential_percent": "37.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "14.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Dose-response trial of pregabalin adjunctive therapy in patients with partial seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Driscoll",
+      "generic_name": "pregabalin",
+      "label": "Driscoll2021",
+      "pmid": "34033265",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin as adjunctive therapy in adult and pediatric patients with generalized tonic-clonic seizures: A randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34033265/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Mann",
+      "generic_name": "pregabalin",
+      "label": "Mann2020",
+      "pmid": "32189338",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin adjunctive therapy for focal onset seizures in children 1 month to <4 years of age: A double-blind, placebo-controlled, video-electroencephalographic trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32189338/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Antinew",
+      "generic_name": "pregabalin",
+      "label": "Antinew2019",
+      "pmid": "30688135",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin as Adjunctive Treatment for Focal Onset Seizures in Pediatric Patients: A Randomized Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30688135/",
+      "year": "2019"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "pregabalin",
+      "label": "French2014b",
+      "pmid": "24962242",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive use of controlled-release pregabalin in adults with treatment-resistant partial seizures: a double-blind, randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24962242/",
+      "year": "2014"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "pregabalin",
+      "label": "French2014",
+      "pmid": "24415567",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin monotherapy in patients with partial-onset seizures: a historical-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24415567/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Baulac",
+      "generic_name": "pregabalin",
+      "label": "Baulac2010",
+      "pmid": "20696552",
+      "pub_types": "Clinical Trial, Phase I; Clinical Trial, Phase II; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A comparison of pregabalin, lamotrigine, and placebo as adjunctive therapy in patients with refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Lee",
+      "generic_name": "pregabalin",
+      "label": "Lee2009",
+      "pmid": "19222545",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin add-on therapy using a flexible, optimized dose schedule in refractory partial epilepsies: a double-blind, randomized, placebo-controlled, multicenter trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19222545/",
+      "year": "2009"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "pregabalin",
+      "label": "Elger2005",
+      "pmid": "16393158",
+      "pub_types": "Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin add-on treatment in patients with partial seizures: a novel evaluation of flexible-dose and fixed-dose treatment in a double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16393158/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Beydoun",
+      "generic_name": "pregabalin",
+      "label": "Beydoun2005",
+      "pmid": "15699378",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of two pregabalin regimens for add-on treatment of partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15699378/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Arroyo",
+      "generic_name": "pregabalin",
+      "label": "Arroyo2004",
+      "pmid": "14692903",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Pregabalin add-on treatment: a randomized, double-blind, placebo-controlled, dose-response study in adults with partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14692903/",
+      "year": "2004"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "pregabalin",
+      "label": "French2003",
+      "pmid": "12771254",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Dose-response trial of pregabalin adjunctive therapy in patients with partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12771254/",
+      "year": "2003"
+    },
+    {
+      "first_author": "Xu",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "42038076",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of transcranial magnetic stimulation on prognosis in patients with postherpetic neuralgia and comorbid depression undergoing interventional neuromodulation therapy: protocol for a randomized double-blind placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42038076/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Singh",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "36741623",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Preemptive Levetiracetam Decreases Postoperative Pain: A Double-Blind, Randomised, Control Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36741623/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Mann",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "25377429",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Safety, tolerability, and pharmacokinetics of pregabalin in children with refractory partial seizures: a phase 1, randomized controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25377429/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Cao",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "24820281",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "[Pregabalin combined with intrathecal sufentanil infusion for breakthrough pain in patients with bone metastases].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24820281/",
+      "year": "2014"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "23727190",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Designing a new proof-of-principle trial for treatment of partial seizures to demonstrate efficacy with minimal sample size and duration-a case study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23727190/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Ahuja",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "23089176",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A four arm, double blind, randomized and placebo controlled study of pregabalin in the management of post-burn pruritus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23089176/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Bazil",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "22424859",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Pregabalin increases slow-wave sleep and may improve attention in patients with partial epilepsy and insomnia.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22424859/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Salinsky",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "20194915",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Cognitive effects of pregabalin in healthy volunteers: a double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20194915/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Ramsay",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "19490035",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Rapid onset of seizure suppression with pregabalin adjunctive treatment in patients with partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19490035/",
+      "year": "2009"
+    },
+    {
+      "first_author": "de Haas",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "17803010",
+      "pub_types": "Controlled Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Exploratory polysomnographic evaluation of pregabalin on sleep disturbance in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17803010/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Gazzola",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "17521343",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Seizure-free outcome in randomized add-on trials of the new antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17521343/",
+      "year": "2007"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "16397976",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Pregabalin: new drug. Very similar to gabapentin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16397976/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "15315512",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase III; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Pregabalin as adjunctive therapy for partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15315512/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Miller",
+      "generic_name": "pregabalin",
+      "label": "",
+      "pmid": "12811359",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Exposure-response analysis of pregabalin add-on treatment of patients with refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12811359/",
+      "year": "2003"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

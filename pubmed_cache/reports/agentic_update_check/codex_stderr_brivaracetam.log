@@ -1,0 +1,1728 @@
+2026-05-20T22:42:15.352634Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.408295Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e478d-ca9d-79b2-bd7b-60623af97b6e
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 16%, CNS: dizziness 12%, constitutional: fatigue 9%, GI: nausea/vomiting 5%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "10.2-39.1 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 25.03%; Inoue2024 BRV 200 mg/day 30.3%; Klein2015 BRV 200 mg/day 16.2%; Biton2013 BRV 50 mg/day 16%; Ryvlin2013 BRV 100 mg/day 16%; Kwan2013 BRV flexible dose up to 150 mg/day 13.6%; VanPaesschen2012 BRV 150 mg/day 10.2%; French2010 BRV 50 mg/day 39.1%)",
+    "diff_median_pct_change_maximum_effective_dose": "8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)",
+    "diff_seizure_freedom_maximum_effective_dose": "3.9-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Ryvlin2013 BRV 100 mg/day 4%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)",
+    "enzyme_inducing_or_inhibiting": "Weak CYP2C19 inhibitor; not a broad enzyme inducer",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer; Inhibitor",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "IV/IM injection; Liquid; Tablet",
+    "filter_mechanism": "SV2A",
+    "filter_metabolism": "Liver/hepatic; Plasma/extrahepatic; Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Constitutional; GI",
+    "formulations_available": "Immediate-release tablet; oral solution; IV injection",
+    "generic_name": "brivaracetam",
+    "half_life_range": "~9 h",
+    "major_organ_for_metabolism": "Liver and extrahepatic hydrolysis; renal excretion of metabolites",
+    "maximum_approved_daily_dose": "200 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise anticonvulsant mechanism is unknown; brivaracetam binds selectively and with high affinity to synaptic vesicle protein 2A (SV2A), which may contribute to the anticonvulsant effect.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "50 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Yu2026|25.03|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|30.3|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|16.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|16|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|13.6|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|16|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|10.2|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|39.1|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|4|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "pubmed_phase_ii_iii_rct_links": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+    "pubmed_search_aliases": "UCB 34714",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 5/65 on 2026-05-15: 10 qualifying placebo-controlled randomized clinical trial report(s) retained from 40 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal/partial-onset seizures.",
+    "trade_names": "Briviact",
+    "typical_doses_per_day": "Adults/adolescents >=16: 50-200 mg/day divided BID",
+    "year_fda_cleared": "2016"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/",
+      "label": "Yu2026",
+      "pmid": "42092987",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42092987/"
+    },
+    {
+      "entry": "Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/",
+      "label": "Inoue2024",
+      "pmid": "38576178",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38576178/"
+    },
+    {
+      "entry": "Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/",
+      "label": "Bast2022",
+      "pmid": "35844134",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35844134/"
+    },
+    {
+      "entry": "Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "label": "Kalviainen2015",
+      "pmid": "26666500",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26666500/"
+    },
+    {
+      "entry": "Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/",
+      "label": "Klein2015",
+      "pmid": "26471380",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26471380/"
+    },
+    {
+      "entry": "Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/",
+      "label": "Ryvlin2013",
+      "pmid": "24256083",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24256083/"
+    },
+    {
+      "entry": "Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/",
+      "label": "Kwan2013",
+      "pmid": "24116853",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24116853/"
+    },
+    {
+      "entry": "Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/",
+      "label": "Biton2013",
+      "pmid": "24446953",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24446953/"
+    },
+    {
+      "entry": "VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/",
+      "label": "VanPaesschen2012",
+      "pmid": "22813235",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22813235/"
+    },
+    {
+      "entry": "French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "label": "French2010",
+      "pmid": "20592253",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20592253/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 16%, CNS: dizziness 12%, constitutional: fatigue 9%, GI: nausea/vomiting 5%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "10.2-39.1 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 25.03%; Inoue2024 BRV 200 mg/day 30.3%; Klein2015 BRV 200 mg/day 16.2%; Biton2013 BRV 50 mg/day 16%; Ryvlin2013 BRV 100 mg/day 16%; Kwan2013 BRV flexible dose up to 150 mg/day 13.6%; VanPaesschen2012 BRV 150 mg/day 10.2%; French2010 BRV 50 mg/day 39.1%)",
+    "diff_median_pct_change_maximum_effective_dose": "8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)",
+    "diff_seizure_freedom_maximum_effective_dose": "3.9-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Ryvlin2013 BRV 100 mg/day 4%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)",
+    "enzyme_inducing_or_inhibiting": "Weak CYP2C19 inhibitor; not a broad enzyme inducer",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c",
+    "formulations_available": "Immediate-release tablet; oral solution; IV injection",
+    "half_life_range": "~9 h",
+    "major_organ_for_metabolism": "Liver and extrahepatic hydrolysis; renal excretion of metabolites",
+    "maximum_approved_daily_dose": "200 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise anticonvulsant mechanism is unknown; brivaracetam binds selectively and with high affinity to synaptic vesicle protein 2A (SV2A), which may contribute to the anticonvulsant effect.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "50 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Yu2026|25.03|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|30.3|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|16.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|16|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|13.6|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|16|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|10.2|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|39.1|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|4|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208",
+    "pubmed_phase_ii_iii_rct_links": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+    "pubmed_search_aliases": "UCB 34714",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Briviact",
+    "typical_doses_per_day": "Adults/adolescents >=16: 50-200 mg/day divided BID",
+    "year_fda_cleared": "2016"
+  },
+  "generic_name": "brivaracetam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "details": {
+        "article": {
+          "abstract": "Up to 30% of people with epilepsy are refractory to current antiseizure medications (ASMs). JNJ-40411813 is a positive allosteric modulator of metabotropic glutamate 2 receptor, a presynaptic glutamate release inhibitor, and was hypothesized to reduce glutamate-mediated neuronal toxicity through inhibition of excessive glutamate release during seizures. This 12-week, double-blinded, placebo-controlled phase 2a study, which employed a rational polypharmacy approach using a novel time-to-event endpoint for epilepsy clinical trials, evaluated JNJ-40411813 (Cohort 1: 50/100 mg; Cohort 2: 100/200 mg) as adjunctive treatment for focal seizures in participants aged 18-64 years receiving levetiracetam or brivaracetam and ≤3 other ASMs. Participants were stratified as induced or noninduced based on treatment or no treatment with a cytochrome P450 3A4 enzyme-inducing ASM. The primary endpoint was time-to-baseline monthly seizure count. Cohorts 1 and 2 randomized 60 and 50 patients, respectively. No significant clinical benefits were observed in the median time (95% confidence interval [CI]) to reach the baseline monthly seizure count in Cohort 1 (JNJ-40411813: 34 days [27-48], placebo 32 days [28-37], hazard ratio [HR] = .75 [.41-1.38], p = .36) or Cohort 2 (JNJ-40411813: 38 days [28-48], placebo: 29 days [22-69], HR = .83 [.40-1.75], p = .63). Similarly, no clinical benefits of JNJ-40411813 were observed for any of the secondary endpoints. JNJ-40411813 displayed an acceptable safety profile; treatment-emergent adverse events were mild to moderate in severity and not treatment limiting. JNJ-40411813 adjunctive to levetiracetam or brivaracetam showed no significant clinical benefit over placebo in reducing time-to-baseline monthly seizure count or improvement in other key measures in patients with focal onset seizures. The time-to-event study design was successful at reducing participant exposure to ineffective treatment. Despite an acceptable safety profile, the overall efficacy and benefit-risk assessment of JNJ-40411813 does not support its use for patients with focal seizures. © 2025 International League Against Epilepsy.",
+          "first_author": "French",
+          "pmid": "41175011",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Clinical Trial, Phase II",
+            "Multicenter Study"
+          ],
+          "title": "A randomized, double-blind, placebo-controlled, time-to-event study of the efficacy and safety of JNJ-40411813 in combination with levetiracetam or brivaracetam in patients with focal onset seizures.",
+          "year": "2025"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41175011/",
+      "generic_name": "brivaracetam",
+      "id": "new_pubmed_phase_ii_iii_rct-36dac3217b6d",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "French2025|https://pubmed.ncbi.nlm.nih.gov/41175011/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41175011 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "French2025|https://pubmed.ncbi.nlm.nih.gov/41175011/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: A randomized, double-blind, placebo-controlled, time-to-event study of the efficacy and safety of JNJ-40411813 in combination with levetiracetam or brivaracetam in patients with focal onset seizures."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "details": {
+        "article": {
+          "abstract": "This study was undertaken to evaluate safety/tolerability and efficacy of adjunctive brivaracetam (BRV) in patients on one or two concomitant antiseizure medications (ASMs) and in patients on one specific concomitant ASM. Post hoc analysis was made of double-blind trials (N01252/NCT00490035, N01253/NCT00464269, and N01358/NCT01261325) in adults with focal seizures randomized to BRV (50-200 mg/day; approved therapeutic dose range for adults) or placebo with concomitant ASM regimen unchanged throughout a 12-week evaluation period. Outcomes were analyzed in patients on one or two concomitant ASMs, and those on concomitant carbamazepine (CBZ), lamotrigine (LTG), oxcarbazepine (OXC), or valproate (VPA) only. Patients randomized to BRV with one or two concomitant ASMs, respectively (n = 181/557), reported similar incidences of treatment-emergent adverse events (TEAEs; 68.0%/66.4%), drug-related TEAEs (41.4%/41.5%), and TEAEs leading to discontinuation (6.6%/5.4%). Respective values for patients randomized to placebo with one or two concomitant ASMs (n = 95/331) were 60.0%/60.7% (TEAEs), 32.6%/30.2% (drug-related TEAEs), and 2.1%/4.5% (TEAEs leading to discontinuation). The incidences of TEAEs, drug-related TEAEs, and TEAEs leading to discontinuation by specific concomitant ASM (CBZ, LTG, OXC, VPA) were similar to the overall incidences in patients taking one concomitant ASM. In patients on one or two concomitant ASMs, respectively, 50% responder rates were numerically higher on BRV (42.3%/36.8% [n = 175/511]) versus placebo (18.3%/19.5% [n = 93/298]). Patients with one or two ASMs on BRV (n = 175/509) versus placebo (n = 92/298) also had numerically higher 100% responder rates (BRV, 9.1%/4.5%; placebo, 1.1%/.3%) and seizure freedom (6.9%/3.7%; 1.1%/0). For patients taking concomitant CBZ, LTG, OXC, or VPA, efficacy was numerically higher with BRV (n = 54/30/27/27) versus placebo (n = 34/13/10/14-15; 50% responder rates: BRV, 31.5%/30.0%/40.7%/70.4%; placebo, 17.6%/7.7%/20.0%/33.3%; 100% responder rates: BRV, 5.6%/10.0%/11.1%/11.1%; placebo, 0 for all; seizure freedom: BRV, 3.7%/6.7%/7.4%/11.1%; placebo, 0 for all). Therapeutic doses of BRV were efficacious and well tolerated regardless of the number of concomitant ASMs (one or two) or specific concomitant ASM (CBZ, LTG, OXC, VPA). © 2022 UCB Pharma. Epilepsia published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.",
+          "first_author": "Ryvlin",
+          "pmid": "35582748",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Tolerability and efficacy of adjunctive brivaracetam in adults with focal seizures by concomitant antiseizure medication use: Pooled results from three phase 3 trials.",
+          "year": "2022"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35582748/",
+      "generic_name": "brivaracetam",
+      "id": "new_pubmed_phase_ii_iii_rct-7dcd25e54640",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Ryvlin2022|https://pubmed.ncbi.nlm.nih.gov/35582748/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 35582748 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Ryvlin2022|https://pubmed.ncbi.nlm.nih.gov/35582748/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Tolerability and efficacy of adjunctive brivaracetam in adults with focal seizures by concomitant antiseizure medication use: Pooled results from three phase 3 trials."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "details": {
+        "article": {
+          "abstract": "Time to onset of sustained ≥50% responder status (SRS) was assessed for the pooled patient population receiving brivaracetam (BRV) 50, 100, or 200 mg/day or placebo in three randomized phase III studies (NCT00464269, NCT00490035, and NCT01261325). Patients were aged ≥16 years with well-characterized focal (partial-onset) seizures (FS) uncontrolled by 1-2 concomitant antiepileptic drugs. After an 8-week baseline period, patients received study drug without up-titration for a 12-week (84-day) treatment period. A patient was a sustained ≥50% responder on a particular day if they completed the entire treatment period through day 84 and was a ≥50% responder (based on percent reduction in FS frequency from baseline) both on that day and every successive day until day 84 (end of treatment period). In the pooled efficacy population (N = 1,160), 15.5%, 18.1%, and 19.4% of patients taking BRV 50, 100, or 200 mg/day, respectively, achieved SRS on day 1 versus 6.7% for placebo (p < 0.001). Statistically significant SRS was also achieved for most of the BRV-treated groups in the three separate studies. This suggests that BRV has an early, sustained onset of action in a subset of responders. The incidence of adverse events during the first week was similar to that in the overall treatment period. © 2016 The Authors. Epilepsia published by Wiley Periodicals, Inc. on behalf of International League Against Epilepsy.",
+          "first_author": "Klein",
+          "pmid": "27988967",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Time to onset of sustained ≥50% responder status in patients with focal (partial-onset) seizures in three phase III studies of adjunctive brivaracetam treatment.",
+          "year": "2016"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/27988967/",
+      "generic_name": "brivaracetam",
+      "id": "new_pubmed_phase_ii_iii_rct-0e04ac73a88c",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Klein2016|https://pubmed.ncbi.nlm.nih.gov/27988967/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 27988967 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Klein2016|https://pubmed.ncbi.nlm.nih.gov/27988967/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Time to onset of sustained ≥50% responder status in patients with focal (partial-onset) seizures in three phase III studies of adjunctive brivaracetam treatment."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Yu2026|https://pubmed.ncbi.nlm.nih.gov/42092987/; Inoue2024|https://pubmed.ncbi.nlm.nih.gov/38576178/; Bast2022|https://pubmed.ncbi.nlm.nih.gov/35844134/; Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/; Klein2015|https://pubmed.ncbi.nlm.nih.gov/26471380/; Ryvlin2013|https://pubmed.ncbi.nlm.nih.gov/24256083/; Kwan2013|https://pubmed.ncbi.nlm.nih.gov/24116853/; Biton2013|https://pubmed.ncbi.nlm.nih.gov/24446953/; VanPaesschen2012|https://pubmed.ncbi.nlm.nih.gov/22813235/; French2010|https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "details": {
+        "article": {
+          "abstract": "Secondarily generalized tonic-clonic seizures (SGTCS) are among the most devastating types of seizures, contributing to increased morbidity and mortality. Brivaracetam (BRV), a selective, high-affinity ligand for synaptic vesicle 2A (SV2A), has been shown to be useful for the adjunctive treatment of focal seizures. We sought to determine its specific efficacy in treating SGTCS. Data were pooled from three Phase III studies (NCT00490035; NCT00464269; NCT01261325) of adults with focal seizures taking 1-2 antiepileptic drugs (AEDs) who received placebo or BRV 50-200mg/day without titration over a 12-week treatment period. We report efficacy and safety/tolerability data for the BRV therapeutic dose range (50-200 mg/day) in patients with focal seizures including baseline SGTCS. Patients (efficacy population, N=409) had been diagnosed with epilepsy for a mean±standard deviation duration of 22.2±13.1years. Baseline median SGTCS frequency was 3.0 per 28days. The majority (293, 71.6%) had failed ≥2 AEDs prior to study enrollment. The median percent reduction from baseline in SGTCS frequency/28days was: placebo, 33.3%; BRV 50mg/day, 66.6% (p<0.001); BRV 100mg/day, 61.2% (p=0.002); and BRV 200mg/day, 82.1% (p<0.001). The ≥50% responder rate for SGTCS was: placebo, 33.0%; BRV 50mg/day, 61.3% (p=0.003); BRV 100mg/day, 55.0% (p<0.001); and BRV 200mg/day, 64.0% (p<0.001). Freedom from SGTCS was achieved by: placebo, 14.8%; BRV 50mg/day, 22.6%; BRV 100mg/day, 31.0%; and BRV 200mg/day, 36.0% of patients. Time to first SGTCS during the treatment period was longer in patients receiving BRV than placebo (26days vs 8days, hazard ratio 0.55, p<0.001). In the SGTCS safety population (N=487), treatment-emergent adverse events (TEAEs) were reported by 60.6% of patients receiving placebo vs 65.0% of patients receiving BRV ≥50mg/day. Serious TEAEs were reported by 3.1% placebo vs 3.9% BRV ≥50mg/day. Discontinuations due to TEAEs were 3.9% placebo vs 6.3% BRV ≥50mg/day. In patients with drug-resistant focal seizures, adjunctive BRV is effective in reducing the frequency of SGTCS. Almost one-third (30.4%) of patients were rendered completely free of SGTCS during the 12-week treatment period when taking BRV ≥50mg/day. BRV was well tolerated, with a TEAE profile consistent with that of the overall study population. Copyright © 2016 Elsevier B.V. All rights reserved.",
+          "first_author": "Moseley",
+          "pmid": "27608437",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Efficacy, safety, and tolerability of adjunctive brivaracetam for secondarily generalized tonic-clonic seizures: Pooled results from three Phase III studies.",
+          "year": "2016"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/27608437/",
+      "generic_name": "brivaracetam",
+      "id": "new_pubmed_phase_ii_iii_rct-bf86fd5eeede",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Moseley2016|https://pubmed.ncbi.nlm.nih.gov/27608437/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 27608437 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Moseley2016|https://pubmed.ncbi.nlm.nih.gov/27608437/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Efficacy, safety, and tolerability of adjunctive brivaracetam for secondarily generalized tonic-clonic seizures: Pooled results from three Phase III studies."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalviainen2015|https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate efficacy, tolerability, and safety of adjunctive brivaracetam (BRV) in patients with Unverricht-Lundborg disease (EPM1). Two prospective, multicenter, double-blind, phase III trials (N01187/NCT00357669; N01236/NCT00368251) in patients (≥16 years) with genetically ascertained EPM1, showing moderate-severe myoclonus (action myoclonus score ≥30/160), randomized (1:1:1) to twice-daily BRV (N01187: 50 or 150 mg/day; N01236: 5 or 150 mg/day), or placebo. Both studies comprised a baseline period (2 weeks), 2-week up-titration period, 12-week stable-dose maintenance period, and down-titration or entry into long-term follow-up study. Symptoms of myoclonus were assessed by Unified Myoclonus Rating Scale (UMRS). Primary efficacy end point was percent reduction from baseline in action myoclonus score (UMRS section 4) at last treatment visit. Safety assessments included treatment-emergent adverse events (TEAEs). N01187: 50 patients randomized, 47 completed; N01236: 56 patients randomized, 54 completed. Median (min-max) percent reduction from baseline in action myoclonus score is the following-N01187: placebo 5.6 (-81.3 to 53.8), pooled BRV group (primary efficacy analysis) 21.4 (-50.0 to 73.6), BRV 50 mg/day 26.3 (-35.8 to 69.2), BRV 150 mg/day 16.9 (-50.0 to 73.6); N01236: placebo 17.5 (-170 to 61.5), BRV 5 mg/day -4.6 (-430 to 81.8), BRV 150 mg/day (primary efficacy analysis) 12.3 (-58.3 to 96.9). Estimated differences versus placebo were not statistically significant. TEAEs were reported by 72-75% placebo-treated and 56-83% BRV-treated patients. Effect of BRV on action myoclonus was not statistically significant. However, action myoclonus score showed wide intrapatient variability and may not have been the optimal tool to measure severity of myoclonus in EPM1. Both studies had very high completion rates (95.3% overall), and a high percentage of patients (88.7% overall) entered long-term follow-up; both likely to be influenced by good tolerability. These studies demonstrate the feasibility of rigorous trials in progressive myoclonic epilepsy. Wiley Periodicals, Inc. © 2015 International League Against Epilepsy.",
+          "first_author": "Kälviäinen",
+          "pmid": "26666500",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Brivaracetam in Unverricht-Lundborg disease (EPM1): Results from two randomized, double-blind, placebo-controlled studies.",
+          "year": "2015"
+        },
+        "reason": "title lacks seizure/epilepsy context"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "generic_name": "brivaracetam",
+      "id": "rct_pubmed_concordance_problem-18fa79ea7aec",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 26666500 needs manual review for brivaracetam; PubMed validation reason: title lacks seizure/epilepsy context.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 26666500 needs manual review for brivaracetam; PubMed validation reason: title lacks seizure/epilepsy context.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks seizure/epilepsy context."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2016",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2016"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5",
+      "generic_name": "brivaracetam",
+      "id": "source_fact_concordance_problem-c2fb020359ab",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial will evaluate the efficacy and safety of brivaracetam (at doses of 5, 20 and 50 mg/day in twice a day administration) as add-on therapy in subjects with focal epilepsy.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00175825",
+        "new_reference_pmids": [
+          "27265725",
+          "35285519",
+          "31937513"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "27265725",
+          "35285519",
+          "31937513"
+        ],
+        "title": "A Dose-ranging Study With Brivaracetam in Patients From 16 to 65 Years With Refractory Partial Onset Seizures."
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00175825",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-097c40372370",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Dose-ranging Study With Brivaracetam in Patients From 16 to 65 Years With Refractory Partial Onset Seizures."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will evaluate the efficacy and safety of Brivaracetam to support the submission file in the indication of adjunctive treatment in adolescents and adults with partial onset seizures.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam 2.5 mg",
+          "Brivaracetam 10 mg",
+          "Brivaracetam 25 mg"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00464269",
+        "new_reference_pmids": [
+          "27265725",
+          "27335114",
+          "27589414",
+          "28004320",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "35285519",
+          "34155568"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "24446953",
+          "27265725",
+          "27335114",
+          "27589414",
+          "28004320",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "35285519",
+          "34155568"
+        ],
+        "title": "Double-blind, Randomized Study Evaluating the Efficacy and Safety of Brivaracetam in Adults With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00464269",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-3cbd588db294",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Double-blind, Randomized Study Evaluating the Efficacy and Safety of Brivaracetam in Adults With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of the study is to test the efficacy, safety and tolerability of brivaracetam monotherapy in study participants 2 to 25 years of age inclusive with childhood absence epilepsy (CAE) or juvenile absence epilepsy (JAE).",
+        "interventions": [
+          "Brivaracetam",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT04666610",
+        "new_reference_pmids": [],
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "35844134"
+        ],
+        "title": "A Study to Evaluate the Efficacy, Safety, and Tolerability of Brivaracetam as Monotherapy in Patients 2 to 25 Years of Age With Childhood Absence Epilepsy or Juvenile Absence Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04666610",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-e05a766f169b",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Evaluate the Efficacy, Safety, and Tolerability of Brivaracetam as Monotherapy in Patients 2 to 25 Years of Age With Childhood Absence Epilepsy or Juvenile Absence Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a multicenter, open-label, 4-arm, randomized, parallel-group study to evaluate safety and tolerability of Brivaracetam Intravenous (BRV iv) as adjunctive treatment for adults with epilepsy according to an initiation or a conversion scheme, during repeated dosing (100 mg/administration twice daily for 4.5 days).",
+        "interventions": [
+          "Brivaracetam tablets",
+          "Brivaracetam bolus",
+          "Brivaracetam infusion",
+          "Placebo"
+        ],
+        "masking": "NONE",
+        "nct_id": "NCT01405508",
+        "new_reference_pmids": [
+          "33780735"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33780735"
+        ],
+        "title": "Safety and Tolerability of Intravenous Brivaracetam (Infusion or Bolus) as Adjunctive Antiepileptic Therapy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01405508",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-436f4a259845",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Safety and Tolerability of Intravenous Brivaracetam (Infusion or Bolus) as Adjunctive Antiepileptic Therapy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will compare the safety and efficacy of Brivaracetam at flexible dose with Placebo in subjects suffering from Epilepsy.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00504881",
+        "new_reference_pmids": [
+          "28004320",
+          "35285519",
+          "33461041"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "24116853",
+          "28004320",
+          "35285519",
+          "33461041"
+        ],
+        "title": "Brivaracetam as add-on Treatment in Adolescents and Adults Suffering From Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00504881",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-86cde09ea70b",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Brivaracetam as add-on Treatment in Adolescents and Adults Suffering From Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will evaluate the efficacy and safety of Brivaracetam to support the submission file in the indication of adjunctive treatment in adolescents and adults with partial onset seizures.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam",
+          "Brivaracetam",
+          "Brivaracetam"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00490035",
+        "new_reference_pmids": [
+          "27265725",
+          "27335114",
+          "27589414",
+          "28004320",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "35285519",
+          "34155568",
+          "33461041"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "24256083",
+          "27265725",
+          "27335114",
+          "27589414",
+          "28004320",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "35285519",
+          "34155568",
+          "33461041"
+        ],
+        "title": "Double-blind, Randomized Study Evaluating the Efficacy and Safety of Brivaracetam in Adults With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00490035",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-52961cfa2a10",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Double-blind, Randomized Study Evaluating the Efficacy and Safety of Brivaracetam in Adults With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of the study is to evaluate the efficacy of brivaracetam (BRV) compared to placebo (PBO) as adjunctive treatment in subjects (\\>=16 to 80 years of age) with partial seizures with or without secondary generalization despite current treatment with 1 or 2 concomitant antiepileptic drugs (AEDs) and to assess the safety and tolerability of BRV in subjects \\>= 16 years to 80 years of age.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03083665",
+        "new_reference_pmids": [
+          "40944847"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "40944847"
+        ],
+        "title": "A Study to Evaluate the Efficacy and Safety of Brivaracetam in Study Participants (>=16 to 80 Years of Age) With Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03083665",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-53eef9df7f66",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Evaluate the Efficacy and Safety of Brivaracetam in Study Participants (>=16 to 80 Years of Age) With Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to evaluate the efficacy of up to 3 dose levels of adjunctive JNJ-40411813 compared to placebo based on the time to baseline monthly seizure count in participants with focal onset seizures who are receiving levetiracetam or brivaracetam and up to 3 other anti-epileptic drugs (AEDs) (double-blind treatment period) and to evaluate the long-term efficacy and safety of adjunctive therapy with JNJ-40411813 in participants with epilepsy (open-label extension \\[OLE\\] period).",
+        "interventions": [
+          "JNJ-40411813",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT04836559",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "A Study to Investigate JNJ-40411813 in Combination With Levetiracetam or Brivaracetam in Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04836559",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b9665c9707b4",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Investigate JNJ-40411813 in Combination With Levetiracetam or Brivaracetam in Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will evaluate the efficacy and safety of brivaracetam at doses of 100 and 200mg/day compared to placebo as adjunctive treatment in adult focal epilepsy subjects with partial onset seizures not fully controlled despite current treatment with 1 or 2 concomitant antiepileptic drugs.",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam",
+          "Brivaracetam",
+          "Antiepileptic drugs with market authorization available per country"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01261325",
+        "new_reference_pmids": [
+          "27265725",
+          "27335114",
+          "27589414",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "36435010",
+          "35285519",
+          "34155568",
+          "33780735",
+          "26899665"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "27265725",
+          "27335114",
+          "26471380",
+          "27589414",
+          "27608437",
+          "28236727",
+          "27988967",
+          "28279891",
+          "29414542",
+          "29908435",
+          "32432339",
+          "34218211",
+          "35582748",
+          "36435010",
+          "35285519",
+          "34155568",
+          "33780735",
+          "26899665"
+        ],
+        "title": "Brivaracetam Efficacy and Safety Study in Subjects With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01261325",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-14781aa2d08a",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Brivaracetam Efficacy and Safety Study in Subjects With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial will evaluate the efficacy and safety of brivaracetam (at doses of 50 and 150 mg/day in twice a day administration) as add on therapy in subjects with focal epilepsy",
+        "interventions": [
+          "Placebo",
+          "Brivaracetam",
+          "Brivaracetam"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00175929",
+        "new_reference_pmids": [
+          "35285519",
+          "33461041",
+          "31937513"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "35285519",
+          "33461041",
+          "31937513",
+          "22813235"
+        ],
+        "title": "A Study of Brivaracetam in Subjects With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00175929",
+      "generic_name": "brivaracetam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-7b14a6caf35c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study of Brivaracetam in Subjects With Partial Onset Seizures"
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5",
+      "generic_name": "brivaracetam",
+      "id": "source_fact_concordance_problem-8dbcd7c10ef9",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5",
+      "generic_name": "brivaracetam",
+      "id": "fda_warning_metadata_refresh-d0a4b8ecc306",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3cf2f439-0e97-443e-8e33-25ecef616f6c; effective_time=20260513; title=Briviact / BRIVARACETAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3cf2f439-0e97-443e-8e33-25ecef616f6c; effective_time=20260513; title=Briviact / BRIVARACETAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports 200 mg/day RR50 48.89% vs 23.86% and seizure freedom 11.11% vs 2.27%. Median active/placebo reductions were not reported.",
+      "dose_or_regimen": "BRV 200 mg/day",
+      "endpoint": "focal-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "Yu2026",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "42092987",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42092987/",
+      "rr50_active_percent": "48.89",
+      "rr50_differential_percent": "25.03",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "23.86",
+      "sf_active_percent": "11.11",
+      "sf_differential_percent": "8.84",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "2.27",
+      "title": "Efficacy and safety of Brivaracetam as an adjunctive therapy in patients with focal-onset seizures: a phase III, multi-center, randomized, double-blind, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports the 200 mg/day arm separately; 50 mg/day was not used for the max-dose rollup.",
+      "dose_or_regimen": "BRV 200 mg/day",
+      "endpoint": "focal-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "Inoue2024",
+      "mpc_active_percent": "46.7",
+      "mpc_differential_percent": "25.4",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "21.3",
+      "pmid": "38576178",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38576178/",
+      "rr50_active_percent": "49.3",
+      "rr50_differential_percent": "30.3",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "19.0",
+      "sf_active_percent": "6.8",
+      "sf_differential_percent": "6.8",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Efficacy, safety, and tolerability of adjunctive brivaracetam in adult Asian patients with uncontrolled focal-onset seizures: A phase III randomized, double-blind, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Adaptive absence-epilepsy trial design publication; no extractable efficacy-arm results.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "brivaracetam",
+      "label": "Bast2022",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "35844134",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35844134/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and tolerability of brivaracetam monotherapy in childhood and juvenile absence epilepsy: An innovative adaptive trial design."
+    },
+    {
+      "audit_note": "EPM1 trials reported myoclonus-score outcomes rather than seizure-frequency RR50/MPC/seizure-freedom outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "brivaracetam",
+      "label": "Kalviainen2015",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "26666500",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Brivaracetam in Unverricht-Lundborg disease (EPM1): Results from two randomized, double-blind, placebo-controlled studies."
+    },
+    {
+      "audit_note": "Abstract reports RR50 for 200 mg/day. It reports placebo-adjusted seizure-frequency reduction but not median active/placebo reductions.",
+      "dose_or_regimen": "BRV 200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "Klein2015",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "26471380",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26471380/",
+      "rr50_active_percent": "37.8",
+      "rr50_differential_percent": "16.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "21.6",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomized, double-blind, placebo-controlled, multicenter, parallel-group study to evaluate the efficacy and safety of adjunctive brivaracetam in adult patients with uncontrolled partial-onset seizures."
+    },
+    {
+      "audit_note": "Abstract reports the highest and statistically significant 50 mg/day arm: responder and median seizure-frequency reduction values.",
+      "dose_or_regimen": "BRV 50 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "Biton2013",
+      "mpc_active_percent": "30.5",
+      "mpc_differential_percent": "12.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "17.8",
+      "pmid": "24446953",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24446953/",
+      "rr50_active_percent": "32.7",
+      "rr50_differential_percent": "16.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.7",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Brivaracetam as adjunctive treatment for uncontrolled partial epilepsy in adults: a phase III randomized, double-blind, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports 100 mg/day responder, median seizure-frequency reduction, and seizure-freedom values.",
+      "dose_or_regimen": "BRV 100 mg/day",
+      "endpoint": "focal seizures",
+      "generic_name": "brivaracetam",
+      "label": "Ryvlin2013",
+      "mpc_active_percent": "32.5",
+      "mpc_differential_percent": "15.5",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "17.0",
+      "pmid": "24256083",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24256083/",
+      "rr50_active_percent": "36.0",
+      "rr50_differential_percent": "16.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "20.0",
+      "sf_active_percent": "4.0",
+      "sf_differential_percent": "4.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Adjunctive brivaracetam in adults with uncontrolled focal epilepsy: results from a double-blind, randomized, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports focal-seizure responder and median reduction values for the flexible-dose trial; 150 mg/day was the trial maximum.",
+      "dose_or_regimen": "BRV flexible dose up to 150 mg/day",
+      "endpoint": "focal seizures",
+      "generic_name": "brivaracetam",
+      "label": "Kwan2013",
+      "mpc_active_percent": "26.9",
+      "mpc_differential_percent": "8.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "18.9",
+      "pmid": "24116853",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24116853/",
+      "rr50_active_percent": "30.3",
+      "rr50_differential_percent": "13.6",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.7",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive brivaracetam for uncontrolled focal and generalized epilepsies: results of a phase III, double-blind, randomized, placebo-controlled, flexible-dose trial."
+    },
+    {
+      "audit_note": "Abstract reports maintenance-period responder, median reduction, and seizure freedom for the 150 mg/day arm.",
+      "dose_or_regimen": "BRV 150 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "VanPaesschen2012",
+      "mpc_active_percent": "30.0",
+      "mpc_differential_percent": "11.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "18.9",
+      "pmid": "22813235",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/22813235/",
+      "rr50_active_percent": "33.3",
+      "rr50_differential_percent": "10.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "23.1",
+      "sf_active_percent": "5.8",
+      "sf_differential_percent": "3.9",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "1.9",
+      "title": "Efficacy and tolerability of adjunctive brivaracetam in adults with uncontrolled partial-onset seizures: a phase IIb, randomized, controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports 50 mg/day responder, median seizure-frequency reduction, and seizure-freedom values.",
+      "dose_or_regimen": "BRV 50 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "brivaracetam",
+      "label": "French2010",
+      "mpc_active_percent": "53.1",
+      "mpc_differential_percent": "31.4",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "21.7",
+      "pmid": "20592253",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "rr50_active_percent": "55.8",
+      "rr50_differential_percent": "39.1",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.7",
+      "sf_active_percent": "7.7",
+      "sf_differential_percent": "5.8",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "1.9",
+      "title": "Adjunctive brivaracetam for refractory partial-onset seizures: a randomized, controlled trial."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Yu",
+      "generic_name": "brivaracetam",
+      "label": "Yu2026",
+      "pmid": "42092987",
+      "pub_types": "Journal Article",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of Brivaracetam as an adjunctive therapy in patients with focal-onset seizures: a phase III, multi-center, randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42092987/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Inoue",
+      "generic_name": "brivaracetam",
+      "label": "Inoue2024",
+      "pmid": "38576178",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III; Multicenter Study",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy, safety, and tolerability of adjunctive brivaracetam in adult Asian patients with uncontrolled focal-onset seizures: A phase III randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38576178/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Bast",
+      "generic_name": "brivaracetam",
+      "label": "Bast2022",
+      "pmid": "35844134",
+      "pub_types": "Randomized Controlled Trial; Multicenter Study; Journal Article; Research Support, Non-U.S. Gov't; Adaptive Clinical Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and tolerability of brivaracetam monotherapy in childhood and juvenile absence epilepsy: An innovative adaptive trial design.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35844134/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Kälviäinen",
+      "generic_name": "brivaracetam",
+      "label": "Kalviainen2015",
+      "pmid": "26666500",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Brivaracetam in Unverricht-Lundborg disease (EPM1): Results from two randomized, double-blind, placebo-controlled studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "brivaracetam",
+      "label": "Klein2015",
+      "pmid": "26471380",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized, double-blind, placebo-controlled, multicenter, parallel-group study to evaluate the efficacy and safety of adjunctive brivaracetam in adult patients with uncontrolled partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26471380/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Biton",
+      "generic_name": "brivaracetam",
+      "label": "Biton2013",
+      "pmid": "24446953",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Brivaracetam as adjunctive treatment for uncontrolled partial epilepsy in adults: a phase III randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24446953/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Ryvlin",
+      "generic_name": "brivaracetam",
+      "label": "Ryvlin2013",
+      "pmid": "24256083",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive brivaracetam in adults with uncontrolled focal epilepsy: results from a double-blind, randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24256083/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Kwan",
+      "generic_name": "brivaracetam",
+      "label": "Kwan2013",
+      "pmid": "24116853",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive brivaracetam for uncontrolled focal and generalized epilepsies: results of a phase III, double-blind, randomized, placebo-controlled, flexible-dose trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24116853/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Van Paesschen",
+      "generic_name": "brivaracetam",
+      "label": "VanPaesschen2012",
+      "pmid": "22813235",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and tolerability of adjunctive brivaracetam in adults with uncontrolled partial-onset seizures: a phase IIb, randomized, controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22813235/",
+      "year": "2012"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "brivaracetam",
+      "label": "French2010",
+      "pmid": "20592253",
+      "pub_types": "Clinical Trial, Phase II; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive brivaracetam for refractory partial-onset seizures: a randomized, controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20592253/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Vivash",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "41665255",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The Epilepsy-Desirability of Outcome Ranking (DOOR) as a Multi-Faceted Consumer-Informed Outcome Measure for Epilepsy Clinical Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41665255/",
+      "year": "2026"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "41175011",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase II; Multicenter Study",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A randomized, double-blind, placebo-controlled, time-to-event study of the efficacy and safety of JNJ-40411813 in combination with levetiracetam or brivaracetam in patients with focal onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41175011/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Usui",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "40944847",
+      "pub_types": "Journal Article; Clinical Trial, Phase III; Randomized Controlled Trial; Multicenter Study",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Temporal Profile of Treatment-Emergent Adverse Events in Adult Asian Patients with Focal-Onset Seizures During Adjunctive Brivaracetam Treatment: Post Hoc Analysis of a Phase 3, Randomized Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40944847/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Kasteleijn-Nolst Trenité",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "39827675",
+      "pub_types": "Journal Article; Clinical Trial, Phase II; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A multicenter Phase II randomized, placebo-controlled single-blind trial with the SV2A ligand seletracetam in photosensitive epilepsy patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39827675/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Kerr",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "39052963",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Demonstration of Group-Level and Individual-Level Efficacy Using Time-to-Event Designs for Clinical Trials of Antiseizure Medications.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39052963/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "38356105",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and Tolerability of Adjunctive Brivaracetam in Patients with Focal-Onset Seizures on Specific Concomitant Antiseizure Medications: Pooled Analysis of Double-Blind, Placebo-Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38356105/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Kasteleijn-Nolst Trenite",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "36528008",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Brivaracetam or levetiracetam in status epilepticus?: Lessons from the photosensitivity model.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36528008/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Brandt",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "36435010",
+      "pub_types": "Randomized Controlled Trial; Clinical Trial, Phase III; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Retention, efficacy, tolerability, and quality of life during long-term adjunctive brivaracetam treatment by number of lifetime antiseizure medications: A post hoc analysis of phase 3 trials in adults with focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36435010/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Ryvlin",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "35582748",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Tolerability and efficacy of adjunctive brivaracetam in adults with focal seizures by concomitant antiseizure medication use: Pooled results from three phase 3 trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35582748/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "34218211",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term efficacy and tolerability of adjunctive brivaracetam in adults with focal to bilateral tonic-clonic (secondary generalized) seizures: Post hoc pooled analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34218211/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Lee",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "34155568",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Effect of Number of Previous Antiseizure Medications on Efficacy and Tolerability of Adjunctive Brivaracetam for Uncontrolled Focal Seizures: Post Hoc Analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34155568/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "32717713",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Effect of lifetime antiepileptic drug treatment history on efficacy and tolerability of adjunctive brivaracetam in adults with focal seizures: Post-hoc analysis of a randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32717713/",
+      "year": "2020"
+    },
+    {
+      "first_author": "O'Brien",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "32221987",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term safety, efficacy, and quality of life outcomes with adjunctive brivaracetam treatment at individualized doses in patients with epilepsy: An up to 11-year, open-label, follow-up trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32221987/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Feyissa",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "31571877",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Brivaracetam in the treatment of epilepsy: a review of clinical trial data.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31571877/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "29908435",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Brivaracetam-induced elevation of carbamazepine epoxide levels: A post-hoc analysis from the clinical development program.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29908435/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Benbadis",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "29414542",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Efficacy, safety, and tolerability of brivaracetam with concomitant lamotrigine or concomitant topiramate in pooled Phase III randomized, double-blind trials: A post-hoc analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29414542/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Schoedel",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "29153631",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Human abuse potential of brivaracetam in healthy recreational central nervous system depressant users.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29153631/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Swallow",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "28856580",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Can Matching-Adjusted Indirect Comparison Methods Mitigate Placebo Response Differences Among Patient Populations in Adjunctive Trials of Brivaracetam and Levetiracetam?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28856580/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Kruithof",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27649776",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Pharmacological interactions between brivaracetam and ethanol in healthy males.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27649776/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27988967",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to onset of sustained ≥50% responder status in patients with focal (partial-onset) seizures in three phase III studies of adjunctive brivaracetam treatment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27988967/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Schoemaker",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27146213",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Brivaracetam Population Pharmacokinetics and Exposure-Response Modeling in Adult Subjects With Partial-Onset Seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27146213/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27608437",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy, safety, and tolerability of adjunctive brivaracetam for secondarily generalized tonic-clonic seizures: Pooled results from three Phase III studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27608437/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27589414",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Tolerability, safety, and efficacy of adjunctive brivaracetam for focal seizures in older patients: A pooled analysis from three phase III studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27589414/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Ben-Menachem",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27335114",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Efficacy and safety of brivaracetam for partial-onset seizures in 3 pooled clinical studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27335114/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27221208",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Safety and tolerability of adjunctive brivaracetam as intravenous infusion or bolus in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27221208/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Gao",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "27217762",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Emerging drugs for partial-onset epilepsy: a review of brivaracetam.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27217762/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Stockis",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "24512385",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Interaction between brivaracetam (100 mg/day) and a combination oral contraceptive: a randomized, double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24512385/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Stockis",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "24717838",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Brivaracetam single and multiple rising oral dose study in healthy Japanese participants: influence of CYP2C19 genotype.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24717838/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Rolan",
+      "generic_name": "brivaracetam",
+      "label": "",
+      "pmid": "18341673",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "The pharmacokinetics, CNS pharmacodynamics and adverse event profile of brivaracetam after multiple increasing oral doses in healthy men.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18341673/",
+      "year": "2008"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T22:42:15.433167Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.496421Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:42:15.496829Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:42:15.499987Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:42:15.500047Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:15.518019Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.518030Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.518650Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.518655Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.519221Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.519229Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.519792Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.519797Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.520397Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.520402Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.521850Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:15.521856Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:15.529785Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.553459Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.563835Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:15.568438Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:15.568569Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:15.578212Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.614775Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:42:15.615110Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:42:15.617706Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:42:15.617751Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:15.624380Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:15.647524Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:42:16.316934Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:42:16.317327Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:42:16.320140Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:42:16.320180Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:16.333682Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.333690Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.334139Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.334144Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.334551Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.334555Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.334951Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.334955Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.335479Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.335482Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.336398Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:42:16.336401Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:42:16.368220Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:16.371567Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:42:16.371631Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"brivaracetam","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"Audit in progress."}
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/38576178/
+web search: 
+web search: 42092987 brivaracetam placebo randomized Yu 2026 PubMed
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/38576178/
+web search: 
+web search: api.fda.gov drug label briviact brivaracetam spl_set_id 3cf2f439 black box warning
+web search: 
+web search: 
+web search: 
+web search: site:fda.gov/media Briviact brivaracetam prescribing information 2026 FDA label May 2026
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf
+web search: 
+web search: 'Table 3' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf
+web search: 
+web search: brivaracetam UCB 34714 PubMed
+web search: 
+web search: 42092987 "Efficacy and safety of Brivaracetam" "48.89"
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov/42092987 "Efficacy and safety of Brivaracetam as an adjunctive therapy"
+web search: 
+web search: https://pmc.ncbi.nlm.nih.gov/articles/PMC11145603/
+web search: 
+web search: 20592253 brivaracetam 55.8 16.7 53.1 21.7 seizure freedom 7.7 1.9
+web search: 
+web search: https://www.ncbi.nlm.nih.gov/books/NBK447897/
+web search: 
+web search: French 2010 brivaracetam refractory partial-onset seizures 55.8 16.7 53.1 21.7 seizure freedom 7.7 1.9 PubMed
+web search: 
+web search: 38576178 brivaracetam 46.7 21.3 49.3 19.0 seizure freedom 6.8 0.0
+web search: 
+web search: 35844134 Bast 2022 brivaracetam monotherapy childhood juvenile absence epilepsy placebo randomized trial design PubMed
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"],"proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","rationale":"The no-boxed-warning conclusion is supported by FDA/openFDA/FDA label sources, but the row's current wording and source rely on DailyMed, which is not permissible for this field.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"brivaracetam","field":"generic_name","proposed_value":"brivaracetam","rationale":"FDA label and approval package identify the generic name as brivaracetam.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/205836Orig1s000_205837Orig1s000_205838Orig1s000Approv.pdf"]},{"current_value":"Briviact","field":"trade_names","proposed_value":"Briviact","rationale":"FDA label and approval package identify BRIVIACT as the trade name.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/205836Orig1s000_205837Orig1s000_205838Orig1s000Approv.pdf"]},{"current_value":"UCB 34714","field":"pubmed_search_aliases","proposed_value":"UCB 34714; UCB-34714","rationale":"UCB 34714/UCB-34714 is an investigational-code alias for brivaracetam; adding the hyphenated form improves alias coverage without making it a separate drug row.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/18321235/","https://pmc.ncbi.nlm.nih.gov/articles/PMC7479692/"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No separate alternate generic name requiring a distinct row was identified; UCB 34714 is better handled as a PubMed search alias.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/18321235/"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"BRIVIACT is FDA-approved and has current FDA labeling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/205836Orig1s000_205837Orig1s000_205838Orig1s000Approv.pdf"]},{"current_value":"2016","field":"year_fda_cleared","proposed_value":"2016","rationale":"FDA label states initial U.S. approval 2016; FDA approval package gives approval date February 18, 2016.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/205836Orig1s000_205837Orig1s000_205838Orig1s000Approv.pdf"]},{"current_value":"Focal","field":"epilepsy_type","proposed_value":"Focal","rationale":"FDA labeling indicates treatment of partial-onset seizures, corresponding to focal-onset seizures terminology.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Current ASM for focal/partial-onset seizures.","field":"status_or_notes","proposed_value":"Current ASM for focal/partial-onset seizures.","rationale":"FDA labeling supports current use for partial-onset seizures.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Immediate-release tablet; oral solution; IV injection","field":"formulations_available","proposed_value":"Immediate-release tablet; oral solution; IV injection","rationale":"FDA label lists tablets, oral solution, and injection for intravenous use; no extended-release product is described.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Adults/adolescents >=16: 50-200 mg/day divided BID","field":"typical_doses_per_day","proposed_value":"Adults/adolescents >=16: 50-200 mg/day divided BID","rationale":"FDA label lists adults 16 years and older at 25 mg to 100 mg twice daily, i.e. 50-200 mg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"50 mg/day","field":"minimum_effective_dose","proposed_value":"50 mg/day","rationale":"FDA dosing permits adjustment down to 25 mg twice daily; pivotal trial evidence includes a significant 50 mg/day arm.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"200 mg/day","field":"maximum_approved_daily_dose","proposed_value":"200 mg/day","rationale":"FDA label lists maximum adult maintenance dosage as 100 mg twice daily, i.e. 200 mg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"CNS: somnolence/sedation 16%, CNS: dizziness 12%, constitutional: fatigue 9%, GI: nausea/vomiting 5%","field":"adverse_symptoms_percentages","proposed_value":"CNS: somnolence/sedation 16%, CNS: dizziness 12%, constitutional: fatigue 9%, GI: nausea/vomiting 5%","rationale":"FDA label adverse-reaction table reports these adult pooled placebo-controlled adjunctive therapy rates.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Precise anticonvulsant mechanism is unknown; brivaracetam binds selectively and with high affinity to synaptic vesicle protein 2A (SV2A), which may contribute to the anticonvulsant effect.","field":"mechanism_of_action","proposed_value":"Precise anticonvulsant mechanism is unknown; brivaracetam binds selectively and with high affinity to synaptic vesicle protein 2A (SV2A), which may contribute to the anticonvulsant effect.","rationale":"This matches FDA label mechanism language.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"FDA label says the precise anticonvulsant mechanism is unknown but identifies high-affinity SV2A binding that may contribute to effect, supporting moderate confidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/Drugs@FDA labeling","rationale":"The mechanism is supported by FDA labeling; DailyMed should not be the named source for this FDA-tier source field.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"FDA label is an appropriate tier for the mechanism source.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Weak CYP2C19 inhibitor; not a broad enzyme inducer","field":"enzyme_inducing_or_inhibiting","proposed_value":"Weak CYP2C19 inhibitor; reversible epoxide hydrolase inhibitor; unlikely to induce CYP enzymes in vivo","rationale":"FDA label supports weak CYP2C19 inhibition, epoxide hydrolase inhibition, and little/no CYP induction; current text omits epoxide hydrolase inhibition.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Inducer; Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inhibitor","rationale":"FDA label states brivaracetam is unlikely to induce CYP enzymes in vivo; retaining Inducer is directly contradicted.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"~9 h","field":"half_life_range","proposed_value":"~9 h","rationale":"FDA label reports terminal plasma half-life approximately 9 hours.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Liver and extrahepatic hydrolysis; renal excretion of metabolites","field":"major_organ_for_metabolism","proposed_value":"Liver and extrahepatic hydrolysis; renal excretion of metabolites","rationale":"FDA label reports hydrolysis mediated by hepatic and extra-hepatic amidases, CYP2C19-mediated hydroxylation, and urinary excretion mainly as metabolites.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Liver/hepatic; Plasma/extrahepatic; Renal/no major metabolism","field":"filter_metabolism","proposed_value":"Liver/hepatic; Plasma/extrahepatic; Renal excretion of metabolites","rationale":"FDA label says brivaracetam is primarily eliminated by metabolism and less than 10% is excreted unchanged in urine; the current 'Renal/no major metabolism' wording is misleading/contradicted.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"No clinically meaningful QT effect established","field":"qt_interval_effect","proposed_value":"No clinically meaningful QT effect established","rationale":"FDA label states brivaracetam did not prolong QT to a clinically relevant extent at four times the maximum recommended dose.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"No known meaningful QT effect","rationale":"Supported by FDA cardiac electrophysiology labeling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3cf2f439-0e97-443e-8e33-25ecef616f6c; effective_time=20260513; title=Briviact / BRIVARACETAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","rationale":"DailyMed is not permissible for black-box verification. Use FDA/openFDA metadata instead.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox anticonvulsants table; FDA/Drugs@FDA labeling; FDA/openFDA labeling; PubMed/NCBI Bookshelf; ClinicalTrials.gov","rationale":"The row uses non-trusted/non-cited sources and DailyMed wording. The retained facts are supportable from trusted FDA, PubMed/NCBI, and ClinicalTrials.gov sources.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","https://www.ncbi.nlm.nih.gov/books/NBK548532/","https://www.ncbi.nlm.nih.gov/books/NBK447897/","https://clinicaltrials.gov/study/NCT04666610"]}],"generic_name":"brivaracetam","missing_rcts":[],"outcome_checks":[{"current_value":"10.2-39.1 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 25.03%; Inoue2024 BRV 200 mg/day 30.3%; Klein2015 BRV 200 mg/day 16.2%; Biton2013 BRV 50 mg/day 16%; Ryvlin2013 BRV 100 mg/day 16%; Kwan2013 BRV flexible dose up to 150 mg/day 13.6%; VanPaesschen2012 BRV 150 mg/day 10.2%; French2010 BRV 50 mg/day 39.1%)","field":"diff_50_responder_maximum_effective_dose","proposed_value":"10.2-39.1 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 25.03%; Inoue2024 BRV 200 mg/day 30.3%; Klein2015 BRV 200 mg/day 16.2%; Biton2013 BRV 50 mg/day 16%; Ryvlin2013 BRV 100 mg/day 16%; Kwan2013 BRV flexible dose up to 150 mg/day 13.6%; VanPaesschen2012 BRV 150 mg/day 10.2%; French2010 BRV 50 mg/day 39.1%)","rationale":"Included RR50 differentials match cited RCT/outcome evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/42092987/","https://pubmed.ncbi.nlm.nih.gov/38576178/","https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24256083/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://pubmed.ncbi.nlm.nih.gov/22813235/","https://pubmed.ncbi.nlm.nih.gov/20592253/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Klein2015 BRV 200 mg/day 18.0%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)","rationale":"Current values are supported, but the Klein2015 200 mg/day median percent reduction differential is extractable from NCBI Bookshelf/CADTH data (35.6% active vs 17.6% placebo; table also reports 18.1% median difference). Adding it does not change the range.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/38576178/","https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24256083/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://pubmed.ncbi.nlm.nih.gov/22813235/","https://pubmed.ncbi.nlm.nih.gov/20592253/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"3.9-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Ryvlin2013 BRV 100 mg/day 4%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"1.5-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Klein2015 BRV 200 mg/day 3.2%; Biton2013 BRV 50 mg/day 4.0%; Ryvlin2013 BRV 100 mg/day 4.0%; Kwan2013 BRV flexible dose up to 150 mg/day 1.5%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)","rationale":"Current listed seizure-freedom entries are supported, but NCBI Bookshelf/CADTH outcome data support additional seizure-freedom differentials for Klein2015, Biton2013, and Kwan2013; including Kwan changes the range minimum to 1.5%.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/42092987/","https://pubmed.ncbi.nlm.nih.gov/38576178/","https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24256083/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://pubmed.ncbi.nlm.nih.gov/22813235/","https://pubmed.ncbi.nlm.nih.gov/20592253/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"Yu2026|25.03|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|30.3|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|16.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|16|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|13.6|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|16|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|10.2|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|39.1|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"Yu2026|25.03|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|30.3|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|16.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|16|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|13.6|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|16|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|10.2|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|39.1|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","rationale":"Plot entries match the supported RR50 differentials.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK447897/","https://pubmed.ncbi.nlm.nih.gov/20592253/"]},{"current_value":"Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|18.0|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","rationale":"Add extractable Klein2015 MPC differential from NCBI Bookshelf/CADTH data.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|4|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|3.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Biton2013|4.0|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; Ryvlin2013|4.0|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|1.5|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","rationale":"Add supported seizure-freedom differentials for Klein2015, Biton2013, and Kwan2013 from NCBI Bookshelf/CADTH outcome data.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"UCB 34714","field":"pubmed_search_aliases","proposed_value":"UCB 34714; UCB-34714","reason":"Add hyphenated investigational-code alias variant.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/18321235/","https://pmc.ncbi.nlm.nih.gov/articles/PMC7479692/"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","reason":"DailyMed is not permissible for black-box verification; FDA/openFDA/FDA label support no boxed warning.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3cf2f439-0e97-443e-8e33-25ecef616f6c; effective_time=20260513; title=Briviact / BRIVARACETAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","reason":"Replace impermissible DailyMed black-box source with FDA/openFDA source metadata.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/Drugs@FDA labeling","reason":"Mechanism is supported by FDA labeling; DailyMed is not needed as source text.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox anticonvulsants table; FDA/Drugs@FDA labeling; FDA/openFDA labeling; PubMed/NCBI Bookshelf; ClinicalTrials.gov","reason":"Use trusted, row-supporting sources and avoid reliance on non-trusted/DailyMed source names.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548532/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK447897/","https://clinicaltrials.gov/study/NCT04666610"]},{"current_value":"Weak CYP2C19 inhibitor; not a broad enzyme inducer","field":"enzyme_inducing_or_inhibiting","proposed_value":"Weak CYP2C19 inhibitor; reversible epoxide hydrolase inhibitor; unlikely to induce CYP enzymes in vivo","reason":"FDA label supports weak CYP2C19 inhibition, epoxide hydrolase inhibition, and lack of meaningful induction.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Inducer; Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inhibitor","reason":"FDA label directly contradicts inducer classification.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"Liver/hepatic; Plasma/extrahepatic; Renal/no major metabolism","field":"filter_metabolism","proposed_value":"Liver/hepatic; Plasma/extrahepatic; Renal excretion of metabolites","reason":"FDA label says brivaracetam is primarily metabolized, with urinary excretion mainly as metabolites; unchanged renal excretion is less than 10%.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"8-31.4 % (drug minus placebo MPC differential at maximum effective dose/regimen: Inoue2024 BRV 200 mg/day 25.4%; Klein2015 BRV 200 mg/day 18.0%; Biton2013 BRV 50 mg/day 12.7%; Ryvlin2013 BRV 100 mg/day 15.5%; Kwan2013 BRV flexible dose up to 150 mg/day 8%; VanPaesschen2012 BRV 150 mg/day 11.1%; French2010 BRV 50 mg/day 31.4%)","reason":"Add extractable Klein2015 median percent change differential.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Inoue2024|25.4|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|18.0|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Ryvlin2013|15.5|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|8|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; Biton2013|12.7|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; VanPaesschen2012|11.1|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|31.4|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","reason":"Add Klein2015 plot value.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"3.9-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Ryvlin2013 BRV 100 mg/day 4%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"1.5-8.84 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Yu2026 BRV 200 mg/day 8.84%; Inoue2024 BRV 200 mg/day 6.8%; Klein2015 BRV 200 mg/day 3.2%; Biton2013 BRV 50 mg/day 4.0%; Ryvlin2013 BRV 100 mg/day 4.0%; Kwan2013 BRV flexible dose up to 150 mg/day 1.5%; VanPaesschen2012 BRV 150 mg/day 3.9%; French2010 BRV 50 mg/day 5.8%)","reason":"Add extractable seizure-freedom differentials for Klein2015, Biton2013, and Kwan2013; update range.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Ryvlin2013|4|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Yu2026|8.84|https://pubmed.ncbi.nlm.nih.gov/42092987/|178; Inoue2024|6.8|https://pubmed.ncbi.nlm.nih.gov/38576178/|448; Klein2015|3.2|https://pubmed.ncbi.nlm.nih.gov/26471380/|760; Biton2013|4.0|https://pubmed.ncbi.nlm.nih.gov/24446953/|396; Ryvlin2013|4.0|https://pubmed.ncbi.nlm.nih.gov/24256083/|398; Kwan2013|1.5|https://pubmed.ncbi.nlm.nih.gov/24116853/|431; VanPaesschen2012|3.9|https://pubmed.ncbi.nlm.nih.gov/22813235/|157; French2010|5.8|https://pubmed.ncbi.nlm.nih.gov/20592253/|208","reason":"Add supported seizure-freedom plot values.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/26471380/","https://pubmed.ncbi.nlm.nih.gov/24446953/","https://pubmed.ncbi.nlm.nih.gov/24116853/","https://www.ncbi.nlm.nih.gov/books/NBK447897/"]},{"current_value":"PubMed loop 5/65 on 2026-05-15: 10 qualifying placebo-controlled randomized clinical trial report(s) retained from 40 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.","field":"rct_pubmed_verification_notes","proposed_value":"Verified 2026-05-20: 10 listed links are brivaracetam phase II/III randomized placebo-controlled studies or design reports. Bast2022 is a phase 2/3 adaptive design publication without extractable efficacy-arm results; Kalviainen2015 reports EPM1 action-myoclonus outcomes rather than RR50/MPC/seizure-freedom outcomes. Secondary pooled/post hoc publications and the JNJ-40411813 trial with brivaracetam as background therapy should not be added as separate primary brivaracetam RCT rows.","reason":"Clarify which retained RCT links are outcome-bearing and prevent erroneous addition of secondary/background-drug publications.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/35844134/","https://pubmed.ncbi.nlm.nih.gov/26666500/","https://pubmed.ncbi.nlm.nih.gov/41175011/","https://pubmed.ncbi.nlm.nih.gov/35582748/","https://pubmed.ncbi.nlm.nih.gov/27988967/","https://pubmed.ncbi.nlm.nih.gov/27608437/"]}],"rct_link_checks":[{"label":"Yu2026","pmid":"42092987","proposed_action":"retain","rationale":"Brivaracetam 200 mg/day adjunctive therapy trial; phase III, randomized, double-blind, placebo-controlled in focal-onset seizures; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/42092987/"},{"label":"Inoue2024","pmid":"38576178","proposed_action":"retain","rationale":"Phase III randomized double-blind placebo-controlled adjunctive brivaracetam trial in adult Asian patients with focal-onset seizures; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/38576178/"},{"label":"Bast2022","pmid":"35844134","proposed_action":"retain, but do not use for RR50/MPC/seizure-freedom extraction until results are published","rationale":"Publication describes an ongoing randomized, double-blind, placebo-controlled phase 2/3 adaptive brivaracetam monotherapy trial in childhood/juvenile absence epilepsy; it is design-only for outcomes.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/35844134/"},{"label":"Kalviainen2015","pmid":"26666500","proposed_action":"retain, but do not use for focal RR50/MPC/seizure-freedom extraction","rationale":"Two phase III randomized double-blind placebo-controlled brivaracetam studies in Unverricht-Lundborg disease; primary endpoint is action-myoclonus score, not focal seizure frequency RR50/MPC/seizure freedom.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/26666500/"},{"label":"Klein2015","pmid":"26471380","proposed_action":"retain","rationale":"Randomized double-blind placebo-controlled multicenter adjunctive brivaracetam trial in uncontrolled partial-onset seizures; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/26471380/"},{"label":"Ryvlin2013","pmid":"24256083","proposed_action":"retain","rationale":"Phase III randomized double-blind placebo-controlled adjunctive brivaracetam trial in uncontrolled focal epilepsy; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/24256083/"},{"label":"Kwan2013","pmid":"24116853","proposed_action":"retain","rationale":"Phase III randomized double-blind placebo-controlled flexible-dose adjunctive brivaracetam trial in uncontrolled focal/generalized epilepsies; outcome-bearing for focal-seizure subgroup values.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/24116853/"},{"label":"Biton2013","pmid":"24446953","proposed_action":"retain","rationale":"Phase III randomized double-blind placebo-controlled adjunctive brivaracetam trial in uncontrolled partial epilepsy; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/24446953/"},{"label":"VanPaesschen2012","pmid":"22813235","proposed_action":"retain","rationale":"Phase IIb randomized placebo-controlled adjunctive brivaracetam trial in uncontrolled partial-onset seizures; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/22813235/"},{"label":"French2010","pmid":"20592253","proposed_action":"retain","rationale":"Exploratory phase IIb double-blind randomized parallel-group placebo-controlled brivaracetam dose-ranging trial in refractory partial-onset seizures; outcome-bearing.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/20592253/"}],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3cf2f439-0e97-443e-8e33-25ecef616f6c; published=May 14, 2026; title=BRIVIACT (BRIVARACETAM) TABLET, FILM COATED BRIVIACT (BRIVARACETAM) SOLUTION BRIVIACT (BRIVARACETAM) INJECTION, SUSPENSION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3cf2f439-0e97-443e-8e33-25ecef616f6c","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3cf2f439-0e97-443e-8e33-25ecef616f6c; effective_time=20260513; title=Briviact / BRIVARACETAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5","reason":"Black-box warning verification must use FDA/openFDA/Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223cf2f439-0e97-443e-8e33-25ecef616f6c%22&limit=5"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/Drugs@FDA labeling","reason":"Mechanism cell is supported by FDA label language.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox anticonvulsants table; FDA/Drugs@FDA labeling; FDA/openFDA labeling; PubMed/NCBI Bookshelf; ClinicalTrials.gov","reason":"Replace/augment unsupported source names with trusted sources that support row facts.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548532/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/205836s017%2C205837s014%2C205838s015lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK447897/","https://clinicaltrials.gov/study/NCT04666610"]}],"summary":"Brivaracetam row is mostly supportable, but needs updates for FDA black-box source policy, source attribution, enzyme/metabolism filters, alias coverage, and incomplete MPC/seizure-freedom outcome extraction. The 10 existing PubMed RCT links are retained; do not add French2025/JNJ-40411813 or pooled/post hoc analyses as separate primary brivaracetam RCTs."}
+tokens used
+176,945

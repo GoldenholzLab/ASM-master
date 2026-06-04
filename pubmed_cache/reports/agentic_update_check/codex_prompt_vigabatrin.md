@@ -1,0 +1,1481 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 24%, constitutional: fatigue 24%, ophthalmologic: visual field loss 30% or more with chronic exposure, CNS: dizziness 12%, metabolic: weight gain 10%, neurologic: tremor 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "22-44 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Kalita2025 vigabatrin add-on regimen 42.8%; Bruni2000 vigabatrin adult add-on regimen 22%; Dean1999 vigabatrin 3 g/day 44%; Grunewald1994 vigabatrin 3 g/day 32.61%)",
+    "diff_median_pct_change_maximum_effective_dose": "50-94 % (drug minus placebo MPC differential at maximum effective dose/regimen: Kalita2025 vigabatrin add-on regimen 50%; Appleton1999 vigabatrin infantile-spasm regimen 52%; Grunewald1994 vigabatrin 3 g/day 94%)",
+    "diff_seizure_freedom_maximum_effective_dose": "25 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Appleton1999 vigabatrin infantile-spasm regimen 25%)",
+    "enzyme_inducing_or_inhibiting": "Not significantly metabolized; not an enzyme inducer/inhibitor",
+    "epilepsy_type": "Focal; Epileptic spasms / infantile spasms",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: PERMANENT VISION LOSS SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability . In some cases, SABRIL also can damage the central retina and may decrease visual acuity [see Warnings and Precautions ( 5.1 )]. The onset of vision loss from SABRIL is unpredictable, and can occur within weeks of starting treatment or sooner, or at any time after starting treatment, even after months or years. Symptoms of vision loss from SABRIL are unlikely to be recognized by patients or caregivers before vision loss is severe. Vision loss of milder severity, while often unrecognized by the patient or caregiver, can still adversely affect function. The risk of vision loss increases with increasing dose and cumulative exposure, but there is no dose or exposure known to be free of risk of vision loss. Vision assessment is recommended at baseline (no later than 4 weeks after starting SABRIL), at least every 3 months during therapy, and about 3 to 6 months after the discontinuation of therapy. Once detected, vision loss due to SABRIL is not reversible. It is expected that, even with frequent monitoring, some patients will develop severe vision loss. Consider drug discontinuation, balancing benefit and risk, if visual loss is documented. Risk of new or worsening vision loss continues as long as SABRIL is used. It is possible that vision loss can worsen despite discontinuation of SABRIL. Because of the risk of visual loss, SABRIL should be withdrawn from patients with refractory complex partial seizures who fail to show substantial clinical benefit within 3 months of initiation and within 2-4 weeks of initiation for patients with infantile spasms, or sooner if treatment failure becomes obvious. Patient response to and continued need for SABRIL should be periodically reassessed. SABRIL should not be used in patients with, or at high risk of, other types of irreversible vision loss unless the benefits of treatment clearly outweigh the risks. SABRIL should not be used with other drugs associated with serious adverse ophthalmic effects such as retinopathy or glaucoma unless the benefits clearly outweigh the risks. Use the lowest dosage and shortest exposure to SABRIL consistent with clinical objectives [see Dosage and Administration ( 2.1 )]. Because of the risk of permanent vision loss, SABRIL is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the Vigabatrin REMS Program [see Warnings and Precautions ( 5.2 ) ] . Further information is available at www.vigabatrinREMS.com or 1-866-244-8175. WARNING: PERMANENT VISION LOSS See full prescribing information for complete boxed warning. SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability. In some cases, SABRIL may also decrease visual acuity ( 5.1 ). Risk increases with increasing dose and cumulative exposure, but there is no dose or exposure to SABRIL known to be free of risk of vision loss ( 5.1 ). Risk of new and worsening vision loss continues as long as SABRIL is used, and possibly after discontinuing SABRIL ( 5.1 ). Baseline and periodic vision assessment is recommended for patients on SABRIL. However, this assessment cannot always prevent vision damage ( 5.1 ). SABRIL is available only through a restricted program called the Vigabatrin REMS Program ( 5.2 ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a88ac1b4-e2c9-45c0-b321-4785902172e3; published=Dec 17, 2025; title=SABRIL (VIGABATRIN) POWDER, FOR SOLUTION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a88ac1b4-e2c9-45c0-b321-4785902172e3",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer; No major enzyme effect",
+    "filter_epilepsy_type": "Epileptic spasms / infantile spasms; Focal",
+    "filter_formulation": "Liquid; Sprinkle/powder; Tablet",
+    "filter_mechanism": "GABA; GABA metabolism / reuptake",
+    "filter_metabolism": "Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Constitutional; Metabolic; Neurologic; Ophthalmologic",
+    "formulations_available": "Tablet; powder for oral solution",
+    "generic_name": "vigabatrin",
+    "half_life_range": "5-8 h",
+    "major_organ_for_metabolism": "Not significantly metabolized; renal excretion",
+    "maximum_approved_daily_dose": "3000 mg/day adults; 150 mg/kg/day infantile spasms",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise anti-seizure mechanism is unknown, but effect is believed to result from irreversible inhibition of GABA transaminase, increasing CNS GABA levels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "1000 mg/day adults; 50 mg/kg/day infantile spasms start",
+    "plot_diff_50_responder_maximum_effective_dose": "Kalita2025|42.8|https://pubmed.ncbi.nlm.nih.gov/41500178/|100; Bruni2000|22|https://pubmed.ncbi.nlm.nih.gov/10777431/|111; Dean1999|44|https://pubmed.ncbi.nlm.nih.gov/9924905/|174; Grunewald1994|32.61|https://pubmed.ncbi.nlm.nih.gov/8089668/|45",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Kalita2025|50|https://pubmed.ncbi.nlm.nih.gov/41500178/|100; Appleton1999|52|https://pubmed.ncbi.nlm.nih.gov/10565592/|40; Grunewald1994|94|https://pubmed.ncbi.nlm.nih.gov/8089668/|45",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Appleton1999|25|https://pubmed.ncbi.nlm.nih.gov/10565592/|40",
+    "pubmed_phase_ii_iii_rct_links": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+    "pubmed_search_aliases": "gamma-vinyl GABA",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 64/65 on 2026-05-15: 16 qualifying placebo-controlled randomized clinical trial report(s) retained from 45 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "ASM for infantile spasms and refractory focal/complex partial seizures; restricted because of permanent vision-loss risk.",
+    "trade_names": "Kigabeq; Sabril; Vigafyde",
+    "typical_doses_per_day": "Adults refractory focal seizures: 1000-3000 mg/day divided BID; infantile spasms weight-based",
+    "year_fda_cleared": "2009"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/",
+      "label": "Kalita2025",
+      "pmid": "41500178",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41500178/"
+    },
+    {
+      "entry": "Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/",
+      "label": "Bebin2023",
+      "pmid": "37638552",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37638552/"
+    },
+    {
+      "entry": "Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/",
+      "label": "Bruni2000",
+      "pmid": "10777431",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10777431/"
+    },
+    {
+      "entry": "Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/",
+      "label": "Dean1999",
+      "pmid": "9924905",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9924905/"
+    },
+    {
+      "entry": "Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/",
+      "label": "Appleton1999",
+      "pmid": "10565592",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10565592/"
+    },
+    {
+      "entry": "Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/",
+      "label": "Beran1996",
+      "pmid": "8952010",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8952010/"
+    },
+    {
+      "entry": "Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/",
+      "label": "Jackson1994",
+      "pmid": "7957035",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7957035/"
+    },
+    {
+      "entry": "Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/",
+      "label": "Grunewald1994",
+      "pmid": "8089668",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8089668/"
+    },
+    {
+      "entry": "Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/",
+      "label": "Gillham1993",
+      "pmid": "8270925",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8270925/"
+    },
+    {
+      "entry": "PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/",
+      "label": "PMID1992",
+      "pmid": "1483856",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1483856/"
+    },
+    {
+      "entry": "Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/",
+      "label": "Cosi1989",
+      "pmid": "2757911",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2757911/"
+    },
+    {
+      "entry": "Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/",
+      "label": "Cosi1988",
+      "pmid": "3130253",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3130253/"
+    },
+    {
+      "entry": "Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/",
+      "label": "Tassinari1987",
+      "pmid": "2887152",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2887152/"
+    },
+    {
+      "entry": "Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/",
+      "label": "Tartara1986",
+      "pmid": "3536469",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3536469/"
+    },
+    {
+      "entry": "Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/",
+      "label": "Loiseau1986",
+      "pmid": "3514204",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3514204/"
+    },
+    {
+      "entry": "Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "label": "Rimmer1984",
+      "pmid": "6141335",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6141335/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 24%, constitutional: fatigue 24%, ophthalmologic: visual field loss 30% or more with chronic exposure, CNS: dizziness 12%, metabolic: weight gain 10%, neurologic: tremor 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "22-44 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Kalita2025 vigabatrin add-on regimen 42.8%; Bruni2000 vigabatrin adult add-on regimen 22%; Dean1999 vigabatrin 3 g/day 44%; Grunewald1994 vigabatrin 3 g/day 32.61%)",
+    "diff_median_pct_change_maximum_effective_dose": "50-94 % (drug minus placebo MPC differential at maximum effective dose/regimen: Kalita2025 vigabatrin add-on regimen 50%; Appleton1999 vigabatrin infantile-spasm regimen 52%; Grunewald1994 vigabatrin 3 g/day 94%)",
+    "diff_seizure_freedom_maximum_effective_dose": "25 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Appleton1999 vigabatrin infantile-spasm regimen 25%)",
+    "enzyme_inducing_or_inhibiting": "Not significantly metabolized; not an enzyme inducer/inhibitor",
+    "epilepsy_type": "Focal; Epileptic spasms / infantile spasms",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: PERMANENT VISION LOSS SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability . In some cases, SABRIL also can damage the central retina and may decrease visual acuity [see Warnings and Precautions ( 5.1 )]. The onset of vision loss from SABRIL is unpredictable, and can occur within weeks of starting treatment or sooner, or at any time after starting treatment, even after months or years. Symptoms of vision loss from SABRIL are unlikely to be recognized by patients or caregivers before vision loss is severe. Vision loss of milder severity, while often unrecognized by the patient or caregiver, can still adversely affect function. The risk of vision loss increases with increasing dose and cumulative exposure, but there is no dose or exposure known to be free of risk of vision loss. Vision assessment is recommended at baseline (no later than 4 weeks after starting SABRIL), at least every 3 months during therapy, and about 3 to 6 months after the discontinuation of therapy. Once detected, vision loss due to SABRIL is not reversible. It is expected that, even with frequent monitoring, some patients will develop severe vision loss. Consider drug discontinuation, balancing benefit and risk, if visual loss is documented. Risk of new or worsening vision loss continues as long as SABRIL is used. It is possible that vision loss can worsen despite discontinuation of SABRIL. Because of the risk of visual loss, SABRIL should be withdrawn from patients with refractory complex partial seizures who fail to show substantial clinical benefit within 3 months of initiation and within 2-4 weeks of initiation for patients with infantile spasms, or sooner if treatment failure becomes obvious. Patient response to and continued need for SABRIL should be periodically reassessed. SABRIL should not be used in patients with, or at high risk of, other types of irreversible vision loss unless the benefits of treatment clearly outweigh the risks. SABRIL should not be used with other drugs associated with serious adverse ophthalmic effects such as retinopathy or glaucoma unless the benefits clearly outweigh the risks. Use the lowest dosage and shortest exposure to SABRIL consistent with clinical objectives [see Dosage and Administration ( 2.1 )]. Because of the risk of permanent vision loss, SABRIL is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the Vigabatrin REMS Program [see Warnings and Precautions ( 5.2 ) ] . Further information is available at www.vigabatrinREMS.com or 1-866-244-8175. WARNING: PERMANENT VISION LOSS See full prescribing information for complete boxed warning. SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability. In some cases, SABRIL may also decrease visual acuity ( 5.1 ). Risk increases with increasing dose and cumulative exposure, but there is no dose or exposure to SABRIL known to be free of risk of vision loss ( 5.1 ). Risk of new and worsening vision loss continues as long as SABRIL is used, and possibly after discontinuing SABRIL ( 5.1 ). Baseline and periodic vision assessment is recommended for patients on SABRIL. However, this assessment cannot always prevent vision damage ( 5.1 ). SABRIL is available only through a restricted program called the Vigabatrin REMS Program ( 5.2 ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a88ac1b4-e2c9-45c0-b321-4785902172e3; published=Dec 17, 2025; title=SABRIL (VIGABATRIN) POWDER, FOR SOLUTION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a88ac1b4-e2c9-45c0-b321-4785902172e3",
+    "formulations_available": "Tablet; powder for oral solution",
+    "half_life_range": "5-8 h",
+    "major_organ_for_metabolism": "Not significantly metabolized; renal excretion",
+    "maximum_approved_daily_dose": "3000 mg/day adults; 150 mg/kg/day infantile spasms",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise anti-seizure mechanism is unknown, but effect is believed to result from irreversible inhibition of GABA transaminase, increasing CNS GABA levels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "1000 mg/day adults; 50 mg/kg/day infantile spasms start",
+    "plot_diff_50_responder_maximum_effective_dose": "Kalita2025|42.8|https://pubmed.ncbi.nlm.nih.gov/41500178/|100; Bruni2000|22|https://pubmed.ncbi.nlm.nih.gov/10777431/|111; Dean1999|44|https://pubmed.ncbi.nlm.nih.gov/9924905/|174; Grunewald1994|32.61|https://pubmed.ncbi.nlm.nih.gov/8089668/|45",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Kalita2025|50|https://pubmed.ncbi.nlm.nih.gov/41500178/|100; Appleton1999|52|https://pubmed.ncbi.nlm.nih.gov/10565592/|40; Grunewald1994|94|https://pubmed.ncbi.nlm.nih.gov/8089668/|45",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Appleton1999|25|https://pubmed.ncbi.nlm.nih.gov/10565592/|40",
+    "pubmed_phase_ii_iii_rct_links": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+    "pubmed_search_aliases": "gamma-vinyl GABA",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Kigabeq; Sabril; Vigafyde",
+    "typical_doses_per_day": "Adults refractory focal seizures: 1000-3000 mg/day divided BID; infantile spasms weight-based",
+    "year_fda_cleared": "2009"
+  },
+  "generic_name": "vigabatrin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "details": {
+        "article": {
+          "abstract": "",
+          "first_author": "Mantry",
+          "pmid": "41864166",
+          "pub_types": [
+            "Letter"
+          ],
+          "title": "Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+          "year": "2026"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41864166/",
+      "generic_name": "vigabatrin",
+      "id": "new_pubmed_phase_ii_iii_rct-47c09f4139bd",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Mantry2026|https://pubmed.ncbi.nlm.nih.gov/41864166/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41864166 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Mantry2026|https://pubmed.ncbi.nlm.nih.gov/41864166/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\"."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "details": {
+        "article": {
+          "abstract": "",
+          "first_author": "Awasthi",
+          "pmid": "41735087",
+          "pub_types": [
+            "Letter"
+          ],
+          "title": "Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+          "year": "2026"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41735087/",
+      "generic_name": "vigabatrin",
+      "id": "new_pubmed_phase_ii_iii_rct-fe1cea84b7d2",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Awasthi2026|https://pubmed.ncbi.nlm.nih.gov/41735087/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41735087 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Awasthi2026|https://pubmed.ncbi.nlm.nih.gov/41735087/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\"."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "details": {
+        "article": {
+          "abstract": "",
+          "first_author": "Xu",
+          "pmid": "41679982",
+          "pub_types": [
+            "Letter"
+          ],
+          "title": "Comment on \"safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+          "year": "2026"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41679982/",
+      "generic_name": "vigabatrin",
+      "id": "new_pubmed_phase_ii_iii_rct-b072cf5cadf9",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Xu2026|https://pubmed.ncbi.nlm.nih.gov/41679982/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41679982 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Xu2026|https://pubmed.ncbi.nlm.nih.gov/41679982/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Comment on \"safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\"."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "details": {
+        "article": {
+          "abstract": "Vigabatrin (VGB) prevents seizures by irreversible inhibition of gamma-aminobutyric acid (GABA) transaminase and a resulting increase in GABA levels. We evaluated the cognitive and quality-of-life (QOL) effects of VGB in a double-blinded, add-on, placebo-controlled, parallel group dose-response study of patients with focal epilepsy whose complex partial seizures (CPS) were difficult to control. In a single investigation, patients were randomly assigned to placebo (n = 40), 1 g VGB (n = 36), 3 g VGB (n = 38), or 6 g VGB (n = 32), treated for 12 weeks after a 6-week dose escalation period, and tested at the end of the baseline period and at the end of the treatment period with eight cognitive measures and three tests of mood and adjustment. The patient groups were highly similar at study entry. Results at the end of the study showed substantial relief from seizures. The Digit Cancellation Test showed decreases in performance with increasing doses of VGB. Performance on no other test showed any decrement with increasing dosage. Relief from seizures was not associated with changes on the psychological tests. VGB is a useful antiepileptic drug (AED) that has little impact on tests of either cognitive abilities or QOL, even at a high dose.",
+          "first_author": "Dodrill",
+          "pmid": "7821274",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Effects of differing dosages of vigabatrin (Sabril) on cognitive abilities and quality of life in epilepsy.",
+          "year": "1995"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/7821274/",
+      "generic_name": "vigabatrin",
+      "id": "new_pubmed_phase_ii_iii_rct-efda04b48f2e",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Dodrill1995|https://pubmed.ncbi.nlm.nih.gov/7821274/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 7821274 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Dodrill1995|https://pubmed.ncbi.nlm.nih.gov/7821274/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Effects of differing dosages of vigabatrin (Sabril) on cognitive abilities and quality of life in epilepsy."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Kalita2025|https://pubmed.ncbi.nlm.nih.gov/41500178/; Bebin2023|https://pubmed.ncbi.nlm.nih.gov/37638552/; Bruni2000|https://pubmed.ncbi.nlm.nih.gov/10777431/; Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10565592/; Beran1996|https://pubmed.ncbi.nlm.nih.gov/8952010/; Jackson1994|https://pubmed.ncbi.nlm.nih.gov/7957035/; Grunewald1994|https://pubmed.ncbi.nlm.nih.gov/8089668/; Gillham1993|https://pubmed.ncbi.nlm.nih.gov/8270925/; PMID1992|https://pubmed.ncbi.nlm.nih.gov/1483856/; Cosi1989|https://pubmed.ncbi.nlm.nih.gov/2757911/; Cosi1988|https://pubmed.ncbi.nlm.nih.gov/3130253/; Tassinari1987|https://pubmed.ncbi.nlm.nih.gov/2887152/; Tartara1986|https://pubmed.ncbi.nlm.nih.gov/3536469/; Loiseau1986|https://pubmed.ncbi.nlm.nih.gov/3514204/; Rimmer1984|https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "details": {
+        "article": {
+          "abstract": "We evaluated the psychological effects of the antiepilepsy drug vigabatrin in a randomized multicenter double-blind placebo-controlled parallel group study that compared 3 grams oral vigabatrin with placebo as daily add-on therapy in patients with focal epilepsy whose complex partial seizures were difficult to control. Testing at baseline and after 12 weeks of vigabatrin (n = 83) or placebo (n = 85) used eight measures of cognitive abilities and three of mood and adjustment. The vigabatrin and placebo groups were highly similar at entry into the study. At the end of the study, there were no differences between the vigabatrin and placebo groups on any cognitive variable or on any measure of mood and adjustment. Analysis of the results related to relief from seizures demonstrated only chance findings. In a similar manner, there were no relationships between vigabatrin serum levels at the end of the study and changes on measures of abilities and adjustment. Vigabatrin appears to be a useful antiepilepsy drug with little impact upon tests of either cognitive abilities or quality of life.",
+          "first_author": "Dodrill",
+          "pmid": "8255447",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Evaluation of the effects of vigabatrin on cognitive abilities and quality of life in epilepsy.",
+          "year": "1993"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8255447/",
+      "generic_name": "vigabatrin",
+      "id": "new_pubmed_phase_ii_iii_rct-48da107d2354",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Dodrill1993|https://pubmed.ncbi.nlm.nih.gov/8255447/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 8255447 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Dodrill1993|https://pubmed.ncbi.nlm.nih.gov/8255447/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Evaluation of the effects of vigabatrin on cognitive abilities and quality of life in epilepsy."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Dean1999|https://pubmed.ncbi.nlm.nih.gov/9924905/",
+      "details": {
+        "article": {
+          "abstract": "This placebo-controlled, randomized, double-blind, multicenter study examined the efficacy and safety of three daily doses of vigabatrin (VGB; 1, 3, or 6 g) as add-on therapy in 174 patients with previously uncontrolled complex partial seizures with or without secondary generalization. A 12-week pretreatment assessment period was followed by drug therapy with a 6-week titration period and a 12-week maintenance phase. VGB doses of 3 and 6 g/day reduced median monthly frequency of seizures by 4.3 and 4.5 seizures, respectively, compared with 0.2 seizures for placebo (p = 0.0001). The percentages of patients classified as therapeutic successes (> or =50% reduction in seizure frequency) were 7% for placebo and 24, 51, and 54% for patients taking daily VGB doses of 1, 3, and 6 g, respectively; the comparison with placebo was significant for all treatment groups. The linear trend for dose response was highly significant (p< or =0.0001) for both median monthly seizure frequency and therapeutic success. Vigabatrin was well tolerated, causing no clinically significant changes in laboratory parameters, brain magnetic resonance imaging, evoked potentials, cognitive function, or psychosocial tests. Fatigue, drowsiness, and dizziness were the most common treatment-related adverse events in all treatment groups. Dropouts due to adverse events were higher in the 6-g/day group. VGB was significantly more effective than placebo as add-on therapy in reducing seizure frequency. VGB at 3 and 6 g/day produced the best efficacy: however, adverse events may limit the use of the 6-g/day dose in some patients.",
+          "first_author": "Dean",
+          "pmid": "9924905",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Dose-Response Study of Vigabatrin as add-on therapy in patients with uncontrolled complex partial seizures.",
+          "year": "1999"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9924905/",
+      "generic_name": "vigabatrin",
+      "id": "rct_pubmed_concordance_problem-77887223a629",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 9924905 needs manual review for vigabatrin; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 9924905 needs manual review for vigabatrin; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2009",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2009"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5",
+      "generic_name": "vigabatrin",
+      "id": "source_fact_concordance_problem-d0f826cfb229",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Study design is a Phase IIb prospective multi-center, randomized, placebo-controlled, double-blind clinical trial. The goal will be to enroll 80 infants with Tuberous Sclerosis Complex who are less than 6 months of age prior to the onset of their first seizure",
+        "interventions": [
+          "Early Vigabatrin",
+          "Delayed Vigabatrin (Placebo)"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02849457",
+        "new_reference_pmids": [
+          "31912454"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "37638552",
+          "31912454"
+        ],
+        "title": "Preventing Epilepsy Using Vigabatrin In Infants With Tuberous Sclerosis Complex"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02849457",
+      "generic_name": "vigabatrin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-6b35e2d06cf3",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Preventing Epilepsy Using Vigabatrin In Infants With Tuberous Sclerosis Complex"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary purpose of this study was to evaluate the efficacy, safety, and tolerability of Cannabidiol Oral Solution (CBD) as adjunctive therapy with vigabatrin as initial therapy, compared to vigabatrin alone in the treatment of infants newly diagnosed with Infantile Spasms (IS).",
+        "interventions": [
+          "Cannabidiol Oral Solution",
+          "Placebo",
+          "Vigabatrin"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03421496",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "A Study to Assess Cannabidiol Oral Solution With Vigabatrin as Initial Therapy in Participants With Infantile Spasms"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03421496",
+      "generic_name": "vigabatrin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-9da36ab0e553",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Assess Cannabidiol Oral Solution With Vigabatrin as Initial Therapy in Participants With Infantile Spasms"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of the study is to evaluate the efficacy, tolerability, and safety of vigabatrin versus rapamycin as a preventive treatment in infants with Tuberous Sclerosis Complex (TSC).",
+        "interventions": [
+          "Vigabatrin",
+          "Rapamycin",
+          "Placebo",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT04987463",
+        "new_reference_pmids": [],
+        "overall_status": "UNKNOWN",
+        "phases": [
+          "PHASE2",
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy and Safety of Rapamycin Versus Vigabatrin in the Prevention of Tuberous Sclerosis Complex Symptoms in Infants"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04987463",
+      "generic_name": "vigabatrin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-60ecc5595533",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Rapamycin Versus Vigabatrin in the Prevention of Tuberous Sclerosis Complex Symptoms in Infants"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a88ac1b4-e2c9-45c0-b321-4785902172e3; published=Dec 17, 2025; title=SABRIL (VIGABATRIN) POWDER, FOR SOLUTION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a88ac1b4-e2c9-45c0-b321-4785902172e3",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5",
+      "generic_name": "vigabatrin",
+      "id": "fda_warning_metadata_refresh-f7d2b9137d94",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: PERMANENT VISION LOSS SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability . In some cases, SABRIL also can damage the central retina and may decrease visual acuity [see Warnings and Precautions ( 5.1 )]. The onset of vision loss from SABRIL is unpredictable, and can occur within weeks of starting treatment or sooner, or at any time after starting treatment, even after months or years. Symptoms of vision loss from SABRIL are unlikely to be recognized by patients or caregivers before vision loss is severe. Vision loss of milder severity, while often unrecognized by the patient or caregiver, can still adversely affect function. The risk of vision loss increases with increasing dose and cumulative exposure, but there is no dose or exposure known to be free of risk of vision loss. Vision assessment is recommended at baseline (no later than 4 weeks after starting SABRIL), at least every 3 months during therapy, and about 3 to 6 months after the discontinuation of therapy. Once detected, vision loss due to SABRIL is not reversible. It is expected that, even with frequent monitoring, some patients will develop severe vision loss. Consider drug discontinuation, balancing benefit and risk, if visual loss is documented. Risk of new or worsening vision loss continues as long as SABRIL is used. It is possible that vision loss can worsen despite discontinuation of SABRIL. Because of the risk of visual loss, SABRIL should be withdrawn from patients with refractory complex partial seizures who fail to show substantial clinical benefit within 3 months of initiation and within 2-4 weeks of initiation for patients with infantile spasms, or sooner if treatment failure becomes obvious. Patient response to and continued need for SABRIL should be periodically reassessed. SABRIL should not be used in patients with, or at high risk of, other types of irreversible vision loss unless the benefits of treatment clearly outweigh the risks. SABRIL should not be used with other drugs associated with serious adverse ophthalmic effects such as retinopathy or glaucoma unless the benefits clearly outweigh the risks. Use the lowest dosage and shortest exposure to SABRIL consistent with clinical objectives [see Dosage and Administration ( 2.1 )]. Because of the risk of permanent vision loss, SABRIL is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the Vigabatrin REMS Program [see Warnings and Precautions ( 5.2 ) ] . Further information is available at www.vigabatrinREMS.com or 1-866-244-8175. WARNING: PERMANENT VISION LOSS See full prescribing information for complete boxed warning. SABRIL can cause permanent bilateral concentric visual field constriction, including tunnel vision that can result in disability. In some cases, SABRIL may also decrease visual acuity ( 5.1 ). Risk increases with increasing dose and cumulative exposure, but there is no dose or exposure to SABRIL known to be free of risk of vision loss ( 5.1 ). Risk of new and worsening vision loss continues as long as SABRIL is used, and possibly after discontinuing SABRIL ( 5.1 ). Baseline and periodic vision assessment is recommended for patients on SABRIL. However, this assessment cannot always prevent vision damage ( 5.1 ). SABRIL is available only through a restricted program called the Vigabatrin REMS Program ( 5.2 ).",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=a88ac1b4-e2c9-45c0-b321-4785902172e3; effective_time=20211020; title=SABRIL / VIGABATRIN; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=a88ac1b4-e2c9-45c0-b321-4785902172e3; effective_time=20211020; title=SABRIL / VIGABATRIN; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a88ac1b4-e2c9-45c0-b321-4785902172e3%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports drop-attack responder rates and total-seizure percentage change for vigabatrin and placebo.",
+      "dose_or_regimen": "vigabatrin add-on regimen",
+      "endpoint": "LGS drop attacks and total seizures",
+      "generic_name": "vigabatrin",
+      "label": "Kalita2025",
+      "mpc_active_percent": "50.0",
+      "mpc_differential_percent": "50.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "0.0",
+      "pmid": "41500178",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41500178/",
+      "rr50_active_percent": "51.7",
+      "rr50_differential_percent": "42.8",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "8.9",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial."
+    },
+    {
+      "audit_note": "TSC prevention trial reports neurodevelopmental and drug-resistant epilepsy outcomes, not extractable RR50/MPC/seizure-freedom percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Bebin2023",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "37638552",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37638552/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Early Treatment with Vigabatrin Does Not Decrease Focal Seizures or Improve Cognition in Tuberous Sclerosis Complex: The PREVeNT Trial."
+    },
+    {
+      "audit_note": "Abstract reports RR50 for active and placebo groups; exact dose is not stated in the abstract.",
+      "dose_or_regimen": "vigabatrin adult add-on regimen",
+      "endpoint": "complex partial/secondarily generalized seizures",
+      "generic_name": "vigabatrin",
+      "label": "Bruni2000",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10777431",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10777431/",
+      "rr50_active_percent": "48.0",
+      "rr50_differential_percent": "22.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "26.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Vigabatrin as add-on therapy for adult complex partial seizures: a double-blind, placebo-controlled multicentre study. The Canadian Vigabatrin Study Group."
+    },
+    {
+      "audit_note": "Abstract reports spasm reduction and spasm-free rates on the final double-blind day.",
+      "dose_or_regimen": "vigabatrin infantile-spasm regimen",
+      "endpoint": "infantile spasms",
+      "generic_name": "vigabatrin",
+      "label": "Appleton1999",
+      "mpc_active_percent": "78.0",
+      "mpc_differential_percent": "52.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "26.0",
+      "pmid": "10565592",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10565592/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "35.0",
+      "sf_differential_percent": "25.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "10.0",
+      "title": "Randomised, placebo-controlled study of vigabatrin as first-line treatment of infantile spasms."
+    },
+    {
+      "audit_note": "Abstract reports therapeutic success rates for 3 g/day and placebo; 6 g/day was not used because it exceeds the current adult approved maximum and had more dropouts.",
+      "dose_or_regimen": "vigabatrin 3 g/day",
+      "endpoint": "complex partial seizures",
+      "generic_name": "vigabatrin",
+      "label": "Dean1999",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9924905",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9924905/",
+      "rr50_active_percent": "51.0",
+      "rr50_differential_percent": "44.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "7.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Dose-Response Study of Vigabatrin as add-on therapy in patients with uncontrolled complex partial seizures."
+    },
+    {
+      "audit_note": "Crossover abstract reports significant seizure-frequency reduction for vigabatrin 2-3 g/day but not extractable active/placebo percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Beran1996",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8952010",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8952010/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A double-blind, placebo-controlled crossover study of vigabatrin 2 g/day and 3 g/day in uncontrolled partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports 10/20 vs 4/23 with >50% complex partial seizure reduction and median complex partial seizure changes in the last 8 weeks.",
+      "dose_or_regimen": "vigabatrin 3 g/day",
+      "endpoint": "complex partial seizures",
+      "generic_name": "vigabatrin",
+      "label": "Grunewald1994",
+      "mpc_active_percent": "69.0",
+      "mpc_differential_percent": "94.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-25.0",
+      "pmid": "8089668",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8089668/",
+      "rr50_active_percent": "50.0",
+      "rr50_differential_percent": "32.61",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "17.39",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effects of vigabatrin on partial seizures and cognitive function."
+    },
+    {
+      "audit_note": "MRI relaxometry safety study, not a seizure-frequency efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Jackson1994",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "7957035",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/7957035/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Quantitative MR relaxometry study of effects of vigabatrin on the brains of patients with epilepsy."
+    },
+    {
+      "audit_note": "Sedation/cognition crossover study; seizure-frequency outcomes were not significantly different and not extractable as active/placebo percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Gillham1993",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8270925",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8270925/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of vigabatrin on sedation and cognitive function in patients with refractory epilepsy."
+    },
+    {
+      "audit_note": "Single-blind multicenter trial reports median seizure counts on placebo and vigabatrin, but not a percentage MPC or active/placebo RR50 arm percentage.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "PMID1992",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "1483856",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/1483856/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Single-blind, placebo-controlled multicenter trial of vigabatrin in the treatment of epilepsy. The Italian Study Group on Vigabatrin."
+    },
+    {
+      "audit_note": "Evoked-potential safety follow-up, not a seizure-frequency efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Cosi1989",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2757911",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2757911/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effects of vigabatrin on evoked potentials in epileptic patients."
+    },
+    {
+      "audit_note": "Evoked-potential safety study, not a seizure-frequency efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Cosi1988",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "3130253",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/3130253/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of vigabatrin (gamma-vinyl-GABA) on visual, brainstem auditory and somatosensory evoked potentials in epileptic patients."
+    },
+    {
+      "audit_note": "Crossover abstract reports the percentage of patients with >=50% decrease during vigabatrin treatment, but not the matching placebo percentage.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Tassinari1987",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2887152",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2887152/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind study of vigabatrin in the treatment of drug-resistant epilepsy."
+    },
+    {
+      "audit_note": "Crossover abstract reports vigabatrin-period responders but not matching placebo responder percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Tartara1986",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "3536469",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/3536469/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Vigabatrin in the treatment of epilepsy: a double-blind, placebo-controlled study."
+    },
+    {
+      "audit_note": "Crossover abstract reports vigabatrin-period responder categories but not matching placebo responder percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Loiseau1986",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "3514204",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/3514204/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind, placebo-controlled study of vigabatrin (gamma-vinyl GABA) in drug-resistant epilepsy."
+    },
+    {
+      "audit_note": "Crossover abstract reports mean weekly seizure frequency on vigabatrin and placebo, but not percentage RR50/MPC/seizure-freedom outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "vigabatrin",
+      "label": "Rimmer1984",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6141335",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind study of gamma-vinyl GABA in patients with refractory epilepsy."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Kalita",
+      "generic_name": "vigabatrin",
+      "label": "Kalita2025",
+      "pmid": "41500178",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41500178/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Bebin",
+      "generic_name": "vigabatrin",
+      "label": "Bebin2023",
+      "pmid": "37638552",
+      "pub_types": "Journal Article",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Early Treatment with Vigabatrin Does Not Decrease Focal Seizures or Improve Cognition in Tuberous Sclerosis Complex: The PREVeNT Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37638552/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Bruni",
+      "generic_name": "vigabatrin",
+      "label": "Bruni2000",
+      "pmid": "10777431",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Vigabatrin as add-on therapy for adult complex partial seizures: a double-blind, placebo-controlled multicentre study. The Canadian Vigabatrin Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10777431/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Appleton",
+      "generic_name": "vigabatrin",
+      "label": "Appleton1999",
+      "pmid": "10565592",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomised, placebo-controlled study of vigabatrin as first-line treatment of infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10565592/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Dean",
+      "generic_name": "vigabatrin",
+      "label": "Dean1999",
+      "pmid": "9924905",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Dose-Response Study of Vigabatrin as add-on therapy in patients with uncontrolled complex partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9924905/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Beran",
+      "generic_name": "vigabatrin",
+      "label": "Beran1996",
+      "pmid": "8952010",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A double-blind, placebo-controlled crossover study of vigabatrin 2 g/day and 3 g/day in uncontrolled partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8952010/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Grünewald",
+      "generic_name": "vigabatrin",
+      "label": "Grunewald1994",
+      "pmid": "8089668",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effects of vigabatrin on partial seizures and cognitive function.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8089668/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Jackson",
+      "generic_name": "vigabatrin",
+      "label": "Jackson1994",
+      "pmid": "7957035",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Quantitative MR relaxometry study of effects of vigabatrin on the brains of patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7957035/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Gillham",
+      "generic_name": "vigabatrin",
+      "label": "Gillham1993",
+      "pmid": "8270925",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of vigabatrin on sedation and cognitive function in patients with refractory epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8270925/",
+      "year": "1993"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "vigabatrin",
+      "label": "PMID1992",
+      "pmid": "1483856",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Single-blind, placebo-controlled multicenter trial of vigabatrin in the treatment of epilepsy. The Italian Study Group on Vigabatrin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1483856/",
+      "year": "1992"
+    },
+    {
+      "first_author": "Cosi",
+      "generic_name": "vigabatrin",
+      "label": "Cosi1989",
+      "pmid": "2757911",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effects of vigabatrin on evoked potentials in epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2757911/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Cosi",
+      "generic_name": "vigabatrin",
+      "label": "Cosi1988",
+      "pmid": "3130253",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of vigabatrin (gamma-vinyl-GABA) on visual, brainstem auditory and somatosensory evoked potentials in epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3130253/",
+      "year": "1988"
+    },
+    {
+      "first_author": "Tassinari",
+      "generic_name": "vigabatrin",
+      "label": "Tassinari1987",
+      "pmid": "2887152",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind study of vigabatrin in the treatment of drug-resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2887152/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Tartara",
+      "generic_name": "vigabatrin",
+      "label": "Tartara1986",
+      "pmid": "3536469",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Vigabatrin in the treatment of epilepsy: a double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3536469/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Loiseau",
+      "generic_name": "vigabatrin",
+      "label": "Loiseau1986",
+      "pmid": "3514204",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind, placebo-controlled study of vigabatrin (gamma-vinyl GABA) in drug-resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3514204/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Rimmer",
+      "generic_name": "vigabatrin",
+      "label": "Rimmer1984",
+      "pmid": "6141335",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind study of gamma-vinyl GABA in patients with refractory epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "year": "1984"
+    },
+    {
+      "first_author": "Mantry",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "41864166",
+      "pub_types": "Letter",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41864166/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Awasthi",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "41735087",
+      "pub_types": "Letter",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Comment on \"Safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41735087/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Xu",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "41679982",
+      "pub_types": "Letter",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Comment on \"safety and efficacy of vigabatrin add on compared to placebo in Lennox-Gastaut syndrome (LennoVig): A single center randomized double-blind placebo-controlled trial\".",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41679982/",
+      "year": "2026"
+    },
+    {
+      "first_author": "O'Kelley",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "41061327",
+      "pub_types": "Journal Article; Multicenter Study; Clinical Trial, Phase II; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Neurodevelopmental Outcomes From the PREVeNT Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41061327/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "36122531",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Assessment of the long-term efficacy and safety of adjunctive perampanel in adolescent patients with epilepsy: Post hoc analysis of open-label extension studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36122531/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Prescot",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "28741622",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "In Vivo Detection of CPP-115 Target Engagement in Human Brain.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28741622/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Tolbert",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "28668627",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Vigabatrin Lacks Proarrhythmic Potential: Results from a Thorough QT/QTc Study in Healthy Volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28668627/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Bitton",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "22889307",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A randomized controlled trial of flunarizine as add-on therapy and effect on cognitive outcome in children with infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22889307/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "15823510",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase III; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of levetiracetam on the pharmacokinetics of adjunctive antiepileptic drugs: a pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15823510/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Debus",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "14738417",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Sulthiame in the primary therapy of West syndrome: a randomized double-blind placebo-controlled add-on trial on baseline pyridoxine medication.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Mecarelli",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "11290878",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Changes in color vision after a single dose of vigabatrin or carbamazepine in healthy volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11290878/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Guberman",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "10845734",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Multicenter Study; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term open multicentre, add-on trial of vigabatrin in adult resistant partial epilepsy. The Canadian Vigabatrin Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10845734/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Spanaki",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "10534261",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "The effect of vigabatrin (gamma-vinyl GABA) on cerebral blood flow and metabolism.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10534261/",
+      "year": "1999"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "11503838",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Topiramate: new indication. A bulkier assessment file.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11503838/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Harding",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "10765970",
+      "pub_types": "Clinical Trial; Comparative Study; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Visual electrophysiological effect of a GABA transaminase blocker.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10765970/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Chiron",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8956918",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Vigabatrin withdrawal randomized study in children.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8956918/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Provinciali",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8874587",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Influence of vigabatrin on cognitive performances and behaviour in patients with drug-resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8874587/",
+      "year": "1996"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8559421",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A double-blind, placebo-controlled study of vigabatrin three g/day in patients with uncontrolled complex partial seizures. Vigabatrin Protocol 024 Investigative Cohort.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8559421/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Dodrill",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "7821274",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Effects of differing dosages of vigabatrin (Sabril) on cognitive abilities and quality of life in epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7821274/",
+      "year": "1995"
+    },
+    {
+      "first_author": "Stolarek",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8057114",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Vigabatrin and lamotrigine in refractory epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8057114/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Dodrill",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8255447",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Evaluation of the effects of vigabatrin on cognitive abilities and quality of life in epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8255447/",
+      "year": "1993"
+    },
+    {
+      "first_author": "McKee",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8404750",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Adjuvant vigabatrin in refractory epilepsy: a ceiling to effective dosage in individual patients?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8404750/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Pfersmann",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "8517061",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase I; English Abstract; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "[Clinical and EEG/ERP brain mapping studies with vigabatrin in therapy refractory epileptic patients].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8517061/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Reynolds",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "1868811",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Open, double-blind and long-term study of vigabatrin in chronic epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1868811/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Ring",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "2292696",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Vigabatrin: rational treatment for chronic epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2292696/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Fennerty",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "2108511",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Effect of gamma aminobutyric acid on the carbon dioxide rebreathing response of normal subjects: a study using vigabatrin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2108511/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Tartara",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "2661725",
+      "pub_types": "Clinical Trial; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Vigabatrin in the treatment of epilepsy: a long-term follow-up study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2661725/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Mumford",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "2667602",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Meta-analysis of European placebo controlled studies of vigabatrin in drug resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2667602/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Gram",
+      "generic_name": "vigabatrin",
+      "label": "",
+      "pmid": "3922282",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "gamma-Vinyl GABA: a double-blind placebo-controlled trial in partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3922282/",
+      "year": "1985"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

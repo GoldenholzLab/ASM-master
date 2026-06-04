@@ -1,0 +1,330 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "black_box_warning": {
+      "additionalProperties": false,
+      "properties": {
+        "current_value": {
+          "type": "string"
+        },
+        "fda_source_urls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "proposed_value": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "requires_user_approval": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "incorrect",
+            "missing",
+            "insufficient_evidence",
+            "not_applicable"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "current_value",
+        "proposed_value",
+        "rationale",
+        "fda_source_urls",
+        "requires_user_approval"
+      ],
+      "type": "object"
+    },
+    "blocking_questions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "fact_checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_value": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "proposed_value": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "requires_user_approval": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "incorrect",
+              "missing",
+              "missing_source",
+              "insufficient_evidence",
+              "not_applicable"
+            ],
+            "type": "string"
+          },
+          "supporting_sources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "field",
+          "current_value",
+          "status",
+          "rationale",
+          "supporting_sources",
+          "proposed_value",
+          "requires_user_approval"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generic_name": {
+      "type": "string"
+    },
+    "missing_rcts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "pmid": {
+            "type": "string"
+          },
+          "proposed_link_text": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "why_relevant": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "pmid",
+          "url",
+          "why_relevant",
+          "proposed_link_text"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "outcome_checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_value": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "proposed_value": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "requires_user_approval": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "incorrect",
+              "insufficient_evidence",
+              "not_applicable"
+            ],
+            "type": "string"
+          },
+          "supporting_sources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "field",
+          "status",
+          "current_value",
+          "proposed_value",
+          "rationale",
+          "supporting_sources",
+          "requires_user_approval"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "overall_status": {
+      "enum": [
+        "verified",
+        "needs_update",
+        "conflict",
+        "insufficient_evidence"
+      ],
+      "type": "string"
+    },
+    "proposed_row_updates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_value": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "proposed_value": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "requires_user_approval": {
+            "type": "boolean"
+          },
+          "source_urls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "field",
+          "current_value",
+          "proposed_value",
+          "reason",
+          "source_urls",
+          "requires_user_approval"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rct_link_checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "pmid": {
+            "type": "string"
+          },
+          "proposed_action": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "wrong_drug",
+              "not_placebo_rct",
+              "not_phase_ii_iii",
+              "broken_or_invalid",
+              "insufficient_evidence"
+            ],
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "pmid",
+          "url",
+          "status",
+          "rationale",
+          "proposed_action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_updates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_value": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "proposed_value": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "requires_user_approval": {
+            "type": "boolean"
+          },
+          "source_urls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "field",
+          "current_value",
+          "proposed_value",
+          "reason",
+          "source_urls",
+          "requires_user_approval"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "generic_name",
+    "overall_status",
+    "summary",
+    "fact_checks",
+    "rct_link_checks",
+    "missing_rcts",
+    "outcome_checks",
+    "black_box_warning",
+    "source_updates",
+    "proposed_row_updates",
+    "blocking_questions"
+  ],
+  "type": "object"
+}

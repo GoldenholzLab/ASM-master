@@ -1,0 +1,1284 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 21-28%, CNS: somnolence 8-18%, GI: nausea 7-10%, neurologic: diplopia 6-11%, neurologic: ataxia 4-6%",
+    "alternate_generic_names": "eslicarbazepine",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "15-26 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sperling2014 ESL 1200 mg/day 19.5%; BenMenachem2010 ESL 1200 mg/day 24.1%; GilNagel2009 ESL 1200 mg/day 15%; Elger2009 ESL 1200 mg/day 23%; Elger2007 ESL titrated to 1200 mg/day once daily 26%)",
+    "diff_median_pct_change_maximum_effective_dose": "25-32 % (drug minus placebo MPC differential at maximum effective dose/regimen: BenMenachem2010 ESL 1200 mg/day 32%; GilNagel2009 ESL 1200 mg/day 25%; Elger2009 ESL 1200 mg/day 29%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A4/UGT inducer; inhibits CYP2C19",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3d0c9554-eaeb-4694-8089-00133fcadce3; published=Dec 05, 2023; title=APTIOM (ESLICARBAZEPINE ACETATE) TABLET APTIOM (ESLICARBAZEPINE ACETATE) KIT [SUMITOMO PHARMA AMERICA, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d0c9554-eaeb-4694-8089-00133fcadce3",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "Sodium channel",
+    "filter_metabolism": "Liver/hepatic; Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Neurologic",
+    "formulations_available": "Tablet",
+    "generic_name": "eslicarbazepine acetate",
+    "half_life_range": "13-20 h",
+    "major_organ_for_metabolism": "Liver hydrolysis/glucuronidation; renal excretion",
+    "maximum_approved_daily_dose": "1600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Converted to eslicarbazepine; precise mechanism is unknown but is thought to involve inhibition of voltage-gated sodium channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "800 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Sperling2014|19.5|https://pubmed.ncbi.nlm.nih.gov/25528898/|653; BenMenachem2010|24.1|https://pubmed.ncbi.nlm.nih.gov/20299189/|395; GilNagel2009|15|https://pubmed.ncbi.nlm.nih.gov/19832771/|252; Elger2009|23|https://pubmed.ncbi.nlm.nih.gov/19243424/|402; Elger2007|26|https://pubmed.ncbi.nlm.nih.gov/17319919/|143",
+    "plot_diff_median_pct_change_maximum_effective_dose": "BenMenachem2010|32|https://pubmed.ncbi.nlm.nih.gov/20299189/|395; GilNagel2009|25|https://pubmed.ncbi.nlm.nih.gov/19832771/|252; Elger2009|29|https://pubmed.ncbi.nlm.nih.gov/19243424/|402",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+    "pubmed_search_aliases": "BIA 2-093",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 14/65 on 2026-05-15: 8 qualifying placebo-controlled randomized clinical trial report(s) retained from 33 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal/partial-onset seizures.",
+    "trade_names": "Aptiom; Zebinix",
+    "typical_doses_per_day": "Adults: 800-1600 mg once daily",
+    "year_fda_cleared": "2013"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/",
+      "label": "Koepp2026",
+      "pmid": "41722592",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41722592/"
+    },
+    {
+      "entry": "Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/",
+      "label": "Kirkham2020",
+      "pmid": "32151803",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32151803/"
+    },
+    {
+      "entry": "Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/",
+      "label": "Mintzer2018",
+      "pmid": "29499473",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29499473/"
+    },
+    {
+      "entry": "Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/",
+      "label": "Sperling2014",
+      "pmid": "25528898",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25528898/"
+    },
+    {
+      "entry": "BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/",
+      "label": "BenMenachem2010",
+      "pmid": "20299189",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20299189/"
+    },
+    {
+      "entry": "GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/",
+      "label": "GilNagel2009",
+      "pmid": "19832771",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19832771/"
+    },
+    {
+      "entry": "Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/",
+      "label": "Elger2009",
+      "pmid": "19243424",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19243424/"
+    },
+    {
+      "entry": "Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "label": "Elger2007",
+      "pmid": "17319919",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17319919/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 21-28%, CNS: somnolence 8-18%, GI: nausea 7-10%, neurologic: diplopia 6-11%, neurologic: ataxia 4-6%",
+    "alternate_generic_names": "eslicarbazepine",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "15-26 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sperling2014 ESL 1200 mg/day 19.5%; BenMenachem2010 ESL 1200 mg/day 24.1%; GilNagel2009 ESL 1200 mg/day 15%; Elger2009 ESL 1200 mg/day 23%; Elger2007 ESL titrated to 1200 mg/day once daily 26%)",
+    "diff_median_pct_change_maximum_effective_dose": "25-32 % (drug minus placebo MPC differential at maximum effective dose/regimen: BenMenachem2010 ESL 1200 mg/day 32%; GilNagel2009 ESL 1200 mg/day 25%; Elger2009 ESL 1200 mg/day 29%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A4/UGT inducer; inhibits CYP2C19",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3d0c9554-eaeb-4694-8089-00133fcadce3; published=Dec 05, 2023; title=APTIOM (ESLICARBAZEPINE ACETATE) TABLET APTIOM (ESLICARBAZEPINE ACETATE) KIT [SUMITOMO PHARMA AMERICA, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d0c9554-eaeb-4694-8089-00133fcadce3",
+    "formulations_available": "Tablet",
+    "half_life_range": "13-20 h",
+    "major_organ_for_metabolism": "Liver hydrolysis/glucuronidation; renal excretion",
+    "maximum_approved_daily_dose": "1600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Converted to eslicarbazepine; precise mechanism is unknown but is thought to involve inhibition of voltage-gated sodium channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "800 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Sperling2014|19.5|https://pubmed.ncbi.nlm.nih.gov/25528898/|653; BenMenachem2010|24.1|https://pubmed.ncbi.nlm.nih.gov/20299189/|395; GilNagel2009|15|https://pubmed.ncbi.nlm.nih.gov/19832771/|252; Elger2009|23|https://pubmed.ncbi.nlm.nih.gov/19243424/|402; Elger2007|26|https://pubmed.ncbi.nlm.nih.gov/17319919/|143",
+    "plot_diff_median_pct_change_maximum_effective_dose": "BenMenachem2010|32|https://pubmed.ncbi.nlm.nih.gov/20299189/|395; GilNagel2009|25|https://pubmed.ncbi.nlm.nih.gov/19832771/|252; Elger2009|29|https://pubmed.ncbi.nlm.nih.gov/19243424/|402",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+    "pubmed_search_aliases": "BIA 2-093",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Aptiom; Zebinix",
+    "typical_doses_per_day": "Adults: 800-1600 mg once daily",
+    "year_fda_cleared": "2013"
+  },
+  "generic_name": "eslicarbazepine acetate",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "details": {
+        "article": {
+          "abstract": "Eslicarbazepine acetate (ESL) is a once-daily (QD), oral anti-seizure medication for the treatment of focal (partial-onset) seizures. Here, we evaluate risk factors for the development of psychiatric treatment-emergent adverse events (TEAEs) in clinical trials of adjunctive ESL in adults with focal seizures. This post-hoc analysis evaluated data pooled from three Phase III, randomized, double-blind, placebo-controlled trials (BIA-2093-301, -302, -304). After an 8-week baseline period, patients were randomized equally to receive placebo, ESL 400 mg (not reported here), 800 mg, or 1200 mg QD (up to 2-week titration; 12-week maintenance; optional open-label extension [OLE]). Incidences of psychiatric TEAEs were evaluated according to three separate criteria: medical history of psychiatric disorders (yes/no); baseline use of psychotropic drugs (yes/no); Montgomery-Åsberg Depression Rating Scale (MADRS) score at baseline (0-6: normal; 7-19: mild depression; 20-34: moderate depression). The analysis populations comprised 1251 patients for the controlled study period and 1137 patients for the 1-year OLE. Psychiatric TEAE incidence was similar between patients taking ESL and placebo in the controlled and OLE study periods and was not related to ESL dose. Psychiatric TEAEs generally occurred more frequently in patients with a medical history of psychiatric disorders, using psychotropic drugs, or with depressive symptoms than in those without a history, not using psychotropic drugs, or with no depressive symptoms. Depression and anxiety were the most frequently reported psychiatric TEAEs. Overall, in clinical trials of ESL in adults with focal seizures, incidences of psychiatric events were not statistically different between patients taking ESL and placebo, were not related to ESL dose, and generally occurred more frequently in patients with baseline psychiatric symptoms or a history of psychiatric disorders. Long-term exposure to ESL was not associated with a marked increase in the incidence of psychiatric TEAEs. © 2022 The Authors. Epilepsia Open published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.",
+          "first_author": "Altalib",
+          "pmid": "35908275",
+          "pub_types": [
+            "Journal Article",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Psychiatric adverse events in three phase III trials of eslicarbazepine acetate for focal seizures.",
+          "year": "2022"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35908275/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "new_pubmed_phase_ii_iii_rct-4f97f15211c4",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Altalib2022|https://pubmed.ncbi.nlm.nih.gov/35908275/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 35908275 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Altalib2022|https://pubmed.ncbi.nlm.nih.gov/35908275/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Psychiatric adverse events in three phase III trials of eslicarbazepine acetate for focal seizures."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "details": {
+        "article": {
+          "abstract": "This was a phase-II, randomized, double-blind (DB), placebo-controlled study aimed to evaluate neurocognitive effects of eslicarbazepine acetate (ESL) as adjunctive therapy in pediatric patients with refractory focal-onset seizures (FOS). Children (6-16years old) with FOS were randomized (2:1) to ESL or placebo. Treatment started at 10mg/kg/day, was up-titrated up to 30mg/kg/day (target dose), and maintained for 8weeks, followed by one-year open-label follow-up. The primary endpoint was change from baseline to the end of maintenance period in the composite Power of Attention assessed with the Cognitive Drug Research (CDR) system. Behavioral and emotional functioning and quality of life (QOL), secondary endpoints, were assessed with Child Health Questionnaire-Parent Form 50 (CHQ-PF50), Child Behavior Checklist (CBCL), and Raven's Standard Progressive Matrices (SPM). Efficacy was evaluated through changes in standardized seizure frequency (SF), responder rate, and proportion of seizure-free patients. Safety was evaluated by the incidence of treatment-emergent adverse events (TEAEs). One hundred and twenty-three patients were randomized. A noninferiority analysis failed to reject the null hypothesis that the change from baseline in the Power of Attention score in the ESL group was at least 121ms inferior to the placebo group for all age groups. The CDR scores showed no differences between placebo and ESL in Power of Attention (1868.0 vs 1759.5), Continuity of Attention (1.136 vs -1.786), Quality of Working Memory (-0.023 vs -0.024), and Speed of Memory (-263.4 vs -249.6). Nonsignificant differences between placebo and ESL were seen for CHQ-PF50, CBCL scores, and Raven's SPM. Episodic Memory Index showed significant negative effect on ESL. Efficacy results favored the ESL group (SF least square [LS] means 1.98 vs 4.29). The TEAEs had a similar incidence between treatment groups (41.0% vs 47.5%). Overall ESL did not produce statistically significant effects on neurocognitive and behavioral functioning in patients with epilepsy aged 6 to 16years. Additionally, ESL was effective in reducing seizure frequency and was well-tolerated. Copyright © 2018 The Authors. Published by Elsevier Inc. All rights reserved.",
+          "first_author": "Jóźwiak",
+          "pmid": "29454255",
+          "pub_types": [
+            "Clinical Trial, Phase II",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Effects of adjunctive eslicarbazepine acetate on neurocognitive functioning in children with refractory focal-onset seizures.",
+          "year": "2018"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/29454255/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "new_pubmed_phase_ii_iii_rct-7c89be073150",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Jozwiak2018|https://pubmed.ncbi.nlm.nih.gov/29454255/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 29454255 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Jozwiak2018|https://pubmed.ncbi.nlm.nih.gov/29454255/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Effects of adjunctive eslicarbazepine acetate on neurocognitive functioning in children with refractory focal-onset seizures."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "details": {
+        "article": {
+          "abstract": "Pooled evaluation of the key efficacy and safety profile of eslicarbazepine acetate (ESL) added-on to stable antiepileptic therapy in adults with focal-onset seizures. Data from 1703 patients enrolled in four phase III double-blind, randomized, placebo-controlled studies were pooled and analyzed. Following a 2 week titration period, ESL was administered at 400 mg, 800 mg, and 1200 mg once-daily doses for 12 weeks (maintenance period). Pooled efficacy variable was standardized (/4 weeks) seizure frequency (SSF) analyzed over the maintenance period as reduction in absolute and relative SSF and proportion of responders (≥50% reduction in SSF). Pooled safety was analyzed by means of adverse events and clinical laboratory assessments. SSF was significantly reduced with ESL 800 mg (P < 0.0001) and 1200 mg (P < 0.0001) compared to placebo. Median relative reduction in SSF was 33.4% for ESL 800 mg and 37.8% for 1200 mg (placebo: 17.6%), and responder rate was 33.8% and 43.1% (placebo: 22.2%). ESL was more efficacious than placebo regardless of gender, geographical region, epilepsy duration, age at time of diagnosis, seizure type, and type of concomitant antiepileptic drugs (AED). Incidence of adverse events (AEs) and AEs leading to discontinuation was dose dependent. Most common AEs (>10% patients) were dizziness, somnolence, and nausea. The incidence of treatment-emergent AEs (dizziness, somnolence, ataxia, vomiting, and nausea) was lower in patients who began taking ESL 400 mg (followed by 400 mg increments to 800 or 1200 mg) than in those who began taking ESL 600 mg or 800 mg. Once-daily ESL 800 mg and 1200 mg showed consistent results across all efficacy and safety endpoints, independent of study population characteristics and type of concomitant AEDs. Treatment initiated with ESL 400 mg followed by 400 mg increments to 800 or 1200 mg provides optimal balance of efficacy and tolerability. © 2017 The Authors. CNS Neuroscience & Therapeutics Published by John Wiley & Sons Ltd.",
+          "first_author": "Elger",
+          "pmid": "29030894",
+          "pub_types": [
+            "Journal Article"
+          ],
+          "title": "Pooled efficacy and safety of eslicarbazepine acetate as add-on treatment in patients with focal-onset seizures: Data from four double-blind placebo-controlled pivotal phase III clinical studies.",
+          "year": "2017"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/29030894/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "new_pubmed_phase_ii_iii_rct-f74a46017ce4",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Elger2017|https://pubmed.ncbi.nlm.nih.gov/29030894/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 29030894 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Elger2017|https://pubmed.ncbi.nlm.nih.gov/29030894/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Pooled efficacy and safety of eslicarbazepine acetate as add-on treatment in patients with focal-onset seizures: Data from four double-blind placebo-controlled pivotal phase III clinical studies."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Koepp2026|https://pubmed.ncbi.nlm.nih.gov/41722592/; Kirkham2020|https://pubmed.ncbi.nlm.nih.gov/32151803/; Mintzer2018|https://pubmed.ncbi.nlm.nih.gov/29499473/; Sperling2014|https://pubmed.ncbi.nlm.nih.gov/25528898/; BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/; GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/; Elger2009|https://pubmed.ncbi.nlm.nih.gov/19243424/; Elger2007|https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "details": {
+        "article": {
+          "abstract": "The objective of this study was to compare posttreatment seizure severity in a phase III clinical trial of eslicarbazepine acetate (ESL) as adjunctive treatment of refractory partial-onset seizures. The Seizure Severity Questionnaire (SSQ) was administered at baseline and posttreatment. The SSQ total score (TS) and component scores (frequency and helpfulness of warning signs before seizures [BS]; severity and bothersomeness of ictal movement and altered consciousness during seizures [DS]; cognitive, emotional, and physical aspects of postictal recovery after seizures [AS]; and overall severity and bothersomeness [SB]) were calculated for the per-protocol population. Analysis of covariance, adjusted for baseline scores, estimated differences in posttreatment least square means between treatment arms. Out of 547 per-protocol patients, 441 had valid SSQ TS both at baseline and posttreatment. Mean posttreatment TS for ESL 1200 mg/day was significantly lower than that for placebo (2.68 vs 3.20, p<0.001), exceeding the minimal clinically important difference (MCID: 0.48). Mean DS, AS, and SB were also significantly lower with ESL 1200 mg/day; differences in AS and SB exceeded the MCIDs. The TS, DS, AS, and SB were lower for ESL 800 mg/day than for placebo; only SB was significant (p=0.013). For both ESL arms combined versus placebo, mean scores differed significantly for TS (p=0.006), DS (p=0.031), and SB (p=0.001). Therapeutic ESL doses led to clinically meaningful, dose-dependent reductions in seizure severity, as measured by SSQ scores. This study presents Class I evidence that adjunctive ESL (800 and 1200 mg/day) led to clinically meaningful, dose-dependent seizure severity reductions, measured by the SSQ. Copyright © 2015 Elsevier Inc. All rights reserved.",
+          "first_author": "Cramer",
+          "pmid": "26575256",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Severity and burden of partial-onset seizures in a phase III trial of eslicarbazepine acetate.",
+          "year": "2015"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/26575256/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "new_pubmed_phase_ii_iii_rct-c63a58b1612c",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Cramer2015|https://pubmed.ncbi.nlm.nih.gov/26575256/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 26575256 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Cramer2015|https://pubmed.ncbi.nlm.nih.gov/26575256/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Severity and burden of partial-onset seizures in a phase III trial of eslicarbazepine acetate."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "BenMenachem2010|https://pubmed.ncbi.nlm.nih.gov/20299189/",
+      "details": {
+        "article": {
+          "abstract": "To investigate the efficacy and safety of once-daily eslicarbazepine acetate (ESL) when used as add-on treatment in adults with > or = 4 partial-onset seizures per 4-week despite treatment with 1 to 3 antiepileptic drugs (AEDs). This double-blind, parallel-group, multicenter study consisted of an 8-week observational baseline period, after which patients were randomized to placebo (n=100) or once-daily ESL 400 mg (n=96), 800 mg (n=101), or 1200 mg (n=98). Patients then entered a 14-week double-blind treatment phase. All patients started on their full maintenance dose except for those in the ESL 1200 mg group who received once-daily ESL 800 mg for 2 weeks before reaching their full maintenance dose. Seizure frequency per 4-week (primary endpoint) over the 14-week double-blind treatment period was significantly lower than placebo in the ESL 800 mg and 1200 mg (p<0.001) groups. Responder rate (> or = 50% reduction in seizure frequency) was 13.0% (placebo), 16.7% (400 mg), 40.0% (800 mg, p<0.001), and 37.1% (1200 mg, p<0.001). Median relative reduction in seizure frequency was 0.8% (placebo), 18.7% (400 mg), 32.6% (800 mg, p<0.001), and 32.8% (1200 mg). Discontinuation rates due to adverse events (AEs) were 3.0% (placebo), 12.5% (400 mg), 18.8% (800 mg), and 26.5% (1200 mg). The most common (>5%) AEs in any group were dizziness, somnolence, headache, nausea, diplopia, abnormal coordination, vomiting, blurred vision, and fatigue. The majority of AEs were of mild or moderate severity. Treatment with once-daily eslicarbazepine acetate 800 mg and 1200 mg was more effective than placebo and generally well tolerated in patients with partial-onset seizures refractory to treatment with 1 to 3 concomitant AEDs. Copyright 2010 Elsevier B.V. All rights reserved.",
+          "first_author": "Ben-Menachem",
+          "pmid": "20299189",
+          "pub_types": [
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Eslicarbazepine acetate as adjunctive therapy in adult patients with partial epilepsy.",
+          "year": "2010"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/20299189/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "rct_pubmed_concordance_problem-95fd919173bf",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 20299189 needs manual review for eslicarbazepine acetate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 20299189 needs manual review for eslicarbazepine acetate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "GilNagel2009|https://pubmed.ncbi.nlm.nih.gov/19832771/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate the efficacy and safety of eslicarbazepine acetate (ESL) as adjunctive therapy in adults with partial-onset seizures. Double-blind, placebo-controlled, parallel-group, multicenter study consisting of an 8-week baseline period, after which patients were randomized to placebo (n = 87) or once-daily ESL 800 mg (n = 85) or 1200 mg (n = 80). Patients received half dose during 2 weeks preceding a 12-week maintenance period. Seizure frequency over the maintenance period was significantly (P < 0.05) lower than placebo in both ESL groups. Responder rate was 23% (placebo), 35% (800 mg), and 38% (1200 mg). Median relative reduction in seizure frequency was 17% (placebo), 38% (800 mg), and 42% (1200 mg). The most common adverse events (AEs) (>10%) were dizziness, somnolence, headache, and nausea. The majority of AEs were of mild or moderate severity. Once-daily treatment with ESL 800 and 1200 mg was effective and generally well tolerated.",
+          "first_author": "Gil-Nagel",
+          "pmid": "19832771",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Efficacy and safety of 800 and 1200 mg eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures.",
+          "year": "2009"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/19832771/",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "rct_pubmed_concordance_problem-52ad12ce2069",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 19832771 needs manual review for eslicarbazepine acetate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 19832771 needs manual review for eslicarbazepine acetate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2013",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2013"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "source_fact_concordance_problem-9d346e73f21c",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to determine whether Eslicarbazepine acetate (BIA 2-093) is an effective adjunct therapy in the treatment of refractory partial seizures",
+        "interventions": [
+          "800 mg QD Eslicarbazepine acetate",
+          "1200 mg QD Eslicarbazepine acetate",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00988429",
+        "new_reference_pmids": [
+          "33338829",
+          "32801102"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33338829",
+          "32801102"
+        ],
+        "title": "Efficacy and Safety of Eslicarbazepine Acetate (BIA 2-093) as Adjunctive Therapy for Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00988429",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-25d51a89c82d",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Eslicarbazepine Acetate (BIA 2-093) as Adjunctive Therapy for Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary objective of the study is to evaluate the efficacy of eslicarbazepine acetate once-daily at doses of 400 mg, 800 mg and 1200 mg compared with placebo as adjunctive therapy in patients with refractory partial epilepsy over a 12-week maintenance period. Patients who complete Part I may enter a 1-year open-label extension.",
+        "interventions": [
+          "eslicarbazepine acetate",
+          "placebo",
+          "ESL - Part II"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT00957047",
+        "new_reference_pmids": [
+          "33338829"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33338829"
+        ],
+        "title": "Efficacy and Safety Study of BIA 2-093 in Combination With Other Anti-Epileptic Drugs to Treat Partial Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00957047",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-6977900efee8",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety Study of BIA 2-093 in Combination With Other Anti-Epileptic Drugs to Treat Partial Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the effects of eslicarbazepine acetate on cognition in comparison with placebo as adjunctive therapy in children aged 6 to 16 years old with refractory partial-onset seizures.",
+        "interventions": [
+          "Eslicarbazepine acetate (BIA 2-093)",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01527513",
+        "new_reference_pmids": [
+          "31878820"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "31878820"
+        ],
+        "title": "Effects of Eslicarbazepine Acetate (Esl, Bia 2-093) on Cognitive Function in Children With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01527513",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-3915a0c466af",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Effects of Eslicarbazepine Acetate (Esl, Bia 2-093) on Cognitive Function in Children With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary objective was to evaluate the efficacy of eslicarbazepine acetate (ESL) administered once daily at 1200 mg or 800 mg, compared with placebo as adjunctive therapy in patients with refractory partial epilepsy over a 12-week maintenance period.",
+        "interventions": [
+          "eslicarbazepine acetate",
+          "placebo (Part I)",
+          "ESL - Open-label Extension (Part II)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00957372",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy and Safety of Eslicarbazepine Acetate as Adjunctive Therapy for Refractory Partial Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00957372",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-7843548535b2",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Eslicarbazepine Acetate as Adjunctive Therapy for Refractory Partial Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This was a phase III 4-part study in multiple centres. Part I was a 26-week parallel-group, randomised, placebo-controlled period (8 weeks single-blind placebo baseline, 2 weeks double-blind titration, 12 weeks maintenance, and 4 weeks tapering off). After completing the baseline period, patients were randomised in a 1:1:1:1 ratio to 1 of 3 ESL dose levels or to placebo. Part II was a 1-year open-label extension for patients who had completed Part I. The starting dose was 800 mg once daily and could be titrated up or down at 400-mg intervals between 400 and 1200 mg. Part III was an additional 1-year open-label extension for patients who had completed Part II, had participated in the post-Part II study extension, which allowed patients to continue treatment with ESL, or had continued to take ESL in a compassionate use program. ESL starting doses were the same as received at the end of Part II, during post-Part II study extension, or under compassionate use, and could be titrated up or down at 400-mg intervals between 400 and 1200 mg once daily. Part IV was a study extension to allow patients to continue ESL treatment after the end of Part III until marketing authorisation or discontinuation of clinical development.",
+        "interventions": [
+          "eslicarbazepine acetate",
+          "placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00957684",
+        "new_reference_pmids": [
+          "33338829"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33338829"
+        ],
+        "title": "Efficacy and Safety of Eslicarbazepine Acetate as Adjunctive Therapy for Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00957684",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-4f944e098296",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Eslicarbazepine Acetate as Adjunctive Therapy for Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study aims to assess if eslicarbazepine acetate (ESL) treatment (started within 96 hours after stroke occurrence and continued for 30 days) changes the incidence of unprovoked seizures (USs) within the first 6 months after randomisation as compared to placebo",
+        "interventions": [
+          "ESL 800 mg",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT06597084",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "Anti-epileptogenic Effects of Eslicarbazepine Acetate"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06597084",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-3213094f6319",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Anti-epileptogenic Effects of Eslicarbazepine Acetate"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to determine the efficacy of BIA 2 093 in the treatment of epileptic patients with refractory simple or complex partial seizures with or without secondary generalization.",
+        "interventions": [
+          "BIA 2-093",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02170077",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "A Placebo-controlled Study to Investigate Safety and Efficacy of BIA 2-093"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02170077",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-a97a33d82f8c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study to Investigate Safety and Efficacy of BIA 2-093"
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "source_fact_concordance_problem-85d165e00303",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=3d0c9554-eaeb-4694-8089-00133fcadce3; published=Dec 05, 2023; title=APTIOM (ESLICARBAZEPINE ACETATE) TABLET APTIOM (ESLICARBAZEPINE ACETATE) KIT [SUMITOMO PHARMA AMERICA, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3d0c9554-eaeb-4694-8089-00133fcadce3",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5",
+      "generic_name": "eslicarbazepine acetate",
+      "id": "fda_warning_metadata_refresh-4b5bf8b4927d",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3d0c9554-eaeb-4694-8089-00133fcadce3; effective_time=20231110; title=Aptiom / ESLICARBAZEPINE ACETATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=3d0c9554-eaeb-4694-8089-00133fcadce3; effective_time=20231110; title=Aptiom / ESLICARBAZEPINE ACETATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%223d0c9554-eaeb-4694-8089-00133fcadce3%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Post-stroke seizure-prevention proof-of-concept trial; not a seizure-frequency RR50/MPC epilepsy-treatment endpoint.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Koepp2026",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "41722592",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41722592/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Safety and efficacy of eslicarbazepine acetate for seizure prevention in patients with stroke at high risk of developing post-stroke epilepsy: a proof-of-concept, phase 2a, randomised, double-blind, placebo-controlled antiepileptogenesis trial."
+    },
+    {
+      "audit_note": "Pediatric study used 20-30 mg/kg/day but reports LS mean relative change and no extractable max-dose RR50.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Kirkham2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "32151803",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32151803/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and safety of eslicarbazepine acetate as adjunctive therapy for refractory focal-onset seizures in children: A double-blind, randomized, placebo-controlled, parallel-group, multicenter, phase-III clinical trial."
+    },
+    {
+      "audit_note": "Post hoc lipid analysis, not a primary efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Mintzer2018",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "29499473",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29499473/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effects of adjunctive eslicarbazepine acetate on serum lipids in patients with partial-onset seizures: Impact of concomitant statins and enzyme-inducing antiepileptic drugs."
+    },
+    {
+      "audit_note": "Abstract reports max-dose RR50. Median active/placebo reductions were not extractable from the abstract.",
+      "dose_or_regimen": "ESL 1200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Sperling2014",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "25528898",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25528898/",
+      "rr50_active_percent": "42.6",
+      "rr50_differential_percent": "19.5",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "23.1",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Eslicarbazepine acetate as adjunctive therapy in patients with uncontrolled partial-onset seizures: Results of a phase III, double-blind, randomized, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports 1200 mg/day responder and median relative seizure-frequency reduction values.",
+      "dose_or_regimen": "ESL 1200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "BenMenachem2010",
+      "mpc_active_percent": "32.8",
+      "mpc_differential_percent": "32.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "0.8",
+      "pmid": "20299189",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20299189/",
+      "rr50_active_percent": "37.1",
+      "rr50_differential_percent": "24.1",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "13.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Eslicarbazepine acetate as adjunctive therapy in adult patients with partial epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports 1200 mg/day responder and median relative seizure-frequency reduction values.",
+      "dose_or_regimen": "ESL 1200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "GilNagel2009",
+      "mpc_active_percent": "42.0",
+      "mpc_differential_percent": "25.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "17.0",
+      "pmid": "19832771",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/19832771/",
+      "rr50_active_percent": "38.0",
+      "rr50_differential_percent": "15.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "23.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and safety of 800 and 1200 mg eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures."
+    },
+    {
+      "audit_note": "Abstract reports max-dose responder and median relative seizure-frequency reduction values.",
+      "dose_or_regimen": "ESL 1200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Elger2009",
+      "mpc_active_percent": "45.0",
+      "mpc_differential_percent": "29.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "16.0",
+      "pmid": "19243424",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/19243424/",
+      "rr50_active_percent": "43.0",
+      "rr50_differential_percent": "23.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "20.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and safety of eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures: a randomized, double-blind, placebo-controlled, parallel-group phase III study."
+    },
+    {
+      "audit_note": "Exploratory trial titrated the once-daily group to 1200 mg/day and reports responder rates. Placebo seizure-free percentage was not reported.",
+      "dose_or_regimen": "ESL titrated to 1200 mg/day once daily",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Elger2007",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "17319919",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "rr50_active_percent": "54.0",
+      "rr50_differential_percent": "26.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "28.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Eslicarbazepine acetate: a double-blind, add-on, placebo-controlled exploratory trial in adult patients with partial-onset seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Koepp",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Koepp2026",
+      "pmid": "41722592",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase II; Multicenter Study",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of eslicarbazepine acetate for seizure prevention in patients with stroke at high risk of developing post-stroke epilepsy: a proof-of-concept, phase 2a, randomised, double-blind, placebo-controlled antiepileptogenesis trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41722592/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Kirkham",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Kirkham2020",
+      "pmid": "32151803",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of eslicarbazepine acetate as adjunctive therapy for refractory focal-onset seizures in children: A double-blind, randomized, placebo-controlled, parallel-group, multicenter, phase-III clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32151803/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Mintzer",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Mintzer2018",
+      "pmid": "29499473",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effects of adjunctive eslicarbazepine acetate on serum lipids in patients with partial-onset seizures: Impact of concomitant statins and enzyme-inducing antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29499473/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Sperling",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Sperling2014",
+      "pmid": "25528898",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Eslicarbazepine acetate as adjunctive therapy in patients with uncontrolled partial-onset seizures: Results of a phase III, double-blind, randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25528898/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Ben-Menachem",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "BenMenachem2010",
+      "pmid": "20299189",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Eslicarbazepine acetate as adjunctive therapy in adult patients with partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20299189/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Gil-Nagel",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "GilNagel2009",
+      "pmid": "19832771",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of 800 and 1200 mg eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19832771/",
+      "year": "2009"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Elger2009",
+      "pmid": "19243424",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures: a randomized, double-blind, placebo-controlled, parallel-group phase III study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19243424/",
+      "year": "2009"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "Elger2007",
+      "pmid": "17319919",
+      "pub_types": "Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Eslicarbazepine acetate: a double-blind, add-on, placebo-controlled exploratory trial in adult patients with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17319919/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Lee",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "38787305",
+      "pub_types": "Journal Article; Clinical Trial, Phase III; Randomized Controlled Trial; Multicenter Study; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term effects of adjunctive eslicarbazepine acetate in adult Asian patients with refractory focal seizures: Post hoc analysis of a phase III trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38787305/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Cantu",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "38035455",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to sustained responder status in patients with focal seizures treated with adjunctive eslicarbazepine acetate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38035455/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Koepp",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "36944588",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Antiepileptogenesis after stroke-trials and tribulations: Methodological challenges and recruitment results of a Phase II study with eslicarbazepine acetate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36944588/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Altalib",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "35908275",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Psychiatric adverse events in three phase III trials of eslicarbazepine acetate for focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35908275/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Hwang",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "35727711",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "The pharmacokinetic, safety, and tolerability profiles of eslicarbazepine acetate are comparable between Korean and White subjects.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35727711/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Veggiotti",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "34991056",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Long-term therapeutic effect of eslicarbazepine acetate in children: An open-label extension of a cognition study in children aged 6-16 years.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34991056/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Sankar",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "33181890",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term safety and tolerability of adjunctive eslicarbazepine acetate in children with focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33181890/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Cramer",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "32801102",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Associations between seizure severity change and patient characteristics, changes in seizure frequency, and health-related quality of life in patients with focal seizures treated with adjunctive eslicarbazepine acetate: Post hoc analyses of clinical trial results.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32801102/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Rogin",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "31894578",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Analysis of cutaneous allergic reactions in clinical trials of eslicarbazepine acetate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31894578/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Mintz",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "31878820",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Safety and Tolerability of Adjunctive Eslicarbazepine Acetate in Pediatric Patients (Aged 4-17 Years) With Focal Seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31878820/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Abou-Khalil",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "30278294",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Tolerability of adjunctive eslicarbazepine acetate according to concomitant lamotrigine or carbamazepine use: A subgroup analysis of three phase III trials in adults with focal (partial-onset) seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30278294/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Andermann",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "29604484",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Psychiatric and cognitive adverse events: A pooled analysis of three phase III trials of adjunctive eslicarbazepine acetate for partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29604484/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Jóźwiak",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "29454255",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Effects of adjunctive eslicarbazepine acetate on neurocognitive functioning in children with refractory focal-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29454255/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "29127848",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Influence of titration schedule and maintenance dose on the tolerability of adjunctive eslicarbazepine acetate: An integrated analysis of three randomized placebo-controlled trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29127848/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Carreño",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "29588976",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Incidence of seizure exacerbation and seizures reported as adverse events during adjunctive treatment with eslicarbazepine acetate: A pooled analysis of three Phase III controlled trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29588976/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "29030894",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pooled efficacy and safety of eslicarbazepine acetate as add-on treatment in patients with focal-onset seizures: Data from four double-blind placebo-controlled pivotal phase III clinical studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29030894/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Biton",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "28575761",
+      "pub_types": "Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Adjunctive eslicarbazepine acetate: A pooled analysis of three phase III trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28575761/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Velez",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "28236698",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Impact of seizure frequency reduction on health-related quality of life among clinical trial subjects with refractory partial-onset seizures: A pooled analysis of phase III clinical trials of eslicarbazepine acetate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28236698/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Levy-Cooperman",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "27315134",
+      "pub_types": "Clinical Trial, Phase I; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Abuse liability assessment of eslicarbazepine acetate in healthy male and female recreational sedative users: A Phase I randomized controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27315134/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Cramer",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "26575256",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Severity and burden of partial-onset seizures in a phase III trial of eslicarbazepine acetate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26575256/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Grunze",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "25484179",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Assessment of the efficacy and safety of eslicarbazepine acetate in acute mania and prevention of recurrence: experience from multicentre, double-blind, randomised phase II clinical studies in patients with bipolar disorder I.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25484179/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Hufnagel",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "22871333",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term safety and efficacy of eslicarbazepine acetate as adjunctive therapy in the treatment of partial-onset seizures in adults with epilepsy: results of a 1-year open-label extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22871333/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Gil-Nagel",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "22882018",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of eslicarbazepine acetate as add-on treatment in patients with focal-onset seizures: integrated analysis of pooled data from double-blind phase III clinical studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22882018/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Halász",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "20662896",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term efficacy and safety of eslicarbazepine acetate: results of a 1-year open-label extension study in partial-onset seizures in adults with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20662896/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Vaz da Silva",
+      "generic_name": "eslicarbazepine acetate",
+      "label": "",
+      "pmid": "19500154",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effect of eslicarbazepine acetate on the pharmacokinetics of digoxin in healthy subjects.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19500154/",
+      "year": "2009"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

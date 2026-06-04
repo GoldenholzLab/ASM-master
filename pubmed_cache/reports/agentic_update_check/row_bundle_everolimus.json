@@ -1,0 +1,702 @@
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "GI/oral: stomatitis 64%, infectious: infection 50%, GI: diarrhea 24%, dermatologic: rash 21%, respiratory: cough 20%, constitutional: fatigue 14%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "24.9 % (drug minus placebo RR50 differential at maximum effective dose/regimen: French2016 everolimus high-exposure trough 9-15 ng/mL 24.9%)",
+    "diff_median_pct_change_maximum_effective_dose": "24.7 % (drug minus placebo MPC differential at maximum effective dose/regimen: French2016 everolimus high-exposure trough 9-15 ng/mL 24.7%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "CYP3A4/P-gp substrate; not a clinically relevant inducer/inhibitor",
+    "epilepsy_type": "TSC",
+    "evidence_sources": "Epilepsy Society ASM list; Healthline ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION Malignancies and Serious Infections Only physicians experienced in immunosuppressive therapy and management of transplant patients should prescribe everolimus. Patients receiving the drug should be managed in facilities equipped and staffed with adequate laboratory and supportive medical resources. The physician responsible for maintenance therapy should have complete information requisite for the follow-up of the patient [see Warnings and Precautions (5.1) ] . Increased susceptibility to infection and the possible development of malignancies, such as lymphoma and skin cancer, may result from immunosuppression [see Warnings and Precautions (5.2 , 5.3) ]. Kidney Graft Thrombosis An increased risk of kidney arterial and venous thrombosis, resulting in graft loss, was reported, mostly within the first 30 days posttransplantation [see Warnings and Precautions (5.4) ] . Nephrotoxicity Increased nephrotoxicity can occur with use of standard doses of cyclosporine in combination with everolimus. Therefore, reduced doses of cyclosporine should be used in combination with everolimus in order to reduce renal dysfunction. It is important to monitor the cyclosporine and everolimus whole blood trough concentrations [see Dosage and Administration (2.4 , 2.5) , Warnings and Precautions (5.6) , Clinical Pharmacology (12.7 , 12.8) ] . Mortality in Heart Transplantation Increased mortality, often associated with serious infections, within the first three months posttransplantation was observed in a clinical trial of de novo heart transplant patients receiving immunosuppressive regimens with or without induction therapy. Use in heart transplantation is not recommended [see Warnings and Precautions (5.7) ] . WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION See full prescribing information for complete boxed warning. Only physicians experienced in immunosuppressive therapy and management of transplant patients should use everolimus ( 5.1 ) Increased susceptibility to infection and the possible development of malignancies may result from immunosuppression ( 5.2 , 5.3 ) Increased incidence of kidney graft thrombosis ( 5.4 ) Reduced doses of cyclosporine are required for use in combination with everolimus in order to reduce nephrotoxicity ( 2.4 , 2.5 , 5.6 , 12.7 , 12.8 ) Increased mortality in a heart transplant clinical trial. Use in heart transplantation is not recommended ( 5.7 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab; published=Mar 02, 2026; title=EVEROLIMUS TABLET [AUROBINDO PHARMA LIMITED]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor; Substrate / affected by modulators",
+    "filter_epilepsy_type": "TSC",
+    "filter_formulation": "Liquid; Tablet",
+    "filter_mechanism": "mTOR",
+    "filter_metabolism": "Gut; Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "Constitutional; Dermatologic; GI; GI/oral; Infectious; Respiratory",
+    "formulations_available": "Tablet; tablet for oral suspension",
+    "generic_name": "everolimus",
+    "half_life_range": "~30 h",
+    "major_organ_for_metabolism": "Liver and gut",
+    "maximum_approved_daily_dose": "Titrated to trough target; no single fixed max across patients",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Binds FKBP-12 to inhibit mTOR complex 1 (mTORC1), targeting dysregulated mTOR signaling in tuberous sclerosis complex.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "5 mg/m2 once daily starting regimen; titrate to trough target",
+    "plot_diff_50_responder_maximum_effective_dose": "French2016|24.9|https://pubmed.ncbi.nlm.nih.gov/27613521/|366",
+    "plot_diff_median_pct_change_maximum_effective_dose": "French2016|24.7|https://pubmed.ncbi.nlm.nih.gov/27613521/|366",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+    "pubmed_search_aliases": "RAD001",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 19/65 on 2026-05-15: 1 qualifying placebo-controlled randomized clinical trial report(s) retained from 9 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "mTOR inhibitor used as adjunctive treatment for seizures associated with tuberous sclerosis complex; also oncology/transplant-related uses.",
+    "trade_names": "Afinitor; Afinitor Disperz; Votubia",
+    "typical_doses_per_day": "TSC-associated seizures: individualized by BSA and trough concentration; often 5 mg/m2 once daily start",
+    "year_fda_cleared": "2018 for TSC-associated seizures; 2009 original oncology approval"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "label": "French2016",
+      "pmid": "27613521",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27613521/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "GI/oral: stomatitis 64%, infectious: infection 50%, GI: diarrhea 24%, dermatologic: rash 21%, respiratory: cough 20%, constitutional: fatigue 14%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "24.9 % (drug minus placebo RR50 differential at maximum effective dose/regimen: French2016 everolimus high-exposure trough 9-15 ng/mL 24.9%)",
+    "diff_median_pct_change_maximum_effective_dose": "24.7 % (drug minus placebo MPC differential at maximum effective dose/regimen: French2016 everolimus high-exposure trough 9-15 ng/mL 24.7%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "CYP3A4/P-gp substrate; not a clinically relevant inducer/inhibitor",
+    "epilepsy_type": "TSC",
+    "evidence_sources": "Epilepsy Society ASM list; Healthline ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION Malignancies and Serious Infections Only physicians experienced in immunosuppressive therapy and management of transplant patients should prescribe everolimus. Patients receiving the drug should be managed in facilities equipped and staffed with adequate laboratory and supportive medical resources. The physician responsible for maintenance therapy should have complete information requisite for the follow-up of the patient [see Warnings and Precautions (5.1) ] . Increased susceptibility to infection and the possible development of malignancies, such as lymphoma and skin cancer, may result from immunosuppression [see Warnings and Precautions (5.2 , 5.3) ]. Kidney Graft Thrombosis An increased risk of kidney arterial and venous thrombosis, resulting in graft loss, was reported, mostly within the first 30 days posttransplantation [see Warnings and Precautions (5.4) ] . Nephrotoxicity Increased nephrotoxicity can occur with use of standard doses of cyclosporine in combination with everolimus. Therefore, reduced doses of cyclosporine should be used in combination with everolimus in order to reduce renal dysfunction. It is important to monitor the cyclosporine and everolimus whole blood trough concentrations [see Dosage and Administration (2.4 , 2.5) , Warnings and Precautions (5.6) , Clinical Pharmacology (12.7 , 12.8) ] . Mortality in Heart Transplantation Increased mortality, often associated with serious infections, within the first three months posttransplantation was observed in a clinical trial of de novo heart transplant patients receiving immunosuppressive regimens with or without induction therapy. Use in heart transplantation is not recommended [see Warnings and Precautions (5.7) ] . WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION See full prescribing information for complete boxed warning. Only physicians experienced in immunosuppressive therapy and management of transplant patients should use everolimus ( 5.1 ) Increased susceptibility to infection and the possible development of malignancies may result from immunosuppression ( 5.2 , 5.3 ) Increased incidence of kidney graft thrombosis ( 5.4 ) Reduced doses of cyclosporine are required for use in combination with everolimus in order to reduce nephrotoxicity ( 2.4 , 2.5 , 5.6 , 12.7 , 12.8 ) Increased mortality in a heart transplant clinical trial. Use in heart transplantation is not recommended ( 5.7 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab; published=Mar 02, 2026; title=EVEROLIMUS TABLET [AUROBINDO PHARMA LIMITED]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab",
+    "formulations_available": "Tablet; tablet for oral suspension",
+    "half_life_range": "~30 h",
+    "major_organ_for_metabolism": "Liver and gut",
+    "maximum_approved_daily_dose": "Titrated to trough target; no single fixed max across patients",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Binds FKBP-12 to inhibit mTOR complex 1 (mTORC1), targeting dysregulated mTOR signaling in tuberous sclerosis complex.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "5 mg/m2 once daily starting regimen; titrate to trough target",
+    "plot_diff_50_responder_maximum_effective_dose": "French2016|24.9|https://pubmed.ncbi.nlm.nih.gov/27613521/|366",
+    "plot_diff_median_pct_change_maximum_effective_dose": "French2016|24.7|https://pubmed.ncbi.nlm.nih.gov/27613521/|366",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+    "pubmed_search_aliases": "RAD001",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Afinitor; Afinitor Disperz; Votubia",
+    "typical_doses_per_day": "TSC-associated seizures: individualized by BSA and trough concentration; often 5 mg/m2 once daily start",
+    "year_fda_cleared": "2018 for TSC-associated seizures; 2009 original oncology approval"
+  },
+  "generic_name": "everolimus",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "To investigate whether mammalian target of rapamycin inhibitor everolimus can improve intellectual disability, autism, and other neuropsychological deficits in children with tuberous sclerosis complex (TSC). In this 12-month, randomized, double-blind, placebo-controlled trial, we attempted to enroll 60 children with TSC and IQ <80, learning disability, special schooling, or autism, aged 4-17 years, without intractable seizures to be assigned to receive everolimus or placebo. Everolimus was titrated to blood trough levels of 5-10 ng/mL. Primary outcome was full-scale IQ; secondary outcomes included autism, neuropsychological functioning, and behavioral problems. Thirty-two children with TSC were randomized. Intention-to-treat analysis showed no benefit of everolimus on full-scale IQ (treatment effect -5.6 IQ points, 95% confidence interval -12.3 to 1.0). No effect was found on secondary outcomes, including autism and neuropsychological functioning, and questionnaires examining behavioral problems, social functioning, communication skills, executive functioning, sleep, quality of life, and sensory processing. All patients had adverse events. Two patients on everolimus and 2 patients on placebo discontinued treatment due to adverse events. Everolimus did not improve cognitive functioning, autism, or neuropsychological deficits in children with TSC. The use of everolimus in children with TSC with the aim of improving cognitive function and behavior should not be encouraged in this age group. NCT01730209. This study provides Class I evidence that for children with TSC, everolimus does not improve intellectual disability, autism, behavioral problems, or other neuropsychological deficits. \u00a9 2019 American Academy of Neurology.",
+          "first_author": "Overwater",
+          "pmid": "31217257",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "A randomized controlled trial with everolimus for IQ and autism in tuberous sclerosis complex.",
+          "year": "2019"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/31217257/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-58501fe42c24",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Overwater2019|https://pubmed.ncbi.nlm.nih.gov/31217257/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 31217257 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Overwater2019|https://pubmed.ncbi.nlm.nih.gov/31217257/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: A randomized controlled trial with everolimus for IQ and autism in tuberous sclerosis complex."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "Patients with tuberous sclerosis complex (TSC) often have multiple TSC-associated hamartomas, particularly in the brain and kidney. This was a post hoc analysis of pediatric patients being treated for subependymal giant cell astrocytomas (SEGAs) during the phase 3, randomized, double-blind, placebo-controlled EXIST-1 trial. Patients were initially randomly assigned to receive everolimus 4.5 mg/m 2 /day (target blood trough 5-15 mg/dl) or placebo and could continue in an open-label extension phase. Angiomyolipoma response rates were analyzed in patients aged <18 years with \u22651 target angiomyolipoma lesion at baseline. Response was defined as the proportion of patients with a \u226550% reduction in the sum volume of target renal angiomyolipomata from baseline, in the absence of new target angiomyolipomata, a >20% increase in kidney volume from nadir, and angiomyolipoma-related bleeding \u2265 grade 2. Tolerability was also assessed. Overall, this analysis included 33 patients. Renal angiomyolipoma response was achieved by 75.8% of patients (95% confidence interval, 57.7-88.9%), with sustained mean reductions in renal angiomyolipoma volume over nearly 4 years of treatment. In addition, most (\u226580%) achieved clinically relevant reductions in angiomyolipoma volume (\u226550%), beginning at week 24 and continuing for the remainder of the study. Everolimus was generally well tolerated in this subgroup, with most adverse events being grade 1 or 2 in severity. Although everolimus is currently not indicated for this use, this analysis from EXIST-1 demonstrates its long-term efficacy and safety for the treatment of renal angiomyolipoma in pediatric patients undergoing treatment for TSC-associated SEGA.",
+          "first_author": "Bissler",
+          "pmid": "28993887",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "title": "The effect of everolimus on renal angiomyolipoma in pediatric patients with tuberous sclerosis being treated for subependymal giant cell astrocytoma.",
+          "year": "2017"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/28993887/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-6c55b29b1d6e",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Bissler2017|https://pubmed.ncbi.nlm.nih.gov/28993887/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 28993887 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Bissler2017|https://pubmed.ncbi.nlm.nih.gov/28993887/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: The effect of everolimus on renal angiomyolipoma in pediatric patients with tuberous sclerosis being treated for subependymal giant cell astrocytoma."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "",
+          "first_author": "Laguna",
+          "pmid": "24522027",
+          "pub_types": [
+            "Journal Article",
+            "Comment"
+          ],
+          "title": "Re: everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial.",
+          "year": "2013"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/24522027/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-afc01cad1b79",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Laguna2013|https://pubmed.ncbi.nlm.nih.gov/24522027/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 24522027 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Laguna2013|https://pubmed.ncbi.nlm.nih.gov/24522027/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Re: everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "",
+          "first_author": "Black",
+          "pmid": "23642941",
+          "pub_types": [
+            "Journal Article",
+            "Comment"
+          ],
+          "title": "Commentary on: everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial.",
+          "year": "2013"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23642941/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-68c0c4daa520",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Black2013|https://pubmed.ncbi.nlm.nih.gov/23642941/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 23642941 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Black2013|https://pubmed.ncbi.nlm.nih.gov/23642941/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Commentary on: everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "Angiomyolipomas are slow-growing tumours associated with constitutive activation of mammalian target of rapamycin (mTOR), and are common in patients with tuberous sclerosis complex and sporadic lymphangioleiomyomatosis. The insidious growth of these tumours predisposes patients to serious complications including retroperitoneal haemorrhage and impaired renal function. Everolimus, a rapamycin derivative, inhibits the mTOR pathway by acting on the mTOR complex 1. We compared the angiomyolipoma response rate on everolimus with placebo in patients with tuberous sclerosis or sporadic lymphanioleiomyomatosis-associated angiomyolipomata. In this double-blind, placebo-controlled, phase 3 trial, patients aged 18 years or older with at least one angiomyolipoma 3 cm or larger in its longest diameter (defined by radiological assessment) and a definite diagnosis of tuberous sclerosis or sporadic lymphangioleiomyomatosis were randomly assigned, in a 2:1 fashion with the use of an interactive web response system, to receive oral everolimus 10 mg per day or placebo. The primary efficacy endpoint was the proportion of patients with confirmed angiomyolipoma response of at least a 50% reduction in total volume of target angiomyolipomas relative to baseline. This study is registered with ClinicalTrials.gov number NCT00790400. 118 patients (median age 31\u00b70 years; IQR 18\u00b70\u201361\u00b70) from 24 centres in 11 countries were randomly assigned to receive everolimus (n=79) or placebo (n=39). At the data cutoff, double-blind treatment was ongoing for 98 patients; two main reasons for discontination were disease progression (nine placebo patients) followed by adverse events (two everolimus patients; four placebo patients). The angiomyolipoma response rate was 42% (33 of 79 [95% CI 31\u201353%]) for everolimus and 0% (0 of 39 [0\u20139%]) for placebo (response rate difference 42% [24\u201358%]; one-sided Cochran-Mantel-Haenszel test p<0\u00b70001). The most common adverse events in the everolimus and placebo groups were stomatitis (48% [38 of 79], 8% [3 of 39], respectively), nasopharyngitis (24% [19 of 79] and 31% [12 of 39]), and acne-like skin lesions (22% [17 of 79] and 5% [2 of 39]). Everolimus reduced angiomyolipoma volume with an acceptable safety profile, suggesting it could be a potential treatment for angiomyolipomas associated with tuberous sclerosis. Novartis Pharmaceuticals.",
+          "first_author": "Bissler",
+          "pmid": "23312829",
+          "pub_types": [
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial.",
+          "year": "2013"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23312829/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-fd8343ffa0c3",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Bissler2013|https://pubmed.ncbi.nlm.nih.gov/23312829/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 23312829 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Bissler2013|https://pubmed.ncbi.nlm.nih.gov/23312829/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Everolimus for angiomyolipoma associated with tuberous sclerosis complex or sporadic lymphangioleiomyomatosis (EXIST-2): a multicentre, randomised, double-blind, placebo-controlled trial."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "French2016|https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "details": {
+        "article": {
+          "abstract": "Tuberous sclerosis complex is a genetic disorder leading to constitutive activation of mammalian target of rapamycin (mTOR) and growth of benign tumours in several organs. In the brain, growth of subependymal giant cell astrocytomas can cause life-threatening symptoms--eg, hydrocephalus, requiring surgery. In an open-label, phase 1/2 study, the mTOR inhibitor everolimus substantially and significantly reduced the volume of subependymal giant cell astrocytomas. We assessed the efficacy and safety of everolimus in patients with subependymal giant cell astrocytomas associated with tuberous sclerosis complex. In this double-blind, placebo-controlled, phase 3 trial, patients (aged 0-65 years) in 24 centres in Australia, Belgium, Canada, Germany, the UK, Italy, the Netherlands, Poland, Russian Federation, and the USA were randomly assigned, with an interactive internet-response system, in a 2:1 ratio to oral everolimus 4\u00b75 mg/m(2) per day (titrated to achieve blood trough concentrations of 5-15 ng/mL) or placebo. Eligible patients had a definite diagnosis of tuberous sclerosis complex and at least one lesion with a diameter of 1 cm or greater, and either serial growth of a subependymal giant cell astrocytoma, a new lesion of 1 cm or greater, or new or worsening hydrocephalus. The primary endpoint was the proportion of patients with confirmed response--ie, reduction in target volume of 50% or greater relative to baseline in subependymal giant cell astrocytomas. Analysis was by intention to treat. This study is registered with ClinicalTrials.gov, number NCT00789828. 117 patients were randomly assigned to everolimus (n=78) or placebo (n=39). 27 (35%) patients in the everolimus group had at least 50% reduction in the volume of subependymal giant cell astrocytomas versus none in the placebo group (difference 35%, 95% CI 15-52; one-sided exact Cochran-Mantel-Haenszel test, p<0\u00b70001). Adverse events were mostly grade 1 or 2; no patients discontinued treatment because of adverse events. The most common adverse events were mouth ulceration (25 [32%] in the everolimus group vs two [5%] in the placebo group), stomatitis (24 [31%] vs eight [21%]), convulsion (18 [23%] vs ten [26%]), and pyrexia (17 [22%] vs six [15%]). These results support the use of everolimus for subependymal giant cell astrocytomas associated with tuberous sclerosis. Additionally, everolimus might represent a disease-modifying treatment for other aspects of tuberous sclerosis. Novartis Pharmaceuticals. Copyright \u00a9 2013 Elsevier Ltd. All rights reserved.",
+          "first_author": "Franz",
+          "pmid": "23158522",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Efficacy and safety of everolimus for subependymal giant cell astrocytomas associated with tuberous sclerosis complex (EXIST-1): a multicentre, randomised, placebo-controlled phase 3 trial.",
+          "year": "2012"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/23158522/",
+      "generic_name": "everolimus",
+      "id": "new_pubmed_phase_ii_iii_rct-12467f47e0ae",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Franz2012|https://pubmed.ncbi.nlm.nih.gov/23158522/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 23158522 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Franz2012|https://pubmed.ncbi.nlm.nih.gov/23158522/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Efficacy and safety of everolimus for subependymal giant cell astrocytomas associated with tuberous sclerosis complex (EXIST-1): a multicentre, randomised, placebo-controlled phase 3 trial."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2018 for TSC-associated seizures; 2009 original oncology approval",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2018",
+          "2009"
+        ],
+        "missing_terms": [
+          "tsc associated",
+          "seizures",
+          "original",
+          "oncology",
+          "approval"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5",
+      "generic_name": "everolimus",
+      "id": "source_fact_concordance_problem-373fde0ce3de",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the efficacy and safety of two trough-ranges of everolimus given as adjunctive therapy in patients with tuberous sclerosis complex (TSC) who had refractory partial-onset seizures.\n\nThe study consisted of 4 phases for each patient Baseline phase:\\[From Screening Week -8 (V1) to randomization visit at Week 0 (V2)\\], Core phase \\[from randomization at Week 0 (V2) to Week 18 (V11)\\], Extension phase \\[from Week 18 (V11) until 48 weeks after the last patient had completed the core phase\\] and Post Extension phase \\[from end of Extension phase to end of study\\].",
+        "interventions": [
+          "RAD001",
+          "Placebo",
+          "Antiepileptic drug (1 to 3 only)",
+          "open label RAD001 (only used for post-extension phase)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01713946",
+        "new_reference_pmids": [
+          "30169322",
+          "25682485"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "title": "A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01713946",
+      "generic_name": "everolimus",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-55f3bda9834e",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will evaluate the safety and efficacy of RAD001 in treating patients with Angiomyolipoma associated with Tuberous Sclerosis Complex or Sporadic Lymphangioleiomyomatosis.",
+        "interventions": [
+          "Everolimus (RAD001)",
+          "Everolimus Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00790400",
+        "new_reference_pmids": [
+          "23312829",
+          "30192751",
+          "30053159",
+          "29023494",
+          "26156073"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "23312829",
+          "30192751",
+          "30053159",
+          "29023494",
+          "26156073"
+        ],
+        "title": "Efficacy and Safety of RAD001 in Patients Aged 18 and Over With Angiomyolipoma Associated With Either Tuberous Sclerosis Complex (TSC) or Sporadic Lymphangioleiomyomatosis (LAM)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00790400",
+      "generic_name": "everolimus",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-1a897cfafb07",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of RAD001 in Patients Aged 18 and Over With Angiomyolipoma Associated With Either Tuberous Sclerosis Complex (TSC) or Sporadic Lymphangioleiomyomatosis (LAM)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a prospective, randomized, double-blind, placebo-controlled cross over study designed to evaluate the efficacy and safety of everolimus (trough 5-15 ng/mL) given as adjunctive therapy in patients with focal cortical dysplasia type II who already failed more than two antiepileptic drugs and surgery.\n\nThis study will assess the impact of everolimus to placebo on seizure frequency in focal cortical dysplasia type II. The number of patients who experience seizure reduction of 50% or more will be counted during last 4 weeks of each core phase.",
+        "interventions": [
+          "Afinitor (everolimus)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03198949",
+        "new_reference_pmids": [
+          "39607729"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "39607729"
+        ],
+        "title": "A Study Investigating the Anti-epileptic Efficacy of Afinitor (Everolimus) in Patients With Refractory Seizures Who Have Focal Cortical Dysplasia Type II (FCD II)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03198949",
+      "generic_name": "everolimus",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-59bf36a910fc",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study Investigating the Anti-epileptic Efficacy of Afinitor (Everolimus) in Patients With Refractory Seizures Who Have Focal Cortical Dysplasia Type II (FCD II)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This project is a prospective, randomized, placebo-controlled, double-blind study that will evaluate the clinical efficacy of everolimus as an adjunctive treatment in adult patients diagnosed with refractory epilepsy.",
+        "interventions": [
+          "Everolimus",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT05613166",
+        "new_reference_pmids": [],
+        "overall_status": "UNKNOWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "Adjunctive Everolimus Treatment of Refractory Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05613166",
+      "generic_name": "everolimus",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-65b41840f8b9",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Adjunctive Everolimus Treatment of Refractory Epilepsy"
+    },
+    {
+      "column": "formulations_available",
+      "current_value": "Tablet; tablet for oral suspension",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "suspension"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "suspension"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5",
+      "generic_name": "everolimus",
+      "id": "source_fact_concordance_problem-cb50e77aa378",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "formulations_available could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Afinitor; Afinitor Disperz; Votubia",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22partial-onset+seizures%22&limit=100",
+      "generic_name": "everolimus",
+      "id": "trade_name_addition-eecdc77cd0e9",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Everolimus"
+      },
+      "proposed_value": "Everolimus",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Everolimus."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab; published=Mar 02, 2026; title=EVEROLIMUS TABLET [AUROBINDO PHARMA LIMITED]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=43ef3c29-0e25-4fdd-aea1-06a20af9bbab",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5",
+      "generic_name": "everolimus",
+      "id": "fda_warning_metadata_refresh-62ddf7f4de7d",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION Malignancies and Serious Infections Only physicians experienced in immunosuppressive therapy and management of transplant patients should prescribe everolimus. Patients receiving the drug should be managed in facilities equipped and staffed with adequate laboratory and supportive medical resources. The physician responsible for maintenance therapy should have complete information requisite for the follow-up of the patient [see Warnings and Precautions (5.1) ] . Increased susceptibility to infection and the possible development of malignancies, such as lymphoma and skin cancer, may result from immunosuppression [see Warnings and Precautions (5.2 , 5.3) ]. Kidney Graft Thrombosis An increased risk of kidney arterial and venous thrombosis, resulting in graft loss, was reported, mostly within the first 30 days posttransplantation [see Warnings and Precautions (5.4) ] . Nephrotoxicity Increased nephrotoxicity can occur with use of standard doses of cyclosporine in combination with everolimus. Therefore, reduced doses of cyclosporine should be used in combination with everolimus in order to reduce renal dysfunction. It is important to monitor the cyclosporine and everolimus whole blood trough concentrations [see Dosage and Administration (2.4 , 2.5) , Warnings and Precautions (5.6) , Clinical Pharmacology (12.7 , 12.8) ] . Mortality in Heart Transplantation Increased mortality, often associated with serious infections, within the first three months posttransplantation was observed in a clinical trial of de novo heart transplant patients receiving immunosuppressive regimens with or without induction therapy. Use in heart transplantation is not recommended [see Warnings and Precautions (5.7) ] . WARNING: MALIGNANCIES and SERIOUS INFECTIONS; KIDNEY GRAFT THROMBOSIS; NEPHROTOXICITY; and MORTALITY IN HEART TRANSPLANTATION See full prescribing information for complete boxed warning. Only physicians experienced in immunosuppressive therapy and management of transplant patients should use everolimus ( 5.1 ) Increased susceptibility to infection and the possible development of malignancies may result from immunosuppression ( 5.2 , 5.3 ) Increased incidence of kidney graft thrombosis ( 5.4 ) Reduced doses of cyclosporine are required for use in combination with everolimus in order to reduce nephrotoxicity ( 2.4 , 2.5 , 5.6 , 12.7 , 12.8 ) Increased mortality in a heart transplant clinical trial. Use in heart transplantation is not recommended ( 5.7 )",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=43ef3c29-0e25-4fdd-aea1-06a20af9bbab; effective_time=20260226; title=everolimus / EVEROLIMUS; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=43ef3c29-0e25-4fdd-aea1-06a20af9bbab; effective_time=20260226; title=everolimus / EVEROLIMUS; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2243ef3c29-0e25-4fdd-aea1-06a20af9bbab%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports high-exposure response rate and median percentage seizure-frequency reduction versus placebo.",
+      "dose_or_regimen": "everolimus high-exposure trough 9-15 ng/mL",
+      "endpoint": "TSC-associated focal-onset seizures",
+      "generic_name": "everolimus",
+      "label": "French2016",
+      "mpc_active_percent": "39.6",
+      "mpc_differential_percent": "24.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "14.9",
+      "pmid": "27613521",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "rr50_active_percent": "40.0",
+      "rr50_differential_percent": "24.9",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "15.1",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive everolimus therapy for treatment-resistant focal-onset seizures associated with tuberous sclerosis (EXIST-3): a phase 3, randomised, double-blind, placebo-controlled study."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "French",
+      "generic_name": "everolimus",
+      "label": "French2016",
+      "pmid": "27613521",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive everolimus therapy for treatment-resistant focal-onset seizures associated with tuberous sclerosis (EXIST-3): a phase 3, randomised, double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27613521/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Kim",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "39607729",
+      "pub_types": "Journal Article; Clinical Trial, Phase II; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Efficacy and safety of everolimus for patients with focal cortical dysplasia type 2.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39607729/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Cockerell",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "38042867",
+      "pub_types": "Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effectiveness and safety of everolimus treatment in patients with tuberous sclerosis complex in real-world clinical practice.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38042867/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Stelmaszewski",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "31983379",
+      "pub_types": "Clinical Trial Protocol; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Everolimus for cardiac rhabdomyomas in children with tuberous sclerosis. The ORACLE study protocol (everOlimus for caRdiac rhAbdomyomas in tuberous sCLErosis): a randomised, multicentre, placebo-controlled, double-blind phase II trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31983379/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Overwater",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "31217257",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A randomized controlled trial with everolimus for IQ and autism in tuberous sclerosis complex.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31217257/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Mizuguchi",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "30060984",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Everolimus for epilepsy and autism spectrum disorder in tuberous sclerosis complex: EXIST-3 substudy in Japan.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30060984/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Franz",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "30564495",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Everolimus for treatment-refractory seizures in TSC: Extension of a randomized controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30564495/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Curatolo",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "30169322",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Adjunctive everolimus for children and adolescents with treatment-refractory seizures associated with tuberous sclerosis complex: post-hoc analysis of the phase 3 EXIST-3 trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30169322/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Randell",
+      "generic_name": "everolimus",
+      "label": "",
+      "pmid": "27515417",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "The use of everolimus in the treatment of neurocognitive problems in tuberous sclerosis (TRON): study protocol for a randomised controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27515417/",
+      "year": "2016"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

@@ -1,0 +1,696 @@
+2026-05-21T02:04:12.430615Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.488135Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e4846-aef0-7313-be22-86037624c178
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 10%, respiratory: nasal discomfort 16% for nasal product, throat irritation 3%, respiratory depression 2%, GI: nausea 2%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "16.1-19.3 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Spencer2020 midazolam nasal spray 5 mg 16.1%; Detyniecki2019 midazolam nasal spray 5 mg 19.3%)",
+    "enzyme_inducing_or_inhibiting": "Not an inducer/inhibitor; CYP3A substrate",
+    "epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "evidence_sources": "Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death . Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) and Drug Interactions (7.2) ] . The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although NAYZILAM is indicated only for intermittent use [see Indications and Usage (1) and Dosage and Administration (2) ] , if used more frequently than recommended abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM [see Warnings and Precautions (5.3) ]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death ( 5.1 , 7.2 ) The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction ( 5.2 ). Although NAYZILAM is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM ( 5.3 ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "filter_formulation": "IV/IM injection; Liquid; Rescue formulation",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Gut; Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Respiratory",
+    "formulations_available": "Nasal spray; buccal/oromucosal solution in some markets; IV/IM injection; oral syrup for sedation",
+    "generic_name": "midazolam",
+    "half_life_range": "1.5-6 h",
+    "major_organ_for_metabolism": "Liver and gut",
+    "maximum_approved_daily_dose": "Rescue dosing individualized by product/age/weight",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Rescue dosing individualized by product/age/weight",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Spencer2020|16.1|https://pubmed.ncbi.nlm.nih.gov/33140403/|62; Detyniecki2019|19.3|https://pubmed.ncbi.nlm.nih.gov/31140596/|201",
+    "pubmed_phase_ii_iii_rct_links": "Spencer2020|https://pubmed.ncbi.nlm.nih.gov/33140403/; Detyniecki2019|https://pubmed.ncbi.nlm.nih.gov/31140596/",
+    "pubmed_search_aliases": "Nayzilam; midazolam nasal spray",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 34/65 on 2026-05-15: 2 qualifying placebo-controlled randomized clinical trial report(s) retained from 11 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Benzodiazepine used for seizure clusters/status epilepticus rescue; also used for procedural sedation/anesthesia.",
+    "trade_names": "Nayzilam; Seizalam; Versed",
+    "typical_doses_per_day": "Rescue/status dosing is intermittent, not chronic daily dosing",
+    "year_fda_cleared": "1985 injection; 2019 nasal seizure-cluster product"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Spencer2020|https://pubmed.ncbi.nlm.nih.gov/33140403/",
+      "label": "Spencer2020",
+      "pmid": "33140403",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33140403/"
+    },
+    {
+      "entry": "Detyniecki2019|https://pubmed.ncbi.nlm.nih.gov/31140596/",
+      "label": "Detyniecki2019",
+      "pmid": "31140596",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31140596/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 10%, respiratory: nasal discomfort 16% for nasal product, throat irritation 3%, respiratory depression 2%, GI: nausea 2%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "16.1-19.3 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Spencer2020 midazolam nasal spray 5 mg 16.1%; Detyniecki2019 midazolam nasal spray 5 mg 19.3%)",
+    "enzyme_inducing_or_inhibiting": "Not an inducer/inhibitor; CYP3A substrate",
+    "epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "evidence_sources": "Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death . Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) and Drug Interactions (7.2) ] . The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although NAYZILAM is indicated only for intermittent use [see Indications and Usage (1) and Dosage and Administration (2) ] , if used more frequently than recommended abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM [see Warnings and Precautions (5.3) ]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death ( 5.1 , 7.2 ) The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction ( 5.2 ). Although NAYZILAM is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM ( 5.3 ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3",
+    "formulations_available": "Nasal spray; buccal/oromucosal solution in some markets; IV/IM injection; oral syrup for sedation",
+    "half_life_range": "1.5-6 h",
+    "major_organ_for_metabolism": "Liver and gut",
+    "maximum_approved_daily_dose": "Rescue dosing individualized by product/age/weight",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Rescue dosing individualized by product/age/weight",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Spencer2020|16.1|https://pubmed.ncbi.nlm.nih.gov/33140403/|62; Detyniecki2019|19.3|https://pubmed.ncbi.nlm.nih.gov/31140596/|201",
+    "pubmed_phase_ii_iii_rct_links": "Spencer2020|https://pubmed.ncbi.nlm.nih.gov/33140403/; Detyniecki2019|https://pubmed.ncbi.nlm.nih.gov/31140596/",
+    "pubmed_search_aliases": "Nayzilam; midazolam nasal spray",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Nayzilam; Seizalam; Versed",
+    "typical_doses_per_day": "Rescue/status dosing is intermittent, not chronic daily dosing",
+    "year_fda_cleared": "1985 injection; 2019 nasal seizure-cluster product"
+  },
+  "generic_name": "midazolam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1985 injection; 2019 nasal seizure-cluster product",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1985",
+          "2019"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5",
+      "generic_name": "midazolam",
+      "id": "source_fact_concordance_problem-a83ae075db9a",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is designed to evaluate the efficacy, safety, and tolerability of USL261 compared with that of intranasal (IN) placebo for the treatment of intermittent bouts of increased seizure activity.",
+        "interventions": [
+          "USL261",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT01999777",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33140403"
+        ],
+        "title": "Study to Evaluate the Safety and Efficacy of USL261 in Patients With Increased Bouts of Seizure Activity in the EMU"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01999777",
+      "generic_name": "midazolam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b6d55568968d",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study to Evaluate the Safety and Efficacy of USL261 in Patients With Increased Bouts of Seizure Activity in the EMU"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to examine the safety and effectiveness of USL261 for the outpatient treatment of seizure clusters.",
+        "interventions": [
+          "USL261",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT01390220",
+        "new_reference_pmids": [
+          "36410152"
+        ],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "36410152",
+          "31140596"
+        ],
+        "title": "Study to Evaluate the Safety and Efficacy of USL261 (Intranasal Midazolam) in Patients With Seizure Clusters"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01390220",
+      "generic_name": "midazolam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-56897abca4e0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study to Evaluate the Safety and Efficacy of USL261 (Intranasal Midazolam) in Patients With Seizure Clusters"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Generalized status epilepticus is a common pediatric neurological emergency with significant mortality and morbidity. Benzodiazepines remain the first anticonvulsive line but benzo-diazepines don't control seizures in about 30% of cases. GCSE may be more rapidly stopped and controlled through combining another drug with benzodiazepines such as Levetiracetam, acting by different pathways. This study aims to evaluate the effectiveness of combined levetiracetam and midazolam in treatment of generalized convulsive status epilepticus in children.",
+        "interventions": [
+          "Levetiracetam",
+          "Midazolam",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT04926844",
+        "new_reference_pmids": [
+          "26900382",
+          "33552322",
+          "31879852",
+          "30472551",
+          "26627366",
+          "26840871",
+          "15210974",
+          "12915336",
+          "21898137",
+          "32385134"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "26900382",
+          "33552322",
+          "31879852",
+          "30472551",
+          "26627366",
+          "26840871",
+          "15210974",
+          "12915336",
+          "21898137",
+          "32385134"
+        ],
+        "title": "Effectiveness of Combined Levetiracetam and Midazolam in Generalized Convulsive Status Epilepticus in Children"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04926844",
+      "generic_name": "midazolam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-5b27e2248d8f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Effectiveness of Combined Levetiracetam and Midazolam in Generalized Convulsive Status Epilepticus in Children"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Generalized convulsive status epilepticus (GCSE) is a common neurological emergency in children. Benzodiazepines are the recommended first line antiseizure medication (ASMs), but they fail to control seizures in a third of cases. Combination of benzodiazepines with another ASM that has a different mechanism of action may be a promising option for faster control of GCSE. In this study, the investigators aim to evaluate the efficacy and safety of ketamine plus midazolam versus midazolam alone as first-line therapy of pediatric GCSE.",
+        "interventions": [
+          "Ketamine",
+          "Midazolam",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT05779657",
+        "new_reference_pmids": [
+          "26336950",
+          "31879852",
+          "26900382",
+          "25323468",
+          "23197747",
+          "23758557",
+          "27500978",
+          "17941842",
+          "36792542",
+          "31536850"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2",
+          "PHASE3"
+        ],
+        "pmids": [
+          "26336950",
+          "31879852",
+          "26900382",
+          "25323468",
+          "23197747",
+          "23758557",
+          "27500978",
+          "17941842",
+          "36792542",
+          "31536850"
+        ],
+        "title": "Combined Ketamine and Midazolam for Generalized Convulsive Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05779657",
+      "generic_name": "midazolam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-03ccb5eab6aa",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Combined Ketamine and Midazolam for Generalized Convulsive Status Epilepticus"
+    },
+    {
+      "column": "enzyme_inducing_or_inhibiting",
+      "current_value": "Not an inducer/inhibitor; CYP3A substrate",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "inducer",
+          "inhibitor",
+          "cyp3a",
+          "substrate"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "inducer",
+          "inhibitor",
+          "cyp3a",
+          "substrate"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5",
+      "generic_name": "midazolam",
+      "id": "source_fact_concordance_problem-6b954d326c5f",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "enzyme_inducing_or_inhibiting could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5",
+      "generic_name": "midazolam",
+      "id": "fda_warning_metadata_refresh-6d6f723b88fd",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death . Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) and Drug Interactions (7.2) ] . The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although NAYZILAM is indicated only for intermittent use [see Indications and Usage (1) and Dosage and Administration (2) ] , if used more frequently than recommended abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM [see Warnings and Precautions (5.3) ]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death ( 5.1 , 7.2 ) The use of benzodiazepines, including NAYZILAM, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing NAYZILAM and throughout treatment, assess each patient's risk for abuse, misuse, and addiction ( 5.2 ). Although NAYZILAM is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of NAYZILAM may precipitate acute withdrawal reactions, which can be life-threatening. For patients using NAYZILAM more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue NAYZILAM ( 5.3 ).",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=2b29422e-54d5-4a49-8522-e9cf752368c3; effective_time=20230119; title=Nayzilam / MIDAZOLAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=2b29422e-54d5-4a49-8522-e9cf752368c3; effective_time=20230119; title=Nayzilam / MIDAZOLAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports 6-hour post-treatment seizure freedom.",
+      "dose_or_regimen": "midazolam nasal spray 5 mg",
+      "endpoint": "seizure cluster/EMU 6-hour seizure freedom",
+      "generic_name": "midazolam",
+      "label": "Spencer2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "33140403",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33140403/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "54.8",
+      "sf_differential_percent": "16.1",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "38.7",
+      "title": "Safety and efficacy of midazolam nasal spray for the treatment of intermittent bouts of increased seizure activity in the epilepsy monitoring unit: A double-blind, randomized, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Treatment success required seizure termination within 10 minutes and no recurrence 10 minutes to 6 hours after dosing.",
+      "dose_or_regimen": "midazolam nasal spray 5 mg",
+      "endpoint": "seizure cluster treatment success",
+      "generic_name": "midazolam",
+      "label": "Detyniecki2019",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "31140596",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31140596/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "53.7",
+      "sf_differential_percent": "19.3",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "34.4",
+      "title": "Safety and efficacy of midazolam nasal spray in the outpatient treatment of patients with seizure clusters-a randomized, double-blind, placebo-controlled trial."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Spencer",
+      "generic_name": "midazolam",
+      "label": "Spencer2020",
+      "pmid": "33140403",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of midazolam nasal spray for the treatment of intermittent bouts of increased seizure activity in the epilepsy monitoring unit: A double-blind, randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33140403/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Detyniecki",
+      "generic_name": "midazolam",
+      "label": "Detyniecki2019",
+      "pmid": "31140596",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of midazolam nasal spray in the outpatient treatment of patients with seizure clusters-a randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31140596/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Othman",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "40186980",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Combined Ketamine and Midazolam Versus Midazolam Alone for Initial Treatment of Pediatric Generalized Convulsive Status Epilepticus (Ket-Mid Study): A Randomized Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40186980/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Elshater",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "37211889",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Levetiracetam and Midazolam vs Midazolam Alone for First-Line Treatment of Children With Generalized Convulsive Status Epilepticus (Lev-Mid Study): A Randomized Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37211889/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Richard",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "31994022",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Multiple-Ascending Dose Study in Healthy Subjects to Assess the Pharmacokinetics, Tolerability, and CYP3A4 Interaction Potential of the T-Type Calcium Channel Blocker ACT-709478, A Potential New Antiepileptic Drug.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31994022/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Kellinghaus",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "26554812",
+      "pub_types": "Journal Article; Multicenter Study; Observational Study; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Making SENSE--Sustained Effort Network for treatment of Status Epilepticus as a multicenter prospective registry.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26554812/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Olischar",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "25040756",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The addition of tramadol to the standard of i.v. acetaminophen and morphine infusion for postoperative analgesia in neonates offers no clinical benefit: a randomized placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25040756/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Ohlraun",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "23806032",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "CARbon DIoxide for the treatment of Febrile seizures: rationale, feasibility, and design of the CARDIF-study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23806032/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Mpimbaza",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "18166545",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Comparison of buccal midazolam with rectal diazepam in the treatment of prolonged seizures in Ugandan children: a randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18166545/",
+      "year": "2008"
+    },
+    {
+      "first_author": "Arya",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "11568372",
+      "pub_types": "Clinical Trial; Evaluation Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Midazolam sedation in mechanically ventilated newborns: a double blind randomized placebo controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11568372/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Scott",
+      "generic_name": "midazolam",
+      "label": "",
+      "pmid": "9578047",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Buccal absorption of midazolam: pharmacokinetics and EEG pharmacodynamics.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9578047/",
+      "year": "1998"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T02:04:12.517175Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.577289Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:04:12.577711Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:04:12.580901Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:04:12.580937Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:12.596208Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.596216Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.596764Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.596771Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.597510Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.597515Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.598222Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.598228Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.598873Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.598881Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.600108Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:12.600115Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:12.603839Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.633368Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.637452Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:12.641103Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:12.641209Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:12.662909Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.707258Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:04:12.803839Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:04:12.804142Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:04:12.806379Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:04:12.806424Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:13.471610Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:04:13.472080Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:04:13.475179Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:04:13.475221Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:13.488234Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.488240Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.488692Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.488695Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.489108Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.489111Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.489522Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.489525Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.489941Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.489946Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.490858Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:04:13.490861Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:04:13.521603Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:13.524717Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:04:13.524780Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":""}
+web search: 
+web search: openFDA Nayzilam midazolam boxed warning CYP3A substrate half-life nasal discomfort somnolence 10 respiratory depression 2 nausea 2
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/215868s001lbl.pdf
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label Nayzilam boxed_warning spl_set_id 2b29422e-54d5-4a49-8522-e9cf752368c3
+web search: 
+web search: site:accessdata.fda.gov 211321 Nayzilam label 2023 PDF 20230119
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf
+web search: 
+web search: SEIZALAM midazolam injection FDA label status epilepticus respiratory depression 2% nausea 2% 2023
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf
+web search: 
+web search: midazolam oral syrup FDA label nausea 2% respiratory depression 2%
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/021038s020lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/33140403/
+web search: 
+web search: PubMed 31140596 Detyniecki 2019 midazolam nasal spray randomized double-blind placebo 53.7 34.4
+codex
+{"black_box_warning":{"current_value":"Current row contains the NAYZILAM boxed warning text, but the source field cites DailyMed and is not acceptable for the FDA black-box field under the audit policy.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"],"proposed_value":"No change required to fda_black_box_warning text; replace only fda_black_box_warning_source with an FDA/openFDA or FDA label source.","rationale":"FDA NAYZILAM labeling carries the boxed warning for concomitant opioid use, abuse/misuse/addiction, and dependence/withdrawal. The current source string relies on DailyMed, which the instructions prohibit for this field.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"midazolam","field":"generic_name","proposed_value":"midazolam","rationale":"FDA labels and PubMed RCT records identify the active drug as midazolam.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No true alternate generic name was identified from the checked sources. USL261 is an investigational/development code for intranasal midazolam and belongs in pubmed_search_aliases, not alternate_generic_names.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/31140596/","https://clinicaltrials.gov/study/NCT01390220"]},{"current_value":"Nayzilam; Seizalam; Versed","field":"trade_names","proposed_value":"Nayzilam; Seizalam; Versed","rationale":"Nayzilam and Seizalam are verified from FDA sources. Versed is plausible as a historical midazolam trade name, but this row bundle does not provide a trusted source directly supporting it.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=508215"]},{"current_value":"Nayzilam; midazolam nasal spray","field":"pubmed_search_aliases","proposed_value":"Nayzilam; midazolam nasal spray; USL261","rationale":"The phase III RCT and ClinicalTrials.gov records use USL261 for the intranasal midazolam product; adding it improves search recall without creating a duplicate drug row.","requires_user_approval":false,"status":"missing","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/31140596/","https://clinicaltrials.gov/study/NCT01390220"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA labels verify U.S.-approved midazolam products including NAYZILAM and SEIZALAM.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Available in US","field":"filter_availability","proposed_value":"Available in US","rationale":"Consistent with current FDA-labeled products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"1985 injection; 2019 nasal seizure-cluster product","field":"year_fda_cleared","proposed_value":"1985 initial U.S. approval for midazolam injection/sedation; 2018 SEIZALAM IM injection for status epilepticus; 2019 NAYZILAM nasal spray for seizure clusters","rationale":"The current value is directionally correct but omits the FDA-approved SEIZALAM status-epilepticus product approved in 2018.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=508215","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Seizure clusters / rescue; Status epilepticus","field":"epilepsy_type","proposed_value":"Seizure clusters / rescue; Status epilepticus","rationale":"NAYZILAM is indicated for seizure clusters/acute repetitive seizures; SEIZALAM is indicated for adult status epilepticus.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Seizure clusters / rescue; Status epilepticus","field":"filter_epilepsy_type","proposed_value":"Seizure clusters / rescue; Status epilepticus","rationale":"Matches FDA-labeled seizure-cluster and status-epilepticus uses.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Nasal spray; buccal/oromucosal solution in some markets; IV/IM injection; oral syrup for sedation","field":"formulations_available","proposed_value":"Nasal spray; buccal/oromucosal solution in some non-US markets; IV/IM injection; oral syrup for procedural sedation","rationale":"Nasal spray and IM/IV injection are supported by FDA labels; buccal/oromucosal midazolam is supported by EMA/eMC sources. Oral syrup is plausible but needs a trusted row source if retained.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/buccolam","https://www.medicines.org.uk/emc/search?q=buccolam"]},{"current_value":"IV/IM injection; Liquid; Rescue formulation","field":"filter_formulation","proposed_value":"IV/IM injection; Liquid; Rescue formulation","rationale":"Supported by FDA-labeled IM status-epilepticus injection and intranasal rescue product; liquid solution formulations are shown in labels.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Rescue dosing individualized by product/age/weight","field":"minimum_effective_dose","proposed_value":"NAYZILAM: 5 mg intranasal initial dose for patients 12 years and older; SEIZALAM: 10 mg IM for adults with status epilepticus; non-US buccal/oromucosal dosing varies by age/weight and product","rationale":"FDA labels give product-specific approved dosing; the current wording is too vague for U.S. products.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/buccolam"]},{"current_value":"Rescue dosing individualized by product/age/weight","field":"maximum_approved_daily_dose","proposed_value":"NAYZILAM: do not use more than 2 doses to treat a single seizure-cluster episode; recommended no more than 1 episode every 3 days and no more than 5 episodes per month. SEIZALAM: recommended dose 10 mg IM once for adults with status epilepticus.","rationale":"The NAYZILAM label provides explicit maximum treatment frequency, and SEIZALAM provides a 10 mg IM recommended adult dose.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Rescue/status dosing is intermittent, not chronic daily dosing","field":"typical_doses_per_day","proposed_value":"Rescue/status dosing is intermittent, not chronic daily dosing","rationale":"NAYZILAM and SEIZALAM are labeled for intermittent acute use rather than chronic daily administration.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"1.5-6 h","field":"half_life_range","proposed_value":"1.8-6.4 h in healthy adult IV studies; 2.1-6.2 h following NAYZILAM in clinical trials","rationale":"Checked FDA labels support 1.8-6.4 h for IV studies and 2.1-6.2 h for NAYZILAM; the row's 1.5 h lower bound was not verified.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Liver and gut","field":"major_organ_for_metabolism","proposed_value":"Liver and gut","rationale":"FDA labels state CYP3A4 metabolism in liver and gastrointestinal tract/gut mucosa.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"Gut; Liver/hepatic","field":"filter_metabolism","proposed_value":"Gut; Liver/hepatic","rationale":"Matches FDA labeling for CYP3A4 metabolism in liver and gut/GI tract mucosa.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"Not an inducer/inhibitor; CYP3A substrate","field":"enzyme_inducing_or_inhibiting","proposed_value":"CYP3A4 substrate; exposure is increased by CYP3A4 inhibitors and decreased by CYP3A4 inducers; not classified as an enzyme-inducing antiseizure medication","rationale":"FDA labels support CYP3A4 metabolism and clinically relevant CYP3A inhibitor/inducer effects. The exact negative claim 'not an inducer/inhibitor' is not directly stated in the checked label text, so the proposed wording is more source-concordant.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Inhibitor; Substrate / affected by modulators","field":"filter_enzyme_effect","proposed_value":"Substrate / affected by modulators","rationale":"The row's 'Inhibitor' filter describes CYP3A inhibitors that affect midazolam, not midazolam itself. FDA labeling supports midazolam as a CYP3A4 substrate affected by inhibitors/inducers.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.","field":"mechanism_of_action","proposed_value":"Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.","rationale":"FDA labels describe potentiation of GABAergic neurotransmission through binding at the benzodiazepine site of the GABAA receptor.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"High","field":"mechanism_confidence","proposed_value":"High","rationale":"The mechanism is well established for benzodiazepines and is supported by FDA labels.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA NAYZILAM label; FDA SEIZALAM label; FDA midazolam injection label","rationale":"The checked FDA labels directly support mechanism. DailyMed is not in the trusted source list for this audit, and AES was not needed to support the mechanism cell.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"AES/FDA summary","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"FDA labeling directly supports the mechanism field and is the trusted source tier actually used here.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"GABA","field":"filter_mechanism","proposed_value":"GABA","rationale":"Consistent with benzodiazepine potentiation of GABAA receptor signaling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"CNS: somnolence/sedation 10%, respiratory: nasal discomfort 16% for nasal product, throat irritation 3%, respiratory depression 2%, GI: nausea 2%","field":"adverse_symptoms_percentages","proposed_value":"Clinical-trial adverse reactions (selected): NAYZILAM comparative phase: somnolence 10%, nasal discomfort 9% overall (16% in 5 mg + 5 mg subgroup), throat irritation 3%, rhinorrhea 3%; SEIZALAM status-epilepticus trial: upper airway obstruction 5%, agitation 4%, pyrexia 4%, mental status changes 3%, postictal state 3%, acute renal failure 2%; IV midazolam single-agent sedation: nausea 2.8%; pediatric IV literature: apnea 2.8%.","rationale":"Nasal discomfort is an application-site adverse reaction, not a respiratory category. The checked FDA labels did not verify 'respiratory depression 2%' or 'nausea 2%' as written; FDA labeling supports different adverse-event terms and percentages.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"CNS; GI; Respiratory","field":"filter_symptom_category","proposed_value":"CNS; GI; Respiratory; Application site","rationale":"NAYZILAM adverse reactions include somnolence/CNS and nasal discomfort/throat irritation/rhinorrhea; the nasal discomfort item is best captured as application site/local as well as not purely respiratory.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"No clinically meaningful QT effect established","field":"qt_interval_effect","proposed_value":"No clinically meaningful QT effect established","rationale":"This is plausible, but the row bundle does not cite a trusted source that directly evaluates QT effect. FDA labels checked for other facts do not establish a clinically meaningful QT signal.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"No known meaningful QT effect","rationale":"Same source limitation as qt_interval_effect; no direct trusted QT-specific source was supplied in the row.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA and FDA AccessData labels for NAYZILAM, SEIZALAM, and midazolam injection; FDA Orphan Drug Designations and Approvals for SEIZALAM; EMA/eMC SmPC for buccal/oromucosal midazolam; PubMed RCT records; ClinicalTrials.gov records","rationale":"Wikipedia, Epilepsy Foundation Australia, AES, and DailyMed are not in the provided trusted-source domain list for this audit. The proposed sources directly support the row's regulatory, formulation, indication, mechanism, and RCT facts.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=508215","https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=2b29422e-54d5-4a49-8522-e9cf752368c3; effective_time=20230119; title=NAYZILAM (MIDAZOLAM) nasal spray; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5; fda_label_pdf=https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","rationale":"DailyMed is explicitly not permissible for the FDA black-box warning field; openFDA and FDA AccessData are permissible FDA sources.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Benzodiazepine used for seizure clusters/status epilepticus rescue; also used for procedural sedation/anesthesia.","field":"status_or_notes","proposed_value":"Benzodiazepine used for seizure clusters/status epilepticus rescue; also used for procedural sedation/anesthesia.","rationale":"Supported by FDA labels for NAYZILAM, SEIZALAM, and injectable midazolam sedation/anesthesia use.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]}],"generic_name":"midazolam","missing_rcts":[],"outcome_checks":[{"current_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_50_responder_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The retained placebo-controlled midazolam nasal spray RCT abstracts report acute seizure-cluster endpoints, not chronic >=50% responder-rate outcomes.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The retained acute rescue RCTs do not report a median percent seizure-frequency change endpoint suitable for this field.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"16.1-19.3 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Spencer2020 midazolam nasal spray 5 mg 16.1%; Detyniecki2019 midazolam nasal spray 5 mg 19.3%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"16.1-19.3% drug-minus-placebo acute seizure-control differential at 5 mg intranasal midazolam: Spencer2020 6-hour seizure freedom 54.8% vs 38.7%, difference 16.1%; Detyniecki2019 treatment success/no recurrence through 6 hours 53.7% vs 34.4%, difference 19.3%.","rationale":"The numeric differentials are supported, but Detyniecki2019 reports treatment success, not a pure seizure-freedom endpoint. The wording should distinguish the endpoints.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"Spencer2020|16.1|https://pubmed.ncbi.nlm.nih.gov/33140403/|62; Detyniecki2019|19.3|https://pubmed.ncbi.nlm.nih.gov/31140596/|201","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Spencer2020|16.1|https://pubmed.ncbi.nlm.nih.gov/33140403/|62; Detyniecki2019|19.3|https://pubmed.ncbi.nlm.nih.gov/31140596/|201","rationale":"The values and sample sizes match the abstracts/local outcome rows; note the Detyniecki value is treatment success/no recurrence, not strict seizure freedom.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"","rationale":"Blank is appropriate because no RR50 differential was extractable from the retained acute rescue RCTs.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"","rationale":"Blank is appropriate because no median percent change differential was extractable from the retained acute rescue RCTs.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=2b29422e-54d5-4a49-8522-e9cf752368c3; effective_time=20230119; title=NAYZILAM (MIDAZOLAM) nasal spray; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5; fda_label_pdf=https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","reason":"Replace prohibited DailyMed source with FDA/openFDA/FDA label source.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA and FDA AccessData labels for NAYZILAM, SEIZALAM, and midazolam injection; FDA Orphan Drug Designations and Approvals for SEIZALAM; EMA/eMC SmPC for buccal/oromucosal midazolam; PubMed RCT records; ClinicalTrials.gov records","reason":"Use trusted source domains that support the specific retained cell facts.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/buccolam","https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA NAYZILAM label; FDA SEIZALAM label; FDA midazolam injection label","reason":"FDA labeling directly supports mechanism and avoids non-trusted/unneeded source names.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"AES/FDA summary","field":"mechanism_source_tier","proposed_value":"FDA label","reason":"FDA labeling is the source tier actually supporting the mechanism fact.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Nayzilam; midazolam nasal spray","field":"pubmed_search_aliases","proposed_value":"Nayzilam; midazolam nasal spray; USL261","reason":"USL261 is used in the placebo-controlled phase III trial records and should be searchable as an alias/code.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/31140596/","https://clinicaltrials.gov/study/NCT01390220"]},{"current_value":"1985 injection; 2019 nasal seizure-cluster product","field":"year_fda_cleared","proposed_value":"1985 initial U.S. approval for midazolam injection/sedation; 2018 SEIZALAM IM injection for status epilepticus; 2019 NAYZILAM nasal spray for seizure clusters","reason":"Adds FDA-approved SEIZALAM status-epilepticus product year omitted by the row.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=508215","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Inhibitor; Substrate / affected by modulators","field":"filter_enzyme_effect","proposed_value":"Substrate / affected by modulators","reason":"Midazolam is affected by CYP3A inhibitors/inducers; it is not itself supported as an inhibitor in the checked sources.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf"]},{"current_value":"1.5-6 h","field":"half_life_range","proposed_value":"1.8-6.4 h in healthy adult IV studies; 2.1-6.2 h following NAYZILAM in clinical trials","reason":"FDA labels support these exact ranges, not the row's 1.5 h lower bound.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"CNS: somnolence/sedation 10%, respiratory: nasal discomfort 16% for nasal product, throat irritation 3%, respiratory depression 2%, GI: nausea 2%","field":"adverse_symptoms_percentages","proposed_value":"Clinical-trial adverse reactions (selected): NAYZILAM comparative phase: somnolence 10%, nasal discomfort 9% overall (16% in 5 mg + 5 mg subgroup), throat irritation 3%, rhinorrhea 3%; SEIZALAM status-epilepticus trial: upper airway obstruction 5%, agitation 4%, pyrexia 4%, mental status changes 3%, postictal state 3%, acute renal failure 2%; IV midazolam single-agent sedation: nausea 2.8%; pediatric IV literature: apnea 2.8%.","reason":"Corrects unsupported percentages and categorization from FDA labels.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]},{"current_value":"16.1-19.3 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Spencer2020 midazolam nasal spray 5 mg 16.1%; Detyniecki2019 midazolam nasal spray 5 mg 19.3%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"16.1-19.3% drug-minus-placebo acute seizure-control differential at 5 mg intranasal midazolam: Spencer2020 6-hour seizure freedom 54.8% vs 38.7%, difference 16.1%; Detyniecki2019 treatment success/no recurrence through 6 hours 53.7% vs 34.4%, difference 19.3%.","reason":"Preserves verified numbers while correcting endpoint wording for Detyniecki2019.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]}],"rct_link_checks":[{"label":"Spencer2020","pmid":"33140403","proposed_action":"retain","rationale":"PMID 33140403 is a midazolam nasal spray phase III randomized, double-blind, placebo-controlled trial in seizure clusters/EMU; PubMed lists Clinical Trial, Phase III and Randomized Controlled Trial, and the abstract confirms MDZ-NS 5 mg vs placebo.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/33140403/"},{"label":"Detyniecki2019","pmid":"31140596","proposed_action":"retain","rationale":"PMID 31140596 is a phase III randomized, double-blind, placebo-controlled trial of MDZ-NS 5 mg vs placebo in outpatient seizure clusters; PubMed lists the qualifying design and NCT01390220.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/31140596/"}],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=2b29422e-54d5-4a49-8522-e9cf752368c3; published=Jan 31, 2023; title=NAYZILAM (MIDAZOLAM) SPRAY [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b29422e-54d5-4a49-8522-e9cf752368c3","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=2b29422e-54d5-4a49-8522-e9cf752368c3; effective_time=20230119; title=NAYZILAM (MIDAZOLAM) nasal spray; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5; fda_label_pdf=https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","reason":"Black-box warning verification must use FDA/openFDA, FDA labels, or Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf"]},{"current_value":"Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA and FDA AccessData labels for NAYZILAM, SEIZALAM, and midazolam injection; FDA Orphan Drug Designations and Approvals for SEIZALAM; EMA/eMC SmPC for buccal/oromucosal midazolam; PubMed RCT records; ClinicalTrials.gov records","reason":"Current source list includes non-trusted or non-specific sources; proposed list maps to the facts being retained.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%222b29422e-54d5-4a49-8522-e9cf752368c3%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=508215","https://pubmed.ncbi.nlm.nih.gov/33140403/","https://pubmed.ncbi.nlm.nih.gov/31140596/"]},{"current_value":"American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA NAYZILAM label; FDA SEIZALAM label; FDA midazolam injection label","reason":"FDA labels directly support mechanism and are trusted sources for this audit.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/211321s008lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/209566s003lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215868s000lbl.pdf"]}],"summary":"Midazolam row is mostly supportable, but it needs source cleanup and several factual/wording updates. The FDA boxed-warning text is supported, but the source must be changed from DailyMed to FDA/openFDA/FDA label. RCT links are valid phase III placebo-controlled midazolam nasal-spray trials. Outcome numbers are largely correct, but Detyniecki2019 should be described as treatment success/no recurrence, not pure seizure freedom. Main corrections: add USL261 search alias, add 2018 SEIZALAM approval context, fix enzyme filter, correct half-life and adverse-event percentages, and replace non-trusted evidence source names."}
+tokens used
+154,733

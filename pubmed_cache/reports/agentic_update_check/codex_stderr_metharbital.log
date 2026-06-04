@@ -1,0 +1,954 @@
+2026-05-21T01:34:31.580744Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.628186Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e482b-8280-7953-acd8-46f82ece07a0
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Historical/unspecified epilepsy",
+    "filter_formulation": "Historical/not marketed; Tablet",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "Unknown/limited",
+    "filter_symptom_category": "Unquantified/limited data",
+    "formulations_available": "Historical oral tablet (not marketed in U.S.)",
+    "generic_name": "metharbital",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Gemonil",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 legacy ASM product (Gemonil); discontinued U.S. product listing.",
+    "trade_names": "Gemonil",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+    "formulations_available": "Historical oral tablet (not marketed in U.S.)",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Gemonil",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "trade_names": "Gemonil",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "metharbital",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].",
+      "details": {},
+      "evidence_url": "https://open.fda.gov/apis/drug/label/",
+      "generic_name": "metharbital",
+      "id": "fda_warning_metadata_refresh-778d14e046fd",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No current FDA/openFDA label identified.",
+        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T01:34:31.652897Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.699442Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.729129Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.736348Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:34:31.736873Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:34:31.740694Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:34:31.740736Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:31.755764Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.755777Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.756272Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.756276Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.756665Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.756668Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.757119Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.757122Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.757530Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.757534Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.758473Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:31.758475Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:31.758925Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.792614Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:31.796266Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:31.796340Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:31.801126Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:31.830666Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:34:32.629852Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:34:32.630384Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:34:32.634204Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:34:32.634252Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:32.648571Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.648576Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.649025Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.649030Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.649499Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.649503Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.649985Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.649988Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.650473Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.650476Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.651504Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:32.651508Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:32.683830Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:32.687124Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:32.687181Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:33.344779Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:34:33.345473Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:34:33.351196Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:34:33.351292Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"metharbital","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"Starting source verification for metharbital/Gemonil against FDA/openFDA, FDA Orange Book, and PubMed. I will keep the output to final JSON only once the checks are complete."}
+web search: 
+web search: FDA Orange Book metharbital Gemonil discontinued tablet oral approved prior to Jan 1 1982
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: api.fda.gov/drug/label.json search openfda generic_name METHARBITAL
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"metharbital","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"I found the FDA Orange Book data-file documentation and am checking the actual Orange Book and openFDA records now. The key risk in this row is source wording: DailyMed should not be cited for boxed-warning status."}
+exec
+/bin/zsh -lc "curl -s 'https://api.fda.gov/drug/label.json?search=(openfda.generic_name:%22METHARBITAL%22+OR+openfda.brand_name:%22GEMONIL%22)&limit=1' | head -c 1000" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+2026-05-21T01:34:59.059484Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:34:59.059888Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:34:59.063006Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:34:59.063049Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:59.076799Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.076805Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.077160Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.077163Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.077522Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.077526Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.077884Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.077888Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.078239Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.078241Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.079034Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:34:59.079037Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:34:59.108746Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:59.112050Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:34:59.112108Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "curl -i -sS 'https://api.fda.gov/drug/label.json?search=(openfda.generic_name:%22METHARBITAL%22+OR+openfda.brand_name:%22GEMONIL%22)&limit=1' | sed -n '1,40p'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+curl: (6) Could not resolve host: api.fda.gov
+
+2026-05-21T01:35:02.505942Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:35:02.506231Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:35:02.508291Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:35:02.508325Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:35:02.520341Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.520346Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.520743Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.520747Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.521160Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.521163Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.521594Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.521598Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.521972Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.521974Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.522784Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:35:02.522787Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:35:02.552624Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:35:02.555889Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:35:02.555945Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/label.json?search=openfda.generic_name.exact:%22METHARBITAL%22&limit=1
+web search: 
+web search: 
+web search: 
+web search: https://www.fda.gov/media/76860/download?attachment=
+web search: 
+web search: "METHARBITAL" "GEMONIL" "Orange Book"
+web search: 
+web search: 
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm
+web search: 
+web search: 'search_product' in https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob "METHARBITAL"
+web search: 
+web search: 
+web search: 
+web search: "results_product.cfm?Appl_Type=N&Appl_No=008322"
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov metharbital epilepsy placebo randomized
+web search: 
+web search: 
+web search: 
+web search: pubmed metharbital
+web search: 
+web search: pubmed Gemonil
+web search: 
+web search: Endiemal metharbital trade name official
+web search: 
+web search: site:labels.fda.gov metharbital Gemonil
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/daf "GEMONIL"
+web search: 
+web search: "008322" "GEMONIL" "Drugs@FDA"
+web search: 
+web search: 
+web search: 
+web search: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=008322"
+web search: 
+web search: site:catalog.data.gov/dataset Gemonil FDA 008322
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"metharbital","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"PubMed/NCBI hits for metharbital are sparse and do not show a modern phase II/III placebo-controlled epilepsy RCT. I am checking aliases now because the row is missing several common non-brand synonyms."}
+exec
+/bin/zsh -lc 'rg -n "metharbital|Gemonil|METHARBITAL|GEMONIL" .' in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+./ASM-list.csv:27:metharbital,,Gemonil,FDA Orange Book pre-1982 legacy ASM product (Gemonil); discontinued U.S. product listing.,FDA Orange Book products file; FDA/DailyMed labeling,No - discontinued FDA Orange Book product,Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing),N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.,FDA Orange Book products file,Historical/limited,Limited,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.,N/A,N/A,,N/A,,N/A,,Historical oral tablet (not marketed in U.S.),N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.,N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.,N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.,"Approved Prior to Jan 1, 1982 (FDA Orange Book)",No current FDA/DailyMed label identified.,FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].,05-20-2026,No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.,05-20-2026,Not available in US,Limited/unknown,Other / unclear,Historical/unspecified epilepsy,Historical/not marketed; Tablet,Unknown/limited,Unknown/limited,Unquantified/limited data,Gemonil
+./pubmed_cache/reports/confirm-data-report.json:5255:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5265:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5275:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5285:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5295:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5305:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5315:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5325:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5335:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5345:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5355:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5365:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5375:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5385:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5395:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5405:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5415:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5425:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5435:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5445:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:5455:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:10965:    "row": "metharbital",
+./pubmed_cache/reports/confirm-data-report.json:11475:    "row": "metharbital",
+./pubmed_cache/reports/fda_boxed_warning_audit.csv:27:metharbital,no_current_fda_label,No current FDA/DailyMed label identified.,FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].,05-20-2026,,,,,,,metharbital; Gemonil,c67d3026093804e38ce3e3a9f8038d1d17b5d1c3efbe1766729ddbf6430e936d
+./pubmed_cache/reports/confirm-data-report.csv:527:info,fact_source_coverage,metharbital,trade_names,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:528:info,fact_source_coverage,metharbital,status_or_notes,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:529:info,fact_source_coverage,metharbital,available_in_us,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:530:info,fact_source_coverage,metharbital,epilepsy_type,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:531:info,fact_source_coverage,metharbital,mechanism_of_action,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:532:info,fact_source_coverage,metharbital,mechanism_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:533:info,fact_source_coverage,metharbital,mechanism_source_tier,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:534:info,fact_source_coverage,metharbital,mechanism_confidence,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:535:info,fact_source_coverage,metharbital,half_life_range,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:536:info,fact_source_coverage,metharbital,major_organ_for_metabolism,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:537:info,fact_source_coverage,metharbital,formulations_available,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:538:info,fact_source_coverage,metharbital,typical_doses_per_day,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:539:info,fact_source_coverage,metharbital,minimum_effective_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:540:info,fact_source_coverage,metharbital,maximum_approved_daily_dose,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:541:info,fact_source_coverage,metharbital,enzyme_inducing_or_inhibiting,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:542:info,fact_source_coverage,metharbital,qt_interval_effect,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:543:info,fact_source_coverage,metharbital,adverse_symptoms_percentages,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:544:info,fact_source_coverage,metharbital,year_fda_cleared,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:545:info,fact_source_coverage,metharbital,fda_black_box_warning,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:546:info,fact_source_coverage,metharbital,fda_black_box_warning_source,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:547:info,fact_source_coverage,metharbital,fda_black_box_warning_verified,Field has non-RCT source coverage listed in evidence_sources,,,FDA Orange Book products file; FDA/DailyMed labeling
+./pubmed_cache/reports/confirm-data-report.csv:1098:info,mechanism_review,metharbital,mechanism_of_action,MOA row has mechanism-specific source tier and confidence annotation,,,FDA Orange Book products file
+./pubmed_cache/reports/confirm-data-report.csv:1149:info,fda_boxed_warning_review,metharbital,fda_black_box_warning,FDA boxed-warning field matches generated DailyMed audit extraction,,,
+./pubmed_cache/reports/update_check/update_check_findings.csv:346:fda_warning_metadata_refresh-778d14e046fd,info,fda_warning_metadata_refresh,metharbital,FDA/openFDA,fda_black_box_warning_source,True,False,FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed.,https://open.fda.gov/apis/drug/label/,FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].,FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].
+./pubmed_cache/reports/update_check/update_check_findings.json:11789:    "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/update_check/update_check_findings.json:11792:    "generic_name": "metharbital",
+./pubmed_cache/reports/update_check/update_check_findings.json:11799:      "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/update_check/update_check_findings.json:11802:    "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/codex_stderr_mephenytoin.log:694:metharbital,no_current_fda_label,No current FDA/DailyMed label identified.,FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].,05-20-2026,,,,,,,metharbital; Gemonil,c67d3026093804e38ce3e3a9f8038d1d17b5d1c3efbe1766729ddbf6430e936d
+./pubmed_cache/reports/agentic_update_check/codex_stderr_mephenytoin.log:747:metharbital,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,N/A
+./pubmed_cache/reports/update_check/update_check_summary.md:3354:- Medication: metharbital
+./pubmed_cache/reports/update_check/update_check_summary.md:3360:- Current: FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].
+./pubmed_cache/reports/update_check/update_check_summary.md:3361:- Proposed: FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].
+./pubmed_cache/reports/efficacy_gap_review.csv:24:metharbital,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,N/A
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:49:    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:60:    "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:73:    "pubmed_search_aliases": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:76:    "status_or_notes": "FDA Orange Book pre-1982 legacy ASM product (Gemonil); discontinued U.S. product listing.",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:77:    "trade_names": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:93:    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:107:    "pubmed_search_aliases": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:109:    "trade_names": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:113:  "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:135:      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:138:      "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:145:        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md:148:      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:15:    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:26:    "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:39:    "pubmed_search_aliases": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:42:    "status_or_notes": "FDA Orange Book pre-1982 legacy ASM product (Gemonil); discontinued U.S. product listing.",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:43:    "trade_names": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:59:    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:73:    "pubmed_search_aliases": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:75:    "trade_names": "Gemonil",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:79:  "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:101:      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:104:      "generic_name": "metharbital",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:111:        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json:114:      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].",
+
+exec
+/bin/zsh -lc "rg --files . | sed -n '1,120p'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+./app.js
+./scripts/update_fda_boxed_warnings.py
+./scripts/pubmed_rct_audit.py
+./scripts/filter_audit.py
+./scripts/seizure_freedom_audit.py
+./scripts/update_moa_sources.py
+./scripts/efficacy_outcome_audit.py
+./scripts/update_check.py
+./scripts/agentic_update_check.py
+./confirm-data
+./README.md
+./pubmed_cache/reports/mechanism_audit.csv
+./pubmed_cache/reports/agentic_update_check/codex_prompt_gabapentin.md
+./pubmed_cache/reports/agentic_update_check/codex_prompt_acetazolamide.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_lacosamide.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_ezogabine.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_ezogabine.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_cannabidiol.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_levetiracetam.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_barbexaclone.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_brivaracetam.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_diazepam.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_carbamazepine.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_fenfluramine.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_lorazepam.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_clorazepate-dipotassium.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_clobazam.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_barbexaclone.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_fenfluramine.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_lamotrigine.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_clonazepam.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_cannabidiol.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_clobazam.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_acetazolamide.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_lacosamide.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_ezogabine.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_gabapentin.log
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_schema.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_brivaracetam.md
+./pubmed_cache/reports/agentic_update_check/codex_stdout_lorazepam.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_ethotoin.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_eslicarbazepine-acetate.md
+./pubmed_cache/reports/agentic_update_check/codex_prompt_ethotoin.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_mephenytoin.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_clobazam.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_everolimus.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_everolimus.md
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_approval_template.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_levetiracetam.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_lacosamide.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_carbamazepine.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_barbexaclone.log
+./pubmed_cache/reports/agentic_update_check/codex_stderr_fenfluramine.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_felbamate.log
+./pubmed_cache/reports/agentic_update_check/codex_last_message_ethosuximide.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_felbamate.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_barbexaclone.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_gabapentin.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_ganaxolone.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_fosphenytoin.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_clonazepam.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_gabapentin.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_lacosamide.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_felbamate.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_clonazepam.log
+./pubmed_cache/reports/agentic_update_check/codex_last_message_cenobamate.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_fenfluramine.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_lorazepam.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_cannabidiol.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_acetazolamide.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_diazepam.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_clonazepam.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_diazepam.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_levetiracetam.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_eslicarbazepine-acetate.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_metharbital.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_ethotoin.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_acetazolamide.log
+./pubmed_cache/reports/agentic_update_check/codex_last_message_levetiracetam.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_cenobamate.log
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_results.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_lamotrigine.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_eslicarbazepine-acetate.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_cenobamate.md
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_summary.md
+./pubmed_cache/reports/agentic_update_check/codex_stdout_ethosuximide.log
+./pubmed_cache/reports/agentic_update_check/codex_stdout_fosphenytoin.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_fosphenytoin.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_clobazam.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_ethosuximide.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_metharbital.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_everolimus.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_clorazepate-dipotassium.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_ezogabine.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_levetiracetam.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_mephenytoin.md
+./pubmed_cache/reports/agentic_update_check/codex_stdout_ganaxolone.log
+./pubmed_cache/reports/agentic_update_check/codex_prompt_diazepam.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_brivaracetam.log
+./pubmed_cache/reports/agentic_update_check/codex_last_message_barbexaclone.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_carbamazepine.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_acetazolamide.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_ethosuximide.md
+./pubmed_cache/reports/agentic_update_check/codex_stderr_ethotoin.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_fosphenytoin.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_ganaxolone.md
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_findings.csv
+./pubmed_cache/reports/agentic_update_check/codex_last_message_carbamazepine.json
+./pubmed_cache/reports/agentic_update_check/codex_last_message_everolimus.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_ezogabine.md
+./pubmed_cache/reports/agentic_update_check/agentic_update_check_findings.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_lorazepam.json
+./pubmed_cache/reports/agentic_update_check/codex_stderr_lamotrigine.log
+./pubmed_cache/reports/agentic_update_check/row_bundle_diazepam.json
+./pubmed_cache/reports/agentic_update_check/row_bundle_gabapentin.json
+./pubmed_cache/reports/agentic_update_check/codex_stdout_ethotoin.log
+./pubmed_cache/reports/agentic_update_check/codex_last_message_eslicarbazepine-acetate.json
+./pubmed_cache/reports/agentic_update_check/codex_prompt_lorazepam.md
+./pubmed_cache/reports/agentic_update_check/codex_prompt_felbamate.md
+./pubmed_cache/reports/agentic_update_check/codex_last_message_clorazepate-dipotassium.json
+
+2026-05-21T01:37:44.035479Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:37:44.036002Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:37:44.039752Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:37:44.039804Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:44.054415Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.054421Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.054843Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.054846Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.055278Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.055280Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.055750Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.055753Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.056171Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.056174Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.057097Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:44.057100Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:44.092411Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:44.095962Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:44.096028Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '5248,5462p' pubmed_cache/reports/confirm-data-report.json" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "trade_names",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "status_or_notes",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "available_in_us",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "epilepsy_type",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "mechanism_of_action",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "mechanism_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "mechanism_source_tier",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "mechanism_confidence",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "half_life_range",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "major_organ_for_metabolism",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "formulations_available",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "typical_doses_per_day",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "minimum_effective_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "maximum_approved_daily_dose",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "enzyme_inducing_or_inhibiting",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "qt_interval_effect",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "adverse_symptoms_percentages",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "year_fda_cleared",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "fda_black_box_warning",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "fda_black_box_warning_source",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+    "severity": "info",
+    "check": "fact_source_coverage",
+    "row": "metharbital",
+    "field": "fda_black_box_warning_verified",
+    "message": "Field has non-RCT source coverage listed in evidence_sources",
+    "expected": "",
+    "observed": "",
+    "source": "FDA Orange Book products file; FDA/DailyMed labeling"
+  },
+  {
+
+exec
+/bin/zsh -lc "sed -n '3350,3365p' pubmed_cache/reports/update_check/update_check_summary.md" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+- Proposed: FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [mephenytoin; Mesantoin].
+
+### INFO fda_warning_metadata_refresh-778d14e046fd
+- Kind: fda_warning_metadata_refresh
+- Medication: metharbital
+- Source: FDA/openFDA
+- Column: fda_black_box_warning_source
+- Apply: safe=True; approval_required=False
+- Evidence: https://open.fda.gov/apis/drug/label/
+- Summary: FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed.
+- Current: FDA/DailyMed search on 05-19-2026: no current label found for terms [metharbital; Gemonil].
+- Proposed: FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [metharbital; Gemonil].
+
+### INFO fda_warning_metadata_refresh-396d72324abb
+- Kind: fda_warning_metadata_refresh
+- Medication: methsuximide
+
+exec
+/bin/zsh -lc "sed -n '20,28p' pubmed_cache/reports/efficacy_gap_review.csv" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+gabapentin,diff_seizure_freedom_maximum_effective_dose,11,reviewed RCTs; max-dose value not extractable,Yamauchi2006|https://pubmed.ncbi.nlm.nih.gov/16884455/; Zhu2005|https://pubmed.ncbi.nlm.nih.gov/15774213/; Appleton1999|https://pubmed.ncbi.nlm.nih.gov/10448830/; Leach1997|https://pubmed.ncbi.nlm.nih.gov/9120451/; Trudeau1996|https://pubmed.ncbi.nlm.nih.gov/9120226/; Dimond1996|https://pubmed.ncbi.nlm.nih.gov/8771597/; BenMenachem1995|https://pubmed.ncbi.nlm.nih.gov/8536677/; Anhut1994|https://pubmed.ncbi.nlm.nih.gov/8082624/; PMID1993|https://pubmed.ncbi.nlm.nih.gov/8232945/; Sivenius1991|https://pubmed.ncbi.nlm.nih.gov/1907907/; PMID1990|https://pubmed.ncbi.nlm.nih.gov/1971862/
+ganaxolone,diff_seizure_freedom_maximum_effective_dose,4,reviewed RCTs; max-dose value not extractable,Downs2024|https://pubmed.ncbi.nlm.nih.gov/38959712/; Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/36870093/; Knight2022|https://pubmed.ncbi.nlm.nih.gov/35429480/; Sperling2017|https://pubmed.ncbi.nlm.nih.gov/28230252/
+lorazepam,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,1,reviewed RCTs; max-dose value not extractable,Walker1984|https://pubmed.ncbi.nlm.nih.gov/6378615/
+mephenytoin,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,No PubMed phase II/III RCTs found
+metharbital,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,N/A
+methazolamide,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,No PubMed phase II/III RCTs found
+methsuximide,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,No PubMed phase II/III RCTs found
+methylphenobarbital,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose; diff_seizure_freedom_maximum_effective_dose,0,no qualifying PubMed RCTs,No PubMed phase II/III RCTs found
+midazolam,diff_50_responder_maximum_effective_dose; diff_median_pct_change_maximum_effective_dose,2,reviewed RCTs; max-dose value not extractable,Spencer2020|https://pubmed.ncbi.nlm.nih.gov/33140403/; Detyniecki2019|https://pubmed.ncbi.nlm.nih.gov/31140596/
+
+exec
+/bin/zsh -lc "sed -n '1,80p' pubmed_cache/reports/mechanism_audit.csv" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+generic_name,mechanism_of_action,mechanism_source,mechanism_source_tier,mechanism_confidence,data_most_recently_refreshed
+acetazolamide,"Carbonic anhydrase inhibitor; antiseizure effect is attributed to carbonic-anhydrase inhibition with brain/tissue acidosis and reduced neuronal excitability, but the clinical antiseizure mechanism is not fully established.",Sills and Rogawski 2020 ASM mechanism review,Peer-reviewed review,Moderate,05-15-2026
+barbexaclone,"Phenobarbital and L-propylhexedrine salt; Swiss Fachinformation attributes antiseizure effect to phenobarbital-related barbiturate reduction of neuronal excitability and inhibition of pathologic CNS excitation, with propylhexedrine intended to counter unwanted sedation.",Swiss Maliasin Fachinformation Swissmedic no. 31862 (https://ch.oddb.org/de/gcc/fachinfo/reg/31862),EMA/UK SmPC,Moderate,05-20-2026
+beclamide,Older anticonvulsant with no well-established antiseizure mechanism; limited data suggest CNS monoamine effects rather than a defined modern ASM target.,NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+brivaracetam,"Precise anticonvulsant mechanism is unknown; brivaracetam binds selectively and with high affinity to synaptic vesicle protein 2A (SV2A), which may contribute to the anticonvulsant effect.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+cannabidiol,"Precise human anticonvulsant mechanisms are unknown; effects do not appear to be mediated by CB1/CB2 cannabinoid receptors, with GPR55, TRPV1, and adenosine-mediated signaling proposed.",FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary,FDA/AES summary,Limited,05-15-2026
+carbamazepine,"Antiseizure mechanism is not fully established in labeling; accepted primary proposed effect is use-dependent voltage-gated sodium-channel blockade, reducing repetitive firing and seizure spread.",FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-15-2026
+cenobamate,Precise therapeutic mechanism is unknown; cenobamate reduces repetitive neuronal firing by inhibiting voltage-gated sodium currents and positively modulates GABA-A ion channels.,FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+clobazam,"Exact mechanism is not fully understood; 1,5-benzodiazepine positive allosteric modulation of GABA-A receptors potentiates GABAergic neurotransmission.",FDA/DailyMed labeling,FDA label,High,05-15-2026
+clonazepam,Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.,American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review,AES/FDA summary,High,05-15-2026
+clorazepate,Benzodiazepine prodrug to nordiazepam; positive allosteric modulation of GABA-A receptors enhances GABAergic inhibition.,Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Peer-reviewed review,High,05-15-2026
+diazepam,Precise antiseizure mechanism is unknown; diazepam enhances GABA-A receptor-mediated chloride-channel inhibition by increasing GABA effects at the receptor.,FDA/DailyMed labeling,FDA label,High,05-15-2026
+eslicarbazepine acetate,Converted to eslicarbazepine; precise mechanism is unknown but is thought to involve inhibition of voltage-gated sodium channels.,FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+ethadione,"Oxazolidinedione-class antiseizure drug; exact drug-specific mechanism is not established, with the class proposed to reduce low-threshold T-type calcium currents in thalamic neurons.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review,Historical/limited,Limited,05-15-2026
+ethosuximide,"Reduces low-threshold T-type calcium currents in thalamic neurons, the established anti-absence succinimide mechanism.",American Epilepsy Society 2024 U.S. ASM summary; NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review,AES/FDA summary,High,05-15-2026
+ethotoin,"Hydantoin-class antiseizure drug; exact ethotoin-specific mechanism is not well defined, but the class is proposed to reduce high-frequency firing via voltage-gated sodium-channel effects.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+etiracetam,"Racetam development compound related to levetiracetam; exact antiseizure mechanism is not established, though levetiracetam-related analogs act through SV2A-associated mechanisms.",NCBI PubChem pharmacology records,NCBI/PubChem,Limited,05-15-2026
+everolimus,"Binds FKBP-12 to inhibit mTOR complex 1 (mTORC1), targeting dysregulated mTOR signaling in tuberous sclerosis complex.",FDA/DailyMed labeling,FDA label,High,05-15-2026
+ezogabine,"Neuronal potassium-channel opener; primarily activates Kv7/KCNQ channels, stabilizing resting membrane potential and reducing neuronal excitability.",EMA Trobalt withdrawal page; Sills and Rogawski 2020 ASM mechanism review,EMA/UK SmPC,High,05-19-2026
+felbamate,Anticonvulsant mechanism is unknown in labeling; proposed mechanisms include reduced seizure spread with NMDA receptor inhibition and GABA-A receptor modulation.,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-15-2026
+fenfluramine,"Precise seizure mechanism is unknown; fenfluramine and norfenfluramine exhibit serotonin 5-HT2 receptor agonist activity, with sigma-1 modulation also proposed.",FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary,FDA label,Moderate,05-15-2026
+fosphenytoin,"Phenytoin prodrug; anticonvulsant effects are attributable to phenytoin, whose mechanism is not established but is thought to involve voltage-dependent sodium-channel blockade.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+gabapentin,"Precise antiepileptic mechanism is unknown; gabapentin binds the alpha-2-delta subunit of voltage-activated calcium channels, but the relationship of this binding to efficacy is not fully established.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+ganaxolone,Precise therapeutic mechanism is unknown; anticonvulsant effects are thought to result from positive allosteric modulation of CNS GABA-A receptors.,FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+lacosamide,Human antiseizure mechanism remains incompletely elucidated; lacosamide selectively enhances slow inactivation of voltage-gated sodium channels and stabilizes hyperexcitable neuronal membranes.,FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+lamotrigine,Precise anticonvulsant mechanism is unknown; a proposed mechanism is inhibition of voltage-sensitive sodium channels with reduced glutamate and aspartate release.,FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-15-2026
+levetiracetam,"Precise antiepileptic mechanism is unknown; levetiracetam binds synaptic vesicle protein 2A (SV2A), and this interaction may contribute to antiseizure activity.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+lorazepam,Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition and is used acutely for seizure termination.,American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review,AES/FDA summary,High,05-15-2026
+mephenytoin,"Hydantoin-class antiseizure drug; exact drug-specific mechanism is limited, but hydantoins are proposed to reduce high-frequency neuronal firing through voltage-gated sodium-channel effects.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+methazolamide,"Potent carbonic anhydrase inhibitor; DailyMed labeling states that although methazolamide reaches high cerebrospinal-fluid concentrations, it is not considered an effective anticonvulsant.",FDA/DailyMed labeling; NCBI PubChem pharmacology records,FDA label,Limited,05-15-2026
+methsuximide,"Succinimide-class antiseizure drug; exact mechanism is not fully established, but succinimides are associated with reduced low-threshold T-type calcium currents; active metabolite contributes.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Moderate,05-15-2026
+methylphenobarbital,"Barbiturate related to phenobarbital and metabolized partly to phenobarbital; HALMED SmPC attributes anticonvulsant effect to effects on CNS impulse transmission, increased motor-cortex electrical threshold, and possible enhancement of GABA-mediated inhibitory synaptic activity.",HALMED Phemiton 200 mg SmPC (https://halmed.hr/upl/lijekovi/SPC/Phemiton-200-mg-tablete-SPC.pdf),EMA/UK SmPC,Moderate,05-20-2026
+midazolam,Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.,American Epilepsy Society 2024 U.S. ASM summary; FDA/DailyMed labeling,AES/FDA summary,High,05-15-2026
+mirogabalin,Gabapentinoid that binds alpha-2-delta subunits of voltage-gated calcium channels; it is not established or approved as an antiseizure medication.,NCBI PubChem pharmacology records; Sills and Rogawski 2020 ASM mechanism review,NCBI/PubChem,Moderate,05-15-2026
+nitrazepam,Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition.,Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Peer-reviewed review,High,05-15-2026
+oxcarbazepine,"Precise mechanism is unknown; active MHD metabolite blocks voltage-sensitive sodium channels, stabilizes hyperexcited neural membranes, and may also increase potassium conductance and modulate high-voltage calcium channels.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+paraldehyde,Historical CNS depressant used for convulsions/status epilepticus; exact anticonvulsant mechanism is not well established and is best treated as limited/unknown rather than a defined modern ASM target.,NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+paramethadione,"Oxazolidinedione-class antiseizure drug; exact mechanism is not established, with the class proposed to reduce low-threshold T-type calcium currents in thalamic neurons.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+perampanel,Noncompetitive antagonist of ionotropic AMPA glutamate receptors on postsynaptic neurons; precise human antiepileptic mechanism is still described as unknown in labeling.,FDA/DailyMed labeling,FDA label,High,05-15-2026
+phenacemide,"Ureide anticonvulsant; mechanism in humans has not been established. Older records describe raised seizure threshold and reduced spread of seizure discharge, with sodium/calcium-channel blockade proposed.",NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+pheneturide,Older ureide anticonvulsant structurally related to phenacemide; exact antiseizure mechanism is not established.,NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+phenobarbital,Mechanism is not fully understood; barbiturate potentiation of synaptic inhibition through GABA-A receptors is the principal accepted antiseizure mechanism.,FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review,FDA label,High,05-15-2026
+phensuximide,"Succinimide-class antiseizure drug; exact mechanism is not fully established, but the class is associated with reduced low-threshold T-type calcium currents.",NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Moderate,05-15-2026
+phenytoin,"Precise mechanism is not established in labeling; thought to involve voltage-dependent blockade of membrane sodium channels, reducing sustained high-frequency neuronal discharges.",FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-15-2026
+piracetam,Mode of action in cortical myoclonus is unknown; do not classify as a direct GABAergic ASM despite being a cyclic GABA derivative.,UK eMC SmPC labeling,EMA/UK SmPC,Limited,05-15-2026
+potassium bromide,Bromide-ion antiseizure mechanism is not fully established; German Fachinformation describes increased seizure threshold and proposed stabilization of neuronal membranes through bromide/chloride conductance with enhanced GABA-A receptor-mediated inhibitory anion current.,Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf),EMA/UK SmPC,Moderate,05-20-2026
+pregabalin,"Mechanism is not fully elucidated; pregabalin binds alpha-2-delta subunits of voltage-gated calcium channels, which may be involved in anti-seizure effects.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+primidone,"Mechanism is not fully established; antiseizure activity reflects parent primidone plus phenobarbital/PEMA metabolites, with barbiturate-related GABA-A potentiation contributing.",American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,AES/FDA summary,Moderate,05-15-2026
+progabide,"GABA analog/prodrug with agonist activity at GABA-A and GABA-B receptors, enhancing inhibitory GABAergic signaling.",NCBI PubChem pharmacology records,NCBI/PubChem,High,05-19-2026
+pyridoxine,"Vitamin B6 precursor/cofactor support; in pyridoxine-dependent epilepsies, treatment restores pyridoxal-phosphate-dependent neurotransmitter metabolism, including GABA synthesis.",NCBI PubChem pharmacology records,NCBI/PubChem,High,05-15-2026
+repository corticotropin,"FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.",FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30),FDA label,Moderate,05-20-2026
+rufinamide,"Precise mechanism is unknown; in vitro studies suggest sodium-channel modulation, especially prolongation of the inactive state and limitation of repetitive sodium-dependent firing.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+sodium valproate,"Valproate ion; mechanisms are not established, but labeling suggests antiseizure activity may relate to increased brain GABA concentrations. Additional ion-channel effects are proposed but not definitive.",FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-15-2026
+stiripentol,Human anticonvulsant mechanism is unknown; possible mechanisms include direct GABA-A receptor effects and indirect CYP inhibition that increases clobazam and norclobazam exposure.,FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+sultiame,"Carbonic anhydrase inhibitor with documented anticonvulsant effect; sodium-current reduction has also been reported, but the relative clinical contribution is not fully defined.",UK eMC SmPC labeling; Sulthiame sodium-current mechanism study,EMA/UK SmPC,Moderate,05-15-2026
+temazepam,Benzodiazepine positive allosteric modulator of GABA-A receptors; not a standard contemporary epilepsy ASM.,Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Peer-reviewed review,Moderate,05-15-2026
+tiagabine,"Precise antiseizure mechanism is unknown, but tiagabine blocks GABA uptake by the GAT-1 GABA transporter, increasing synaptic GABA availability.",FDA/DailyMed labeling,FDA label,High,05-15-2026
+topiramate,"Precise anticonvulsant mechanism is unknown; preclinical effects include voltage-dependent sodium-channel blockade, GABA-A augmentation, AMPA/kainate antagonism, and carbonic-anhydrase inhibition.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+trimethadione,Oxazolidinedione anti-absence drug; proposed mechanism is reduction of low-threshold T-type calcium currents in thalamic neurons.,NCBI Bookshelf AED mechanism table; Sills and Rogawski 2020 ASM mechanism review; NCBI PubChem pharmacology records,Historical/limited,Moderate,05-15-2026
+valnoctamide,"Valproate-related amide; precise antiseizure mechanism is not established. Preclinical work suggests enhancement of GABA-A-mediated phasic inhibition, but clinical MOA evidence is limited.",PMC valnoctamide GABA-A mechanism study; NCBI PubChem pharmacology records,Historical/limited,Limited,05-15-2026
+valproic acid,"Dissociates to valproate; mechanisms are not established, but FDA labeling suggests antiseizure activity may relate to increased brain GABA concentrations. Additional ion-channel effects are proposed but not definitive.",FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review,FDA label,Moderate,05-19-2026
+valpromide,"Valproate-related amide; precise antiseizure mechanism is not established, with valproate-like effects on GABAergic and ion-channel systems proposed but not definitive.",NCBI PubChem pharmacology records; Sills and Rogawski 2020 ASM mechanism review,Historical/limited,Limited,05-15-2026
+vigabatrin,"Precise anti-seizure mechanism is unknown, but effect is believed to result from irreversible inhibition of GABA transaminase, increasing CNS GABA levels.",FDA/DailyMed labeling,FDA label,High,05-15-2026
+zonisamide,"Precise mechanism is unknown; in vitro data suggest sodium-channel blockade and reduced T-type calcium currents, with weak carbonic-anhydrase inhibition of uncertain therapeutic contribution.",FDA/DailyMed labeling,FDA label,Moderate,05-15-2026
+
+2026-05-21T01:37:53.095952Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:37:53.096406Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:37:53.099793Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:37:53.099836Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:53.114336Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.114341Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.114777Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.114781Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.115215Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.115218Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.115649Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.115652Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.116078Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.116081Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.117098Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:37:53.117101Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:37:53.151162Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:53.154519Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:37:53.154581Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:38:01.029780Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:38:01.030205Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:38:01.032771Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:38:01.032810Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:38:01.046940Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.046946Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.047429Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.047434Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.047843Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.047846Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.048238Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.048241Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.048669Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.048674Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.049654Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:38:01.049658Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:38:01.082676Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:38:01.085989Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:38:01.086061Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:METHARBITAL&limit=10
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/drugsfda.json
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/drugsfda.json?limit=10&search=products.active_ingredients.name%3AMETHARBITAL
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/drugsfda.json?search=GEMONIL
+web search: 
+web search: https://api.fda.gov/drug/label.json
+web search: 
+web search: 
+web search: 
+web search: https://api.fda.gov/drug/label.json?search=metharbital
+web search: 
+web search: https://www.fda.gov/media/71474/download?attachment=
+web search: 
+web search: "METHARBITAL" "46TH EDITION" "GEMONIL"
+web search: 
+web search: "METHARBITAL" "GEMONIL" "FDA" "DISCN"
+web search: 
+web search: site:clinicaltrials.gov metharbital
+web search: 
+web search: 
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/frequently-asked-questions-orange-book
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/7780992/
+codex
+{"black_box_warning":{"current_value":"No current FDA/DailyMed label identified.","fda_source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json"],"proposed_value":"No current FDA/openFDA label identified.","rationale":"Substantive no-current-FDA-label finding is plausible, but boxed-warning verification must cite FDA/openFDA, FDA label, or Drugs@FDA only. DailyMed should not appear in this boxed-warning field.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"metharbital","field":"generic_name","proposed_value":"metharbital","rationale":"NCBI/PubChem and FDA-linked substance/Orange Book references identify metharbital as the active ingredient.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"Endiemal; metharbitone; methobarbitone; metarbital","rationale":"Important aliases are missing. PubChem/MeSH lists endiemal, metharbitone, and methobarbitone, and PubChem depositor synonyms include metarbital. These should be captured to avoid alias-based duplicate rows/search misses.","requires_user_approval":false,"status":"missing","supporting_sources":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"Gemonil","field":"trade_names","proposed_value":"Gemonil","rationale":"Gemonil is supported as the metharbital trade/proprietary name by Orange Book-derived references and NCBI/PubChem synonym data.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital","https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm"]},{"current_value":"Gemonil","field":"pubmed_search_aliases","proposed_value":"Gemonil; Endiemal; metharbitone; methobarbitone; metarbital","rationale":"Current value is incomplete for literature search. Adding common NCBI/PubChem/MeSH aliases improves PubMed recall without creating a separate drug row.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"No - discontinued FDA Orange Book product","field":"available_in_us","proposed_value":"No - discontinued FDA Orange Book product","rationale":"Orange Book documentation defines product fields and indicates discontinued products are listed in the Discontinued section; the Gemonil/metharbital product is a discontinued Orange Book product in the row evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/drugs/drug-approvals-and-databases/frequently-asked-questions-orange-book","https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm"]},{"current_value":"Historical oral tablet (not marketed in U.S.)","field":"formulations_available","proposed_value":"Historical oral tablet (not marketed in U.S.)","rationale":"The historical Orange Book product listing supports oral tablet formulation and discontinued/not-marketed status; Orange Book fields do not provide broader formulation detail.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","rationale":"FDA Orange Book data-file documentation states products approved before January 1, 1982 use this phrase in the approval-date field.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","field":"epilepsy_type","proposed_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","rationale":"No current FDA label was identified to support a specific seizure subtype. PubChem supports historical epilepsy use, but not a specific FDA-labeled seizure category.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital","https://open.fda.gov/apis/drug/label/"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling API; NCBI PubChem/MeSH aliases","rationale":"DailyMed should not be used for boxed-warning verification, and the row now needs an explicit NCBI/PubChem alias source. openFDA is the appropriate FDA label-search source for the no-current-label finding.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://open.fda.gov/apis/drug/label/","https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","field":"mechanism_of_action","proposed_value":"N/A - no current FDA/openFDA label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","rationale":"The substantive N/A mechanism conclusion is supported by absence of a current FDA label and Orange Book field limitations, but source wording should be FDA/openFDA rather than FDA/DailyMed.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA Orange Book products file","rationale":"Appropriate for a historical/limited N/A source; Orange Book supports product listing but not mechanism.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"N/A values for half-life, metabolism, dosing, enzyme effect, QT effect, and adverse-event percentages based on no current FDA/DailyMed label and Orange Book field limitations.","field":"half_life_range; major_organ_for_metabolism; typical_doses_per_day; minimum_effective_dose; maximum_approved_daily_dose; enzyme_inducing_or_inhibiting; qt_interval_effect; adverse_symptoms_percentages","proposed_value":"Retain N/A conclusions; replace FDA/DailyMed wording with FDA/openFDA where source wording is retained.","rationale":"Orange Book fields do not provide these clinical pharmacology, dosing, QT, enzyme, or adverse-event details, and no current FDA/openFDA label was identified.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT for metharbital was found in PubMed-oriented review; existing row has no retained RCT links.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28metharbital%20OR%20Gemonil%20OR%20metharbitone%20OR%20methobarbitone%20OR%20Endiemal%29%20epilepsy%20randomized%20placebo"]}],"generic_name":"metharbital","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was identified, so no differential RR50 value can be calculated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28metharbital%20OR%20Gemonil%20OR%20metharbitone%20OR%20methobarbitone%20OR%20Endiemal%29%20epilepsy%20randomized%20placebo"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was identified, so no differential median percent-change value can be calculated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28metharbital%20OR%20Gemonil%20OR%20metharbitone%20OR%20methobarbitone%20OR%20Endiemal%29%20epilepsy%20randomized%20placebo"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was identified, so no differential seizure-freedom value can be calculated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28metharbital%20OR%20Gemonil%20OR%20metharbitone%20OR%20methobarbitone%20OR%20Endiemal%29%20epilepsy%20randomized%20placebo"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"","field":"alternate_generic_names","proposed_value":"Endiemal; metharbitone; methobarbitone; metarbital","reason":"Add important aliases supported by NCBI/PubChem/MeSH.","requires_user_approval":false,"source_urls":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"Gemonil","field":"pubmed_search_aliases","proposed_value":"Gemonil; Endiemal; metharbitone; methobarbitone; metarbital","reason":"Improve PubMed recall and alias deduplication.","requires_user_approval":false,"source_urls":["https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling API; NCBI PubChem/MeSH aliases","reason":"Replace DailyMed boxed-warning source dependency and add alias source coverage.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://open.fda.gov/apis/drug/label/","https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"No current FDA/openFDA label identified.","reason":"Boxed-warning field must use FDA/openFDA, FDA labels, or Drugs@FDA only.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026: no current FDA label found for terms [metharbital; Gemonil].","reason":"DailyMed is not permissible for boxed-warning verification; use FDA/openFDA source wording.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json"]}],"rct_link_checks":[],"source_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling API; NCBI PubChem/MeSH aliases","reason":"Current source list cites DailyMed despite boxed-warning policy and omits alias source coverage.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://open.fda.gov/apis/drug/label/","https://pubchem.ncbi.nlm.nih.gov/compound/Metharbital"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [metharbital; Gemonil].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026: no current FDA label found for terms [metharbital; Gemonil].","reason":"FDA-only source wording required for boxed-warning verification.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json"]}],"summary":"Metharbital/Gemonil row is substantively consistent as a discontinued historical Orange Book product with no retained placebo-controlled phase II/III epilepsy RCT outcomes. Updates are needed for missing aliases and FDA-only boxed-warning/source wording."}
+tokens used
+297,029

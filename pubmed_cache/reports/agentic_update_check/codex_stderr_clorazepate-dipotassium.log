@@ -1,0 +1,401 @@
+2026-05-20T23:30:58.742006Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:58.796151Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47ba-6617-7971-a1df-688cd8baf26a
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.",
+    "alternate_generic_names": "clorazepate",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (See WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Clorazepate dipotassium tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Clorazepate dipotassium tablets and throughout out treatment, assess each patient’s risk for abuse, misuse, and addiction (See WARNINGS ). The continued use of benzodiazepines, including Clorazepate dipotassium tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Clorazepate dipotassium tablets after continued use may precipitate acute withdrawal reactions, which can be life- threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Clorazepate dipotassium tablets or reduce the dosage (See DOSAGE AND ADMINISTRATION and WARNINGS ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=919cbd07-f587-4005-acff-26213dd1d1fb; published=Mar 26, 2026; title=CLORAZEPATE DIPOTASSIUM TABLET [AUROLIFE PHARMA LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=919cbd07-f587-4005-acff-26213dd1d1fb",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Neurologic; Psychiatric; Respiratory",
+    "formulations_available": "Oral tablet currently; oral capsule historical/discontinued in Orange Book",
+    "generic_name": "clorazepate dipotassium",
+    "half_life_range": "Nordiazepam active metabolite about 40-50 h; FDA label also describes serum half-life as about 2 days.",
+    "major_organ_for_metabolism": "Liver metabolism; excreted primarily in urine per FDA label.",
+    "maximum_approved_daily_dose": "90 mg/day maximum recommended daily dose in selected FDA label.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Benzodiazepine prodrug to nordiazepam; FDA labeling describes benzodiazepine CNS depressant pharmacology and notes benzodiazepines interact at GABA-A sites.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "22.5 mg/day initial adjunctive partial-seizure dose for patients older than 12 years in selected FDA label.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "clorazepate; Tranxene; Tranxene SD; Gen-Xene",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 benzodiazepine ASM; FDA-labeled as adjunctive therapy in partial seizures and also for anxiety and acute alcohol withdrawal.",
+    "trade_names": "Clorazepate Dipotassium; Gen-Xene; Tranxene; Tranxene SD",
+    "typical_doses_per_day": "Adjunctive partial seizures: FDA label starts patients older than 12 years at 7.5 mg three times daily with gradual adjustment.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.",
+    "alternate_generic_names": "clorazepate",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (See WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Clorazepate dipotassium tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Clorazepate dipotassium tablets and throughout out treatment, assess each patient’s risk for abuse, misuse, and addiction (See WARNINGS ). The continued use of benzodiazepines, including Clorazepate dipotassium tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Clorazepate dipotassium tablets after continued use may precipitate acute withdrawal reactions, which can be life- threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Clorazepate dipotassium tablets or reduce the dosage (See DOSAGE AND ADMINISTRATION and WARNINGS ).",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=919cbd07-f587-4005-acff-26213dd1d1fb; published=Mar 26, 2026; title=CLORAZEPATE DIPOTASSIUM TABLET [AUROLIFE PHARMA LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=919cbd07-f587-4005-acff-26213dd1d1fb",
+    "formulations_available": "Oral tablet currently; oral capsule historical/discontinued in Orange Book",
+    "half_life_range": "Nordiazepam active metabolite about 40-50 h; FDA label also describes serum half-life as about 2 days.",
+    "major_organ_for_metabolism": "Liver metabolism; excreted primarily in urine per FDA label.",
+    "maximum_approved_daily_dose": "90 mg/day maximum recommended daily dose in selected FDA label.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Benzodiazepine prodrug to nordiazepam; FDA labeling describes benzodiazepine CNS depressant pharmacology and notes benzodiazepines interact at GABA-A sites.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "22.5 mg/day initial adjunctive partial-seizure dose for patients older than 12 years in selected FDA label.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "clorazepate; Tranxene; Tranxene SD; Gen-Xene",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "trade_names": "Clorazepate Dipotassium; Gen-Xene; Tranxene; Tranxene SD",
+    "typical_doses_per_day": "Adjunctive partial seizures: FDA label starts patients older than 12 years at 7.5 mg three times daily with gradual adjustment.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "clorazepate dipotassium",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "Approved Prior to Jan 1, 1982 (FDA Orange Book)",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1982"
+        ],
+        "missing_terms": [
+          "prior",
+          "orange"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "generic_name": "clorazepate dipotassium",
+      "id": "source_fact_concordance_problem-efaa2b79f8e9",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "generic_name": "clorazepate dipotassium",
+      "id": "source_fact_concordance_problem-345f0268becd",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "formulations_available",
+      "current_value": "Oral tablet currently; oral capsule historical/discontinued in Orange Book",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "currently",
+          "capsule",
+          "historical",
+          "discontinued",
+          "orange"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "currently",
+          "capsule",
+          "historical",
+          "discontinued",
+          "orange"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "generic_name": "clorazepate dipotassium",
+      "id": "source_fact_concordance_problem-7e0919890a95",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "formulations_available could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "qt_interval_effect",
+      "current_value": "No QT interval effect described in selected FDA label.",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "interval"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "interval"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "generic_name": "clorazepate dipotassium",
+      "id": "source_fact_concordance_problem-ddfd8b960c44",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "qt_interval_effect could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=919cbd07-f587-4005-acff-26213dd1d1fb; published=Mar 26, 2026; title=CLORAZEPATE DIPOTASSIUM TABLET [AUROLIFE PHARMA LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=919cbd07-f587-4005-acff-26213dd1d1fb",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "generic_name": "clorazepate dipotassium",
+      "id": "fda_warning_metadata_refresh-9beafe880f5a",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (See WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Clorazepate dipotassium tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Clorazepate dipotassium tablets and throughout out treatment, assess each patient’s risk for abuse, misuse, and addiction (See WARNINGS ). The continued use of benzodiazepines, including Clorazepate dipotassium tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Clorazepate dipotassium tablets after continued use may precipitate acute withdrawal reactions, which can be life- threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Clorazepate dipotassium tablets or reduce the dosage (See DOSAGE AND ADMINISTRATION and WARNINGS ).",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=919cbd07-f587-4005-acff-26213dd1d1fb; effective_time=20260325; title=CLORAZEPATE DIPOTASSIUM / CLORAZEPATE DIPOTASSIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=919cbd07-f587-4005-acff-26213dd1d1fb; effective_time=20260325; title=CLORAZEPATE DIPOTASSIUM / CLORAZEPATE DIPOTASSIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T23:30:58.825796Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:58.893593Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:30:58.893977Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:30:58.896840Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:30:58.896893Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:58.901990Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:58.912827Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.912837Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.913340Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.913345Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.913795Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.913799Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.914331Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.914335Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.914757Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.914759Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.915745Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:58.915748Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:58.951787Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:58.953344Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:58.955955Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:58.956051Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:58.982919Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:59.012540Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:30:59.711187Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:30:59.711595Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:30:59.714507Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:30:59.714549Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:59.722365Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:30:59.722778Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:30:59.725732Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:30:59.725771Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:59.728747Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.728753Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.729215Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.729220Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.729648Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.729651Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.730068Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.730072Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.730471Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.730474Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.731341Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:30:59.731344Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:30:59.762314Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:59.765546Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:30:59.765609Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label 919cbd07-f587-4005-acff-26213dd1d1fb clorazepate
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf
+web search: 
+web search: FDA Orange Book clorazepate dipotassium Tranxene Gen-Xene capsule discontinued tablet
+web search: 
+web search: site:fda.gov Orange Book data file products clorazepate dipotassium 017105
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: https://www.fda.gov/media/76860/download?attachment=
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: 
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob clorazepate dipotassium orange book
+web search: 
+web search: https://www.fda.gov/media/103879/download?attachment=
+web search: 
+web search: 'CLORAZEPATE' in https://www.fda.gov/media/103879/download?attachment=
+web search: 
+web search: site:fda.gov/media Orange Book annual 2026 CLORAZEPATE DIPOTASSIUM
+web search: 
+web search: 
+web search: 
+web search: 
+web search: 
+web search: https://www.fda.gov/media/71474/download?attachment=
+web search: 
+web search: NCBI PubChem clorazepate dipotassium synonyms Tranxene Gen-Xene
+web search: 
+web search: https://pubchem.ncbi.nlm.nih.gov/compound/167305
+web search: 
+web search: https://www.ncbi.nlm.nih.gov/mesh/68003009
+web search: 
+web search: site:fda.gov/media/71474/download Gen-Xene clorazepate dipotassium Orange Book 2026
+web search: 
+web search: "GEN-XENE" "CLORAZEPATE DIPOTASSIUM" "FDA" "Orange Book"
+web search: 
+web search: "GEN-XENE" "fda.gov/media" "Orange Book"
+web search: 
+web search: PubMed clorazepate dipotassium epilepsy placebo randomized trial
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/6125918/
+codex
+{"black_box_warning":{"current_value":"WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs in patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (See WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Clorazepate dipotassium tablets, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Clorazepate dipotassium tablets and throughout out treatment, assess each patient’s risk for abuse, misuse, and addiction (See WARNINGS ). The continued use of benzodiazepines, including Clorazepate dipotassium tablets, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Clorazepate dipotassium tablets after continued use may precipitate acute withdrawal reactions, which can be life- threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Clorazepate dipotassium tablets or reduce the dosage (See DOSAGE AND ADMINISTRATION and WARNINGS ).","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"],"proposed_value":"No change to warning text; replace the source metadata with an FDA/openFDA or Drugs@FDA/accessdata source instead of DailyMed.","rationale":"The boxed warning content is consistent with FDA labeling for clorazepate/Tranxene and the row’s FDA/openFDA set-id metadata. The current source field cites DailyMed, which is not permissible for FDA black-box verification under the audit rule.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"clorazepate dipotassium","field":"generic_name","proposed_value":"clorazepate dipotassium","rationale":"FDA labeling, Orange Book, and NCBI MeSH identify the substance as clorazepate dipotassium.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"clorazepate","field":"alternate_generic_names","proposed_value":"clorazepate; dipotassium chlorazepate; chlorazepate; clorazepic acid","rationale":"Current alias is valid, but NCBI MeSH also lists dipotassium chlorazepate, chlorazepate, and clorazepic acid as entry terms that should not become separate rows.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"Clorazepate Dipotassium; Gen-Xene; Tranxene; Tranxene SD","field":"trade_names","proposed_value":"Clorazepate Dipotassium; Gen-Xene; Tranxene; Tranxene SD","rationale":"Tranxene is listed in NCBI MeSH and FDA/Drugs@FDA labeling. Tranxene SD and Gen-Xene are supported as clorazepate dipotassium aliases/products in NCBI PubChem/FDA-linked drug information and historical FDA Orange Book snippets.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.ncbi.nlm.nih.gov/mesh/68003009","https://pubchem.ncbi.nlm.nih.gov/compound/167305","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2002/017105_S062_TRANXENE_AP.pdf","https://www.fda.gov/media/71474/download"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA Orange Book materials list clorazepate dipotassium oral tablet products, and FDA/openFDA has current clorazepate dipotassium labeling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/71474/download","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5"]},{"current_value":"Focal","field":"epilepsy_type","proposed_value":"Focal","rationale":"FDA labeling states clorazepate/Tranxene tablets are indicated as adjunctive therapy for partial seizures; focal is the modern category corresponding to partial seizures.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Oral tablet currently; oral capsule historical/discontinued in Orange Book","field":"formulations_available","proposed_value":"Oral tablet currently; oral capsule historical/discontinued in Orange Book","rationale":"FDA Orange Book materials support current oral tablet listings and historical/non-marketed capsule products for clorazepate dipotassium/Tranxene.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/71474/download","https://www.fda.gov/media/72973/download","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved prior to Jan 1, 1982 (FDA Orange Book; NDA 017105).","rationale":"The Orange Book is the appropriate source for this field; the deterministic check compared the value to a selected label, which is not expected to contain the Orange Book approval-date phrase.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/71474/download","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"FDA Orange Book pre-1982 benzodiazepine ASM; FDA-labeled as adjunctive therapy in partial seizures and also for anxiety and acute alcohol withdrawal.","field":"status_or_notes","proposed_value":"FDA Orange Book pre-1982 benzodiazepine ASM; FDA-labeled as adjunctive therapy in partial seizures and also for anxiety and acute alcohol withdrawal.","rationale":"FDA labeling supports partial-seizure adjunctive therapy, anxiety, and acute alcohol withdrawal indications; Orange Book supports the pre-1982 approval status.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://www.fda.gov/media/71474/download"]},{"current_value":"N/A 0%: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.","rationale":"The FDA label lists these adverse reactions qualitatively. It does not support an incidence of 0%; removing the 0% notation avoids implying no adverse-event incidence.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Nordiazepam active metabolite about 40-50 h; FDA label also describes serum half-life as about 2 days.","field":"half_life_range","proposed_value":"Nordiazepam active metabolite about 40-50 h; FDA label also describes serum half-life as about 2 days.","rationale":"FDA labeling states serum half-life is about 2 days and that nordiazepam has an apparent plasma half-life of about 40 to 50 hours.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Liver metabolism; excreted primarily in urine per FDA label.","field":"major_organ_for_metabolism","proposed_value":"Liver metabolism; excreted primarily in urine per FDA label.","rationale":"FDA labeling states the drug is metabolized in the liver and excreted primarily in urine, with urinary metabolites described.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"90 mg/day maximum recommended daily dose in selected FDA label.","field":"maximum_approved_daily_dose","proposed_value":"90 mg/day maximum recommended daily dose in selected FDA label.","rationale":"FDA labeling states the maximum recommended total daily dose is 90 mg and that adjunctive antiepileptic dosing in patients over 12 years should not exceed 90 mg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"22.5 mg/day initial adjunctive partial-seizure dose for patients older than 12 years in selected FDA label.","field":"minimum_effective_dose","proposed_value":"22.5 mg/day initial adjunctive partial-seizure dose for patients older than 12 years in selected FDA label.","rationale":"FDA labeling gives an initial adjunctive antiepileptic dose of 7.5 mg three times daily for patients over 12 years, equal to 22.5 mg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Adjunctive partial seizures: FDA label starts patients older than 12 years at 7.5 mg three times daily with gradual adjustment.","field":"typical_doses_per_day","proposed_value":"Adjunctive partial seizures: FDA label starts patients older than 12 years at 7.5 mg three times daily with gradual adjustment.","rationale":"This matches FDA dosage labeling for adjunctive antiepileptic use in patients over 12 years.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Benzodiazepine prodrug to nordiazepam; FDA labeling describes benzodiazepine CNS depressant pharmacology and notes benzodiazepines interact at GABA-A sites.","field":"mechanism_of_action","proposed_value":"Benzodiazepine prodrug to nordiazepam; FDA labeling describes benzodiazepine CNS depressant pharmacology and notes benzodiazepines interact at GABA-A sites.","rationale":"FDA labeling states clorazepate has benzodiazepine CNS-depressant pharmacology, is rapidly decarboxylated to nordiazepam, and notes benzodiazepines interact at GABA-A sites. NCBI MeSH lists GABA modulator pharmacologic action.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"The source-backed mechanism is class-based benzodiazepine/GABA-A modulation plus nordiazepam formation; a moderate confidence rating is reasonable as an internal evidence tier.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.","rationale":"FDA labeling describes CNS depressant/opioid interaction risks but does not define clorazepate as a clinically meaningful enzyme inducer or inhibitor.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"No QT interval effect described in selected FDA label.","field":"qt_interval_effect","proposed_value":"No QT interval effect described in selected FDA label.","rationale":"The selected FDA labeling reviewed does not describe QT interval effects. This supports the source-bounded statement, not a broader proof of no QT effect.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"Unknown/limited","rationale":"The detailed row text only establishes that QT interval effects are not described in the selected FDA label; it does not directly establish a clinically verified 'no known meaningful QT effect' category.","requires_user_approval":true,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"clorazepate; Tranxene; Tranxene SD; Gen-Xene","field":"pubmed_search_aliases","proposed_value":"clorazepate; clorazepate dipotassium; dipotassium chlorazepate; chlorazepate; Tranxene; Tranxene SD; Gen-Xene; Tranxilium","rationale":"Current aliases are valid, but NCBI MeSH/PubChem support additional important search aliases and spellings that should prevent duplicate rows and improve PubMed recall.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.ncbi.nlm.nih.gov/mesh/68003009","https://pubchem.ncbi.nlm.nih.gov/compound/167305"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No existing PubMed RCT links were supplied. PubMed searches found clorazepate epilepsy reports and an active-comparator randomized crossover study, but no qualifying phase II/III placebo-controlled epilepsy RCT was verified.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=clorazepate+dipotassium+epilepsy+placebo+randomized+trial","https://pubmed.ncbi.nlm.nih.gov/6125918/","https://pubmed.ncbi.nlm.nih.gov/4209435/","https://pubmed.ncbi.nlm.nih.gov/2889387/"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book data files/annual edition; FDA Drugs@FDA/accessdata labeling; FDA/openFDA drug label API; NCBI MeSH/PubChem for aliases","rationale":"DailyMed should not be used for black-box verification and is not in the requested trusted-source list. The retained row facts are better supported by FDA Orange Book, FDA Drugs@FDA/accessdata/openFDA labeling, and NCBI alias sources.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/71474/download","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5","https://www.ncbi.nlm.nih.gov/mesh/68003009"]}],"generic_name":"clorazepate dipotassium","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled clorazepate epilepsy RCT was verified, so no placebo-adjusted RR50 value should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=clorazepate+dipotassium+epilepsy+placebo+randomized+trial","https://pubmed.ncbi.nlm.nih.gov/6125918/"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled RCT/outcome source was retained for clorazepate, so no differential median percent change value is supported.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=clorazepate+dipotassium+partial+seizures+double-blind+placebo","https://pubmed.ncbi.nlm.nih.gov/6125918/"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled RCT/outcome source was retained for clorazepate, so no placebo-adjusted seizure-freedom value is supported.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=Tranxene+clorazepate+partial+seizures+placebo+controlled+trial","https://pubmed.ncbi.nlm.nih.gov/2889387/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"N/A 0%: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA label lists drowsiness, dizziness, GI complaints, nervousness, blurred vision, dry mouth, headache, mental confusion, insomnia, skin rashes, fatigue, ataxia, irritability, diplopia, depression, tremor, and slurred speech without quantified incidence percentages.","reason":"FDA labeling provides a qualitative adverse-reaction list but no 0% incidence value.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"clorazepate","field":"alternate_generic_names","proposed_value":"clorazepate; dipotassium chlorazepate; chlorazepate; clorazepic acid","reason":"Adds NCBI MeSH entry terms for the same drug/substance to avoid alias-driven duplicate rows.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"clorazepate; Tranxene; Tranxene SD; Gen-Xene","field":"pubmed_search_aliases","proposed_value":"clorazepate; clorazepate dipotassium; dipotassium chlorazepate; chlorazepate; Tranxene; Tranxene SD; Gen-Xene; Tranxilium","reason":"Adds verified PubMed-relevant entry terms and brand aliases.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/mesh/68003009","https://pubchem.ncbi.nlm.nih.gov/compound/167305"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"Unknown/limited","reason":"The cited FDA label only supports that QT effects are not described; it does not directly support a broader no-known-meaningful-effect category.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved prior to Jan 1, 1982 (FDA Orange Book; NDA 017105).","reason":"Clarifies the Orange Book application context; no substantive change.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/71474/download","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]}],"rct_link_checks":[],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=919cbd07-f587-4005-acff-26213dd1d1fb; published=Mar 26, 2026; title=CLORAZEPATE DIPOTASSIUM TABLET [AUROLIFE PHARMA LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=919cbd07-f587-4005-acff-26213dd1d1fb","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=919cbd07-f587-4005-acff-26213dd1d1fb; effective_time=20260325; title=CLORAZEPATE DIPOTASSIUM / CLORAZEPATE DIPOTASSIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5","reason":"DailyMed is not permissible for the black-box-warning field; FDA/openFDA is permissible.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book data files/annual edition; FDA Drugs@FDA/accessdata labeling; FDA/openFDA drug label API; NCBI MeSH/PubChem for aliases","reason":"Replaces the DailyMed reference with trusted FDA/NCBI sources that actually support the retained cells.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/71474/download","https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22919cbd07-f587-4005-acff-26213dd1d1fb%22&limit=5","https://www.ncbi.nlm.nih.gov/mesh/68003009"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Drugs@FDA/accessdata labeling; NCBI MeSH","reason":"Mechanism facts are supported by FDA labeling and NCBI MeSH without relying on DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/017105s085lbl.pdf","https://www.ncbi.nlm.nih.gov/mesh/68003009"]}],"summary":"Most clinical and regulatory facts are supported by FDA labeling, FDA Orange Book materials, and NCBI alias sources. Updates are needed for source hygiene: replace DailyMed in the boxed-warning/source fields, remove unsupported “0%” adverse-event wording, add important aliases, and consider downgrading the QT filter because the label only supports absence of a QT discussion. No qualifying placebo-controlled phase II/III PubMed RCT or outcome values were verified for clorazepate."}
+tokens used
+132,345

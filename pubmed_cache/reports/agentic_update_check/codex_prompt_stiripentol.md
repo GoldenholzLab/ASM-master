@@ -1,0 +1,554 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 67%, GI: decreased appetite 46%, GI: weight decreased 27%, neurologic: ataxia 27%, GI: nausea 15%, hematologic: neutropenia 13%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "65-66 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Guerrini2024 stiripentol add-on to clobazam/valproate 65%; Chiron2000 stiripentol add-on to valproate and clobazam 66%)",
+    "diff_median_pct_change_maximum_effective_dose": "76 % (drug minus placebo MPC differential at maximum effective dose/regimen: Chiron2000 stiripentol add-on to valproate and clobazam 76%)",
+    "diff_seizure_freedom_maximum_effective_dose": "38-42.9 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Guerrini2024 stiripentol add-on to clobazam/valproate 38%; Chiron2000 stiripentol add-on to valproate and clobazam 42.9%)",
+    "enzyme_inducing_or_inhibiting": "Potent inhibitor of CYP3A4, CYP2C19, CYP2D6 and other pathways",
+    "epilepsy_type": "Dravet",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58304ba8-9779-4658-811e-94ffe08c3f16; published=Apr 30, 2026; title=DIACOMIT (STIRIPENTOL) CAPSULE DIACOMIT (STIRIPENTOL) POWDER, FOR SUSPENSION [BIOCODEX, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58304ba8-9779-4658-811e-94ffe08c3f16",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor",
+    "filter_epilepsy_type": "Dravet",
+    "filter_formulation": "Capsule; Liquid; Sprinkle/powder",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Hematologic; Neurologic",
+    "formulations_available": "Capsule; powder for oral suspension",
+    "generic_name": "stiripentol",
+    "half_life_range": "4.5-13 h; dose-dependent",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "50 mg/kg/day; capped/adjusted by labeling and tolerability",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Human anticonvulsant mechanism is unknown; possible mechanisms include direct GABA-A receptor effects and indirect CYP inhibition that increases clobazam and norclobazam exposure.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "50 mg/kg/day target regimen with clobazam/valproate",
+    "plot_diff_50_responder_maximum_effective_dose": "Guerrini2024|65|https://pubmed.ncbi.nlm.nih.gov/38722572/|64; Chiron2000|66|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Chiron2000|76|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Guerrini2024|38|https://pubmed.ncbi.nlm.nih.gov/38722572/|64; Chiron2000|42.9|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "pubmed_phase_ii_iii_rct_links": "Guerrini2024|https://pubmed.ncbi.nlm.nih.gov/38722572/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Chiron2006|https://pubmed.ncbi.nlm.nih.gov/16948934/; Chiron2000|https://pubmed.ncbi.nlm.nih.gov/11089822/",
+    "pubmed_search_aliases": "Diacomit",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 55/65 on 2026-05-15: 4 qualifying placebo-controlled randomized clinical trial report(s) retained from 15 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for seizures associated with Dravet syndrome, often with clobazam/valproate.",
+    "trade_names": "Diacomit",
+    "typical_doses_per_day": "Dravet: 50 mg/kg/day divided BID/TID with clobazam/valproate",
+    "year_fda_cleared": "2018"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Guerrini2024|https://pubmed.ncbi.nlm.nih.gov/38722572/",
+      "label": "Guerrini2024",
+      "pmid": "38722572",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38722572/"
+    },
+    {
+      "entry": "Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "label": "Nabbout2020",
+      "pmid": "31790543",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31790543/"
+    },
+    {
+      "entry": "Chiron2006|https://pubmed.ncbi.nlm.nih.gov/16948934/",
+      "label": "Chiron2006",
+      "pmid": "16948934",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16948934/"
+    },
+    {
+      "entry": "Chiron2000|https://pubmed.ncbi.nlm.nih.gov/11089822/",
+      "label": "Chiron2000",
+      "pmid": "11089822",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11089822/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 67%, GI: decreased appetite 46%, GI: weight decreased 27%, neurologic: ataxia 27%, GI: nausea 15%, hematologic: neutropenia 13%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "65-66 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Guerrini2024 stiripentol add-on to clobazam/valproate 65%; Chiron2000 stiripentol add-on to valproate and clobazam 66%)",
+    "diff_median_pct_change_maximum_effective_dose": "76 % (drug minus placebo MPC differential at maximum effective dose/regimen: Chiron2000 stiripentol add-on to valproate and clobazam 76%)",
+    "diff_seizure_freedom_maximum_effective_dose": "38-42.9 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Guerrini2024 stiripentol add-on to clobazam/valproate 38%; Chiron2000 stiripentol add-on to valproate and clobazam 42.9%)",
+    "enzyme_inducing_or_inhibiting": "Potent inhibitor of CYP3A4, CYP2C19, CYP2D6 and other pathways",
+    "epilepsy_type": "Dravet",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58304ba8-9779-4658-811e-94ffe08c3f16; published=Apr 30, 2026; title=DIACOMIT (STIRIPENTOL) CAPSULE DIACOMIT (STIRIPENTOL) POWDER, FOR SUSPENSION [BIOCODEX, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58304ba8-9779-4658-811e-94ffe08c3f16",
+    "formulations_available": "Capsule; powder for oral suspension",
+    "half_life_range": "4.5-13 h; dose-dependent",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "50 mg/kg/day; capped/adjusted by labeling and tolerability",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Human anticonvulsant mechanism is unknown; possible mechanisms include direct GABA-A receptor effects and indirect CYP inhibition that increases clobazam and norclobazam exposure.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "50 mg/kg/day target regimen with clobazam/valproate",
+    "plot_diff_50_responder_maximum_effective_dose": "Guerrini2024|65|https://pubmed.ncbi.nlm.nih.gov/38722572/|64; Chiron2000|66|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Chiron2000|76|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Guerrini2024|38|https://pubmed.ncbi.nlm.nih.gov/38722572/|64; Chiron2000|42.9|https://pubmed.ncbi.nlm.nih.gov/11089822/|41",
+    "pubmed_phase_ii_iii_rct_links": "Guerrini2024|https://pubmed.ncbi.nlm.nih.gov/38722572/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Chiron2006|https://pubmed.ncbi.nlm.nih.gov/16948934/; Chiron2000|https://pubmed.ncbi.nlm.nih.gov/11089822/",
+    "pubmed_search_aliases": "Diacomit",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Diacomit",
+    "typical_doses_per_day": "Dravet: 50 mg/kg/day divided BID/TID with clobazam/valproate",
+    "year_fda_cleared": "2018"
+  },
+  "generic_name": "stiripentol",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2018",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2018"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5",
+      "generic_name": "stiripentol",
+      "id": "source_fact_concordance_problem-c5453decaae6",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary purpose of this study is to evaluate the safety, tolerability, and efficacy of ZX008 (fenfluramine hydrochloride) when added to adjunctive antiepileptic stiripentol treatment in children and young adults with Dravet syndrome.",
+        "interventions": [
+          "ZX008 (Fenfluramine Hydrochloride)",
+          "Matching Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02926898",
+        "new_reference_pmids": [
+          "34768178",
+          "33540241"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "31790543",
+          "34768178",
+          "33540241"
+        ],
+        "title": "A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children ≥ 2 Years Old and Young Adults With Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02926898",
+      "generic_name": "stiripentol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-0910b4bd2583",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children ≥ 2 Years Old and Young Adults With Dravet Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial consists of 2 parts: a double-blinded phase and an open-label extension phase. The blinded phase only will be described in this record. Participants will be randomized in a 4:1 ratio to receive GWP42003-P or matching placebo. The hypothesis is that levels of stiripentol (STP) or valproate (VPA) may be altered (increased or decreased) as a result of using GWP42003-P.",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02607891",
+        "new_reference_pmids": [
+          "32350749"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "32350749"
+        ],
+        "title": "A Study of Possible Drug-drug Interactions Between Stiripentol or Valproate and Cannabidiol in Patients With Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02607891",
+      "generic_name": "stiripentol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-27dc159cb643",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study of Possible Drug-drug Interactions Between Stiripentol or Valproate and Cannabidiol in Patients With Epilepsy"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58304ba8-9779-4658-811e-94ffe08c3f16; published=Apr 30, 2026; title=DIACOMIT (STIRIPENTOL) CAPSULE DIACOMIT (STIRIPENTOL) POWDER, FOR SUSPENSION [BIOCODEX, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58304ba8-9779-4658-811e-94ffe08c3f16",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5",
+      "generic_name": "stiripentol",
+      "id": "fda_warning_metadata_refresh-471c89f58df3",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=58304ba8-9779-4658-811e-94ffe08c3f16; effective_time=20260427; title=Diacomit / STIRIPENTOL; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=58304ba8-9779-4658-811e-94ffe08c3f16; effective_time=20260427; title=Diacomit / STIRIPENTOL; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%2258304ba8-9779-4658-811e-94ffe08c3f16%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Post hoc STICLO analysis reports >=50% GTCS decrease and GTCS freedom in the double-blind period.",
+      "dose_or_regimen": "stiripentol add-on to clobazam/valproate",
+      "endpoint": "Dravet generalized tonic-clonic seizures",
+      "generic_name": "stiripentol",
+      "label": "Guerrini2024",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "38722572",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38722572/",
+      "rr50_active_percent": "72.0",
+      "rr50_differential_percent": "65.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "7.0",
+      "sf_active_percent": "38.0",
+      "sf_differential_percent": "38.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Additional Results from Two Randomized, Placebo-Controlled Trials of Stiripentol in Dravet Syndrome Highlight a Rapid Antiseizure Efficacy with Longer Seizure-Free Periods."
+    },
+    {
+      "audit_note": "Fenfluramine was the randomized active treatment; stiripentol was background therapy.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "stiripentol",
+      "label": "Nabbout2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "31790543",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fenfluramine for Treatment-Resistant Seizures in Patients With Dravet Syndrome Receiving Stiripentol-Inclusive Regimens: A Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Partial-epilepsy enrichment/withdrawal trial is audited, but not included in the Dravet max-dose rollup.",
+      "dose_or_regimen": "stiripentol pediatric partial-epilepsy add-on regimen",
+      "endpoint": "childhood partial seizures",
+      "generic_name": "stiripentol",
+      "label": "Chiron2006",
+      "mpc_active_percent": "75.0",
+      "mpc_differential_percent": "53.0",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "22.0",
+      "pmid": "16948934",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16948934/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Stiripentol in childhood partial epilepsy: randomized placebo-controlled trial with enrichment and withdrawal design."
+    },
+    {
+      "audit_note": "Abstract reports responders, percent change from baseline, and seizure-free patients in the STICLO Dravet trial.",
+      "dose_or_regimen": "stiripentol add-on to valproate and clobazam",
+      "endpoint": "Dravet clonic or tonic-clonic seizures",
+      "generic_name": "stiripentol",
+      "label": "Chiron2000",
+      "mpc_active_percent": "69.0",
+      "mpc_differential_percent": "76.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-7.0",
+      "pmid": "11089822",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11089822/",
+      "rr50_active_percent": "71.0",
+      "rr50_differential_percent": "66.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "5.0",
+      "sf_active_percent": "42.9",
+      "sf_differential_percent": "42.9",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Stiripentol in severe myoclonic epilepsy in infancy: a randomised placebo-controlled syndrome-dedicated trial. STICLO study group."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Guerrini",
+      "generic_name": "stiripentol",
+      "label": "Guerrini2024",
+      "pmid": "38722572",
+      "pub_types": "Journal Article",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Additional Results from Two Randomized, Placebo-Controlled Trials of Stiripentol in Dravet Syndrome Highlight a Rapid Antiseizure Efficacy with Longer Seizure-Free Periods.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38722572/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Nabbout",
+      "generic_name": "stiripentol",
+      "label": "Nabbout2020",
+      "pmid": "31790543",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fenfluramine for Treatment-Resistant Seizures in Patients With Dravet Syndrome Receiving Stiripentol-Inclusive Regimens: A Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Chiron",
+      "generic_name": "stiripentol",
+      "label": "Chiron2006",
+      "pmid": "16948934",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Stiripentol in childhood partial epilepsy: randomized placebo-controlled trial with enrichment and withdrawal design.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16948934/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Chiron",
+      "generic_name": "stiripentol",
+      "label": "Chiron2000",
+      "pmid": "11089822",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Stiripentol in severe myoclonic epilepsy in infancy: a randomised placebo-controlled syndrome-dedicated trial. STICLO study group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11089822/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "37543865",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III; Multicenter Study",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Fenfluramine in the treatment of Dravet syndrome: Results of a third randomized, placebo-controlled clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37543865/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Bishop",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "36463826",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Fenfluramine treatment is associated with improvement in everyday executive function in preschool-aged children (<5 years) with Dravet syndrome: A critical period for early neurodevelopment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36463826/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "34676542",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Fenfluramine significantly reduces day-to-day seizure burden by increasing number of seizure-free days and time between seizures in patients with Dravet syndrome: A time-to-event analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34676542/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "33078386",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Fenfluramine HCl (Fintepla ® ) provides long-term clinically meaningful reduction in seizure frequency: Analysis of an ongoing open-label extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33078386/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Lai",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "32809271",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Cardiovascular safety of fenfluramine in the treatment of Dravet syndrome: Analysis of an ongoing long-term open-label safety extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32809271/",
+      "year": "2020"
+    },
+    {
+      "first_author": "VanLandingham",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "32652616",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A Phase 2, Double-Blind, Placebo-Controlled Trial to Investigate Potential Drug-Drug Interactions Between Cannabidiol and Clobazam.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32652616/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Ben-Menachem",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "32350749",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A Phase II Randomized Trial to Explore the Potential for Pharmacokinetic Drug-Drug Interactions with Stiripentol or Valproate when Combined with Cannabidiol in Patients with Epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32350749/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Perry",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "30955420",
+      "pub_types": "Journal Article; Comment",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Don't Fear the Reefer-Evidence Mounts for Plant-Based Cannabidiol as Treatment for Epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30955420/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "29540584",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Randomized, dose-ranging safety trial of cannabidiol in Dravet syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29540584/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Peigné",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "24725808",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Reassessment of stiripentol pharmacokinetics in healthy adult volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24725808/",
+      "year": "2014"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "stiripentol",
+      "label": "",
+      "pmid": "15875342",
+      "pub_types": "Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Stiripentol: new preparation. Severe myoclonic epilepsy of infancy: promising.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15875342/",
+      "year": "2005"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

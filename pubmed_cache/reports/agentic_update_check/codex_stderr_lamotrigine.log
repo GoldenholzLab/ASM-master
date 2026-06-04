@@ -1,0 +1,1768 @@
+2026-05-21T01:02:44.093103Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:02:44.093839Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:02:44.098860Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:02:44.098940Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:44.102582Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.125344Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e480e-6769-7812-ad46-e6dfcee249b7
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 38%, CNS: headache 29%, ophthalmologic: diplopia 28%, neurologic: ataxia 22%, GI: nausea 19%, dermatologic: rash 10%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "17-23.2 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Naritoku2007 lamotrigine XR individualized adjunctive dose 23.2%; Biton2005 lamotrigine individualized adjunctive dose 23%; Motte1997 lamotrigine individualized adjunctive dose 17%; Schapel1993 lamotrigine 150-300 mg/day 22%)",
+    "diff_median_pct_change_maximum_effective_dose": "22.1-44.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Biton2010 lamotrigine XR individualized adjunctive dose 43.3%; Naritoku2007 lamotrigine XR individualized adjunctive dose 22.1%; Trevathan2006 lamotrigine individualized adjunctive dose 37%; Biton2005 lamotrigine individualized adjunctive dose 32.3%; Motte1997 lamotrigine individualized adjunctive dose 44.8%; Boas1996 lamotrigine 75-400 mg/day 30.3%; Messenheimer1994 lamotrigine mostly 400 mg/day 25%)",
+    "diff_seizure_freedom_maximum_effective_dose": "31-41 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Trevathan2006 lamotrigine individualized adjunctive dose 31%; Frank1999 lamotrigine monotherapy responder-enriched regimen 41%)",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; glucuronidation substrate",
+    "epilepsy_type": "Focal; Generalized; Absence; LGS; Generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "fda_black_box_warning": "WARNING: SERIOUS SKIN RASHES LAMICTAL can cause serious rashes requiring hospitalization and discontinuation of treatment. The incidence of these rashes, which have included Stevens-Johnson syndrome, is approximately 0.3% to 0.8% in pediatric patients (aged 2 to 17 years) and 0.08% to 0.3% in adults receiving LAMICTAL. One rash-related death was reported in a prospectively followed cohort of 1,983 pediatric patients (aged 2 to 16 years) with epilepsy taking LAMICTAL as adjunctive therapy. In worldwide postmarketing experience, rare cases of toxic epidermal necrolysis and/or rash-related death have been reported in adult and pediatric patients, but their numbers are too few to permit a precise estimate of the rate. In addition to age, factors that may increase the risk of occurrence or the severity of rash caused by LAMICTAL include (1) coadministration of LAMICTAL with valproate (includes valproic acid and divalproex sodium), (2) exceeding the recommended initial dose of LAMICTAL, (3) exceeding the recommended dose escalation for LAMICTAL, or (4) the presence of the HLA-B*1502 allele. However, cases have occurred in the absence of these factors. Nearly all cases of life-threatening rashes caused by LAMICTAL have occurred within 2 to 8 weeks of treatment initiation. However, isolated cases have occurred after prolonged treatment (e.g., 6 months). Accordingly, duration of therapy cannot be relied upon as means to predict the potential risk heralded by the first appearance of a rash. Although benign rashes are also caused by LAMICTAL, it is not possible to predict reliably which rashes will prove to be serious or life threatening. Accordingly, LAMICTAL should ordinarily be discontinued at the first sign of rash, unless the rash is clearly not drug related. Discontinuation of treatment may not prevent a rash from becoming life threatening or permanently disabling or disfiguring [see Warnings and Precautions ( 5.1 )] . WARNING: SERIOUS SKIN RASHES See full prescribing information for complete boxed warning. • Cases of life-threatening serious rashes, including Stevens-Johnson syndrome and toxic epidermal necrolysis, and/or rash-related death have been caused by lamotrigine. The rate of serious rash is greater in pediatric patients than in adults. Additional factors that may increase the risk of rash include: o coadministration with valproate. o exceeding recommended initial dose of LAMICTAL. o exceeding recommended dose escalation for LAMICTAL. o presence of the HLA-B*1502 allele. ( 5.1 ) • Benign rashes are also caused by lamotrigine; however, it is not possible to predict which rashes will prove to be serious or life threatening. LAMICTAL should be discontinued at the first sign of rash, unless the rash is clearly not drug related. ( 5.1 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL (LAMOTRIGINE) TABLET LAMICTAL (LAMOTRIGINE) TABLET, FOR SUSPENSION LAMICTAL ODT (LAMOTRIGINE) TABLET, ORALLY DISINTEGRATING LAMICTAL (LAMOTRIGINE) KIT [GLAXOSMITHKLINE LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Absence; Focal; Generalized; Generalized tonic-clonic; LGS",
+    "filter_formulation": "Film/ODT; Long acting; Tablet",
+    "filter_mechanism": "Glutamate receptor",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "Conduction/arrhythmia caution; No known meaningful QT effect; QT prolongation",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Neurologic; Ophthalmologic",
+    "formulations_available": "Tablet; chewable/dispersible tablet; orally disintegrating tablet; extended-release tablet",
+    "generic_name": "lamotrigine",
+    "half_life_range": "25-33 h; shorter with enzyme inducers, longer with valproate",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Up to 500 mg/day for adjunctive therapy depending on interacting ASMs",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise anticonvulsant mechanism is unknown; a proposed mechanism is inhibition of voltage-sensitive sodium channels with reduced glutamate and aspartate release.",
+    "mechanism_source": "FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Maintenance depends on interacting ASMs; adult effective maintenance commonly 100-500 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Naritoku2007|23.2|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Biton2005|23|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|17|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Schapel1993|22|https://pubmed.ncbi.nlm.nih.gov/8505632/|41",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Trevathan2006|31|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Frank1999|41|https://pubmed.ncbi.nlm.nih.gov/10403222/|45",
+    "pubmed_phase_ii_iii_rct_links": "Biton2010|https://pubmed.ncbi.nlm.nih.gov/20937567/; Naritoku2007|https://pubmed.ncbi.nlm.nih.gov/17938371/; Trevathan2006|https://pubmed.ncbi.nlm.nih.gov/16847080/; Pressler2006|https://pubmed.ncbi.nlm.nih.gov/16717207/; Ettinger2006|https://pubmed.ncbi.nlm.nih.gov/17071141/; Biton2005|https://pubmed.ncbi.nlm.nih.gov/16344515/; Frank1999|https://pubmed.ncbi.nlm.nih.gov/10403222/; Duchowny1999|https://pubmed.ncbi.nlm.nih.gov/10563619/; Eriksson1998|https://pubmed.ncbi.nlm.nih.gov/9596201/; Beran1998|https://pubmed.ncbi.nlm.nih.gov/9860069/; Motte1997|https://pubmed.ncbi.nlm.nih.gov/9400037/; Matsuo1996|https://pubmed.ncbi.nlm.nih.gov/8814098/; Boas1996|https://pubmed.ncbi.nlm.nih.gov/8937535/; Messenheimer1994|https://pubmed.ncbi.nlm.nih.gov/8112232/; Schapel1993|https://pubmed.ncbi.nlm.nih.gov/8505632/; Sander1990|https://pubmed.ncbi.nlm.nih.gov/2272345/; Loiseau1990|https://pubmed.ncbi.nlm.nih.gov/2127016/; Jawad1986|https://pubmed.ncbi.nlm.nih.gov/3530305/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT prolongation; avoid in certain cardiac conduction/structural disease per warning",
+    "rct_pubmed_verification_notes": "PubMed loop 27/65 on 2026-05-15: 18 qualifying placebo-controlled randomized clinical trial report(s) retained from 59 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current broad-use ASM; also used for bipolar disorder maintenance.",
+    "trade_names": "Lamictal; Lamictal CD; Lamictal ODT; Lamictal XR; Logem",
+    "typical_doses_per_day": "Dose depends strongly on valproate/enzyme inducers; adults commonly 100-500 mg/day",
+    "year_fda_cleared": "1994"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Biton2010|https://pubmed.ncbi.nlm.nih.gov/20937567/",
+      "label": "Biton2010",
+      "pmid": "20937567",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20937567/"
+    },
+    {
+      "entry": "Naritoku2007|https://pubmed.ncbi.nlm.nih.gov/17938371/",
+      "label": "Naritoku2007",
+      "pmid": "17938371",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17938371/"
+    },
+    {
+      "entry": "Trevathan2006|https://pubmed.ncbi.nlm.nih.gov/16847080/",
+      "label": "Trevathan2006",
+      "pmid": "16847080",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16847080/"
+    },
+    {
+      "entry": "Pressler2006|https://pubmed.ncbi.nlm.nih.gov/16717207/",
+      "label": "Pressler2006",
+      "pmid": "16717207",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16717207/"
+    },
+    {
+      "entry": "Ettinger2006|https://pubmed.ncbi.nlm.nih.gov/17071141/",
+      "label": "Ettinger2006",
+      "pmid": "17071141",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17071141/"
+    },
+    {
+      "entry": "Biton2005|https://pubmed.ncbi.nlm.nih.gov/16344515/",
+      "label": "Biton2005",
+      "pmid": "16344515",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16344515/"
+    },
+    {
+      "entry": "Frank1999|https://pubmed.ncbi.nlm.nih.gov/10403222/",
+      "label": "Frank1999",
+      "pmid": "10403222",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10403222/"
+    },
+    {
+      "entry": "Duchowny1999|https://pubmed.ncbi.nlm.nih.gov/10563619/",
+      "label": "Duchowny1999",
+      "pmid": "10563619",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10563619/"
+    },
+    {
+      "entry": "Eriksson1998|https://pubmed.ncbi.nlm.nih.gov/9596201/",
+      "label": "Eriksson1998",
+      "pmid": "9596201",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9596201/"
+    },
+    {
+      "entry": "Beran1998|https://pubmed.ncbi.nlm.nih.gov/9860069/",
+      "label": "Beran1998",
+      "pmid": "9860069",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9860069/"
+    },
+    {
+      "entry": "Motte1997|https://pubmed.ncbi.nlm.nih.gov/9400037/",
+      "label": "Motte1997",
+      "pmid": "9400037",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9400037/"
+    },
+    {
+      "entry": "Matsuo1996|https://pubmed.ncbi.nlm.nih.gov/8814098/",
+      "label": "Matsuo1996",
+      "pmid": "8814098",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8814098/"
+    },
+    {
+      "entry": "Boas1996|https://pubmed.ncbi.nlm.nih.gov/8937535/",
+      "label": "Boas1996",
+      "pmid": "8937535",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8937535/"
+    },
+    {
+      "entry": "Messenheimer1994|https://pubmed.ncbi.nlm.nih.gov/8112232/",
+      "label": "Messenheimer1994",
+      "pmid": "8112232",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8112232/"
+    },
+    {
+      "entry": "Schapel1993|https://pubmed.ncbi.nlm.nih.gov/8505632/",
+      "label": "Schapel1993",
+      "pmid": "8505632",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8505632/"
+    },
+    {
+      "entry": "Sander1990|https://pubmed.ncbi.nlm.nih.gov/2272345/",
+      "label": "Sander1990",
+      "pmid": "2272345",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2272345/"
+    },
+    {
+      "entry": "Loiseau1990|https://pubmed.ncbi.nlm.nih.gov/2127016/",
+      "label": "Loiseau1990",
+      "pmid": "2127016",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2127016/"
+    },
+    {
+      "entry": "Jawad1986|https://pubmed.ncbi.nlm.nih.gov/3530305/",
+      "label": "Jawad1986",
+      "pmid": "3530305",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3530305/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 38%, CNS: headache 29%, ophthalmologic: diplopia 28%, neurologic: ataxia 22%, GI: nausea 19%, dermatologic: rash 10%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "17-23.2 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Naritoku2007 lamotrigine XR individualized adjunctive dose 23.2%; Biton2005 lamotrigine individualized adjunctive dose 23%; Motte1997 lamotrigine individualized adjunctive dose 17%; Schapel1993 lamotrigine 150-300 mg/day 22%)",
+    "diff_median_pct_change_maximum_effective_dose": "22.1-44.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Biton2010 lamotrigine XR individualized adjunctive dose 43.3%; Naritoku2007 lamotrigine XR individualized adjunctive dose 22.1%; Trevathan2006 lamotrigine individualized adjunctive dose 37%; Biton2005 lamotrigine individualized adjunctive dose 32.3%; Motte1997 lamotrigine individualized adjunctive dose 44.8%; Boas1996 lamotrigine 75-400 mg/day 30.3%; Messenheimer1994 lamotrigine mostly 400 mg/day 25%)",
+    "diff_seizure_freedom_maximum_effective_dose": "31-41 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Trevathan2006 lamotrigine individualized adjunctive dose 31%; Frank1999 lamotrigine monotherapy responder-enriched regimen 41%)",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; glucuronidation substrate",
+    "epilepsy_type": "Focal; Generalized; Absence; LGS; Generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "fda_black_box_warning": "WARNING: SERIOUS SKIN RASHES LAMICTAL can cause serious rashes requiring hospitalization and discontinuation of treatment. The incidence of these rashes, which have included Stevens-Johnson syndrome, is approximately 0.3% to 0.8% in pediatric patients (aged 2 to 17 years) and 0.08% to 0.3% in adults receiving LAMICTAL. One rash-related death was reported in a prospectively followed cohort of 1,983 pediatric patients (aged 2 to 16 years) with epilepsy taking LAMICTAL as adjunctive therapy. In worldwide postmarketing experience, rare cases of toxic epidermal necrolysis and/or rash-related death have been reported in adult and pediatric patients, but their numbers are too few to permit a precise estimate of the rate. In addition to age, factors that may increase the risk of occurrence or the severity of rash caused by LAMICTAL include (1) coadministration of LAMICTAL with valproate (includes valproic acid and divalproex sodium), (2) exceeding the recommended initial dose of LAMICTAL, (3) exceeding the recommended dose escalation for LAMICTAL, or (4) the presence of the HLA-B*1502 allele. However, cases have occurred in the absence of these factors. Nearly all cases of life-threatening rashes caused by LAMICTAL have occurred within 2 to 8 weeks of treatment initiation. However, isolated cases have occurred after prolonged treatment (e.g., 6 months). Accordingly, duration of therapy cannot be relied upon as means to predict the potential risk heralded by the first appearance of a rash. Although benign rashes are also caused by LAMICTAL, it is not possible to predict reliably which rashes will prove to be serious or life threatening. Accordingly, LAMICTAL should ordinarily be discontinued at the first sign of rash, unless the rash is clearly not drug related. Discontinuation of treatment may not prevent a rash from becoming life threatening or permanently disabling or disfiguring [see Warnings and Precautions ( 5.1 )] . WARNING: SERIOUS SKIN RASHES See full prescribing information for complete boxed warning. • Cases of life-threatening serious rashes, including Stevens-Johnson syndrome and toxic epidermal necrolysis, and/or rash-related death have been caused by lamotrigine. The rate of serious rash is greater in pediatric patients than in adults. Additional factors that may increase the risk of rash include: o coadministration with valproate. o exceeding recommended initial dose of LAMICTAL. o exceeding recommended dose escalation for LAMICTAL. o presence of the HLA-B*1502 allele. ( 5.1 ) • Benign rashes are also caused by lamotrigine; however, it is not possible to predict which rashes will prove to be serious or life threatening. LAMICTAL should be discontinued at the first sign of rash, unless the rash is clearly not drug related. ( 5.1 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL (LAMOTRIGINE) TABLET LAMICTAL (LAMOTRIGINE) TABLET, FOR SUSPENSION LAMICTAL ODT (LAMOTRIGINE) TABLET, ORALLY DISINTEGRATING LAMICTAL (LAMOTRIGINE) KIT [GLAXOSMITHKLINE LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678",
+    "formulations_available": "Tablet; chewable/dispersible tablet; orally disintegrating tablet; extended-release tablet",
+    "half_life_range": "25-33 h; shorter with enzyme inducers, longer with valproate",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Up to 500 mg/day for adjunctive therapy depending on interacting ASMs",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise anticonvulsant mechanism is unknown; a proposed mechanism is inhibition of voltage-sensitive sodium channels with reduced glutamate and aspartate release.",
+    "mechanism_source": "FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Maintenance depends on interacting ASMs; adult effective maintenance commonly 100-500 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Naritoku2007|23.2|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Biton2005|23|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|17|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Schapel1993|22|https://pubmed.ncbi.nlm.nih.gov/8505632/|41",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Trevathan2006|31|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Frank1999|41|https://pubmed.ncbi.nlm.nih.gov/10403222/|45",
+    "pubmed_phase_ii_iii_rct_links": "Biton2010|https://pubmed.ncbi.nlm.nih.gov/20937567/; Naritoku2007|https://pubmed.ncbi.nlm.nih.gov/17938371/; Trevathan2006|https://pubmed.ncbi.nlm.nih.gov/16847080/; Pressler2006|https://pubmed.ncbi.nlm.nih.gov/16717207/; Ettinger2006|https://pubmed.ncbi.nlm.nih.gov/17071141/; Biton2005|https://pubmed.ncbi.nlm.nih.gov/16344515/; Frank1999|https://pubmed.ncbi.nlm.nih.gov/10403222/; Duchowny1999|https://pubmed.ncbi.nlm.nih.gov/10563619/; Eriksson1998|https://pubmed.ncbi.nlm.nih.gov/9596201/; Beran1998|https://pubmed.ncbi.nlm.nih.gov/9860069/; Motte1997|https://pubmed.ncbi.nlm.nih.gov/9400037/; Matsuo1996|https://pubmed.ncbi.nlm.nih.gov/8814098/; Boas1996|https://pubmed.ncbi.nlm.nih.gov/8937535/; Messenheimer1994|https://pubmed.ncbi.nlm.nih.gov/8112232/; Schapel1993|https://pubmed.ncbi.nlm.nih.gov/8505632/; Sander1990|https://pubmed.ncbi.nlm.nih.gov/2272345/; Loiseau1990|https://pubmed.ncbi.nlm.nih.gov/2127016/; Jawad1986|https://pubmed.ncbi.nlm.nih.gov/3530305/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT prolongation; avoid in certain cardiac conduction/structural disease per warning",
+    "trade_names": "Lamictal; Lamictal CD; Lamictal ODT; Lamictal XR; Logem",
+    "typical_doses_per_day": "Dose depends strongly on valproate/enzyme inducers; adults commonly 100-500 mg/day",
+    "year_fda_cleared": "1994"
+  },
+  "generic_name": "lamotrigine",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Naritoku2007|https://pubmed.ncbi.nlm.nih.gov/17938371/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate the efficacy and tolerability of once-daily adjunctive lamotrigine extended-release (XR) for partial seizures in epilepsy. Patients more than 12 years old diagnosed with epilepsy with partial seizures and taking one to two baseline antiepileptic drugs were randomized to adjunctive once-daily lamotrigine XR or placebo in a double-blind, parallel-group trial. The study comprised a baseline phase, a 7-week double-blind escalation phase, and a 12-week double-blind maintenance phase during which doses of study medication and concomitant antiepileptic drugs were maintained. Of the 243 randomized patients, 239 (118 lamotrigine XR, 121 placebo) entered the escalation phase and received study medication. Lamotrigine XR was more effective than placebo with respect to median percent reduction from baseline in weekly partial seizure frequency (primary endpoint-entire 19-week treatment phase: 46.6% vs 24.5%, p = 0.0001 [corrected] via Wilcoxon test; escalation phase: 29.8% vs 15.6%, p = 0.027; maintenance phase: 58.4% vs 26.8%, p [corrected] < 0.0001). The percentage of patients with >or=50% reduction in partial seizure frequency (44.0% vs 20.8%, p = 0.0002) [corrected] and time to >or=50% reduction in partial seizure frequency (p = 0.0001) [corrected] also favored lamotrigine XR over placebo. A similar pattern of results was observed for secondarily generalized seizures. The most common adverse events were headache (lamotrigine XR 16%, placebo 18%) [corrected] and dizziness (lamotrigine XR 19%, [corrected] placebo 5%). Differences between lamotrigine XR and placebo on health outcomes measures were not significant. Once-daily adjunctive lamotrigine extended-release compared with placebo effectively reduced partial seizure frequency and was well tolerated in this double-blind study. Results support the clinical utility of this new once-daily formulation.",
+          "first_author": "Naritoku",
+          "pmid": "17938371",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Lamotrigine extended-release as adjunctive therapy for partial seizures.",
+          "year": "2007"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/17938371/",
+      "generic_name": "lamotrigine",
+      "id": "rct_pubmed_concordance_problem-12495c5ed0ce",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 17938371 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 17938371 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Trevathan2006|https://pubmed.ncbi.nlm.nih.gov/16847080/",
+      "details": {
+        "article": {
+          "abstract": "Primary generalized tonic-clonic seizures are relatively more common among children than among adults. Primary generalized tonic-clonic seizures are associated with increased risk of injury and death. Therefore, effective control of primary generalized tonic-clonic seizures is necessary to reduce epilepsy-related morbidity and mortality. Lamotrigine has demonstrated efficacy from published randomized clinical trials for childhood partial seizures, absence seizures, and for the generalized seizures associated with Lennox-Gastaut syndrome. A randomized, blinded, placebo-controlled study was conducted to assess the efficacy and tolerability of adjunctive therapy with lamotrigine in the treatment of primary generalized tonic-clonic seizures among patients > or = 2 years of age; we report the data from children and adolescents 2 to 20 years of age from this randomized clinical trial. This is the first published analysis of data from a randomized, double-blind, controlled clinical trial of primary generalized tonic-clonic seizures focusing on children and adolescents. We randomly assigned (1:1) 117 patients, aged 2 to 55 years, with primary generalized tonic-clonic seizures inadequately controlled on 1 to 2 current antiepileptic drugs and with evidence of primary generalized tonic-clonic seizures on electroencephalogram and no historical or electroencephalogram evidence of partial seizures to either lamotrigine or placebo in a double-blind parallel group clinical trial from 2001 through 2004. We analyzed the subgroup of children and adolescents, aged 2 to 20 years (n = 45), from this randomized clinical trial. Patients having > or = 3 primary generalized tonic-clonic seizures over an 8-week baseline were randomly assigned (1:1) to receive either lamotrigine or placebo. The treatment period consisted of an escalation phase (12 weeks for patients 2-12 years; 7 weeks for patients > 12 years) and a maintenance phase (12 weeks). The study had 4 phases: screening phase, baseline phase, escalation phase, and maintenance phase. During the screening phase, baseline medical examinations and seizure type and seizure frequency assessments were performed. During the 8-week baseline phase, the number and dosages of concomitant antiepileptic drugs were maintained while seizure frequency was assessed. The assessment of primary generalized tonic-clonic seizure frequency was determined during the 8-week baseline phase. Patients eligible for random assignment experienced > or =3 primary generalized tonic-clonic seizures during the baseline phase and > or = 1 primary generalized tonic-clonic seizure in the 8 weeks before the baseline phase. Lamotrigine was introduced and titrated using a schedule based on the patients' age and concurrent antiepileptic drug regimen. During the escalation phase, the number and doses of concomitant antiepileptic drugs were not changed. The escalation phase was followed by a 12-week maintenance phase during which time the lamotrigine dose was maintained at a specific dose defined by the patients' age and concomitant antiepileptic drugs, whereas the doses of concurrent antiepileptic drugs were maintained at a constant dose. Concurrent antiepileptic drugs could not be discontinued or added during the maintenance phase. The primary efficacy end point measure was the median reduction in the frequency of primary generalized tonic-clonic seizures from baseline; seizure counts were recorded prospectively in standardized daily seizure diaries. Other efficacy end point data for analysis were as follows: the median seizure counts, the median percentage change from the baseline phase in average monthly seizure frequency for other generalized seizure types, and the percentage of patients with a reduction of > or = 25%, > or = 50%, > or = 75%, or 100% in frequencies of primary generalized tonic-clonic seizures and all generalized seizures during the escalation phase and/or maintenance phase relative to the baseline phase. Accurate counts of absence seizure frequency require electroencephalogram-video monitoring; absence seizure frequency was not an outcome measure for this analysis. Forty-five (21 lamotrigine and 24 placebo) patients 2 to 19 years of age were randomly assigned and received study drug. Eight patients (3 lamotrigine and 5 placebo) had a combination of clinical (myoclonus and/or absence seizures) and electroencephalogram findings that were consistent with juvenile myoclonic epilepsy. Among the 45 children randomly assigned, 74% had generalized spike, polyspike, and/or generalized spike and wave discharges on routine electroencephalogram recordings; the remaining 26% of children had no electroencephalogram findings suggestive of partial epilepsy and a clear history consistent with primary generalized tonic-clonic seizures. Electroencephalogram findings were not significantly different between the lamotrigine and the placebo treatment groups. The median percentage decrease from baseline in primary generalized tonic-clonic seizures during the entire treatment period was 77% in the lamotrigine group and 40% in the placebo group (P = .044). The median primary generalized tonic-clonic seizure counts per month were 0.7 in the lamotrigine group and 3.6 in the placebo group during escalation (P = .008), 0.3 in the lamotrigine group and 2.0 in the placebo group during maintenance (P = .005), and 0.4 in the lamotrigine group and 2.5 in the placebo group during the entire treatment period (P = .007). Trends were noted during escalation and maintenance with a median percentage decrease in primary generalized tonic-clonic seizures during escalation of 72% in the lamotrigine group and 30% in the placebo group (P = .059), and 83% in the lamotrigine group and 42% in the placebo group during maintenance (P = .058). During the maintenance phase, 48% of lamotrigine patients were seizure free compared with 17% treated with placebo (P = .051). One patient from each treatment group discontinued from the study because of an adverse event; 1 patient who received lamotrigine experienced \"disorientation\"; and 1 patient who received placebo had a convulsion with apnea. No rashes occurred among patients taking lamotrigine or placebo. No patient experienced worsening of the intensity or frequency of myoclonus. Adjunctive lamotrigine therapy seems effective in controlling primary generalized tonic-clonic seizures among patients 2 to 20 years of age.",
+          "first_author": "Trevathan",
+          "pmid": "16847080",
+          "pub_types": [
+            "Comparative Study",
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "title": "Lamotrigine adjunctive therapy among children and adolescents with primary generalized tonic-clonic seizures.",
+          "year": "2006"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/16847080/",
+      "generic_name": "lamotrigine",
+      "id": "rct_pubmed_concordance_problem-b26b4cbd59ef",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 16847080 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 16847080 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Frank1999|https://pubmed.ncbi.nlm.nih.gov/10403222/",
+      "details": {
+        "article": {
+          "abstract": "To investigate whether lamotrigine (LTG) monotherapy is effective and safe for newly diagnosed typical absence seizures in children and adolescents (aged 3-15 years, n = 45). A \"responder-enriched\" study design was used: open-label dose escalation was followed by placebo-controlled, double-blind testing of LTG. Conventional hyperventilation testing with EEG recording was used to confirm diagnoses and assess treatment success defined as complete freedom from seizures. Ambulatory 24-h EEG recordings provided supporting evidence of effectiveness. Safety was assessed by evaluation of adverse events, vital signs, and physical, neurologic, and laboratory examinations. Plasma samples were taken to evaluate the pharmacokinetics of LTG. During initial open-label dose escalation, 71.4% of patients (intent-to-treat) or 82% (per protocol analysis) became seizure free; individual patients responded at doses ranging from 2 to 15 mg/kg/day (median, 5.0). In the placebo-controlled, double-blind phase of the study, statistically significantly more patients remained seizure free when treated with LTG (62%) than with placebo (21%; p < 0.02; for the intent-to-treat analysis). Mean plasma concentrations of LTG, were linearly related to dose, although there was substantial interindividual variation. No patients were withdrawn from the study for any safety-related reason. LTG monotherapy is effective for typical absence seizures in children and is generally well tolerated.",
+          "first_author": "Frank",
+          "pmid": "10403222",
+          "pub_types": [
+            "Clinical Trial",
+            "Controlled Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Lamictal (lamotrigine) monotherapy for typical absence seizures in children.",
+          "year": "1999"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/10403222/",
+      "generic_name": "lamotrigine",
+      "id": "rct_pubmed_concordance_problem-be28eb52fc2b",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 10403222 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 10403222 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Motte1997|https://pubmed.ncbi.nlm.nih.gov/9400037/",
+      "details": {
+        "article": {
+          "abstract": "The Lennox-Gastaut syndrome, a severe form of epilepsy that usually begins in early childhood, is difficult to treat. Dose-related drug toxicity is common. We conducted a double-blind, placebo-controlled trial of the antiepileptic drug lamotrigine in patients with the Lennox-Gastaut syndrome. Eligible patients had more than one type of predominantly generalized seizure, including tonic-clonic, atonic, tonic, and major myoclonic, and had seizures on average at least every other day. After a 4-week base-line period in which all participants received placebo, we randomly assigned 169 patients (age range, 3 to 25 years) to 16 weeks of lamotrigine (n= 79) or placebo (n=90) in addition to their other antiepileptic drugs. The median frequency of all major seizures changed from base-line levels of 16.4 and 13.5 per week in the lamotrigine and placebo groups, respectively, to 9.9 and 14.2 per week after 16 weeks of treatment (P=0.002). Thirty-three percent of the patients in the lamotrigine group and 16 percent of those in the placebo group had a reduction of at least 50 percent in the frequency of seizures (P= 0.01). There were no significant differences between groups in the incidence of adverse events, except for colds or viral illnesses, which was more common in the lamotrigine group (P=0.05). Lamotrigine was an effective and well-tolerated treatment for seizures associated with the Lennox-Gastaut syndrome.",
+          "first_author": "Motte",
+          "pmid": "9400037",
+          "pub_types": [
+            "Clinical Trial",
+            "Controlled Clinical Trial",
+            "Journal Article",
+            "Multicenter Study",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Lamotrigine for generalized seizures associated with the Lennox-Gastaut syndrome. Lamictal Lennox-Gastaut Study Group.",
+          "year": "1997"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9400037/",
+      "generic_name": "lamotrigine",
+      "id": "rct_pubmed_concordance_problem-fc47d066ac4f",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 9400037 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 9400037 needs manual review for lamotrigine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1994",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1994"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5",
+      "generic_name": "lamotrigine",
+      "id": "source_fact_concordance_problem-e9ae0e750088",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is being conducted to compare the efficacy and safety of LAMICTAL (lamotrigine) extended-release with placebo in the treatment of Primary Generalized Tonic-Clonic (PGTC) seizures. LAMICTAL extended-release is an investigational drug. Placebo tablets look like LAMICTAL extended-release tablets but do not contain active medication. In this study, LAMICTAL extended-release or placebo tablets will be added to current seizure treatments.",
+        "interventions": [
+          "lamotrigine (LAMICTAL) extended-release",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00104416",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "20937567"
+        ],
+        "title": "Study Evaluating LAMICTAL Extended-Release Therapy Added To Current Seizure Treatments In Patients With Primary Generalized Tonic-Clonic Seizures (PGTC) Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00104416",
+      "generic_name": "lamotrigine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-a6a6d49e8968",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study Evaluating LAMICTAL Extended-Release Therapy Added To Current Seizure Treatments In Patients With Primary Generalized Tonic-Clonic Seizures (PGTC) Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The present study evaluates the effect of oral contraceptives on lamotrigine plasma concentrations in a double blind, placebo controlled, cross-over study in patients with epilepsy.",
+        "interventions": [
+          "Oral contraception",
+          "Lamotrigine"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00266149",
+        "new_reference_pmids": [
+          "15101822",
+          "15101821",
+          "12849151",
+          "2225696",
+          "15893300"
+        ],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "15101822",
+          "15101821",
+          "12849151",
+          "2225696",
+          "15893300"
+        ],
+        "title": "Lamotrigine and Oral Contraceptives"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00266149",
+      "generic_name": "lamotrigine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c678790bab77",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Lamotrigine and Oral Contraceptives"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is being conducted to compare the efficacy and safety of LAMICTAL (lamotrigine) extended-release with placebo in the treatment of partial seizures. LAMICTAL extended-release is an investigational drug. Placebo tablets look like LAMICTAL extended-release tablets but do not contain active medication. In this study, LAMICTAL extended-release or placebo tablets will be added to current seizure treatments.",
+        "interventions": [
+          "LAMICTAL extended-release"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00113165",
+        "new_reference_pmids": [
+          "29363050"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "17938371",
+          "29363050"
+        ],
+        "title": "Study Evaluating LAMICTAL Extended-Release Therapy Added To Current Seizure Treatments In Patients With Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00113165",
+      "generic_name": "lamotrigine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-941ff9028f75",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study Evaluating LAMICTAL Extended-Release Therapy Added To Current Seizure Treatments In Patients With Partial Seizures"
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Lamictal; Lamictal CD; Lamictal ODT; Lamictal XR; Logem",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22epilepsy%22&limit=100",
+      "generic_name": "lamotrigine",
+      "id": "trade_name_addition-589b0cceb967",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Lamotrigine"
+      },
+      "proposed_value": "Lamotrigine",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Lamotrigine."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL (LAMOTRIGINE) TABLET LAMICTAL (LAMOTRIGINE) TABLET, FOR SUSPENSION LAMICTAL ODT (LAMOTRIGINE) TABLET, ORALLY DISINTEGRATING LAMICTAL (LAMOTRIGINE) KIT [GLAXOSMITHKLINE LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5",
+      "generic_name": "lamotrigine",
+      "id": "fda_warning_metadata_refresh-8d5a93e43e00",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: SERIOUS SKIN RASHES LAMICTAL can cause serious rashes requiring hospitalization and discontinuation of treatment. The incidence of these rashes, which have included Stevens-Johnson syndrome, is approximately 0.3% to 0.8% in pediatric patients (aged 2 to 17 years) and 0.08% to 0.3% in adults receiving LAMICTAL. One rash-related death was reported in a prospectively followed cohort of 1,983 pediatric patients (aged 2 to 16 years) with epilepsy taking LAMICTAL as adjunctive therapy. In worldwide postmarketing experience, rare cases of toxic epidermal necrolysis and/or rash-related death have been reported in adult and pediatric patients, but their numbers are too few to permit a precise estimate of the rate. In addition to age, factors that may increase the risk of occurrence or the severity of rash caused by LAMICTAL include (1) coadministration of LAMICTAL with valproate (includes valproic acid and divalproex sodium), (2) exceeding the recommended initial dose of LAMICTAL, (3) exceeding the recommended dose escalation for LAMICTAL, or (4) the presence of the HLA-B*1502 allele. However, cases have occurred in the absence of these factors. Nearly all cases of life-threatening rashes caused by LAMICTAL have occurred within 2 to 8 weeks of treatment initiation. However, isolated cases have occurred after prolonged treatment (e.g., 6 months). Accordingly, duration of therapy cannot be relied upon as means to predict the potential risk heralded by the first appearance of a rash. Although benign rashes are also caused by LAMICTAL, it is not possible to predict reliably which rashes will prove to be serious or life threatening. Accordingly, LAMICTAL should ordinarily be discontinued at the first sign of rash, unless the rash is clearly not drug related. Discontinuation of treatment may not prevent a rash from becoming life threatening or permanently disabling or disfiguring [see Warnings and Precautions ( 5.1 )] . WARNING: SERIOUS SKIN RASHES See full prescribing information for complete boxed warning. • Cases of life-threatening serious rashes, including Stevens-Johnson syndrome and toxic epidermal necrolysis, and/or rash-related death have been caused by lamotrigine. The rate of serious rash is greater in pediatric patients than in adults. Additional factors that may increase the risk of rash include: o coadministration with valproate. o exceeding recommended initial dose of LAMICTAL. o exceeding recommended dose escalation for LAMICTAL. o presence of the HLA-B*1502 allele. ( 5.1 ) • Benign rashes are also caused by lamotrigine; however, it is not possible to predict which rashes will prove to be serious or life threatening. LAMICTAL should be discontinued at the first sign of rash, unless the rash is clearly not drug related. ( 5.1 )",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d7e3572d-56fe-4727-2bb4-013ccca22678; effective_time=20251010; title=LAMICTAL; LAMICTAL ODT / LAMOTRIGINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d7e3572d-56fe-4727-2bb4-013ccca22678; effective_time=20251010; title=LAMICTAL; LAMICTAL ODT / LAMOTRIGINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d7e3572d-56fe-4727-2bb4-013ccca22678%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports median percentage reduction for the 19-week treatment phase. RR50 percentage was not reported.",
+      "dose_or_regimen": "lamotrigine XR individualized adjunctive dose",
+      "endpoint": "primary generalized tonic-clonic seizures",
+      "generic_name": "lamotrigine",
+      "label": "Biton2010",
+      "mpc_active_percent": "75.4",
+      "mpc_differential_percent": "43.3",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "32.1",
+      "pmid": "20937567",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20937567/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive lamotrigine XR for primary generalized tonic-clonic seizures in a randomized, placebo-controlled study."
+    },
+    {
+      "audit_note": "Abstract reports once-daily XR responder and median partial-seizure reduction values.",
+      "dose_or_regimen": "lamotrigine XR individualized adjunctive dose",
+      "endpoint": "partial seizures",
+      "generic_name": "lamotrigine",
+      "label": "Naritoku2007",
+      "mpc_active_percent": "46.6",
+      "mpc_differential_percent": "22.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "24.5",
+      "pmid": "17938371",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17938371/",
+      "rr50_active_percent": "44.0",
+      "rr50_differential_percent": "23.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "20.8",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Lamotrigine extended-release as adjunctive therapy for partial seizures."
+    },
+    {
+      "audit_note": "Mood-symptom secondary analysis; primary PGTC seizure outcomes are captured in the source efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Ettinger2006",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "17071141",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17071141/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of lamotrigine on depressive symptoms in adult patients with epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports pediatric/adolescent PGTC median reduction and maintenance seizure-free rates.",
+      "dose_or_regimen": "lamotrigine individualized adjunctive dose",
+      "endpoint": "pediatric/adolescent primary generalized tonic-clonic seizures",
+      "generic_name": "lamotrigine",
+      "label": "Trevathan2006",
+      "mpc_active_percent": "77.0",
+      "mpc_differential_percent": "37.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "40.0",
+      "pmid": "16847080",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16847080/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "48.0",
+      "sf_differential_percent": "31.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "17.0",
+      "title": "Lamotrigine adjunctive therapy among children and adolescents with primary generalized tonic-clonic seizures."
+    },
+    {
+      "audit_note": "Cognition crossover study reports similar seizure frequency during lamotrigine and placebo phases, without extractable seizure-outcome percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Pressler2006",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "16717207",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16717207/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of lamotrigine on cognition in children with epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports combined-phase median reduction and maintenance-phase RR50.",
+      "dose_or_regimen": "lamotrigine individualized adjunctive dose",
+      "endpoint": "primary generalized tonic-clonic seizures",
+      "generic_name": "lamotrigine",
+      "label": "Biton2005",
+      "mpc_active_percent": "66.5",
+      "mpc_differential_percent": "32.3",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "34.2",
+      "pmid": "16344515",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/16344515/",
+      "rr50_active_percent": "72.0",
+      "rr50_differential_percent": "23.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "49.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind, placebo-controlled study of lamotrigine in primary generalized tonic-clonic seizures."
+    },
+    {
+      "audit_note": "Pediatric partial-seizure trial reports significant reduction versus placebo but no extractable arm-specific percentages in the abstract.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Duchowny1999",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10563619",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10563619/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A placebo-controlled trial of lamotrigine add-on therapy for partial seizures in children. Lamictal Pediatric Partial Seizure Study Group."
+    },
+    {
+      "audit_note": "Abstract reports seizure freedom maintained in the double-blind phase.",
+      "dose_or_regimen": "lamotrigine monotherapy responder-enriched regimen",
+      "endpoint": "typical absence seizures",
+      "generic_name": "lamotrigine",
+      "label": "Frank1999",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10403222",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10403222/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "62.0",
+      "sf_differential_percent": "41.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "21.0",
+      "title": "Lamictal (lamotrigine) monotherapy for typical absence seizures in children."
+    },
+    {
+      "audit_note": "Generalized-epilepsy crossover abstract reports >=50% decreases among evaluable lamotrigine-treated cases, but not matching placebo arm percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Beran1998",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9860069",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9860069/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind, placebo-controlled, crossover study of lamotrigine in treatment-resistant generalised epilepsy."
+    },
+    {
+      "audit_note": "Enriched crossover design reports significant seizure-frequency reduction but no extractable active/placebo RR50, MPC, or seizure-freedom percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Eriksson1998",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9596201",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9596201/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "The efficacy of lamotrigine in children and adolescents with refractory generalized epilepsy: a randomized, double-blind, crossover study."
+    },
+    {
+      "audit_note": "Abstract reports LGS RR50; MPC is derived from baseline-to-treatment major-seizure frequency changes in the abstract.",
+      "dose_or_regimen": "lamotrigine individualized adjunctive dose",
+      "endpoint": "LGS major seizures",
+      "generic_name": "lamotrigine",
+      "label": "Motte1997",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "44.8",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "9400037",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9400037/",
+      "rr50_active_percent": "33.0",
+      "rr50_differential_percent": "17.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Lamotrigine for generalized seizures associated with the Lennox-Gastaut syndrome. Lamictal Lennox-Gastaut Study Group."
+    },
+    {
+      "audit_note": "Abstract reports placebo-adjusted total-seizure count reduction during lamotrigine treatment.",
+      "dose_or_regimen": "lamotrigine 75-400 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "lamotrigine",
+      "label": "Boas1996",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "30.3",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "8937535",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8937535/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Controlled trial of lamotrigine (Lamictal) for treatment-resistant partial seizures."
+    },
+    {
+      "audit_note": "High-dose tolerability/pharmacokinetic study, not a seizure-frequency efficacy report.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Matsuo1996",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8814098",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8814098/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Lamotrigine high-dose tolerability and safety in patients with epilepsy: a double-blind, placebo-controlled, eleven-week study."
+    },
+    {
+      "audit_note": "Abstract reports overall median seizure frequency decreased by 25% with lamotrigine compared with placebo.",
+      "dose_or_regimen": "lamotrigine mostly 400 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "lamotrigine",
+      "label": "Messenheimer1994",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "25.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "8112232",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8112232/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Lamotrigine therapy for partial seizures: a multicenter, placebo-controlled, double-blind, cross-over trial."
+    },
+    {
+      "audit_note": "Abstract reports 22% with >=50% reduction on lamotrigine and none on placebo.",
+      "dose_or_regimen": "lamotrigine 150-300 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "lamotrigine",
+      "label": "Schapel1993",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8505632",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8505632/",
+      "rr50_active_percent": "22.0",
+      "rr50_differential_percent": "22.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "0.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind, placebo controlled, crossover study of lamotrigine in treatment resistant partial seizures."
+    },
+    {
+      "audit_note": "Crossover abstract reports numbers of lamotrigine-treated responders but not matching placebo arm percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Loiseau1990",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2127016",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2127016/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomised double-blind placebo-controlled crossover add-on trial of lamotrigine in patients with treatment-resistant partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports no significant total-seizure reduction and does not provide extractable active/placebo percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Sander1990",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2272345",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2272345/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomised double-blind placebo-controlled add-on trial of lamotrigine in patients with severe epilepsy."
+    },
+    {
+      "audit_note": "Interictal spike-count study reports EEG spike suppression, not seizure-frequency RR50/MPC/seizure-freedom outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "lamotrigine",
+      "label": "Jawad1986",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "3530305",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/3530305/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "The effect of lamotrigine, a novel anticonvulsant, on interictal spikes in patients with epilepsy."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Biton",
+      "generic_name": "lamotrigine",
+      "label": "Biton2010",
+      "pmid": "20937567",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive lamotrigine XR for primary generalized tonic-clonic seizures in a randomized, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20937567/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Naritoku",
+      "generic_name": "lamotrigine",
+      "label": "Naritoku2007",
+      "pmid": "17938371",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamotrigine extended-release as adjunctive therapy for partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17938371/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Ettinger",
+      "generic_name": "lamotrigine",
+      "label": "Ettinger2006",
+      "pmid": "17071141",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of lamotrigine on depressive symptoms in adult patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17071141/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Trevathan",
+      "generic_name": "lamotrigine",
+      "label": "Trevathan2006",
+      "pmid": "16847080",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamotrigine adjunctive therapy among children and adolescents with primary generalized tonic-clonic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16847080/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Pressler",
+      "generic_name": "lamotrigine",
+      "label": "Pressler2006",
+      "pmid": "16717207",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of lamotrigine on cognition in children with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16717207/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Biton",
+      "generic_name": "lamotrigine",
+      "label": "Biton2005",
+      "pmid": "16344515",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind, placebo-controlled study of lamotrigine in primary generalized tonic-clonic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16344515/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Duchowny",
+      "generic_name": "lamotrigine",
+      "label": "Duchowny1999",
+      "pmid": "10563619",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A placebo-controlled trial of lamotrigine add-on therapy for partial seizures in children. Lamictal Pediatric Partial Seizure Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10563619/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Frank",
+      "generic_name": "lamotrigine",
+      "label": "Frank1999",
+      "pmid": "10403222",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamictal (lamotrigine) monotherapy for typical absence seizures in children.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10403222/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Beran",
+      "generic_name": "lamotrigine",
+      "label": "Beran1998",
+      "pmid": "9860069",
+      "pub_types": "Case Reports; Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind, placebo-controlled, crossover study of lamotrigine in treatment-resistant generalised epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9860069/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Eriksson",
+      "generic_name": "lamotrigine",
+      "label": "Eriksson1998",
+      "pmid": "9596201",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "The efficacy of lamotrigine in children and adolescents with refractory generalized epilepsy: a randomized, double-blind, crossover study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9596201/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Motte",
+      "generic_name": "lamotrigine",
+      "label": "Motte1997",
+      "pmid": "9400037",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Multicenter Study; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamotrigine for generalized seizures associated with the Lennox-Gastaut syndrome. Lamictal Lennox-Gastaut Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9400037/",
+      "year": "1997"
+    },
+    {
+      "first_author": "Boas",
+      "generic_name": "lamotrigine",
+      "label": "Boas1996",
+      "pmid": "8937535",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Controlled trial of lamotrigine (Lamictal) for treatment-resistant partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8937535/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Matsuo",
+      "generic_name": "lamotrigine",
+      "label": "Matsuo1996",
+      "pmid": "8814098",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamotrigine high-dose tolerability and safety in patients with epilepsy: a double-blind, placebo-controlled, eleven-week study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8814098/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Messenheimer",
+      "generic_name": "lamotrigine",
+      "label": "Messenheimer1994",
+      "pmid": "8112232",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Lamotrigine therapy for partial seizures: a multicenter, placebo-controlled, double-blind, cross-over trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8112232/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Schapel",
+      "generic_name": "lamotrigine",
+      "label": "Schapel1993",
+      "pmid": "8505632",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind, placebo controlled, crossover study of lamotrigine in treatment resistant partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8505632/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Loiseau",
+      "generic_name": "lamotrigine",
+      "label": "Loiseau1990",
+      "pmid": "2127016",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomised double-blind placebo-controlled crossover add-on trial of lamotrigine in patients with treatment-resistant partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2127016/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Sander",
+      "generic_name": "lamotrigine",
+      "label": "Sander1990",
+      "pmid": "2272345",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomised double-blind placebo-controlled add-on trial of lamotrigine in patients with severe epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2272345/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Jawad",
+      "generic_name": "lamotrigine",
+      "label": "Jawad1986",
+      "pmid": "3530305",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "The effect of lamotrigine, a novel anticonvulsant, on interictal spikes in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3530305/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Löscher",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "40261588",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacodynamic interactions between seletracetam and antiseizure comedications in the human photosensitivity model.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40261588/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Kerr",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "39052963",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Demonstration of Group-Level and Individual-Level Efficacy Using Time-to-Event Designs for Clinical Trials of Antiseizure Medications.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39052963/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "38356105",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and Tolerability of Adjunctive Brivaracetam in Patients with Focal-Onset Seizures on Specific Concomitant Antiseizure Medications: Pooled Analysis of Double-Blind, Placebo-Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38356105/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Ryvlin",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "35582748",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Tolerability and efficacy of adjunctive brivaracetam in adults with focal seizures by concomitant antiseizure medication use: Pooled results from three phase 3 trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35582748/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "34022524",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A multivariable prediction model of a major treatment response for focal-onset seizures: A post-hoc analysis of Phase III trials of perampanel.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34022524/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Abou-Khalil",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "30278294",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Tolerability of adjunctive eslicarbazepine acetate according to concomitant lamotrigine or carbamazepine use: A subgroup analysis of three phase III trials in adults with focal (partial-onset) seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30278294/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Benbadis",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "29414542",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Efficacy, safety, and tolerability of brivaracetam with concomitant lamotrigine or concomitant topiramate in pooled Phase III randomized, double-blind trials: A post-hoc analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29414542/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Premoli",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "27808418",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Lamotrigine and levetiracetam exert a similar modulation of TMS-evoked EEG potentials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27808418/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Meador",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "26724782",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Cognitive effects of adjunctive perampanel for partial-onset seizures: A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26724782/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Biton",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "26414341",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Safety and tolerability of lacosamide as adjunctive therapy for adults with partial-onset seizures: Analysis of data pooled from three randomized, double-blind, placebo-controlled clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26414341/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Rudd",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "25933358",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Lacosamide cardiac safety: clinical trials in patients with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25933358/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Tomson",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "23030403",
+      "pub_types": "Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Sudden unexpected death in epilepsy in lamotrigine randomized-controlled trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23030403/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Delvendahl",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "22750085",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effects of lamotrigine on human motor cortex plasticity.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22750085/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Baulac",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "20696552",
+      "pub_types": "Clinical Trial, Phase I; Clinical Trial, Phase II; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A comparison of pregabalin, lamotrigine, and placebo as adjunctive therapy in patients with refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20696552/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "19243424",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and safety of eslicarbazepine acetate as adjunctive treatment in adults with refractory partial-onset seizures: a randomized, double-blind, placebo-controlled, parallel-group phase III study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19243424/",
+      "year": "2009"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "18660469",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Long-term tolerability and efficacy of lamotrigine in infants 1 to 24 months old.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18660469/",
+      "year": "2008"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "18077797",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Adjunctive lamotrigine for partial seizures in patients aged 1 to 24 months.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18077797/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Otoul",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "17651416",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Lack of pharmacokinetic interaction of levetiracetam on carbamazepine, valproic acid, topiramate, and lamotrigine in children with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17651416/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Gazzola",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "17521343",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Seizure-free outcome in randomized add-on trials of the new antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17521343/",
+      "year": "2007"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "17582922",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Zonisamide: new drug. No advantage in refractory partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17582922/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Christensen",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "17346247",
+      "pub_types": "Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Oral contraceptives induce lamotrigine metabolism: evidence from a double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17346247/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Harden",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "16981859",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Hormone replacement therapy in women with epilepsy: a randomized, double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16981859/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Theis",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "16052246",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Lack of pharmacokinetic interaction between oxcarbazepine and lamotrigine.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16052246/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "15823510",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase III; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of levetiracetam on the pharmacokinetics of adjunctive antiepileptic drugs: a pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15823510/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Pressler",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "15644834",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Treatment of interictal epileptiform discharges can improve behavior in children with behavioral problems and epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15644834/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Tergau",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "14529954",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Relationship between lamotrigine oral dose, serum level and its inhibitory effect on CNS: insights from transcranial magnetic stimulation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14529954/",
+      "year": "2003"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "11987312",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Gabapentin: new indication. Little impact on partial epilepsy in children between 3 and 12.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11987312/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Aldenkamp",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "11879382",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Randomized double-blind parallel-group study comparing cognitive effects of a low-dose lamotrigine with valproate and placebo in healthy volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11879382/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Eriksson",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "11240595",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "The effect of lamotrigine on epileptiform discharges in young patients with drug-resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11240595/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Simpson",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "10851374",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A placebo-controlled trial of lamotrigine for painful HIV-associated neuropathy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10851374/",
+      "year": "2000"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "11503838",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Topiramate: new indication. A bulkier assessment file.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11503838/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Stolarek",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "8057114",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Vigabatrin and lamotrigine in refractory epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8057114/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Matsuo",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "8232944",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Placebo-controlled study of the efficacy and safety of lamotrigine in patients with partial seizures. U.S. Lamotrigine Protocol 0.5 Clinical Trial Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8232944/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Smith",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "8453943",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Outcomes of add-on treatment with lamotrigine in partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8453943/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Sander",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "1478201",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "An assessment of serum and red blood cell folate concentrations in patients with epilepsy on lamotrigine therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1478201/",
+      "year": "1992"
+    },
+    {
+      "first_author": "Ramsay",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "1817959",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pharmacokinetics and safety of lamotrigine (Lamictal) in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1817959/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Banks",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "1821833",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Neuropsychological assessment in lamotrigine treated epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1821833/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Binnie",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "2612495",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Double-blind crossover trial of lamotrigine (Lamictal) as add-on therapy in intractable epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2612495/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Jawad",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "2498073",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Controlled trial of lamotrigine (Lamictal) for refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2498073/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Binnie",
+      "generic_name": "lamotrigine",
+      "label": "",
+      "pmid": "3332866",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Seven day administration of lamotrigine in epilepsy: placebo-controlled add-on trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3332866/",
+      "year": "1987"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T01:02:44.181692Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.206421Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.229334Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:02:44.229684Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:02:44.232547Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:02:44.232579Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:44.247049Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.247059Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.247559Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.247565Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.248115Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.248120Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.248647Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.248650Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.249236Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.249240Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.249786Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.250414Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:44.250418Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:44.274822Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.291664Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:44.295602Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:44.295697Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:44.299821Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:44.324851Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T01:02:45.130678Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T01:02:45.131142Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T01:02:45.134410Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T01:02:45.134456Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:45.150602Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.150612Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.151031Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.151037Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.151471Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.151474Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.151891Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.151896Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.152345Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.152348Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.153247Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T01:02:45.153256Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T01:02:45.186501Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:45.189852Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T01:02:45.189920Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label lamictal lamotrigine boxed warning d7e3572d-56fe-4727-2bb4-013ccca22678
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf
+web search: 
+web search: site:accessdata.fda.gov/drugsatfda_docs/label/2025 LAMICTAL lamotrigine tablets for oral suspension orally disintegrating HLA-B*1502 label pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/20937567/
+web search: 
+web search: 
+web search: 
+web search: 20937567 lamotrigine XR primary generalized tonic-clonic randomized placebo controlled 75.4 32.1
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov/20937567 Adjunctive lamotrigine XR for primary generalized tonic-clonic seizures randomized placebo-controlled 75.4 32.1 PMID
+web search: 
+web search: "PMID: 20937567" "Adjunctive lamotrigine XR"
+web search: 
+web search: 17071141 Effect of lamotrigine on depressive symptoms adult patients with epilepsy randomized placebo controlled
+web search: 
+web search: 18077797 Adjunctive lamotrigine for partial seizures patients aged 1 to 24 months placebo randomized responder enriched
+web search: 
+web search: site:medicines.org.uk Logem lamotrigine SmPC Logem tablets
+web search: 
+web search: 'dizziness 38' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf
+codex
+{"black_box_warning":{"current_value":"Current populated LAMICTAL serious skin rash boxed warning text, including pediatric/adult serious rash incidence, valproate/dose-escalation risk factors, HLA-B*1502, and discontinuation-at-first-rash language.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"],"proposed_value":"No text change required; replace the source metadata with an FDA/accessdata or FDA/openFDA source, not DailyMed.","rationale":"The boxed-warning text is concordant with the FDA-accessdata 10/2025 LAMICTAL label. The current source field cites DailyMed, which is not permissible for this audit's black-box-warning field.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"lamotrigine","field":"generic_name","proposed_value":"lamotrigine","rationale":"FDA labeling identifies LAMICTAL/LAMICTAL ODT/LAMICTAL XR as lamotrigine products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No separate alternate generic name requiring a separate row was found; brand and abbreviation aliases should be handled in trade_names or pubmed_search_aliases.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Lamictal; Lamictal CD; Lamictal ODT; Lamictal XR; Logem","field":"trade_names","proposed_value":"No automatic change. FDA sources verify Lamictal, Lamictal ODT, and Lamictal XR; add trusted-source support for Lamictal CD and Logem, or user-approve narrowing to: Lamictal; Lamictal ODT; Lamictal XR","rationale":"Lamictal/ODT/XR are supported by FDA labeling. I could not verify Lamictal CD and Logem from the trusted domains available in this audit; Lamotrigine should not be added as a trade name because it is the generic name.","requires_user_approval":true,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf","https://www.medicines.org.uk/emc/product/8052/smpc"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"LTG; Lamictal","rationale":"LTG and Lamictal appear in lamotrigine trial literature and would improve alias capture without creating duplicate drug rows.","requires_user_approval":false,"status":"missing","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/10403222/","https://pubmed.ncbi.nlm.nih.gov/2498073/"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA labeling and Drugs@FDA records support current US availability/approval history for Lamictal products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2009/022251_lamictal_odt_lamotrigine.cfm"]},{"current_value":"1994","field":"year_fda_cleared","proposed_value":"1994","rationale":"FDA label states Initial U.S. Approval: 1994; deterministic openFDA nonconcordance finding should not override the FDA label/accessdata evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.fda.gov/media/190579/download"]},{"current_value":"CNS: dizziness 38%, CNS: headache 29%, ophthalmologic: diplopia 28%, neurologic: ataxia 22%, GI: nausea 19%, dermatologic: rash 10%","field":"adverse_symptoms_percentages","proposed_value":"CNS: dizziness 38%, CNS: headache 29%, ophthalmologic: diplopia 28%, neurologic: ataxia 22%, GI: nausea 19%, dermatologic: rash 10%","rationale":"FDA Table 8 for pooled placebo-controlled adjunctive adult epilepsy trials reports these exact lamotrigine-arm percentages.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Focal; Generalized; Absence; LGS; Generalized tonic-clonic","field":"epilepsy_type","proposed_value":"Focal; Generalized; Absence; LGS; Generalized tonic-clonic","rationale":"FDA label supports partial/focal, PGTC, and LGS; eMC/PubMed evidence supports typical absence use/evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.medicines.org.uk/emc/product/2567/smpc","https://pubmed.ncbi.nlm.nih.gov/10403222/"]},{"current_value":"Tablet; chewable/dispersible tablet; orally disintegrating tablet; extended-release tablet","field":"formulations_available","proposed_value":"Tablet; chewable/dispersible/tablet for oral suspension; orally disintegrating tablet; extended-release tablet","rationale":"FDA label supports tablets, tablets for oral suspension that may be chewed/dispersed, ODT, and XR tablets. The current wording is acceptable but can be made more US-label-concordant.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf"]},{"current_value":"Not a CYP inducer/inhibitor; glucuronidation substrate","field":"enzyme_inducing_or_inhibiting","proposed_value":"Not a clinically meaningful CYP inducer/inhibitor; primarily metabolized by UGT glucuronidation and affected by glucuronidation inducers/inhibitors","rationale":"FDA/eMC sources identify UGT/glucuronidation metabolism, valproate inhibition, and enzyme-inducer effects; eMC notes CYP-mediated interactions are unlikely.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.medicines.org.uk/emc/product/2567/smpc"]},{"current_value":"25-33 h; shorter with enzyme inducers, longer with valproate","field":"half_life_range","proposed_value":"25-33 h without interacting drugs; shorter with enzyme inducers, longer with valproate","rationale":"FDA pharmacokinetic table reports about 25.4 h after multiple dosing and 32.8 h after single dosing without interacting drugs, with shorter half-life on inducers and longer with valproate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Liver","field":"major_organ_for_metabolism","proposed_value":"Liver/hepatic glucuronidation","rationale":"Metabolism is primarily by glucuronidation; labeling includes hepatic impairment dose adjustment. The current value is directionally correct but less specific.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.medicines.org.uk/emc/product/2567/smpc"]},{"current_value":"Up to 500 mg/day for adjunctive therapy depending on interacting ASMs","field":"maximum_approved_daily_dose","proposed_value":"Up to 500 mg/day for immediate-release adjunctive epilepsy depending on interacting ASMs; up to 600 mg/day for Lamictal XR adjunctive therapy depending on concomitant AEDs","rationale":"Immediate-release dosing supports up to 500 mg/day in some adjunctive regimens; FDA XR labeling lists an adjunctive target therapeutic range up to 600 mg/day.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf"]},{"current_value":"Maintenance depends on interacting ASMs; adult effective maintenance commonly 100-500 mg/day","field":"minimum_effective_dose","proposed_value":"Maintenance depends on interacting ASMs; adult immediate-release maintenance commonly spans 100-500 mg/day by regimen","rationale":"FDA dosing tables support broad adult maintenance ranges dependent on valproate/enzyme-inducer status.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Dose depends strongly on valproate/enzyme inducers; adults commonly 100-500 mg/day","field":"typical_doses_per_day","proposed_value":"Dose depends strongly on valproate/enzyme inducers; adults commonly 100-500 mg/day for immediate-release regimens","rationale":"Consistent with FDA dosing tables for adult epilepsy regimens.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Precise anticonvulsant mechanism is unknown; a proposed mechanism is inhibition of voltage-sensitive sodium channels with reduced glutamate and aspartate release.","field":"mechanism_of_action","proposed_value":"Precise anticonvulsant mechanism is unknown; a proposed mechanism is inhibition of voltage-sensitive sodium channels with reduced glutamate and aspartate release.","rationale":"FDA clinical pharmacology section supports the proposed sodium-channel effect and reduced excitatory amino acid release, while stating human relevance remains to be established.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"Appropriate because the label describes a proposed mechanism and states its human relevance remains to be established.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"mechanism_source","proposed_value":"FDA/accessdata labeling; Sills and Rogawski 2020 ASM mechanism review","rationale":"Use FDA/accessdata rather than DailyMed as the named FDA-label source.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"FDA label directly supports the mechanism statement.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"No clinically meaningful QT prolongation; avoid in certain cardiac conduction/structural disease per warning","field":"qt_interval_effect","proposed_value":"No clinically meaningful QT prolongation; conduction/arrhythmia caution in clinically important structural or functional heart disease","rationale":"FDA label says lamotrigine did not slow ventricular conduction in healthy individuals in a thorough QT study, but may slow ventricular conduction and induce proarrhythmia in certain cardiac disease settings.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.fda.gov/drugs/drug-safety-and-availability/studies-show-increased-risk-heart-rhythm-problems-seizure-and-mental-health-medicine-lamotrigine"]},{"current_value":"Glutamate receptor","field":"filter_mechanism","proposed_value":"Sodium channel; Reduced excitatory amino acid release","rationale":"The label supports voltage-sensitive sodium-channel inhibition with modulation of glutamate/aspartate release, and specifically reports no NMDA receptor inhibition at tested concentrations. A glutamate receptor filter is misleading.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Conduction/arrhythmia caution; No known meaningful QT effect; QT prolongation","field":"filter_qt_effect","proposed_value":"Conduction/arrhythmia caution; No known meaningful QT effect","rationale":"FDA evidence supports conduction/arrhythmia caution, not QT prolongation as a clinically meaningful effect.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.fda.gov/drugs/drug-safety-and-availability/studies-show-increased-risk-heart-rhythm-problems-seizure-and-mental-health-medicine-lamotrigine"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"evidence_sources","proposed_value":"FDA/accessdata labeling; eMC SmPC; NCBI/PubMed reviews; PubMed randomized placebo-controlled trial reports; ClinicalTrials.gov trial records; Sills and Rogawski 2020 ASM mechanism review","rationale":"Current evidence_sources includes non-trusted-domain sources for this audit and cites DailyMed. FDA/accessdata, eMC, PubMed/NCBI, and ClinicalTrials.gov better match the row-source policy.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.medicines.org.uk/emc/product/8052/smpc","https://pmc.ncbi.nlm.nih.gov/articles/PMC10712213/","https://clinicaltrials.gov/study/NCT00104416","https://clinicaltrials.gov/study/NCT00113165"]},{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL...; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678","field":"fda_black_box_warning_source","proposed_value":"FDA/accessdata drug label; status=boxed_warning_found; application=NDA 020241/020764/022251; revised=10/2025; reference_id=5675542; title=LAMICTAL (lamotrigine) tablets/tablets for oral suspension/LAMICTAL ODT; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","rationale":"DailyMed is not permissible for FDA black-box-warning verification under the audit rules; FDA/accessdata is permissible and supports the warning.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Current broad-use ASM; also used for bipolar disorder maintenance.","field":"status_or_notes","proposed_value":"Current broad-use ASM; FDA-approved for epilepsy indications and bipolar I maintenance treatment.","rationale":"FDA label supports epilepsy indications and bipolar I maintenance treatment; 'broad-use' is reasonable but less directly source-specific.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]}],"generic_name":"lamotrigine","missing_rcts":[{"pmid":"8232944","proposed_link_text":"Matsuo1993|https://pubmed.ncbi.nlm.nih.gov/8232944/","title":"Placebo-controlled study of the efficacy and safety of lamotrigine in patients with partial seizures. U.S. Lamotrigine Protocol 0.5 Clinical Trial Group.","url":"https://pubmed.ncbi.nlm.nih.gov/8232944/","why_relevant":"Multicenter randomized double-blind parallel-group placebo-controlled adjunctive lamotrigine trial in refractory partial seizures; FDA label describes n=216 and median seizure-frequency reductions of 8% placebo, 20% at 300 mg/day, and 36% at 500 mg/day."},{"pmid":"18077797","proposed_link_text":"PinaGarza2007|https://pubmed.ncbi.nlm.nih.gov/18077797/","title":"Adjunctive lamotrigine for partial seizures in patients aged 1 to 24 months.","url":"https://pubmed.ncbi.nlm.nih.gov/18077797/","why_relevant":"Randomized double-blind placebo-controlled infant partial-seizure trial; relevant as a negative/young-pediatric study if the CSV retains negative placebo-controlled lamotrigine epilepsy trials."}],"outcome_checks":[{"current_value":"17-23.2 % (Naritoku2007 23.2%; Biton2005 23%; Motte1997 17%; Schapel1993 22%)","field":"diff_50_responder_maximum_effective_dose","proposed_value":"17-23.2 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Naritoku2007 lamotrigine XR individualized adjunctive dose 23.2%; Biton2005 lamotrigine individualized adjunctive dose 23%; Motte1997 lamotrigine individualized adjunctive dose 17%; Schapel1993 lamotrigine 150-300 mg/day 22%)","rationale":"Cited values match extractable active-minus-placebo RR50 differentials in the cited RCT reports/abstracts: Naritoku 44.0 vs 20.8; Biton2005 72 vs 49; Motte 33 vs 16; Schapel 22 vs 0.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/17938371/","https://pubmed.ncbi.nlm.nih.gov/16344515/","https://pubmed.ncbi.nlm.nih.gov/9400037/","https://pubmed.ncbi.nlm.nih.gov/8505632/"]},{"current_value":"22.1-44.8 % (Biton2010 43.3%; Naritoku2007 22.1%; Trevathan2006 37%; Biton2005 32.3%; Motte1997 44.8%; Boas1996 30.3%; Messenheimer1994 25%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"22.1-44.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Biton2010 lamotrigine XR individualized adjunctive dose 43.3%; Naritoku2007 lamotrigine XR individualized adjunctive dose 22.1%; Trevathan2006 lamotrigine individualized adjunctive dose 37%; Biton2005 lamotrigine individualized adjunctive dose 32.3%; Motte1997 lamotrigine individualized adjunctive dose 44.8%; Boas1996 lamotrigine 75-400 mg/day 30.3%; Messenheimer1994 lamotrigine mostly 400 mg/day 25%; Matsuo1993 lamotrigine 500 mg/day 28%)","rationale":"Existing values are supported; Matsuo1993 is a missing randomized placebo-controlled partial-seizure efficacy trial with 36% median reduction at 500 mg/day vs 8% placebo, differential 28%.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20937567/","https://pubmed.ncbi.nlm.nih.gov/17938371/","https://pubmed.ncbi.nlm.nih.gov/16847080/","https://pubmed.ncbi.nlm.nih.gov/16344515/","https://pubmed.ncbi.nlm.nih.gov/9400037/","https://pubmed.ncbi.nlm.nih.gov/8937535/","https://pubmed.ncbi.nlm.nih.gov/8112232/","https://pubmed.ncbi.nlm.nih.gov/8232944/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"31-41 % (Trevathan2006 31%; Frank1999 41%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"31-41 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Trevathan2006 lamotrigine individualized adjunctive dose 31%; Frank1999 lamotrigine monotherapy responder-enriched regimen 41%)","rationale":"Trevathan reports maintenance seizure freedom 48% vs 17%; Frank reports seizure freedom 62% vs 21%.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/16847080/","https://pubmed.ncbi.nlm.nih.gov/10403222/"]},{"current_value":"Naritoku2007|23.2|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Biton2005|23|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|17|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Schapel1993|22|https://pubmed.ncbi.nlm.nih.gov/8505632/|41","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"Naritoku2007|23.2|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Biton2005|23|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|17|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Schapel1993|22|https://pubmed.ncbi.nlm.nih.gov/8505632/|41","rationale":"Plot entries match the verified RR50 summary values and PMIDs.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/17938371/","https://pubmed.ncbi.nlm.nih.gov/16344515/","https://pubmed.ncbi.nlm.nih.gov/9400037/","https://pubmed.ncbi.nlm.nih.gov/8505632/"]},{"current_value":"Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98; Matsuo1993|28|https://pubmed.ncbi.nlm.nih.gov/8232944/|216","rationale":"Add missing Matsuo1993 MPC differential; existing plot entries are concordant with cited outcomes.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/8232944/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Trevathan2006|31|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Frank1999|41|https://pubmed.ncbi.nlm.nih.gov/10403222/|45","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Trevathan2006|31|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Frank1999|41|https://pubmed.ncbi.nlm.nih.gov/10403222/|45","rationale":"Plot entries match the verified seizure-freedom summary values.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/16847080/","https://pubmed.ncbi.nlm.nih.gov/10403222/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL...; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678","field":"fda_black_box_warning_source","proposed_value":"FDA/accessdata drug label; status=boxed_warning_found; application=NDA 020241/020764/022251; revised=10/2025; reference_id=5675542; title=LAMICTAL (lamotrigine) tablets/tablets for oral suspension/LAMICTAL ODT; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","reason":"DailyMed is not permissible for black-box-warning verification; FDA/accessdata supports the field.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Up to 500 mg/day for adjunctive therapy depending on interacting ASMs","field":"maximum_approved_daily_dose","proposed_value":"Up to 500 mg/day for immediate-release adjunctive epilepsy depending on interacting ASMs; up to 600 mg/day for Lamictal XR adjunctive therapy depending on concomitant AEDs","reason":"Current value omits FDA-approved XR adjunctive dosing up to 600 mg/day.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/022115s031s032lbl.pdf"]},{"current_value":"Glutamate receptor","field":"filter_mechanism","proposed_value":"Sodium channel; Reduced excitatory amino acid release","reason":"FDA label supports sodium-channel inhibition and reduced glutamate/aspartate release, not glutamate-receptor antagonism.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Conduction/arrhythmia caution; No known meaningful QT effect; QT prolongation","field":"filter_qt_effect","proposed_value":"Conduction/arrhythmia caution; No known meaningful QT effect","reason":"QT prolongation is not supported as a meaningful lamotrigine effect; conduction/arrhythmia caution is supported.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.fda.gov/drugs/drug-safety-and-availability/studies-show-increased-risk-heart-rhythm-problems-seizure-and-mental-health-medicine-lamotrigine"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"LTG; Lamictal","reason":"Important literature aliases are missing; adding aliases avoids duplicate rows and improves search recall.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/10403222/","https://pubmed.ncbi.nlm.nih.gov/2498073/"]},{"current_value":"Biton2010|https://pubmed.ncbi.nlm.nih.gov/20937567/; Naritoku2007|https://pubmed.ncbi.nlm.nih.gov/17938371/; Trevathan2006|https://pubmed.ncbi.nlm.nih.gov/16847080/; Pressler2006|https://pubmed.ncbi.nlm.nih.gov/16717207/; Ettinger2006|https://pubmed.ncbi.nlm.nih.gov/17071141/; Biton2005|https://pubmed.ncbi.nlm.nih.gov/16344515/; Frank1999|https://pubmed.ncbi.nlm.nih.gov/10403222/; Duchowny1999|https://pubmed.ncbi.nlm.nih.gov/10563619/; Eriksson1998|https://pubmed.ncbi.nlm.nih.gov/9596201/; Beran1998|https://pubmed.ncbi.nlm.nih.gov/9860069/; Motte1997|https://pubmed.ncbi.nlm.nih.gov/9400037/; Matsuo1996|https://pubmed.ncbi.nlm.nih.gov/8814098/; Boas1996|https://pubmed.ncbi.nlm.nih.gov/8937535/; Messenheimer1994|https://pubmed.ncbi.nlm.nih.gov/8112232/; Schapel1993|https://pubmed.ncbi.nlm.nih.gov/8505632/; Sander1990|https://pubmed.ncbi.nlm.nih.gov/2272345/; Loiseau1990|https://pubmed.ncbi.nlm.nih.gov/2127016/; Jawad1986|https://pubmed.ncbi.nlm.nih.gov/3530305/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Append Matsuo1993|https://pubmed.ncbi.nlm.nih.gov/8232944/; consider PinaGarza2007|https://pubmed.ncbi.nlm.nih.gov/18077797/ if negative infant placebo-controlled trials are retained.","reason":"Matsuo1993 is a missing pivotal randomized placebo-controlled adjunctive partial-seizure efficacy trial; PinaGarza2007 is a negative infant placebo-controlled trial relevant if the dataset keeps negative pediatric studies.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/8232944/","https://pubmed.ncbi.nlm.nih.gov/18077797/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Biton2010|43.3|https://pubmed.ncbi.nlm.nih.gov/20937567/|153; Naritoku2007|22.1|https://pubmed.ncbi.nlm.nih.gov/17938371/|239; Trevathan2006|37|https://pubmed.ncbi.nlm.nih.gov/16847080/|45; Biton2005|32.3|https://pubmed.ncbi.nlm.nih.gov/16344515/|117; Motte1997|44.8|https://pubmed.ncbi.nlm.nih.gov/9400037/|169; Boas1996|30.3|https://pubmed.ncbi.nlm.nih.gov/8937535/|56; Messenheimer1994|25|https://pubmed.ncbi.nlm.nih.gov/8112232/|98; Matsuo1993|28|https://pubmed.ncbi.nlm.nih.gov/8232944/|216","reason":"Adds missing placebo-adjusted median percent reduction from the omitted Matsuo1993 randomized placebo-controlled trial.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/8232944/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]}],"rct_link_checks":[{"label":"Biton2010","pmid":"20937567","proposed_action":"Keep.","rationale":"Lamotrigine XR; randomized double-blind placebo-controlled adjunctive PGTC seizure study; ClinicalTrials.gov links it to a Phase 3 randomized placebo-controlled trial.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/20937567/"},{"label":"Naritoku2007","pmid":"17938371","proposed_action":"Keep; disregard automated title-only warning.","rationale":"Abstract verifies randomized double-blind parallel-group adjunctive lamotrigine XR vs placebo for partial seizures; ClinicalTrials.gov NCT00113165 is Phase 3.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/17938371/"},{"label":"Trevathan2006","pmid":"16847080","proposed_action":"Keep.","rationale":"Randomized blinded placebo-controlled lamotrigine adjunctive PGTC trial report/subgroup in children and adolescents; reports MPC and seizure-freedom outcomes.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/16847080/"},{"label":"Pressler2006","pmid":"16717207","proposed_action":"User review before retaining in phase II/III efficacy list.","rationale":"Lamotrigine vs placebo randomized double-blind crossover in children with epilepsy, but primary endpoint is cognition and seizure frequency was similar; it does not support seizure efficacy outcomes.","status":"not_phase_ii_iii","url":"https://pubmed.ncbi.nlm.nih.gov/16717207/"},{"label":"Ettinger2006","pmid":"17071141","proposed_action":"User review before retaining as a separate phase II/III efficacy RCT.","rationale":"Secondary mood-symptom analysis of a randomized placebo-controlled PGTC study; does not provide independent seizure-efficacy outcomes for this row.","status":"not_phase_ii_iii","url":"https://pubmed.ncbi.nlm.nih.gov/17071141/"},{"label":"Biton2005","pmid":"16344515","proposed_action":"Keep.","rationale":"Double-blind placebo-controlled lamotrigine adjunctive trial in PGTC seizures; cited RR50 and MPC values match row outcome extraction.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/16344515/"},{"label":"Frank1999","pmid":"10403222","proposed_action":"Keep.","rationale":"Lamotrigine monotherapy for typical absence seizures; responder-enriched open-label phase followed by randomized placebo-controlled double-blind phase with seizure-freedom endpoint.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/10403222/"},{"label":"Duchowny1999","pmid":"10563619","proposed_action":"Keep.","rationale":"Placebo-controlled lamotrigine add-on therapy trial for partial seizures in children; no extractable row outcome percentages used.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/10563619/"},{"label":"Eriksson1998","pmid":"9596201","proposed_action":"Keep.","rationale":"Randomized double-blind crossover lamotrigine study in refractory generalized epilepsy; no RR50/MPC/SF value used in row outcome summaries.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/9596201/"},{"label":"Beran1998","pmid":"9860069","proposed_action":"Keep.","rationale":"Double-blind placebo-controlled crossover lamotrigine study in treatment-resistant generalized epilepsy; not used for plotted outcome differentials.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/9860069/"},{"label":"Motte1997","pmid":"9400037","proposed_action":"Keep.","rationale":"Randomized double-blind placebo-controlled LGS trial of lamotrigine; supports RR50 33% vs 16% and derived MPC differential.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/9400037/"},{"label":"Matsuo1996","pmid":"8814098","proposed_action":"Keep only as a safety/tolerability placebo-controlled trial, not as seizure efficacy evidence.","rationale":"Double-blind placebo-controlled high-dose tolerability/safety study in epilepsy; no RR50/MPC/SF outcome is used in row summaries.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/8814098/"},{"label":"Boas1996","pmid":"8937535","proposed_action":"Keep.","rationale":"Controlled lamotrigine trial for treatment-resistant partial seizures; supports the placebo-adjusted 30.3% seizure-count reduction used in MPC plot.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/8937535/"},{"label":"Messenheimer1994","pmid":"8112232","proposed_action":"Keep.","rationale":"Multicenter placebo-controlled double-blind crossover partial-seizure trial; FDA label also describes the n=98 trial and 25% reduction on lamotrigine compared with placebo.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/8112232/"},{"label":"Schapel1993","pmid":"8505632","proposed_action":"Keep.","rationale":"Double-blind placebo-controlled crossover trial in treatment-resistant partial seizures; supports RR50 differential extraction.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/8505632/"},{"label":"Sander1990","pmid":"2272345","proposed_action":"Keep as qualifying placebo-controlled add-on trial; do not use for plotted outcomes without extractable percentages.","rationale":"Randomized double-blind placebo-controlled add-on lamotrigine trial in severe epilepsy; abstract does not provide row outcome differentials.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/2272345/"},{"label":"Loiseau1990","pmid":"2127016","proposed_action":"Keep as qualifying placebo-controlled add-on trial; do not use for plotted outcomes without matching placebo percentages.","rationale":"Randomized double-blind placebo-controlled crossover add-on lamotrigine trial in treatment-resistant partial seizures; no plotted differential is extracted.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/2127016/"},{"label":"Jawad1986","pmid":"3530305","proposed_action":"User review before retaining in phase II/III clinical efficacy list.","rationale":"Lamotrigine pharmacodynamic/interictal spike-count study, not a seizure-frequency phase II/III efficacy outcome report.","status":"not_phase_ii_iii","url":"https://pubmed.ncbi.nlm.nih.gov/3530305/"}],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d7e3572d-56fe-4727-2bb4-013ccca22678; published=Nov 17, 2025; title=LAMICTAL...; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7e3572d-56fe-4727-2bb4-013ccca22678","field":"fda_black_box_warning_source","proposed_value":"FDA/accessdata drug label; status=boxed_warning_found; application=NDA 020241/020764/022251; revised=10/2025; reference_id=5675542; title=LAMICTAL (lamotrigine) tablets/tablets for oral suspension/LAMICTAL ODT; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","reason":"Black-box-warning verification must use FDA/openFDA/accessdata/Drugs@FDA sources, not DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"evidence_sources","proposed_value":"FDA/accessdata labeling; eMC SmPC; NCBI/PubMed reviews; PubMed randomized placebo-controlled trial reports; ClinicalTrials.gov trial records; Sills and Rogawski 2020 ASM mechanism review","reason":"Replaces non-trusted or overbroad source names with trusted-domain sources that support the row facts.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf","https://www.medicines.org.uk/emc/product/8052/smpc","https://pmc.ncbi.nlm.nih.gov/articles/PMC10712213/","https://clinicaltrials.gov/study/NCT00104416","https://clinicaltrials.gov/study/NCT00113165"]},{"current_value":"FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"mechanism_source","proposed_value":"FDA/accessdata labeling; Sills and Rogawski 2020 ASM mechanism review","reason":"DailyMed should be replaced by FDA/accessdata labeling in named row sources.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/020241s068s069%2C020764s061s062%2C022251s032s033lbl.pdf"]}],"summary":"Lamotrigine row is largely factually supported, including FDA approval year, US availability, adverse-event percentages, labeled formulations, mechanism text, half-life, glucuronidation metabolism, boxed-warning text, and most plotted RCT outcome values. Updates are needed for black-box source metadata, mechanism/QT filters, XR maximum daily dose, source hygiene, PubMed aliases, and missing Matsuo1993 RCT/outcome coverage. No duplicate separate-drug row is indicated for aliases."}
+tokens used
+180,994

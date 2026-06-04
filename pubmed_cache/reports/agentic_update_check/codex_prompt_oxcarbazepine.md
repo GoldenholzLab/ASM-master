@@ -1,0 +1,677 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 22-49%, CNS: somnolence 19-28%, GI: nausea 15%, GI: vomiting 13%, neurologic: diplopia 14%, metabolic: hyponatremia 2-3%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "12.6-37 % (drug minus placebo RR50 differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 12.6%; Barcs2000 oxcarbazepine 2400 mg/day 37%)",
+    "diff_median_pct_change_maximum_effective_dose": "14.2-42 % (drug minus placebo MPC differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 14.2%; Barcs2000 oxcarbazepine 2400 mg/day 42%)",
+    "diff_seizure_freedom_maximum_effective_dose": "8.1 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 8.1%)",
+    "enzyme_inducing_or_inhibiting": "Induces CYP3A4/UGT; inhibits CYP2C19; weaker inducer than carbamazepine",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66; published=Nov 17, 2025; title=OXTELLAR XR (OXCARBAZEPINE) TABLET [SUPERNUS PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor; Weak inducer",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Liquid; Long acting; Tablet",
+    "filter_mechanism": "Calcium channel / alpha-2-delta; Potassium channel",
+    "filter_metabolism": "Liver/hepatic; Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Metabolic; Neurologic",
+    "formulations_available": "Tablet; oral suspension; extended-release tablet",
+    "generic_name": "oxcarbazepine",
+    "half_life_range": "Parent ~2 h; active MHD ~8-15 h",
+    "major_organ_for_metabolism": "Liver cytosolic reduction/glucuronidation; renal excretion",
+    "maximum_approved_daily_dose": "2400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; active MHD metabolite blocks voltage-sensitive sodium channels, stabilizes hyperexcited neural membranes, and may also increase potassium conductance and modulate high-voltage calcium channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "1200 mg/day common adult maintenance target",
+    "plot_diff_50_responder_maximum_effective_dose": "French2013|12.6|https://pubmed.ncbi.nlm.nih.gov/24359313/|366; Barcs2000|37|https://pubmed.ncbi.nlm.nih.gov/11114219/|694",
+    "plot_diff_median_pct_change_maximum_effective_dose": "French2013|14.2|https://pubmed.ncbi.nlm.nih.gov/24359313/|366; Barcs2000|42|https://pubmed.ncbi.nlm.nih.gov/11114219/|694",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "French2013|8.1|https://pubmed.ncbi.nlm.nih.gov/24359313/|366",
+    "pubmed_phase_ii_iii_rct_links": "French2013|https://pubmed.ncbi.nlm.nih.gov/24359313/; Barcs2000|https://pubmed.ncbi.nlm.nih.gov/11114219/; Schachter1999b|https://pubmed.ncbi.nlm.nih.gov/10599816/; Schachter1999|https://pubmed.ncbi.nlm.nih.gov/10078718/; Cramer1999|https://pubmed.ncbi.nlm.nih.gov/10599817/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 37/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 24 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal/partial-onset seizures.",
+    "trade_names": "Oxtellar XR; Trileptal",
+    "typical_doses_per_day": "Adults: 1200-2400 mg/day; IR divided BID, ER once daily",
+    "year_fda_cleared": "2000"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "French2013|https://pubmed.ncbi.nlm.nih.gov/24359313/",
+      "label": "French2013",
+      "pmid": "24359313",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24359313/"
+    },
+    {
+      "entry": "Barcs2000|https://pubmed.ncbi.nlm.nih.gov/11114219/",
+      "label": "Barcs2000",
+      "pmid": "11114219",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11114219/"
+    },
+    {
+      "entry": "Schachter1999b|https://pubmed.ncbi.nlm.nih.gov/10599816/",
+      "label": "Schachter1999b",
+      "pmid": "10599816",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10599816/"
+    },
+    {
+      "entry": "Schachter1999|https://pubmed.ncbi.nlm.nih.gov/10078718/",
+      "label": "Schachter1999",
+      "pmid": "10078718",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10078718/"
+    },
+    {
+      "entry": "Cramer1999|https://pubmed.ncbi.nlm.nih.gov/10599817/",
+      "label": "Cramer1999",
+      "pmid": "10599817",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10599817/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 22-49%, CNS: somnolence 19-28%, GI: nausea 15%, GI: vomiting 13%, neurologic: diplopia 14%, metabolic: hyponatremia 2-3%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "12.6-37 % (drug minus placebo RR50 differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 12.6%; Barcs2000 oxcarbazepine 2400 mg/day 37%)",
+    "diff_median_pct_change_maximum_effective_dose": "14.2-42 % (drug minus placebo MPC differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 14.2%; Barcs2000 oxcarbazepine 2400 mg/day 42%)",
+    "diff_seizure_freedom_maximum_effective_dose": "8.1 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: French2013 extended-release oxcarbazepine 2400 mg/day 8.1%)",
+    "enzyme_inducing_or_inhibiting": "Induces CYP3A4/UGT; inhibits CYP2C19; weaker inducer than carbamazepine",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66; published=Nov 17, 2025; title=OXTELLAR XR (OXCARBAZEPINE) TABLET [SUPERNUS PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66",
+    "formulations_available": "Tablet; oral suspension; extended-release tablet",
+    "half_life_range": "Parent ~2 h; active MHD ~8-15 h",
+    "major_organ_for_metabolism": "Liver cytosolic reduction/glucuronidation; renal excretion",
+    "maximum_approved_daily_dose": "2400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; active MHD metabolite blocks voltage-sensitive sodium channels, stabilizes hyperexcited neural membranes, and may also increase potassium conductance and modulate high-voltage calcium channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "1200 mg/day common adult maintenance target",
+    "plot_diff_50_responder_maximum_effective_dose": "French2013|12.6|https://pubmed.ncbi.nlm.nih.gov/24359313/|366; Barcs2000|37|https://pubmed.ncbi.nlm.nih.gov/11114219/|694",
+    "plot_diff_median_pct_change_maximum_effective_dose": "French2013|14.2|https://pubmed.ncbi.nlm.nih.gov/24359313/|366; Barcs2000|42|https://pubmed.ncbi.nlm.nih.gov/11114219/|694",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "French2013|8.1|https://pubmed.ncbi.nlm.nih.gov/24359313/|366",
+    "pubmed_phase_ii_iii_rct_links": "French2013|https://pubmed.ncbi.nlm.nih.gov/24359313/; Barcs2000|https://pubmed.ncbi.nlm.nih.gov/11114219/; Schachter1999b|https://pubmed.ncbi.nlm.nih.gov/10599816/; Schachter1999|https://pubmed.ncbi.nlm.nih.gov/10078718/; Cramer1999|https://pubmed.ncbi.nlm.nih.gov/10599817/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Oxtellar XR; Trileptal",
+    "typical_doses_per_day": "Adults: 1200-2400 mg/day; IR divided BID, ER once daily",
+    "year_fda_cleared": "2000"
+  },
+  "generic_name": "oxcarbazepine",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Evaluation of the safety and efficacy of Oxcarbazepine XR as adjunctive treatment for adults with partial onset seizures",
+        "interventions": [
+          "Placebo",
+          "2400mg SPN-804",
+          "1200mg SPN-804"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00772603",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Evaluation of Efficacy and Safety of OXC XR as Adjunctive Therapy for Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00772603",
+      "generic_name": "oxcarbazepine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-cf3867c7198a",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Evaluation of Efficacy and Safety of OXC XR as Adjunctive Therapy for Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is designed to provide short term efficacy and safety data of TRI476 in children with inadequately-controlled partial seizures. Patients will be randomized into either drug treatment or placebo group at 1:1 ratio, and receive their respective treatment for 8 weeks. The purpose of study is to confirm that TRI476 as adjunctive therapy is effective and safe.",
+        "interventions": [
+          "TRI476",
+          "Placebo to TRI476",
+          "Benzodiazepines"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00975715",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2",
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy, Safety and Tolerability of TRI476 (Oxcarbazepine) in Children With Inadequately Controlled Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00975715",
+      "generic_name": "oxcarbazepine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-239ae1f68cf4",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy, Safety and Tolerability of TRI476 (Oxcarbazepine) in Children With Inadequately Controlled Partial Onset Seizures"
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Oxtellar XR; Trileptal",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22partial-onset+seizures%22&limit=100",
+      "generic_name": "oxcarbazepine",
+      "id": "trade_name_addition-0098785bb658",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Oxcarbazepine"
+      },
+      "proposed_value": "Oxcarbazepine",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Oxcarbazepine."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66; published=Nov 17, 2025; title=OXTELLAR XR (OXCARBAZEPINE) TABLET [SUPERNUS PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22aa610e56-1d1d-11e1-8bc2-0800200c9a66%22&limit=5",
+      "generic_name": "oxcarbazepine",
+      "id": "fda_warning_metadata_refresh-c6c6a182ad03",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=aa610e56-1d1d-11e1-8bc2-0800200c9a66; effective_time=20251022; title=OXTELLAR XR / OXCARBAZEPINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22aa610e56-1d1d-11e1-8bc2-0800200c9a66%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=aa610e56-1d1d-11e1-8bc2-0800200c9a66; effective_time=20251022; title=OXTELLAR XR / OXCARBAZEPINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22aa610e56-1d1d-11e1-8bc2-0800200c9a66%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports 2400 mg/day responder, median reduction, and 16-week seizure-free rates.",
+      "dose_or_regimen": "extended-release oxcarbazepine 2400 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "oxcarbazepine",
+      "label": "French2013",
+      "mpc_active_percent": "42.9",
+      "mpc_differential_percent": "14.2",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "28.7",
+      "pmid": "24359313",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24359313/",
+      "rr50_active_percent": "40.7",
+      "rr50_differential_percent": "12.6",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "28.1",
+      "sf_active_percent": "11.4",
+      "sf_differential_percent": "8.1",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "3.3",
+      "title": "Efficacy and safety of extended-release oxcarbazepine (Oxtellar XR™) as adjunctive therapy in patients with refractory partial-onset seizures: a randomized controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports 2400 mg/day responder and median reduction values.",
+      "dose_or_regimen": "oxcarbazepine 2400 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "oxcarbazepine",
+      "label": "Barcs2000",
+      "mpc_active_percent": "50.0",
+      "mpc_differential_percent": "42.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "8.0",
+      "pmid": "11114219",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11114219/",
+      "rr50_active_percent": "50.0",
+      "rr50_differential_percent": "37.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "13.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Oxcarbazepine placebo-controlled, dose-ranging trial in refractory partial epilepsy."
+    },
+    {
+      "audit_note": "Ethics/commentary publication on the oxcarbazepine monotherapy trial; no extractable efficacy-arm outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "oxcarbazepine",
+      "label": "Cramer1999",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10599817",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10599817/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Oxcarbazepine in a monotherapy trial for partial seizures--placebo-controlled studies in neurology: where do they stop?"
+    },
+    {
+      "audit_note": "Ethics/commentary publication on the oxcarbazepine monotherapy trial; no extractable efficacy-arm outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "oxcarbazepine",
+      "label": "Schachter1999b",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10599816",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10599816/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Oxcarbazepine in a monotherapy trial for partial seizures--placebo-controlled studies in neurology: where do they stop?"
+    },
+    {
+      "audit_note": "Monotherapy trial reports time to exit criteria and total partial-seizure frequency significance, but not extractable RR50, MPC, or seizure-freedom percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "oxcarbazepine",
+      "label": "Schachter1999",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10078718",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10078718/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Oxcarbazepine: double-blind, randomized, placebo-control, monotherapy trial for partial seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "French",
+      "generic_name": "oxcarbazepine",
+      "label": "French2013",
+      "pmid": "24359313",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of extended-release oxcarbazepine (Oxtellar XR™) as adjunctive therapy in patients with refractory partial-onset seizures: a randomized controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24359313/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Barcs",
+      "generic_name": "oxcarbazepine",
+      "label": "Barcs2000",
+      "pmid": "11114219",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Oxcarbazepine placebo-controlled, dose-ranging trial in refractory partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11114219/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Cramer",
+      "generic_name": "oxcarbazepine",
+      "label": "Cramer1999",
+      "pmid": "10599817",
+      "pub_types": "Clinical Trial; Letter; Randomized Controlled Trial; Comment",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Oxcarbazepine in a monotherapy trial for partial seizures--placebo-controlled studies in neurology: where do they stop?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10599817/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Schachter",
+      "generic_name": "oxcarbazepine",
+      "label": "Schachter1999b",
+      "pmid": "10599816",
+      "pub_types": "Clinical Trial; Letter; Randomized Controlled Trial; Comment",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Oxcarbazepine in a monotherapy trial for partial seizures--placebo-controlled studies in neurology: where do they stop?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10599816/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Schachter",
+      "generic_name": "oxcarbazepine",
+      "label": "Schachter1999",
+      "pmid": "10078718",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Oxcarbazepine: double-blind, randomized, placebo-control, monotherapy trial for partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10078718/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Rashdan",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "41693686",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Probiotic Supplementation as an Adjuvant Therapy in Pediatric Drug-Resistant Epilepsy: A Double-Blind Placebo-Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41693686/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Yu",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "41428177",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and Safety of Adjunctive Cenobamate in Chinese Participants with Focal Seizure.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41428177/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "38356105",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and Tolerability of Adjunctive Brivaracetam in Patients with Focal-Onset Seizures on Specific Concomitant Antiseizure Medications: Pooled Analysis of Double-Blind, Placebo-Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38356105/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Hwang",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "35727711",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The pharmacokinetic, safety, and tolerability profiles of eslicarbazepine acetate are comparable between Korean and White subjects.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35727711/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Ryvlin",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "35582748",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Tolerability and efficacy of adjunctive brivaracetam in adults with focal seizures by concomitant antiseizure medication use: Pooled results from three phase 3 trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35582748/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Takenaka",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "29171002",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic/pharmacodynamic analysis of adjunctive perampanel in subjects with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29171002/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Villanueva",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "27595590",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetics, exposure-cognition, and exposure-efficacy relationships of perampanel in adolescents with inadequately controlled partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27595590/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Meador",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "26724782",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Cognitive effects of adjunctive perampanel for partial-onset seizures: A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26724782/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Chung",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "26248506",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term efficacy and safety of adjunctive extended-release oxcarbazepine (Oxtellar XR ® ) in adults with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26248506/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "23772853",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Concentration-effect relationships with perampanel in patients with pharmacoresistant partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23772853/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Gazzola",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "17521343",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Seizure-free outcome in randomized add-on trials of the new antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17521343/",
+      "year": "2007"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "17582922",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Zonisamide: new drug. No advantage in refractory partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17582922/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Wagner",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "16816222",
+      "pub_types": "Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A double-blind, randomized, placebo-controlled trial of oxcarbazepine in the treatment of bipolar disorder in children and adolescents.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16816222/",
+      "year": "2006"
+    },
+    {
+      "first_author": "Theis",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "16052246",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Lack of pharmacokinetic interaction between oxcarbazepine and lamotrigine.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16052246/",
+      "year": "2005"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "11987312",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Gabapentin: new indication. Little impact on partial epilepsy in children between 3 and 12.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11987312/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Glauser",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "10881246",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Adjunctive therapy with oxcarbazepine in children with partial seizures. The Oxcarbazepine Pediatric Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10881246/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Pisani",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "7801739",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Effects of the antidepressant drug viloxazine on oxcarbazepine and its hydroxylated metabolites in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7801739/",
+      "year": "1994"
+    },
+    {
+      "first_author": "McKee",
+      "generic_name": "oxcarbazepine",
+      "label": "",
+      "pmid": "8148215",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A double-blind, placebo-controlled interaction study between oxcarbazepine and carbamazepine, sodium valproate and phenytoin in epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8148215/",
+      "year": "1994"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

@@ -1,0 +1,440 @@
+2026-05-21T03:39:00.916028Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:39:00.916481Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:39:00.920078Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:39:00.920125Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.065386Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e489d-7c2b-7001-9160-8dacb5dfdd8d
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Evidence availability: no reliable FDA/RCT symptom percentages found (0% usable quantified current data located)",
+    "alternate_generic_names": "",
+    "available_in_us": "No - formerly authorized in France; authorization revoked/withdrawn",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Limited data; hepatic metabolism and interaction concerns reported",
+    "epilepsy_type": "Historical/unspecified epilepsy; Focal; Generalized",
+    "evidence_sources": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [progabide; Gabrene].",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Focal; Generalized; Historical/unspecified epilepsy",
+    "filter_formulation": "Historical/not marketed",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "Unknown/limited",
+    "filter_symptom_category": "Unquantified/limited data",
+    "formulations_available": "Historical/non-U.S. oral formulation",
+    "generic_name": "progabide",
+    "half_life_range": "Limited data",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Not FDA-approved/currently marketed",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "GABA analog/prodrug with agonist activity at GABA-A and GABA-B receptors, enhancing inhibitory GABAergic signaling.",
+    "mechanism_source": "NCBI PubChem pharmacology records",
+    "mechanism_source_tier": "NCBI/PubChem",
+    "minimum_effective_dose": "Not FDA-approved/currently marketed",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "MartinezLage1984|https://pubmed.ncbi.nlm.nih.gov/6383790/; Loiseau1983|https://pubmed.ncbi.nlm.nih.gov/6357772/; Dam1983|https://pubmed.ncbi.nlm.nih.gov/6403342/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "Unknown/limited data",
+    "rct_pubmed_verification_notes": "PubMed loop 50/65 on 2026-05-15: 3 qualifying placebo-controlled randomized clinical trial report(s) retained from 8 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Former French-authorized GABA-ergic anticonvulsant (Gabrene); ANSM authorization later revoked/withdrawn.",
+    "trade_names": "Gabrene",
+    "typical_doses_per_day": "Historical/non-U.S. dosing individualized",
+    "year_fda_cleared": "Not FDA-cleared; ANSM France authorization 19/04/1984, revoked 21/07/2014"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "MartinezLage1984|https://pubmed.ncbi.nlm.nih.gov/6383790/",
+      "label": "MartinezLage1984",
+      "pmid": "6383790",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6383790/"
+    },
+    {
+      "entry": "Loiseau1983|https://pubmed.ncbi.nlm.nih.gov/6357772/",
+      "label": "Loiseau1983",
+      "pmid": "6357772",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6357772/"
+    },
+    {
+      "entry": "Dam1983|https://pubmed.ncbi.nlm.nih.gov/6403342/",
+      "label": "Dam1983",
+      "pmid": "6403342",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6403342/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Evidence availability: no reliable FDA/RCT symptom percentages found (0% usable quantified current data located)",
+    "alternate_generic_names": "",
+    "available_in_us": "No - formerly authorized in France; authorization revoked/withdrawn",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Limited data; hepatic metabolism and interaction concerns reported",
+    "epilepsy_type": "Historical/unspecified epilepsy; Focal; Generalized",
+    "evidence_sources": "NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [progabide; Gabrene].",
+    "formulations_available": "Historical/non-U.S. oral formulation",
+    "half_life_range": "Limited data",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Not FDA-approved/currently marketed",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "GABA analog/prodrug with agonist activity at GABA-A and GABA-B receptors, enhancing inhibitory GABAergic signaling.",
+    "mechanism_source": "NCBI PubChem pharmacology records",
+    "mechanism_source_tier": "NCBI/PubChem",
+    "minimum_effective_dose": "Not FDA-approved/currently marketed",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "MartinezLage1984|https://pubmed.ncbi.nlm.nih.gov/6383790/; Loiseau1983|https://pubmed.ncbi.nlm.nih.gov/6357772/; Dam1983|https://pubmed.ncbi.nlm.nih.gov/6403342/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "Unknown/limited data",
+    "trade_names": "Gabrene",
+    "typical_doses_per_day": "Historical/non-U.S. dosing individualized",
+    "year_fda_cleared": "Not FDA-cleared; ANSM France authorization 19/04/1984, revoked 21/07/2014"
+  },
+  "generic_name": "progabide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [progabide; Gabrene].",
+      "details": {},
+      "evidence_url": "https://open.fda.gov/apis/drug/label/",
+      "generic_name": "progabide",
+      "id": "fda_warning_metadata_refresh-eb7ca4da750a",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No current FDA/openFDA label identified.",
+        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [progabide; Gabrene].",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [progabide; Gabrene].",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Crossover abstract reports seizure reductions for individual progabide-treated patients but not extractable active/placebo RR50, MPC, or seizure-freedom arm values.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "progabide",
+      "label": "MartinezLage1984",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6383790",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6383790/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Progabide treatment in severe epilepsy: a double-blind cross-over trial versus placebo."
+    },
+    {
+      "audit_note": "Crossover abstract reports global improvement and 48-100% total-seizure reductions in some progabide periods, but not extractable active/placebo RR50, MPC, or seizure-freedom arm values.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "progabide",
+      "label": "Loiseau1983",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6357772",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6357772/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Double-blind crossover trial of progabide versus placebo in severe epilepsies."
+    },
+    {
+      "audit_note": "Crossover abstract reports no significant partial-seizure difference and does not give extractable active/placebo RR50, MPC, or seizure-freedom arm values.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "progabide",
+      "label": "Dam1983",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6403342",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6403342/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Progabide: a controlled trial in partial epilepsy."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Martínez-Lage",
+      "generic_name": "progabide",
+      "label": "MartinezLage1984",
+      "pmid": "6383790",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Progabide treatment in severe epilepsy: a double-blind cross-over trial versus placebo.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6383790/",
+      "year": "1984"
+    },
+    {
+      "first_author": "Loiseau",
+      "generic_name": "progabide",
+      "label": "Loiseau1983",
+      "pmid": "6357772",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind crossover trial of progabide versus placebo in severe epilepsies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6357772/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Dam",
+      "generic_name": "progabide",
+      "label": "Dam1983",
+      "pmid": "6403342",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Progabide: a controlled trial in partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6403342/",
+      "year": "1983"
+    },
+    {
+      "first_author": "de Pasquet",
+      "generic_name": "progabide",
+      "label": "",
+      "pmid": "1985823",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Double-blind, placebo-controlled, cross-over trial of progabide as add-on therapy in epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1985823/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Brundage",
+      "generic_name": "progabide",
+      "label": "",
+      "pmid": "3427561",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effect of progabide on serum phenytoin and carbamazepine concentrations.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3427561/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "progabide",
+      "label": "",
+      "pmid": "3295590",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "A controlled study of progabide in partial seizures: methodology and results.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3295590/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "progabide",
+      "label": "",
+      "pmid": "3511402",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Progabide for refractory partial epilepsy: a controlled add-on trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3511402/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "progabide",
+      "label": "",
+      "pmid": "6382068",
+      "pub_types": "Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Progabide as an add-on drug for epilepsy refractory to high dose antiepileptic drug therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6382068/",
+      "year": "1984"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T03:39:01.120544Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.176208Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.199967Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.208753Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:39:01.209122Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:39:01.212155Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:39:01.212213Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.226711Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.227649Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.227656Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.228145Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.228149Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.228670Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.228674Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.229124Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.229133Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.229645Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.229649Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.230487Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.230489Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.256227Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.269276Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.272589Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.272869Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.283754Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:39:01.945508Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:39:01.945878Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:39:01.948733Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:39:01.948778Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.961365Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.961373Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.961790Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.961795Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.962210Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.962212Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.962603Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.962607Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.963010Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.963013Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.963875Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:39:01.963878Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:39:01.995106Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.998258Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:39:01.998330Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: progabide GABA-A GABA-B receptor agonist PubMed
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/6383790/
+web search: 
+web search: site:eutils.ncbi.nlm.nih.gov 6383790 progabide PubMed
+web search: 
+web search: site:ema.europa.eu progabide Gabrene
+web search: 
+web search: Gabrene progabide PubMed
+web search: 
+web search: www.ncbi.nlm.nih.gov mesh Gabrene progabide
+web search: 
+web search: api.fda.gov drug label progabide
+web search: 
+web search: "https://api.fda.gov/drug/label.json?search=progabide"
+web search: 
+web search: Martinez-Lage 6383790 progabide treatment severe epilepsy abstract PMID 6383790
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov/6357772 "Double-blind crossover trial" "progabide"
+web search: 
+web search: "PMID: 6357772"
+web search: 
+web search: https://www.ncbi.nlm.nih.gov/books/n/niceng217er26/
+web search: 
+web search: "eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi" "6383790"
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob progabide
+web search: 
+web search: "mixed GABA(A)/GABA(B) agonist progabide" PubMed
+web search: 
+web search: "The inhibitory effects on sexual behavior" "progabide" "PMID"
+codex
+{"black_box_warning":{"current_value":"No current FDA/DailyMed label identified.","fda_source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"],"proposed_value":"No current FDA/openFDA label identified.","rationale":"The substantive finding of no current FDA label is consistent with the FDA/openFDA no-label result supplied in the row bundle, but DailyMed is not permissible for boxed-warning verification. Use FDA/openFDA wording only.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":["If exact French authorization/revocation dates must be retained, provide or permit the specific ANSM/public French medicines-directory source URL; ANSM is named in the row but is not in the allowed source-domain list for this audit."],"fact_checks":[{"current_value":"progabide","field":"generic_name","proposed_value":"progabide","rationale":"PubMed RCT records and NLM MeSH/PubChem records identify the substance as progabide.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6403342/","https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"halogabide; SL 76002; SL-76002; SL-76.002","rationale":"Important aliases/development codes are missing. NLM MeSH lists SL 76002 as an entry term; PubChem lists Halogabide and related SL code variants.","requires_user_approval":false,"status":"missing","supporting_sources":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Gabrene","field":"trade_names","proposed_value":"Gabrene; Gabren","rationale":"Gabrene is verified. PubChem also lists Gabren as a synonym; if the CSV treats brand/trade synonyms broadly, add Gabren to prevent duplicate-row creation under that alias.","requires_user_approval":false,"status":"missing","supporting_sources":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"Gabrene; Gabren; halogabide; SL 76002; SL-76002; SL-76.002","rationale":"Search aliases should include trade names and development-code aliases seen in NLM MeSH/PubChem so the same drug is not missed or duplicated.","requires_user_approval":false,"status":"missing","supporting_sources":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"No - formerly authorized in France; authorization revoked/withdrawn","field":"available_in_us","proposed_value":"No - not FDA-approved/currently marketed in the US; historical French authorization/revocation requires ANSM source verification if retained.","rationale":"No current FDA/openFDA label was identified, supporting non-US availability. The exact French authorization/revocation statement is plausible from the row bundle but lacks an allowed-domain source in this audit.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"]},{"current_value":"Historical/non-U.S. oral formulation","field":"formulations_available","proposed_value":"Historical/non-U.S. oral formulation","rationale":"Clinical trial evidence describes oral capsule dosing of progabide/placebo; no current US label was found.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/"]},{"current_value":"Not FDA-approved/currently marketed","field":"maximum_approved_daily_dose","proposed_value":"Not FDA-approved/currently marketed","rationale":"No current FDA/openFDA label was identified, so there is no FDA-approved maximum daily dose.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"]},{"current_value":"Not FDA-approved/currently marketed","field":"minimum_effective_dose","proposed_value":"Not FDA-approved/currently marketed","rationale":"No current FDA/openFDA label was identified, so there is no FDA-approved minimum effective dose.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"]},{"current_value":"Historical/non-U.S. dosing individualized","field":"typical_doses_per_day","proposed_value":"Historical/non-U.S. dosing varied by trial; no current FDA-approved dosing.","rationale":"The cited trials used historical regimens rather than current approved dosing. Martinez-Lage used divided daily dosing; Schmidt reported an average daily dose of 2100 mg in a small add-on trial.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6382068/"]},{"current_value":"Not FDA-cleared; ANSM France authorization 19/04/1984, revoked 21/07/2014","field":"year_fda_cleared","proposed_value":"Not FDA-cleared/approved; retain the French authorization/revocation dates only with the cited ANSM/public medicines-directory source.","rationale":"The FDA portion is supported by no FDA/openFDA label. The exact French dates are not verifiable from the allowed source domains supplied for this audit.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"]},{"current_value":"GABA analog/prodrug with agonist activity at GABA-A and GABA-B receptors, enhancing inhibitory GABAergic signaling.","field":"mechanism_of_action","proposed_value":"GABA analog/prodrug with GABA-receptor agonist activity, including GABA-A/GABA-B activity reported in pharmacology records, enhancing inhibitory GABAergic signaling.","rationale":"PubMed pharmacology evidence supports specific GABA receptor agonist activity; NCBI/PubChem records support analog/prodrug and GABA-A/GABA-B wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"High","field":"mechanism_confidence","proposed_value":"High","rationale":"Mechanism is supported by direct receptor-binding pharmacology and NCBI/PubChem records.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"NCBI PubChem pharmacology records","field":"mechanism_source","proposed_value":"NCBI PubChem pharmacology records; PubMed Lloyd 1982 GABA receptor pharmacology study","rationale":"PubChem supports the summary, and PubMed PMID 6121050 is a stronger primary pharmacology source for receptor agonist activity.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"NCBI/PubChem","field":"mechanism_source_tier","proposed_value":"NCBI/PubChem; PubMed","rationale":"The current tier is acceptable but incomplete if PMID 6121050 is added as a primary mechanism source.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Limited data; hepatic metabolism and interaction concerns reported","field":"enzyme_inducing_or_inhibiting","proposed_value":"Limited data; hepatic-enzyme elevations and clinically relevant interaction concerns reported, including effects on phenytoin/carbamazepine metabolism and microsomal epoxide hydrolase inhibition.","rationale":"Peer-reviewed sources report elevated hepatic enzymes, symptomatic hepatic enzyme elevation in one case, phenytoin interaction, carbamazepine-metabolism effects, and microsomal epoxide hydrolase inhibition.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/3098923/","https://pmc.ncbi.nlm.nih.gov/articles/PMC1029073/","https://pubmed.ncbi.nlm.nih.gov/3191894/","https://pubmed.ncbi.nlm.nih.gov/8222491/"]},{"current_value":"Liver","field":"major_organ_for_metabolism","proposed_value":"Liver","rationale":"The hepatic-enzyme and hepatic-metabolism/interactions literature supports liver/hepatic handling as the relevant metabolism/toxicity organ category.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/3098923/","https://pubmed.ncbi.nlm.nih.gov/8222491/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Limited data","field":"half_life_range","proposed_value":"Limited data","rationale":"No current FDA label with a standardized half-life range was identified. Non-label secondary records report pharmacokinetic values, but the row's limited-data wording is appropriately conservative.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Historical/unspecified epilepsy; Focal; Generalized","field":"epilepsy_type","proposed_value":"Historical/unspecified epilepsy; Focal; Generalized","rationale":"RCT evidence includes partial/complex partial epilepsy and severe epilepsies including generalized and partial subgroups.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/","https://www.ncbi.nlm.nih.gov/books/NBK581153/"]},{"current_value":"Unknown/limited data","field":"qt_interval_effect","proposed_value":"Unknown/limited data","rationale":"No current FDA label or QT-specific evidence was identified. Martinez-Lage reports ECG monitoring without treatment-related ECG changes, but not a QT-specific assessment.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/"]},{"current_value":"Evidence availability: no reliable FDA/RCT symptom percentages found (0% usable quantified current data located)","field":"adverse_symptoms_percentages","proposed_value":"Evidence availability: limited historical RCT adverse-event counts exist, but no current FDA-label or harmonized placebo-adjusted symptom-percentage table was identified.","rationale":"The Martinez-Lage RCT reports adverse-event counts during treatment periods, so '0% usable quantified current data' is misleading if read as no RCT safety counts. However, these data are small historical crossover counts, not current FDA-label percentages.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6403342/","https://pubmed.ncbi.nlm.nih.gov/3098923/"]},{"current_value":"NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory","field":"evidence_sources","proposed_value":"NCBI/PubMed and NCBI PubChem pharmacology records; FDA/openFDA labeling; PubMed placebo-controlled trial reports; ANSM French medicines directory for French authorization facts only if an allowed source URL is retained.","rationale":"DailyMed should not be cited for FDA boxed-warning verification. The row also uses PubMed RCT evidence and should name it. Exact ANSM date facts remain source-limited under this audit's allowed-domain list.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"No current FDA/openFDA label identified.","rationale":"DailyMed wording violates the audit rule for boxed warnings. Use FDA/openFDA only.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [progabide; Gabrene].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026: no current FDA label found for terms [progabide; Gabrene; Gabren; SL 76002].","rationale":"Source wording should use FDA/openFDA and include key aliases. DailyMed is not permissible for this field.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1"]},{"current_value":"Former French-authorized GABA-ergic anticonvulsant (Gabrene); ANSM authorization later revoked/withdrawn.","field":"status_or_notes","proposed_value":"Former French-authorized GABA-ergic anticonvulsant (Gabrene); ANSM authorization later revoked/withdrawn. Exact French authorization details require the ANSM/public medicines-directory source URL.","rationale":"GABA-ergic mechanism and Gabrene alias are supported. The French authorization/revocation statement needs the specific ANSM source, which is outside the allowed-domain list supplied for this audit.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://meshb.nlm.nih.gov/record/ui?ui=C017985"]},{"current_value":"Not available in US","field":"filter_availability","proposed_value":"Not available in US","rationale":"No current FDA/openFDA label was identified.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database"]},{"current_value":"Unknown/limited","field":"filter_enzyme_effect","proposed_value":"Unknown/limited","rationale":"The literature reports interaction concerns but does not support a clean inducer/inhibitor classification suitable for this filter.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/3191894/","https://pubmed.ncbi.nlm.nih.gov/8222491/"]},{"current_value":"Focal; Generalized; Historical/unspecified epilepsy","field":"filter_epilepsy_type","proposed_value":"Focal; Generalized; Historical/unspecified epilepsy","rationale":"Consistent with RCT populations including partial/focal and generalized/severe epilepsies.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"Historical/not marketed","field":"filter_formulation","proposed_value":"Historical/not marketed","rationale":"No current US label was found; historical clinical trial dosing supports historical formulation use.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://pubmed.ncbi.nlm.nih.gov/6383790/"]},{"current_value":"GABA","field":"filter_mechanism","proposed_value":"GABA","rationale":"Directly supported by receptor pharmacology and NCBI/PubChem records.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Liver/hepatic","field":"filter_metabolism","proposed_value":"Liver/hepatic","rationale":"Supported by hepatic enzyme/interactions literature.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/3098923/","https://pubmed.ncbi.nlm.nih.gov/8222491/"]},{"current_value":"Unknown/limited","field":"filter_qt_effect","proposed_value":"Unknown/limited","rationale":"No QT-specific FDA label or trusted QT evidence was identified.","requires_user_approval":false,"status":"verified","supporting_sources":["https://open.fda.gov/apis/drug/label/","https://pubmed.ncbi.nlm.nih.gov/6383790/"]},{"current_value":"Unquantified/limited data","field":"filter_symptom_category","proposed_value":"Unquantified/limited data","rationale":"Historical RCT safety counts exist but are not a current FDA-label percentage table.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]}],"generic_name":"progabide","missing_rcts":[],"outcome_checks":[{"current_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_50_responder_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The retained crossover RCT records do not provide a standard arm-level active and placebo 50% responder rate allowing a drug-minus-placebo RR50 differential. Martinez-Lage reports individual reductions but not extractable arm rates; Dam reports no significant partial-seizure difference; Loiseau is a crossover report without extractable differential RR50 in the accessible evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The cited crossover RCT evidence does not provide a standard active-arm median percent change and placebo-arm median percent change suitable for a maximum-dose drug-minus-placebo MPC differential.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The retained PubMed RCT records do not provide active and placebo seizure-freedom patient rates suitable for calculating a differential.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"","rationale":"Blank plotting field is consistent with NR/not-extractable RR50 differential.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"","rationale":"Blank plotting field is consistent with NR/not-extractable MPC differential.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"","rationale":"Blank plotting field is consistent with NR/not-extractable seizure-freedom differential.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"","field":"alternate_generic_names","proposed_value":"halogabide; SL 76002; SL-76002; SL-76.002","reason":"Important aliases/development codes are missing.","requires_user_approval":false,"source_urls":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Gabrene","field":"trade_names","proposed_value":"Gabrene; Gabren","reason":"Gabrene is verified; Gabren is also listed as a synonym/brand-like alias in NCBI/PubChem records.","requires_user_approval":false,"source_urls":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"Gabrene; Gabren; halogabide; SL 76002; SL-76002; SL-76.002","reason":"Add search aliases to prevent duplicate rows and improve PubMed retrieval.","requires_user_approval":false,"source_urls":["https://meshb.nlm.nih.gov/record/ui?ui=C017985","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"No current FDA/openFDA label identified.","reason":"DailyMed is not permissible for boxed-warning verification.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [progabide; Gabrene].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026: no current FDA label found for terms [progabide; Gabrene; Gabren; SL 76002].","reason":"Use FDA/openFDA source wording and include key aliases.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1"]},{"current_value":"NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory","field":"evidence_sources","proposed_value":"NCBI/PubMed and NCBI PubChem pharmacology records; FDA/openFDA labeling; PubMed placebo-controlled trial reports; ANSM French medicines directory for French authorization facts only if an allowed source URL is retained.","reason":"Replace DailyMed with FDA/openFDA and name PubMed RCT evidence. French authorization facts remain source-limited under the allowed-domain list.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"NCBI PubChem pharmacology records","field":"mechanism_source","proposed_value":"NCBI PubChem pharmacology records; PubMed Lloyd 1982 GABA receptor pharmacology study","reason":"Add primary PubMed pharmacology evidence for GABA receptor agonist activity.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]},{"current_value":"Evidence availability: no reliable FDA/RCT symptom percentages found (0% usable quantified current data located)","field":"adverse_symptoms_percentages","proposed_value":"Evidence availability: limited historical RCT adverse-event counts exist, but no current FDA-label or harmonized placebo-adjusted symptom-percentage table was identified.","reason":"Historical RCT adverse-event counts exist, so the current wording is too absolute and the '0%' phrasing is potentially misleading.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6403342/","https://pubmed.ncbi.nlm.nih.gov/3098923/"]},{"current_value":"Limited data; hepatic metabolism and interaction concerns reported","field":"enzyme_inducing_or_inhibiting","proposed_value":"Limited data; hepatic-enzyme elevations and clinically relevant interaction concerns reported, including effects on phenytoin/carbamazepine metabolism and microsomal epoxide hydrolase inhibition.","reason":"More specific wording is supported by PubMed evidence.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/3098923/","https://pmc.ncbi.nlm.nih.gov/articles/PMC1029073/","https://pubmed.ncbi.nlm.nih.gov/3191894/","https://pubmed.ncbi.nlm.nih.gov/8222491/"]}],"rct_link_checks":[{"label":"MartinezLage1984","pmid":"6383790","proposed_action":"Keep","rationale":"PMID 6383790 is progabide in therapy-resistant epilepsy and is a double-blind randomized two-period crossover trial versus placebo. It supports placebo-controlled RCT inclusion but does not provide extractable placebo-arm RR50/MPC/seizure-freedom differentials.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/6383790/"},{"label":"Loiseau1983","pmid":"6357772","proposed_action":"Keep","rationale":"PMID 6357772 is Loiseau et al., 'Double-blind crossover trial of progabide versus placebo in severe epilepsies.' The NCBI Bookshelf evidence review links the same PubMed record and identifies the crossover design. It supports placebo-controlled trial inclusion but not extractable differential RR50/MPC/seizure-freedom values from accessible evidence.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/6357772/"},{"label":"Dam1983","pmid":"6403342","proposed_action":"Keep","rationale":"PMID 6403342 is progabide in partial complex seizures, explicitly randomized, double-blind, crossover, and placebo-controlled in the PubMed abstract/publication types. It supports placebo-controlled RCT inclusion but not extractable differential RR50/MPC/seizure-freedom values.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/6403342/"}],"source_updates":[{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [progabide; Gabrene].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026: no current FDA label found for terms [progabide; Gabrene; Gabren; SL 76002].","reason":"DailyMed is not an allowed source for boxed-warning verification; FDA/openFDA is allowed.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://api.fda.gov/drug/label.json?search=progabide&limit=1","https://api.fda.gov/drug/label.json?search=Gabrene&limit=1"]},{"current_value":"NCBI PubChem pharmacology records; FDA/DailyMed labeling; ANSM French medicines directory","field":"evidence_sources","proposed_value":"NCBI/PubMed and NCBI PubChem pharmacology records; FDA/openFDA labeling; PubMed placebo-controlled trial reports; ANSM French medicines directory for French authorization facts only if an allowed source URL is retained.","reason":"Correct FDA source wording and add PubMed RCT/outcome support. French authorization facts still need a specific acceptable source decision.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/","https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubmed.ncbi.nlm.nih.gov/6383790/","https://pubmed.ncbi.nlm.nih.gov/6357772/","https://pubmed.ncbi.nlm.nih.gov/6403342/"]},{"current_value":"NCBI PubChem pharmacology records","field":"mechanism_source","proposed_value":"NCBI PubChem pharmacology records; PubMed Lloyd 1982 GABA receptor pharmacology study","reason":"Primary PubMed pharmacology evidence better supports the mechanism cell.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/6121050/","https://pubchem.ncbi.nlm.nih.gov/compound/44115"]}],"summary":"Progabide row is mostly directionally correct for mechanism, non-US/no-current-FDA-label status, epilepsy types, and RCT outcome non-extractability. Updates are needed for FDA boxed-warning source wording, missing aliases/search aliases, evidence-source wording, and overly absolute adverse-event availability wording. Exact French ANSM authorization/revocation dates remain missing-source under the audit's allowed-domain list."}
+tokens used
+134,082

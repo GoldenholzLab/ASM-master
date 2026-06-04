@@ -1,0 +1,221 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).",
+    "alternate_generic_names": "adrenocorticotropic hormone; ACTH; corticotropin",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.",
+    "epilepsy_type": "Epileptic spasms / infantile spasms",
+    "evidence_sources": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30; published=Dec 08, 2025; title=ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION [MALLINCKRODT ARD LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Unknown/limited",
+    "filter_epilepsy_type": "Epileptic spasms / infantile spasms",
+    "filter_formulation": "IV/IM injection; Injection",
+    "filter_mechanism": "Hormonal/steroid; Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "No known meaningful QT effect; Other",
+    "filter_symptom_category": "Behavioral; Cardiac; Constitutional; Endocrine; GI; Infectious; Neurologic; Vascular",
+    "formulations_available": "Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications",
+    "generic_name": "repository corticotropin",
+    "half_life_range": "ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized",
+    "major_organ_for_metabolism": "Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile",
+    "maximum_approved_daily_dose": "Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.",
+    "mechanism_source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel",
+    "qt_interval_effect": "No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-20-2026; RCT section set to N/A per current scope. FDA-labeled efficacy is supported by a randomized active-comparator ACTH-vs-prednisone trial and a high-dose versus low-dose supportive trial, which are outside the project placebo-controlled RCT-link section.",
+    "status_or_notes": "U.S.-available repository corticotropin/ACTH gel; FDA-labeled as monotherapy for infantile spasms in infants and children under 2 years of age, with multiple non-seizure inflammatory/autoimmune indications also listed in labeling.",
+    "trade_names": "Acthar Gel; H.P. Acthar Gel",
+    "typical_doses_per_day": "Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.",
+    "year_fda_cleared": "1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010."
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).",
+    "alternate_generic_names": "adrenocorticotropic hormone; ACTH; corticotropin",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.",
+    "epilepsy_type": "Epileptic spasms / infantile spasms",
+    "evidence_sources": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30; published=Dec 08, 2025; title=ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION [MALLINCKRODT ARD LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
+    "formulations_available": "Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications",
+    "half_life_range": "ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized",
+    "major_organ_for_metabolism": "Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile",
+    "maximum_approved_daily_dose": "Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.",
+    "mechanism_source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel",
+    "qt_interval_effect": "No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.",
+    "trade_names": "Acthar Gel; H.P. Acthar Gel",
+    "typical_doses_per_day": "Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.",
+    "year_fda_cleared": "1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010."
+  },
+  "generic_name": "repository corticotropin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Sun",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "37909654",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Safety and efficacy of melatonin supplementation as an add-on treatment for infantile epileptic spasms syndrome: A randomized, placebo-controlled, double-blind trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37909654/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Sun",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "35788069",
+      "pub_types": "Clinical Trial Protocol; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Melatonin supplementation for the treatment of infantile spasms: protocol for a randomised placebo-controlled triple-blind trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35788069/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Bitton",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "22889307",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A randomized controlled trial of flunarizine as add-on therapy and effect on cognitive outcome in children with infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22889307/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Murck",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "9683002",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Mg2+ reduces ACTH secretion and enhances spindle power without changing delta power during sleep in men -- possible therapeutic implications.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9683002/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Dyken",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "3939740",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Short term effects of valproate on infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3939740/",
+      "year": "1985"
+    },
+    {
+      "first_author": "Hrachovy",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "6312008",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "active-comparator/comparison title without placebo",
+      "status": "rejected",
+      "title": "Double-blind study of ACTH vs prednisone therapy in infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6312008/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Small",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "193359",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effects of ACTH 4-10 on ECT-induced memory dysfunctions.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/193359/",
+      "year": "1977"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

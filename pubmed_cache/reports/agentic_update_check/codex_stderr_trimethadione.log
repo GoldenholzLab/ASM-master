@@ -1,0 +1,265 @@
+2026-05-21T04:30:39.192022Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:39.217383Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e48cc-c233-72e0-92be-3855d184cabd
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [trimethadione; Tridione].",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Historical/unspecified epilepsy",
+    "filter_formulation": "Capsule; Historical/not marketed; Liquid; Tablet",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "Unknown/limited",
+    "filter_symptom_category": "Unquantified/limited data",
+    "formulations_available": "Historical oral capsule; historical oral solution; historical oral tablet (not marketed in U.S.)",
+    "generic_name": "trimethadione",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Tridione",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 legacy ASM product (Tridione); discontinued U.S. product listing.",
+    "trade_names": "Tridione",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [trimethadione; Tridione].",
+    "formulations_available": "Historical oral capsule; historical oral solution; historical oral tablet (not marketed in U.S.)",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Tridione",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "trade_names": "Tridione",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "trimethadione",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [trimethadione; Tridione].",
+      "details": {},
+      "evidence_url": "https://open.fda.gov/apis/drug/label/",
+      "generic_name": "trimethadione",
+      "id": "fda_warning_metadata_refresh-ae7a49794db6",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No current FDA/openFDA label identified.",
+        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [trimethadione; Tridione].",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [trimethadione; Tridione].",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T04:30:39.258423Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:30:39.258977Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:30:39.264003Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:30:39.264063Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:39.290920Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:39.320524Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:39.326005Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:30:39.326379Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:30:39.329644Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:30:39.329685Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:39.343959Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.343967Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.344396Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.344402Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.344845Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.344848Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.345287Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.345290Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.345726Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.345731Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.346644Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:39.346646Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:39.364747Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:39.380614Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:39.384528Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:39.384609Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:39.394263Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:39.423811Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:30:41.508416Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:30:41.508979Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:30:41.512998Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:30:41.513047Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:41.527737Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.527741Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.528190Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.528195Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.528623Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.528627Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.529067Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.529070Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.529556Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.529561Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.530534Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:30:41.530537Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:30:41.566870Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:41.570775Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:30:41.570850Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"trimethadione","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"Starting audit with FDA/openFDA, Orange Book, PubMed/NCBI, and epilepsy reference sources; no files will be edited."}
+web search: 
+web search: site:accessdata.fda.gov Orange Book trimethadione Tridione
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov/drug/label.json trimethadione
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob trimethadione Tridione
+web search: 
+web search: NDA 005856 Tridione capsule solution tablet Orange Book
+web search: 
+web search: https://regulations.justia.com/regulations/fedreg/2022/08/16/2022-17534.html
+web search: 
+web search: site:fda.gov "FDA-2022-N-1728" "Tridione"
+web search: 
+web search: https://www.fda.gov/media/130048/download
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2012/005856s021ltr.pdf
+web search: 
+web search: 
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=005856
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/default.cfm
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/default.cfm
+web search: 
+web search: site:ncbi.nlm.nih.gov trimethadione Troxidone synonym Tridione
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov Troxidone epilepsy trimethadione
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov trimethadione randomized placebo trial epilepsy
+web search: 
+web search: 'BECAUSE OF ITS POTENTIAL' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf
+web search: 
+web search: site:epilepsy.com trimethadione Tridione absence seizures
+codex
+{"black_box_warning":{"current_value":"No current FDA/DailyMed label identified.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2012/005856s021ltr.pdf"],"proposed_value":"Potential fetal malformations and serious side effects; reserve Tridione for petit mal seizures not controlled by less toxic drugs.","rationale":"The FDA accessdata label for Tridione (trimethadione) exists and contains a top-of-label warning. DailyMed was not used for this check.","requires_user_approval":true,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"trimethadione","field":"generic_name","proposed_value":"trimethadione","rationale":"FDA label identifies TRIDIONE as trimethadione.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Tridione","field":"trade_names","proposed_value":"Tridione","rationale":"FDA label and NCBI MeSH support Tridione as an alias/brand for trimethadione.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"Troxidone; Trimetin","rationale":"NCBI MeSH lists Troxidone and Trimetin as entry terms for trimethadione. Tridione is already captured as the trade name.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"Tridione","field":"pubmed_search_aliases","proposed_value":"Tridione; Troxidone; Trimetin","rationale":"PubMed/MeSH search should include the MeSH entry terms to avoid duplicate alias rows and improve retrieval.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"No - discontinued FDA Orange Book product","field":"available_in_us","proposed_value":"No - discontinued/not marketed in U.S.","rationale":"The no-availability conclusion is supported. Epilepsy Foundation notes Tridione tablets were no longer made/distributed, and FDA Orange Book change data show discontinued tablet listing.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.epilepsy.com/stories/community-corner-new-drug-alerts","https://www.fda.gov/media/130048/download"]},{"current_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","field":"epilepsy_type","proposed_value":"Petit mal/absence seizures refractory to treatment with other drugs (historical FDA-labeled indication).","rationale":"FDA label states Tridione is indicated for control of refractory petit mal seizures; the current row incorrectly says no specific FDA-labeled seizure category is available.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A - FDA-approved Tridione label lists adverse reactions but does not provide incidence percentages.","rationale":"FDA label lists adverse reactions by category, but without percentage incidence; the no-label rationale is contradicted by the FDA label.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.","field":"major_organ_for_metabolism","proposed_value":"Liver - trimethadione is demethylated by liver microsomes to active metabolite dimethadione.","rationale":"FDA label provides metabolism information identifying liver microsomal demethylation.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic/liver microsomal","rationale":"The label identifies liver microsomal metabolism, so the filter should not remain limited/unknown if hepatic is an available category.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"N/A - FDA label does not state that trimethadione induces or inhibits drug-metabolizing enzymes.","rationale":"N/A is plausible, but the row rationale should cite the FDA label rather than saying no label exists.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.","field":"half_life_range","proposed_value":"N/A - FDA label does not state a half-life.","rationale":"FDA label describes absorption, metabolism, and excretion but does not state a half-life.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.","field":"qt_interval_effect","proposed_value":"N/A - FDA label does not describe a QT interval effect.","rationale":"No QT text was found in the FDA label, but the no-label rationale is incorrect.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.","field":"maximum_approved_daily_dose","proposed_value":"2.4 g/day (usual adult dosage range 0.9-2.4 g/day).","rationale":"FDA label provides adult dosage range and divided dosing.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.","field":"minimum_effective_dose","proposed_value":"Adult initial dose 0.9 g/day; FDA label does not state a fixed minimum effective dose and says maintenance should be the least amount required to maintain control.","rationale":"FDA label provides initial adult dosing and maintenance principle.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.","field":"typical_doses_per_day","proposed_value":"3 or 4 divided doses daily.","rationale":"FDA label states adult and pediatric dosing is given in 3 or 4 divided doses.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","field":"mechanism_of_action","proposed_value":"Unclear/limited - FDA label identifies trimethadione as an oxazolidinedione antiepileptic and describes animal anticonvulsant activity, but does not state a molecular mechanism.","rationale":"FDA label provides limited pharmacology; Orange Book alone is not the best mechanism source.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA accessdata Tridione label (Description/Clinical Pharmacology)","rationale":"The mechanism/pharmacology facts are supported by the FDA label, not the Orange Book products file.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Limited","field":"mechanism_confidence","proposed_value":"Limited","rationale":"The FDA label gives limited pharmacology but not a molecular mechanism.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Historical oral capsule; historical oral solution; historical oral tablet (not marketed in U.S.)","field":"formulations_available","proposed_value":"Historical oral capsule; historical oral solution; historical oral tablet (not marketed in U.S.)","rationale":"Historical tablet formulation is directly supported by FDA label/Orange Book change data; capsule and solution are consistent with FDA-derived historical product data, but the row should retain Orange Book as the named source for those forms.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/130048/download"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","rationale":"FDA Orange Book data documentation uses this phrase for products approved before Jan 1, 1982; FDA change data also show the Tridione tablet as a legacy product.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/130048/download"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA accessdata/Drugs@FDA Tridione (trimethadione) label; NCBI MeSH/PubMed search audit; Epilepsy Foundation availability note.","rationale":"DailyMed should not be used for the black-box field, and the FDA accessdata label is needed for indication, dosing, metabolism, adverse reactions, and warning facts.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.ncbi.nlm.nih.gov/mesh/68014293","https://www.epilepsy.com/stories/community-corner-new-drug-alerts"]}],"generic_name":"trimethadione","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT for trimethadione was identified; no RR50 value should be calculated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28trimethadione+OR+Tridione+OR+Troxidone+OR+Trimetin%29+%28placebo+OR+randomized+OR+double-blind%29+epilepsy","https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No retained qualifying placebo-controlled RCT/outcome source supports a median percent change estimate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28trimethadione+OR+Tridione+OR+Troxidone+OR+Trimetin%29+%28placebo+OR+randomized+OR+double-blind%29+epilepsy"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No retained qualifying placebo-controlled RCT/outcome source supports a seizure-freedom differential.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28trimethadione+OR+Tridione+OR+Troxidone+OR+Trimetin%29+%28placebo+OR+randomized+OR+double-blind%29+epilepsy"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"05-20-2026","field":"data_most_recently_refreshed","proposed_value":"05-21-2026","reason":"Audit performed against FDA/NCBI/PubMed sources on 05-21-2026.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A - FDA-approved Tridione label lists adverse reactions but does not provide incidence percentages.","reason":"FDA label exists and lists adverse reactions without incidence rates.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"Troxidone; Trimetin","reason":"NCBI MeSH entry terms for trimethadione.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","field":"epilepsy_type","proposed_value":"Petit mal/absence seizures refractory to treatment with other drugs (historical FDA-labeled indication).","reason":"FDA label gives the seizure category.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Historical/unspecified epilepsy","field":"filter_epilepsy_type","proposed_value":"Petit mal/absence seizures","reason":"Align filter with FDA-labeled indication.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"Potential fetal malformations and serious side effects; reserve Tridione for petit mal seizures not controlled by less toxic drugs.","reason":"FDA accessdata label contains a top warning; DailyMed was not used.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2012/005856s021ltr.pdf"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [trimethadione; Tridione].","field":"fda_black_box_warning_source","proposed_value":"FDA accessdata Tridione (trimethadione) label, NDA 005856/S-021, approved 06-06-2012; top warning/boxed warning verified 05-21-2026.","reason":"Black-box warning verification must use FDA sources only; FDA label was identified.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2012/005856s021ltr.pdf"]},{"current_value":"05-20-2026","field":"fda_black_box_warning_verified","proposed_value":"05-21-2026","reason":"FDA warning re-verified during this audit.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"N/A - FDA label does not state that trimethadione induces or inhibits drug-metabolizing enzymes.","reason":"Corrects source rationale while retaining unknown enzyme effect.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.","field":"half_life_range","proposed_value":"N/A - FDA label does not state a half-life.","reason":"FDA label exists but lacks half-life.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.","field":"major_organ_for_metabolism","proposed_value":"Liver - trimethadione is demethylated by liver microsomes to active metabolite dimethadione.","reason":"FDA label provides hepatic metabolism information.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic/liver microsomal","reason":"FDA label identifies liver microsomal demethylation.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.","field":"maximum_approved_daily_dose","proposed_value":"2.4 g/day (usual adult dosage range 0.9-2.4 g/day).","reason":"FDA label provides adult dosage range.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.","field":"minimum_effective_dose","proposed_value":"Adult initial dose 0.9 g/day; FDA label does not state a fixed minimum effective dose and says maintenance should be the least amount required to maintain control.","reason":"FDA label provides initial dosing and maintenance principle.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","field":"mechanism_of_action","proposed_value":"Unclear/limited - FDA label identifies trimethadione as an oxazolidinedione antiepileptic and describes animal anticonvulsant activity, but does not state a molecular mechanism.","reason":"FDA label provides limited pharmacology; current no-label rationale is incorrect.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA accessdata Tridione label (Description/Clinical Pharmacology)","reason":"Mechanism/pharmacology is supported by FDA label rather than Orange Book.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Historical/limited","field":"mechanism_source_tier","proposed_value":"FDA label/historical","reason":"The supporting source is a historical FDA-approved label.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"Tridione","field":"pubmed_search_aliases","proposed_value":"Tridione; Troxidone; Trimetin","reason":"Adds NCBI MeSH entry terms for the same drug.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.","field":"qt_interval_effect","proposed_value":"N/A - FDA label does not describe a QT interval effect.","reason":"FDA label exists but does not mention QT.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was located in PubMed for trimethadione/Tridione/Troxidone/Trimetin as of 05-21-2026; RCT/outcome fields remain N/A.","reason":"Updates alias coverage and audit date.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/?term=%28trimethadione+OR+Tridione+OR+Troxidone+OR+Trimetin%29+%28placebo+OR+randomized+OR+double-blind%29+epilepsy","https://www.ncbi.nlm.nih.gov/mesh/68014293"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.","field":"typical_doses_per_day","proposed_value":"3 or 4 divided doses daily.","reason":"FDA label provides dosing frequency.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]}],"rct_link_checks":[{"label":"pubmed_phase_ii_iii_rct_links","pmid":"","proposed_action":"Keep N/A; no existing PubMed RCT links were provided and no qualifying trimethadione phase II/III placebo-controlled epilepsy RCT was found.","rationale":"Searches for trimethadione and MeSH aliases returned historical non-RCT treatment reports or unrelated drug trials, not a qualifying placebo-controlled trimethadione RCT.","status":"verified","url":"N/A"}],"source_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA accessdata/Drugs@FDA Tridione (trimethadione) label; NCBI MeSH/PubMed search audit; Epilepsy Foundation availability note.","reason":"DailyMed should not be used for black-box verification, and the FDA accessdata label supports many row facts currently marked unavailable.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.ncbi.nlm.nih.gov/mesh/68014293","https://www.epilepsy.com/stories/community-corner-new-drug-alerts"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [trimethadione; Tridione].","field":"fda_black_box_warning_source","proposed_value":"FDA accessdata Tridione (trimethadione) label, NDA 005856/S-021, approved 06-06-2012; top warning/boxed warning verified 05-21-2026.","reason":"FDA label was found; DailyMed is not permissible for this field.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2012/005856s021ltr.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA accessdata Tridione label (Description/Clinical Pharmacology)","reason":"Orange Book does not support the mechanism/pharmacology wording; FDA label does.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2012/005856s021lbl.pdf"]}],"summary":"Needs update. The major issue is that the row repeatedly says no FDA label was located, but an FDA accessdata Tridione label and approval letter exist. That label supports a top warning, refractory petit mal/absence indication, adverse-reaction list without percentages, liver microsomal metabolism, and adult/pediatric divided dosing. RCT/outcome N/A values remain appropriate because no qualifying placebo-controlled phase II/III trimethadione epilepsy RCT was found."}
+tokens used
+139,881

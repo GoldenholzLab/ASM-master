@@ -1,0 +1,806 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 23%, neurologic: ataxia 15%, CNS: dizziness 12%, respiratory: nasal discomfort 6% for nasal product, GI: nausea 5%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "1.8-21 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: vanTuijl2021 diazepam for 3 days after acute stroke 1.8%; Cereghino1998 single caregiver-administered rectal diazepam dose 21%; Autret1990 intermittent oral diazepam during fever 3.5%)",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; CYP3A4/CYP2C19 substrate",
+    "epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )]. LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes [see Warnings and Precautions ( 5.2 )]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although LIBERVANT is indicated only for intermittent use [see Indications and Usage ( 1 ) and Dosage and Administration ( 2 )] , if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT [see Warnings and Precautions ( 5.3 )]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; AND DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. ( 5.1 , 7.1 ) LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing LIBERVANT and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction. ( 5.2 ) Although LIBERVANT is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT. ( 5.3 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9; published=Nov 15, 2024; title=LIBERVANT (DIAZEPAM) FILM [AQUESTIVE THERAPEUTICS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "filter_formulation": "IV/IM injection; Liquid; Rescue formulation; Tablet",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Neurologic; Respiratory",
+    "formulations_available": "Tablet; oral solution; rectal gel; nasal spray; IV injection; autoinjector in some settings",
+    "generic_name": "diazepam",
+    "half_life_range": "Diazepam 20-50 h; active metabolites up to ~100 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Rescue dosing individualized by age/weight/product",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise antiseizure mechanism is unknown; diazepam enhances GABA-A receptor-mediated chloride-channel inhibition by increasing GABA effects at the receptor.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Rescue dosing individualized by age/weight/product",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "vanTuijl2021|1.8|https://pubmed.ncbi.nlm.nih.gov/33465768/|784; Cereghino1998|21|https://pubmed.ncbi.nlm.nih.gov/9818845/|114; Autret1990|3.5|https://pubmed.ncbi.nlm.nih.gov/2202804/|185",
+    "pubmed_phase_ii_iii_rct_links": "vanTuijl2021|https://pubmed.ncbi.nlm.nih.gov/33465768/; Cereghino1998|https://pubmed.ncbi.nlm.nih.gov/9818845/; Uhari1995|https://pubmed.ncbi.nlm.nih.gov/7776115/; Rosman1993|https://pubmed.ncbi.nlm.nih.gov/8510706/; Autret1990|https://pubmed.ncbi.nlm.nih.gov/2202804/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 12/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 32 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Benzodiazepine used for seizure clusters/status epilepticus rescue; also used for anxiety, muscle spasm, sedation, and alcohol withdrawal.",
+    "trade_names": "Diastat; Diastat AcuDial; Libervant; Valtoco; Valium",
+    "typical_doses_per_day": "Rescue/status dosing is intermittent, not chronic daily dosing",
+    "year_fda_cleared": "1963"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "vanTuijl2021|https://pubmed.ncbi.nlm.nih.gov/33465768/",
+      "label": "vanTuijl2021",
+      "pmid": "33465768",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33465768/"
+    },
+    {
+      "entry": "Cereghino1998|https://pubmed.ncbi.nlm.nih.gov/9818845/",
+      "label": "Cereghino1998",
+      "pmid": "9818845",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9818845/"
+    },
+    {
+      "entry": "Uhari1995|https://pubmed.ncbi.nlm.nih.gov/7776115/",
+      "label": "Uhari1995",
+      "pmid": "7776115",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7776115/"
+    },
+    {
+      "entry": "Rosman1993|https://pubmed.ncbi.nlm.nih.gov/8510706/",
+      "label": "Rosman1993",
+      "pmid": "8510706",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8510706/"
+    },
+    {
+      "entry": "Autret1990|https://pubmed.ncbi.nlm.nih.gov/2202804/",
+      "label": "Autret1990",
+      "pmid": "2202804",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2202804/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 23%, neurologic: ataxia 15%, CNS: dizziness 12%, respiratory: nasal discomfort 6% for nasal product, GI: nausea 5%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "1.8-21 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: vanTuijl2021 diazepam for 3 days after acute stroke 1.8%; Cereghino1998 single caregiver-administered rectal diazepam dose 21%; Autret1990 intermittent oral diazepam during fever 3.5%)",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; CYP3A4/CYP2C19 substrate",
+    "epilepsy_type": "Seizure clusters / rescue; Status epilepticus",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )]. LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes [see Warnings and Precautions ( 5.2 )]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although LIBERVANT is indicated only for intermittent use [see Indications and Usage ( 1 ) and Dosage and Administration ( 2 )] , if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT [see Warnings and Precautions ( 5.3 )]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; AND DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. ( 5.1 , 7.1 ) LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing LIBERVANT and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction. ( 5.2 ) Although LIBERVANT is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT. ( 5.3 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9; published=Nov 15, 2024; title=LIBERVANT (DIAZEPAM) FILM [AQUESTIVE THERAPEUTICS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12527569-8eb3-4624-b3c0-5c0e0c5f88c9",
+    "formulations_available": "Tablet; oral solution; rectal gel; nasal spray; IV injection; autoinjector in some settings",
+    "half_life_range": "Diazepam 20-50 h; active metabolites up to ~100 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Rescue dosing individualized by age/weight/product",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise antiseizure mechanism is unknown; diazepam enhances GABA-A receptor-mediated chloride-channel inhibition by increasing GABA effects at the receptor.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Rescue dosing individualized by age/weight/product",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "vanTuijl2021|1.8|https://pubmed.ncbi.nlm.nih.gov/33465768/|784; Cereghino1998|21|https://pubmed.ncbi.nlm.nih.gov/9818845/|114; Autret1990|3.5|https://pubmed.ncbi.nlm.nih.gov/2202804/|185",
+    "pubmed_phase_ii_iii_rct_links": "vanTuijl2021|https://pubmed.ncbi.nlm.nih.gov/33465768/; Cereghino1998|https://pubmed.ncbi.nlm.nih.gov/9818845/; Uhari1995|https://pubmed.ncbi.nlm.nih.gov/7776115/; Rosman1993|https://pubmed.ncbi.nlm.nih.gov/8510706/; Autret1990|https://pubmed.ncbi.nlm.nih.gov/2202804/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Diastat; Diastat AcuDial; Libervant; Valtoco; Valium",
+    "typical_doses_per_day": "Rescue/status dosing is intermittent, not chronic daily dosing",
+    "year_fda_cleared": "1963"
+  },
+  "generic_name": "diazepam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning",
+      "current_value": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )]. LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes [see Warnings and Precautions ( 5.2 )]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although LIBERVANT is indicated only for intermittent use [see Indications and Usage ( 1 ) and Dosage and Administration ( 2 )] , if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT [see Warnings and Precautions ( 5.3 )]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; AND DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. ( 5.1 , 7.1 ) LIBERVANT is approved for use in pediatric patients 2 to 5 years of age. The unapproved use of LIBERVANT exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing LIBERVANT and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction. ( 5.2 ) Although LIBERVANT is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of LIBERVANT may precipitate acute withdrawal reactions, which can be life-threatening. For patients using LIBERVANT more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue LIBERVANT. ( 5.3 )",
+      "details": {
+        "candidate": {
+          "effective_time": "20260319",
+          "spl_set_id": "1a8bcc90-68fa-474d-832c-0df01e825f39",
+          "title": "Valtoco / DIAZEPAM"
+        },
+        "status": "boxed_warning_found"
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22+OR+openfda.brand_name%3A%22diazepam%22+OR+openfda.substance_name%3A%22diazepam%22&limit=10",
+      "generic_name": "diazepam",
+      "id": "fda_warning_contradiction-67bcc8d4c339",
+      "kind": "fda_warning_contradiction",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) and Drug Interactions (7.1) ] . The use of benzodiazepines, including VALTOCO, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing VALTOCO and throughout treatment, assess each patient's risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although VALTOCO is indicated only for intermittent use [see Indications and Usage (1) and Dosage and Administration (2) ] , if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of VALTOCO may precipitate acute withdrawal reactions, which can be life-threatening. For patients using VALTOCO more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue VALTOCO [see Warnings and Precautions (5.3) ]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. ( 5.1 , 7.1 ) The use of benzodiazepines, including VALTOCO, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing VALTOCO and throughout treatment, assess each patient's risk for abuse, misuse, and addiction. ( 5.2 ) Although VALTOCO is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of VALTOCO may precipitate acute withdrawal reactions, which can be life-threatening. For patients using VALTOCO more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue VALTOCO. ( 5.3 )",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=1a8bcc90-68fa-474d-832c-0df01e825f39; effective_time=20260319; title=Valtoco / DIAZEPAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22+OR+openfda.brand_name%3A%22diazepam%22+OR+openfda.substance_name%3A%22diazepam%22&limit=10",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions (5.1) and Drug Interactions (7.1) ] . The use of benzodiazepines, including VALTOCO, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing VALTOCO and throughout treatment, assess each patient's risk for abuse, misuse, and addiction [see Warnings and Precautions (5.2) ]. The continued use of benzodiazepines may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Although VALTOCO is indicated only for intermittent use [see Indications and Usage (1) and Dosage and Administration (2) ] , if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of VALTOCO may precipitate acute withdrawal reactions, which can be life-threatening. For patients using VALTOCO more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue VALTOCO [see Warnings and Precautions (5.3) ]. WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. ( 5.1 , 7.1 ) The use of benzodiazepines, including VALTOCO, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing VALTOCO and throughout treatment, assess each patient's risk for abuse, misuse, and addiction. ( 5.2 ) Although VALTOCO is indicated only for intermittent use ( 1 , 2 ), if used more frequently than recommended, abrupt discontinuation or rapid dosage reduction of VALTOCO may precipitate acute withdrawal reactions, which can be life-threatening. For patients using VALTOCO more frequently than recommended, to reduce the risk of withdrawal reactions, use a gradual taper to discontinue VALTOCO. ( 5.3 )",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "critical",
+      "source": "FDA/openFDA",
+      "summary": "Current FDA/openFDA boxed-warning extraction differs from the CSV. This is a direct contradiction and will not be applied without approval."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1963",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1963"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22+OR+openfda.brand_name%3A%22diazepam%22+OR+openfda.substance_name%3A%22diazepam%22&limit=10",
+      "generic_name": "diazepam",
+      "id": "source_fact_concordance_problem-24270435ebe1",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22+OR+openfda.brand_name%3A%22diazepam%22+OR+openfda.substance_name%3A%22diazepam%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22diazepam%22+OR+openfda.brand_name%3A%22diazepam%22+OR+openfda.substance_name%3A%22diazepam%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the efficacy and safety of diazepam in the management of refractory epilepsy in selected patients who require intermittent medical intervention for the control of episodes of acute repetitive seizures. In addition, to assess the support provided by caregivers who are not themselves or not under the direct supervision of health care professionals at the time of administration.",
+        "interventions": [
+          "Placebo",
+          "Vanquix Auto-Injector (Diazepam Injection)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00319501",
+        "new_reference_pmids": [
+          "24111974"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "24111974"
+        ],
+        "title": "Efficacy and Safety of Diazepam in the Management of Refractory Epilepsy in Selected Patients Who Require Intermittent Medical Intervention for Acute Repetitive Seizures."
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00319501",
+      "generic_name": "diazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-8be6411ab19f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Diazepam in the Management of Refractory Epilepsy in Selected Patients Who Require Intermittent Medical Intervention for Acute Repetitive Seizures."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "OBJECTIVES: I. Compare the efficacy, onset of clinical anticonvulsant activity, and complications of diazepam and lorazepam given intravenously as prehospital therapy to patients in status epilepticus.\n\nII. Determine the effect of prehospital therapy on the incidence of status epilepticus at the subsequent emergency department admission.\n\nIII. Establish whether prehospital therapy alters hospital management of these patients and ultimately affects patient outcome.",
+        "interventions": [
+          "diazepam",
+          "lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00004297",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Phase III Randomized Study of Diazepam Vs Lorazepam Vs Placebo for Prehospital Treatment of Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00004297",
+      "generic_name": "diazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-93fd39790d74",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Phase III Randomized Study of Diazepam Vs Lorazepam Vs Placebo for Prehospital Treatment of Status Epilepticus"
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Diastat; Diastat AcuDial; Libervant; Valtoco; Valium",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22status+epilepticus%22&limit=100",
+      "generic_name": "diazepam",
+      "id": "trade_name_addition-380a63bc09f2",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Diazepam"
+      },
+      "proposed_value": "Diazepam",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Diazepam."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports seizure occurrence of 1.5% with diazepam and 3.3% with placebo over 3 months; converted to seizure-free patient rates.",
+      "dose_or_regimen": "diazepam for 3 days after acute stroke",
+      "endpoint": "post-stroke seizure prevention",
+      "generic_name": "diazepam",
+      "label": "vanTuijl2021",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "33465768",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33465768/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "98.5",
+      "sf_differential_percent": "1.8",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "96.7",
+      "title": "Treatment with Diazepam in Acute Stroke Prevents Poststroke Seizures: A Substudy of the EGASIS Trial."
+    },
+    {
+      "audit_note": "Abstract reports post-treatment seizure freedom for Diastat and placebo.",
+      "dose_or_regimen": "single caregiver-administered rectal diazepam dose",
+      "endpoint": "acute repetitive seizure post-treatment seizure freedom",
+      "generic_name": "diazepam",
+      "label": "Cereghino1998",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9818845",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9818845/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "55.0",
+      "sf_differential_percent": "21.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "34.0",
+      "title": "Treating repetitive seizures with a rectal diazepam formulation: a randomized study. The North American Diastat Study Group."
+    },
+    {
+      "audit_note": "Febrile-seizure prevention trial reported higher recurrence with diazepam than placebo; not included as a maximum effective regimen.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "diazepam",
+      "label": "Uhari1995",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "7776115",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/7776115/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of acetaminophen and of low intermittent doses of diazepam on prevention of recurrences of febrile seizures."
+    },
+    {
+      "audit_note": "Febrile-seizure trial reports relative risk reductions and event counts while receiving medication, but not extractable randomized-arm seizure-free rates in the abstract.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "diazepam",
+      "label": "Rosman1993",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8510706",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8510706/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A controlled trial of diazepam administered during febrile illnesses to prevent recurrence of febrile seizures."
+    },
+    {
+      "audit_note": "Abstract reports febrile-seizure recurrence rates of 16% with diazepam and 19.5% with placebo; converted to recurrence-free patient rates. Trial conclusion found no advantage.",
+      "dose_or_regimen": "intermittent oral diazepam during fever",
+      "endpoint": "febrile-seizure recurrence prevention",
+      "generic_name": "diazepam",
+      "label": "Autret1990",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2202804",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2202804/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "84.0",
+      "sf_differential_percent": "3.5",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "80.5",
+      "title": "Double-blind, randomized trial of diazepam versus placebo for prevention of recurrence of febrile seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "van Tuijl",
+      "generic_name": "diazepam",
+      "label": "vanTuijl2021",
+      "pmid": "33465768",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Treatment with Diazepam in Acute Stroke Prevents Poststroke Seizures: A Substudy of the EGASIS Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33465768/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Cereghino",
+      "generic_name": "diazepam",
+      "label": "Cereghino1998",
+      "pmid": "9818845",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Treating repetitive seizures with a rectal diazepam formulation: a randomized study. The North American Diastat Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9818845/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Uhari",
+      "generic_name": "diazepam",
+      "label": "Uhari1995",
+      "pmid": "7776115",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of acetaminophen and of low intermittent doses of diazepam on prevention of recurrences of febrile seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7776115/",
+      "year": "1995"
+    },
+    {
+      "first_author": "Rosman",
+      "generic_name": "diazepam",
+      "label": "Rosman1993",
+      "pmid": "8510706",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A controlled trial of diazepam administered during febrile illnesses to prevent recurrence of febrile seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8510706/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Autret",
+      "generic_name": "diazepam",
+      "label": "Autret1990",
+      "pmid": "2202804",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Double-blind, randomized trial of diazepam versus placebo for prevention of recurrence of febrile seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2202804/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Segura",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "33368617",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A reappraisal of acute doses of benzodiazepines as a model of anterograde amnesia.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33368617/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Kellinghaus",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "26554812",
+      "pub_types": "Journal Article; Multicenter Study; Observational Study; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Making SENSE--Sustained Effort Network for treatment of Status Epilepticus as a multicenter prospective registry.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26554812/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Premoli",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "25245814",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Characterization of GABAB-receptor mediated neurotransmission in the human cortex by paired-pulse TMS-EEG.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25245814/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Rogin",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "24964913",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Safety and effectiveness of long-term treatment with diazepam auto-injector administered by caregivers in an outpatient setting for the treatment of acute repetitive seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24964913/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Premoli",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "24741050",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "TMS-EEG signatures of GABAergic neurotransmission in the human cortex.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24741050/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Abou-Khalil",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "24111974",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A double-blind, randomized, placebo-controlled trial of a diazepam auto-injector administered by caregivers to patients with epilepsy who require intermittent intervention for acute repetitive seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24111974/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Ohlraun",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "23806032",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "CARbon DIoxide for the treatment of Febrile seizures: rationale, feasibility, and design of the CARDIF-study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23806032/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Hardy",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "22295898",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Double-masked, placebo-controlled study of intravenous levetiracetam for the treatment of status epilepticus and acute repetitive seizures in dogs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22295898/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Mpimbaza",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "18166545",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "active-comparator/comparison title without placebo",
+      "status": "rejected",
+      "title": "Comparison of buccal midazolam with rectal diazepam in the treatment of prolonged seizures in Ugandan children: a randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18166545/",
+      "year": "2008"
+    },
+    {
+      "first_author": "Cleveland",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "17576772",
+      "pub_types": "Comparative Study; Journal Article; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Ziprasidone, diazepam, or the combination for prevention of cocaine toxicity in a mouse model.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17576772/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Basnec",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "15813357",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[The risk of second seizure in children with benign childhood epilepsy with centrotemporal spikes without treatment--a prospective study].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15813357/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Rose",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "15684445",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Intermittent clobazam therapy in febrile seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15684445/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Riddle",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "15110023",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of carbamazepine on human corticomuscular coherence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15110023/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Cereghino",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "12470180",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Rectal diazepam gel for treatment of acute repetitive seizures in adults.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12470180/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Lindhardt",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "11736860",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Electroencephalographic effects and serum concentrations after intranasal and intravenous administration of diazepam to healthy volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11736860/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Alldredge",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "11547716",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A comparison of lorazepam, diazepam, and placebo for the treatment of out-of-hospital status epilepticus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11547716/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Lowenstein",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "11384791",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The prehospital treatment of status epilepticus (PHTSE) study: design and methodology.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11384791/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Rosman",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "11295719",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Preventing febrile seizures in children with oral diazepam: can a controlled trial truly be \"double-blind?\".",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11295719/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Crawley",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "10703801",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of phenobarbital on seizure frequency and mortality in childhood cerebral malaria: a randomised, controlled intervention study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10703801/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Kriel",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "10328277",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Rectal diazepam gel for treatment of acute repetitive seizures. The North American Diastat Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10328277/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Dreifuss",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "9637805",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A comparison of rectal diazepam gel and placebo for acute repetitive seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9637805/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Davis",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "26071050",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Mirtazapine : A Review of its Pharmacology and Therapeutic Potential in the Management of Major Depression.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26071050/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Sharief",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "8325278",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of oral flumazenil on interictal epileptic activity: results of a double-blind, placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8325278/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Hart",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "1647443",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of intravenous flumazenil on interictal electroencephalographic epileptic activity: results of a placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1647443/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Jawad",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "3530305",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of lamotrigine, a novel anticonvulsant, on interictal spikes in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3530305/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Bittencourt",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "3925929",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; English Abstract; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[Efficient serum concentrations after single doses of antiepileptic drugs: concept of loading-dose].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3925929/",
+      "year": "1985"
+    },
+    {
+      "first_author": "Milligan",
+      "generic_name": "diazepam",
+      "label": "",
+      "pmid": "6368753",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "A clinical trial of single dose rectal and oral administration of diazepam for the prevention of serial seizures in adult epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6368753/",
+      "year": "1984"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

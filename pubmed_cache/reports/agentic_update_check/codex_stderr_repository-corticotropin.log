@@ -1,0 +1,392 @@
+2026-05-21T03:45:24.457673Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:45:24.458450Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:45:24.464468Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:45:24.464548Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:24.870851Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:24.900013Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e48a3-5764-7603-9a3b-fe3f00361f69
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).",
+    "alternate_generic_names": "adrenocorticotropic hormone; ACTH; corticotropin",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.",
+    "epilepsy_type": "Epileptic spasms / infantile spasms",
+    "evidence_sources": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30; published=Dec 08, 2025; title=ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION [MALLINCKRODT ARD LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Unknown/limited",
+    "filter_epilepsy_type": "Epileptic spasms / infantile spasms",
+    "filter_formulation": "IV/IM injection; Injection",
+    "filter_mechanism": "Hormonal/steroid; Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "No known meaningful QT effect; Other",
+    "filter_symptom_category": "Behavioral; Cardiac; Constitutional; Endocrine; GI; Infectious; Neurologic; Vascular",
+    "formulations_available": "Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications",
+    "generic_name": "repository corticotropin",
+    "half_life_range": "ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized",
+    "major_organ_for_metabolism": "Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile",
+    "maximum_approved_daily_dose": "Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.",
+    "mechanism_source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel",
+    "qt_interval_effect": "No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-20-2026; RCT section set to N/A per current scope. FDA-labeled efficacy is supported by a randomized active-comparator ACTH-vs-prednisone trial and a high-dose versus low-dose supportive trial, which are outside the project placebo-controlled RCT-link section.",
+    "status_or_notes": "U.S.-available repository corticotropin/ACTH gel; FDA-labeled as monotherapy for infantile spasms in infants and children under 2 years of age, with multiple non-seizure inflammatory/autoimmune indications also listed in labeling.",
+    "trade_names": "Acthar Gel; H.P. Acthar Gel",
+    "typical_doses_per_day": "Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.",
+    "year_fda_cleared": "1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010."
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).",
+    "alternate_generic_names": "adrenocorticotropic hormone; ACTH; corticotropin",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.",
+    "epilepsy_type": "Epileptic spasms / infantile spasms",
+    "evidence_sources": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30; published=Dec 08, 2025; title=ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION [MALLINCKRODT ARD LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30",
+    "formulations_available": "Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications",
+    "half_life_range": "ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized",
+    "major_organ_for_metabolism": "Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile",
+    "maximum_approved_daily_dose": "Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.",
+    "mechanism_source": "FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel",
+    "qt_interval_effect": "No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.",
+    "trade_names": "Acthar Gel; H.P. Acthar Gel",
+    "typical_doses_per_day": "Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.",
+    "year_fda_cleared": "1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010."
+  },
+  "generic_name": "repository corticotropin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Sun",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "37909654",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Safety and efficacy of melatonin supplementation as an add-on treatment for infantile epileptic spasms syndrome: A randomized, placebo-controlled, double-blind trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37909654/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Sun",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "35788069",
+      "pub_types": "Clinical Trial Protocol; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Melatonin supplementation for the treatment of infantile spasms: protocol for a randomised placebo-controlled triple-blind trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35788069/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Bitton",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "22889307",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A randomized controlled trial of flunarizine as add-on therapy and effect on cognitive outcome in children with infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22889307/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Murck",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "9683002",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Mg2+ reduces ACTH secretion and enhances spindle power without changing delta power during sleep in men -- possible therapeutic implications.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9683002/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Dyken",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "3939740",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Short term effects of valproate on infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3939740/",
+      "year": "1985"
+    },
+    {
+      "first_author": "Hrachovy",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "6312008",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "active-comparator/comparison title without placebo",
+      "status": "rejected",
+      "title": "Double-blind study of ACTH vs prednisone therapy in infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6312008/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Small",
+      "generic_name": "repository corticotropin",
+      "label": "",
+      "pmid": "193359",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effects of ACTH 4-10 on ECT-induced memory dysfunctions.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/193359/",
+      "year": "1977"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T03:45:24.956774Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:24.985715Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:25.011117Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:45:25.011418Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:45:25.013615Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:45:25.013670Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:25.026272Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.026279Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.026638Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.026641Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.026982Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.026984Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.027344Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.027346Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.027723Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.027727Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.028496Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:25.028500Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:25.046973Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:25.058802Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:25.061857Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:25.061928Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:25.074139Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:25.101004Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:45:26.023995Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:45:26.024396Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:45:26.027301Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:45:26.027346Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:26.040130Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.040135Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.040557Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.040560Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.040987Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.040991Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.041392Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.041397Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.041788Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.041791Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.042667Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:45:26.042671Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:45:26.073502Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:26.076702Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:45:26.076762Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{ "black_box_warning": { "current_value": "", "fda_source_urls": [], "proposed_value": "", "rationale": "", "requires_user_approval": false, "status": "not_applicable" }, "blocking_questions": [], "fact_checks": [], "generic_name": "", "missing_rcts": [], "outcome_checks": [], "overall_status": "insufficient_evidence", "proposed_row_updates": [], "rct_link_checks": [], "source_updates": [], "summary": "" }
+web search: 
+web search: Acthar Gel repository corticotropin FDA label accessdata boxed warning infantile spasms adverse reactions 75 U/m2 BID
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/008372s057lbl.pdf
+web search: 
+web search: 
+web search: 
+web search: site:api.fda.gov/drug/label.json ACTHAR repository corticotropin openfda
+web search: 
+web search: https://api.fda.gov/drug/label.json?search=openfda.brand_name:ACTHAR
+web search: 
+web search: site:accessdata.fda.gov/drugsatfda_docs/label/2025 008372 Acthar s0 label pdf
+web search: 
+web search: "008372" "Acthar" "2025" "label" "pdf" "s0"
+web search: 
+web search: api.fda.gov drug drugsfda Acthar 008372
+web search: 
+web search: "https://api.fda.gov/drug/drugsfda.json?search=application_number:NDA008372"
+web search: 
+web search: https://api.fda.gov/drug/label.json
+web search: 
+web search: 
+web search: 
+web search: 
+exec
+/bin/zsh -lc "curl -L 'https://api.fda.gov/drug/label.json?search=openfda.brand_name:ACTHAR&limit=3' | head -c 5000" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: api.fda.gov
+
+2026-05-21T03:46:26.992465Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:46:26.992923Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:46:26.996649Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:46:26.996697Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:46:27.010995Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.010999Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.011482Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.011485Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.011970Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.011975Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.012411Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.012414Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.012928Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.012932Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.014043Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:46:27.014046Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:46:27.049514Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:46:27.053174Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:46:27.053235Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: site:labels.fda.gov ACTHAR repository corticotropin 7b48ddec-e815-45f4-9ca0-5c0daaf56f30
+web search: 
+web search: https://labels.fda.gov/
+web search: 
+web search: https://open.fda.gov/fdalabels/
+web search: 
+web search: https://open.fda.gov/fdalabels/proprietary_name/
+web search: 
+web search: 
+web search: 
+web search: "open.fda.gov/fdalabels/proprietary_name/ACTHAR"
+web search: 
+web search: 
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/008372s071lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/008372s071lbl.pdf
+web search: 
+web search: 'Mechanism of Action' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/008372s071lbl.pdf
+web search: 
+web search: 
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2024/008372Orig1s074ltr.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf
+web search: 
+web search: 'BOXED WARNING' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf
+web search: 
+web search: https://api.fda.gov/drug/drugsfda.json
+web search: 
+web search: 
+web search: 
+web search: Drugs@FDA NDA 008372 Acthar approval history repository corticotropin application number
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov ACTH infantile spasms placebo randomized controlled trial corticotropin repository
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/6312008/
+web search: 
+web search: PMID 6312008 ACTH prednisone infantile spasms double blind study
+web search: 
+web search: NIH NCI corticotropin adrenocorticotropic hormone ACTH repository corticotropin
+web search: 
+web search: site:www.accessdata.fda.gov/drugsatfda_docs/label ACTHAR boxed warning repository corticotropin
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"],"proposed_value":"No FDA boxed warning identified in FDA Acthar Gel prescribing information.","rationale":"The no-boxed-warning conclusion is supported by the FDA accessdata label for Acthar Gel, which contains warnings and precautions but no boxed-warning section or boxed-warning text. The current row wording and source rely on DailyMed, which is not permissible for this field.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).","field":"adverse_symptoms_percentages","proposed_value":"Infectious: infection 20%, neurologic: convulsion 12%, vascular/cardiac: hypertension 11%, behavioral: irritability 7%, constitutional: pyrexia 5%, cardiac: cardiac hypertrophy 3%, endocrine: Cushingoid 3%, GI: diarrhea 3%, GI: vomiting 3%, GI: decreased appetite 3% (FDA infantile-spasms data at recommended 75 U/m2 BID dose).","rationale":"FDA labeling tabulates these adverse-reaction percentages for infants and children under 2 years treated with Acthar Gel at the recommended 75 U/m2 twice-daily regimen.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"adrenocorticotropic hormone; ACTH; corticotropin","field":"alternate_generic_names","proposed_value":"adrenocorticotropic hormone; ACTH; corticotropin","rationale":"FDA orphan-drug record lists repository corticotropin or adrenocorticotropic hormone, and NCBI MeSH lists ACTH and corticotropin as entry terms for adrenocorticotropic hormone.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103","https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"Acthar Gel has FDA labeling and an FDA orphan marketing approval record for infantile spasms, supporting US availability.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103"]},{"current_value":"Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Formal drug-drug interaction studies have not been performed; FDA label states Acthar Gel may accentuate the electrolyte loss associated with diuretic therapy. No FDA-label CYP induction/inhibition interaction was identified.","rationale":"The FDA label supports the diuretic/electrolyte interaction and states formal drug-drug interaction studies have not been performed. I did not find FDA-label support for the stronger statement that it is not a CYP inducer/inhibitor.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Epileptic spasms / infantile spasms","field":"epilepsy_type","proposed_value":"Epileptic spasms / infantile spasms","rationale":"FDA labeling indicates Acthar Gel as monotherapy for infantile spasms in infants and children under 2 years of age; FDA orphan record uses the same infantile-spasms indication.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103"]},{"current_value":"FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Acthar Gel label, NDA 008372/S-074, revised 02/2024 (https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone, H.P. Acthar Gel, infantile spasms marketing approval 10/15/2010 (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); NCBI MeSH Adrenocorticotropic Hormone entry terms for ACTH/corticotropin aliases (https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D); Tran et al. 2022 scoping review, PMID 34902005, for corticotropin RCT context (https://pubmed.ncbi.nlm.nih.gov/34902005/).","rationale":"The current source field relies on DailyMed and duplicates FDA/DailyMed labeling. Replace with trusted FDA/NCBI/PubMed sources that support the row facts and RCT context.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103","https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D","https://pubmed.ncbi.nlm.nih.gov/34902005/"]},{"current_value":"Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications","field":"formulations_available","proposed_value":"Repository corticotropin injectable gel; multi-dose vial for intramuscular use in infantile spasms; prefilled subcutaneous injector for adult non-seizure indications","rationale":"FDA labeling lists the multi-dose vial and 40-unit/80-unit single-dose pre-filled SelfJect injectors; it specifies infantile-spasms dosing must use the vial intramuscularly and that the SelfJect injector is for adults only.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized","field":"half_life_range","proposed_value":"ACTH plasma half-life about 15 min after IV administration; pharmacokinetics of Acthar Gel not adequately characterized","rationale":"FDA labeling states ACTH disappears rapidly after IV administration, plasma half-life is about 15 minutes, and Acthar Gel pharmacokinetics have not been adequately characterized.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile","field":"major_organ_for_metabolism","proposed_value":"Limited/unknown; FDA label states pharmacokinetics of Acthar Gel have not been adequately characterized and describes Acthar Gel as a naturally sourced complex mixture of adrenocorticotropic hormone analogs and other pituitary peptides with adrenal cortical effects.","rationale":"The label supports limited/unknown pharmacokinetics and adrenal cortical effects. The comparison to a conventional hepatic/renal ASM metabolism profile is an inference not directly sourced in the row.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.","field":"maximum_approved_daily_dose","proposed_value":"Infantile spasms: 150 U/m2/day divided BID during the 2-week treatment course, followed by taper.","rationale":"FDA labeling gives 150 U/m2 daily, divided into twice-daily IM injections of 75 U/m2 for 2 weeks, then taper over 2 weeks.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"Moderate confidence is consistent with FDA labeling: the infantile-spasms mechanism is unknown, but adrenal cortical stimulation and melanocortin-receptor binding are described.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.","field":"mechanism_of_action","proposed_value":"FDA labeling states the mechanism of action in infantile spasms is unknown; Acthar Gel and endogenous ACTH stimulate adrenal cortical secretion of cortisol, corticosterone, aldosterone, and weak androgenic substances, and Acthar Gel is also reported to bind melanocortin receptors.","rationale":"This matches FDA label section 12.1.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)","field":"mechanism_source","proposed_value":"FDA Acthar Gel label, NDA 008372/S-074, section 12.1 Mechanism of Action (https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf)","rationale":"DailyMed should be replaced with the FDA accessdata label source.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"The proposed mechanism source is an FDA accessdata label, so the source tier remains correct.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.","field":"minimum_effective_dose","proposed_value":"FDA-labeled infantile-spasms regimen: 150 U/m2/day divided BID for 2 weeks before taper; supportive trial studied lower-dose regimens but labeled dosing uses 150 U/m2/day.","rationale":"FDA labeling gives this regimen and describes a supportive high-dose versus low-dose trial outside the placebo-controlled RCT section.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled epilepsy RCT link is present. FDA-labeled infantile-spasms evidence consists of an ACTH-vs-prednisone randomized study and a high-dose versus low-dose supportive trial, not a placebo-only controlled epilepsy RCT. A placebo-controlled RCI RCT exists for multiple sclerosis relapse, but that is not an epilepsy/seizure indication.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/34902005/","https://pubmed.ncbi.nlm.nih.gov/34984839/"]},{"current_value":"ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel","field":"pubmed_search_aliases","proposed_value":"ACTH; adrenocorticotropic hormone; corticotropin; Acthar Gel; H.P. Acthar Gel","rationale":"Aliases are supported by NCBI MeSH and FDA label/orphan records. They should not be separate drug rows.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103"]},{"current_value":"No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.","field":"qt_interval_effect","proposed_value":"No QT interval effect described in FDA labeling; monitor for hypertension, salt/water retention, hypokalemia, and cardiac hypertrophy in infantile-spasms safety data.","rationale":"FDA labeling emphasizes blood pressure, salt/water retention, hypokalemia, and cardiac hypertrophy in the safety data; no QT warning was identified in the FDA label reviewed.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Acthar Gel; H.P. Acthar Gel","field":"trade_names","proposed_value":"Acthar Gel; H.P. Acthar Gel","rationale":"FDA labeling uses Acthar Gel and FDA orphan record lists H.P. Acthar Gel.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103"]},{"current_value":"Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.","field":"typical_doses_per_day","proposed_value":"Infantile spasms: 150 U/m2/day divided as 75 U/m2 IM twice daily for 2 weeks, then gradual taper over 2 weeks per FDA label.","rationale":"FDA labeling gives the same infantile-spasms dosing and taper schedule.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010.","field":"year_fda_cleared","proposed_value":"1952 initial U.S. approval; FDA orphan marketing approval for infantile spasms 10/15/2010.","rationale":"FDA label states Initial U.S. Approval: 1952; FDA orphan record lists marketing approval for infantile spasms on 10/15/2010.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103"]}],"generic_name":"repository corticotropin","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled epilepsy RCT with an RR50 endpoint was identified for repository corticotropin/ACTH in infantile spasms. FDA-labeled infantile-spasms trials use active comparator or dose comparison and responder definitions based on spasm cessation plus hypsarrhythmia resolution, not RR50 versus placebo.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/34902005/"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled epilepsy RCT with median percent seizure-change outcome was identified for this row. Retain N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/34902005/"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled epilepsy RCT with placebo-differential seizure freedom was identified. FDA-labeled response data are from ACTH-vs-prednisone and dose-comparison infantile-spasms studies, not placebo-controlled epilepsy studies.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/34902005/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in FDA Acthar Gel prescribing information.","reason":"Black-box warning verification must use FDA sources, not DailyMed. FDA accessdata label contains no boxed-warning section/text.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Not a CYP inducer/inhibitor; FDA label notes steroidogenic/electrolyte effects and that Acthar Gel may accentuate electrolyte loss associated with diuretics.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Formal drug-drug interaction studies have not been performed; FDA label states Acthar Gel may accentuate the electrolyte loss associated with diuretic therapy. No FDA-label CYP induction/inhibition interaction was identified.","reason":"The diuretic/electrolyte statement is supported; the stronger CYP statement lacks a named supporting source in the row.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"Limited/unknown; peptide hormone mixture with adrenal cortical target effects rather than a conventional hepatic/renal ASM metabolism profile","field":"major_organ_for_metabolism","proposed_value":"Limited/unknown; FDA label states pharmacokinetics of Acthar Gel have not been adequately characterized and describes Acthar Gel as a naturally sourced complex mixture of adrenocorticotropic hormone analogs and other pituitary peptides with adrenal cortical effects.","reason":"Keeps the limited/unknown classification but replaces an unsourced metabolism-profile inference with FDA-label wording.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]}],"rct_link_checks":[{"label":"Sun 2023 melatonin supplementation add-on trial","pmid":"37909654","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"The trial intervention is melatonin supplementation for infantile epileptic spasms syndrome, not repository corticotropin/ACTH.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/37909654/"},{"label":"Sun 2022 melatonin supplementation trial protocol","pmid":"35788069","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"This is a melatonin protocol, not repository corticotropin/ACTH efficacy evidence.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/35788069/"},{"label":"Bitton 2012 flunarizine add-on therapy","pmid":"22889307","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"Primary intervention is flunarizine add-on therapy in children with infantile spasms, not repository corticotropin/ACTH.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/22889307/"},{"label":"Murck 1998 magnesium and ACTH secretion during sleep","pmid":"9683002","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"Study concerns magnesium effects on endogenous ACTH secretion and sleep physiology in men, not repository corticotropin treatment for seizures.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/9683002/"},{"label":"Dyken 1985 valproate in infantile spasms","pmid":"3939740","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"Trial is about valproate, not repository corticotropin/ACTH as the tested intervention.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/3939740/"},{"label":"Hrachovy 1983 ACTH vs prednisone in infantile spasms","pmid":"6312008","proposed_action":"Do not add to placebo-controlled epilepsy RCT links; may be cited only as non-qualifying active-comparator evidence if project scope allows.","rationale":"This is a randomized double-blind comparison of ACTH versus prednisone with placebo/double-dummy elements, but it lacks a placebo-only efficacy control arm and is outside the row's placebo-controlled RCT outcome section.","status":"not_placebo_rct","url":"https://pubmed.ncbi.nlm.nih.gov/6312008/"},{"label":"Small 1977 ACTH 4-10 and ECT-induced memory dysfunction","pmid":"193359","proposed_action":"Do not add to repository corticotropin placebo-controlled RCT links.","rationale":"Study uses an ACTH fragment in an ECT memory context, not repository corticotropin/Acthar for epilepsy or infantile spasms.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/193359/"}],"source_updates":[{"current_value":"FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Acthar Gel label, NDA 008372/S-074, revised 02/2024 (https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf); FDA orphan drug designation/approval record for repository corticotropin/adrenocorticotropic hormone, H.P. Acthar Gel, infantile spasms marketing approval 10/15/2010 (https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103); NCBI MeSH Adrenocorticotropic Hormone entry terms for ACTH/corticotropin aliases (https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D); Tran et al. 2022 scoping review, PMID 34902005, for corticotropin RCT context (https://pubmed.ncbi.nlm.nih.gov/34902005/).","reason":"Use trusted FDA/NCBI/PubMed sources and remove DailyMed from the source list.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=168103","https://www.ncbi.nlm.nih.gov/sites/entrez?Cmd=DetailsSearch&Db=mesh&Term=%22Adrenocorticotropic+Hormone%22%5BMeSH+Terms%5D","https://pubmed.ncbi.nlm.nih.gov/34902005/"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30; published=Dec 08, 2025; title=ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION ACTHAR (REPOSITORY CORTICOTROPIN) INJECTION [MALLINCKRODT ARD LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30","field":"fda_black_box_warning_source","proposed_value":"FDA Acthar Gel label, NDA 008372/S-074, revised 02/2024; status=no_boxed_warning_identified_in_fda_label; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf","reason":"DailyMed is not permissible for FDA boxed-warning verification; use FDA accessdata labeling.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]},{"current_value":"FDA/DailyMed Acthar Gel label (https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b48ddec-e815-45f4-9ca0-5c0daaf56f30)","field":"mechanism_source","proposed_value":"FDA Acthar Gel label, NDA 008372/S-074, section 12.1 Mechanism of Action (https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf)","reason":"Replace DailyMed with the FDA accessdata label source.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008372s074lbl.pdf"]}],"summary":"Most dose, indication, adverse-event, alias, formulation, mechanism, and approval-date facts are verified against FDA/NCBI sources. The row needs source cleanup because it relies on DailyMed, including for the FDA boxed-warning field, and two wording updates should be considered for unsupported CYP/metabolism claims. No qualifying placebo-controlled epilepsy RCT or placebo-differential seizure outcome was identified, so the RCT/outcome N/A cells are retained."}
+tokens used
+228,082

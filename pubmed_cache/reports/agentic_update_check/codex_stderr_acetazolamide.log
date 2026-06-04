@@ -1,0 +1,347 @@
+2026-05-20T22:27:40.314336Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.339360Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e4780-7050-7642-9bc4-1dbbeae3da9c
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists paresthesia, hearing dysfunction/tinnitus, loss of appetite, taste alteration, GI disturbances, polyuria, drowsiness, confusion, rash, blood dyscrasias, electrolyte imbalance, and metabolic acidosis without quantified incidence percentages.",
+    "alternate_generic_names": "acetazolamide sodium",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "No broad enzyme induction/inhibition described in selected FDA label; label notes interactions including altered phenytoin metabolism and reduced primidone/metabolite concentrations through decreased absorption.",
+    "epilepsy_type": "Centrencephalic epilepsies; Absence; Generalized; Myoclonic; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect",
+    "filter_epilepsy_type": "Absence; Adjunctive nonspecific epilepsy; Generalized; Myoclonic",
+    "filter_formulation": "Capsule; IV/IM injection; Long acting; Tablet",
+    "filter_mechanism": "Carbonic anhydrase",
+    "filter_metabolism": "Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Hematologic; Metabolic; Neurologic; Renal/metabolic",
+    "formulations_available": "Oral tablet; extended-release capsule; IV injection as acetazolamide sodium",
+    "generic_name": "acetazolamide",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; renal bicarbonate handling and urinary effects are clinically central.",
+    "maximum_approved_daily_dose": "1000 mg/day; FDA label notes doses above 1 g/day do not appear to improve results.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Carbonic anhydrase inhibitor; FDA labeling states inhibition in the CNS appears to retard abnormal paroxysmal excessive neuronal discharge, while acknowledging that the basis of epilepsy benefit is not clearly known.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "375 mg/day or 8 mg/kg/day lower labeled epilepsy-adjunct range; individualized response noted in FDA label.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Diamox; acetazolamide sodium",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 ASM adjunct; FDA-labeled for centrencephalic epilepsies and other non-seizure indications including glaucoma/edema/acute mountain sickness depending product.",
+    "trade_names": "Acetazolamide; Acetazolamide Sodium; Diamox",
+    "typical_doses_per_day": "Epilepsy adjunct: 8-30 mg/kg/day in divided doses; FDA label states optimum range appears to be 375-1000 mg/day.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists paresthesia, hearing dysfunction/tinnitus, loss of appetite, taste alteration, GI disturbances, polyuria, drowsiness, confusion, rash, blood dyscrasias, electrolyte imbalance, and metabolic acidosis without quantified incidence percentages.",
+    "alternate_generic_names": "acetazolamide sodium",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "No broad enzyme induction/inhibition described in selected FDA label; label notes interactions including altered phenytoin metabolism and reduced primidone/metabolite concentrations through decreased absorption.",
+    "epilepsy_type": "Centrencephalic epilepsies; Absence; Generalized; Myoclonic; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4",
+    "formulations_available": "Oral tablet; extended-release capsule; IV injection as acetazolamide sodium",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; renal bicarbonate handling and urinary effects are clinically central.",
+    "maximum_approved_daily_dose": "1000 mg/day; FDA label notes doses above 1 g/day do not appear to improve results.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Carbonic anhydrase inhibitor; FDA labeling states inhibition in the CNS appears to retard abnormal paroxysmal excessive neuronal discharge, while acknowledging that the basis of epilepsy benefit is not clearly known.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "375 mg/day or 8 mg/kg/day lower labeled epilepsy-adjunct range; individualized response noted in FDA label.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Diamox; acetazolamide sodium",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "trade_names": "Acetazolamide; Acetazolamide Sodium; Diamox",
+    "typical_doses_per_day": "Epilepsy adjunct: 8-30 mg/kg/day in divided doses; FDA label states optimum range appears to be 375-1000 mg/day.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "acetazolamide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "Approved Prior to Jan 1, 1982 (FDA Orange Book)",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1982"
+        ],
+        "missing_terms": [
+          "approved",
+          "orange"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10",
+      "generic_name": "acetazolamide",
+      "id": "source_fact_concordance_problem-2f249df2d78f",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "qt_interval_effect",
+      "current_value": "No QT interval effect described in selected FDA label.",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "interval"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "interval"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10",
+      "generic_name": "acetazolamide",
+      "id": "source_fact_concordance_problem-5a8dc6782798",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "qt_interval_effect could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10",
+      "generic_name": "acetazolamide",
+      "id": "fda_warning_metadata_refresh-a5437214f970",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=4dd56001-4941-4ff0-9f30-02a1bcc4fe7e; effective_time=20260410; title=Acetazolamide / ACETAZOLAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=4dd56001-4941-4ff0-9f30-02a1bcc4fe7e; effective_time=20260410; title=Acetazolamide / ACETAZOLAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22acetazolamide+sodium%22+OR+openfda.brand_name%3A%22acetazolamide+sodium%22+OR+openfda.substance_name%3A%22acetazolamide+sodium%22&limit=10",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T22:27:40.362418Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.425967Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:27:40.426379Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:27:40.429578Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:27:40.429626Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:40.449017Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.449028Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.449931Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.449939Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.450798Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.450807Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.451634Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.451640Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.452417Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.452424Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.454194Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:40.454201Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:40.466227Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.490933Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.498520Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:40.502818Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:40.502912Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:40.533116Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.540651Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:27:40.541173Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:27:40.544143Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:27:40.544183Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:40.558138Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:40.607171Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T22:27:41.611045Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T22:27:41.611507Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T22:27:41.615186Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T22:27:41.615239Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:41.629289Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.629297Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.629781Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.629786Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.630256Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.630260Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.630717Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.630721Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.631178Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.631181Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.632193Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T22:27:41.632196Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T22:27:41.666874Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:41.670501Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T22:27:41.670580Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: site:api.fda.gov/drug/label acetazolamide openfda drug label API boxed warning
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf
+web search: 
+web search: api.fda.gov drug label acetazolamide sodium spl_set_id 4dd56001-4941-4ff0-9f30-02a1bcc4fe7e boxed_warning
+web search: 
+web search: 
+codex
+{
+  "black_box_warning": {
+    "current_value": "",
+    "fda_source_urls": [],
+    "proposed_value": "",
+    "rationale": "",
+    "requires_user_approval": false,
+    "status": "not_applicable"
+  },
+  "blocking_questions": [],
+  "fact_checks": [],
+  "generic_name": "",
+  "missing_rcts": [],
+  "outcome_checks": [],
+  "overall_status": "insufficient_evidence",
+  "proposed_row_updates": [],
+  "rct_link_checks": [],
+  "source_updates": [],
+  "summary": ""
+}
+web search: 
+web search: site:accessdata.fda.gov Orange Book acetazolamide 008943 Diamox Approval Date Prior to Jan 1 1982
+web search: 
+web search: FDA Orange Book products.txt acetazolamide download
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: 'ACETAZOLAMIDE' in https://www.fda.gov/media/103879/download?attachment=
+web search: 
+web search: 
+web search: 
+web search: "DIAMOX" "Approved prior to Jan 1, 1982" FDA Orange Book
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/daf "DIAMOX" "008943" "Approval Date"
+web search: 
+web search: 
+web search: 
+web search: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=008943"
+web search: 
+web search: site:ncbi.nlm.nih.gov acetazolamide half-life renal excretion metabolism
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov acetazolamide epilepsy randomized placebo controlled trial Diamox
+web search: 
+web search: 
+web search: 
+web search: pubmed "acetazolamide" "epilepsy" "placebo" "randomized"
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/6797857/
+web search: 
+web search: 'Abstract' in https://pubmed.ncbi.nlm.nih.gov/6797857/
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"],"proposed_value":"No FDA boxed warning identified in selected current FDA labeling.","rationale":"The no-boxed-warning conclusion is supportable from FDA label PDFs that show ordinary WARNINGS sections but no BOXED WARNING section. The current value/source is not compliant because it cites DailyMed for the FDA boxed-warning field.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"acetazolamide","field":"generic_name","proposed_value":"acetazolamide","rationale":"FDA labeling identifies acetazolamide/DIAMOX as the active drug.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf"]},{"current_value":"acetazolamide sodium","field":"alternate_generic_names","proposed_value":"acetazolamide sodium","rationale":"FDA labeling for injection states each vial contains acetazolamide sodium equivalent to acetazolamide.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA Orange Book/reference-standard listings and current FDA labeling show US acetazolamide products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/103879/download?attachment=","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf"]},{"current_value":"Acetazolamide; Acetazolamide Sodium; Diamox","field":"trade_names","proposed_value":"Acetazolamide; Acetazolamide Sodium; Diamox; Diamox Sequels","rationale":"Current value omits DIAMOX SEQUELS, the FDA-labeled extended-release capsule brand. Existing generic product names are not contradicted, so retain and append the missing brand.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf"]},{"current_value":"Diamox; acetazolamide sodium","field":"pubmed_search_aliases","proposed_value":"Diamox; Diamox Sequels; acetazolamide sodium","rationale":"Add Diamox Sequels so the branded extended-release capsule alias is searchable.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"Oral tablet; extended-release capsule; IV injection as acetazolamide sodium","field":"formulations_available","proposed_value":"Oral tablet; extended-release capsule; IV injection as acetazolamide sodium","rationale":"FDA labels support tablets, extended-release capsules, and intravenous acetazolamide sodium injection.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"Capsule; IV/IM injection; Long acting; Tablet","field":"filter_formulation","proposed_value":"Capsule; IV injection; Long acting; Tablet","rationale":"FDA labeling says the injection is for intravenous use and intramuscular administration is not recommended.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Centrencephalic epilepsies; Absence; Generalized; Myoclonic; Adjunctive nonspecific epilepsy","field":"epilepsy_type","proposed_value":"Centrencephalic epilepsies; Absence; Generalized; Myoclonic; Adjunctive nonspecific epilepsy","rationale":"FDA labeling supports adjunctive use for centrencephalic epilepsies including petit mal/unlocalized seizures and describes results in petit mal, grand mal, mixed seizure patterns, and myoclonic jerk patterns.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Carbonic anhydrase inhibitor; FDA labeling states inhibition in the CNS appears to retard abnormal paroxysmal excessive neuronal discharge, while acknowledging that the basis of epilepsy benefit is not clearly known.","field":"mechanism_of_action","proposed_value":"Carbonic anhydrase inhibitor; FDA labeling states inhibition in the CNS appears to retard abnormal paroxysmal excessive neuronal discharge, while acknowledging that the basis of epilepsy benefit is not clearly known.","rationale":"FDA labeling supports the carbonic anhydrase mechanism and the uncertainty around epilepsy benefit.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"Moderate confidence is reasonable because the mechanism is label-supported but the label states the basis of the epilepsy benefit is not clearly known.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Drugs@FDA/accessdata labeling","rationale":"Mechanism can be supported by FDA label PDFs; remove DailyMed from the named source.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"No broad enzyme induction/inhibition described in selected FDA label; label notes interactions including altered phenytoin metabolism and reduced primidone/metabolite concentrations through decreased absorption.","field":"enzyme_inducing_or_inhibiting","proposed_value":"No broad enzyme induction/inhibition described in selected FDA label; label notes interactions including altered phenytoin metabolism and reduced primidone/metabolite concentrations through decreased absorption.","rationale":"FDA labeling supports phenytoin and primidone interaction wording and does not describe broad CYP induction/inhibition.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"N/A 0%: FDA label lists paresthesia, hearing dysfunction/tinnitus, loss of appetite, taste alteration, GI disturbances, polyuria, drowsiness, confusion, rash, blood dyscrasias, electrolyte imbalance, and metabolic acidosis without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A 0%: FDA label lists paresthesia, hearing dysfunction/tinnitus, loss of appetite, taste alteration, GI disturbances, polyuria, drowsiness, confusion, rash, blood dyscrasias, electrolyte imbalance, and metabolic acidosis without quantified incidence percentages.","rationale":"FDA adverse-reaction sections list these reactions qualitatively without incidence percentages.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"6-14 hours; reported values vary by trusted NCBI sources, with StatPearls listing plasma half-life 6-9 hours and an NCBI Bookshelf epilepsy text listing elimination half-life 12-14 hours.","rationale":"The field should not remain N/A when trusted NCBI sources provide half-life values. The current statement is only true for the selected FDA label, not for the fact field overall.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://www.ncbi.nlm.nih.gov/books/NBK2597/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; renal bicarbonate handling and urinary effects are clinically central.","field":"major_organ_for_metabolism","proposed_value":"No major metabolism; renal excretion is the primary route of elimination.","rationale":"NCBI sources state acetazolamide does not undergo metabolic alteration and is renally excreted.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://www.ncbi.nlm.nih.gov/books/NBK2597/"]},{"current_value":"1000 mg/day; FDA label notes doses above 1 g/day do not appear to improve results.","field":"maximum_approved_daily_dose","proposed_value":"1000 mg/day; FDA label notes doses above 1 g/day do not appear to improve results.","rationale":"FDA dosage labeling supports the 375-1000 mg/day optimum epilepsy range and notes doses above 1 g/day do not appear to improve results.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"375 mg/day or 8 mg/kg/day lower labeled epilepsy-adjunct range; individualized response noted in FDA label.","field":"minimum_effective_dose","proposed_value":"375 mg/day or 8 mg/kg/day lower labeled epilepsy-adjunct range; individualized response noted in FDA label.","rationale":"FDA labeling gives 8-30 mg/kg/day in divided doses, an optimum range of 375-1000 mg/day, and individualized response language.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Epilepsy adjunct: 8-30 mg/kg/day in divided doses; FDA label states optimum range appears to be 375-1000 mg/day.","field":"typical_doses_per_day","proposed_value":"Epilepsy adjunct: 8-30 mg/kg/day in divided doses; FDA label states optimum range appears to be 375-1000 mg/day.","rationale":"FDA epilepsy dosing section supports this text.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"No QT interval effect described in selected FDA label.","field":"qt_interval_effect","proposed_value":"No QT-related warning or effect identified in selected FDA labeling; absence of label language does not establish a proven no-effect finding.","rationale":"FDA labels reviewed do not describe QT effects, but label silence is not strong evidence for 'no known meaningful QT effect'.","requires_user_approval":false,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"No QT-related warning/effect identified in selected FDA labeling","rationale":"The stronger 'no known meaningful QT effect' claim is not directly established by the cited FDA label; a label-limited statement is supportable.","requires_user_approval":false,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","rationale":"FDA Orange Book data-file documentation defines this approval-date phrase, and acetazolamide/DIAMOX appears in FDA Orange Book/labeling sources. The deterministic openFDA-label concordance warning is a source mismatch, not a contradiction of the Orange Book date.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2025/008943Orig1s054ltr.pdf"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book data files; FDA Drugs@FDA/accessdata labeling; NCBI Bookshelf; PubMed","rationale":"DailyMed should be removed from the named row sources, and NCBI/PubMed should be added for half-life/metabolism and RCT-gap support.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://pubmed.ncbi.nlm.nih.gov/6797857/"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No existing PubMed RCT links were supplied, and no qualifying acetazolamide phase II/III placebo-controlled epilepsy RCT was identified. The notable PubMed acetazolamide epilepsy paper PMID 6797857 has no abstract and is identified by the NICE/NCBI evidence review as incorrect study design for the relevant evidence review.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was found/retained in the PubMed RCT audit/gap review as of 05-20-2026; RCT section remains N/A.","rationale":"Update the audit date to the current audit date while retaining the same conclusion.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA labeling.","rationale":"Conclusion is supported by FDA label PDFs, but the current wording relies on DailyMed, which is not permissible for this field.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4","field":"fda_black_box_warning_source","proposed_value":"FDA Drugs@FDA/accessdata labels; status=no_boxed_warning_identified_in_selected_fda_labels; checked labels: DIAMOX tablets NDA 008943/S-054 (2025), DIAMOX tablets/injection NDA 008943/S-053 and NDA 009388/S-039 (2024), DIAMOX SEQUELS NDA 012945/S-048 (2024); urls=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf","rationale":"Replace the impermissible DailyMed SPL source with FDA label sources.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]}],"generic_name":"acetazolamide","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled acetazolamide epilepsy RCT was identified, so no differential RR50 value should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled acetazolamide epilepsy RCT was identified, so no differential median percent-change value should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled acetazolamide epilepsy RCT was identified, so no differential seizure-freedom value should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]},{"current_value":"","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"","rationale":"Plot value appropriately remains blank because the corresponding outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]},{"current_value":"","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"","rationale":"Plot value appropriately remains blank because the corresponding outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]},{"current_value":"","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"","rationale":"Plot value appropriately remains blank because the corresponding outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book data files; FDA Drugs@FDA/accessdata labeling; NCBI Bookshelf; PubMed","reason":"Remove DailyMed from row source naming and add trusted sources used for half-life/metabolism and RCT-gap verification.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://pubmed.ncbi.nlm.nih.gov/6797857/"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA labeling.","reason":"Black-box verification must use FDA sources, not DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4","field":"fda_black_box_warning_source","proposed_value":"FDA Drugs@FDA/accessdata labels; status=no_boxed_warning_identified_in_selected_fda_labels; checked labels: DIAMOX tablets NDA 008943/S-054 (2025), DIAMOX tablets/injection NDA 008943/S-053 and NDA 009388/S-039 (2024), DIAMOX SEQUELS NDA 012945/S-048 (2024); urls=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf","reason":"Replace impermissible DailyMed source with FDA label sources.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Drugs@FDA/accessdata labeling","reason":"Mechanism is supportable from FDA labeling; DailyMed is unnecessary and outside the trusted source list supplied for this audit.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"6-14 hours; reported values vary by trusted NCBI sources, with StatPearls listing plasma half-life 6-9 hours and an NCBI Bookshelf epilepsy text listing elimination half-life 12-14 hours.","reason":"Trusted NCBI sources provide half-life values; the row should not leave the pharmacokinetic field as N/A solely because the selected label omits it.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://www.ncbi.nlm.nih.gov/books/NBK2597/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; renal bicarbonate handling and urinary effects are clinically central.","field":"major_organ_for_metabolism","proposed_value":"No major metabolism; renal excretion is the primary route of elimination.","reason":"NCBI sources state acetazolamide does not undergo metabolic alteration and is primarily renally eliminated.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://www.ncbi.nlm.nih.gov/books/NBK2597/"]},{"current_value":"Acetazolamide; Acetazolamide Sodium; Diamox","field":"trade_names","proposed_value":"Acetazolamide; Acetazolamide Sodium; Diamox; Diamox Sequels","reason":"Add the missing FDA-labeled Diamox Sequels brand alias without deleting existing names.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"Diamox; acetazolamide sodium","field":"pubmed_search_aliases","proposed_value":"Diamox; Diamox Sequels; acetazolamide sodium","reason":"Add the missing extended-release capsule brand alias for search coverage.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]},{"current_value":"Capsule; IV/IM injection; Long acting; Tablet","field":"filter_formulation","proposed_value":"Capsule; IV injection; Long acting; Tablet","reason":"FDA labeling identifies the injection for intravenous use and says intramuscular administration is not recommended.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"No QT interval effect described in selected FDA label.","field":"qt_interval_effect","proposed_value":"No QT-related warning or effect identified in selected FDA labeling; absence of label language does not establish a proven no-effect finding.","reason":"Clarify that the evidence is label silence, not affirmative QT safety evidence.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was found/retained in the PubMed RCT audit/gap review as of 05-20-2026; RCT section remains N/A.","reason":"Refresh audit date and retain the N/A conclusion.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/6797857/","https://www.ncbi.nlm.nih.gov/books/NBK581157/"]}],"rct_link_checks":[],"source_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book data files; FDA Drugs@FDA/accessdata labeling; NCBI Bookshelf; PubMed","reason":"DailyMed should not be used as a named source in this audit bundle, and the row needs NCBI/PubMed sources for non-label facts and RCT-gap verification.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK532282/","https://pubmed.ncbi.nlm.nih.gov/6797857/"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Drugs@FDA/accessdata labeling","reason":"Mechanism text is supported by FDA label PDFs.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=58093032-8480-4d0f-82be-92e643bdbea4; published=Jan 16, 2026; title=ACETAZOLAMIDE (ACETAZOLAMIDE SODIUM) INJECTION, POWDER, FOR SOLUTION [SAGENT PHARMACEUTICALS]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=58093032-8480-4d0f-82be-92e643bdbea4","field":"fda_black_box_warning_source","proposed_value":"FDA Drugs@FDA/accessdata labels; status=no_boxed_warning_identified_in_selected_fda_labels; checked labels: DIAMOX tablets NDA 008943/S-054 (2025), DIAMOX tablets/injection NDA 008943/S-053 and NDA 009388/S-039 (2024), DIAMOX SEQUELS NDA 012945/S-048 (2024); urls=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf | https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf","reason":"Black-box source must be FDA/openFDA/Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/008943s054lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/008943s053%2C009388s039lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/012945s048lbl.pdf"]}],"summary":"Acetazolamide row is largely supported for FDA indication, dose, mechanism, adverse-reaction list, US availability, and N/A RCT outcomes. Updates are needed to replace DailyMed-based black-box/source wording with FDA label sources, add Diamox Sequels as an alias/trade name, replace pharmacokinetic N/A fields with NCBI-supported half-life/metabolism text, clarify QT wording, and correct the IV/IM formulation filter."}
+tokens used
+145,085

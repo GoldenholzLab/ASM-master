@@ -1,0 +1,749 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 17%, GI: anorexia 13%, CNS: dizziness 13%, neurologic: ataxia 6%, cognitive: abnormal thinking 6%, renal/metabolic: kidney stones 4% over development program",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "10.7-31 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Guerrini2013 zonisamide target 8 mg/kg/day 19%; Lu2011 zonisamide 400 mg/day 20.5%; Brodie2005 zonisamide 500 mg/day 31%; Sackellares2004 zonisamide titrated 400-600 mg/day 10.7%)",
+    "diff_median_pct_change_maximum_effective_dose": "31.5-34.9 % (drug minus placebo MPC differential at maximum effective dose/regimen: Brodie2005 zonisamide 500 mg/day 34.9%; Sackellares2004 zonisamide titrated 400-600 mg/day 33.6%; Faught2001 zonisamide 400 mg/day 31.5%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer/inhibitor; CYP3A4 substrate; weak carbonic anhydrase inhibitor",
+    "epilepsy_type": "Focal; Generalized; Primary generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d12de43e-3ac3-4335-bc85-70d7366a91eb; published=Oct 03, 2025; title=ZONEGRAN (ZONISAMIDE) CAPSULE [ADVANZ PHARMA (US) CORP.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d12de43e-3ac3-4335-bc85-70d7366a91eb",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Focal; Generalized; Primary generalized tonic-clonic",
+    "filter_formulation": "Capsule; Liquid",
+    "filter_mechanism": "Calcium channel / alpha-2-delta; Sodium channel",
+    "filter_metabolism": "Liver/hepatic; Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Cognitive; GI; Neurologic; Renal/metabolic",
+    "formulations_available": "Capsule; oral suspension",
+    "generic_name": "zonisamide",
+    "half_life_range": "50-70 h",
+    "major_organ_for_metabolism": "Liver and renal excretion",
+    "maximum_approved_daily_dose": "400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; in vitro data suggest sodium-channel blockade and reduced T-type calcium currents, with weak carbonic-anhydrase inhibition of uncertain therapeutic contribution.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "100 mg/day starting; effective maintenance commonly 100-400 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Guerrini2013|19|https://pubmed.ncbi.nlm.nih.gov/23837461/|207; Lu2011|20.5|https://pubmed.ncbi.nlm.nih.gov/21166480/|104; Brodie2005|31|https://pubmed.ncbi.nlm.nih.gov/15660766/|351; Sackellares2004|10.7|https://pubmed.ncbi.nlm.nih.gov/15144425/|152",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Brodie2005|34.9|https://pubmed.ncbi.nlm.nih.gov/15660766/|351; Sackellares2004|33.6|https://pubmed.ncbi.nlm.nih.gov/15144425/|152; Faught2001|31.5|https://pubmed.ncbi.nlm.nih.gov/11723262/|203",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Guerrini2013|https://pubmed.ncbi.nlm.nih.gov/23837461/; Lu2011|https://pubmed.ncbi.nlm.nih.gov/21166480/; Brodie2005|https://pubmed.ncbi.nlm.nih.gov/15660766/; Sackellares2004|https://pubmed.ncbi.nlm.nih.gov/15144425/; Faught2001|https://pubmed.ncbi.nlm.nih.gov/11723262/; Schmidt1993|https://pubmed.ncbi.nlm.nih.gov/8325280/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 65/65 on 2026-05-15: 6 qualifying placebo-controlled randomized clinical trial report(s) retained from 17 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal/partial seizures; also used off-label for migraine/weight-related indications in some settings.",
+    "trade_names": "Desizon; Zonegran; Zonisade",
+    "typical_doses_per_day": "Adults: 100-400 mg/day once daily or divided",
+    "year_fda_cleared": "2000"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Guerrini2013|https://pubmed.ncbi.nlm.nih.gov/23837461/",
+      "label": "Guerrini2013",
+      "pmid": "23837461",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23837461/"
+    },
+    {
+      "entry": "Lu2011|https://pubmed.ncbi.nlm.nih.gov/21166480/",
+      "label": "Lu2011",
+      "pmid": "21166480",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21166480/"
+    },
+    {
+      "entry": "Brodie2005|https://pubmed.ncbi.nlm.nih.gov/15660766/",
+      "label": "Brodie2005",
+      "pmid": "15660766",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15660766/"
+    },
+    {
+      "entry": "Sackellares2004|https://pubmed.ncbi.nlm.nih.gov/15144425/",
+      "label": "Sackellares2004",
+      "pmid": "15144425",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15144425/"
+    },
+    {
+      "entry": "Faught2001|https://pubmed.ncbi.nlm.nih.gov/11723262/",
+      "label": "Faught2001",
+      "pmid": "11723262",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11723262/"
+    },
+    {
+      "entry": "Schmidt1993|https://pubmed.ncbi.nlm.nih.gov/8325280/",
+      "label": "Schmidt1993",
+      "pmid": "8325280",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8325280/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 17%, GI: anorexia 13%, CNS: dizziness 13%, neurologic: ataxia 6%, cognitive: abnormal thinking 6%, renal/metabolic: kidney stones 4% over development program",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "10.7-31 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Guerrini2013 zonisamide target 8 mg/kg/day 19%; Lu2011 zonisamide 400 mg/day 20.5%; Brodie2005 zonisamide 500 mg/day 31%; Sackellares2004 zonisamide titrated 400-600 mg/day 10.7%)",
+    "diff_median_pct_change_maximum_effective_dose": "31.5-34.9 % (drug minus placebo MPC differential at maximum effective dose/regimen: Brodie2005 zonisamide 500 mg/day 34.9%; Sackellares2004 zonisamide titrated 400-600 mg/day 33.6%; Faught2001 zonisamide 400 mg/day 31.5%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer/inhibitor; CYP3A4 substrate; weak carbonic anhydrase inhibitor",
+    "epilepsy_type": "Focal; Generalized; Primary generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d12de43e-3ac3-4335-bc85-70d7366a91eb; published=Oct 03, 2025; title=ZONEGRAN (ZONISAMIDE) CAPSULE [ADVANZ PHARMA (US) CORP.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d12de43e-3ac3-4335-bc85-70d7366a91eb",
+    "formulations_available": "Capsule; oral suspension",
+    "half_life_range": "50-70 h",
+    "major_organ_for_metabolism": "Liver and renal excretion",
+    "maximum_approved_daily_dose": "400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; in vitro data suggest sodium-channel blockade and reduced T-type calcium currents, with weak carbonic-anhydrase inhibition of uncertain therapeutic contribution.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "100 mg/day starting; effective maintenance commonly 100-400 mg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "Guerrini2013|19|https://pubmed.ncbi.nlm.nih.gov/23837461/|207; Lu2011|20.5|https://pubmed.ncbi.nlm.nih.gov/21166480/|104; Brodie2005|31|https://pubmed.ncbi.nlm.nih.gov/15660766/|351; Sackellares2004|10.7|https://pubmed.ncbi.nlm.nih.gov/15144425/|152",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Brodie2005|34.9|https://pubmed.ncbi.nlm.nih.gov/15660766/|351; Sackellares2004|33.6|https://pubmed.ncbi.nlm.nih.gov/15144425/|152; Faught2001|31.5|https://pubmed.ncbi.nlm.nih.gov/11723262/|203",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Guerrini2013|https://pubmed.ncbi.nlm.nih.gov/23837461/; Lu2011|https://pubmed.ncbi.nlm.nih.gov/21166480/; Brodie2005|https://pubmed.ncbi.nlm.nih.gov/15660766/; Sackellares2004|https://pubmed.ncbi.nlm.nih.gov/15144425/; Faught2001|https://pubmed.ncbi.nlm.nih.gov/11723262/; Schmidt1993|https://pubmed.ncbi.nlm.nih.gov/8325280/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Desizon; Zonegran; Zonisade",
+    "typical_doses_per_day": "Adults: 100-400 mg/day once daily or divided",
+    "year_fda_cleared": "2000"
+  },
+  "generic_name": "zonisamide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2000",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2000"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5",
+      "generic_name": "zonisamide",
+      "id": "source_fact_concordance_problem-43c289327614",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the efficacy and safety of two trough-ranges of everolimus given as adjunctive therapy in patients with tuberous sclerosis complex (TSC) who had refractory partial-onset seizures.\n\nThe study consisted of 4 phases for each patient Baseline phase:\\[From Screening Week -8 (V1) to randomization visit at Week 0 (V2)\\], Core phase \\[from randomization at Week 0 (V2) to Week 18 (V11)\\], Extension phase \\[from Week 18 (V11) until 48 weeks after the last patient had completed the core phase\\] and Post Extension phase \\[from end of Extension phase to end of study\\].",
+        "interventions": [
+          "RAD001",
+          "Placebo",
+          "Antiepileptic drug (1 to 3 only)",
+          "open label RAD001 (only used for post-extension phase)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01713946",
+        "new_reference_pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "title": "A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01713946",
+      "generic_name": "zonisamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-2c1b04dcad6b",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is intended to provide evidence that zonisamide is safe and effective in the treatment of myoclonic seizures. The total planned trial duration will be 6.5 months. After that, subjects who have completed the study will be eligible to enroll in an open-label extension study until zonisamide is marketed for this indication or further development in this indication stops. This extension study will be described in a separate protocol (E2090-E044-318).",
+        "interventions": [
+          "Zonisamide",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00693017",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy and Safety of Adjunctive Zonisamide in Myoclonic Seizures Associated With Idiopathic Generalised Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00693017",
+      "generic_name": "zonisamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b08eb9e906b5",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Adjunctive Zonisamide in Myoclonic Seizures Associated With Idiopathic Generalised Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Zonisamide is already marketed for the treatment of partial seizures in epilepsy. This study is intended to provide evidence that zonisamide is safe and effective in the treatment of primary generalised tonic-clonic seizures. The total trial duration will be 5.5-6.5 months. After that subjects who have completed the study will be eligible to enrol in an open-label extension study until zonisamide is marketed for this indication or further development in this indication stops. This extension study will be described in a separate protocol (E2090-E044-316).",
+        "interventions": [
+          "Zonisamide",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00692003",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Adjunctive Zonisamide in Primary Generalised Tonic Clonic Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00692003",
+      "generic_name": "zonisamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b6104c93d190",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Adjunctive Zonisamide in Primary Generalised Tonic Clonic Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to compare the safety and efficacy of zonisamide with placebo.",
+        "interventions": [
+          "Zonisamide",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00566254",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy and Safety of Adjunctive Zonisamide in Paediatric Partial Onset Seizures (CATZ Study)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00566254",
+      "generic_name": "zonisamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-f6f9a8b58484",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of Adjunctive Zonisamide in Paediatric Partial Onset Seizures (CATZ Study)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The objectives of this trial are to evaluate the safety and efficacy of Zonisamide as adjunctive therapy in medically refractory patients receiving other antiepileptic drugs (AEDs).",
+        "interventions": [
+          "Zonisamide",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00327717",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Evaluating the Efficacy and Safety of Zonisamide in the Treatment of Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00327717",
+      "generic_name": "zonisamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c595b24da4b7",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Evaluating the Efficacy and Safety of Zonisamide in the Treatment of Partial Seizures"
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Desizon; Zonegran; Zonisade",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22epilepsy%22&limit=100",
+      "generic_name": "zonisamide",
+      "id": "trade_name_addition-442b609d32cd",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Zonisamide"
+      },
+      "proposed_value": "Zonisamide",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Zonisamide."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d12de43e-3ac3-4335-bc85-70d7366a91eb; published=Oct 03, 2025; title=ZONEGRAN (ZONISAMIDE) CAPSULE [ADVANZ PHARMA (US) CORP.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d12de43e-3ac3-4335-bc85-70d7366a91eb",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5",
+      "generic_name": "zonisamide",
+      "id": "fda_warning_metadata_refresh-2b721838cbdc",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=d12de43e-3ac3-4335-bc85-70d7366a91eb; effective_time=20250912; title=Zonegran / ZONISAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=d12de43e-3ac3-4335-bc85-70d7366a91eb; effective_time=20250912; title=Zonegran / ZONISAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d12de43e-3ac3-4335-bc85-70d7366a91eb%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports target-dose pediatric responder rates.",
+      "dose_or_regimen": "zonisamide target 8 mg/kg/day",
+      "endpoint": "pediatric partial epilepsy",
+      "generic_name": "zonisamide",
+      "label": "Guerrini2013",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "23837461",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/23837461/",
+      "rr50_active_percent": "50.0",
+      "rr50_differential_percent": "19.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "31.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomized phase III trial of adjunctive zonisamide in pediatric patients with partial epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports 400 mg/day responder rate and placebo responder rate.",
+      "dose_or_regimen": "zonisamide 400 mg/day",
+      "endpoint": "partial-onset epilepsy",
+      "generic_name": "zonisamide",
+      "label": "Lu2011",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "21166480",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/21166480/",
+      "rr50_active_percent": "56.5",
+      "rr50_differential_percent": "20.5",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "36.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and safety of adjunctive zonisamide in adult patients with refractory partial-onset epilepsy: a randomized, double-blind, placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports responder and median complex-partial-seizure reduction values for the highest tested 500 mg/day arm.",
+      "dose_or_regimen": "zonisamide 500 mg/day",
+      "endpoint": "complex partial seizures",
+      "generic_name": "zonisamide",
+      "label": "Brodie2005",
+      "mpc_active_percent": "51.2",
+      "mpc_differential_percent": "34.9",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "16.3",
+      "pmid": "15660766",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/15660766/",
+      "rr50_active_percent": "52.3",
+      "rr50_differential_percent": "31.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "21.3",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Dose-dependent safety and efficacy of zonisamide: a randomized, double-blind, placebo-controlled study in patients with refractory partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports responder rates and median seizure-frequency change for the titrated 400-600 mg/day regimen versus placebo.",
+      "dose_or_regimen": "zonisamide titrated 400-600 mg/day",
+      "endpoint": "refractory partial seizures",
+      "generic_name": "zonisamide",
+      "label": "Sackellares2004",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "33.6",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "15144425",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/15144425/",
+      "rr50_active_percent": "26.9",
+      "rr50_differential_percent": "10.7",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.2",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized, controlled clinical trial of zonisamide as adjunctive treatment for refractory partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports 400 mg/day median all-seizure reduction versus placebo.",
+      "dose_or_regimen": "zonisamide 400 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "zonisamide",
+      "label": "Faught2001",
+      "mpc_active_percent": "40.5",
+      "mpc_differential_percent": "31.5",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "9.0",
+      "pmid": "11723262",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11723262/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized controlled trial of zonisamide for the treatment of refractory partial-onset seizures."
+    },
+    {
+      "audit_note": "Dose was not extractable from the PubMed abstract for a current max-dose rollup.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "zonisamide",
+      "label": "Schmidt1993",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8325280",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8325280/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Zonisamide for add-on treatment of refractory partial epilepsy: a European double-blind trial."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Guerrini",
+      "generic_name": "zonisamide",
+      "label": "Guerrini2013",
+      "pmid": "23837461",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized phase III trial of adjunctive zonisamide in pediatric patients with partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23837461/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Lu",
+      "generic_name": "zonisamide",
+      "label": "Lu2011",
+      "pmid": "21166480",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of adjunctive zonisamide in adult patients with refractory partial-onset epilepsy: a randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21166480/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "zonisamide",
+      "label": "Brodie2005",
+      "pmid": "15660766",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Dose-dependent safety and efficacy of zonisamide: a randomized, double-blind, placebo-controlled study in patients with refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15660766/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Sackellares",
+      "generic_name": "zonisamide",
+      "label": "Sackellares2004",
+      "pmid": "15144425",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized, controlled clinical trial of zonisamide as adjunctive treatment for refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15144425/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Faught",
+      "generic_name": "zonisamide",
+      "label": "Faught2001",
+      "pmid": "11723262",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized controlled trial of zonisamide for the treatment of refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11723262/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "zonisamide",
+      "label": "Schmidt1993",
+      "pmid": "8325280",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Zonisamide for add-on treatment of refractory partial epilepsy: a European double-blind trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8325280/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Nakatsuka",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "37674206",
+      "pub_types": "Randomized Controlled Trial, Veterinary; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy evaluation of a commercially available MCT enriched therapeutic diet on dogs with idiopathic epilepsy treated with zonisamide: a prospective, randomized, double-blinded, placebo-controlled, crossover dietary preliminary study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37674206/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Garcia",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "35967998",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Safety and efficacy of cannabidiol-cannabidiolic acid rich hemp extract in the treatment of refractory epileptic seizures in dogs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35967998/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Kälviäinen",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "26666500",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Brivaracetam in Unverricht-Lundborg disease (EPM1): Results from two randomized, double-blind, placebo-controlled studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Belousova",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "26356160",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[Zonisamid in additional treatment of pediatric partial epilepsy: a review of efficacy and safety in randomized double blind pacebo-controlled III phase study].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26356160/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Guerrini",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "24621319",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Adjunctive zonisamide therapy in the long-term treatment of children with partial epilepsy: results of an open-label extension study of a phase III, randomized, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24621319/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Wroe",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "17594758",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Zonisamide and renal calculi in patients with epilepsy: how big an issue?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17594758/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Gazzola",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "17521343",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Seizure-free outcome in randomized add-on trials of the new antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17521343/",
+      "year": "2007"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "17582922",
+      "pub_types": "Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Zonisamide: new drug. No advantage in refractory partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17582922/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "15511696",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Zonisamide clinical trials: European experience.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15511696/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Gadde",
+      "generic_name": "zonisamide",
+      "label": "",
+      "pmid": "12684361",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Zonisamide for weight loss in obese adults: a randomized controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12684361/",
+      "year": "2003"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

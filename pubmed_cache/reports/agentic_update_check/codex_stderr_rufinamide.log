@@ -1,0 +1,673 @@
+2026-05-21T03:53:41.347364Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:53:41.348141Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:53:41.353535Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:53:41.353607Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:41.591175Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:41.620204Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e48aa-ebb3-7c42-a459-42b2e922e3ce
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 24%, GI: vomiting 22%, CNS: headache 16%, CNS: dizziness 14%, GI: nausea 12%, dermatologic: rash 5%, cardiac: QT shortening 14%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "9.6-23 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Biton2010 rufinamide 3200 mg/day 18.2%; Brodie2009 rufinamide 3200 mg/day 9.6%; Palhagen2001 rufinamide up to 1600 mg/day 23%)",
+    "diff_median_pct_change_maximum_effective_dose": "13.45-93 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ohtsuka2014 rufinamide adjunctive LGS target/max regimen 20.9%; Biton2010 rufinamide 3200 mg/day 13.45%; Brodie2009 rufinamide 3200 mg/day 22%; Glauser2008 rufinamide adjunctive LGS target/max regimen 21%; Palhagen2001 rufinamide up to 1600 mg/day 93%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A4 inducer; not a major inhibitor",
+    "epilepsy_type": "LGS",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; published=Nov 18, 2024; title=BANZEL (RUFINAMIDE) TABLET, FILM COATED BANZEL (RUFINAMIDE) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor",
+    "filter_epilepsy_type": "LGS",
+    "filter_formulation": "Liquid; Tablet",
+    "filter_mechanism": "Sodium channel",
+    "filter_metabolism": "Renal/no major metabolism",
+    "filter_qt_effect": "QT shortening",
+    "filter_symptom_category": "CNS; Cardiac; Dermatologic; GI",
+    "formulations_available": "Tablet; oral suspension",
+    "generic_name": "rufinamide",
+    "half_life_range": "6-10 h",
+    "major_organ_for_metabolism": "Carboxylesterase hydrolysis; renal excretion of metabolites",
+    "maximum_approved_daily_dose": "3200 mg/day adult max",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; in vitro studies suggest sodium-channel modulation, especially prolongation of the inactive state and limitation of repetitive sodium-dependent firing.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "400 mg/day adult starting dose; titrate to 3200 mg/day target/max",
+    "plot_diff_50_responder_maximum_effective_dose": "Biton2010|18.2|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|9.6|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Palhagen2001|23|https://pubmed.ncbi.nlm.nih.gov/11164700/|50",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Ohtsuka2014|20.9|https://pubmed.ncbi.nlm.nih.gov/25219353/|59; Biton2010|13.45|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|22|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Glauser2008|21|https://pubmed.ncbi.nlm.nih.gov/18401024/|138; Palhagen2001|93|https://pubmed.ncbi.nlm.nih.gov/11164700/|50",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Ohtsuka2014|https://pubmed.ncbi.nlm.nih.gov/25219353/; Elger2010|https://pubmed.ncbi.nlm.nih.gov/20061123/; Biton2010|https://pubmed.ncbi.nlm.nih.gov/20887365/; Brodie2009|https://pubmed.ncbi.nlm.nih.gov/19490053/; Glauser2008|https://pubmed.ncbi.nlm.nih.gov/18401024/; Palhagen2001|https://pubmed.ncbi.nlm.nih.gov/11164700/",
+    "pubmed_search_aliases": "CGP 33101",
+    "qt_interval_effect": "Shortens QT interval; caution with familial short QT syndrome or other QT-shortening drugs",
+    "rct_pubmed_verification_notes": "PubMed loop 52/65 on 2026-05-15: 6 qualifying placebo-controlled randomized clinical trial report(s) retained from 11 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for seizures associated with Lennox-Gastaut syndrome.",
+    "trade_names": "Banzel; Inovelon",
+    "typical_doses_per_day": "LGS: adults 400-3200 mg/day divided BID; pediatric weight-based",
+    "year_fda_cleared": "2008"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Ohtsuka2014|https://pubmed.ncbi.nlm.nih.gov/25219353/",
+      "label": "Ohtsuka2014",
+      "pmid": "25219353",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25219353/"
+    },
+    {
+      "entry": "Elger2010|https://pubmed.ncbi.nlm.nih.gov/20061123/",
+      "label": "Elger2010",
+      "pmid": "20061123",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20061123/"
+    },
+    {
+      "entry": "Biton2010|https://pubmed.ncbi.nlm.nih.gov/20887365/",
+      "label": "Biton2010",
+      "pmid": "20887365",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20887365/"
+    },
+    {
+      "entry": "Brodie2009|https://pubmed.ncbi.nlm.nih.gov/19490053/",
+      "label": "Brodie2009",
+      "pmid": "19490053",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19490053/"
+    },
+    {
+      "entry": "Glauser2008|https://pubmed.ncbi.nlm.nih.gov/18401024/",
+      "label": "Glauser2008",
+      "pmid": "18401024",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18401024/"
+    },
+    {
+      "entry": "Palhagen2001|https://pubmed.ncbi.nlm.nih.gov/11164700/",
+      "label": "Palhagen2001",
+      "pmid": "11164700",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11164700/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 24%, GI: vomiting 22%, CNS: headache 16%, CNS: dizziness 14%, GI: nausea 12%, dermatologic: rash 5%, cardiac: QT shortening 14%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "9.6-23 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Biton2010 rufinamide 3200 mg/day 18.2%; Brodie2009 rufinamide 3200 mg/day 9.6%; Palhagen2001 rufinamide up to 1600 mg/day 23%)",
+    "diff_median_pct_change_maximum_effective_dose": "13.45-93 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ohtsuka2014 rufinamide adjunctive LGS target/max regimen 20.9%; Biton2010 rufinamide 3200 mg/day 13.45%; Brodie2009 rufinamide 3200 mg/day 22%; Glauser2008 rufinamide adjunctive LGS target/max regimen 21%; Palhagen2001 rufinamide up to 1600 mg/day 93%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A4 inducer; not a major inhibitor",
+    "epilepsy_type": "LGS",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; published=Nov 18, 2024; title=BANZEL (RUFINAMIDE) TABLET, FILM COATED BANZEL (RUFINAMIDE) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d",
+    "formulations_available": "Tablet; oral suspension",
+    "half_life_range": "6-10 h",
+    "major_organ_for_metabolism": "Carboxylesterase hydrolysis; renal excretion of metabolites",
+    "maximum_approved_daily_dose": "3200 mg/day adult max",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is unknown; in vitro studies suggest sodium-channel modulation, especially prolongation of the inactive state and limitation of repetitive sodium-dependent firing.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "400 mg/day adult starting dose; titrate to 3200 mg/day target/max",
+    "plot_diff_50_responder_maximum_effective_dose": "Biton2010|18.2|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|9.6|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Palhagen2001|23|https://pubmed.ncbi.nlm.nih.gov/11164700/|50",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Ohtsuka2014|20.9|https://pubmed.ncbi.nlm.nih.gov/25219353/|59; Biton2010|13.45|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|22|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Glauser2008|21|https://pubmed.ncbi.nlm.nih.gov/18401024/|138; Palhagen2001|93|https://pubmed.ncbi.nlm.nih.gov/11164700/|50",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Ohtsuka2014|https://pubmed.ncbi.nlm.nih.gov/25219353/; Elger2010|https://pubmed.ncbi.nlm.nih.gov/20061123/; Biton2010|https://pubmed.ncbi.nlm.nih.gov/20887365/; Brodie2009|https://pubmed.ncbi.nlm.nih.gov/19490053/; Glauser2008|https://pubmed.ncbi.nlm.nih.gov/18401024/; Palhagen2001|https://pubmed.ncbi.nlm.nih.gov/11164700/",
+    "pubmed_search_aliases": "CGP 33101",
+    "qt_interval_effect": "Shortens QT interval; caution with familial short QT syndrome or other QT-shortening drugs",
+    "trade_names": "Banzel; Inovelon",
+    "typical_doses_per_day": "LGS: adults 400-3200 mg/day divided BID; pediatric weight-based",
+    "year_fda_cleared": "2008"
+  },
+  "generic_name": "rufinamide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Glauser2008|https://pubmed.ncbi.nlm.nih.gov/18401024/",
+      "details": {
+        "article": {
+          "abstract": "Lennox-Gastaut syndrome is a catastrophic pediatric epilepsy syndrome characterized by multiple types of treatment-resistant seizures and high rates of seizure-related injury. Current available treatments are inadequate, leaving patients with few treatment options and opportunities. We conducted a double-blind, randomized, placebo-controlled trial of the antiepileptic drug rufinamide in patients with Lennox-Gastaut syndrome. Eligible patients between 4 and 30 years of age had multiple types of seizures (including tonic-atonic and atypical absence seizures) with a minimum of 90 seizures in the month before baseline and a recent history of a slow spike-and-wave pattern on EEG. After a 28-day baseline period, 139 eligible patients were randomized; 138 patients received either rufinamide (n = 74) or placebo (n = 64) in addition to their other antiepileptic drugs. The median percentage reduction in total seizure frequency was greater in the rufinamide therapy group than in the placebo group (32.7% vs 11.7%, p = 0.0015). There was a difference (p < 0.0001) in tonic-atonic (\"drop attack\") seizure frequency with rufinamide (42.5% median percentage reduction) vs placebo (1.4% increase). The rufinamide group had a greater improvement in seizure severity (p = 0.0041) and a higher 50% responder rate compared with placebo for total seizures (p = 0.0045) and tonic-atonic seizures (p = 0.002). The common adverse events (reported by >or=10% of patients receiving rufinamide) were somnolence (24.3% with rufinamide vs 12.5% with placebo) and vomiting (21.6% vs 6.3%). Rufinamide was an effective and well-tolerated treatment for seizures associated with Lennox-Gastaut syndrome.",
+          "first_author": "Glauser",
+          "pmid": "18401024",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "title": "Rufinamide for generalized seizures associated with Lennox-Gastaut syndrome.",
+          "year": "2008"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/18401024/",
+      "generic_name": "rufinamide",
+      "id": "rct_pubmed_concordance_problem-57727f0c08eb",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 18401024 needs manual review for rufinamide; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 18401024 needs manual review for rufinamide; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To confirm that the combination therapy of rufinamide has superior efficacy compared to placebo in patients with Lennox-Gastaut syndrome.",
+        "interventions": [
+          "Rufinamide (E2080)",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01146951",
+        "new_reference_pmids": [
+          "33825230",
+          "33179247"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33825230",
+          "33179247"
+        ],
+        "title": "A Placebo-Controlled, Double-Blind Comparative Study of E2080 in Lennox-Gastaut Syndrome Patients (Study E2080-J081-304)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01146951",
+      "generic_name": "rufinamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-fa9d842bc070",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-Controlled, Double-Blind Comparative Study of E2080 in Lennox-Gastaut Syndrome Patients (Study E2080-J081-304)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the effect of rufinamide on total partial seizure frequency in adolescent and adult participants (12 to 80 years, inclusive) with refractory partial onset seizures maintained on a maximum of 3 stable antiepileptic drugs (AEDs).",
+        "interventions": [
+          "Placebo",
+          "Rufinamide"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00334958",
+        "new_reference_pmids": [
+          "33179247"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33179247"
+        ],
+        "title": "Rufinamide Given as Adjunctive Therapy in Participants With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00334958",
+      "generic_name": "rufinamide",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-a0d421a28032",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Rufinamide Given as Adjunctive Therapy in Participants With Refractory Partial Seizures"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; published=Nov 18, 2024; title=BANZEL (RUFINAMIDE) TABLET, FILM COATED BANZEL (RUFINAMIDE) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5",
+      "generic_name": "rufinamide",
+      "id": "fda_warning_metadata_refresh-d4db392dee3b",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; effective_time=20221215; title=Banzel / RUFINAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; effective_time=20221215; title=Banzel / RUFINAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports tonic-atonic seizure median percent change; total-seizure differential was 29.8% and is noted but not used for the primary rollup.",
+      "dose_or_regimen": "rufinamide adjunctive LGS target/max regimen",
+      "endpoint": "LGS tonic-atonic and total seizures",
+      "generic_name": "rufinamide",
+      "label": "Ohtsuka2014",
+      "mpc_active_percent": "24.2",
+      "mpc_differential_percent": "20.9",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "3.3",
+      "pmid": "25219353",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25219353/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Rufinamide as an adjunctive therapy for Lennox-Gastaut syndrome: a randomized double-blind placebo-controlled trial in Japan."
+    },
+    {
+      "audit_note": "Abstract reports 3200 mg/day responder and median percentage reduction values.",
+      "dose_or_regimen": "rufinamide 3200 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "rufinamide",
+      "label": "Biton2010",
+      "mpc_active_percent": "23.25",
+      "mpc_differential_percent": "13.45",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "9.8",
+      "pmid": "20887365",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20887365/",
+      "rr50_active_percent": "32.5",
+      "rr50_differential_percent": "18.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "14.3",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomized, double-blind, placebo-controlled, parallel-group study of rufinamide as adjunctive therapy for refractory partial-onset seizures."
+    },
+    {
+      "audit_note": "Dose-ranging study showed a dose-response trend, but the PubMed abstract does not give arm-specific responder or median percentage reduction values.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "rufinamide",
+      "label": "Elger2010",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "20061123",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/20061123/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A 24-week multicenter, randomized, double-blind, parallel-group, dose-ranging study of rufinamide in adults and adolescents with inadequately controlled partial seizures."
+    },
+    {
+      "audit_note": "Abstract reports 3200 mg/day responder and median partial-seizure reduction values.",
+      "dose_or_regimen": "rufinamide 3200 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "rufinamide",
+      "label": "Brodie2009",
+      "mpc_active_percent": "20.4",
+      "mpc_differential_percent": "22.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-1.6",
+      "pmid": "19490053",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/19490053/",
+      "rr50_active_percent": "28.2",
+      "rr50_differential_percent": "9.6",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "18.6",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Rufinamide for the adjunctive treatment of partial seizures in adults and adolescents: a randomized placebo-controlled trial."
+    },
+    {
+      "audit_note": "Abstract reports total seizure median percentage reduction; tonic-atonic differential was 43.9% and is noted but not used for the primary rollup.",
+      "dose_or_regimen": "rufinamide adjunctive LGS target/max regimen",
+      "endpoint": "LGS total and tonic-atonic seizures",
+      "generic_name": "rufinamide",
+      "label": "Glauser2008",
+      "mpc_active_percent": "32.7",
+      "mpc_differential_percent": "21.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "11.7",
+      "pmid": "18401024",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/18401024/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Rufinamide for generalized seizures associated with Lennox-Gastaut syndrome."
+    },
+    {
+      "audit_note": "Abstract reports responder rates and seizure-frequency percentage changes for the proof-of-principle trial.",
+      "dose_or_regimen": "rufinamide up to 1600 mg/day",
+      "endpoint": "partial or primary generalized tonic-clonic seizures",
+      "generic_name": "rufinamide",
+      "label": "Palhagen2001",
+      "mpc_active_percent": "41.0",
+      "mpc_differential_percent": "93.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-52.0",
+      "pmid": "11164700",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11164700/",
+      "rr50_active_percent": "39.0",
+      "rr50_differential_percent": "23.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "16.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Rufinamide: a double-blind, placebo-controlled proof of principle trial in patients with epilepsy."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Ohtsuka",
+      "generic_name": "rufinamide",
+      "label": "Ohtsuka2014",
+      "pmid": "25219353",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Rufinamide as an adjunctive therapy for Lennox-Gastaut syndrome: a randomized double-blind placebo-controlled trial in Japan.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25219353/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Biton",
+      "generic_name": "rufinamide",
+      "label": "Biton2010",
+      "pmid": "20887365",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized, double-blind, placebo-controlled, parallel-group study of rufinamide as adjunctive therapy for refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20887365/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Elger",
+      "generic_name": "rufinamide",
+      "label": "Elger2010",
+      "pmid": "20061123",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A 24-week multicenter, randomized, double-blind, parallel-group, dose-ranging study of rufinamide in adults and adolescents with inadequately controlled partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20061123/",
+      "year": "2010"
+    },
+    {
+      "first_author": "Brodie",
+      "generic_name": "rufinamide",
+      "label": "Brodie2009",
+      "pmid": "19490053",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Rufinamide for the adjunctive treatment of partial seizures in adults and adolescents: a randomized placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19490053/",
+      "year": "2009"
+    },
+    {
+      "first_author": "Glauser",
+      "generic_name": "rufinamide",
+      "label": "Glauser2008",
+      "pmid": "18401024",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Rufinamide for generalized seizures associated with Lennox-Gastaut syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18401024/",
+      "year": "2008"
+    },
+    {
+      "first_author": "Pålhagen",
+      "generic_name": "rufinamide",
+      "label": "Palhagen2001",
+      "pmid": "11164700",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Rufinamide: a double-blind, placebo-controlled proof of principle trial in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11164700/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Arzimanoglou",
+      "generic_name": "rufinamide",
+      "label": "",
+      "pmid": "34509883",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Safety and efficacy of rufinamide in children and adults with Lennox-Gastaut syndrome: A post hoc analysis from Study 022.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34509883/",
+      "year": "2021"
+    },
+    {
+      "first_author": "McMurray",
+      "generic_name": "rufinamide",
+      "label": "",
+      "pmid": "26861566",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Treatment of Adults with Lennox-Gastaut Syndrome: Further Analysis of Efficacy and Safety/Tolerability of Rufinamide.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26861566/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Ohtsuka",
+      "generic_name": "rufinamide",
+      "label": "",
+      "pmid": "26827266",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term safety and seizure outcome in Japanese patients with Lennox-Gastaut syndrome receiving adjunctive rufinamide therapy: An open-label study following a randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26827266/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Kluger",
+      "generic_name": "rufinamide",
+      "label": "",
+      "pmid": "19300535",
+      "pub_types": "Journal Article",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Role of rufinamide in the management of Lennox-Gastaut syndrome (childhood epileptic encephalopathy).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19300535/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Aldenkamp",
+      "generic_name": "rufinamide",
+      "label": "",
+      "pmid": "16886978",
+      "pub_types": "Clinical Trial, Phase III; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "The effect of the new antiepileptic drug rufinamide on cognitive functions.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16886978/",
+      "year": "2006"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T03:53:41.686529Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:41.716131Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:41.729745Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:53:41.730023Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:53:41.732463Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:53:41.732501Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:41.746623Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.746630Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.747011Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.747015Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.747379Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.747383Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.747745Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.747749Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.748114Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.748117Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.749037Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:41.749040Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:41.763849Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:41.783391Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:41.786905Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:41.786980Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:41.790610Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:41.820106Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:53:43.982280Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:53:43.982686Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:53:43.985617Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:53:43.985659Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:43.998766Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:43.998771Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:43.999203Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:43.999208Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:43.999621Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:43.999624Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:44.000024Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:44.000027Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:44.000432Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:44.000435Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:44.001306Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:53:44.001311Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:53:44.031547Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:44.034715Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:53:44.034772Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: rufinamide Banzel FDA label accessdata FDA 2022 boxed warning QT shortening CYP3A4 inducer adverse reactions somnolence vomiting headache dizziness nausea rash
+web search: 
+web search: 
+web search: 
+web search: 
+web search: 
+web search: site:accessdata.fda.gov/drugsatfda_docs/label Banzel rufinamide 2022 label pdf 021911
+web search: 
+web search: site:accessdata.fda.gov/drugsatfda_docs/label/2022 Banzel rufinamide label 021911 022124 pdf
+web search: 
+web search: Drugs@FDA Banzel rufinamide label 2022 021911 022124
+web search: 
+web search: labels.fda.gov Banzel rufinamide boxed_warning
+web search: 
+web search: https://www.fda.gov/media/169593/download
+web search: 
+web search: "BANZEL" "Revised: 12/2022" "fda.gov/media"
+web search: 
+web search: 'somnolence' in https://www.fda.gov/media/169593/download
+web search: 
+web search: https://www.fda.gov/media/169593/download
+web search: 
+web search: rufinamide "QT shortening" "14%"
+web search: 
+web search: 
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/25219353/
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/20887365/
+web search: 
+web search: 19490053 rufinamide PubMed Brodie median percentage responder placebo 28.2 18.6 20.4 -1.6
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/11164700/
+web search: 
+web search: "Rufinamide: a double-blind, placebo-controlled proof of principle trial" "39%" "16%"
+web search: 
+web search: 33825230 rufinamide randomized placebo Lennox Gastaut PubMed
+web search: 
+web search: EMA Inovelon rufinamide Lennox-Gastaut trade name
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5"],"proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","rationale":"The no-boxed-warning conclusion is supportable only with an FDA source. DailyMed is not permissible for this field under the audit rules.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"rufinamide","field":"generic_name","proposed_value":"rufinamide","rationale":"FDA labeling, FDA orphan-drug records, PubMed RCT records, and EMA Inovelon EPAR all identify the active substance/generic as rufinamide.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA records show Banzel/rufinamide marketing approval on 11/14/2008 and FDA labeling identifies U.S. approval in 2008.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.fda.gov/media/169593/download"]},{"current_value":"Available in US","field":"filter_availability","proposed_value":"Available in US","rationale":"Matches FDA-approved U.S. product status.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504"]},{"current_value":"LGS","field":"epilepsy_type","proposed_value":"LGS","rationale":"FDA and EMA labeling support adjunctive treatment of seizures associated with Lennox-Gastaut syndrome. Note that several included efficacy RCTs are partial-onset seizure studies, so the efficacy plot evidence is broader than the labeled LGS indication.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"LGS","field":"filter_epilepsy_type","proposed_value":"LGS","rationale":"Supported by FDA indication and EMA EPAR.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"Current ASM for seizures associated with Lennox-Gastaut syndrome.","field":"status_or_notes","proposed_value":"Current ASM for seizures associated with Lennox-Gastaut syndrome.","rationale":"FDA and EMA sources identify rufinamide as add-on/adjunctive therapy for seizures associated with LGS.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"Banzel; Inovelon","field":"trade_names","proposed_value":"Banzel; Inovelon","rationale":"Banzel is the FDA-listed U.S. brand; EMA identifies Inovelon as rufinamide. These are aliases/trade names for the same drug, not separate generic rows.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No alternate generic name was confirmed from trusted sources; Banzel and Inovelon are trade names and CGP 33101 is a research/code alias rather than an alternate generic name.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"CGP 33101","field":"pubmed_search_aliases","proposed_value":"CGP 33101","rationale":"The alias is plausible, but the row's named sources do not document it and this audit did not confirm it in an allowed trusted source page.","requires_user_approval":false,"status":"missing_source","supporting_sources":[]},{"current_value":"Tablet; oral suspension","field":"formulations_available","proposed_value":"Tablet; oral suspension","rationale":"FDA labeling lists film-coated tablets and oral suspension.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Liquid; Tablet","field":"filter_formulation","proposed_value":"Liquid; Tablet","rationale":"Matches FDA-labeled oral suspension and tablets.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"3200 mg/day adult max","field":"maximum_approved_daily_dose","proposed_value":"3200 mg/day adult max","rationale":"FDA adult dosing titrates to a maximum daily dose of 3200 mg/day in two divided doses.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"400 mg/day adult starting dose; titrate to 3200 mg/day target/max","field":"minimum_effective_dose","proposed_value":"Adults: start 400-800 mg/day in two divided doses and titrate by 400-800 mg every other day to 3200 mg/day maximum; Elger2010 dose-ranging partial-seizure study reported a minimally efficacious dose of 400 mg/day.","rationale":"FDA labeling supports 400-800 mg/day as the adult starting dose and 3200 mg/day as the adult target/max. The 'minimum effective' wording is better supported by the Elger Phase II dose-ranging RCT for partial seizures, not by the labeled LGS adult dose statement alone.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/media/169593/download","https://pubmed.ncbi.nlm.nih.gov/20061123/"]},{"current_value":"LGS: adults 400-3200 mg/day divided BID; pediatric weight-based","field":"typical_doses_per_day","proposed_value":"LGS: adults start 400-800 mg/day divided BID and titrate to 3200 mg/day; pediatric patients start 10 mg/kg/day divided BID and titrate to 45 mg/kg/day, not to exceed 3200 mg/day.","rationale":"Current text is directionally correct but less precise than FDA dosing language.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"6-10 h","field":"half_life_range","proposed_value":"6-10 h","rationale":"FDA clinical pharmacology states plasma half-life is approximately 6-10 hours.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Carboxylesterase hydrolysis; renal excretion of metabolites","field":"major_organ_for_metabolism","proposed_value":"Carboxylesterase-mediated hydrolysis to inactive metabolite CGP 47292; renal excretion mainly as metabolites, with less than 2% unchanged drug in urine.","rationale":"FDA labeling supports carboxylesterase-mediated hydrolysis, no CYP450-dependent metabolism, and minimal unchanged urinary recovery.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Renal/no major metabolism","field":"filter_metabolism","proposed_value":"Carboxylesterase hydrolysis/no major CYP metabolism","rationale":"FDA labeling states most elimination is via metabolism and that the primary pathway is carboxylesterase-mediated hydrolysis; therefore 'Renal/no major metabolism' is too broad and partly contradicted.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Weak CYP3A4 inducer; not a major inhibitor","field":"enzyme_inducing_or_inhibiting","proposed_value":"Weak CYP3A4 inducer; little or no inhibition of most CYP enzymes at clinically relevant concentrations, with weak CYP2E1 inhibition noted in vitro.","rationale":"FDA labeling identifies rufinamide as a weak CYP3A4 inducer and little/no inhibitor of most CYP enzymes, with weak CYP2E1 inhibition in vitro.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inducer","rationale":"The filter conflicts with the row fact and FDA label; the clinically relevant direction is weak CYP3A4 induction, not inhibitor.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Precise mechanism is unknown; in vitro studies suggest sodium-channel modulation, especially prolongation of the inactive state and limitation of repetitive sodium-dependent firing.","field":"mechanism_of_action","proposed_value":"Precise mechanism is unknown; in vitro studies suggest sodium-channel modulation, especially prolongation of the inactive state and limitation of repetitive sodium-dependent firing.","rationale":"FDA label supports this mechanism language.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Sodium channel","field":"filter_mechanism","proposed_value":"Sodium channel","rationale":"FDA label supports sodium-channel modulation as the principal in vitro mechanism.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"The confidence label is consistent with FDA wording that the precise mechanism is unknown but in vitro sodium-channel evidence exists.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Banzel prescribing information","rationale":"The mechanism is supported by FDA labeling; DailyMed should not be named as the source when trusted source policy can be satisfied directly with FDA labeling.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"Correct tier for the mechanism source.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"Shortens QT interval; caution with familial short QT syndrome or other QT-shortening drugs","field":"qt_interval_effect","proposed_value":"Shortens QT interval; contraindicated in familial short QT syndrome and use caution with other QT-shortening drugs.","rationale":"FDA label states QT shortening, contraindication in familial short QT syndrome, and caution with other QT-shortening drugs.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"QT shortening","field":"filter_qt_effect","proposed_value":"QT shortening","rationale":"Supported by FDA label.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download"]},{"current_value":"CNS: somnolence 24%, GI: vomiting 22%, CNS: headache 16%, CNS: dizziness 14%, GI: nausea 12%, dermatologic: rash 5%, cardiac: QT shortening 14%","field":"adverse_symptoms_percentages","proposed_value":"CNS: somnolence 24.3% in LGS RCT; GI: vomiting 21.6% in LGS RCT; CNS: headache 16% pediatric pooled / 27% adult pooled; CNS: dizziness 8% pediatric pooled / 19% adult pooled; GI: nausea 7% pediatric pooled / 12% adult pooled; dermatologic: rash 4% pediatric pooled; cardiac: QT shortening >20 msec at Tmax in 46% at 3200 mg vs 5-10% placebo in QT study.","rationale":"Somnolence 24% and vomiting 22% are supported by Glauser2008/FDA LGS trial data. Headache 16%, nausea 12%, and rash near 4% are supported in FDA pooled tables, but dizziness 14% and QT shortening 14% were not supported; FDA label gives dizziness 8% pediatric or 19% adult and QT shortening >20 msec in 46% at 3200 mg.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/18401024/","https://www.fda.gov/media/169593/download"]},{"current_value":"CNS; Cardiac; Dermatologic; GI","field":"filter_symptom_category","proposed_value":"CNS; Cardiac; Dermatologic; GI","rationale":"The retained adverse-event categories are supported, although specific percentages need correction.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://pubmed.ncbi.nlm.nih.gov/18401024/"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Banzel prescribing information; FDA/openFDA drug label API; FDA Orphan Drug Designations and Approvals; NCBI Bookshelf LiverTox rufinamide monograph; NCBI Bookshelf StatPearls rufinamide; EMA Inovelon EPAR; PubMed RCT records.","rationale":"The named LiverTox anticonvulsants table is not a good support for LGS-specific row facts, Epilepsy Foundation Australia is outside the requested trusted-source domains, and DailyMed should not be used for FDA boxed-warning verification. FDA, NCBI, EMA, and PubMed sources support the retained facts.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/media/169593/download","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.ncbi.nlm.nih.gov/books/NBK548457/","https://www.ncbi.nlm.nih.gov/books/NBK557595/","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"2008","field":"year_fda_cleared","proposed_value":"2008","rationale":"FDA labeling states Initial U.S. Approval: 2008, and FDA orphan records list marketing approval on 11/14/2008.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/169593/download","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504"]}],"generic_name":"rufinamide","missing_rcts":[],"outcome_checks":[{"current_value":"9.6-23 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Biton2010 rufinamide 3200 mg/day 18.2%; Brodie2009 rufinamide 3200 mg/day 9.6%; Palhagen2001 rufinamide up to 1600 mg/day 23%)","field":"diff_50_responder_maximum_effective_dose","proposed_value":"9.6-23 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Biton2010 rufinamide 3200 mg/day 18.2%; Brodie2009 rufinamide 3200 mg/day 9.6%; Palhagen2001 rufinamide up to 1600 mg/day 23%)","rationale":"Listed differentials match PubMed abstracts: Biton 32.5% vs 14.3% = 18.2%; Brodie 28.2% vs 18.6% = 9.6%; Palhagen 39% vs 16% = 23%.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]},{"current_value":"13.45-93 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ohtsuka2014 rufinamide adjunctive LGS target/max regimen 20.9%; Biton2010 rufinamide 3200 mg/day 13.45%; Brodie2009 rufinamide 3200 mg/day 22%; Glauser2008 rufinamide adjunctive LGS target/max regimen 21%; Palhagen2001 rufinamide up to 1600 mg/day 93%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"13.45-93 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ohtsuka2014 rufinamide adjunctive LGS target/max regimen 20.9%; Biton2010 rufinamide 3200 mg/day 13.45%; Brodie2009 rufinamide 3200 mg/day 22%; Glauser2008 rufinamide adjunctive LGS target/max regimen 21%; Palhagen2001 rufinamide up to 1600 mg/day 93%)","rationale":"All listed median-percent-change differentials match the cited abstracts when seizure-frequency increases are treated as negative reductions: Ohtsuka 24.2-3.3=20.9; Biton 23.25-9.80=13.45; Brodie 20.4-(-1.6)=22.0; Glauser 32.7-11.7=21.0; Palhagen 41-(-52)=93.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/25219353/","https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/18401024/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]},{"current_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"The cited primary PubMed abstracts do not provide a drug-minus-placebo seizure-freedom patient-rate differential suitable for this row.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/25219353/","https://pubmed.ncbi.nlm.nih.gov/20061123/","https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/18401024/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]},{"current_value":"Biton2010|18.2|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|9.6|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Palhagen2001|23|https://pubmed.ncbi.nlm.nih.gov/11164700/|50","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"Biton2010|18.2|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|9.6|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Palhagen2001|23|https://pubmed.ncbi.nlm.nih.gov/11164700/|50","rationale":"Plot entries match cited PubMed abstracts and randomized sample sizes.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]},{"current_value":"Ohtsuka2014|20.9|https://pubmed.ncbi.nlm.nih.gov/25219353/|59; Biton2010|13.45|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|22|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Glauser2008|21|https://pubmed.ncbi.nlm.nih.gov/18401024/|138; Palhagen2001|93|https://pubmed.ncbi.nlm.nih.gov/11164700/|50","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Ohtsuka2014|20.9|https://pubmed.ncbi.nlm.nih.gov/25219353/|59; Biton2010|13.45|https://pubmed.ncbi.nlm.nih.gov/20887365/|357; Brodie2009|22|https://pubmed.ncbi.nlm.nih.gov/19490053/|313; Glauser2008|21|https://pubmed.ncbi.nlm.nih.gov/18401024/|138; Palhagen2001|93|https://pubmed.ncbi.nlm.nih.gov/11164700/|50","rationale":"Plot entries match cited PubMed abstracts and randomized sample sizes.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/25219353/","https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/18401024/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]},{"current_value":"","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"","rationale":"No extractable seizure-freedom differential was verified from the cited primary PubMed abstracts.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/25219353/","https://pubmed.ncbi.nlm.nih.gov/20061123/","https://pubmed.ncbi.nlm.nih.gov/20887365/","https://pubmed.ncbi.nlm.nih.gov/19490053/","https://pubmed.ncbi.nlm.nih.gov/18401024/","https://pubmed.ncbi.nlm.nih.gov/11164700/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","reason":"DailyMed is not permitted for boxed-warning verification; openFDA/FDA source should be named.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; published=Nov 18, 2024; title=BANZEL (RUFINAMIDE) TABLET, FILM COATED BANZEL (RUFINAMIDE) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; effective_time=20221215; title=Banzel / RUFINAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5","reason":"Replace non-permitted DailyMed boxed-warning source with FDA/openFDA metadata.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5"]},{"current_value":"CNS: somnolence 24%, GI: vomiting 22%, CNS: headache 16%, CNS: dizziness 14%, GI: nausea 12%, dermatologic: rash 5%, cardiac: QT shortening 14%","field":"adverse_symptoms_percentages","proposed_value":"CNS: somnolence 24.3% in LGS RCT; GI: vomiting 21.6% in LGS RCT; CNS: headache 16% pediatric pooled / 27% adult pooled; CNS: dizziness 8% pediatric pooled / 19% adult pooled; GI: nausea 7% pediatric pooled / 12% adult pooled; dermatologic: rash 4% pediatric pooled; cardiac: QT shortening >20 msec at Tmax in 46% at 3200 mg vs 5-10% placebo in QT study.","reason":"Correct unsupported dizziness, rash, and QT-shortening percentages while preserving supported somnolence/vomiting values.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/18401024/","https://www.fda.gov/media/169593/download"]},{"current_value":"Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inducer","reason":"FDA label supports weak CYP3A4 induction, not a clinically meaningful inhibitor classification.","requires_user_approval":true,"source_urls":["https://www.fda.gov/media/169593/download"]},{"current_value":"Renal/no major metabolism","field":"filter_metabolism","proposed_value":"Carboxylesterase hydrolysis/no major CYP metabolism","reason":"FDA label states most elimination is via carboxylesterase-mediated metabolism; unchanged renal excretion is less than 2%.","requires_user_approval":true,"source_urls":["https://www.fda.gov/media/169593/download"]},{"current_value":"400 mg/day adult starting dose; titrate to 3200 mg/day target/max","field":"minimum_effective_dose","proposed_value":"Adults: start 400-800 mg/day in two divided doses and titrate by 400-800 mg every other day to 3200 mg/day maximum; Elger2010 dose-ranging partial-seizure study reported a minimally efficacious dose of 400 mg/day.","reason":"Clarifies that 400 mg/day is FDA starting-dose language for adults and the minimum-efficacious-dose claim comes from a partial-seizure dose-ranging RCT.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/169593/download","https://pubmed.ncbi.nlm.nih.gov/20061123/"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Banzel prescribing information","reason":"Use the FDA label directly as the trusted source.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/169593/download"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Banzel prescribing information; FDA/openFDA drug label API; FDA Orphan Drug Designations and Approvals; NCBI Bookshelf LiverTox rufinamide monograph; NCBI Bookshelf StatPearls rufinamide; EMA Inovelon EPAR; PubMed RCT records.","reason":"Replace unsupported/non-trusted source labels with sources that actually support row facts.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/169593/download","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.ncbi.nlm.nih.gov/books/NBK548457/","https://www.ncbi.nlm.nih.gov/books/NBK557595/","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]}],"rct_link_checks":[{"label":"Ohtsuka2014","pmid":"25219353","proposed_action":"retain","rationale":"PubMed identifies rufinamide adjunctive therapy for LGS in a randomized, double-blind, placebo-controlled trial; abstract reports 59 randomized patients and placebo comparator.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/25219353/"},{"label":"Elger2010","pmid":"20061123","proposed_action":"retain","rationale":"PubMed identifies a 24-week multicenter Phase II randomized, double-blind, parallel-group, five-arm study including placebo and rufinamide 200-1600 mg/day.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/20061123/"},{"label":"Biton2010","pmid":"20887365","proposed_action":"retain","rationale":"PubMed identifies adjunctive rufinamide 3200 mg/day for refractory partial-onset seizures in a randomized, double-blind, placebo-controlled, parallel-group multicenter trial with 357 randomized patients.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/20887365/"},{"label":"Brodie2009","pmid":"19490053","proposed_action":"retain","rationale":"PubMed identifies adjunctive rufinamide 1600 mg BID/3200 mg/day in a double-blind, placebo-controlled, randomized, parallel-group multicenter trial with 313 randomized subjects.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/19490053/"},{"label":"Glauser2008","pmid":"18401024","proposed_action":"retain; do not append the deterministic warning that the title lacks randomized/placebo language","rationale":"Although the title does not contain the design words, the PubMed abstract explicitly states a double-blind, randomized, placebo-controlled rufinamide trial in LGS and reports 138 treated patients. The update-check concern is a false positive.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/18401024/"},{"label":"Palhagen2001","pmid":"11164700","proposed_action":"retain","rationale":"PubMed identifies a 28-day double-blind, placebo-controlled proof-of-principle trial of adjunctive rufinamide 400-1600 mg/day in 50 patients with epilepsy, with randomized rufinamide and placebo groups.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/11164700/"}],"source_updates":[{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Banzel prescribing information; FDA/openFDA drug label API; FDA Orphan Drug Designations and Approvals; NCBI Bookshelf LiverTox rufinamide monograph; NCBI Bookshelf StatPearls rufinamide; EMA Inovelon EPAR; PubMed RCT records.","reason":"Current source list includes non-trusted or non-specific sources and does not reliably support each row fact.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/169593/download","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=193504","https://www.ncbi.nlm.nih.gov/books/NBK548457/","https://www.ncbi.nlm.nih.gov/books/NBK557595/","https://www.ema.europa.eu/en/medicines/human/EPAR/inovelon"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; published=Nov 18, 2024; title=BANZEL (RUFINAMIDE) TABLET, FILM COATED BANZEL (RUFINAMIDE) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0a3fa925-1abd-458a-bd57-4ae780a1ef2d","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0a3fa925-1abd-458a-bd57-4ae780a1ef2d; effective_time=20221215; title=Banzel / RUFINAMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5","reason":"Black-box warning verification must use FDA/openFDA, FDA labels, or Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220a3fa925-1abd-458a-bd57-4ae780a1ef2d%22&limit=5"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA Banzel prescribing information","reason":"The mechanism text is supported by FDA label lines describing sodium-channel modulation; DailyMed does not need to be cited.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/169593/download"]}],"summary":"Rufinamide/Banzel/Inovelon is the same drug, and the core indication, formulation, dose ceiling, half-life, mechanism, QT-shortening warning, U.S. approval year, and six listed PubMed RCT links are supported. The row needs updates for source policy and several cell facts: boxed-warning source must be FDA/openFDA instead of DailyMed, adverse-event percentages include unsupported/incorrect dizziness, rash, and QT values, filter_enzyme_effect should be Inducer, filter_metabolism should reflect carboxylesterase hydrolysis/no major CYP metabolism, and evidence_sources should be replaced with trusted sources that actually support the retained facts."}
+tokens used
+152,191

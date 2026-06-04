@@ -1,0 +1,573 @@
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 27%, CNS: asthenia 23%, CNS: somnolence 21%, GI: nausea 11%, neurologic: tremor 9%, psychiatric: nervousness 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "8-25 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Kalviainen1998 tiagabine 30 mg/day 8%; Uthman1998 tiagabine 56 mg/day 25%; Sachdeo1997 tiagabine 32 mg/day BID 21%)",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer/inhibitor; CYP3A substrate",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=72b7f357-8827-4a8b-b55a-01fbce47ae80; published=Aug 08, 2016; title=GABITRIL (TIAGABINE HYDROCHLORIDE) TABLET, FILM COATED [CARILION MATERIALS MANAGEMENT]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72b7f357-8827-4a8b-b55a-01fbce47ae80",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "GABA; GABA metabolism / reuptake",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Neurologic; Psychiatric",
+    "formulations_available": "Tablet",
+    "generic_name": "tiagabine",
+    "half_life_range": "5-8 h; 2-3 h with enzyme inducers",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "56 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise antiseizure mechanism is unknown, but tiagabine blocks GABA uptake by the GAT-1 GABA transporter, increasing synaptic GABA availability.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "16 mg/day common lower maintenance; titrate to 32-56 mg/day depending on enzyme-inducing ASMs",
+    "plot_diff_50_responder_maximum_effective_dose": "Uthman1998|25|https://pubmed.ncbi.nlm.nih.gov/9443711/|297; Kalviainen1998|8|https://pubmed.ncbi.nlm.nih.gov/9551842/|154; Sachdeo1997|21|https://pubmed.ncbi.nlm.nih.gov/9152116/|318",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Uthman1998|https://pubmed.ncbi.nlm.nih.gov/9443711/; Kalviainen1998|https://pubmed.ncbi.nlm.nih.gov/9551842/; Sachdeo1997|https://pubmed.ncbi.nlm.nih.gov/9152116/; Richens1995|https://pubmed.ncbi.nlm.nih.gov/7641674/; Sveinbjornsdottir1994|https://pubmed.ncbi.nlm.nih.gov/8044451/",
+    "pubmed_search_aliases": "NO-328",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 58/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 12 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current/limited-use ASM for focal/partial seizures.",
+    "trade_names": "Gabitril",
+    "typical_doses_per_day": "Adjunctive focal seizures: 32-56 mg/day divided depending on enzyme-inducing ASMs",
+    "year_fda_cleared": "1997"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Uthman1998|https://pubmed.ncbi.nlm.nih.gov/9443711/",
+      "label": "Uthman1998",
+      "pmid": "9443711",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9443711/"
+    },
+    {
+      "entry": "Kalviainen1998|https://pubmed.ncbi.nlm.nih.gov/9551842/",
+      "label": "Kalviainen1998",
+      "pmid": "9551842",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9551842/"
+    },
+    {
+      "entry": "Sachdeo1997|https://pubmed.ncbi.nlm.nih.gov/9152116/",
+      "label": "Sachdeo1997",
+      "pmid": "9152116",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9152116/"
+    },
+    {
+      "entry": "Richens1995|https://pubmed.ncbi.nlm.nih.gov/7641674/",
+      "label": "Richens1995",
+      "pmid": "7641674",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7641674/"
+    },
+    {
+      "entry": "Sveinbjornsdottir1994|https://pubmed.ncbi.nlm.nih.gov/8044451/",
+      "label": "Sveinbjornsdottir1994",
+      "pmid": "8044451",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8044451/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 27%, CNS: asthenia 23%, CNS: somnolence 21%, GI: nausea 11%, neurologic: tremor 9%, psychiatric: nervousness 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "8-25 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Kalviainen1998 tiagabine 30 mg/day 8%; Uthman1998 tiagabine 56 mg/day 25%; Sachdeo1997 tiagabine 32 mg/day BID 21%)",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer/inhibitor; CYP3A substrate",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=72b7f357-8827-4a8b-b55a-01fbce47ae80; published=Aug 08, 2016; title=GABITRIL (TIAGABINE HYDROCHLORIDE) TABLET, FILM COATED [CARILION MATERIALS MANAGEMENT]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72b7f357-8827-4a8b-b55a-01fbce47ae80",
+    "formulations_available": "Tablet",
+    "half_life_range": "5-8 h; 2-3 h with enzyme inducers",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "56 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Precise antiseizure mechanism is unknown, but tiagabine blocks GABA uptake by the GAT-1 GABA transporter, increasing synaptic GABA availability.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "16 mg/day common lower maintenance; titrate to 32-56 mg/day depending on enzyme-inducing ASMs",
+    "plot_diff_50_responder_maximum_effective_dose": "Uthman1998|25|https://pubmed.ncbi.nlm.nih.gov/9443711/|297; Kalviainen1998|8|https://pubmed.ncbi.nlm.nih.gov/9551842/|154; Sachdeo1997|21|https://pubmed.ncbi.nlm.nih.gov/9152116/|318",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Uthman1998|https://pubmed.ncbi.nlm.nih.gov/9443711/; Kalviainen1998|https://pubmed.ncbi.nlm.nih.gov/9551842/; Sachdeo1997|https://pubmed.ncbi.nlm.nih.gov/9152116/; Richens1995|https://pubmed.ncbi.nlm.nih.gov/7641674/; Sveinbjornsdottir1994|https://pubmed.ncbi.nlm.nih.gov/8044451/",
+    "pubmed_search_aliases": "NO-328",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Gabitril",
+    "typical_doses_per_day": "Adjunctive focal seizures: 32-56 mg/day divided depending on enzyme-inducing ASMs",
+    "year_fda_cleared": "1997"
+  },
+  "generic_name": "tiagabine",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Uthman1998|https://pubmed.ncbi.nlm.nih.gov/9443711/; Kalviainen1998|https://pubmed.ncbi.nlm.nih.gov/9551842/; Sachdeo1997|https://pubmed.ncbi.nlm.nih.gov/9152116/; Richens1995|https://pubmed.ncbi.nlm.nih.gov/7641674/; Sveinbjornsdottir1994|https://pubmed.ncbi.nlm.nih.gov/8044451/",
+      "details": {
+        "article": {
+          "abstract": "Tiagabine blocks the uptake by neurons or glia of synaptically released GABA resulting in prolonged GABAergic activity and decreased likelihood of epileptic seizures. We evaluated the cognitive and quality of life effects of tiagabine in a double-blind, add-on, placebo-controlled, parallel, multicenter, dose-response efficacy study in patients with focal epilepsy whose complex partial seizures were difficult to control. One hundred sixty-two patients provided cognitive and quality of life data for the analyses and received the following treatments: placebo (n = 57), 16 mg/d tiagabine (n = 34), 32 mg/d tiagabine (n = 45), or 56 mg/d tiagabine (n = 26) at a fixed-dose for 12 weeks after a 4-week dose titration period. Eight cognitive tests and three measures of mood and adjustment were administered during the baseline period and again during the double-blind period near the end of treatment (or at the time of dropout). The patient groups were similar at entry into the study. Results showed no clinically important changes with the addition of tiagabine on the test battery. Although this is an encouraging finding, it remains for future investigations to determine the cognitive and behavioral effects of tiagabine either as monotherapy or in relation to other antiepileptic drugs.",
+          "first_author": "Dodrill",
+          "pmid": "9109894",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Cognitive and quality of life effects of differing dosages of tiagabine in epilepsy.",
+          "year": "1997"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9109894/",
+      "generic_name": "tiagabine",
+      "id": "new_pubmed_phase_ii_iii_rct-314ebce77085",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Dodrill1997|https://pubmed.ncbi.nlm.nih.gov/9109894/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 9109894 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Dodrill1997|https://pubmed.ncbi.nlm.nih.gov/9109894/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Cognitive and quality of life effects of differing dosages of tiagabine in epilepsy."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Sachdeo1997|https://pubmed.ncbi.nlm.nih.gov/9152116/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate the efficacy and safety of 2 regimens of tiagabine as add-on therapy for patients with complex partial seizures (CPSs) that are refractory to other treatment. Randomized, double-blind, placebo-controlled, add-on, parallel-group trial with an 8-week baseline period, 12-week experimental period (4 weeks of dose titration and 8 weeks of fixed-dose therapy), and 4-week termination period. Twenty-six centers throughout the United States. Three hundred fifty-one patients were enrolled, 318 were entered in the double-blind period, and 271 completed the study. Tiagabine, 16 mg 2 times per day (106 patients); tiagabine, 8 mg 4 times daily (105 patients); and placebo (107 patients). The doses of tiagabine were titrated in 3 steps to the fixed dose. The median change in the 4-week rate of CPSs from baseline to experimental period. The median change from baseline was -1.6 CPSs per 4 weeks in the group of patients who were given tiagabine 2 times per day, and it was -1.2 CPSs in the group of patients who were given tiagabine 4 time per day (P = .06 and P = .02, respectively, compared with placebo). The 4-week seizure frequency was reduced by 50% or more in 31% of the patients who were given tiagabine 2 times per day and in 27% of the patients who were given tiagabine 4 times per day vs 10% of the placebo-treated patients (P < or = .001 for each tiagabine-treated group compared with the placebo group). The most frequent adverse events involved the central nervous system and occurred in comparable proportions in the 3 treatment groups. Similar proportions of patients discontinued the study prematurely for adverse events. Tiagabine administered 2 and 4 times daily as add-on pharmacotherapy was effective in reducing CPSs in patients with epilepsy whose conditions were refractory to treatment with other antiepileptic agents, and it was well tolerated.",
+          "first_author": "Sachdeo",
+          "pmid": "9152116",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Tiagabine therapy for complex partial seizures. A dose-frequency study. The Tiagabine Study Group.",
+          "year": "1997"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/9152116/",
+      "generic_name": "tiagabine",
+      "id": "rct_pubmed_concordance_problem-81db4d92fa56",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 9152116 needs manual review for tiagabine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 9152116 needs manual review for tiagabine; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1997",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1997"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+      "generic_name": "tiagabine",
+      "id": "source_fact_concordance_problem-2d0f9e238a79",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+      "generic_name": "tiagabine",
+      "id": "source_fact_concordance_problem-1fe840e83362",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "enzyme_inducing_or_inhibiting",
+      "current_value": "Not a major inducer/inhibitor; CYP3A substrate",
+      "details": {
+        "checked": true,
+        "matched_terms": [
+          "inducer"
+        ],
+        "missing_numbers": [],
+        "missing_terms": [
+          "inhibitor",
+          "cyp3a",
+          "substrate"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "inducer",
+          "inhibitor",
+          "cyp3a",
+          "substrate"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+      "generic_name": "tiagabine",
+      "id": "source_fact_concordance_problem-aa03803572f0",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "enzyme_inducing_or_inhibiting could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=72b7f357-8827-4a8b-b55a-01fbce47ae80; published=Aug 08, 2016; title=GABITRIL (TIAGABINE HYDROCHLORIDE) TABLET, FILM COATED [CARILION MATERIALS MANAGEMENT]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72b7f357-8827-4a8b-b55a-01fbce47ae80",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+      "generic_name": "tiagabine",
+      "id": "fda_warning_metadata_refresh-3a3fc9d51d4d",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=953ef3cc-e3cb-480f-b9ea-256520fd62b8; effective_time=20210930; title=Tiagabine Hydrochloride / TIAGABINE HYDROCHLORIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=953ef3cc-e3cb-480f-b9ea-256520fd62b8; effective_time=20210930; title=Tiagabine Hydrochloride / TIAGABINE HYDROCHLORIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22tiagabine%22+OR+openfda.brand_name%3A%22tiagabine%22+OR+openfda.substance_name%3A%22tiagabine%22&limit=10",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports all-partial-seizure responder rates for tiagabine and placebo; median seizure-rate values were not numerically extractable.",
+      "dose_or_regimen": "tiagabine 30 mg/day",
+      "endpoint": "partial seizures",
+      "generic_name": "tiagabine",
+      "label": "Kalviainen1998",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9551842",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9551842/",
+      "rr50_active_percent": "14.0",
+      "rr50_differential_percent": "8.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "6.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A double-blind, placebo-controlled trial of tiagabine given three-times daily as add-on therapy for refractory partial seizures. Northern European Tiagabine Study Group."
+    },
+    {
+      "audit_note": "Abstract reports 56 mg/day responder rate. Median change was reported as absolute 4-week seizure-frequency change, not percent.",
+      "dose_or_regimen": "tiagabine 56 mg/day",
+      "endpoint": "complex partial seizures",
+      "generic_name": "tiagabine",
+      "label": "Uthman1998",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9443711",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9443711/",
+      "rr50_active_percent": "29.0",
+      "rr50_differential_percent": "25.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "4.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Tiagabine for complex partial seizures: a randomized, add-on, dose-response trial."
+    },
+    {
+      "audit_note": "Abstract reports responder rates for the BID maximum-effective regimen; seizure-frequency change was reported as an absolute 4-week rate, not percent.",
+      "dose_or_regimen": "tiagabine 32 mg/day BID",
+      "endpoint": "complex partial seizures",
+      "generic_name": "tiagabine",
+      "label": "Sachdeo1997",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "9152116",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/9152116/",
+      "rr50_active_percent": "31.0",
+      "rr50_differential_percent": "21.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "10.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Tiagabine therapy for complex partial seizures. A dose-frequency study. The Tiagabine Study Group."
+    },
+    {
+      "audit_note": "Enrichment/withdrawal crossover trial reports tiagabine-treated responder percentages but not matching placebo percentages in the abstract.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "tiagabine",
+      "label": "Richens1995",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "7641674",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/7641674/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive treatment of partial seizures with tiagabine: a placebo-controlled trial."
+    },
+    {
+      "audit_note": "Neuropsychological crossover study reports no significant seizure-frequency difference and no extractable active/placebo percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "tiagabine",
+      "label": "Sveinbjornsdottir1994",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "8044451",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/8044451/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Neuropsychological effects of tiagabine, a potential new antiepileptic drug."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "K\u00e4lvi\u00e4inen",
+      "generic_name": "tiagabine",
+      "label": "Kalviainen1998",
+      "pmid": "9551842",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A double-blind, placebo-controlled trial of tiagabine given three-times daily as add-on therapy for refractory partial seizures. Northern European Tiagabine Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9551842/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Uthman",
+      "generic_name": "tiagabine",
+      "label": "Uthman1998",
+      "pmid": "9443711",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Tiagabine for complex partial seizures: a randomized, add-on, dose-response trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9443711/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Sachdeo",
+      "generic_name": "tiagabine",
+      "label": "Sachdeo1997",
+      "pmid": "9152116",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Tiagabine therapy for complex partial seizures. A dose-frequency study. The Tiagabine Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9152116/",
+      "year": "1997"
+    },
+    {
+      "first_author": "Richens",
+      "generic_name": "tiagabine",
+      "label": "Richens1995",
+      "pmid": "7641674",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive treatment of partial seizures with tiagabine: a placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7641674/",
+      "year": "1995"
+    },
+    {
+      "first_author": "Sveinbjornsdottir",
+      "generic_name": "tiagabine",
+      "label": "Sveinbjornsdottir1994",
+      "pmid": "8044451",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Neuropsychological effects of tiagabine, a potential new antiepileptic drug.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8044451/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Gazzola",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "17521343",
+      "pub_types": "Comparative Study; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Seizure-free outcome in randomized add-on trials of the new antiepileptic drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17521343/",
+      "year": "2007"
+    },
+    {
+      "first_author": "Crawford",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "11440349",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Tiagabine: efficacy and safety in adjunctive treatment of partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11440349/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Dodrill",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "9109894",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cognitive and quality of life effects of differing dosages of tiagabine in epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9109894/",
+      "year": "1997"
+    },
+    {
+      "first_author": "K\u00e4lvi\u00e4inen",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "8956929",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term cognitive and EEG effects of tiagabine in drug-resistant partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8956929/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Schachter",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "8595789",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Tiagabine monotherapy in the treatment of partial epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8595789/",
+      "year": "1995"
+    },
+    {
+      "first_author": "Ben-Menachem",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "8595788",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "International experience with tiagabine add-on therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8595788/",
+      "year": "1995"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "tiagabine",
+      "label": "",
+      "pmid": "8595787",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Tiagabine: the safety landscape.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8595787/",
+      "year": "1995"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

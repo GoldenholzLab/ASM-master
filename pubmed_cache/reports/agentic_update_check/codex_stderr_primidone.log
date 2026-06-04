@@ -1,0 +1,505 @@
+2026-05-21T03:31:18.091093Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:31:18.091672Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:31:18.096035Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:31:18.096094Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:18.113542Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:18.143241Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e4896-6bc0-7540-ad57-a3c7b4db4b89
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.",
+    "epilepsy_type": "Focal; Generalized tonic-clonic",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=af593171-dabb-4ea3-b44c-89ed457b2c46; published=Aug 12, 2020; title=MYSOLINE (PRIMIDONE) TABLET [BAUSCH HEALTH US, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af593171-dabb-4ea3-b44c-89ed457b2c46",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Focal; Generalized tonic-clonic",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Hematologic; Neurologic; Psychiatric",
+    "formulations_available": "Oral tablet",
+    "generic_name": "primidone",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label identifies phenobarbital and PEMA metabolites.",
+    "maximum_approved_daily_dose": "2000 mg/day; FDA label states daily doses should not exceed 500 mg four times daily.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "FDA labeling states the mechanism of primidone antiepileptic action is not known; primidone and its metabolites phenobarbital and phenylethylmalonamide have anticonvulsant activity.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "750 mg/day labeled day-10 maintenance target for patients 8 years and older; clinical effective serum level 5-12 mcg/mL.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Mysoline",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 ASM; FDA-labeled for grand mal, psychomotor, and focal epileptic seizures.",
+    "trade_names": "Mysoline; Primidone",
+    "typical_doses_per_day": "Patients 8 years and older: titrate over 10 days to 250 mg three times daily; usual maintenance 750-1000 mg/day divided; FDA label allows increase if required.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.",
+    "epilepsy_type": "Focal; Generalized tonic-clonic",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=af593171-dabb-4ea3-b44c-89ed457b2c46; published=Aug 12, 2020; title=MYSOLINE (PRIMIDONE) TABLET [BAUSCH HEALTH US, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af593171-dabb-4ea3-b44c-89ed457b2c46",
+    "formulations_available": "Oral tablet",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label identifies phenobarbital and PEMA metabolites.",
+    "maximum_approved_daily_dose": "2000 mg/day; FDA label states daily doses should not exceed 500 mg four times daily.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "FDA labeling states the mechanism of primidone antiepileptic action is not known; primidone and its metabolites phenobarbital and phenylethylmalonamide have anticonvulsant activity.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "750 mg/day labeled day-10 maintenance target for patients 8 years and older; clinical effective serum level 5-12 mcg/mL.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Mysoline",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "trade_names": "Mysoline; Primidone",
+    "typical_doses_per_day": "Patients 8 years and older: titrate over 10 days to 250 mg three times daily; usual maintenance 750-1000 mg/day divided; FDA label allows increase if required.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "primidone",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "typical_doses_per_day",
+      "current_value": "Patients 8 years and older: titrate over 10 days to 250 mg three times daily; usual maintenance 750-1000 mg/day divided; FDA label allows increase if required.",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "750"
+        ],
+        "missing_terms": [
+          "titrate",
+          "allows"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "source_fact_concordance_problem-ea01525ecaed",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "typical_doses_per_day could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "minimum_effective_dose",
+      "current_value": "750 mg/day labeled day-10 maintenance target for patients 8 years and older; clinical effective serum level 5-12 mcg/mL.",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "750"
+        ],
+        "missing_terms": [
+          "target"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "source_fact_concordance_problem-6ed5ec099dd1",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "minimum_effective_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "maximum_approved_daily_dose",
+      "current_value": "2000 mg/day; FDA label states daily doses should not exceed 500 mg four times daily.",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2000"
+        ],
+        "missing_terms": [
+          "states"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "source_fact_concordance_problem-d8b483c4a197",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "maximum_approved_daily_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "Approved Prior to Jan 1, 1982 (FDA Orange Book)",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1982"
+        ],
+        "missing_terms": [
+          "orange"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "source_fact_concordance_problem-c56b1526a9d2",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "qt_interval_effect",
+      "current_value": "No QT interval effect described in selected FDA label.",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "interval"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "interval"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "source_fact_concordance_problem-d651cfd5cb9a",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "qt_interval_effect could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=af593171-dabb-4ea3-b44c-89ed457b2c46; published=Aug 12, 2020; title=MYSOLINE (PRIMIDONE) TABLET [BAUSCH HEALTH US, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af593171-dabb-4ea3-b44c-89ed457b2c46",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "generic_name": "primidone",
+      "id": "fda_warning_metadata_refresh-859b6fa37d32",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=af593171-dabb-4ea3-b44c-89ed457b2c46; effective_time=20200706; title=Mysoline / PRIMIDONE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=af593171-dabb-4ea3-b44c-89ed457b2c46; effective_time=20200706; title=Mysoline / PRIMIDONE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22af593171-dabb-4ea3-b44c-89ed457b2c46%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Gidal",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "15823510",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase III; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of levetiracetam on the pharmacokinetics of adjunctive antiepileptic drugs: a pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15823510/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Jawad",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "2498073",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Controlled trial of lamotrigine (Lamictal) for refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2498073/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "6382068",
+      "pub_types": "Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Progabide as an add-on drug for epilepsy refractory to high dose antiepileptic drug therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6382068/",
+      "year": "1984"
+    },
+    {
+      "first_author": "Ahmad",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "22216504",
+      "pub_types": "Controlled Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Controlled trial of frusemide as an antiepileptic drug in focal epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22216504/",
+      "year": "1976"
+    },
+    {
+      "first_author": "Kutt",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "811074",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Carbamazepine in difficult to control epileptic out-patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/811074/",
+      "year": "1975"
+    },
+    {
+      "first_author": "Christiansen",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "4207965",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "\"Anticonvulsant action\" of vitamin D in epileptic patients? A controlled pilot study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4207965/",
+      "year": "1974"
+    },
+    {
+      "first_author": "Christiansen",
+      "generic_name": "primidone",
+      "label": "",
+      "pmid": "4776883",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Incidence of anticonvulsant osteomalacia and effect of vitamin D: controlled therapeutic trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4776883/",
+      "year": "1973"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T03:31:18.209687Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:18.236092Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:18.254853Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:31:18.255248Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:31:18.258616Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:31:18.258668Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:18.274297Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.274305Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.274687Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.274690Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.275066Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.275070Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.275439Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.275441Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.275808Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.275810Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.276662Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:18.276664Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:18.291341Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:18.310586Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:18.313925Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:18.313990Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:18.320422Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:18.349950Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T03:31:21.600145Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T03:31:21.600533Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T03:31:21.603524Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T03:31:21.603566Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:21.616419Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.616423Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.616862Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.616868Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.617275Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.617282Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.617707Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.617710Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.618101Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.618107Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.618942Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T03:31:21.618945Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T03:31:21.648992Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:21.652181Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T03:31:21.652238Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: openFDA primidone Mysoline af593171 dabb 4ea3 b44c 89ed457b2c46 boxed warning
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob/index.cfm primidone Mysoline tablet oral 50MG 250MG Approved Prior to Jan 1 1982
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug drugsfda primidone Mysoline application number 009170
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: https://www.fda.gov/media/76860/download?attachment=
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/default.cfm
+web search: 
+web search: accessdata fda ob search product primidone URL search_product.cfm primidone
+web search: 
+web search: 
+web search: 
+web search: 
+web search: 
+web search: "https://www.accessdata.fda.gov/scripts/cder/ob/search_product.cfm?drugname=PRIMIDONE"
+web search: 
+web search: 
+web search: 
+web search: "009170" "MYSOLINE" "Drugs@FDA" "Product Details"
+web search: 
+web search: 
+web search: 
+web search: 
+web search: 
+web search: NCBI primidone enzyme inducer cytochrome P450 antiseizure medication
+web search: 
+web search: https://www.ncbi.nlm.nih.gov/books/NBK562297/
+web search: 
+web search: https://www.ncbi.nlm.nih.gov/books/NBK548512/
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov primidone placebo controlled trial epilepsy randomized
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/18672385/
+web search: 
+web search: 'BOXED WARNING' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf
+web search: 
+web search: 'WARNINGS' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf
+web search: 
+web search: api.fda.gov drug ndc Mysoline primidone 2026
+web search: 
+web search: https://www.fda.gov/media/71494/download?attachment=
+web search: 
+web search: 'PRIMIDONE' in https://www.fda.gov/media/71494/download?attachment=
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"],"proposed_value":"No FDA boxed warning identified in FDA-approved Mysoline (primidone) label (NDA 009170/S-040).","rationale":"The FDA/accessdata label contains WARNINGS but no BOXED WARNING section. The conclusion is supported, but DailyMed is not an acceptable source for this field.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"N/A 0%: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, morbilliform skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.","rationale":"The adverse reaction list is supported by the FDA label, but the '0%' wording is not supported and could be misread as an incidence value.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No alternate generic name was identified; phenobarbital and PEMA are metabolites, not alternate generic names for primidone.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK548512/"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA's March 2026 Approved Drug Product List index includes MYSOLINE, PRIMIDONE and PRIMIDONE, PRIMIDONE; the FDA label identifies Mysoline tablets for U.S. prescription use.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/media/71494/download?attachment=","https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"Oral tablet","field":"formulations_available","proposed_value":"Oral tablet","rationale":"FDA labeling describes Mysoline 50 mg and 250 mg tablets.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"Focal; Generalized tonic-clonic","field":"epilepsy_type","proposed_value":"Focal; Generalized tonic-clonic","rationale":"FDA labeling indicates Mysoline for grand mal/generalized tonic-clonic, psychomotor/complex partial, and focal/partial epileptic seizures.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"Mysoline; Primidone","field":"trade_names","proposed_value":"Mysoline; Myidone; Sertan; Apo-Primidone; Primidone (generic product name)","rationale":"Mysoline and Primidone/generic product names are supported by FDA sources. NCBI LiverTox also lists Myidone, Sertan, and Apo-Primidone as brand names, so the current alias list is incomplete.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.fda.gov/media/71494/download?attachment=","https://www.ncbi.nlm.nih.gov/books/NBK548512/"]},{"current_value":"Mysoline","field":"pubmed_search_aliases","proposed_value":"Mysoline; Myidone; Sertan; Apo-Primidone","rationale":"Mysoline is supported; additional brand aliases listed by NCBI should be included to avoid duplicate-name misses in literature searches.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK548512/"]},{"current_value":"FDA labeling states the mechanism of primidone antiepileptic action is not known; primidone and its metabolites phenobarbital and phenylethylmalonamide have anticonvulsant activity.","field":"mechanism_of_action","proposed_value":"FDA labeling states the mechanism of primidone antiepileptic action is not known; primidone and its metabolites phenobarbital and phenylethylmalonamide have anticonvulsant activity.","rationale":"This matches FDA labeling. StatPearls discusses possible sodium-channel and GABA-A effects, but still describes the mechanism as not well-known, so limited confidence is appropriate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Limited","field":"mechanism_confidence","proposed_value":"Limited","rationale":"FDA labeling says the antiepileptic mechanism is not known; limited confidence is appropriate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"10-15 hours for primidone; may increase in patients older than 75 years.","rationale":"The FDA label may omit half-life, but trusted NCBI StatPearls provides a primidone half-life of approximately 10-15 hours.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label identifies phenobarbital and PEMA metabolites.","field":"major_organ_for_metabolism","proposed_value":"Liver; primidone is extensively metabolized by the liver to phenobarbital and PEMA, with substantial unchanged urinary excretion.","rationale":"NCBI LiverTox states primidone is extensively metabolized by the liver; StatPearls identifies phenobarbital and PEMA formation and unchanged urinary excretion.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Enzyme inducer: NCBI LiverTox states primidone can induce CYP450 enzyme activities; StatPearls notes hepatic metabolism and phenobarbital-related induction of UGT/CYP2C/CYP3A pathways.","rationale":"The source-limited FDA-label statement misses a clinically meaningful enzyme-induction fact supported by NCBI sources.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"750 mg/day labeled day-10 maintenance target for patients 8 years and older; clinical effective serum level 5-12 mcg/mL.","field":"minimum_effective_dose","proposed_value":"750 mg/day labeled day-10 maintenance target for patients 8 years and older; clinical effective serum level 5-12 mcg/mL.","rationale":"FDA labeling supports Day 10 to maintenance at 250 mg three times daily and a clinically effective serum level of 5-12 mcg/mL.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"Patients 8 years and older: titrate over 10 days to 250 mg three times daily; usual maintenance 750-1000 mg/day divided; FDA label allows increase if required.","field":"typical_doses_per_day","proposed_value":"Patients 8 years and older: titrate over 10 days to 250 mg three times daily; usual maintenance 750-1000 mg/day divided; FDA label allows increase if required.","rationale":"FDA labeling supports the day-by-day titration and usual maintenance of three to four 250 mg tablets in divided doses, with possible increase if required.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"2000 mg/day; FDA label states daily doses should not exceed 500 mg four times daily.","field":"maximum_approved_daily_dose","proposed_value":"2000 mg/day; FDA label states daily doses should not exceed 500 mg four times daily.","rationale":"FDA labeling states total daily dosage should not exceed 2 g and daily doses should not exceed 500 mg four times daily.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"No QT interval effect described in selected FDA label.","field":"qt_interval_effect","proposed_value":"No QT/QTc effect described in FDA label; NCBI StatPearls notes a favorable QT-prolongation profile but uncertainty about QT-interval shortening.","rationale":"The FDA label does not describe a QT effect. A trusted NCBI source adds nuance but does not contradict the row's FDA-label-limited statement.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book); NCBI StatPearls reports FDA endorsement for epilepsy on March 8, 1954.","rationale":"The Orange Book legacy wording is plausible and FDA's March 2026 index lists the product. NCBI provides a more specific historical FDA endorsement date that can be appended if the row allows precision beyond Orange Book wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/71494/download?attachment=","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Unknown/limited","field":"filter_enzyme_effect","proposed_value":"Enzyme inducer","rationale":"NCBI sources support clinically meaningful enzyme induction, so the filter should not remain unknown/limited.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic; renal excretion of unchanged drug","rationale":"NCBI sources identify liver metabolism and unchanged urinary excretion.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"FDA Orange Book pre-1982 ASM; FDA-labeled for grand mal, psychomotor, and focal epileptic seizures.","field":"status_or_notes","proposed_value":"FDA Orange Book pre-1982 ASM; FDA-labeled for grand mal, psychomotor, and focal epileptic seizures.","rationale":"The label supports the seizure indications; FDA Orange Book sources support current listing and legacy approval wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","https://www.fda.gov/media/71494/download?attachment="]}],"generic_name":"primidone","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled primidone epilepsy RCT was identified or cited. The identified primidone epilepsy RCT PMID 18672385 was open-label and active-comparator, not placebo-controlled.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/18672385/","https://pubmed.ncbi.nlm.nih.gov/?term=primidone+placebo+controlled+randomized+epilepsy"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled primidone epilepsy RCT/outcome source is retained; no differential median percent change should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=primidone+placebo+controlled+randomized+epilepsy"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled primidone epilepsy RCT/outcome source is retained; no differential seizure-freedom value should be populated.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=primidone+placebo+controlled+randomized+epilepsy"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"N/A 0%: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA label lists ataxia, vertigo, nausea, anorexia, vomiting, fatigue, hyperirritability, emotional disturbances, sexual impotency, diplopia, nystagmus, drowsiness, morbilliform skin eruptions, granulocytopenia, agranulocytosis, red-cell hypoplasia/aplasia, and megaloblastic anemia without quantified incidence percentages.","reason":"Remove unsupported '0%' wording while retaining FDA-label adverse reaction facts.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"10-15 hours for primidone; may increase in patients older than 75 years.","reason":"Trusted NCBI source provides a half-life value.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label identifies phenobarbital and PEMA metabolites.","field":"major_organ_for_metabolism","proposed_value":"Liver; primidone is extensively metabolized by the liver to phenobarbital and PEMA, with substantial unchanged urinary excretion.","reason":"Trusted NCBI sources contradict the limited/unknown metabolism wording.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Enzyme inducer: NCBI LiverTox states primidone can induce CYP450 enzyme activities; StatPearls notes hepatic metabolism and phenobarbital-related induction of UGT/CYP2C/CYP3A pathways.","reason":"Trusted NCBI sources support enzyme induction.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Unknown/limited","field":"filter_enzyme_effect","proposed_value":"Enzyme inducer","reason":"Align filter with NCBI-supported induction evidence.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic; renal excretion of unchanged drug","reason":"Align filter with NCBI-supported metabolism and excretion evidence.","requires_user_approval":true,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://www.ncbi.nlm.nih.gov/books/NBK562297/"]},{"current_value":"Mysoline; Primidone","field":"trade_names","proposed_value":"Mysoline; Myidone; Sertan; Apo-Primidone; Primidone (generic product name)","reason":"Add NCBI-listed brand aliases and clarify Primidone as generic product name.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/71494/download?attachment=","https://www.ncbi.nlm.nih.gov/books/NBK548512/"]},{"current_value":"Mysoline","field":"pubmed_search_aliases","proposed_value":"Mysoline; Myidone; Sertan; Apo-Primidone","reason":"Add source-supported aliases for literature search coverage.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK548512/"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in FDA-approved Mysoline (primidone) label (NDA 009170/S-040).","reason":"Fact is confirmed, but wording should cite FDA/accessdata rather than DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"05-20-2026","field":"fda_black_box_warning_verified","proposed_value":"05-21-2026","reason":"Refresh date to the FDA-source verification date for this audit.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]}],"rct_link_checks":[],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=af593171-dabb-4ea3-b44c-89ed457b2c46; published=Aug 12, 2020; title=MYSOLINE (PRIMIDONE) TABLET [BAUSCH HEALTH US, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af593171-dabb-4ea3-b44c-89ed457b2c46","field":"fda_black_box_warning_source","proposed_value":"FDA-approved label (Drugs@FDA/accessdata); status=no_boxed_warning_identified_in_fda_label; NDA=009170/S-040; label=2020/009170Orig1s040lbl.pdf; checked=2026-05-21; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","reason":"DailyMed is not permissible for FDA boxed-warning verification; accessdata FDA label is permissible.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book / March 2026 Approved Drug Product List; FDA-approved Mysoline label (Drugs@FDA/accessdata, NDA 009170/S-040); NCBI Bookshelf StatPearls Primidone; NCBI LiverTox Primidone; PubMed search/audit for primidone epilepsy RCTs","reason":"DailyMed is outside the provided trusted-source list, and NCBI/PubMed sources are needed for half-life, metabolism, enzyme effects, aliases, and RCT absence checks.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://www.fda.gov/media/71494/download?attachment=","https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK562297/","https://www.ncbi.nlm.nih.gov/books/NBK548512/","https://pubmed.ncbi.nlm.nih.gov/?term=primidone+placebo+controlled+randomized+epilepsy"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA-approved Mysoline label (Drugs@FDA/accessdata, NDA 009170/S-040)","reason":"Mechanism text is supported by FDA labeling, but the named source should point to an FDA/accessdata label rather than DailyMed.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/009170Orig1s040lbl.pdf"]}],"summary":"Core FDA-label facts for primidone/Mysoline are largely verified, including indications, tablet formulation, dosing, maximum dose, adverse reaction list, and no FDA boxed warning. Updates are needed because the black-box source currently relies on DailyMed, the row misses trusted NCBI-supported half-life/metabolism/enzyme-induction facts, and alias fields are incomplete. No qualifying phase II/III placebo-controlled primidone epilepsy RCT was identified or cited, so the RCT/outcome N/A fields are appropriate."}
+tokens used
+150,845

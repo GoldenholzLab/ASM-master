@@ -1,0 +1,542 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 26-32%, infectious: pyrexia 10%, GI: constipation 10%, psychiatric: aggression 8%, respiratory: cough 7%, neurologic: drooling 7%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "46 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Ng2011 clobazam 1.0 mg/kg/day 46%)",
+    "diff_median_pct_change_maximum_effective_dose": "56.2 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ng2011 clobazam 1.0 mg/kg/day 56.2%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer; substrate of CYP3A4/CYP2C19; weak CYP2D6 inhibition reported",
+    "epilepsy_type": "LGS; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )] . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction [see Warnings and Precautions ( 5.2 )] . The continued use of benzodiazepines, including ONFI, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage [see Dosage and Administration ( 2.2 ) and Warnings and Precautions ( 5.3 )] . WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation ( 5.1 , 7.1 ) . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction ( 5.2) . Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage ( 2.2 , 5.3 ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=de03bd69-2dca-459c-93b4-541fd3e9571c; published=Dec 17, 2025; title=ONFI (CLOBAZAM) TABLET ONFI (CLOBAZAM) SUSPENSION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de03bd69-2dca-459c-93b4-541fd3e9571c",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Adjunctive nonspecific epilepsy; LGS",
+    "filter_formulation": "Film/ODT; Liquid; Tablet",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; GI; Infectious; Neurologic; Psychiatric; Respiratory",
+    "formulations_available": "Tablet; oral suspension; oral film",
+    "generic_name": "clobazam",
+    "half_life_range": "Clobazam 36-42 h; active metabolite 71-82 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "40 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Exact mechanism is not fully understood; 1,5-benzodiazepine positive allosteric modulation of GABA-A receptors potentiates GABAergic neurotransmission.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "5 mg/day for patients <=30 kg; 10 mg/day for patients >30 kg",
+    "plot_diff_50_responder_maximum_effective_dose": "Ng2011|46|https://pubmed.ncbi.nlm.nih.gov/21956725/|217",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Ng2011|56.2|https://pubmed.ncbi.nlm.nih.gov/21956725/|217",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Ng2011|https://pubmed.ncbi.nlm.nih.gov/21956725/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 9/65 on 2026-05-15: 1 qualifying placebo-controlled randomized clinical trial report(s) retained from 16 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current benzodiazepine ASM, notably Lennox-Gastaut syndrome adjunct; also historically used for anxiety in some markets.",
+    "trade_names": "Frisium; Onfi; Perizam; Sympazan; Tapclob; Zacco",
+    "typical_doses_per_day": "LGS: 5-40 mg/day divided BID depending on weight",
+    "year_fda_cleared": "2011"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Ng2011|https://pubmed.ncbi.nlm.nih.gov/21956725/",
+      "label": "Ng2011",
+      "pmid": "21956725",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21956725/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence/sedation 26-32%, infectious: pyrexia 10%, GI: constipation 10%, psychiatric: aggression 8%, respiratory: cough 7%, neurologic: drooling 7%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "46 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Ng2011 clobazam 1.0 mg/kg/day 46%)",
+    "diff_median_pct_change_maximum_effective_dose": "56.2 % (drug minus placebo MPC differential at maximum effective dose/regimen: Ng2011 clobazam 1.0 mg/kg/day 56.2%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major inducer; substrate of CYP3A4/CYP2C19; weak CYP2D6 inhibition reported",
+    "epilepsy_type": "LGS; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )] . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction [see Warnings and Precautions ( 5.2 )] . The continued use of benzodiazepines, including ONFI, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage [see Dosage and Administration ( 2.2 ) and Warnings and Precautions ( 5.3 )] . WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation ( 5.1 , 7.1 ) . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction ( 5.2) . Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage ( 2.2 , 5.3 ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=de03bd69-2dca-459c-93b4-541fd3e9571c; published=Dec 17, 2025; title=ONFI (CLOBAZAM) TABLET ONFI (CLOBAZAM) SUSPENSION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de03bd69-2dca-459c-93b4-541fd3e9571c",
+    "formulations_available": "Tablet; oral suspension; oral film",
+    "half_life_range": "Clobazam 36-42 h; active metabolite 71-82 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "40 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Exact mechanism is not fully understood; 1,5-benzodiazepine positive allosteric modulation of GABA-A receptors potentiates GABAergic neurotransmission.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "5 mg/day for patients <=30 kg; 10 mg/day for patients >30 kg",
+    "plot_diff_50_responder_maximum_effective_dose": "Ng2011|46|https://pubmed.ncbi.nlm.nih.gov/21956725/|217",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Ng2011|56.2|https://pubmed.ncbi.nlm.nih.gov/21956725/|217",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Ng2011|https://pubmed.ncbi.nlm.nih.gov/21956725/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Frisium; Onfi; Perizam; Sympazan; Tapclob; Zacco",
+    "typical_doses_per_day": "LGS: 5-40 mg/day divided BID depending on weight",
+    "year_fda_cleared": "2011"
+  },
+  "generic_name": "clobazam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2011",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2011"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5",
+      "generic_name": "clobazam",
+      "id": "source_fact_concordance_problem-6a1132e86913",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the efficacy and safety of two trough-ranges of everolimus given as adjunctive therapy in patients with tuberous sclerosis complex (TSC) who had refractory partial-onset seizures.\n\nThe study consisted of 4 phases for each patient Baseline phase:\\[From Screening Week -8 (V1) to randomization visit at Week 0 (V2)\\], Core phase \\[from randomization at Week 0 (V2) to Week 18 (V11)\\], Extension phase \\[from Week 18 (V11) until 48 weeks after the last patient had completed the core phase\\] and Post Extension phase \\[from end of Extension phase to end of study\\].",
+        "interventions": [
+          "RAD001",
+          "Placebo",
+          "Antiepileptic drug (1 to 3 only)",
+          "open label RAD001 (only used for post-extension phase)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01713946",
+        "new_reference_pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "title": "A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01713946",
+      "generic_name": "clobazam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-131c2de5ec6f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to evaluate the safety and efficacy of clobazam as adjunctive therapy in the treatment of seizures which lead to drop attacks (drop seizures) in patients 2 to 60 years of age with Lennox-Gastaut Syndrome (LGS). Patients will be enrolled at approximately 65 sites in the U.S. and ex-US for up to 23 weeks. Patients will be randomly assigned to either a low, medium or high dose, or placebo. The study will include a baseline period, a titration period and a maintenance period. After the maintenance period, patients will either continue into an open-label extension study or enter the taper period with a final visit 1 week after the last dose.",
+        "interventions": [
+          "Clobazam Low Dose",
+          "Clobazam Medium Dose",
+          "Clobazam High Dose",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT00518713",
+        "new_reference_pmids": [
+          "33825230",
+          "27683846"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "21956725",
+          "33825230",
+          "27683846"
+        ],
+        "title": "Clobazam in Patients With Lennox-Gastaut Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00518713",
+      "generic_name": "clobazam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-500f1f4b60f1",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Clobazam in Patients With Lennox-Gastaut Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to investigate the effect on the frequency of tonic-clonic and clonic seizures of clobazam as adjunctive therapy compared to placebo after 16 weeks of treatment in paediatric patients aged ≥1 to ≤16 years with Dravet Syndrome.",
+        "interventions": [
+          "Clobazam",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02174094",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Clobazam as Adjunctive Therapy in Paediatric Patients Aged ≥1 to ≤16 Years With Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02174094",
+      "generic_name": "clobazam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-a33340c17bea",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Clobazam as Adjunctive Therapy in Paediatric Patients Aged ≥1 to ≤16 Years With Dravet Syndrome"
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Frisium; Onfi; Perizam; Sympazan; Tapclob; Zacco",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22lennox-gastaut%22&limit=100",
+      "generic_name": "clobazam",
+      "id": "trade_name_addition-d7fbe265b120",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Clobazam"
+      },
+      "proposed_value": "Clobazam",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Clobazam."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=de03bd69-2dca-459c-93b4-541fd3e9571c; published=Dec 17, 2025; title=ONFI (CLOBAZAM) TABLET ONFI (CLOBAZAM) SUSPENSION [LUNDBECK PHARMACEUTICALS LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de03bd69-2dca-459c-93b4-541fd3e9571c",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5",
+      "generic_name": "clobazam",
+      "id": "fda_warning_metadata_refresh-61af11bdf09c",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation [see Warnings and Precautions ( 5.1 ), Drug Interactions ( 7.1 )] . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction [see Warnings and Precautions ( 5.2 )] . The continued use of benzodiazepines, including ONFI, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage [see Dosage and Administration ( 2.2 ) and Warnings and Precautions ( 5.3 )] . WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS See full prescribing information for complete boxed warning. Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation ( 5.1 , 7.1 ) . The use of benzodiazepines, including ONFI, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Before prescribing ONFI and throughout treatment, assess each patient’s risk for abuse, misuse, and addiction ( 5.2) . Abrupt discontinuation or rapid dosage reduction of ONFI after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue ONFI or reduce the dosage ( 2.2 , 5.3 ) .",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=de03bd69-2dca-459c-93b4-541fd3e9571c; effective_time=20240312; title=Onfi / CLOBAZAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=de03bd69-2dca-459c-93b4-541fd3e9571c; effective_time=20240312; title=Onfi / CLOBAZAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22de03bd69-2dca-459c-93b4-541fd3e9571c%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports highest-dose clobazam RR50 and average weekly drop-seizure-rate decrease versus placebo.",
+      "dose_or_regimen": "clobazam 1.0 mg/kg/day",
+      "endpoint": "LGS drop seizures",
+      "generic_name": "clobazam",
+      "label": "Ng2011",
+      "mpc_active_percent": "68.3",
+      "mpc_differential_percent": "56.2",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "12.1",
+      "pmid": "21956725",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/21956725/",
+      "rr50_active_percent": "77.6",
+      "rr50_differential_percent": "46.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "31.6",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized, phase III study results of clobazam in Lennox-Gastaut syndrome."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Ng",
+      "generic_name": "clobazam",
+      "label": "Ng2011",
+      "pmid": "21956725",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized, phase III study results of clobazam in Lennox-Gastaut syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21956725/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Gorbenko",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "40836528",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Cannabidiol Lacks Direct Effect on Cortical Excitability: A Randomized, Double Blind, Placebo Controlled, 3-Way Crossover Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40836528/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "38356105",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and Tolerability of Adjunctive Brivaracetam in Patients with Focal-Onset Seizures on Specific Concomitant Antiseizure Medications: Pooled Analysis of Double-Blind, Placebo-Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38356105/",
+      "year": "2024"
+    },
+    {
+      "first_author": "VanLandingham",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "32652616",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A Phase 2, Double-Blind, Placebo-Controlled Trial to Investigate Potential Drug-Drug Interactions Between Cannabidiol and Clobazam.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32652616/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Perry",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "30955420",
+      "pub_types": "Journal Article; Comment",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Don't Fear the Reefer-Evidence Mounts for Plant-Based Cannabidiol as Treatment for Epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30955420/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "29540584",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Randomized, dose-ranging safety trial of cannabidiol in Dravet syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29540584/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Tolbert",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "28958437",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A Thorough QT/QTc Study of Clobazam in Healthy Volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28958437/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Paolicchi",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "26245776",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Clobazam and Aggression-Related Adverse Events in Pediatric Patients With Lennox-Gastaut Syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26245776/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Borlot",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "25223728",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A pilot double-blind trial using verapamil as adjuvant therapy for refractory seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25223728/",
+      "year": "2014"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "15875342",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Stiripentol: new preparation. Severe myoclonic epilepsy of infancy: promising.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15875342/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Rose",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "15684445",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Intermittent clobazam therapy in febrile seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15684445/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Chiron",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "11089822",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Stiripentol in severe myoclonic epilepsy in infancy: a randomised placebo-controlled syndrome-dedicated trial. STICLO study group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11089822/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Keene",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "2207888",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Clobazam as an add-on drug in the treatment of refractory epilepsy of childhood.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2207888/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Koeppen",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "3115770",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Clobazam in therapy-resistant patients with partial epilepsy: a double-blind placebo-controlled crossover study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3115770/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Feely",
+      "generic_name": "clobazam",
+      "label": "",
+      "pmid": "6123810",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Clobazam in catamenial epilepsy. A model for evaluating anticonvulsants.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6123810/",
+      "year": "1982"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

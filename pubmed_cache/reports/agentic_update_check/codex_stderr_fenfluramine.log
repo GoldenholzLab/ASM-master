@@ -1,0 +1,792 @@
+2026-05-21T00:25:38.583108Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.634819Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47ec-71fc-7c01-b755-9a19249f5767
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "GI: decreased appetite 38%, constitutional: fatigue/lethargy 16%, GI: diarrhea 15%, CNS: somnolence 13%, cardiac: valvular heart disease 0% in controlled trials",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "15-66.6 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day 66.6%; Knupp2022 fenfluramine 0.7 mg/kg/day 15%; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol 49%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.9-64.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day 64.8%; Knupp2022 fenfluramine 0.7 mg/kg/day 19.9%; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol 54%; Lagae2019 fenfluramine 0.7 mg/kg/day 55.7%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major enzyme inducer/inhibitor; CYP2D6/1A2/2B6 metabolism",
+    "epilepsy_type": "Dravet; LGS",
+    "evidence_sources": "Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "fda_black_box_warning": "WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension [see Warnings and Precautions (5.1) ]. Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. The benefits versus the risks of initiating or continuing FINTEPLA must be considered, based on echocardiogram findings [see Dosage and Administration (2.1 , 2.6 ) and Warnings and Precautions (5.1) ]. Because of the risks of valvular heart disease and pulmonary arterial hypertension, FINTEPLA is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the FINTEPLA REMS [see Warnings and Precautions (5.2) ]. WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION See full prescribing information for complete boxed warning. FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension. ( 5.1 ) Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. ( 2.1 , 2.6 , 5.1 ) FINTEPLA is available only through a restricted program called the FINTEPLA REMS. ( 5.2 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d; published=Nov 17, 2025; title=FINTEPLA (FENFLURAMINE) SOLUTION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer; Inhibitor",
+    "filter_epilepsy_type": "Dravet; LGS",
+    "filter_formulation": "Liquid",
+    "filter_mechanism": "Serotonin / sigma",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect; QT prolongation",
+    "filter_symptom_category": "CNS; Cardiac; Constitutional; GI",
+    "formulations_available": "Oral solution",
+    "generic_name": "fenfluramine",
+    "half_life_range": "~20 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "0.7 mg/kg/day; capped by product labeling and lower with stiripentol",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise seizure mechanism is unknown; fenfluramine and norfenfluramine exhibit serotonin 5-HT2 receptor agonist activity, with sigma-1 modulation also proposed.",
+    "mechanism_source": "FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "0.2 mg/kg/day; titrate by syndrome and background therapy",
+    "plot_diff_50_responder_maximum_effective_dose": "Sullivan2023|66.6|https://pubmed.ncbi.nlm.nih.gov/37543865/|143; Knupp2022|15|https://pubmed.ncbi.nlm.nih.gov/35499850/|263; Nabbout2020|49|https://pubmed.ncbi.nlm.nih.gov/31790543/|87",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Sullivan2023|64.8|https://pubmed.ncbi.nlm.nih.gov/37543865/|143; Knupp2022|19.9|https://pubmed.ncbi.nlm.nih.gov/35499850/|263; Nabbout2020|54|https://pubmed.ncbi.nlm.nih.gov/31790543/|87; Lagae2019|55.7|https://pubmed.ncbi.nlm.nih.gov/31862249/|119",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/37543865/; Knupp2022|https://pubmed.ncbi.nlm.nih.gov/35499850/; Sullivan2021|https://pubmed.ncbi.nlm.nih.gov/33540241/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Lagae2019|https://pubmed.ncbi.nlm.nih.gov/31862249/",
+    "pubmed_search_aliases": "ZX008",
+    "qt_interval_effect": "No clinically meaningful QT prolongation in labeling; cardiac valvulopathy/pulmonary hypertension monitoring required",
+    "rct_pubmed_verification_notes": "PubMed loop 22/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 13 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for seizures associated with Dravet syndrome and Lennox-Gastaut syndrome; historically an anorectic withdrawn for cardiac risk before repurposed restricted use.",
+    "trade_names": "Fintepla",
+    "typical_doses_per_day": "Dravet/LGS: 0.2-0.7 mg/kg/day divided BID subject to syndrome/background therapy caps",
+    "year_fda_cleared": "2020 for Dravet; 2022 LGS; older anorectic approval withdrawn"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/37543865/",
+      "label": "Sullivan2023",
+      "pmid": "37543865",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37543865/"
+    },
+    {
+      "entry": "Knupp2022|https://pubmed.ncbi.nlm.nih.gov/35499850/",
+      "label": "Knupp2022",
+      "pmid": "35499850",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35499850/"
+    },
+    {
+      "entry": "Sullivan2021|https://pubmed.ncbi.nlm.nih.gov/33540241/",
+      "label": "Sullivan2021",
+      "pmid": "33540241",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33540241/"
+    },
+    {
+      "entry": "Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "label": "Nabbout2020",
+      "pmid": "31790543",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31790543/"
+    },
+    {
+      "entry": "Lagae2019|https://pubmed.ncbi.nlm.nih.gov/31862249/",
+      "label": "Lagae2019",
+      "pmid": "31862249",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31862249/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "GI: decreased appetite 38%, constitutional: fatigue/lethargy 16%, GI: diarrhea 15%, CNS: somnolence 13%, cardiac: valvular heart disease 0% in controlled trials",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "15-66.6 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day 66.6%; Knupp2022 fenfluramine 0.7 mg/kg/day 15%; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol 49%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.9-64.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day 64.8%; Knupp2022 fenfluramine 0.7 mg/kg/day 19.9%; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol 54%; Lagae2019 fenfluramine 0.7 mg/kg/day 55.7%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a major enzyme inducer/inhibitor; CYP2D6/1A2/2B6 metabolism",
+    "epilepsy_type": "Dravet; LGS",
+    "evidence_sources": "Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "fda_black_box_warning": "WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension [see Warnings and Precautions (5.1) ]. Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. The benefits versus the risks of initiating or continuing FINTEPLA must be considered, based on echocardiogram findings [see Dosage and Administration (2.1 , 2.6 ) and Warnings and Precautions (5.1) ]. Because of the risks of valvular heart disease and pulmonary arterial hypertension, FINTEPLA is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the FINTEPLA REMS [see Warnings and Precautions (5.2) ]. WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION See full prescribing information for complete boxed warning. FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension. ( 5.1 ) Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. ( 2.1 , 2.6 , 5.1 ) FINTEPLA is available only through a restricted program called the FINTEPLA REMS. ( 5.2 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d; published=Nov 17, 2025; title=FINTEPLA (FENFLURAMINE) SOLUTION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d",
+    "formulations_available": "Oral solution",
+    "half_life_range": "~20 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "0.7 mg/kg/day; capped by product labeling and lower with stiripentol",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise seizure mechanism is unknown; fenfluramine and norfenfluramine exhibit serotonin 5-HT2 receptor agonist activity, with sigma-1 modulation also proposed.",
+    "mechanism_source": "FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "0.2 mg/kg/day; titrate by syndrome and background therapy",
+    "plot_diff_50_responder_maximum_effective_dose": "Sullivan2023|66.6|https://pubmed.ncbi.nlm.nih.gov/37543865/|143; Knupp2022|15|https://pubmed.ncbi.nlm.nih.gov/35499850/|263; Nabbout2020|49|https://pubmed.ncbi.nlm.nih.gov/31790543/|87",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Sullivan2023|64.8|https://pubmed.ncbi.nlm.nih.gov/37543865/|143; Knupp2022|19.9|https://pubmed.ncbi.nlm.nih.gov/35499850/|263; Nabbout2020|54|https://pubmed.ncbi.nlm.nih.gov/31790543/|87; Lagae2019|55.7|https://pubmed.ncbi.nlm.nih.gov/31862249/|119",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/37543865/; Knupp2022|https://pubmed.ncbi.nlm.nih.gov/35499850/; Sullivan2021|https://pubmed.ncbi.nlm.nih.gov/33540241/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Lagae2019|https://pubmed.ncbi.nlm.nih.gov/31862249/",
+    "pubmed_search_aliases": "ZX008",
+    "qt_interval_effect": "No clinically meaningful QT prolongation in labeling; cardiac valvulopathy/pulmonary hypertension monitoring required",
+    "trade_names": "Fintepla",
+    "typical_doses_per_day": "Dravet/LGS: 0.2-0.7 mg/kg/day divided BID subject to syndrome/background therapy caps",
+    "year_fda_cleared": "2020 for Dravet; 2022 LGS; older anorectic approval withdrawn"
+  },
+  "generic_name": "fenfluramine",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "typical_doses_per_day",
+      "current_value": "Dravet/LGS: 0.2-0.7 mg/kg/day divided BID subject to syndrome/background therapy caps",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          ".2",
+          ".7"
+        ],
+        "missing_terms": [
+          "divided",
+          "subject"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "generic_name": "fenfluramine",
+      "id": "source_fact_concordance_problem-5476663ac8d8",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "typical_doses_per_day could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "minimum_effective_dose",
+      "current_value": "0.2 mg/kg/day; titrate by syndrome and background therapy",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          ".2"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "generic_name": "fenfluramine",
+      "id": "source_fact_concordance_problem-3e62db6e7a75",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "minimum_effective_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "maximum_approved_daily_dose",
+      "current_value": "0.7 mg/kg/day; capped by product labeling and lower with stiripentol",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          ".7"
+        ],
+        "missing_terms": [
+          "capped"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "generic_name": "fenfluramine",
+      "id": "source_fact_concordance_problem-9595b473517f",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "maximum_approved_daily_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2020 for Dravet; 2022 LGS; older anorectic approval withdrawn",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2020",
+          "2022"
+        ],
+        "missing_terms": [
+          "anorectic",
+          "approval"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "generic_name": "fenfluramine",
+      "id": "source_fact_concordance_problem-cb9b3ae4f657",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary purpose of this study is to evaluate the safety, tolerability, and efficacy of ZX008 (fenfluramine hydrochloride) when added to adjunctive antiepileptic stiripentol treatment in children and young adults with Dravet syndrome.",
+        "interventions": [
+          "ZX008 (Fenfluramine Hydrochloride)",
+          "Matching Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02926898",
+        "new_reference_pmids": [
+          "34768178"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "31790543",
+          "34768178",
+          "33540241"
+        ],
+        "title": "A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children ≥ 2 Years Old and Young Adults With Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02926898",
+      "generic_name": "fenfluramine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-498413db0305",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A 2-Part Study to Investigate the Dose-Ranging Safety and Pharmacokinetics, Followed by the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) Oral Solution as an Adjunctive Therapy in Children ≥ 2 Years Old and Young Adults With Dravet Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a two-part, multicenter, double-blind, parallel-group, placebo controlled study to evaluate the effect of ZX008 when used as adjunctive therapy for the treatment of uncontrolled seizures in children and adults with Lennox-Gastaut syndrome (LGS).",
+        "interventions": [
+          "ZX008 0.2 or 0.8 mg/kg/day",
+          "Matching Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03355209",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "35499850"
+        ],
+        "title": "A Study to Investigate the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) as an Adjunctive Therapy in Children and Adults With Lennox-Gastaut Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03355209",
+      "generic_name": "fenfluramine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-ac12fc310118",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Investigate the Efficacy and Safety of ZX008 (Fenfluramine Hydrochloride) as an Adjunctive Therapy in Children and Adults With Lennox-Gastaut Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Study 1 and Study 3 are the prospective, merged analyses of 2 identical double-blind, placebo-controlled studies, ZX008-1501 and ZX008-1502, to assess the efficacy, safety, and pharmacokinetics of ZX008 when used as adjunctive therapy in pediatric and young adult subjects with Dravet syndrome. Study 1501 and Study 1502 were conducted in parallel; Study 1501 was conducted at approximately 30 study sites in North America; Study 1502 was conducted at approximately 30 study sites in Europe, Asia and Australia. Upon completion of the Baseline Period after initial Screening and Baseline charting of seizure frequency, subjects who qualified for the studies were randomized (1:1:1) in a double-blind manner to receive either 1 of 2 doses of ZX008 (0.2 mg/kg/day or 0.8 mg/kg/day; maximum dose: 30 mg/day) or placebo. Randomization was stratified by age group (\\< 6 years, ≥6 to 18 years) to achieve balance across treatment arms, with the target of 25% of subjects in each age group. All subjects were titrated to their randomized dose over a 14-day Titration Period. Following titration, subjects continued treatment at their randomly assigned dose over a 12-week Maintenance Period. Subjects exiting the study underwent a 2-week taper, unless they enrolled in a follow-on study. Subjects were followed for post-study safety monitoring.",
+        "interventions": [
+          "ZX008 (Fenfluramine Hydrochloride)",
+          "Matching Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02682927",
+        "new_reference_pmids": [
+          "34768178",
+          "34676542"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "37543865",
+          "34768178",
+          "34676542",
+          "33540241",
+          "31862249"
+        ],
+        "title": "A Trial of Two Fixed Doses of ZX008 (Fenfluramine HCl) in Children and Young Adults With Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02682927",
+      "generic_name": "fenfluramine",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-56d8642da368",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Trial of Two Fixed Doses of ZX008 (Fenfluramine HCl) in Children and Young Adults With Dravet Syndrome"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d; published=Nov 17, 2025; title=FINTEPLA (FENFLURAMINE) SOLUTION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "generic_name": "fenfluramine",
+      "id": "fda_warning_metadata_refresh-4b46db3a1844",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension [see Warnings and Precautions (5.1) ]. Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. The benefits versus the risks of initiating or continuing FINTEPLA must be considered, based on echocardiogram findings [see Dosage and Administration (2.1 , 2.6 ) and Warnings and Precautions (5.1) ]. Because of the risks of valvular heart disease and pulmonary arterial hypertension, FINTEPLA is available only through a restricted program under a Risk Evaluation and Mitigation Strategy (REMS) called the FINTEPLA REMS [see Warnings and Precautions (5.2) ]. WARNING: VALVULAR HEART DISEASE and PULMONARY ARTERIAL HYPERTENSION See full prescribing information for complete boxed warning. FINTEPLA can cause valvular heart disease and pulmonary arterial hypertension. ( 5.1 ) Echocardiogram assessments are required before, during, and after treatment with FINTEPLA. ( 2.1 , 2.6 , 5.1 ) FINTEPLA is available only through a restricted program called the FINTEPLA REMS. ( 5.2 )",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=e88f360e-33ad-4cd6-b2de-5ef885857c5d; effective_time=20251027; title=Fintepla / FENFLURAMINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=e88f360e-33ad-4cd6-b2de-5ef885857c5d; effective_time=20251027; title=Fintepla / FENFLURAMINE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports RR50 and a placebo-adjusted 64.8% greater reduction at 0.7 mg/kg/day.",
+      "dose_or_regimen": "fenfluramine 0.7 mg/kg/day",
+      "endpoint": "Dravet monthly convulsive seizure frequency",
+      "generic_name": "fenfluramine",
+      "label": "Sullivan2023",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "64.8",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "37543865",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37543865/",
+      "rr50_active_percent": "72.9",
+      "rr50_differential_percent": "66.6",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "6.3",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fenfluramine in the treatment of Dravet syndrome: Results of a third randomized, placebo-controlled clinical trial."
+    },
+    {
+      "audit_note": "Abstract reports RR50 and estimated median difference for the LGS 0.7 mg/kg/day arm.",
+      "dose_or_regimen": "fenfluramine 0.7 mg/kg/day",
+      "endpoint": "LGS drop seizures",
+      "generic_name": "fenfluramine",
+      "label": "Knupp2022",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "19.9",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "35499850",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35499850/",
+      "rr50_active_percent": "25.0",
+      "rr50_differential_percent": "15.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "10.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and Safety of Fenfluramine for the Treatment of Seizures Associated With Lennox-Gastaut Syndrome: A Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Responder-analysis/NNT publication; source RCT values are captured from the primary RCT reports.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "fenfluramine",
+      "label": "Sullivan2021",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "33540241",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33540241/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fenfluramine responder analyses and numbers needed to treat: Translating epilepsy trial data into clinical practice."
+    },
+    {
+      "audit_note": "Abstract reports RR50 and placebo-adjusted mean monthly convulsive seizure-frequency reduction in the stiripentol-inclusive regimen max dose.",
+      "dose_or_regimen": "fenfluramine 0.4 mg/kg/day with stiripentol",
+      "endpoint": "Dravet monthly convulsive seizure frequency",
+      "generic_name": "fenfluramine",
+      "label": "Nabbout2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "54.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "31790543",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "rr50_active_percent": "54.0",
+      "rr50_differential_percent": "49.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "5.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fenfluramine for Treatment-Resistant Seizures in Patients With Dravet Syndrome Receiving Stiripentol-Inclusive Regimens: A Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Abstract reports median reductions for 0.7 mg/kg/day and placebo; RR50 was not reported in the abstract.",
+      "dose_or_regimen": "fenfluramine 0.7 mg/kg/day",
+      "endpoint": "Dravet monthly convulsive seizure frequency",
+      "generic_name": "fenfluramine",
+      "label": "Lagae2019",
+      "mpc_active_percent": "74.9",
+      "mpc_differential_percent": "55.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "19.2",
+      "pmid": "31862249",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31862249/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fenfluramine hydrochloride for the treatment of seizures in Dravet syndrome: a randomised, double-blind, placebo-controlled trial."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Sullivan",
+      "generic_name": "fenfluramine",
+      "label": "Sullivan2023",
+      "pmid": "37543865",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III; Multicenter Study",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fenfluramine in the treatment of Dravet syndrome: Results of a third randomized, placebo-controlled clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37543865/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Knupp",
+      "generic_name": "fenfluramine",
+      "label": "Knupp2022",
+      "pmid": "35499850",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and Safety of Fenfluramine for the Treatment of Seizures Associated With Lennox-Gastaut Syndrome: A Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35499850/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "fenfluramine",
+      "label": "Sullivan2021",
+      "pmid": "33540241",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fenfluramine responder analyses and numbers needed to treat: Translating epilepsy trial data into clinical practice.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33540241/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Nabbout",
+      "generic_name": "fenfluramine",
+      "label": "Nabbout2020",
+      "pmid": "31790543",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fenfluramine for Treatment-Resistant Seizures in Patients With Dravet Syndrome Receiving Stiripentol-Inclusive Regimens: A Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31790543/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Lagae",
+      "generic_name": "fenfluramine",
+      "label": "Lagae2019",
+      "pmid": "31862249",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fenfluramine hydrochloride for the treatment of seizures in Dravet syndrome: a randomised, double-blind, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31862249/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "36855241",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't; Research Support, N.I.H., Extramural",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Failure to use new breakthrough treatments for epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36855241/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Bishop",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "36463826",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Fenfluramine treatment is associated with improvement in everyday executive function in preschool-aged children (<5 years) with Dravet syndrome: A critical period for early neurodevelopment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36463826/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "34676542",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Fenfluramine significantly reduces day-to-day seizure burden by increasing number of seizure-free days and time between seizures in patients with Dravet syndrome: A time-to-event analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34676542/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Bishop",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "34023810",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Improved everyday executive functioning following profound reduction in seizure frequency with fenfluramine: Analysis from a phase 3 long-term extension study in children/young adults with Dravet syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34023810/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "33078386",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Fenfluramine HCl (Fintepla ® ) provides long-term clinically meaningful reduction in seizure frequency: Analysis of an ongoing open-label extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33078386/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Lai",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "32809271",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cardiovascular safety of fenfluramine in the treatment of Dravet syndrome: Analysis of an ongoing long-term open-label safety extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32809271/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Pierce",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "32189958",
+      "pub_types": "Journal Article; Comment",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Fenfluramine: New Treatment for Seizures in Dravet Syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32189958/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Gastaut",
+      "generic_name": "fenfluramine",
+      "label": "",
+      "pmid": "3654490",
+      "pub_types": "Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Compulsive respiratory stereotypies in children with autistic features: polygraphic recording and treatment with fenfluramine.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3654490/",
+      "year": "1987"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T00:25:38.660007Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.703215Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.727696Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.747127Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:25:38.747562Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:25:38.751635Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:25:38.751697Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:38.751905Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.775026Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.775034Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.775930Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.775940Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.776606Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.776610Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.776696Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.777380Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.777389Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.777948Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.777953Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.779303Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:38.779308Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:38.818976Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:25:38.820332Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:38.824399Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:38.824512Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:38.849414Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:25:38.849716Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:25:38.852177Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:25:38.852211Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:39.492376Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:25:39.492702Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:25:39.495299Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:25:39.495338Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:39.507877Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.507888Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.508495Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.508504Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.509028Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.509034Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.509529Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.509535Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.509938Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.509944Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.510766Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:25:39.510769Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:25:39.544820Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:39.548375Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:25:39.548464Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"fenfluramine","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":"Starting trusted-source audit for fenfluramine row; final response will be JSON only."}
+web search: 
+web search: 
+web search: 
+web search: site:api.fda.gov/drug/label Fintepla fenfluramine boxed warning spl_set_id e88f360e
+web search: 
+web search: Fintepla prescribing information boxed warning FDA fenfluramine PDF
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf
+web search: 
+web search: site:fda.gov FDA approves Fintepla Dravet syndrome 2020 fenfluramine
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2020/212102Orig1s000ltr.pdf
+web search: 
+web search: FDA fenfluramine anorectic withdrawn 1997 FDA
+web search: 
+web search: site:accessdata.fda.gov Pondimin fenfluramine FDA
+web search: 
+web search: 'Regulatory Background' in https://www.fda.gov/media/158280/download
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/37543865/
+web search: 
+web search: 
+web search: 
+web search: 37543865 fenfluramine Dravet randomized placebo PubMed
+web search: 
+web search: 31862249 fenfluramine hydrochloride Dravet randomised double blind placebo controlled trial PubMed
+web search: 
+web search: https://clinicaltrials.gov/study/NCT02682927
+web search: 
+web search: 
+web search: 
+web search: clinicaltrials.gov API NCT02682927 fenfluramine phase 3 placebo randomized
+web search: 
+web search: "Fenfluramine in the treatment of Dravet syndrome" "64.8" "72.9"
+web search: 
+web search: 34768178 fenfluramine PubMed title randomized controlled trial Dravet
+codex
+{"black_box_warning":{"current_value":"Current row boxed-warning text for FINTEPLA valvular heart disease and pulmonary arterial hypertension.","fda_source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5"],"proposed_value":"Keep current boxed-warning text; replace the source field with FDA/accessdata or FDA/openFDA metadata, not DailyMed.","rationale":"FDA accessdata labeling contains the same boxed warning and supports VHD/PAH echocardiogram monitoring and FINTEPLA REMS. The current source field cites DailyMed, which is not permissible for boxed-warning verification under the audit policy.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"fenfluramine; trade_names=Fintepla; alternate_generic_names blank; pubmed_search_aliases=ZX008","field":"generic_name / trade_names / alternate_generic_names / pubmed_search_aliases","proposed_value":"alternate_generic_names: fenfluramine hydrochloride; fenfluramine HCl. trade_names: Fintepla; Pondimin (historical/withdrawn anorectic); Ponderex (historical/withdrawn anorectic). Keep pubmed_search_aliases: ZX008.","rationale":"Generic name fenfluramine, Fintepla, and ZX008 are supported. FDA clinical review also identifies historical Pondimin/Ponderex and fenfluramine HCl, so the empty alternate_generic_names field and current trade_names omit important aliases. Dexfenfluramine/Redux is a distinct d-enantiomer, not a fenfluramine alias.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://www.fda.gov/media/158280/download","https://clinicaltrials.gov/study/NCT02682927","https://clinicaltrials.gov/study/NCT03355209"]},{"current_value":"available_in_us=Yes; epilepsy_type=Dravet; LGS; formulations_available=Oral solution; filter_availability=Available in US; filter_epilepsy_type=Dravet; LGS; filter_formulation=Liquid","field":"availability_indication_formulation","proposed_value":"No change.","rationale":"FDA labeling supports current U.S. availability, indication for seizures associated with Dravet syndrome and Lennox-Gastaut syndrome in patients 2 years and older, and oral solution 2.2 mg/mL formulation.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"typical_doses_per_day=Dravet/LGS: 0.2-0.7 mg/kg/day divided BID subject to syndrome/background therapy caps; minimum_effective_dose=0.2 mg/kg/day; maximum_approved_daily_dose=0.7 mg/kg/day; capped by product labeling and lower with stiripentol","field":"dose_fields","proposed_value":"Preferred label-aligned wording: Initial dosage 0.1 mg/kg twice daily (0.2 mg/kg/day). Maximum without concomitant stiripentol plus clobazam: 0.35 mg/kg twice daily (0.7 mg/kg/day; max 26 mg/day). Maximum with concomitant stiripentol plus clobazam: 0.2 mg/kg twice daily (0.4 mg/kg/day; max 17 mg/day). Additional caps apply with strong CYP1A2/CYP2D6 inhibitors, severe renal impairment, or hepatic impairment.","rationale":"The current dose fields are broadly correct but omit the explicit 26 mg/day and 17 mg/day caps and the twice-daily label wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"half_life_range=~20 h; major_organ_for_metabolism=Liver; enzyme_inducing_or_inhibiting=Not a major enzyme inducer/inhibitor; CYP2D6/1A2/2B6 metabolism; filter_enzyme_effect=Inducer; Inhibitor","field":"metabolism_enzyme_fields","proposed_value":"enzyme_inducing_or_inhibiting: Not a major enzyme inducer/inhibitor; primarily metabolized by CYP1A2, CYP2B6, and CYP2D6. filter_enzyme_effect: Neither inducer nor inhibitor.","rationale":"FDA labeling supports 20-hour half-life, metabolism primarily by CYP1A2/CYP2B6/CYP2D6, and no clinically relevant CYP induction or inhibition by fenfluramine/norfenfluramine. The filter_enzyme_effect value contradicts this.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"mechanism_of_action includes unknown seizure mechanism, serotonin 5-HT2 agonist activity, and proposed sigma-1 modulation; mechanism_source=FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary; mechanism_source_tier=FDA label; filter_mechanism=Serotonin / sigma","field":"mechanism_fields","proposed_value":"If using FDA-only support: Precise seizure mechanism is unknown; fenfluramine and norfenfluramine exhibit agonist activity at serotonin 5-HT2 receptors. If retaining sigma-1 modulation, add a trusted PubMed/NCBI peer-reviewed mechanism source and change mechanism_source_tier away from FDA-only.","rationale":"FDA labeling supports unknown mechanism and serotonin 5-HT2 receptor agonist activity, but not sigma-1 modulation. DailyMed and AES are not acceptable trusted source entries for this audit bundle as written.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"qt_interval_effect=No clinically meaningful QT prolongation in labeling; cardiac valvulopathy/pulmonary hypertension monitoring required; filter_qt_effect=No known meaningful QT effect; QT prolongation","field":"qt_fields","proposed_value":"qt_interval_effect: No clinically meaningful QT prolongation in labeling; cardiac valvulopathy/pulmonary hypertension monitoring required. filter_qt_effect: No known meaningful QT effect.","rationale":"FDA labeling states FINTEPLA did not prolong QT at 4 times the maximum recommended dose. The filter value should not include QT prolongation.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"GI: decreased appetite 38%, constitutional: fatigue/lethargy 16%, GI: diarrhea 15%, CNS: somnolence 13%, cardiac: valvular heart disease 0% in controlled trials","field":"adverse_symptoms_percentages","proposed_value":"At labeled 0.7 mg/kg/day arms: decreased appetite 38% (DS) / 36% (LGS); somnolence/sedation/lethargy 25% (DS) / 22% (LGS); diarrhea 15% (DS) / 13% (LGS); fatigue/malaise/asthenia 10% (DS) / 24% (LGS). No VHD/PAH occurred in DS/LGS clinical trials up to 3 years, but postmarketing VHD/PAH cases have been reported.","rationale":"FDA adverse-reaction tables do not support fatigue/lethargy 16% or somnolence 13% for the maximum labeled dose arms. VHD/PAH absence in controlled/extension trial monitoring is supported, with postmarketing cases noted in labeling.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"year_fda_cleared=2020 for Dravet; 2022 LGS; older anorectic approval withdrawn; status_or_notes=current ASM for DS/LGS and historical anorectic withdrawal","field":"approval_history_status","proposed_value":"2020 for Dravet; 2022 for LGS; original anorectic approval in 1973 as Pondimin/Ponderex, withdrawn from the U.S. market in 1997 for safety reasons.","rationale":"FDA approval letter and orphan-drug listing support June 25, 2020 Dravet approval. FDA 2022 supplement approval letter supports LGS. FDA clinical review supports 1973 anorectic history and 1997 withdrawal.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2020/212102Orig1s000ltr.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/212102Orig1s003ltr.pdf","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=414613","https://www.fda.gov/media/158280/download"]},{"current_value":"evidence_sources=Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary","field":"evidence_sources","proposed_value":"FDA/accessdata prescribing information; FDA/openFDA drug label API; FDA approval letters and clinical review; ClinicalTrials.gov; PubMed RCT records","rationale":"The named Epilepsy Society and AES sources are not in the trusted-source domain list provided for this audit, and DailyMed is not permissible for boxed-warning verification.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5","https://clinicaltrials.gov/study/NCT02682927","https://clinicaltrials.gov/study/NCT02926898","https://clinicaltrials.gov/study/NCT03355209"]}],"generic_name":"fenfluramine","missing_rcts":[],"outcome_checks":[{"current_value":"15-66.6 % with Sullivan2023 66.6%; Knupp2022 15%; Nabbout2020 49%","field":"diff_50_responder_maximum_effective_dose / plot_diff_50_responder_maximum_effective_dose","proposed_value":"No numeric change for currently cited plot values. Consider adding Lagae2019 RR50 only if full-text or FDA-label responder-category extraction is accepted for this dataset.","rationale":"Sullivan2023 reports 72.9% versus 6.3% RR50 at 0.7 mg/kg/day, differential 66.6. Knupp2022 reports 25% versus 10%, differential 15. Nabbout2020 reports 54% versus 5%, differential 49. The current plot entries match those cited values.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/37543865/","https://pubmed.ncbi.nlm.nih.gov/35499850/","https://pubmed.ncbi.nlm.nih.gov/31790543/","https://clinicaltrials.gov/study/NCT02682927","https://clinicaltrials.gov/study/NCT02926898","https://clinicaltrials.gov/study/NCT03355209"]},{"current_value":"19.9-64.8 % described as drug-minus-placebo MPC differential for Sullivan2023, Knupp2022, Nabbout2020, Lagae2019","field":"diff_median_pct_change_maximum_effective_dose / plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"19.9-64.8 % (reported placebo-adjusted or drug-minus-placebo seizure-frequency change at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day placebo-adjusted greater reduction in MCSF 64.8%; Knupp2022 fenfluramine 0.7 mg/kg/day estimated median difference vs placebo 19.9 percentage points; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol placebo-adjusted greater reduction in MCSF 54.0%; Lagae2019 fenfluramine 0.7 mg/kg/day median reduction 74.9% vs placebo 19.2%, arithmetic differential 55.7%).","rationale":"The numeric values are supported by the cited RCT/outcome evidence, but the current wording overstates them as uniform drug-minus-placebo median percent-change differentials. Sullivan2023 and Nabbout2020 are placebo-adjusted/model-based greater reductions; Knupp2022 is an estimated median difference; Lagae2019 is the arithmetic median reduction difference.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/37543865/","https://pubmed.ncbi.nlm.nih.gov/35499850/","https://pubmed.ncbi.nlm.nih.gov/31790543/","https://pubmed.ncbi.nlm.nih.gov/31862249/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen","field":"diff_seizure_freedom_maximum_effective_dose / plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"-1 to 8 percentage points among extractable maximum-dose/regimen RCT sources: Lagae2019/Study 1 fenfluramine 0.7 mg/kg/day 8% vs 0% placebo, diff 8%; Nabbout2020/Study 2 fenfluramine 0.4 mg/kg/day with stiripentol 2% vs 0% placebo, diff 2%; Knupp2022/LGS fenfluramine 0.7 mg/kg/day 0% vs 1% placebo, diff -1 percentage point. Sullivan2023 complete seizure-freedom differential was not verified from a trusted accessible abstract in this audit.","rationale":"FDA labeling explicitly reports no-convulsive-seizure patient rates for the Dravet Study 1/2 maximum regimens, and Knupp2022 reports LGS seizure freedom by group. Therefore the blanket NR/not extractable value is not correct for all included RCT evidence.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/35499850/","https://pubmed.ncbi.nlm.nih.gov/31790543/","https://pubmed.ncbi.nlm.nih.gov/31862249/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"","field":"alternate_generic_names","proposed_value":"fenfluramine hydrochloride; fenfluramine HCl","reason":"Important salt/alias names are used in FDA and trial records.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://clinicaltrials.gov/study/NCT02682927"]},{"current_value":"Fintepla","field":"trade_names","proposed_value":"Fintepla; Pondimin (historical/withdrawn anorectic); Ponderex (historical/withdrawn anorectic)","reason":"FDA clinical review identifies historical fenfluramine trade names; adding them reduces duplicate-row risk.","requires_user_approval":false,"source_urls":["https://www.fda.gov/media/158280/download"]},{"current_value":"Inducer; Inhibitor","field":"filter_enzyme_effect","proposed_value":"Neither inducer nor inhibitor","reason":"FDA label states fenfluramine/norfenfluramine are not CYP inhibitors or inducers at clinically relevant concentrations.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"No known meaningful QT effect; QT prolongation","field":"filter_qt_effect","proposed_value":"No known meaningful QT effect","reason":"FDA label states FINTEPLA did not prolong QT at 4 times the maximum recommended dose.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"GI: decreased appetite 38%, constitutional: fatigue/lethargy 16%, GI: diarrhea 15%, CNS: somnolence 13%, cardiac: valvular heart disease 0% in controlled trials","field":"adverse_symptoms_percentages","proposed_value":"At labeled 0.7 mg/kg/day arms: decreased appetite 38% (DS) / 36% (LGS); somnolence/sedation/lethargy 25% (DS) / 22% (LGS); diarrhea 15% (DS) / 13% (LGS); fatigue/malaise/asthenia 10% (DS) / 24% (LGS). No VHD/PAH occurred in DS/LGS clinical trials up to 3 years, but postmarketing VHD/PAH cases have been reported.","reason":"Current adverse-event percentages mix unsupported values with supported maximum-dose values.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"19.9-64.8 % (drug minus placebo MPC differential at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day 64.8%; Knupp2022 fenfluramine 0.7 mg/kg/day 19.9%; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol 54%; Lagae2019 fenfluramine 0.7 mg/kg/day 55.7%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"19.9-64.8 % (reported placebo-adjusted or drug-minus-placebo seizure-frequency change at maximum effective dose/regimen: Sullivan2023 fenfluramine 0.7 mg/kg/day placebo-adjusted greater reduction in MCSF 64.8%; Knupp2022 fenfluramine 0.7 mg/kg/day estimated median difference vs placebo 19.9 percentage points; Nabbout2020 fenfluramine 0.4 mg/kg/day with stiripentol placebo-adjusted greater reduction in MCSF 54.0%; Lagae2019 fenfluramine 0.7 mg/kg/day median reduction 74.9% vs placebo 19.2%, arithmetic differential 55.7%).","reason":"Numbers are supported, but current wording incorrectly treats all as the same median percent-change differential type.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/37543865/","https://pubmed.ncbi.nlm.nih.gov/35499850/","https://pubmed.ncbi.nlm.nih.gov/31790543/","https://pubmed.ncbi.nlm.nih.gov/31862249/"]},{"current_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"-1 to 8 percentage points among extractable maximum-dose/regimen RCT sources: Lagae2019/Study 1 fenfluramine 0.7 mg/kg/day 8% vs 0% placebo, diff 8%; Nabbout2020/Study 2 fenfluramine 0.4 mg/kg/day with stiripentol 2% vs 0% placebo, diff 2%; Knupp2022/LGS fenfluramine 0.7 mg/kg/day 0% vs 1% placebo, diff -1 percentage point. Sullivan2023 complete seizure-freedom differential not verified from a trusted accessible abstract in this audit.","reason":"Seizure-freedom/no-convulsive-seizure values are extractable for several maximum-dose/regimen RCTs.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/35499850/"]},{"current_value":"","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Lagae2019|8|https://pubmed.ncbi.nlm.nih.gov/31862249/|119; Nabbout2020|2|https://pubmed.ncbi.nlm.nih.gov/31790543/|87; Knupp2022|-1|https://pubmed.ncbi.nlm.nih.gov/35499850/|263","reason":"Plot field is empty despite extractable study-level seizure-freedom/no-convulsive-seizure differentials.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/35499850/"]},{"current_value":"Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/37543865/; Knupp2022|https://pubmed.ncbi.nlm.nih.gov/35499850/; Sullivan2021|https://pubmed.ncbi.nlm.nih.gov/33540241/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Lagae2019|https://pubmed.ncbi.nlm.nih.gov/31862249/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/37543865/; Knupp2022|https://pubmed.ncbi.nlm.nih.gov/35499850/; Nabbout2020|https://pubmed.ncbi.nlm.nih.gov/31790543/; Lagae2019|https://pubmed.ncbi.nlm.nih.gov/31862249/","reason":"Sullivan2021 is a responder/NNT secondary analysis of trial data, not a primary phase II/III placebo-controlled RCT report. Reclassify rather than treat as a primary RCT link.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/33540241/","https://clinicaltrials.gov/study/NCT02682927","https://clinicaltrials.gov/study/NCT02926898"]},{"current_value":"PubMed loop 22/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 13 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.","field":"rct_pubmed_verification_notes","proposed_value":"Audit 2026-05-21: 4 primary phase II/III placebo-controlled randomized trial reports retained (Sullivan2023, Knupp2022, Nabbout2020, Lagae2019). Sullivan2021 is a responder/NNT secondary analysis of phase 3 trial data and should be reclassified if this field is reserved for primary RCT reports. Differential effectiveness columns summarize extractable maximum effective dose/regimen values from cited RCT/outcome sources.","reason":"Current note counts Sullivan2021 as a qualifying primary RCT report.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/33540241/"]}],"rct_link_checks":[{"label":"Sullivan2023","pmid":"37543865","proposed_action":"Retain.","rationale":"Fenfluramine in Dravet syndrome; multicenter randomized, double-blind, placebo-controlled, parallel-group phase 3 trial; 143 randomized; supports Sullivan2023 RR50 and 64.8% placebo-adjusted MCSF reduction values.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/37543865/"},{"label":"Knupp2022","pmid":"35499850","proposed_action":"Retain.","rationale":"Fenfluramine in Lennox-Gastaut syndrome; randomized, double-blind, placebo-controlled phase 3 trial; ClinicalTrials.gov NCT03355209; supports LGS RR50 and median-difference outcome values.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/35499850/"},{"label":"Sullivan2021","pmid":"33540241","proposed_action":"Reclassify as secondary responder/NNT analysis; remove from pubmed_phase_ii_iii_rct_links if that field is reserved for primary RCT reports.","rationale":"The article analyzes responder thresholds and NNT from existing fenfluramine RCT data. It is useful secondary evidence but is not itself a primary placebo-controlled phase II/III RCT report.","status":"not_placebo_rct","url":"https://pubmed.ncbi.nlm.nih.gov/33540241/"},{"label":"Nabbout2020","pmid":"31790543","proposed_action":"Retain.","rationale":"Fenfluramine in Dravet syndrome receiving stiripentol-inclusive regimens; randomized, double-blind, placebo-controlled phase 3 trial; ClinicalTrials.gov NCT02926898; supports 54% placebo-adjusted MCSF reduction and RR50 54% vs 5%.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/31790543/"},{"label":"Lagae2019","pmid":"31862249","proposed_action":"Retain.","rationale":"Fenfluramine hydrochloride in Dravet syndrome; randomized, double-blind, placebo-controlled phase 3 trial; FDA label Study 1 corresponds to the pivotal no-stiripentol DS trial and supports the cited median-reduction outcome.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/31862249/"}],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d; published=Nov 17, 2025; title=FINTEPLA (FENFLURAMINE) SOLUTION [UCB, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e88f360e-33ad-4cd6-b2de-5ef885857c5d","field":"fda_black_box_warning_source","proposed_value":"FDA/accessdata prescribing information; status=boxed_warning_found; NDA=212102; label=212102s016; revised=04/2025; title=FINTEPLA (fenfluramine) oral solution; url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf; FDA/openFDA API url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5","reason":"DailyMed is not permissible for black-box warning verification; FDA/accessdata and openFDA are permissible.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22e88f360e-33ad-4cd6-b2de-5ef885857c5d%22&limit=5"]},{"current_value":"05-20-2026","field":"fda_black_box_warning_verified","proposed_value":"05-21-2026","reason":"FDA source was rechecked during this audit on the current system date.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf"]},{"current_value":"Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary","field":"evidence_sources","proposed_value":"FDA/accessdata prescribing information; FDA/openFDA drug label API; FDA approval letters and clinical review; ClinicalTrials.gov; PubMed RCT records","reason":"Use only trusted domains and avoid DailyMed for boxed warning.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212102s016lbl.pdf","https://www.fda.gov/media/158280/download","https://clinicaltrials.gov/study/NCT02682927","https://clinicaltrials.gov/study/NCT02926898","https://clinicaltrials.gov/study/NCT03355209"]}],"summary":"Fenfluramine row is mostly supported for U.S. availability, DS/LGS indication, oral solution formulation, dosing framework, metabolism, half-life, QT statement, FDA boxed warning text, and four primary placebo-controlled RCT links. Updates are needed for the boxed-warning source, missing aliases/historical trade names, incorrect filter flags for enzyme and QT effects, adverse-event percentages, over-specific median-percent-change wording, seizure-freedom extraction, and reclassification of Sullivan2021 as a secondary responder/NNT analysis rather than a primary RCT report."}
+tokens used
+159,250

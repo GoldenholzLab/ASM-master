@@ -1,0 +1,540 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: drowsiness 50%, neurologic: ataxia 30%, behavioral: behavior problems 25%, respiratory: increased salivation 7%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor",
+    "epilepsy_type": "Absence; Myoclonic; Akinetic/atonic; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Klonopin, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Klonopin and throughout treatment, assess each patient's risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines, including Klonopin, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Klonopin after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Klonopin or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1; published=Dec 02, 2025; title=KLONOPIN (CLONAZEPAM) TABLET [H2-PHARMA, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect",
+    "filter_epilepsy_type": "Absence; Adjunctive nonspecific epilepsy; Akinetic/atonic; Myoclonic",
+    "filter_formulation": "Film/ODT; Tablet",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "Behavioral; CNS; Neurologic; Respiratory",
+    "formulations_available": "Tablet; orally disintegrating tablet",
+    "generic_name": "clonazepam",
+    "half_life_range": "30-40 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "20 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Adults seizure disorders: 1.5 mg/day initial; titrate to effect",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Navarro2015|https://pubmed.ncbi.nlm.nih.gov/26627366/; Dahlin2000|https://pubmed.ncbi.nlm.nih.gov/10714402/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 10/65 on 2026-05-15: 2 qualifying placebo-controlled randomized clinical trial report(s) retained from 11 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current benzodiazepine used for seizure types including absence/myoclonic seizures; also used for panic/anxiety disorders.",
+    "trade_names": "Klonopin; Rivotril",
+    "typical_doses_per_day": "Adults seizure disorders: maintenance often 1.5-20 mg/day divided TID",
+    "year_fda_cleared": "1975"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Navarro2015|https://pubmed.ncbi.nlm.nih.gov/26627366/",
+      "label": "Navarro2015",
+      "pmid": "26627366",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26627366/"
+    },
+    {
+      "entry": "Dahlin2000|https://pubmed.ncbi.nlm.nih.gov/10714402/",
+      "label": "Dahlin2000",
+      "pmid": "10714402",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10714402/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: drowsiness 50%, neurologic: ataxia 30%, behavioral: behavior problems 25%, respiratory: increased salivation 7%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Not a CYP inducer/inhibitor",
+    "epilepsy_type": "Absence; Myoclonic; Akinetic/atonic; Adjunctive nonspecific epilepsy",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Foundation Australia ASM list; Wikipedia anticonvulsant drug-class list; American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Klonopin, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Klonopin and throughout treatment, assess each patient's risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines, including Klonopin, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Klonopin after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Klonopin or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1; published=Dec 02, 2025; title=KLONOPIN (CLONAZEPAM) TABLET [H2-PHARMA, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1",
+    "formulations_available": "Tablet; orally disintegrating tablet",
+    "half_life_range": "30-40 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "20 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Benzodiazepine positive allosteric modulator of GABA-A receptors; enhances GABAergic inhibition by binding at the benzodiazepine site.",
+    "mechanism_source": "American Epilepsy Society 2024 U.S. ASM summary; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "AES/FDA summary",
+    "minimum_effective_dose": "Adults seizure disorders: 1.5 mg/day initial; titrate to effect",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Navarro2015|https://pubmed.ncbi.nlm.nih.gov/26627366/; Dahlin2000|https://pubmed.ncbi.nlm.nih.gov/10714402/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Klonopin; Rivotril",
+    "typical_doses_per_day": "Adults seizure disorders: maintenance often 1.5-20 mg/day divided TID",
+    "year_fda_cleared": "1975"
+  },
+  "generic_name": "clonazepam",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1975",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1975"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5",
+      "generic_name": "clonazepam",
+      "id": "source_fact_concordance_problem-df92260130b2",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Compare the efficiency of the association, first line, the intravenous levetiracetam and the intravenous clonazepam, in that of a monotherapy of clonazepam intravenous in the pre-hospital treatment of tonicoclonic generalised status epilepticus.",
+        "interventions": [
+          "Levetiracetam/Clonazepam",
+          "Clonazepam/Placebo levetiracetam IV"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01150331",
+        "new_reference_pmids": [
+          "21967362"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "26627366",
+          "21967362"
+        ],
+        "title": "Study of Antiepileptic Drug in Generalised Convulsive Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01150331",
+      "generic_name": "clonazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-9854285a73f2",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study of Antiepileptic Drug in Generalised Convulsive Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The main purpose of this study is to know on one hand if lorazepam is more (effective) than clonazepam and on the other hand if lorazepam is also effective as the association clonazepam + fosphenytoin in out-of-hospital treatment of the generalized convulsive status epilepticus in adult patients.",
+        "interventions": [
+          "Clonazepam",
+          "Fosphenytoin",
+          "Placebo",
+          "Lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01870024",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01870024",
+      "generic_name": "clonazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b00678a05078",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the efficacy and safety of two trough-ranges of everolimus given as adjunctive therapy in patients with tuberous sclerosis complex (TSC) who had refractory partial-onset seizures.\n\nThe study consisted of 4 phases for each patient Baseline phase:\\[From Screening Week -8 (V1) to randomization visit at Week 0 (V2)\\], Core phase \\[from randomization at Week 0 (V2) to Week 18 (V11)\\], Extension phase \\[from Week 18 (V11) until 48 weeks after the last patient had completed the core phase\\] and Post Extension phase \\[from end of Extension phase to end of study\\].",
+        "interventions": [
+          "RAD001",
+          "Placebo",
+          "Antiepileptic drug (1 to 3 only)",
+          "open label RAD001 (only used for post-extension phase)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01713946",
+        "new_reference_pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "title": "A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01713946",
+      "generic_name": "clonazepam",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-1b84c678b287",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "enzyme_inducing_or_inhibiting",
+      "current_value": "Not a CYP inducer/inhibitor",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "inducer",
+          "inhibitor"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "inducer",
+          "inhibitor"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5",
+      "generic_name": "clonazepam",
+      "id": "source_fact_concordance_problem-99dabe45c308",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: enzyme_inducing_or_inhibiting was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "enzyme_inducing_or_inhibiting could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "trade_names",
+      "current_value": "Klonopin; Rivotril",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=indications_and_usage%3A%22seizure%22&limit=100",
+      "generic_name": "clonazepam",
+      "id": "trade_name_addition-9d9fdd5fe630",
+      "kind": "trade_name_addition",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA",
+        "trade_names": "Clonazepam"
+      },
+      "proposed_value": "Clonazepam",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "Source labels mention trade name(s) not present in CSV: Clonazepam."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1; published=Dec 02, 2025; title=KLONOPIN (CLONAZEPAM) TABLET [H2-PHARMA, LLC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cfa0d79a-843c-4b88-95a1-e9511d649ca1",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5",
+      "generic_name": "clonazepam",
+      "id": "fda_warning_metadata_refresh-3ab158dfb03e",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation, respiratory depression, coma, and death. Reserve concomitant prescribing of these drugs for patients for whom alternative treatment options are inadequate. Limit dosages and durations to the minimum required. Follow patients for signs and symptoms of respiratory depression and sedation (see WARNINGS and PRECAUTIONS ). The use of benzodiazepines, including Klonopin, exposes users to risks of abuse, misuse, and addiction, which can lead to overdose or death. Abuse and misuse of benzodiazepines commonly involve concomitant use of other medications, alcohol, and/or illicit substances, which is associated with an increased frequency of serious adverse outcomes. Before prescribing Klonopin and throughout treatment, assess each patient's risk for abuse, misuse, and addiction (see WARNINGS ) . The continued use of benzodiazepines, including Klonopin, may lead to clinically significant physical dependence. The risks of dependence and withdrawal increase with longer treatment duration and higher daily dose. Abrupt discontinuation or rapid dosage reduction of Klonopin after continued use may precipitate acute withdrawal reactions, which can be life-threatening. To reduce the risk of withdrawal reactions, use a gradual taper to discontinue Klonopin or reduce the dosage (see DOSAGE AND ADMINISTRATION and WARNINGS ) .",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=cfa0d79a-843c-4b88-95a1-e9511d649ca1; effective_time=20251201; title=Klonopin / CLONAZEPAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=cfa0d79a-843c-4b88-95a1-e9511d649ca1; effective_time=20251201; title=Klonopin / CLONAZEPAM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22cfa0d79a-843c-4b88-95a1-e9511d649ca1%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Status-epilepticus trial randomized levetiracetam add-on versus placebo add-on while both arms received clonazepam; no clonazepam-placebo differential is extractable.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "clonazepam",
+      "label": "Navarro2015",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "26627366",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26627366/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Prehospital treatment with levetiracetam plus clonazepam or placebo plus clonazepam in status epilepticus (SAMUKeppra): a randomised, double-blind, phase 3 trial."
+    },
+    {
+      "audit_note": "Low-dose clonazepam study measured epileptiform EEG activity, not seizure-frequency RR50/MPC/seizure-freedom outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "clonazepam",
+      "label": "Dahlin2000",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "10714402",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/10714402/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Reduction of epileptiform activity in response to low-dose clonazepam in children with epilepsy: a randomized double-blind study."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Navarro",
+      "generic_name": "clonazepam",
+      "label": "Navarro2015",
+      "pmid": "26627366",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Prehospital treatment with levetiracetam plus clonazepam or placebo plus clonazepam in status epilepticus (SAMUKeppra): a randomised, double-blind, phase 3 trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26627366/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Dahlin",
+      "generic_name": "clonazepam",
+      "label": "Dahlin2000",
+      "pmid": "10714402",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Reduction of epileptiform activity in response to low-dose clonazepam in children with epilepsy: a randomized double-blind study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10714402/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Baek",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "35987013",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Safety and efficacy of clonazepam in patients with hemifacial spasm: A double-blind, randomized, placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35987013/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Schomer",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "28090524",
+      "pub_types": "Journal Article; Comment",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The SAMUKeppra study in prehospital status epilepticus: lessons for future study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28090524/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Kälviäinen",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "26666500",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Brivaracetam in Unverricht-Lundborg disease (EPM1): Results from two randomized, double-blind, placebo-controlled studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26666500/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Navarro",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "21967362",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A prehospital randomized trial in convulsive status epilepticus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21967362/",
+      "year": "2011"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "15875342",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Stiripentol: new preparation. Severe myoclonic epilepsy of infancy: promising.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15875342/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Rockstroh",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "2289472",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Hyperventilation-induced EEG changes in humans and their modulation by an anticonvulsant drug.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2289472/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Altamura",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "3327370",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Clonazepam/haloperidol combination therapy in schizophrenia: a double blind study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3327370/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Hrachovy",
+      "generic_name": "clonazepam",
+      "label": "",
+      "pmid": "6312008",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Double-blind study of ACTH vs prednisone therapy in infantile spasms.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6312008/",
+      "year": "1983"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

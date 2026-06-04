@@ -1,0 +1,996 @@
+2026-05-20T23:05:08.334051Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.388135Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47a2-bdd2-7f33-a914-18fcef9e8340
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 11-24%, ophthalmologic: diplopia 4-15%, cardiac: QT shortening >20 ms 31-66%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "28.2-39 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)",
+    "diff_median_pct_change_maximum_effective_dose": "31-74.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 74.1%; Chung2020 cenobamate 200 mg/day 34.1%; Krauss2019 cenobamate 400 mg/day 31%)",
+    "diff_seizure_freedom_maximum_effective_dose": "19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%)",
+    "enzyme_inducing_or_inhibiting": "Inhibits CYP2C19; induces CYP3A4, CYP2B6, and UGT pathways",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=565c2126-57ae-4e29-b443-723bbe7e2072; published=Feb 02, 2026; title=XCOPRI TITRATION PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET, FILM COATED XCOPRI MAINTENANCE PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET [SK LIFE SCIENCE, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor",
+    "filter_epilepsy_type": "Focal",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "GABA; Sodium channel",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "QT shortening",
+    "filter_symptom_category": "CNS; Cardiac; Constitutional; Ophthalmologic",
+    "formulations_available": "Tablet",
+    "generic_name": "cenobamate",
+    "half_life_range": "50-60 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise therapeutic mechanism is unknown; cenobamate reduces repetitive neuronal firing by inhibiting voltage-gated sodium currents and positively modulates GABA-A ion channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "100 mg/day showed efficacy in focal-onset RCTs; 200 mg/day recommended maintenance",
+    "plot_diff_50_responder_maximum_effective_dose": "Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Lee2025|74.1|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|34.1|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|31|https://pubmed.ncbi.nlm.nih.gov/31734103/|437",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222",
+    "pubmed_phase_ii_iii_rct_links": "Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+    "pubmed_search_aliases": "YKP3089",
+    "qt_interval_effect": "Shortens QT interval; contraindicated in familial short QT syndrome",
+    "rct_pubmed_verification_notes": "PubMed loop 8/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 22 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal/partial-onset seizures.",
+    "trade_names": "Ontozry; Xcopri",
+    "typical_doses_per_day": "Adults: titrate to 200 mg once daily; may increase to 400 mg/day",
+    "year_fda_cleared": "2019"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/",
+      "label": "Lee2025",
+      "pmid": "41144696",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41144696/"
+    },
+    {
+      "entry": "Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/",
+      "label": "Vossler2020",
+      "pmid": "32313503",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32313503/"
+    },
+    {
+      "entry": "Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/",
+      "label": "Chung2020",
+      "pmid": "32409485",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32409485/"
+    },
+    {
+      "entry": "Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/",
+      "label": "Krauss2019",
+      "pmid": "31734103",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31734103/"
+    },
+    {
+      "entry": "KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "label": "KasteleijnNolstTrenite2019",
+      "pmid": "31292226",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31292226/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 11-24%, ophthalmologic: diplopia 4-15%, cardiac: QT shortening >20 ms 31-66%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "28.2-39 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)",
+    "diff_median_pct_change_maximum_effective_dose": "31-74.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 74.1%; Chung2020 cenobamate 200 mg/day 34.1%; Krauss2019 cenobamate 400 mg/day 31%)",
+    "diff_seizure_freedom_maximum_effective_dose": "19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%)",
+    "enzyme_inducing_or_inhibiting": "Inhibits CYP2C19; induces CYP3A4, CYP2B6, and UGT pathways",
+    "epilepsy_type": "Focal",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=565c2126-57ae-4e29-b443-723bbe7e2072; published=Feb 02, 2026; title=XCOPRI TITRATION PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET, FILM COATED XCOPRI MAINTENANCE PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET [SK LIFE SCIENCE, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072",
+    "formulations_available": "Tablet",
+    "half_life_range": "50-60 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "400 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise therapeutic mechanism is unknown; cenobamate reduces repetitive neuronal firing by inhibiting voltage-gated sodium currents and positively modulates GABA-A ion channels.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "100 mg/day showed efficacy in focal-onset RCTs; 200 mg/day recommended maintenance",
+    "plot_diff_50_responder_maximum_effective_dose": "Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Lee2025|74.1|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|34.1|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|31|https://pubmed.ncbi.nlm.nih.gov/31734103/|437",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222",
+    "pubmed_phase_ii_iii_rct_links": "Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+    "pubmed_search_aliases": "YKP3089",
+    "qt_interval_effect": "Shortens QT interval; contraindicated in familial short QT syndrome",
+    "trade_names": "Ontozry; Xcopri",
+    "typical_doses_per_day": "Adults: titrate to 200 mg once daily; may increase to 400 mg/day",
+    "year_fda_cleared": "2019"
+  },
+  "generic_name": "cenobamate",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "details": {
+        "article": {
+          "abstract": "To examine early responses to cenobamate therapy using prospective data from a dose-response study in Asian patients with focal seizures (YKP3089C035, C035) that employed a titration regimen starting at 12.5 mg/day. In Study C035, adults 18-70 years of age with uncontrolled focal seizures despite treatment with 1-3 antiseizure medications were randomized 1:1:1:1 to receive placebo or adjunctive cenobamate 100, 200, or 400 mg/day. The 24-week double-blind study included an 18-week titration and 6-week maintenance phase. During the first 8 weeks of titration (\"early titration phase\"), all cenobamate patients received the same dosing regimen: 12.5 mg/day for 2 weeks, 25 mg/day for 2 weeks, 50 mg/day for 2 weeks, and 100 mg/day for 2 weeks. Change in seizure frequency from baseline and responder rates were assessed at these 2-week intervals for combined cenobamate dose groups vs placebo. Analyses were performed on the modified intent-to-treat maintenance (MITT-M) population (≥1 study drug dose and seizure data in the maintenance phase); all patients completed early titration. Of 519 patients randomized, 446 were included in the MITT-M population (placebo n = 117, cenobamate n = 329). During Weeks 1-2, 3-4, 5-6, and 7-8 of titration, cenobamate patients experienced a median reduction in 28-day seizure frequency of 16.0% (vs 20.0% placebo, p = .81), 27.3% (vs 22.2% placebo, p = .42), 42.9% (vs 15.4% placebo, p = .002), and 55.6% (vs 20.0% placebo, p < .001), respectively. During Weeks 5-6 and 7-8, the 100% responder rates for cenobamate 50 and 100 mg/day were 17.0% (vs 12.8% placebo, p = .29) and 26.7% (vs 8.5% placebo, p < .001), respectively. Statistically significant responses to cenobamate treatment occurred within the first 8 weeks of titration, including a 42.9% median reduction in 28-day seizure frequency (Weeks 5-6) and a seizure-free rate of 26.7% (Weeks 7-8). These data show that substantial seizure reductions occurred in many patients early during cenobamate titration. © 2025 The Author(s). Epilepsia published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.",
+          "first_author": "Kawai",
+          "pmid": "41230998",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Multicenter Study"
+          ],
+          "title": "Early response rates with adjunctive cenobamate in uncontrolled focal seizures: Prospective analysis of a randomized, double-blind, placebo-controlled study in a multinational Asian population.",
+          "year": "2025"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41230998/",
+      "generic_name": "cenobamate",
+      "id": "new_pubmed_phase_ii_iii_rct-a1968776c0bf",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Kawai2025|https://pubmed.ncbi.nlm.nih.gov/41230998/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41230998 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Kawai2025|https://pubmed.ncbi.nlm.nih.gov/41230998/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Early response rates with adjunctive cenobamate in uncontrolled focal seizures: Prospective analysis of a randomized, double-blind, placebo-controlled study in a multinational Asian population."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "details": {
+        "article": {
+          "abstract": "To assess the efficacy of adjunctive cenobamate by seizure subtype in Asian patients with uncontrolled focal epilepsy during a 24-week controlled study (NCT04557085 [C035]). Adults 18-70 years old with ≥8 focal seizures (focal aware motor [FAM], focal impaired awareness [FIA], and/or focal to bilateral tonic-clonic [FBTC]) during an 8-week baseline, despite treatment with 1-3 antiseizure medications, were randomized 1:1:1:1 to receive placebo or cenobamate 100, 200, or 400 mg/day, starting at 12.5 mg/day and uptitrated at 2-week intervals. The study design included an 18-week titration phase and a 6-week maintenance phase. Median percent change from baseline in 28-day seizure frequency and responder rates for patients with FAM, FIA, and/or FBTC seizures were assessed during the maintenance phase and during a 12-week treatment period that combined the last 6 weeks of titration and the 6-week maintenance phase. N = 519 patients were randomized (maintenance phase n = 446, 12-week period n = 478). During both periods assessed, numerically greater reductions vs placebo occurred across all cenobamate doses and seizure subtypes. For cenobamate 200 and 400 mg/day, maintenance-phase median seizure frequency reductions were 76 %-100 % across all seizure subtypes; seizure-free rates were up to 52.4 % (FAM), 57.5 % (FIA), and 75.0 % (FBTC). The most common cenobamate-related treatment-emergent adverse events (≥20 %) were dizziness and somnolence. Cenobamate reduced all focal seizure subtypes in a generally dose-response manner in adult Asian patients, including maintenance-phase seizure frequency reductions of 76 %-100 %. Notably high seizure-free rates were observed for patients with FBTC seizures, an important contributor to morbidity/mortality in focal epilepsy patients. Copyright © 2025. Published by Elsevier Ltd.",
+          "first_author": "Wu",
+          "pmid": "41101116",
+          "pub_types": [
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Multicenter Study"
+          ],
+          "title": "Efficacy of adjunctive cenobamate by focal seizure subtypes: a randomized, double-blind, placebo-controlled, multicenter study in a multinational Asian population.",
+          "year": "2025"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41101116/",
+      "generic_name": "cenobamate",
+      "id": "new_pubmed_phase_ii_iii_rct-ed4728049b06",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Wu2025|https://pubmed.ncbi.nlm.nih.gov/41101116/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 41101116 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Wu2025|https://pubmed.ncbi.nlm.nih.gov/41101116/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Efficacy of adjunctive cenobamate by focal seizure subtypes: a randomized, double-blind, placebo-controlled, multicenter study in a multinational Asian population."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "details": {
+        "article": {
+          "abstract": "To evaluate the effect of cenobamate in patients with photoparoxysmal-EEG response (PPR) to intermittent photic stimulation (IPS) as proof of principle of efficacy in patients with epilepsy. In this multicenter, single-blind study, adults with photosensitive epilepsy, with/without concomitant antiepileptic drug therapy, underwent IPS under 3 eye conditions after a single dose of placebo (day -1, day 2) or cenobamate (day 1; 100, 250, or 400 mg). Complete suppression was a standardized photosensitivity range reduction to 0 over ≥1 time points for all eye conditions. Partial suppression was a ≥3-point reduction over ≥3 testing times vs the same time points on day -1 in ≥1 eye condition. Pharmacokinetics and safety were assessed. Of 6 evaluable patients, 5 reentered to receive higher doses. Cenobamate 100 mg produced partial suppression in 1 of 3 patients; 250 mg produced complete suppression in 1 of 4 and partial suppression in 4 of 4 patients; and 400 mg produced complete suppression in 1 of 4 and partial suppression in 2 of 4 patients. PPR was consistently reduced on days 1 and 2 (>24 hours after cenobamate) vs day -1 (placebo) with the 250- and 400-mg doses. Area under the plasma concentration-time curve (before dose to last measurable concentration) values between 201 and 400 μg/h/mL resulted in partial suppression in 4 of 6 (66%) patients. Most common adverse events were dizziness and somnolence. This proof-of-principle study demonstrated that cenobamate is a potentially effective product for epilepsy. NCT00616148. This study provides Class III evidence that, for patients with photosensitive epilepsy, cenobamate suppresses IPS-induced PPR. Copyright © 2019 The Author(s). Published by Wolters Kluwer Health, Inc. on behalf of the American Academy of Neurology.",
+          "first_author": "Kasteleijn-Nolst Trenite",
+          "pmid": "31292226",
+          "pub_types": [
+            "Clinical Trial, Phase II",
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Suppression of the photoparoxysmal response in photosensitive epilepsy with cenobamate (YKP3089).",
+          "year": "2019"
+        },
+        "reason": "title lacks primary randomized/placebo/phase trial language"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "generic_name": "cenobamate",
+      "id": "rct_pubmed_concordance_problem-90a2a62ab0cd",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 31292226 needs manual review for cenobamate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 31292226 needs manual review for cenobamate; PubMed validation reason: title lacks primary randomized/placebo/phase trial language.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks primary randomized/placebo/phase trial language."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial is intended to study the safety and effectiveness of an new anti-epileptic drug (AED) on Primary Generalized Tonic-Clonic (PGTC) Seizures. Eligible Subjects, adults and adolescents, will continue to take their usual AEDs and receive either cenobamate or placebo. Subjects will have a 50% chance or receiving cenobamate or placebo (sugar pill). Subjects will initially receive 12.5 mg of cenobamate or placebo (study drug) and increase the dose every two weeks until they reach a target dose of 200 mg. Subjects will take study drug at approximately the same time in the morning (once a day) with or without food. If tolerability issues arise, dosing can be changed to evening. Also, once a subject reaches 200 mg, the dose can be decreased one time to 150 mg, if necessary. The treatment period is 22 weeks and there is a 3 week follow up period, which includes a one week decrease in study drug to 100 mg prior to stopping. Adolescents will follow the same every two week regimen and receive cenobamate as an oral suspension based on weight. Subjects who complete may be eligible for an extension study and will not have to complete the follow up period. Subjects will track their seizure types and frequency in a diary throughout the study.",
+        "interventions": [
+          "Cenobamate",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03678753",
+        "new_reference_pmids": [
+          "39087564",
+          "35605481"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "39087564",
+          "35605481"
+        ],
+        "title": "Randomized, Double-Blind Study to Evaluate Efficacy and Safety of Cenobamate Adjunctive Therapy in PGTC Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03678753",
+      "generic_name": "cenobamate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-03504868be32",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Randomized, Double-Blind Study to Evaluate Efficacy and Safety of Cenobamate Adjunctive Therapy in PGTC Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a multicenter, randomized, double-blind, placebo-controlled, parallel-group, adjunctive therapy study in subjects with POS, with optional OLE. The study consists of 4 periods as follows: An 8-week of Screening/Baseline Period, 24-week of Double-blind Treatment Period (including a 18-week Titration Phase and 6-week Maintenance Phase), 52-week of Open-label Extension (OLE) Period (applicable for subjects who participate in the OLE) and up to 5-week of End of Study (EOS) Follow-up Period.\n\nThe purpose of this study is to evaluate the efficacy and safety of 100, 200 and 400 mg/day of cenobamate as adjunctive therapy compared with placebo in subjects with partial onset seizures (POS).\n\nThe study will also evaluate the long-term safety and tolerability of cenobamate adjunctive therapy in subjects with POS who have completed the double-blind treatment period.",
+        "interventions": [
+          "Cenobamate",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT04557085",
+        "new_reference_pmids": [
+          "41101116"
+        ],
+        "overall_status": "UNKNOWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "41101116"
+        ],
+        "title": "Randomized, Double-blind Study to Evaluate Efficacy and Safety of Cenobamate Adjunctive Therapy in POS"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04557085",
+      "generic_name": "cenobamate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-84d0c5b57e15",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Randomized, Double-blind Study to Evaluate Efficacy and Safety of Cenobamate Adjunctive Therapy in POS"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The aim of this study is to evaluate the ability of a single oral dose of YKP3089 to abolish or clearly reduce the IPS-induced photo-paroxysmal EEG response in photosensitive epilepsy patients, and to measure the onset and duration of the effect. Several cohorts will be used, to sequentially investigate different doses.",
+        "interventions": [
+          "YKP3089",
+          "Placebo"
+        ],
+        "masking": "SINGLE",
+        "nct_id": "NCT00616148",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "31292226"
+        ],
+        "title": "Efficacy of YKP3089 in Patients With Photosensitive Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00616148",
+      "generic_name": "cenobamate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-920a9df8c8a3",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy of YKP3089 in Patients With Photosensitive Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a multicenter, double-blind, randomized, placebo-controlled dose response study, with an 8-week prospective baseline and an 18 week double-blind treatment period (including a 6-week titration phase and 12 week maintenance phase), followed by a 3-week blinded study drug taper period (for subjects leaving the study) or a 2-week blinded conversion period (for subjects who will participate in the open-label extension).\n\nThe primary objective of this study is to determine the effective dose range of YKP3089 as adjunctive therapy for the treatment of partial seizures.\n\nThe trial will also evaluate the safety and tolerability of YKP3089 in the partial epilepsy population.",
+        "interventions": [
+          "YKP3089",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01866111",
+        "new_reference_pmids": [
+          "35705501",
+          "33662894",
+          "25769377"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "35705501",
+          "33662894",
+          "31734103",
+          "25769377"
+        ],
+        "title": "A Double-Blind, Randomized, Placebo-Controlled, Phase 2 Trial of YKP3089 as Adjunctive Therapy in Subjects With Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01866111",
+      "generic_name": "cenobamate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-f37875ce0067",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Double-Blind, Randomized, Placebo-Controlled, Phase 2 Trial of YKP3089 as Adjunctive Therapy in Subjects With Partial Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is to evaluate the efficacy of YKP3089 in reducing seizure frequency when compared to baseline in subjects with partial onset seizures not fully controlled despite their treatment with 1 to 3 concomitant anti-epileptic drugs.\n\nAlso to evaluate the safety and tolerability of YKP3089.",
+        "interventions": [
+          "YKP3089",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT01397968",
+        "new_reference_pmids": [
+          "34254673",
+          "23219031"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "34254673",
+          "32409485",
+          "23219031"
+        ],
+        "title": "Efficacy and Safety of YKP3089 in Subjects With Treatment Resistant Partial Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01397968",
+      "generic_name": "cenobamate",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-0faa91a003a0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of YKP3089 in Subjects With Treatment Resistant Partial Onset Seizures"
+    },
+    {
+      "column": "epilepsy_type",
+      "current_value": "Focal",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "focal"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "focal"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5",
+      "generic_name": "cenobamate",
+      "id": "source_fact_concordance_problem-46a77a978870",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: epilepsy_type was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "epilepsy_type could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=565c2126-57ae-4e29-b443-723bbe7e2072; published=Feb 02, 2026; title=XCOPRI TITRATION PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET, FILM COATED XCOPRI MAINTENANCE PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET [SK LIFE SCIENCE, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5",
+      "generic_name": "cenobamate",
+      "id": "fda_warning_metadata_refresh-d03652dfeffa",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=565c2126-57ae-4e29-b443-723bbe7e2072; effective_time=20250925; title=Xcopri; Xcopri Maintenance Pack; Xcopri Titration Pack / CENOBAMATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=565c2126-57ae-4e29-b443-723bbe7e2072; effective_time=20250925; title=Xcopri; Xcopri Maintenance Pack; Xcopri Titration Pack / CENOBAMATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports 400 mg/day median seizure-frequency change and seizure-free rates during maintenance.",
+      "dose_or_regimen": "cenobamate 400 mg/day",
+      "endpoint": "focal seizures",
+      "generic_name": "cenobamate",
+      "label": "Lee2025",
+      "mpc_active_percent": "100.0",
+      "mpc_differential_percent": "74.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "25.9",
+      "pmid": "41144696",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41144696/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "52.4",
+      "sf_differential_percent": "49.8",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "2.6",
+      "title": "A randomized, double-blind, placebo-controlled, multicenter study to evaluate the efficacy and safety of adjunctive cenobamate in Asian patients with focal seizures."
+    },
+    {
+      "audit_note": "Abstract reports the maximum dose tested in this phase II RCT: 200 mg/day responder, median seizure-frequency reduction, and maintenance seizure-free rates.",
+      "dose_or_regimen": "cenobamate 200 mg/day",
+      "endpoint": "focal seizures",
+      "generic_name": "cenobamate",
+      "label": "Chung2020",
+      "mpc_active_percent": "55.6",
+      "mpc_differential_percent": "34.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "21.5",
+      "pmid": "32409485",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32409485/",
+      "rr50_active_percent": "50.4",
+      "rr50_differential_percent": "28.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "22.2",
+      "sf_active_percent": "28.3",
+      "sf_differential_percent": "19.5",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "8.8",
+      "title": "Randomized phase 2 study of adjunctive cenobamate in patients with uncontrolled focal seizures."
+    },
+    {
+      "audit_note": "No PubMed abstract efficacy values available for extraction.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "cenobamate",
+      "label": "Vossler2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "32313503",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32313503/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Remarkably High Efficacy of Cenobamate in Adults With Focal-Onset Seizures: A Double-Blind, Randomized, Placebo-Controlled Trial."
+    },
+    {
+      "audit_note": "Abstract reports 400 mg/day responder and median seizure-frequency reduction values.",
+      "dose_or_regimen": "cenobamate 400 mg/day",
+      "endpoint": "focal seizures",
+      "generic_name": "cenobamate",
+      "label": "Krauss2019",
+      "mpc_active_percent": "55.0",
+      "mpc_differential_percent": "31.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "24.0",
+      "pmid": "31734103",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31734103/",
+      "rr50_active_percent": "64.0",
+      "rr50_differential_percent": "39.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "25.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Safety and efficacy of adjunctive cenobamate (YKP3089) in patients with uncontrolled focal seizures: a multicentre, double-blind, randomised, placebo-controlled, dose-response trial."
+    },
+    {
+      "audit_note": "Photosensitivity proof-of-principle study reported PPR suppression, not seizure-frequency RR50/MPC/seizure-freedom outcomes.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "cenobamate",
+      "label": "KasteleijnNolstTrenite2019",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "31292226",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Suppression of the photoparoxysmal response in photosensitive epilepsy with cenobamate (YKP3089)."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Lee",
+      "generic_name": "cenobamate",
+      "label": "Lee2025",
+      "pmid": "41144696",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized, double-blind, placebo-controlled, multicenter study to evaluate the efficacy and safety of adjunctive cenobamate in Asian patients with focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41144696/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Chung",
+      "generic_name": "cenobamate",
+      "label": "Chung2020",
+      "pmid": "32409485",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized phase 2 study of adjunctive cenobamate in patients with uncontrolled focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32409485/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Vossler",
+      "generic_name": "cenobamate",
+      "label": "Vossler2020",
+      "pmid": "32313503",
+      "pub_types": "Journal Article; Comment",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Remarkably High Efficacy of Cenobamate in Adults With Focal-Onset Seizures: A Double-Blind, Randomized, Placebo-Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32313503/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "cenobamate",
+      "label": "Krauss2019",
+      "pmid": "31734103",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of adjunctive cenobamate (YKP3089) in patients with uncontrolled focal seizures: a multicentre, double-blind, randomised, placebo-controlled, dose-response trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31734103/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Kasteleijn-Nolst Trenite",
+      "generic_name": "cenobamate",
+      "label": "KasteleijnNolstTrenite2019",
+      "pmid": "31292226",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Suppression of the photoparoxysmal response in photosensitive epilepsy with cenobamate (YKP3089).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31292226/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Serratosa",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "41812435",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Seizure-free days as a clinical outcome measure of reduced epilepsy burden: 5-year outcomes with cenobamate treatment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41812435/",
+      "year": "2026"
+    },
+    {
+      "first_author": "Kawai",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "41230998",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Early response rates with adjunctive cenobamate in uncontrolled focal seizures: Prospective analysis of a randomized, double-blind, placebo-controlled study in a multinational Asian population.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41230998/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Yu",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "41428177",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Efficacy and Safety of Adjunctive Cenobamate in Chinese Participants with Focal Seizure.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41428177/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Wu",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "41101116",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Multicenter Study",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy of adjunctive cenobamate by focal seizure subtypes: a randomized, double-blind, placebo-controlled, multicenter study in a multinational Asian population.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41101116/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Goldenholz",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "40020525",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Inductive reasoning with large language models: A simulated randomized controlled trial for epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40020525/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Xu",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "38652999",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase II",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive cenobamate based on patient etiology: Post-hoc analysis of YKP3089C017 randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38652999/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Goldenholz",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "38562831",
+      "pub_types": "Preprint; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Inductive reasoning with large language models: a simulated randomized controlled trial for epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38562831/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "38184949",
+      "pub_types": "Randomized Controlled Trial; Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Cognitive and psychiatric adverse events during adjunctive cenobamate treatment in phase 2 and phase 3 clinical studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38184949/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "36855241",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't; Research Support, N.I.H., Extramural",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Failure to use new breakthrough treatments for epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36855241/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Klein",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "35705501",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term Efficacy and Safety From an Open-Label Extension of Adjunctive Cenobamate in Patients With Uncontrolled Focal Seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35705501/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Steinhoff",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "35711112",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Onset of efficacy and adverse events during Cenobamate titration period.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35711112/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Darpo",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "35182037",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A Phase 1 Clinical Study Evaluating the Effects of Cenobamate on the QT Interval.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35182037/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Brandt",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "35168142",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive cenobamate: Post-hoc analysis of study C017 in patients grouped by mechanism of action of concomitant antiseizure medications.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35168142/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Yang",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "34670008",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pharmacokinetics and safety of cenobamate, a novel antiseizure medication, in healthy Japanese, and an ethnic comparison with healthy non-Japanese.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34670008/",
+      "year": "2021"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "34254673",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term safety of adjunctive cenobamate in patients with uncontrolled focal seizures: Open-label extension of a randomized clinical study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34254673/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Rosenfeld",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "33662894",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy of adjunctive cenobamate based on number of concomitant antiseizure medications, seizure frequency, and epilepsy duration at baseline: A post-hoc analysis of a randomized clinical study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33662894/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Elizebath",
+      "generic_name": "cenobamate",
+      "label": "",
+      "pmid": "33567400",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cenobamate treatment of focal-onset seizures: Quality of life and outcome during up to eight years of treatment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33567400/",
+      "year": "2021"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T23:05:08.413186Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.477109Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:05:08.477458Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:05:08.480463Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:05:08.480502Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:08.497420Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.497431Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.497851Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.497854Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.498200Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.498204Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.498657Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.498660Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.499115Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.499119Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.500144Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:08.500147Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:08.513811Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.538479Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.540848Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:08.544575Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:08.544670Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:08.563454Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.604354Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:08.629330Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:05:09.409757Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:05:09.410145Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:05:09.413019Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:05:09.413061Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:09.426127Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.426136Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.426565Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.426570Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.426998Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.427002Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.427405Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.427408Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.427815Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.427817Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.428716Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:05:09.428722Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:05:09.459867Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:09.463081Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:05:09.463146Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: openFDA cenobamate Xcopri label boxed warning spl_set_id 565c2126-57ae-4e29-b443-723bbe7e2072
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf
+web search: 
+web search: Drugs@FDA Xcopri cenobamate approval date NDA 212839 November 2019
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/41144696/
+web search: 
+web search: 
+web search: 
+web search: eutils ncbi esummary pubmed 32313503 32409485 31292226 31734103 41144696
+web search: 
+2026-05-20T23:06:53.916102Z  WARN codex_core_plugins::startup_sync: git sync failed for curated plugin sync; falling back to GitHub HTTP error=git ls-remote curated plugins repo timed out after 30s git_binary="git"
+web search: PMID 32313503 Remarkably High Efficacy of Cenobamate Adults Focal-Onset Seizures comment
+2026-05-20T23:06:54.156692Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:06:54.157538Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:06:54.163294Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:06:54.163372Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: https://clinicaltrials.gov/study/NCT04557085
+web search: 
+web search: 
+web search: 
+web search: clinicaltrials.gov api v2 studies NCT04557085
+web search: 
+web search: ClinicalTrials.gov NCT00616148 YKP3089 photosensitive epilepsy phase 2 placebo randomized
+web search: 
+web search: 39087564 cenobamate seizure PubMed
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/39087564/
+web search: 
+web search: "39087564" "cenobamate"
+web search: 
+web search: PMID 41428177 cenobamate Chinese participants focal seizure randomized double blind placebo controlled
+web search: 
+web search: EMA Ontozry cenobamate focal-onset seizures adult epilepsy marketing authorisation
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"],"proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","rationale":"The no-boxed-warning conclusion is supported by FDA/openFDA/FDA label sources, but the current cell explicitly relies on DailyMed, which is not permissible for this field under the audit instructions.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"cenobamate","field":"generic_name","proposed_value":"cenobamate","rationale":"FDA labeling, EMA EPAR, and PubMed RCT records identify the active substance/drug as cenobamate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://pubmed.ncbi.nlm.nih.gov/31734103/"]},{"current_value":"Ontozry; Xcopri","field":"trade_names","proposed_value":"Ontozry; Xcopri","rationale":"Xcopri is the FDA-approved US product name; Ontozry is the EMA/eMC product name for cenobamate. No evidence suggests either should be a separate generic-drug row.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No alternate INN/common generic name was identified. YKP3089 is a development code and is appropriately captured as a PubMed search alias rather than an alternate generic name.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/31734103/","https://clinicaltrials.gov/study/NCT01397968"]},{"current_value":"YKP3089","field":"pubmed_search_aliases","proposed_value":"YKP3089","rationale":"YKP3089 is used in cenobamate trial titles and ClinicalTrials.gov records.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/31734103/","https://clinicaltrials.gov/study/NCT01397968","https://clinicaltrials.gov/study/NCT01866111"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA approved Xcopri (cenobamate) tablets for partial-onset seizures in adult patients, and current FDA labeling is available.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"2019","field":"year_fda_cleared","proposed_value":"2019","rationale":"The FDA NDA approval letter is electronically signed 11/21/2019. Note: current label highlights list Initial U.S. Approval as 2020, apparently reflecting controlled-substance scheduling/effective marketing timing, but the FDA approval action was in 2019.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Focal","field":"epilepsy_type","proposed_value":"Focal","rationale":"FDA labeling uses partial-onset seizures, which maps to focal-onset terminology; EMA/eMC explicitly use focal-onset seizures.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"Tablet","field":"formulations_available","proposed_value":"Tablet","rationale":"FDA label lists oral tablets in 12.5, 25, 50, 100, 150, and 200 mg strengths; eMC lists Ontozry tablets/film-coated tablets.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"Adults: titrate to 200 mg once daily; may increase to 400 mg/day","field":"typical_doses_per_day","proposed_value":"Adults: titrate to 200 mg once daily; may increase to 400 mg/day","rationale":"FDA and eMC labeling support once-daily titration to a 200 mg/day target/maintenance dose, with increases up to 400 mg/day based on response and tolerability.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"400 mg/day","field":"maximum_approved_daily_dose","proposed_value":"400 mg/day","rationale":"FDA and eMC labeling list 400 mg/day as the maximum daily dose in adults without hepatic dose limitation.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"100 mg/day showed efficacy in focal-onset RCTs; 200 mg/day recommended maintenance","field":"minimum_effective_dose","proposed_value":"100 mg/day showed efficacy in focal-onset RCTs; 200 mg/day recommended maintenance","rationale":"FDA Study 2 reports statistically significant seizure-frequency reduction for 100 mg/day versus placebo; FDA/eMC dosing recommends 200 mg/day as the target/maintenance dose.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"50-60 h","field":"half_life_range","proposed_value":"50-60 h","rationale":"FDA label states apparent terminal half-life is 50-60 hours over 100-400 mg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Liver","field":"major_organ_for_metabolism","proposed_value":"Liver","rationale":"FDA label states cenobamate is extensively metabolized and describes glucuronidation/oxidation pathways; hepatic impairment substantially increases exposure.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Inhibits CYP2C19; induces CYP3A4, CYP2B6, and UGT pathways","field":"enzyme_inducing_or_inhibiting","proposed_value":"Inhibits CYP2C19; induces CYP3A4 and CYP2B6","rationale":"FDA clinical interaction data support increased CYP2C19 substrate exposure and decreased CYP3A/CYP2B6 substrate exposure. Current FDA label also lists in vitro CYP2B6/CYP2C8/CYP3A4 induction and CYP2B6/CYP2C19/CYP3A inhibition, but I did not find FDA-label support for UGT induction.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inducer; Inhibitor","rationale":"The row's own enzyme text and FDA label both indicate clinically relevant induction and inhibition effects, so a filter containing only Inhibitor is incomplete.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Precise therapeutic mechanism is unknown; cenobamate reduces repetitive neuronal firing by inhibiting voltage-gated sodium currents and positively modulates GABA-A ion channels.","field":"mechanism_of_action","proposed_value":"Precise therapeutic mechanism is unknown; cenobamate reduces repetitive neuronal firing by inhibiting voltage-gated sodium currents and positively modulates GABA-A ion channels.","rationale":"FDA label directly supports this mechanism wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"This is a curator confidence classification, not a directly source-verifiable drug fact. It is consistent with the FDA label statement that the precise therapeutic mechanism is unknown.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA label (Xcopri Prescribing Information)","rationale":"The mechanism is supported by FDA labeling; removing DailyMed from the source text makes the row align with the trusted-domain source policy.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"The cited mechanism source tier is correct.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Shortens QT interval; contraindicated in familial short QT syndrome","field":"qt_interval_effect","proposed_value":"Shortens QT interval; contraindicated in familial short QT syndrome","rationale":"FDA labeling states dose-dependent QTcF shortening and contraindicates Xcopri in familial short QT syndrome.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 11-24%, ophthalmologic: diplopia 4-15%, cardiac: QT shortening >20 ms 31-66%","field":"adverse_symptoms_percentages","proposed_value":"CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 12-24%, ophthalmologic: diplopia 6-15%, cardiac: QT shortening >20 ms 31-66%","rationale":"FDA label Table 4 lists active-dose rates of somnolence 19/22/37%, dizziness 18/22/33%, fatigue 12/14/24%, and diplopia 6/7/15%; FDA QT warning lists QT shortening >20 ms in 31% at 200 mg and 66% at 500 mg.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA label (Xcopri Prescribing Information, accessdata.fda.gov); Drugs@FDA approval letter; FDA/openFDA label API for boxed-warning status; PubMed and ClinicalTrials.gov RCT records; EMA EPAR and eMC SmPC for Ontozry","rationale":"The current source list includes DailyMed and Epilepsy Society, which are not in the allowed trusted-source list for this audit, and it omits the PubMed/ClinicalTrials/EMA/eMC sources needed for RCTs and non-US brand/indication facts.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf","https://pubmed.ncbi.nlm.nih.gov/41144696/","https://clinicaltrials.gov/study/NCT04557085","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"Available in US","field":"filter_availability","proposed_value":"Available in US","rationale":"Supported by FDA approval and current FDA labeling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf"]},{"current_value":"Focal","field":"filter_epilepsy_type","proposed_value":"Focal","rationale":"Supported by FDA partial-onset and EMA/eMC focal-onset indication language.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry"]},{"current_value":"Tablet","field":"filter_formulation","proposed_value":"Tablet","rationale":"Supported by FDA/eMC tablet dosage form descriptions.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"GABA; Sodium channel","field":"filter_mechanism","proposed_value":"GABA; Sodium channel","rationale":"FDA label supports voltage-gated sodium-current inhibition and GABA-A positive allosteric modulation.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Liver/hepatic","field":"filter_metabolism","proposed_value":"Liver/hepatic","rationale":"Supported by FDA metabolism and hepatic impairment sections.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"QT shortening","field":"filter_qt_effect","proposed_value":"QT shortening","rationale":"Supported by FDA QT shortening warning and pharmacodynamics section.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"CNS; Cardiac; Constitutional; Ophthalmologic","field":"filter_symptom_category","proposed_value":"CNS; Cardiac; Constitutional; Ophthalmologic","rationale":"The categories match the supported adverse-effect facts after correcting fatigue and diplopia percentages.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Current ASM for focal/partial-onset seizures.","field":"status_or_notes","proposed_value":"Current ASM for focal/partial-onset seizures.","rationale":"FDA and EMA/eMC sources support current use for partial/focal-onset seizures in adults.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"05-20-2026","field":"data_most_recently_refreshed","proposed_value":"05-20-2026","rationale":"Refresh date is row metadata rather than a drug fact; it matches the supplied audit date.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]},{"current_value":"05-20-2026","field":"fda_black_box_warning_verified","proposed_value":"05-20-2026","rationale":"Verification date is row metadata; the FDA source text should be updated, but the date itself matches the audit date.","requires_user_approval":false,"status":"not_applicable","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]}],"generic_name":"cenobamate","missing_rcts":[{"pmid":"41230998","proposed_link_text":"Kawai2025|https://pubmed.ncbi.nlm.nih.gov/41230998/","title":"Early response rates with adjunctive cenobamate in uncontrolled focal seizures: Prospective analysis of a randomized, double-blind, placebo-controlled study in a multinational Asian population.","url":"https://pubmed.ncbi.nlm.nih.gov/41230998/","why_relevant":"PubMed-listed randomized controlled trial report from NCT04557085 with placebo comparison during early titration. It is a secondary/prospective analysis of an already listed trial, not a new unique trial; include only if the CSV field captures secondary RCT reports."},{"pmid":"41101116","proposed_link_text":"Wu2025|https://pubmed.ncbi.nlm.nih.gov/41101116/","title":"Efficacy of adjunctive cenobamate by focal seizure subtypes: a randomized, double-blind, placebo-controlled, multicenter study in a multinational Asian population.","url":"https://pubmed.ncbi.nlm.nih.gov/41101116/","why_relevant":"RCT-labeled seizure-subtype analysis of NCT04557085 with placebo comparison. It is not a separate trial from Lee2025; include only if secondary RCT reports are in scope."},{"pmid":"41428177","proposed_link_text":"Yu2025|https://pubmed.ncbi.nlm.nih.gov/41428177/","title":"Efficacy and Safety of Adjunctive Cenobamate in Chinese Participants with Focal Seizure.","url":"https://pubmed.ncbi.nlm.nih.gov/41428177/","why_relevant":"Post hoc Chinese subgroup analysis from randomized, double-blind, placebo-controlled NCT04557085. It provides RR50/MPC/seizure-freedom values for a subgroup but should not be treated as a separate unique RCT."}],"outcome_checks":[{"current_value":"28.2-39 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)","field":"diff_50_responder_maximum_effective_dose","proposed_value":"28.2-53.4 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 53.4%; Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)","rationale":"Chung2020 and Krauss2019 differentials are correct. Lee2025/NCT04557085 reports an overall maintenance-phase >=50% responder rate for 400 mg/day of 81.6% versus 28.2% placebo, a 53.4 percentage-point differential, so the current maximum RR50 differential is too low if Lee2025 outcomes are included.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12927683/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/"]},{"current_value":"Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"Lee2025|53.4|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","rationale":"Plot values should include Lee2025 RR50 differential if the row includes Lee2025 as outcome evidence.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12927683/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/"]},{"current_value":"31-74.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 74.1%; Chung2020 cenobamate 200 mg/day 34.1%; Krauss2019 cenobamate 400 mg/day 31%)","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"31-74.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 74.1%; Chung2020 cenobamate 200 mg/day 34.1%; Krauss2019 cenobamate 400 mg/day 31%)","rationale":"Lee2025 reports -100.0% at 400 mg/day versus -25.9% placebo, differential 74.1. Chung2020 reports 55.6% versus 21.5%, differential 34.1. Krauss2019/FDA Study 2 reports about 55.3% versus 24.3%, differential 31.0.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Lee2025|74.1|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|34.1|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|31|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"Lee2025|74.1|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|34.1|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|31|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","rationale":"The plotted MPC differential values match the cited RCT/outcome evidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%; Krauss2019 cenobamate 400 mg/day 20.1%)","rationale":"Lee2025 and Chung2020 values are correct. FDA label also reports Study 2 seizure-free maintenance counts for 400 mg/day and placebo, yielding about a 20.1 percentage-point differential; adding Krauss2019 improves completeness but does not change the displayed range.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|20.1|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","rationale":"Current plotted Lee2025 and Chung2020 values are supported; Krauss2019 seizure-freedom differential is extractable from FDA Study 2 maintenance-phase seizure-free counts.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 11-24%, ophthalmologic: diplopia 4-15%, cardiac: QT shortening >20 ms 31-66%","field":"adverse_symptoms_percentages","proposed_value":"CNS: somnolence 19-37%, CNS: dizziness 18-33%, constitutional: fatigue 12-24%, ophthalmologic: diplopia 6-15%, cardiac: QT shortening >20 ms 31-66%","reason":"Correct FDA-label fatigue and diplopia percentages.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Inhibits CYP2C19; induces CYP3A4, CYP2B6, and UGT pathways","field":"enzyme_inducing_or_inhibiting","proposed_value":"Inhibits CYP2C19; induces CYP3A4 and CYP2B6","reason":"FDA label supports CYP2C19 inhibition and CYP3A4/CYP2B6 induction; UGT induction was not supported by the checked FDA label.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Inhibitor","field":"filter_enzyme_effect","proposed_value":"Inducer; Inhibitor","reason":"Cenobamate has both inducing and inhibiting interaction effects.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA label (Xcopri Prescribing Information, accessdata.fda.gov); Drugs@FDA approval letter; FDA/openFDA label API for boxed-warning status; PubMed and ClinicalTrials.gov RCT records; EMA EPAR and eMC SmPC for Ontozry","reason":"Use only trusted/allowed sources and include sources that support brand, indication, RCT, outcome, and FDA warning facts.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://pubmed.ncbi.nlm.nih.gov/41144696/","https://clinicaltrials.gov/study/NCT04557085","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA label (Xcopri Prescribing Information)","reason":"Mechanism wording is supported by FDA labeling; DailyMed is unnecessary and outside the trusted-domain list supplied for this audit.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","reason":"Black-box verification must use FDA/openFDA/FDA label/Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=565c2126-57ae-4e29-b443-723bbe7e2072; published=Feb 02, 2026; title=XCOPRI TITRATION PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET, FILM COATED XCOPRI MAINTENANCE PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET [SK LIFE SCIENCE, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API and FDA Xcopri Prescribing Information; status=no_boxed_warning_in_selected_fda_label; spl_set_id=565c2126-57ae-4e29-b443-723bbe7e2072; effective_time=20250925; title=Xcopri; Xcopri Maintenance Pack; Xcopri Titration Pack / CENOBAMATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5; fda_label_url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","reason":"Replace impermissible DailyMed boxed-warning source with FDA/openFDA/FDA label sources.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"28.2-39 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)","field":"diff_50_responder_maximum_effective_dose","proposed_value":"28.2-53.4 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 53.4%; Chung2020 cenobamate 200 mg/day 28.2%; Krauss2019 cenobamate 400 mg/day 39%)","reason":"Add Lee2025 RR50 maximum-dose differential.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12927683/"]},{"current_value":"Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"Lee2025|53.4|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|28.2|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|39|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","reason":"Add Lee2025 RR50 plot point.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12927683/"]},{"current_value":"19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"19.5-49.8 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Lee2025 cenobamate 400 mg/day 49.8%; Chung2020 cenobamate 200 mg/day 19.5%; Krauss2019 cenobamate 400 mg/day 20.1%)","reason":"Add Krauss2019 seizure-freedom differential from Study 2 maintenance-phase seizure-free counts; range is unchanged.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Lee2025|49.8|https://pubmed.ncbi.nlm.nih.gov/41144696/|519; Chung2020|19.5|https://pubmed.ncbi.nlm.nih.gov/32409485/|222; Krauss2019|20.1|https://pubmed.ncbi.nlm.nih.gov/31734103/|437","reason":"Add Krauss2019 seizure-freedom plot point.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/31734103/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Vossler2020|https://pubmed.ncbi.nlm.nih.gov/32313503/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Lee2025|https://pubmed.ncbi.nlm.nih.gov/41144696/; Chung2020|https://pubmed.ncbi.nlm.nih.gov/32409485/; Krauss2019|https://pubmed.ncbi.nlm.nih.gov/31734103/; KasteleijnNolstTrenite2019|https://pubmed.ncbi.nlm.nih.gov/31292226/","reason":"Vossler2020 is a Comment/editorial about a trial, not a placebo-controlled RCT report. Removal of an existing entry requires user approval.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/32313503/","https://pubmed.ncbi.nlm.nih.gov/31734103/"]},{"current_value":"PubMed loop 8/65 on 2026-05-15: 5 qualifying placebo-controlled randomized clinical trial report(s) retained from 22 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.","field":"rct_pubmed_verification_notes","proposed_value":"Audit 05-20-2026: PubMed links verified for cenobamate/YKP3089. Lee2025, Chung2020, Krauss2019, and KasteleijnNolstTrenite2019 are qualifying placebo-controlled phase II/III randomized trial reports or proof-of-principle reports; Vossler2020 PMID 32313503 is a Comment/editorial and should not be counted as an RCT report. KasteleijnNolstTrenite2019 is a phase 2 photosensitivity/PPR proof-of-principle study and should not be used for focal-seizure RR50/MPC/seizure-freedom outcomes. Secondary reports from NCT04557085 include Kawai2025 PMID 41230998, Wu2025 PMID 41101116, and Yu2025 PMID 41428177; include only if secondary RCT reports are in scope.","reason":"Update verification notes to reflect RCT concordance and secondary-report status.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/41144696/","https://pubmed.ncbi.nlm.nih.gov/32313503/","https://pubmed.ncbi.nlm.nih.gov/32409485/","https://pubmed.ncbi.nlm.nih.gov/31734103/","https://pubmed.ncbi.nlm.nih.gov/31292226/","https://pubmed.ncbi.nlm.nih.gov/41230998/","https://pubmed.ncbi.nlm.nih.gov/41101116/","https://pubmed.ncbi.nlm.nih.gov/41428177/"]}],"rct_link_checks":[{"label":"Lee2025","pmid":"41144696","proposed_action":"Retain. Label is acceptable if using epub year 2025; print issue is 2026.","rationale":"PubMed identifies cenobamate, randomized controlled trial, double-blind placebo-controlled NCT04557085 in focal seizures, with placebo and 100/200/400 mg/day arms. ClinicalTrials.gov identifies NCT04557085 as phase 3.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/41144696/"},{"label":"Vossler2020","pmid":"32313503","proposed_action":"Remove from pubmed_phase_ii_iii_rct_links or move to non-RCT commentary notes; requires user approval because it removes an existing entry.","rationale":"PMID 32313503 is a Comment/editorial article discussing the Krauss trial, not the original randomized placebo-controlled trial report. It should not be counted as a phase II/III placebo-controlled RCT link.","status":"not_placebo_rct","url":"https://pubmed.ncbi.nlm.nih.gov/32313503/"},{"label":"Chung2020","pmid":"32409485","proposed_action":"Retain.","rationale":"Phase 2 multicenter double-blind randomized placebo-controlled adjunctive cenobamate/YKP3089 trial in uncontrolled focal seizures; ClinicalTrials.gov NCT01397968 lists phase 2 and placebo control.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/32409485/"},{"label":"Krauss2019","pmid":"31734103","proposed_action":"Retain.","rationale":"PubMed abstract describes a multicenter, double-blind, randomized, placebo-controlled dose-response trial of adjunctive cenobamate/YKP3089 in uncontrolled focal seizures; ClinicalTrials.gov NCT01866111 lists phase 2 placebo-controlled design.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/31734103/"},{"label":"KasteleijnNolstTrenite2019","pmid":"31292226","proposed_action":"Retain only as a phase 2 photosensitivity/PPR proof-of-principle placebo-controlled randomized study; do not use for focal-seizure RR50/MPC/seizure-freedom outcome fields.","rationale":"ClinicalTrials.gov NCT00616148 lists a phase 2 YKP3089/placebo photosensitive epilepsy study, and PubMed identifies a randomized controlled phase II report. Its endpoint is photoparoxysmal response suppression, not clinical focal seizure-frequency outcomes.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/31292226/"}],"source_updates":[{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA label (Xcopri Prescribing Information, accessdata.fda.gov); Drugs@FDA approval letter; FDA/openFDA label API for boxed-warning status; PubMed and ClinicalTrials.gov RCT records; EMA EPAR and eMC SmPC for Ontozry","reason":"Current sources do not meet the trusted-source policy for all row facts and omit RCT/non-US brand sources.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2019/212839Orig1s000ltr.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.ema.europa.eu/en/medicines/human/EPAR/ontozry","https://www.medicines.org.uk/emc/product/13008/smpc"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA label (Xcopri Prescribing Information)","reason":"Use the FDA label URL directly for mechanism support.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=565c2126-57ae-4e29-b443-723bbe7e2072; published=Feb 02, 2026; title=XCOPRI TITRATION PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET, FILM COATED XCOPRI MAINTENANCE PACK (CENOBAMATE) KIT XCOPRI (CENOBAMATE) TABLET [SK LIFE SCIENCE, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=565c2126-57ae-4e29-b443-723bbe7e2072","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API and FDA Xcopri Prescribing Information; status=no_boxed_warning_in_selected_fda_label; spl_set_id=565c2126-57ae-4e29-b443-723bbe7e2072; effective_time=20250925; title=Xcopri; Xcopri Maintenance Pack; Xcopri Titration Pack / CENOBAMATE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5; fda_label_url=https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf","reason":"FDA boxed-warning field must be verified from FDA/openFDA/FDA label/Drugs@FDA only.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22565c2126-57ae-4e29-b443-723bbe7e2072%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/212839s013lbl.pdf"]}],"summary":"Cenobamate row mostly matches FDA/EMA/PubMed evidence, but it needs updates: black-box warning source must be changed from DailyMed to FDA/openFDA/FDA label, adverse percentages for fatigue/diplopia are wrong, enzyme-effect text overstates UGT induction, RR50 is missing Lee2025 maximum-dose data, seizure-freedom plotting is missing Krauss2019 data, and Vossler2020 is a commentary rather than a qualifying RCT report. Trade names Xcopri/Ontozry and alias YKP3089 are correctly handled as aliases, not separate drug rows."}
+tokens used
+169,457

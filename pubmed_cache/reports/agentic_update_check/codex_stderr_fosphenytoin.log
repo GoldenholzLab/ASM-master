@@ -1,0 +1,415 @@
+2026-05-21T00:33:18.636215Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.690528Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47f3-7712-7191-82ed-998d90f924b6
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 27%, neurologic: ataxia 25%, CNS: somnolence 17%, cardiovascular: hypotension 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Phenytoin prodrug; strong CYP/UGT enzyme inducer after conversion",
+    "epilepsy_type": "Status epilepticus; Focal; Generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.3 , 2.4) and Warnings and Precautions (5.2) ]. WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES See full prescribing information for complete boxed warning . • The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. • Reduction in rate of administration or discontinuation of dosing may be needed ( 2.3 , 2.4 , 5.2 ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer",
+    "filter_epilepsy_type": "Focal; Generalized tonic-clonic; Status epilepticus",
+    "filter_formulation": "IV/IM injection",
+    "filter_mechanism": "Sodium channel",
+    "filter_metabolism": "Liver/hepatic; Plasma/extrahepatic",
+    "filter_qt_effect": "QT prolongation",
+    "filter_symptom_category": "CNS; Cardiovascular; Dermatologic; Neurologic",
+    "formulations_available": "IV/IM injection",
+    "generic_name": "fosphenytoin",
+    "half_life_range": "Conversion ~15 min; phenytoin ~7-42 h",
+    "major_organ_for_metabolism": "Plasma phosphatases convert prodrug; phenytoin metabolized in liver",
+    "maximum_approved_daily_dose": "Loading 20 mg PE/kg; maintenance typically 4-6 mg PE/kg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Phenytoin prodrug; anticonvulsant effects are attributable to phenytoin, whose mechanism is not established but is thought to involve voltage-dependent sodium-channel blockade.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Loading/maintenance depends on indication; acute efficacy is not expressed as a chronic daily minimum",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Gwer2013|https://pubmed.ncbi.nlm.nih.gov/24135012/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No typical QT prolongation; IV administration can cause hypotension/arrhythmias",
+    "rct_pubmed_verification_notes": "PubMed loop 23/65 on 2026-05-15: 1 qualifying placebo-controlled randomized clinical trial report(s) retained from 3 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Injectable phenytoin prodrug for seizure/status epilepticus management.",
+    "trade_names": "Cerebyx; Pro-Epanutin",
+    "typical_doses_per_day": "Status/loading: 15-20 mg PE/kg; maintenance 4-6 mg PE/kg/day when used",
+    "year_fda_cleared": "1996"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Gwer2013|https://pubmed.ncbi.nlm.nih.gov/24135012/",
+      "label": "Gwer2013",
+      "pmid": "24135012",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24135012/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 27%, neurologic: ataxia 25%, CNS: somnolence 17%, cardiovascular: hypotension 8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "Phenytoin prodrug; strong CYP/UGT enzyme inducer after conversion",
+    "epilepsy_type": "Status epilepticus; Focal; Generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.3 , 2.4) and Warnings and Precautions (5.2) ]. WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES See full prescribing information for complete boxed warning . • The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. • Reduction in rate of administration or discontinuation of dosing may be needed ( 2.3 , 2.4 , 5.2 ) .",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a",
+    "formulations_available": "IV/IM injection",
+    "half_life_range": "Conversion ~15 min; phenytoin ~7-42 h",
+    "major_organ_for_metabolism": "Plasma phosphatases convert prodrug; phenytoin metabolized in liver",
+    "maximum_approved_daily_dose": "Loading 20 mg PE/kg; maintenance typically 4-6 mg PE/kg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Phenytoin prodrug; anticonvulsant effects are attributable to phenytoin, whose mechanism is not established but is thought to involve voltage-dependent sodium-channel blockade.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Loading/maintenance depends on indication; acute efficacy is not expressed as a chronic daily minimum",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Gwer2013|https://pubmed.ncbi.nlm.nih.gov/24135012/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No typical QT prolongation; IV administration can cause hypotension/arrhythmias",
+    "trade_names": "Cerebyx; Pro-Epanutin",
+    "typical_doses_per_day": "Status/loading: 15-20 mg PE/kg; maintenance 4-6 mg PE/kg/day when used",
+    "year_fda_cleared": "1996"
+  },
+  "generic_name": "fosphenytoin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "half_life_range",
+      "current_value": "Conversion ~15 min; phenytoin ~7-42 h",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "42"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5",
+      "generic_name": "fosphenytoin",
+      "id": "source_fact_concordance_problem-bd14103daa6a",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: half_life_range was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: half_life_range was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "half_life_range could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1996",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1996"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5",
+      "generic_name": "fosphenytoin",
+      "id": "source_fact_concordance_problem-51eff9b4fdd5",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The main purpose of this study is to know on one hand if lorazepam is more (effective) than clonazepam and on the other hand if lorazepam is also effective as the association clonazepam + fosphenytoin in out-of-hospital treatment of the generalized convulsive status epilepticus in adult patients.",
+        "interventions": [
+          "Clonazepam",
+          "Fosphenytoin",
+          "Placebo",
+          "Lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01870024",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01870024",
+      "generic_name": "fosphenytoin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-dbb795449a00",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5",
+      "generic_name": "fosphenytoin",
+      "id": "fda_warning_metadata_refresh-5f02df31b8a9",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.3 , 2.4) and Warnings and Precautions (5.2) ]. WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION RATES See full prescribing information for complete boxed warning . • The rate of intravenous CEREBYX administration should not exceed 150 mg phenytoin sodium equivalents (PE) per minute in adults and 2 mg PE/kg/min (or 150 mg PE/min, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous CEREBYX. • Reduction in rate of administration or discontinuation of dosing may be needed ( 2.3 , 2.4 , 5.2 ) .",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; effective_time=20250828; title=CEREBYX / FOSPHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; effective_time=20250828; title=CEREBYX / FOSPHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Childhood coma prophylaxis trial did not reduce seizure occurrence versus placebo; not included as a maximum effective regimen.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "fosphenytoin",
+      "label": "Gwer2013",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "24135012",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24135012/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Fosphenytoin for seizure prevention in childhood coma in Africa: a randomized clinical trial."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Gwer",
+      "generic_name": "fosphenytoin",
+      "label": "Gwer2013",
+      "pmid": "24135012",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Fosphenytoin for seizure prevention in childhood coma in Africa: a randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24135012/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Patterson",
+      "generic_name": "fosphenytoin",
+      "label": "",
+      "pmid": "25953073",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Canine status epilepticus treated with fosphenytoin: A proof of principle study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25953073/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Wilder",
+      "generic_name": "fosphenytoin",
+      "label": "",
+      "pmid": "8759983",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Safety and tolerance of multiple doses of intramuscular fosphenytoin substituted for oral phenytoin in epilepsy or neurosurgery.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8759983/",
+      "year": "1996"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T00:33:18.711633Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.736443Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.798074Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:33:18.798545Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:33:18.802752Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:33:18.802808Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:18.822780Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.822792Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.823480Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.823489Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.824022Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.824027Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.824357Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.824802Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.824810Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.825783Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.825790Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.827106Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:18.827114Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:18.849015Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.873265Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:18.888282Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:18.892557Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:18.892679Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:18.898170Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T00:33:19.006042Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:33:19.006438Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:33:19.009037Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:33:19.009077Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:19.667583Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:33:19.667885Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:33:19.670091Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:33:19.670124Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:19.685578Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.685587Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.686056Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.686059Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.686395Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.686397Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.686780Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.686782Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.687185Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.687189Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.687929Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:33:19.687931Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:33:19.723855Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:19.726839Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:33:19.726914Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/24135012/
+web search: 
+web search: fosphenytoin FDA label Cerebyx boxed warning cardiovascular risk rapid infusion rates openFDA spl_set_id d4c36fad
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf
+web search: 
+web search: 'Pruritus 27' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf
+web search: 
+web search: "nystagmus 44" "dizziness 31" fosphenytoin pruritus 27 ataxia 25 somnolence 17 hypotension 8
+web search: 
+web search: 'half-life' in https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf
+web search: 
+web search: NCBI LiverTox anticonvulsants table phenytoin half-life 7 42 hours fosphenytoin
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug drugsfda fosphenytoin sodium Cerebyx NDA 020450 approval date
+web search: 
+web search: site:medicines.org.uk Pro-Epanutin fosphenytoin sodium Summary of Product Characteristics
+web search: 
+web search: 
+web search: 
+web search: 24135012 Gwer 2013 fosphenytoin seizure prevention childhood coma randomized clinical trial placebo
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov/24135012 "Fosphenytoin for seizure prevention" "PMID"
+web search: 
+web search: "Fosphenytoin for seizure prevention in childhood coma in Africa" "PMID"
+web search: 
+web search: https://pmc.ncbi.nlm.nih.gov/articles/PMC4348099/
+web search: 
+web search: NCT01870024 fosphenytoin placebo lorazepam clonazepam phase 3 status epilepticus clinicaltrials.gov
+web search: 
+web search: "LORACLOFT" lorazepam clonazepam fosphenytoin publication
+web search: 
+web search: PMID 8759983 fosphenytoin placebo randomized controlled trial multiple doses intramuscular substituted oral phenytoin epilepsy neurosurgery
+codex
+{"black_box_warning":{"current_value":"Long boxed warning text for cardiovascular risk associated with rapid infusion rates, with DailyMed listed as the source.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"],"proposed_value":"No boxed-warning text change required; replace the source metadata with an FDA/openFDA or accessdata FDA label source, not DailyMed.","rationale":"FDA labeling verifies a boxed warning for cardiovascular risk associated with rapid IV infusion rates. The current warning source is not acceptable for this field because it cites DailyMed.","requires_user_approval":false,"status":"verified"},"blocking_questions":[],"fact_checks":[{"current_value":"Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 27%, neurologic: ataxia 25%, CNS: somnolence 17%, cardiovascular: hypotension 8%","field":"adverse_symptoms_percentages","proposed_value":"Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 49%, CNS: somnolence 20%, neurologic: ataxia 11%, cardiovascular: hypotension 8%","rationale":"FDA label Table 1 supports nystagmus 44%, dizziness 31%, somnolence 20%, ataxia 11%, pruritus 49%, and hypotension 8% for IV CEREBYX at maximum dose/rate; current pruritus, ataxia, and somnolence percentages do not match.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"fosphenytoin sodium","rationale":"FDA and eMC sources use fosphenytoin sodium as the active/generic salt name; it should be listed as an alias of fosphenytoin, not as a separate drug row.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"CEREBYX/fosphenytoin sodium is FDA-labeled and FDA-approved in the United States.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK547879/"]},{"current_value":"Phenytoin prodrug; strong CYP/UGT enzyme inducer after conversion","field":"enzyme_inducing_or_inhibiting","proposed_value":"Phenytoin prodrug; potent inducer of hepatic drug-metabolizing enzymes after conversion","rationale":"FDA labeling supports that phenytoin/CEREBYX is a potent inducer of hepatic drug-metabolizing enzymes, but the row's specific CYP/UGT wording is not directly supported by the cited FDA label text.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Status epilepticus; Focal; Generalized tonic-clonic","field":"epilepsy_type","proposed_value":"Status epilepticus; Focal; Generalized tonic-clonic","rationale":"FDA labeling directly supports generalized tonic-clonic status epilepticus and short-term substitution for oral phenytoin; focal use is supported indirectly via phenytoin substitution/indications, so the retained value needs the proposed expanded evidence sources.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK547879/","https://www.ncbi.nlm.nih.gov/books/NBK548889/"]},{"current_value":"NCBI LiverTox anticonvulsants table; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox fosphenytoin/phenytoin records; FDA/accessdata CEREBYX prescribing information; eMC Pro-Epanutin SmPC; PubMed and ClinicalTrials.gov records for RCT/trial fields","rationale":"Current source text uses DailyMed and omits eMC for Pro-Epanutin and trial sources for RCT-specific fields.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK547879/","https://www.ncbi.nlm.nih.gov/books/NBK548889/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://pubmed.ncbi.nlm.nih.gov/24135012/","https://clinicaltrials.gov/study/NCT01870024"]},{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; effective_time=20250828; title=CEREBYX / FOSPHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","rationale":"DailyMed is not permissible for boxed-warning verification under the audit rules; use FDA/openFDA or FDA label metadata.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"IV/IM injection","field":"formulations_available","proposed_value":"IV/IM injection","rationale":"FDA labeling and eMC SmPC describe fosphenytoin/CEREBYX/Pro-Epanutin for intravenous or intramuscular administration.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection"]},{"current_value":"Conversion ~15 min; phenytoin ~7-42 h","field":"half_life_range","proposed_value":"Conversion ~15 min; derived phenytoin mean total half-life 12.0-28.9 h after CEREBYX at studied doses","rationale":"FDA CEREBYX labeling supports fosphenytoin conversion half-life of about 15 minutes and mean total phenytoin half-life values of 12.0-28.9 hours after CEREBYX. The 7-42 hour range is a general oral phenytoin range, not concordant with the cited CEREBYX FDA label.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Plasma phosphatases convert prodrug; phenytoin metabolized in liver","field":"major_organ_for_metabolism","proposed_value":"Phosphatases convert fosphenytoin to phenytoin; derived phenytoin is extensively metabolized in the liver by CYP2C9 and CYP2C19","rationale":"FDA label says the conversion mechanism has not been determined but phosphatases probably play a major role, and derived phenytoin is extensively metabolized in the liver by CYP2C9/CYP2C19. The current 'plasma phosphatases' wording is too specific for the cited label.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Loading 20 mg PE/kg; maintenance typically 4-6 mg PE/kg/day","field":"maximum_approved_daily_dose","proposed_value":"Loading 20 mg PE/kg; maintenance typically 4-6 mg PE/kg/day","rationale":"FDA labeling supports status epilepticus loading dose 15-20 mg PE/kg and adult maintenance 4-6 mg PE/kg/day.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"FDA label states the precise mechanism of phenytoin's therapeutic effect has not been established but is thought to involve voltage-dependent sodium-channel blockade, supporting moderate confidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Phenytoin prodrug; anticonvulsant effects are attributable to phenytoin, whose mechanism is not established but is thought to involve voltage-dependent sodium-channel blockade.","field":"mechanism_of_action","proposed_value":"Phenytoin prodrug; anticonvulsant effects are attributable to phenytoin, whose mechanism is not established but is thought to involve voltage-dependent sodium-channel blockade.","rationale":"FDA label directly supports this mechanism statement.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/accessdata CEREBYX prescribing information","rationale":"DailyMed is not in the trusted source list provided for this audit; the same mechanism is supported by FDA/accessdata labeling.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"The mechanism is supported by FDA prescribing information.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Loading/maintenance depends on indication; acute efficacy is not expressed as a chronic daily minimum","field":"minimum_effective_dose","proposed_value":"Loading/maintenance depends on indication; acute efficacy is not expressed as a chronic daily minimum","rationale":"FDA labeling provides indication-specific loading and maintenance regimens and therapeutic monitoring rather than a chronic daily minimum effective dose.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"fosphenytoin sodium; Cerebyx; Pro-Epanutin; Sesquient","rationale":"Search aliases should include the salt name and major trade names so alias rows are not created separately.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/210864Orig1s000OtherR.pdf"]},{"current_value":"No typical QT prolongation; IV administration can cause hypotension/arrhythmias","field":"qt_interval_effect","proposed_value":"QT interval prolongation has been reported infrequently; IV administration can cause hypotension and cardiac arrhythmias, especially with rapid infusion","rationale":"FDA labeling lists QT interval prolongation as an infrequent cardiovascular adverse event and carries a boxed warning for hypotension/cardiac arrhythmias with rapid IV infusion. The current 'No typical QT prolongation' wording is not directly supported by the cited label.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Cerebyx; Pro-Epanutin","field":"trade_names","proposed_value":"Cerebyx; Pro-Epanutin; Sesquient","rationale":"Cerebyx is FDA-labeled, Pro-Epanutin is an eMC/UK SmPC trade name, and FDA review material identifies Sesquient as a fosphenytoin sodium product; all should be aliases of fosphenytoin, not separate generic rows.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/210864Orig1s000OtherR.pdf"]},{"current_value":"Status/loading: 15-20 mg PE/kg; maintenance 4-6 mg PE/kg/day when used","field":"typical_doses_per_day","proposed_value":"Status/loading: 15-20 mg PE/kg; maintenance 4-6 mg PE/kg/day when used","rationale":"FDA labeling supports 15-20 mg PE/kg for status epilepticus loading and 4-6 mg PE/kg/day adult maintenance dosing.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"1996","field":"year_fda_cleared","proposed_value":"1996","rationale":"FDA label highlights and NCBI LiverTox both support initial U.S. approval/use approval in 1996.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK547879/"]}],"generic_name":"fosphenytoin","missing_rcts":[{"pmid":"8759983","proposed_link_text":"Wilder1996|https://pubmed.ncbi.nlm.nih.gov/8759983/","title":"Safety and tolerance of multiple doses of intramuscular fosphenytoin substituted for oral phenytoin in epilepsy or neurosurgery","url":"https://pubmed.ncbi.nlm.nih.gov/8759983/","why_relevant":"Potential missing PubMed RCT: PubMed abstract verifies randomized double-dummy/placebo-controlled fosphenytoin substitution in epilepsy/neurosurgery patients. Phase II/III status is not explicit and it is safety/tolerability/PK, not RR50/MPC/seizure-freedom efficacy, so addition requires user scope approval."},{"pmid":"","proposed_link_text":"NCT01870024|https://clinicaltrials.gov/study/NCT01870024","title":"Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus","url":"https://clinicaltrials.gov/study/NCT01870024","why_relevant":"ClinicalTrials.gov verifies a completed phase 3 randomized double-blind trial with placebo infusion arms and a fosphenytoin arm. No linked PubMed publication/results were identified, so it should not be added to the PubMed PMID field without a publication."}],"outcome_checks":[{"current_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_50_responder_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"Gwer2013 reports seizure occurrence after coma prophylaxis, not a 50% responder endpoint; Wilder1996 is safety/PK if included; NCT01870024 has no posted results/PubMed outcome publication found.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/24135012/","https://www.ncbi.nlm.nih.gov/books/NBK579010/pdf/","https://clinicaltrials.gov/study/NCT01870024"]},{"current_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"No cited fosphenytoin placebo RCT reports a chronic baseline-to-maintenance median percent seizure-frequency change suitable for this CSV outcome field.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/24135012/","https://clinicaltrials.gov/study/NCT01870024"]},{"current_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"Gwer2013 reports at-least-one-seizure occurrence in an acute coma prophylaxis trial and found no benefit; it is not a standard chronic seizure-freedom endpoint at a maximum effective regimen. NCT01870024 has no results publication found.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/24135012/","https://www.ncbi.nlm.nih.gov/books/NBK579010/pdf/","https://clinicaltrials.gov/study/NCT01870024"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 27%, neurologic: ataxia 25%, CNS: somnolence 17%, cardiovascular: hypotension 8%","field":"adverse_symptoms_percentages","proposed_value":"Neurologic: nystagmus 44%, CNS: dizziness 31%, dermatologic: pruritus 49%, CNS: somnolence 20%, neurologic: ataxia 11%, cardiovascular: hypotension 8%","reason":"Correct percentages to FDA label Table 1.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"fosphenytoin sodium","reason":"Add salt-name alias.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox fosphenytoin/phenytoin records; FDA/accessdata CEREBYX prescribing information; eMC Pro-Epanutin SmPC; PubMed and ClinicalTrials.gov records for RCT/trial fields","reason":"Use trusted named sources and add sources for trade names/RCT facts.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK547879/","https://www.ncbi.nlm.nih.gov/books/NBK548889/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://pubmed.ncbi.nlm.nih.gov/24135012/","https://clinicaltrials.gov/study/NCT01870024"]},{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; effective_time=20250828; title=CEREBYX / FOSPHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","reason":"DailyMed is not allowed for boxed-warning verification.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Conversion ~15 min; phenytoin ~7-42 h","field":"half_life_range","proposed_value":"Conversion ~15 min; derived phenytoin mean total half-life 12.0-28.9 h after CEREBYX at studied doses","reason":"Align PK range with FDA CEREBYX label.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Plasma phosphatases convert prodrug; phenytoin metabolized in liver","field":"major_organ_for_metabolism","proposed_value":"Phosphatases convert fosphenytoin to phenytoin; derived phenytoin is extensively metabolized in the liver by CYP2C9 and CYP2C19","reason":"FDA label supports phosphatases generally and hepatic CYP2C9/CYP2C19 metabolism of derived phenytoin.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/accessdata CEREBYX prescribing information","reason":"Replace DailyMed with FDA/accessdata source wording.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"fosphenytoin sodium; Cerebyx; Pro-Epanutin; Sesquient","reason":"Add search aliases/trade names to prevent duplicate alias rows.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/210864Orig1s000OtherR.pdf"]},{"current_value":"No typical QT prolongation; IV administration can cause hypotension/arrhythmias","field":"qt_interval_effect","proposed_value":"QT interval prolongation has been reported infrequently; IV administration can cause hypotension and cardiac arrhythmias, especially with rapid infusion","reason":"FDA label reports QT interval prolongation as infrequent and includes cardiovascular boxed warning.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"Cerebyx; Pro-Epanutin","field":"trade_names","proposed_value":"Cerebyx; Pro-Epanutin; Sesquient","reason":"Add FDA-identified Sesquient trade alias while retaining Cerebyx and Pro-Epanutin.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/210864Orig1s000OtherR.pdf"]},{"current_value":"Gwer2013|https://pubmed.ncbi.nlm.nih.gov/24135012/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Gwer2013|https://pubmed.ncbi.nlm.nih.gov/24135012/; Wilder1996|https://pubmed.ncbi.nlm.nih.gov/8759983/","reason":"Wilder1996 was not merely a title-only drug hit; PubMed abstract describes randomized double-dummy/placebo-controlled IM fosphenytoin substitution. Add only if non-efficacy safety/substitution placebo RCTs are in this field's scope because phase is not explicit.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/8759983/"]},{"current_value":"PubMed loop 23/65 on 2026-05-15: 1 qualifying placebo-controlled randomized clinical trial report(s) retained from 3 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.","field":"rct_pubmed_verification_notes","proposed_value":"Audit 2026-05-20: Gwer2013 (PMID 24135012) is a randomized double-blind placebo-controlled fosphenytoin 20 mg PE/kg IM seizure-prevention trial in childhood acute coma; PubMed phase is not explicit and it does not report RR50/MPC/seizure-freedom efficacy endpoints. Wilder1996 (PMID 8759983) is a randomized double-dummy placebo-controlled safety/tolerability/PK substitution trial of IM fosphenytoin in epilepsy/neurosurgery; include only if non-efficacy safety/substitution RCTs are in scope. ClinicalTrials.gov NCT01870024 is a completed phase 3 randomized double-blind status-epilepticus trial with placebo infusion arms and a fosphenytoin arm but no linked PubMed results identified.","reason":"Clarify RCT scope, phase uncertainty, non-extractable outcomes, and trial registry finding.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/24135012/","https://pubmed.ncbi.nlm.nih.gov/8759983/","https://clinicaltrials.gov/study/NCT01870024"]}],"rct_link_checks":[{"label":"Gwer2013","pmid":"24135012","proposed_action":"Retain as a placebo-controlled randomized fosphenytoin seizure-prevention trial, but update notes because PubMed does not explicitly verify phase II/III and the trial does not report standard RR50/MPC/seizure-freedom endpoints.","rationale":"The cited article is for fosphenytoin, randomized, double-blind, and placebo-controlled, but phase II/III status is not explicit in the PubMed-level evidence available. It reports seizure occurrence in childhood coma prophylaxis rather than chronic epilepsy responder outcomes.","status":"insufficient_evidence","url":"https://pubmed.ncbi.nlm.nih.gov/24135012/"}],"source_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; published=Aug 29, 2025; title=CEREBYX (FOSPHENYTOIN SODIUM) INJECTION, SOLUTION [PFIZER LABORATORIES DIV PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a; effective_time=20250828; title=CEREBYX / FOSPHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","reason":"Boxed warning source must be FDA/openFDA/FDA label/Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d4c36fad-0ba2-4cd4-9c5e-dcf843f38a5a%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA/accessdata CEREBYX prescribing information","reason":"Use trusted FDA label source naming.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf"]},{"current_value":"NCBI LiverTox anticonvulsants table; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"NCBI LiverTox fosphenytoin/phenytoin records; FDA/accessdata CEREBYX prescribing information; eMC Pro-Epanutin SmPC; PubMed and ClinicalTrials.gov records for RCT/trial fields","reason":"Current named sources do not support all trade-name and RCT-specific facts and include DailyMed wording.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK547879/","https://www.ncbi.nlm.nih.gov/books/NBK548889/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020450s039lbl.pdf","https://www.medicines.org.uk/emc/medicine/13310/SPC/pro-epanutin%20concentrate%20for%20infusion%20~%20solution%20for%20injection","https://pubmed.ncbi.nlm.nih.gov/24135012/","https://clinicaltrials.gov/study/NCT01870024"]}],"summary":"Row needs updates. FDA/accessdata supports core availability, indication, formulation, dosing, mechanism, 1996 approval, and boxed warning, but the black-box source must be changed away from DailyMed. Adverse-event percentages, half-life wording, metabolism wording, QT wording, aliases/trade names, and source metadata need correction. Gwer2013 is a fosphenytoin placebo RCT but phase is not explicit and standard RR50/MPC/seizure-freedom outcomes remain not extractable."}
+tokens used
+136,556

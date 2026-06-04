@@ -1,0 +1,1539 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 23-32%, GI: decreased appetite 16-22%, GI: diarrhea 9-20%, hepatic: transaminase elevation 8-13%, constitutional: fatigue/malaise 11%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "16 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Devinsky2017 CBD 20 mg/kg/day 16%)",
+    "diff_median_pct_change_maximum_effective_dose": "22.1-30.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Thiele2021 CBD 25 mg/kg/day 30.1%; Miller2020 CBD 20 mg/kg/day 25.7%; Devinsky2018b CBD 20 mg/kg/day 24.7%; Thiele2018 CBD 20 mg/kg/day 22.1%; Devinsky2017 CBD 20 mg/kg/day 22.8%)",
+    "diff_seizure_freedom_maximum_effective_dose": "5 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Devinsky2017 CBD 20 mg/kg/day 5%)",
+    "enzyme_inducing_or_inhibiting": "Inhibits CYP2C19 and can inhibit CYP2C9/UGT pathways; affected by CYP3A4/CYP2C19 modulators",
+    "epilepsy_type": "LGS; Dravet; TSC",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=8bf27097-4870-43fb-94f0-f3d0871d1eec; published=Nov 17, 2025; title=EPIDIOLEX (CANNABIDIOL) SOLUTION [JAZZ PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inhibitor; Substrate / affected by modulators",
+    "filter_epilepsy_type": "Dravet; LGS; TSC",
+    "filter_formulation": "Liquid",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect; QT prolongation",
+    "filter_symptom_category": "CNS; Constitutional; GI; Hepatic",
+    "formulations_available": "Oral solution",
+    "generic_name": "cannabidiol",
+    "half_life_range": "Effective ~17 h; terminal ~56-61 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "25 mg/kg/day for TSC; 20 mg/kg/day for Dravet/LGS",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "Precise human anticonvulsant mechanisms are unknown; effects do not appear to be mediated by CB1/CB2 cannabinoid receptors, with GPR55, TRPV1, and adenosine-mediated signaling proposed.",
+    "mechanism_source": "FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "mechanism_source_tier": "FDA/AES summary",
+    "minimum_effective_dose": "10 mg/kg/day for LGS/Dravet; 25 mg/kg/day for TSC target regimen",
+    "plot_diff_50_responder_maximum_effective_dose": "Devinsky2017|16|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Thiele2021|30.1|https://pubmed.ncbi.nlm.nih.gov/33346789/|224; Miller2020|25.7|https://pubmed.ncbi.nlm.nih.gov/32119035/|198; Thiele2018|22.1|https://pubmed.ncbi.nlm.nih.gov/29395273/|171; Devinsky2018b|24.7|https://pubmed.ncbi.nlm.nih.gov/29768152/|225; Devinsky2017|22.8|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Devinsky2017|5|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "pubmed_phase_ii_iii_rct_links": "OBrien2022|https://pubmed.ncbi.nlm.nih.gov/35802375/; Thiele2021|https://pubmed.ncbi.nlm.nih.gov/33346789/; Miller2020|https://pubmed.ncbi.nlm.nih.gov/32119035/; Thiele2018|https://pubmed.ncbi.nlm.nih.gov/29395273/; Devinsky2018b|https://pubmed.ncbi.nlm.nih.gov/29768152/; Devinsky2018|https://pubmed.ncbi.nlm.nih.gov/29540584/; Devinsky2017|https://pubmed.ncbi.nlm.nih.gov/28538134/",
+    "pubmed_search_aliases": "CBD",
+    "qt_interval_effect": "No clinically meaningful QT prolongation established",
+    "rct_pubmed_verification_notes": "PubMed loop 6/65 on 2026-05-15: 7 qualifying placebo-controlled randomized clinical trial report(s) retained from 37 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current prescription cannabidiol ASM for seizures associated with Lennox-Gastaut syndrome, Dravet syndrome, and tuberous sclerosis complex.",
+    "trade_names": "Epidiolex; Epidyolex",
+    "typical_doses_per_day": "5-25 mg/kg/day divided BID depending on syndrome",
+    "year_fda_cleared": "2018"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "OBrien2022|https://pubmed.ncbi.nlm.nih.gov/35802375/",
+      "label": "OBrien2022",
+      "pmid": "35802375",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35802375/"
+    },
+    {
+      "entry": "Thiele2021|https://pubmed.ncbi.nlm.nih.gov/33346789/",
+      "label": "Thiele2021",
+      "pmid": "33346789",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33346789/"
+    },
+    {
+      "entry": "Miller2020|https://pubmed.ncbi.nlm.nih.gov/32119035/",
+      "label": "Miller2020",
+      "pmid": "32119035",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32119035/"
+    },
+    {
+      "entry": "Thiele2018|https://pubmed.ncbi.nlm.nih.gov/29395273/",
+      "label": "Thiele2018",
+      "pmid": "29395273",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29395273/"
+    },
+    {
+      "entry": "Devinsky2018b|https://pubmed.ncbi.nlm.nih.gov/29768152/",
+      "label": "Devinsky2018b",
+      "pmid": "29768152",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29768152/"
+    },
+    {
+      "entry": "Devinsky2018|https://pubmed.ncbi.nlm.nih.gov/29540584/",
+      "label": "Devinsky2018",
+      "pmid": "29540584",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29540584/"
+    },
+    {
+      "entry": "Devinsky2017|https://pubmed.ncbi.nlm.nih.gov/28538134/",
+      "label": "Devinsky2017",
+      "pmid": "28538134",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28538134/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 23-32%, GI: decreased appetite 16-22%, GI: diarrhea 9-20%, hepatic: transaminase elevation 8-13%, constitutional: fatigue/malaise 11%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "16 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Devinsky2017 CBD 20 mg/kg/day 16%)",
+    "diff_median_pct_change_maximum_effective_dose": "22.1-30.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Thiele2021 CBD 25 mg/kg/day 30.1%; Miller2020 CBD 20 mg/kg/day 25.7%; Devinsky2018b CBD 20 mg/kg/day 24.7%; Thiele2018 CBD 20 mg/kg/day 22.1%; Devinsky2017 CBD 20 mg/kg/day 22.8%)",
+    "diff_seizure_freedom_maximum_effective_dose": "5 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Devinsky2017 CBD 20 mg/kg/day 5%)",
+    "enzyme_inducing_or_inhibiting": "Inhibits CYP2C19 and can inhibit CYP2C9/UGT pathways; affected by CYP3A4/CYP2C19 modulators",
+    "epilepsy_type": "LGS; Dravet; TSC",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=8bf27097-4870-43fb-94f0-f3d0871d1eec; published=Nov 17, 2025; title=EPIDIOLEX (CANNABIDIOL) SOLUTION [JAZZ PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec",
+    "formulations_available": "Oral solution",
+    "half_life_range": "Effective ~17 h; terminal ~56-61 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "25 mg/kg/day for TSC; 20 mg/kg/day for Dravet/LGS",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "Precise human anticonvulsant mechanisms are unknown; effects do not appear to be mediated by CB1/CB2 cannabinoid receptors, with GPR55, TRPV1, and adenosine-mediated signaling proposed.",
+    "mechanism_source": "FDA/DailyMed labeling; American Epilepsy Society 2024 U.S. ASM summary",
+    "mechanism_source_tier": "FDA/AES summary",
+    "minimum_effective_dose": "10 mg/kg/day for LGS/Dravet; 25 mg/kg/day for TSC target regimen",
+    "plot_diff_50_responder_maximum_effective_dose": "Devinsky2017|16|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Thiele2021|30.1|https://pubmed.ncbi.nlm.nih.gov/33346789/|224; Miller2020|25.7|https://pubmed.ncbi.nlm.nih.gov/32119035/|198; Thiele2018|22.1|https://pubmed.ncbi.nlm.nih.gov/29395273/|171; Devinsky2018b|24.7|https://pubmed.ncbi.nlm.nih.gov/29768152/|225; Devinsky2017|22.8|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Devinsky2017|5|https://pubmed.ncbi.nlm.nih.gov/28538134/|120",
+    "pubmed_phase_ii_iii_rct_links": "OBrien2022|https://pubmed.ncbi.nlm.nih.gov/35802375/; Thiele2021|https://pubmed.ncbi.nlm.nih.gov/33346789/; Miller2020|https://pubmed.ncbi.nlm.nih.gov/32119035/; Thiele2018|https://pubmed.ncbi.nlm.nih.gov/29395273/; Devinsky2018b|https://pubmed.ncbi.nlm.nih.gov/29768152/; Devinsky2018|https://pubmed.ncbi.nlm.nih.gov/29540584/; Devinsky2017|https://pubmed.ncbi.nlm.nih.gov/28538134/",
+    "pubmed_search_aliases": "CBD",
+    "qt_interval_effect": "No clinically meaningful QT prolongation established",
+    "trade_names": "Epidiolex; Epidyolex",
+    "typical_doses_per_day": "5-25 mg/kg/day divided BID depending on syndrome",
+    "year_fda_cleared": "2018"
+  },
+  "generic_name": "cannabidiol",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "OBrien2022|https://pubmed.ncbi.nlm.nih.gov/35802375/; Thiele2021|https://pubmed.ncbi.nlm.nih.gov/33346789/; Miller2020|https://pubmed.ncbi.nlm.nih.gov/32119035/; Thiele2018|https://pubmed.ncbi.nlm.nih.gov/29395273/; Devinsky2018b|https://pubmed.ncbi.nlm.nih.gov/29768152/; Devinsky2018|https://pubmed.ncbi.nlm.nih.gov/29540584/; Devinsky2017|https://pubmed.ncbi.nlm.nih.gov/28538134/",
+      "details": {
+        "article": {
+          "abstract": "To estimate time to onset of cannabidiol (CBD) treatment effect (seizure reduction and adverse events [AEs]), we conducted post hoc analyses of data from two randomized, placebo-controlled, Phase 3 trials, GWPCARE3 (NCT02224560) and GWPCARE4 (NCT02224690), of patients with Lennox-Gastaut syndrome. Patients received plant-derived pharmaceutical formulation of highly purified CBD (Epidiolex, 100 mg/ml oral solution) at 10 mg/kg/day (CBD10; GWPCARE3) or 20 mg/kg/day (CBD20; both trials) or placebo for 14 weeks. Treatment started at 2.5 mg/kg/day for all groups and reached 10 mg/kg/day on Day 7 and 20 mg/kg/day (CBD20 and matching placebo only) on Day 11. Percentage change from baseline in drop seizure frequency was calculated by cumulative day (i.e., including all previous days). Time to onset and resolution of AEs were evaluated. Overall, 235 patients received CBD (CBD10 [GWPCARE3 only], n = 67; CBD20 [pooled GWPCARE3&4], n = 168) and 161 received placebo. Mean (range) age was 15.3 years (2.6-48.0). Patients had previously discontinued a median (range) of six (0-28) antiepileptic drugs (AEDs) and were currently taking a median of three (0-5) AEDs. Differences in drop seizure reduction between placebo and CBD emerged during the titration period and became nominally significant by Day 6 (p = .008) for pooled CBD treatment groups. Separation between placebo and CBD in ≥50% responder rate emerged by Day 6. Onset of the first reported AE occurred during the titration period in 45% of patients (CBD10, 46%; CBD20, 52%; placebo, 38%). In patients with AEs, resolution occurred within 4 weeks of onset in 53% of placebo and 39% of CBD patients and by end of study in 63% of placebo and 61% of CBD patients. Treatment effect (efficacy and AEs) of CBD may occur within 1 week of starting treatment. Although AEs lasted longer for CBD than placebo, most resolved within the 14-week period. © 2021 The Authors. Epilepsia published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.",
+          "first_author": "Privitera",
+          "pmid": "33797076",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Time to onset of cannabidiol (CBD) treatment effect in Lennox-Gastaut syndrome: Analysis from two randomized controlled trials.",
+          "year": "2021"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/33797076/",
+      "generic_name": "cannabidiol",
+      "id": "new_pubmed_phase_ii_iii_rct-d91d47f056de",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Privitera2021|https://pubmed.ncbi.nlm.nih.gov/33797076/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 33797076 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Privitera2021|https://pubmed.ncbi.nlm.nih.gov/33797076/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Time to onset of cannabidiol (CBD) treatment effect in Lennox-Gastaut syndrome: Analysis from two randomized controlled trials."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Miller2020|https://pubmed.ncbi.nlm.nih.gov/32119035/",
+      "details": {
+        "article": {
+          "abstract": "Clinical evidence supports effectiveness of cannabidiol for treatment-resistant seizures in Dravet syndrome, but this trial is the first to evaluate the 10-mg/kg/d dose. To evaluate the efficacy and safety of a pharmaceutical formulation of cannabidiol, 10 and 20 mg/kg/d, vs placebo for adjunctive treatment of convulsive seizures in patients with Dravet syndrome. This double-blind, placebo-controlled, randomized clinical trial (GWPCARE2) recruited patients from April 13, 2015, to November 10, 2017, with follow-up completed on April 9, 2018. Of 285 patients screened from 38 centers in the United States, Spain, Poland, the Netherlands, Australia, and Israel, 86 were excluded, and 199 were randomized. Patients were aged 2 to 18 years with a confirmed diagnosis of Dravet syndrome and at least 4 convulsive seizures during the 4-week baseline period while receiving at least 1 antiepileptic drug. Data were analyzed from November 16 (date of unblinding) to December 13 (date of final outputs), 2018, based on intention to treat and per protocol. Patients received cannabidiol oral solution at a dose of 10 or 20 mg/kg per day (CBD10 and CBD20 groups, respectively) or matched placebo in 2 equally divided doses for 14 weeks. All patients, caregivers, investigators, and individuals assessing data were blinded to group assignment. The primary outcome was change from baseline in convulsive seizure frequency during the treatment period. Secondary outcomes included change in all seizure frequency, proportion with at least a 50% reduction in convulsive seizure activity, and change in Caregiver Global Impression of Change score. Of 198 eligible patients (mean [SD] age, 9.3 [4.4] years; 104 female [52.5%]), 66 were randomized to the CBD10 group, 67 to the CBD20 group, and 65 to the placebo group, and 190 completed treatment. The percentage reduction from baseline in convulsive seizure frequency was 48.7% for CBD10 group and 45.7% for the CBD20 group vs 26.9% for the placebo group; the percentage reduction from placebo was 29.8% (95% CI, 8.4%-46.2%; P = .01) for CBD10 group and 25.7% (95% CI, 2.9%-43.2%; P = .03) for the CBD20 group. The most common adverse events were decreased appetite, diarrhea, somnolence, pyrexia, and fatigue. Five patients in the CBD20 group discontinued owing to adverse events. Elevated liver transaminase levels occurred more frequently in the CBD20 (n = 13) than the CBD10 (n = 3) group, with all affected patients given concomitant valproate sodium. Adjunctive cannabidiol at doses of 10 and 20 mg/kg/d led to similar clinically relevant reductions in convulsive seizure frequency with a better safety and tolerability profile for the 10-mg/kg/d dose in children with treatment-resistant Dravet syndrome. Dose increases of cannabidiol to greater than 10 mg/kg/d should be tailored to individual efficacy and safety. ClinicalTrials.gov Identifier: NCT02224703.",
+          "first_author": "Miller",
+          "pmid": "32119035",
+          "pub_types": [
+            "Journal Article",
+            "Multicenter Study",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Dose-Ranging Effect of Adjunctive Oral Cannabidiol vs Placebo on Convulsive Seizure Frequency in Dravet Syndrome: A Randomized Clinical Trial.",
+          "year": "2020"
+        },
+        "reason": "drug appears in title but not as primary intervention"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/32119035/",
+      "generic_name": "cannabidiol",
+      "id": "rct_pubmed_concordance_problem-54012593d620",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 32119035 needs manual review for cannabidiol; PubMed validation reason: drug appears in title but not as primary intervention.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 32119035 needs manual review for cannabidiol; PubMed validation reason: drug appears in title but not as primary intervention.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: drug appears in title but not as primary intervention."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2018",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2018"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5",
+      "generic_name": "cannabidiol",
+      "id": "source_fact_concordance_problem-a4fbeb9084a8",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To investigate the potential antiepileptic effects of cannabidiol (GWP42003-P) in children and young adults with Dravet syndrome.",
+        "interventions": [
+          "GWP42003-P 20 mg/kg/day Dose",
+          "Placebo control"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02091375",
+        "new_reference_pmids": [
+          "34265088"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "28538134",
+          "34265088"
+        ],
+        "title": "Antiepileptic Efficacy Study of GWP42003-P in Children and Young Adults With Dravet Syndrome (GWPCARE1)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02091375",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-8f5722b05665",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Antiepileptic Efficacy Study of GWP42003-P in Children and Young Adults With Dravet Syndrome (GWPCARE1)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial consists of 2 parts: a double-blinded phase and an open-label extension phase. The blinded phase only will be described in this record. Participants will receive 1 of 2 doses of GWP42003-P or matching placebo. The primary clinical hypothesis is that there will be a difference between GWP42003-P and placebo in their effect on seizure frequency.",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02544763",
+        "new_reference_pmids": [
+          "38441854",
+          "35175622",
+          "34957550"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "38441854",
+          "35175622",
+          "34957550",
+          "33346789"
+        ],
+        "title": "A Randomized Controlled Trial of Cannabidiol (GWP42003-P, CBD) for Seizures in Tuberous Sclerosis Complex (GWPCARE6)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02544763",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-4bb5426d0798",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Randomized Controlled Trial of Cannabidiol (GWP42003-P, CBD) for Seizures in Tuberous Sclerosis Complex (GWPCARE6)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary purpose of this study was to evaluate the efficacy, safety, and tolerability of Cannabidiol Oral Solution (CBD) as adjunctive therapy with vigabatrin as initial therapy, compared to vigabatrin alone in the treatment of infants newly diagnosed with Infantile Spasms (IS).",
+        "interventions": [
+          "Cannabidiol Oral Solution",
+          "Placebo",
+          "Vigabatrin"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03421496",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "A Study to Assess Cannabidiol Oral Solution With Vigabatrin as Initial Therapy in Participants With Infantile Spasms"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03421496",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b693d1220964",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Assess Cannabidiol Oral Solution With Vigabatrin as Initial Therapy in Participants With Infantile Spasms"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary objective of this study was to evaluate the efficacy of GWP42003-P as adjunctive treatment in reducing the number of drop seizures when compared with placebo in participants with Lennox-Gastaut syndrome (LGS).",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo control"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02224560",
+        "new_reference_pmids": [
+          "40775196",
+          "37052803",
+          "33825230",
+          "33797076",
+          "30955420"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "29768152",
+          "40775196",
+          "37052803",
+          "33825230",
+          "33797076",
+          "30955420"
+        ],
+        "title": "Efficacy and Safety of GWP42003-P for Seizures Associated With Lennox-Gastaut Syndrome in Children and Adults"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02224560",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c8b54d31b9b9",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of GWP42003-P for Seizures Associated With Lennox-Gastaut Syndrome in Children and Adults"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This trial consists of 2 parts: a double-blinded phase and an open-label extension phase. The blinded phase only will be described in this record. Participants will be randomized in a 4:1 ratio to receive GWP42003-P or matching placebo. The hypothesis is that levels of stiripentol (STP) or valproate (VPA) may be altered (increased or decreased) as a result of using GWP42003-P.",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02607891",
+        "new_reference_pmids": [
+          "32350749"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "32350749"
+        ],
+        "title": "A Study of Possible Drug-drug Interactions Between Stiripentol or Valproate and Cannabidiol in Patients With Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02607891",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-cc5cc6abb781",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study of Possible Drug-drug Interactions Between Stiripentol or Valproate and Cannabidiol in Patients With Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the safety and pharmacokinetics (PK) of multiple doses of GWP42003-P compared with placebo in children with Dravet syndrome.",
+        "interventions": [
+          "GWP42003-P 5 mg/kg/day Dose",
+          "Placebo control",
+          "GWP42003-P 10 mg/kg/day Dose",
+          "GWP42003-P 20 mg/kg/day Dose"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02091206",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "29540584"
+        ],
+        "title": "A Dose-ranging Pharmacokinetics and Safety Study of GWP42003-P in Children With Dravet Syndrome (GWPCARE1)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02091206",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-edf5640b3fab",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Dose-ranging Pharmacokinetics and Safety Study of GWP42003-P in Children With Dravet Syndrome (GWPCARE1)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to examine whether a low dose of CBD+THC will decrease the frequency of convulsive seizures in adults with drug-resistant epilepsy, when used in addition to standard anti-epileptic drugs (AEDs). This study will also study the genes associated with epilepsy and whether different epileptic syndromes respond to treatment with CBD+THC.",
+        "interventions": [
+          "Medical Cannabis",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT03808935",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Cannabis Extract in Refractory Epilepsy Study"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03808935",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-e76316a67b12",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Cannabis Extract in Refractory Epilepsy Study"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To evaluate the efficacy of GWP42003-P as adjunctive treatment in reducing the number of drop seizures when compared with placebo, in participants with Lennox-Gastaut Syndrome (LGS).",
+        "interventions": [
+          "GWP42003-P 20 mg/kg/day Dose",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02224690",
+        "new_reference_pmids": [
+          "40775196",
+          "37052803",
+          "33825230",
+          "33797076"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "29395273",
+          "40775196",
+          "37052803",
+          "33825230",
+          "33797076"
+        ],
+        "title": "A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P; CBD) as Adjunctive Treatment for Seizures Associated With Lennox-Gastaut Syndrome in Children and Adults"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02224690",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-b1e218a5bf91",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P; CBD) as Adjunctive Treatment for Seizures Associated With Lennox-Gastaut Syndrome in Children and Adults"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to assess the efficacy of the adjuvant use of cannabidiol administered twice daily in doses of 5-25 mg/kg/day through the proportion of responsive patients; that is, participants with at least 50% decrease in the frequency of epileptic seizures in the last month of the trial relative to baseline (pretreatment with AEDs only).\n\nPrimary end point(s): Rate of responsive patients; that is, participants with at least 50% decrease in the frequency of epileptic seizures in the last month of the trial relative to baseline (pretreatment with AEDs only).",
+        "interventions": [
+          "Cannabidiol",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02783092",
+        "new_reference_pmids": [],
+        "overall_status": "UNKNOWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "A Double-Blind Trial to Evaluate Efficacy and Safety of Cannabidiol as an add-on Therapy for Treatment in Refractory Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02783092",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-75fb607dc1d8",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Double-Blind Trial to Evaluate Efficacy and Safety of Cannabidiol as an add-on Therapy for Treatment in Refractory Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "To investigate the potential antiepileptic effects of cannabidiol (GWP42003-P) in children and young adults with Dravet syndrome.",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo Control"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02224703",
+        "new_reference_pmids": [
+          "34265088"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "34265088",
+          "32119035"
+        ],
+        "title": "GWPCARE2 A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P) in Children and Young Adults With Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02224703",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-6b38610edad8",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: GWPCARE2 A Study to Investigate the Efficacy and Safety of Cannabidiol (GWP42003-P) in Children and Young Adults With Dravet Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This prospective double blind phase II study seeks to evaluate the safety and efficacy of BRC-003, a high CBD investigational product, in the treatment of refractory PTE (Post-Traumatic Epilepsy). The research is divided into two phases: an open-label dose-finding phase (Part A) and a subsequent randomized controlled phase (Part B). This design aims to provide a thorough understanding of the investigational product's impact on seizure frequency, seizure severity, mood, anxiety, sleep, and quality of life.",
+        "interventions": [
+          "PO BRC-003 (High Cannabidiol Cannabis Extract)",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT06523725",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "Trial Investigating the Safety and Efficacy of BRC-003 in Refractory Post-Traumatic Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06523725",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-0f1aafb31360",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Trial Investigating the Safety and Efficacy of BRC-003 in Refractory Post-Traumatic Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Epilepsy is a neurological disorder affecting more than 50 million people globally, including more than 260,000 Canadians. Cannabidiol (CBD) reduces seizure frequency and improves quality of life for adults and children with Drug Resistant Epilepsy (DRE). Several uncontrolled, small, open label studies reported that CBD-enriched Cannabis Herbal Extract (CHE) resulted in a reduction of seizure frequency, but we lack critical information on efficacy, comparative effectiveness and dosing of CBD and ∆9-tetrahydrocannabinol (THC) in children and adults with DRE. CAN-DRE is an early phase, triple-blind, placebo-controlled, randomized clinical trial to answer the questions of if cannabinoids work to reduce seizures in children and adults (24 months to 55 years) with DRE and if CBD works better in an isolate or in a CBD-enriched Cannabis Herbal Extract. The primary outcome of CAN-DRE is reported monthly seizure count from baseline to maintenance phase.",
+        "interventions": [
+          "Placebo",
+          "CBD Isolate",
+          "CBD CHE"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT07023744",
+        "new_reference_pmids": [],
+        "overall_status": "NOT_YET_RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "CANnabinoids for Drug Resistant Epilepsy (DRE) in Adults and Children"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT07023744",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-11aac5de439c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: CANnabinoids for Drug Resistant Epilepsy (DRE) in Adults and Children"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This Phase 3 study will enroll participants diagnosed with Dravet Syndrome (DS) who are still experiencing at least one tonic-clonic, clonic, and/or focal seizures with motor components (FSMC) per week, despite ongoing treatment with up to three antiepileptic drugs (AEDs), and meet the other inclusion/exclusion criteria.\n\nFollowing a 28-day baseline period, participants will begin an 84-day treatment period. Participants will be assigned to receive twice-daily doses of placebo or cannabidiol oral solution at the highest dose determined to be safe in a previous trial.\n\nFollowing study completion, all participants will be invited to receive Cannabidiol Oral Solution in an open label extension study (under a separate protocol).",
+        "interventions": [
+          "Cannabidiol Oral Solution",
+          "Placebo Solution"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02318563",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Cannabidiol Oral Solution as an Adjunctive Therapy for Treatment of Participants With Inadequately Controlled Dravet Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02318563",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-a03e2c99f432",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Cannabidiol Oral Solution as an Adjunctive Therapy for Treatment of Participants With Inadequately Controlled Dravet Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This Phase 3 trial will enroll participants diagnosed with Lennox-Gastaut Syndrome (LGS) who are still experiencing at least 4 motor seizures involving the trunk or extremities per week, despite ongoing treatment with up to 3 antiepileptic drugs (AEDs) and who meet inclusion/exclusion criteria.\n\nFollowing a 28-day baseline period, participants will begin an 84-day treatment period. Participants will be assigned to receive twice daily doses of placebo or cannabidiol oral solution at the highest dose determined to be safe in a previous trial.\n\nFollowing study completion, all participants will be invited to receive Cannabidiol Oral Solution in an open label extension study (under a separate protocol).",
+        "interventions": [
+          "Cannabidiol Oral Solution",
+          "Placebo Solution"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT02318537",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Cannabidiol Oral Solution as an Adjunctive Therapy for Treatment of Participants With Inadequately Controlled Lennox-Gastaut Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02318537",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-fe8bc81d02c0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Cannabidiol Oral Solution as an Adjunctive Therapy for Treatment of Participants With Inadequately Controlled Lennox-Gastaut Syndrome"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "EudraCT: 2018-003887-29\n\nObjective:To evaluate the safety and efficacy of: MGCND00EP1 from MGC PHARMACEUTICALS d.o.o.\n\nStudy Design: Randomized, double blind, placebo controlled parallel grouped study Sample Size: 103 subjects Study Population: Children from 1 year to 18 years of age Comparator Product :Placebo solution, oral IMP Product : MGCND00EP1 (each ml of solution containing 100 mg of cannabidiol and 5 mg of (-)-trans-Δ9- tetrahydrocannabinol as active substance) from MGC PHARMACEUTICALS D.O.O.\n\nAccording to dosing scheme up to 25 mg/kg BW per day or maximum daily dose 800 mg (whichever smaller) for 6 weeks titration and 6 weeks of treatment, oral administration",
+        "interventions": [
+          "MGCND00EP1",
+          "Placebo",
+          "ECG",
+          "EEG",
+          "Blood and urine collection"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT04406948",
+        "new_reference_pmids": [
+          "22972641",
+          "7588453",
+          "23646965",
+          "24854434",
+          "24854149",
+          "25658218",
+          "18415652",
+          "17712811",
+          "16612464",
+          "26724101",
+          "17112679",
+          "26443475",
+          "25845492",
+          "24854329",
+          "22129319",
+          "24778283",
+          "4149660",
+          "239178",
+          "19906779",
+          "26535466",
+          "27696387",
+          "26800377",
+          "26787773",
+          "26114620",
+          "28188044",
+          "25912151",
+          "28199002",
+          "20526405",
+          "8043019",
+          "22193671",
+          "17609644",
+          "25162899",
+          "24237632",
+          "22696383",
+          "25703333",
+          "6309462",
+          "6250760"
+        ],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "22972641",
+          "7588453",
+          "23646965",
+          "24854434",
+          "24854149",
+          "25658218",
+          "18415652",
+          "17712811",
+          "16612464",
+          "26724101",
+          "17112679",
+          "26443475",
+          "25845492",
+          "24854329",
+          "22129319",
+          "24778283",
+          "4149660",
+          "239178",
+          "19906779",
+          "26535466",
+          "27696387",
+          "26800377",
+          "26787773",
+          "26114620",
+          "28188044",
+          "25912151",
+          "28199002",
+          "20526405",
+          "8043019",
+          "22193671",
+          "17609644",
+          "25162899",
+          "24237632",
+          "22696383",
+          "25703333",
+          "6309462",
+          "6250760"
+        ],
+        "title": "Study of Safety and Efficacy of MGCND00EP1 as an Add on Treatment in Children and Adolescents With Resistant Epilepsies"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04406948",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-681a6f827ed0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study of Safety and Efficacy of MGCND00EP1 as an Add on Treatment in Children and Adolescents With Resistant Epilepsies"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary aim of Part A of the study to assess the efficacy and tolerability of GWP42003-P compared to placebo as an adjunctive treatment for children with Epilepsy with myoclonic-atonic seizures (EMAS) -associated seizures.\n\nPart B of this study will be conducted to evaluate the long-term safety and tolerability of GWP42003-P in participants with EMAS.",
+        "interventions": [
+          "GWP42003-P",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT05288283",
+        "new_reference_pmids": [],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Efficacy and Safety of GWP42003-P Oral Solution in Children With Epilepsy With Myoclonic-atonic Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05288283",
+      "generic_name": "cannabidiol",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-e7cc65df63ef",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Efficacy and Safety of GWP42003-P Oral Solution in Children With Epilepsy With Myoclonic-atonic Seizures"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=8bf27097-4870-43fb-94f0-f3d0871d1eec; published=Nov 17, 2025; title=EPIDIOLEX (CANNABIDIOL) SOLUTION [JAZZ PHARMACEUTICALS, INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bf27097-4870-43fb-94f0-f3d0871d1eec",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5",
+      "generic_name": "cannabidiol",
+      "id": "fda_warning_metadata_refresh-d25acf3821ce",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=8bf27097-4870-43fb-94f0-f3d0871d1eec; effective_time=20250731; title=Epidiolex / CANNABIDIOL; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=8bf27097-4870-43fb-94f0-f3d0871d1eec; effective_time=20250731; title=Epidiolex / CANNABIDIOL; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%228bf27097-4870-43fb-94f0-f3d0871d1eec%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Transdermal CBD focal-epilepsy study did not show a significant double-blind efficacy difference and did not report RR50 by blinded arm.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "cannabidiol",
+      "label": "OBrien2022",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "35802375",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35802375/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive Transdermal Cannabidiol for Adults With Focal Epilepsy: A Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Abstract reports CBD25 active/placebo reductions and the model-based placebo-adjusted reduction of 30.1%. CBD50 was not used because 25 mg/kg/day is the approved TSC maximum.",
+      "dose_or_regimen": "CBD 25 mg/kg/day",
+      "endpoint": "TSC-associated seizures",
+      "generic_name": "cannabidiol",
+      "label": "Thiele2021",
+      "mpc_active_percent": "48.6",
+      "mpc_differential_percent": "30.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "26.5",
+      "pmid": "33346789",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33346789/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Add-on Cannabidiol Treatment for Drug-Resistant Seizures in Tuberous Sclerosis Complex: A Placebo-Controlled Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Abstract reports placebo-adjusted convulsive seizure-frequency reduction for the 20 mg/kg/day arm; RR50 and seizure freedom were not extractable from the abstract.",
+      "dose_or_regimen": "CBD 20 mg/kg/day",
+      "endpoint": "Dravet convulsive seizures",
+      "generic_name": "cannabidiol",
+      "label": "Miller2020",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "25.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "32119035",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32119035/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Dose-Ranging Effect of Adjunctive Oral Cannabidiol vs Placebo on Convulsive Seizure Frequency in Dravet Syndrome: A Randomized Clinical Trial."
+    },
+    {
+      "audit_note": "Abstract reports median percent reduction for the 20 mg/kg/day arm and placebo.",
+      "dose_or_regimen": "CBD 20 mg/kg/day",
+      "endpoint": "LGS drop seizures",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2018b",
+      "mpc_active_percent": "41.9",
+      "mpc_differential_percent": "24.7",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "17.2",
+      "pmid": "29768152",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29768152/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effect of Cannabidiol on Drop Seizures in the Lennox-Gastaut Syndrome."
+    },
+    {
+      "audit_note": "Dose-ranging safety/pharmacokinetic trial; no extractable placebo-adjusted efficacy outcome for max-dose rollup.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2018",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "29540584",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29540584/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized, dose-ranging safety trial of cannabidiol in Dravet syndrome."
+    },
+    {
+      "audit_note": "Abstract reports median percentage reduction for 20 mg/kg/day and placebo.",
+      "dose_or_regimen": "CBD 20 mg/kg/day",
+      "endpoint": "LGS drop seizures",
+      "generic_name": "cannabidiol",
+      "label": "Thiele2018",
+      "mpc_active_percent": "43.9",
+      "mpc_differential_percent": "22.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "21.8",
+      "pmid": "29395273",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29395273/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Cannabidiol in patients with seizures associated with Lennox-Gastaut syndrome (GWPCARE4): a randomised, double-blind, placebo-controlled phase 3 trial."
+    },
+    {
+      "audit_note": "Abstract reports RR50 and seizure-free rates; MPC is the adjusted median difference reported in the abstract.",
+      "dose_or_regimen": "CBD 20 mg/kg/day",
+      "endpoint": "Dravet convulsive seizures",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2017",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "22.8",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "28538134",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28538134/",
+      "rr50_active_percent": "43.0",
+      "rr50_differential_percent": "16.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "27.0",
+      "sf_active_percent": "5.0",
+      "sf_differential_percent": "5.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "O'Brien",
+      "generic_name": "cannabidiol",
+      "label": "OBrien2022",
+      "pmid": "35802375",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive Transdermal Cannabidiol for Adults With Focal Epilepsy: A Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35802375/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Thiele",
+      "generic_name": "cannabidiol",
+      "label": "Thiele2021",
+      "pmid": "33346789",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Add-on Cannabidiol Treatment for Drug-Resistant Seizures in Tuberous Sclerosis Complex: A Placebo-Controlled Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33346789/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Miller",
+      "generic_name": "cannabidiol",
+      "label": "Miller2020",
+      "pmid": "32119035",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Dose-Ranging Effect of Adjunctive Oral Cannabidiol vs Placebo on Convulsive Seizure Frequency in Dravet Syndrome: A Randomized Clinical Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32119035/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2018b",
+      "pmid": "29768152",
+      "pub_types": "Clinical Trial, Phase III; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effect of Cannabidiol on Drop Seizures in the Lennox-Gastaut Syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29768152/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2018",
+      "pmid": "29540584",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized, dose-ranging safety trial of cannabidiol in Dravet syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29540584/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Thiele",
+      "generic_name": "cannabidiol",
+      "label": "Thiele2018",
+      "pmid": "29395273",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Cannabidiol in patients with seizures associated with Lennox-Gastaut syndrome (GWPCARE4): a randomised, double-blind, placebo-controlled phase 3 trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29395273/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "Devinsky2017",
+      "pmid": "28538134",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Trial of Cannabidiol for Drug-Resistant Seizures in the Dravet Syndrome.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28538134/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Gorbenko",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "40836528",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Cannabidiol Lacks Direct Effect on Cortical Excitability: A Randomized, Double Blind, Placebo Controlled, 3-Way Crossover Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40836528/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Specchio",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "40775196",
+      "pub_types": "Journal Article; Clinical Trial, Phase III; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Clinically Meaningful Reduction in Drop Seizures in Patients with Lennox-Gastaut Syndrome Treated with Cannabidiol: Post Hoc Analysis of Phase 3 Clinical Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40775196/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Ong",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "39882324",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "The use of cannabidiol as adjunctive therapy in adult patients with drug-resistant epilepsy: a systematic review and meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39882324/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Downs",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "38959712",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effects of ganaxolone on non-seizure outcomes in CDKL5 Deficiency Disorder: Double-blind placebo-controlled randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38959712/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "38677101",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Placebo response in patients with Dravet syndrome: Post-hoc analysis of two clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38677101/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Nabbout",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "38643658",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Dravet syndrome seizure frequency and clustering: Placebo-treated patients in clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38643658/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Müller",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "38177999",
+      "pub_types": "Clinical Trial Protocol; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Cannabidiol (Epidyolex®) for severe behavioral manifestations in patients with tuberous sclerosis complex, mucopolysaccharidosis type III and fragile X syndrome: protocol for a series of randomized, placebo-controlled N-of-1 trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38177999/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Rozental",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "37889215",
+      "pub_types": "Randomized Controlled Trial, Veterinary; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "The efficacy and safety of cannabidiol as adjunct treatment for drug-resistant idiopathic epilepsy in 51 dogs: A double-blinded crossover study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37889215/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Kisiolek",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "37836465",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Eight Weeks of Daily Cannabidiol Supplementation Improves Sleep Quality and Immune Cell Cytotoxicity.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37836465/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Auvin",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "37052803",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Seizure-free days as a novel outcome in patients with Lennox-Gastaut syndrome: Post hoc analysis of patients receiving cannabidiol in two randomized controlled trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37052803/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Potschka",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "36209995",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cannabidiol in canine epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36209995/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Rosa",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "36386386",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Nabiximols effect on blood pressure and heart rate in post-stroke patients of a randomized controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36386386/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Garcia",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "35967998",
+      "pub_types": "Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Safety and efficacy of cannabidiol-cannabidiolic acid rich hemp extract in the treatment of refractory epileptic seizures in dogs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35967998/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Wu",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "35175622",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Time to onset of cannabidiol treatment effect and resolution of adverse events in tuberous sclerosis complex: Post hoc analysis of randomized controlled phase 3 trial GWPCARE6.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35175622/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Thiele",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "34957550",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term cannabidiol treatment for seizures in patients with tuberous sclerosis complex: An open-label extension trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34957550/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Scheffer",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "34406656",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Add-on cannabidiol in patients with Dravet syndrome: Results of a long-term open-label extension trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34406656/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Privitera",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "33797076",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to onset of cannabidiol (CBD) treatment effect in Lennox-Gastaut syndrome: Analysis from two randomized controlled trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33797076/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Ong",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "32965057",
+      "pub_types": "Clinical Trial Protocol; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Protocol for a single patient therapy plan: A randomised, double-blind, placebo-controlled N-of-1 trial to assess the efficacy of cannabidiol in patients with intractable epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32965057/",
+      "year": "2020"
+    },
+    {
+      "first_author": "VanLandingham",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "32652616",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A Phase 2, Double-Blind, Placebo-Controlled Trial to Investigate Potential Drug-Drug Interactions Between Cannabidiol and Clobazam.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32652616/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Ben-Menachem",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "32350749",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A Phase II Randomized Trial to Explore the Potential for Pharmacokinetic Drug-Drug Interactions with Stiripentol or Valproate when Combined with Cannabidiol in Patients with Epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32350749/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Taylor",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "32036242",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Abrupt withdrawal of cannabidiol (CBD): A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32036242/",
+      "year": "2020"
+    },
+    {
+      "first_author": "McGrath",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "31067185",
+      "pub_types": "Journal Article; Randomized Controlled Trial, Veterinary",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Randomized blinded controlled clinical trial to assess the effect of oral cannabidiol administration in addition to conventional antiepileptic treatment on seizure frequency in dogs with intractable idiopathic epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31067185/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Perry",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "30955420",
+      "pub_types": "Journal Article; Comment",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Don't Fear the Reefer-Evidence Mounts for Plant-Based Cannabidiol as Treatment for Epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30955420/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Thiele",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "30740695",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cannabidiol in patients with Lennox-Gastaut syndrome: Interim analysis of an open-label extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30740695/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "30582156",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term cannabidiol treatment in patients with Dravet syndrome: An open-label extension trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30582156/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Schoedel",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "30286443",
+      "pub_types": "Clinical Trial, Phase I; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Abuse potential assessment of cannabidiol (CBD) in recreational polydrug users: A randomized, double-blind, controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30286443/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "30006259",
+      "pub_types": "Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Open-label use of highly purified CBD (Epidiolex®) in patients with CDKL5 deficiency disorder and Aicardi, Dup15q, and Doose syndromes.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30006259/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Marinelli",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "28882919",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "A randomised controlled cross-over double-blind pilot study protocol on THC:CBD oromucosal spray efficacy as an add-on therapy for post-stroke spasticity.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28882919/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Babalonis",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "28088032",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Oral cannabidiol does not produce a signal for abuse liability in frequent marijuana smokers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28088032/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Cunha",
+      "generic_name": "cannabidiol",
+      "label": "",
+      "pmid": "7413719",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "healthy-volunteer study",
+      "status": "rejected",
+      "title": "Chronic administration of cannabidiol to healthy volunteers and epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7413719/",
+      "year": "1980"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

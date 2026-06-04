@@ -1,0 +1,872 @@
+2026-05-20T23:57:35.830735Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:35.885946Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47d2-c4b7-7c60-a8a3-e73baada17a1
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [ethotoin; Peganone].",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Historical/unspecified epilepsy",
+    "filter_formulation": "Historical/not marketed; Tablet",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "Unknown/limited",
+    "filter_symptom_category": "Unquantified/limited data",
+    "formulations_available": "Historical oral tablet (not marketed in U.S.)",
+    "generic_name": "ethotoin",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Peganone",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 legacy ASM product (Peganone); discontinued U.S. product listing.",
+    "trade_names": "Peganone",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "No - discontinued FDA Orange Book product",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.",
+    "epilepsy_type": "Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [ethotoin; Peganone].",
+    "formulations_available": "Historical oral tablet (not marketed in U.S.)",
+    "half_life_range": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.",
+    "major_organ_for_metabolism": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.",
+    "maximum_approved_daily_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.",
+    "mechanism_confidence": "Limited",
+    "mechanism_of_action": "N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.",
+    "mechanism_source": "FDA Orange Book products file",
+    "mechanism_source_tier": "Historical/limited",
+    "minimum_effective_dose": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Peganone",
+    "qt_interval_effect": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.",
+    "trade_names": "Peganone",
+    "typical_doses_per_day": "N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "ethotoin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [ethotoin; Peganone].",
+      "details": {},
+      "evidence_url": "https://open.fda.gov/apis/drug/label/",
+      "generic_name": "ethotoin",
+      "id": "fda_warning_metadata_refresh-5a4180a7b11b",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No current FDA/openFDA label identified.",
+        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [ethotoin; Peganone].",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [ethotoin; Peganone].",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T23:57:35.914973Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:35.975753Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:57:35.976149Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:57:35.979101Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:57:35.979144Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:35.994255Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.994263Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:35.994756Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.994765Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:35.995275Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.995279Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:35.995704Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.995711Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:35.996207Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.996210Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:35.997550Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:35.997555Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.027311Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:36.035048Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.038309Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.038414Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.056874Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:36.101326Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:36.129321Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:57:36.683774Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:57:36.684339Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:57:36.688495Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:57:36.688556Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.924672Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:57:36.925081Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:57:36.928139Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:57:36.928185Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.941510Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.941514Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.941959Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.941963Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.942374Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.942378Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.942823Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.942826Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.943242Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.943245Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.944146Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:57:36.944149Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:57:36.976731Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.979885Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:57:36.979946Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: site:accessdata.fda.gov Orange Book Peganone ethotoin tablet approved prior to Jan 1 1982 discontinued
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf
+web search: 
+web search: Drugs@FDA Peganone ethotoin 010841
+web search: 
+web search: https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files
+web search: 
+web search: https://www.fda.gov/media/76860/download?attachment=
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/default.cfm
+web search: 
+web search: accessdata FDA Orange Book ethotoin Peganone 010841 Discontinued "Approved prior to Jan 1, 1982"
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug drugsfda ethotoin Peganone JSON
+web search: 
+web search: "api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%5C%22ETHOTOIN%5C%22"
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov ethotoin placebo randomized epilepsy trial
+web search: 
+web search: pubmed ethotoin epilepsy clinical trial
+web search: 
+web search: site:api.fda.gov/drug/drugsfda.json PEGANONE
+web search: 
+web search: 
+web search: 
+web search: "search_product.cfm?Appl_No=010841"
+codex
+{"black_box_warning":{"current_value":"","fda_source_urls":[],"proposed_value":"","rationale":"","requires_user_approval":false,"status":"not_applicable"},"blocking_questions":[],"fact_checks":[],"generic_name":"","missing_rcts":[],"outcome_checks":[],"overall_status":"insufficient_evidence","proposed_row_updates":[],"rct_link_checks":[],"source_updates":[],"summary":""}
+exec
+/bin/zsh -lc "curl -L 'https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-20T23:59:26.813431Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:59:26.813995Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:59:26.817937Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:59:26.817991Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:26.831588Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.831594Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.832037Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.832042Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.832489Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.832492Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.832982Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.832987Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.833442Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.833447Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.834387Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:26.834390Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:26.866259Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:26.869451Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:26.869529Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 533ms:
+
+100  9687  100  9687{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-05-19",
+    "results": {
+      "skip": 0,
+      "limit": 5,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "submissions": [
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "12",
+          "submission_status": "AP",
+          "submission_status_date": "19841113",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "10",
+          "submission_status": "AP",
+          "submission_status_date": "19821104",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "ORIG",
+          "submission_number": "1",
+          "submission_status": "AP",
+          "submission_status_date": "19570422",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "TYPE 1",
+          "submission_class_code_description": "Type 1 - New Molecular Entity"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "9",
+          "submission_status": "AP",
+          "submission_status_date": "19820712",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "5",
+          "submission_status": "AP",
+          "submission_status_date": "19800205",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "25",
+          "submission_status": "AP",
+          "submission_status_date": "20170227",
+          "review_priority": "N/A",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "17",
+          "submission_status": "AP",
+          "submission_status_date": "20021210",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "23",
+          "submission_status": "AP",
+          "submission_status_date": "20110531",
+          "review_priority": "N/A",
+          "submission_class_code": "REMS",
+          "submission_class_code_description": "REMS",
+          "application_docs": [
+            {
+              "id": "240",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2011/010841s023ltr.pdf",
+              "date": "20110602",
+              "type": "Letter"
+            }
+          ]
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "15",
+          "submission_status": "AP",
+          "submission_status_date": "19980513",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "21",
+          "submission_status": "AP",
+          "submission_status_date": "20090423",
+          "review_priority": "901 REQUIRED",
+          "submission_class_code": "LABELING",
+          "submission_class_code_description": "Labeling",
+          "application_docs": [
+            {
+              "id": "33030",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2009/010841s021lbl.pdf",
+              "date": "20090428",
+              "type": "Label"
+            },
+            {
+              "id": "239",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2009/010841s021ltr.pdf",
+              "date": "20090429",
+              "type": "Letter"
+            }
+          ]
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "13",
+          "submission_status": "AP",
+          "submission_status_date": "20030926",
+          "submission_class_code": "LABELING",
+          "submission_class_code_description": "Labeling",
+          "application_docs": [
+            {
+              "id": "237",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2003/10841slr013,014ltr.pdf",
+              "date": "20031001",
+              "type": "Letter"
+            }
+          ]
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "11",
+          "submission_status": "AP",
+          "submission_status_date": "19831028",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "24",
+          "submission_status": "AP",
+          "submission_status_date": "20130123",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "16",
+          "submission_status": "AP",
+          "submission_status_date": "20020404",
+          "review_priority": "PRIORITY",
+          "submission_class_code": "MANUF (CMC)",
+          "submission_class_code_description": "Manufacturing (CMC)"
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "22",
+          "submission_status": "AP",
+          "submission_status_date": "20100607",
+          "review_priority": "STANDARD",
+          "submission_class_code": "LABELING",
+          "submission_class_code_description": "Labeling",
+          "application_docs": [
+            {
+              "id": "43581",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022MedGuide.pdf",
+              "date": "20100624",
+              "type": "Medication Guide"
+            },
+            {
+              "id": "11913",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2010/010841s022ltr.pdf",
+              "date": "20100614",
+              "type": "Letter"
+            },
+            {
+              "id": "33031",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf",
+              "date": "20100614",
+              "type": "Label"
+            }
+          ]
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "14",
+          "submission_status": "AP",
+          "submission_status_date": "20030926",
+          "review_priority": "STANDARD",
+          "submission_class_code": "LABELING",
+          "submission_class_code_description": "Labeling",
+          "application_docs": [
+            {
+              "id": "11912",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2003/10841slr013,014ltr.pdf",
+              "date": "20031001",
+              "type": "Letter"
+            }
+          ]
+        },
+        {
+          "submission_type": "SUPPL",
+          "submission_number": "20",
+          "submission_status": "AP",
+          "submission_status_date": "20070202",
+          "review_priority": "STANDARD",
+          "submission_class_code": "LABELING",
+          "submission_class_code_description": "Labeling",
+          "application_docs": [
+            {
+              "id": "238",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/appletter/2007/010841s020LTR.pdf",
+              "date": "20070212",
+              "type": "Letter"
+            },
+            {
+              "id": "33029",
+              "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2007/010841s020lbl.pdf",
+              "date": "20070221",
+              "type": "Label"
+            }
+          ]
+        }
+      ],
+      "application_number": "NDA010841",
+      "sponsor_name": "RECORDATI RARE",
+      "products": [
+        {
+          "product_number": "003",
+          "reference_drug": "No",
+          "brand_name": "PEGANONE",
+          "active_ingredients": [
+            {
+              "name": "ETHOTOIN",
+              "strength": "500MG"
+            }
+          ],
+          "reference_standard": "No",
+          "dosage_form": "TABLET",
+          "route": "ORAL",
+          "marketing_status": "Discontinued"
+        },
+        {
+          "product_number": "001",
+          "reference_drug": "Yes",
+          "brand_name": "PEGANONE",
+          "active_ingredients": [
+            {
+              "name": "ETHOTOIN",
+              "strength": "250MG"
+            }
+          ],
+          "reference_standard": "No",
+          "dosage_form": "TABLET",
+          "route": "ORAL",
+          "marketing_status": "Discontinued"
+        }
+      ]
+    }
+  ]
+}    0     0  19736      0 --:--:-- --:--:-- --:--:-- 19769
+
+exec
+/bin/zsh -lc "curl -sL 'https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22ETHOTOIN%22+OR+openfda.brand_name:%22PEGANONE%22&limit=5'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-20T23:59:31.357352Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:59:31.357805Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:59:31.361153Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:59:31.361195Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:31.374490Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.374495Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.374909Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.374911Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.375322Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.375326Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.375753Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.375755Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.376174Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.376177Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.377110Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:31.377113Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:31.407246Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:31.410215Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:31.410277Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 496ms:
+{
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "No matches found!"
+  }
+}
+exec
+/bin/zsh -lc "curl -sL 'https://api.fda.gov/drug/label.json?search=ethotoin&limit=1'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-20T23:59:35.065881Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:59:35.066488Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:59:35.070726Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:59:35.070774Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:35.084394Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.084400Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.084835Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.084839Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.085272Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.085275Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.085703Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.085706Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.086156Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.086159Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.087047Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:59:35.087050Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:59:35.118447Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:35.121691Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:59:35.121755Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 651ms:
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-05-20",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 144
+    }
+  },
+  "results": [
+    {
+      "effective_time": "20170118",
+      "contraindications": [
+        "CONTRAINDICATIONS Phenytoin is contraindicated in those patients who are hypersensitive to phenytoin or other hydantoins."
+      ],
+      "precautions": [
+        "PRECAUTIONS General: The liver is the chief site of biotransformation of phenytoin; patients with impaired liver function, elderly patients, or those who are gravely ill may show early signs of toxicity. A small percentage of individuals who have been treated with phenytoin have been shown to metabolize the drug slowly. Slow metabolism may be due to limited enzyme availability and lack of induction; it appears to be genetically determined. Phenytoin should be discontinued if a skin rash appears (see WARNINGS section regarding drug discontinuation). If the rash is exfoliative, purpuric, or bullous or if lupus erythematosus, Stevens-Johnson syndrome, or toxic epidermal necrolysis is suspected, use of this drug should not be resumed and alternative therapy should be considered. (See ADVERSE REACTIONS section.) If the rash is of a milder type (measles-like or scarlatiniform), therapy may be resumed after the rash has completely disappeared. If the rash recurs upon reinstitution of therapy, further phenytoin medication is contraindicated. Phenytoin and other hydantoins are contraindicated in patients who have experienced phenytoin hypersensitivity (see CONTRAINDICATIONS ). Additionally, caution should be exercised if using structurally similar compounds (e.g., barbiturates, succinimides, oxazolidinediones, and other related compounds) in these same patients. Hyperglycemia, resulting from the drug’s inhibitory effects on insulin release, has been reported. Phenytoin may also raise the serum glucose level in diabetic patients. Osteomalacia has been associated with phenytoin therapy and is considered to be due to phenytoin’s interference with vitamin D metabolism. Phenytoin is not indicated for seizures due to hypoglycemic or other metabolic causes. Appropriate diagnostic procedures should be performed as indicated. Phenytoin is not effective for absence (petit mal) seizures. If tonic-clonic (grand mal) and absence (petit mal) seizures are present, combined drug therapy is needed. Serum levels of phenytoin sustained above the optimal range may produce confusional states referred to as “delirium,” “psychosis,” or “encephalopathy,” or rarely irreversible cerebellar dysfunction. Accordingly, at the first sign of acute toxicity, plasma levels are recommended. Dose reduction of phenytoin therapy is indicated if plasma levels are excessive; if symptoms persist, termination is recommended. (See WARNINGS section.) Information for Patients: Patients taking phenytoin should be advised of the importance of adhering strictly to the prescribed dosage regimen, and of informing the physician of any clinical condition in which it is not possible to take the drug orally as prescribed, e.g., surgery, etc. Patients should also be cautioned on the use of other drugs or alcoholic beverages without first seeking the physician’s advice. Patients should be instructed to call their physician if skin rash develops. The importance of good dental hygiene should be stressed in order to minimize the development of gingival hyperplasia and its complications. Patients should be informed of the availability of a Medication Guide, and they should be instructed to read the Medication Guide prior to taking extended phenytoin sodium. Patients should be instructed to take extended phenytoin sodium only as prescribed. Suicidal Thinking and Behavior - Patients, their caregivers, and families should be counseled that AEDs, including extended phenytoin sodium, may increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers. Patients should be encouraged to enroll in the North American Antiepileptic Drug (NAAED) Pregnancy Registry if they become pregnant. This registry is collecting information about the safety of antiepileptic drugs during pregnancy. To enroll, patients can call the toll free number 1-888-233-2334 (see PRECAUTIONS: Pregnancy section). Do not use capsules which are discolored. Laboratory Tests: Phenytoin serum level determinations may be necessary to achieve optimal dosage adjustments. Drug Interactions: There are many drugs which may increase or decrease phenytoin levels or which phenytoin may affect. Serum level determinations for phenytoin are especially helpful when possible drug interactions are suspected. The most commonly occurring drug interactions are listed below: Drugs which may increase phenytoin serum levels include: acute alcohol intake, amiodarone, chloramphenicol, chlordiazepoxide, cimetidine, diazepam, dicumarol, disulfiram, estrogens, ethosuximide, fluoxetine, H 2 -antagonists, halothane, isoniazid, methylphenidate, phenothiazines, phenylbutazone, salicylates, succinimides, sulfonamides, ticlopidine, tolbutamide, trazodone. Drugs which may decrease phenytoin levels include: carbamazepine, chronic alcohol abuse, reserpine, and sucralfate. Moban ® brand of molindone hydrochloride contains calcium ions which interfere with the absorption of phenytoin. Ingestion times of phenytoin and antacid preparations containing calcium should be staggered in patients with low serum phenytoin levels to prevent absorption problems. Drugs which may either increase or decrease phenytoin serum levels include: phenobarbital, sodium valproate, and valproic acid. Similarly, the effect of phenytoin on phenobarbital, valproic acid, and sodium valproate serum levels is unpredictable. Although not a true drug interaction, tricyclic antidepressants may precipitate seizures in susceptible patients and phenytoin dosage may need to be adjusted. Drugs whose efficacy is impaired by phenytoin include: corticosteroids, coumarin anticoagulants, digitoxin, doxycycline, estrogens, furosemide, oral contraceptives, paroxetine, quinidine, rifampin, theophylline, vitamin D. Drug Enteral Feeding/Nutritional Preparations Interaction: Literature reports suggest that patients who have received enteral feeding preparations and/or related nutritional supplements have lower than expected phenytoin plasma levels. It is therefore suggested that phenytoin not be administered concomitantly with an enteral feeding preparation. More frequent serum phenytoin level monitoring may be necessary in these patients. Drug/Laboratory Test Interactions: Phenytoin may decrease serum concentrations of T4. It may also produce lower than normal values for dexamethasone or metyrapone tests. Phenytoin may cause increased serum levels of glucose, alkaline phosphatase, and gamma glutamyl transpeptidase (GGT). Care should be taken when using immunoanalytical methods to measure plasma phenytoin concentrations. Carcinogenesis: See WARNINGS section for information on carcinogenesis. Pregnancy: To provide information regarding the effects of in utero exposure to extended phenytoin sodium, physicians are advised to recommend that pregnant patients taking extended phenytoin sodium enroll in the North American Antiepileptic Drug (NAAED) Pregnancy Registry. This can be done by calling the toll free number 1-888-233-2334, and must be done by patients themselves. Information on the registry can also be found at the website http://www.aedpregnancyregistry.org/. Pregnancy Category D; See WARNINGS section. Nursing Mothers: Infant breast-feeding is not recommended for women taking this drug because phenytoin appears to be secreted in low concentrations in human milk. Pediatric Use: See DOSAGE AND ADMINISTRATION section."
+      ],
+      "warnings": [
+        "WARNINGS Abrupt withdrawal of phenytoin in epileptic patients may precipitate status epilepticus. When, in the judgment of the clinician, the need for dosage reduction, discontinuation, or substitution of alternative antiepileptic medication arises, this should be done gradually. However, in the event of an allergic or hypersensitivity reaction, rapid substitution of alternative therapy may be necessary. In this case, alternative therapy should be an antiepileptic drug not belonging to the hydantoin chemical class. Suicidal Behavior and Ideation Antiepileptic drugs (AEDs), including extended phenytoin sodium, may increase the risk of suicidal thoughts or behavior in patients taking these drugs for any indication. Patients treated with any AED for any indication should be monitored for the emergence or worsening of depression, suicidal thoughts or behavior, and/or any unusual changes in mood or behavior. Pooled analyses of 199 placebo-controlled clinical trials (mono-and adjunctive therapy) of 11 different AEDs showed that patients randomized to one of the AEDs had approximately twice the risk (adjusted Relative Risk 1.8, 95% CI:1.2, 2.7) of suicidal thinking or behavior compared to patients randomized to placebo. In these trials, which had a median treatment duration of 12 weeks, the estimated incidence rate of suicidal behavior or ideation among 27,863 AED-treated patients was 0.43%, compared to 0.24% among 16,029 placebo-treated patients, representing an increase of approximately one case of suicidal thinking or behavior for every 530 patients treated. There were four suicides in drug-treated patients in the trials and none in placebo-treated patients, but the number is too small to allow any conclusion about drug effect on suicide. The increased risk of suicidal thoughts or behavior with AEDs was observed as early as one week after starting drug treatment with AEDs and persisted for the duration of treatment assessed. Because most trials included in the analysis did not extend beyond 24 weeks, the risk of suicidal thoughts or behavior beyond 24 weeks could not be assessed. The risk of suicidal thoughts or behavior was generally consistent among drugs in the data analyzed. The finding of increased risk with AEDs of varying mechanisms of action and across a range of indications suggests that the risk applies to all AEDs used for any indication. The risk did not vary substantially by age (5 to 100 years) in the clinical trials analyzed. Table 1 shows absolute and relative risk by indication for all evaluated AEDs. Table 1 Risk by indication for antiepileptic drugs in the pooled analysis Indication Placebo Patients with Events Per 1000 Patients Drug Patients with Events Per 1000 Patients Relative Risk: Incidence of Events in Drug Patients/Incidence in Placebo Patients Risk Difference: Additional Drug Patients with Events Per 1000 Patients Epilepsy 1.0 3.4 3.5 2.4 Psychiatric 5.7 8.5 1.5 2.9 Other 1.0 1.8 1.9 0.9 Total 2.4 4.3 1.8 1.9 The relative risk for suicidal thoughts or behavior was higher in clinical trials for epilepsy than in clinical trials for psychiatric or other conditions, but the absolute risk differences were similar for the epilepsy and psychiatric indications. Anyone considering prescribing extended phenytoin sodium or any other AED must balance this risk with the risk of untreated illness. Epilepsy and many other illnesses for which AEDs are prescribed are themselves associated with morbidity and mortality and an increased risk of suicidal thoughts and behavior. Should suicidal thoughts and behavior emerge during treatment, the prescriber needs to consider whether the emergence of these symptoms in any given patient may be related to the illness being treated. Patients, their caregivers, and families should be informed that AEDs increase the risk of suicidal thoughts and behavior and should be advised of the need to be alert for the emergence or worsening of the signs and symptoms of depression, any unusual changes in mood or behavior, or the emergence of suicidal thoughts, behavior, or thoughts about self-harm. Behaviors of concern should be reported immediately to healthcare providers. There have been a number of reports suggesting a relationship between phenytoin and the development of lymphadenopathy (local or generalized) including benign lymph node hyperplasia, pseudolymphoma, lymphoma, and Hodgkin’s disease. Although a cause and effect relationship has not been established, the occurrence of lymphadenopathy indicates the need to differentiate such a condition from other types of lymph node pathology. Lymph node involvement may occur with or without symptoms and signs resembling serum sickness, e.g., fever, rash, and liver involvement. In all cases of lymphadenopathy, follow-up observation for an extended period is indicated and every effort should be made to achieve seizure control using alternative antiepileptic drugs. Acute alcoholic intake may increase phenytoin serum levels, while chronic alcohol use may decrease serum levels. In view of isolated reports associating phenytoin with exacerbation of porphyria, caution should be exercised in using this medication in patients suffering from this disease. Usage In Pregnancy: Clinical: A. Risks to Mother . An increase in seizure frequency may occur during pregnancy because of altered phenytoin pharmacokinetics. Periodic measurement of plasma phenytoin concentrations may be valuable in the management of pregnant women as a guide to appropriate adjustment of dosage (see PRECAUTIONS, Laboratory Tests ). However, postpartum restoration of the original dosage will probably be indicated. B. Risks to the Fetus . If this drug is used during pregnancy, or if the patient becomes pregnant while taking the drug, the patient should be apprised of the potential harm to the fetus. Prenatal exposure to phenytoin may increase the risks for congenital malformations and other adverse developmental outcomes. Increased frequencies of major malformations (such as orofacial clefts and cardiac defects), minor anomalies (dysmorphic facial features, nail and digit hypoplasia), growth abnormalities (including microcephaly), and mental deficiency have been reported among children born to epileptic women who took phenytoin alone or in combination with other antiepileptic drugs during pregnancy. There have also been several reported cases of malignancies, including neuroblastoma, in children whose mothers received phenytoin during pregnancy. The overall incidence of malformations for children of epileptic women treated with antiepileptic drugs (phenytoin and/or others) during pregnancy is about 10%, or two-to three fold that in the general population. However, the relative contributions of antiepileptic drugs and other factors associated with epilepsy to this increased risk are uncertain and in most cases it has not been possible to attribute specific developmental abnormalities to particular antiepileptic drugs. Patients should consult with their physicians to weigh the risks and benefits of phenytoin during pregnancy. C. Postpartum Period . A potentially life-threatening bleeding disorder related to decreased levels of vitamin K-dependent clotting factors may occur in newborns exposed to phenytoin in utero . This drug-induced condition can be prevented with vitamin K administration to the mother before delivery and to the neonate after birth. Preclinical: Increased resorption and malformation rates have been reported following administration of phenytoin doses of 75 mg/kg or higher (approximately 120% of the maximum human loading dose or higher on a mg/m 2 basis) to pregnant rabbits."
+      ],
+      "spl_product_data_elements": [
+        "Extended Phenytoin Sodium Phenytoin Sodium PHENYTOIN SODIUM PHENYTOIN CAPSULE IP;212"
+      ],
+      "description": [
+        "DESCRIPTION Phenytoin sodium, USP is an antiepileptic drug. Phenytoin sodium, USP is related to the barbiturates in chemical structure, but has a five-membered ring. The chemical name is sodium 5,5-diphenyl-2, 4-imidazolidinedione, having the following structural formula: Each extended phenytoin sodium capsule, USP contains 100 mg phenytoin sodium, USP. Each capsule also contains the following inactive ingredients: D&C Red #28, D&C Red #33, FD&C Blue #1, gelatin, hydroxypropyl cellulose, mannitol, magnesium stearate, talc and titanium dioxide. Product in vivo performance is characterized by a slow and extended rate of absorption with peak blood concentrations expected in 4 to 12 hours as contrasted to prompt phenytoin sodium capsules , USP with a rapid rate of absorption with peak blood concentration expected in 1½ to 3 hours. MM1"
+      ],
+      "openfda": {},
+      "version": "2",
+      "dosage_and_administration": [
+        "DOSAGE & ADMINISTRATION Serum concentrations should be monitored in changing from extended phenytoin sodium capsules, USP to prompt phenytoin sodium capsules, USP, and from the sodium salt to the free acid form. Extended phenytoin sodium capsules, USP are formulated with the sodium salt of phenytoin. Because there is approximately an 8% increase in drug content with the free acid form over that of the sodium salt, dosage adjustments and serum level monitoring may be necessary when switching from a product formulated with the free acid to a product formulated with the sodium salt and vice versa. General: Dosage should be individualized to provide maximum benefit. In some cases, serum blood level determinations may be necessary for optimal dosage adjustments-the clinically effective serum level is usually 10 to 20 mcg/mL. With recommended dosage, a period of seven to ten days may be required to achieve steady-state blood levels with phenytoin and changes in dosage (increase or decrease) should not be carried out at intervals shorter than seven to ten days. Adult Dosage: Divided daily dosage: Patients who have received no previous treatment may be started on one 100-mg extended phenytoin sodium capsule, USP three times daily and the dosage then adjusted to suit individual requirements. For most adults, the satisfactory maintenance dosage will be one capsule three to four times a day. An increase up to two capsules three times a day may be made, if necessary. Once-a-day dosage: In adults, if seizure control is established with divided doses of three 100-mg extended phenytoin sodium capsules, USP daily, once-a-day dosage with 300 mg of extended phenytoin sodium capsules, USP may be considered. Studies comparing divided doses of 300 mg with a single daily dose of this quantity indicated absorption, peak plasma levels, biologic half-life, difference between peak and minimum values, and urinary recovery were equivalent. Once-a-day dosage offers a convenience to the individual patient or to nursing personnel for institutionalized patients and is intended to be used only for patients requiring this amount of drug daily. A major problem in motivating noncompliant patients may also be lessened when the patient can take this drug once a day. However, patients should be cautioned not to miss a dose, inadvertently. Only extended phenytoin sodium capsules, USP are recommended for once-a-day dosing. Inherent differences in dissolution characteristics and resultant absorption rates of phenytoin due to different manufacturing procedures and/or dosage forms preclude such recommendation for other phenytoin products. When a change in the dosage form or brand is prescribed, careful monitoring of phenytoin serum levels should be carried out. Loading dose: Some authorities have advocated use of an oral loading dose of phenytoin in adults who require rapid steady-state serum levels and where intravenous administration is not desirable. This dosing regimen should be reserved for patients in a clinic or hospital setting where phenytoin serum levels can be closely monitored. Patients with a history of renal or liver disease should not receive the oral loading regimen. Initially, one gram of phenytoin capsules is divided into three doses (400 mg, 300 mg, 300 mg) and administered at two-hour intervals. Normal maintenance dosage is then instituted 24 hours after the loading dose, with frequent serum level determinations. Pediatric Dosage: Initially, 5 mg/kg/day in two or three equally divided doses, with subsequent dosage individualized to a maximum of 300 mg daily. A recommended daily maintenance dosage is usually 4 to 8 mg/kg. Children over 6 years old and adolescents may require the minimum adult dose (300 mg/day)."
+      ],
+      "adverse_reactions": [
+        "ADVERSE REACTIONS Central Nervous System: The most common manifestations encountered with phenytoin therapy are referable to this system and are usually dose-related. These include nystagmus, ataxia, slurred speech, decreased coordination, and mental confusion. Dizziness, insomnia, transient nervousness, motor twitchings, and headaches have also been observed. There have also been rare reports of phenytoin induced dyskinesias, including chorea, dystonia, tremor, and asterixis, similar to those induced by phenothiazine and other neuroleptic drugs. A predominantly sensory peripheral polyneuropathy has been observed in patients receiving long-term phenytoin therapy. Gastrointestinal System: Nausea, vomiting, constipation, toxic hepatitis, and liver damage. Integumentary System: Dermatological manifestations sometimes accompanied by fever have included scarlatiniform or morbilliform rashes. A morbilliform rash (measles-like) is the most common; other types of dermatitis are seen more rarely. Other more serious forms which may be fatal have included bullous, exfoliative or purpuric dermatitis, lupus erythematosus, Stevens-Johnson syndrome, and toxic epidermal necrolysis (see PRECAUTIONS section). Hemopoietic System: Hemopoietic complications, some fatal, have occasionally been reported in association with administration of phenytoin. These have included thrombocytopenia, leukopenia, granulocytopenia, agranulocytosis, and pancytopenia with or without bone marrow suppression. While macrocytosis and megaloblastic anemia have occurred, these conditions usually respond to folic acid therapy. Lymphadenopathy including benign lymph node hyperplasia, pseudolymphoma, lymphoma, and Hodgkin’s disease have been reported (see WARNINGS section). Connective Tissue System: Coarsening of the facial features, enlargement of the lips, gingival hyperplasia, hypertrichosis, and Peyronie’s disease. Immunologic: Hypersensitivity syndrome (which may include, but is not limited to, symptoms such as arthralgias, eosinophilia, fever, liver dysfunction, lymphadenopathy, or rash), systemic lupus erythematosus, periarteritis nodosa and immunoglobulin abnormalities."
+      ],
+      "spl_unclassified_section": [
+        "SPL UNCLASSIFIED Manufactured by: Amneal Pharmaceuticals of NY Hauppauge, NY 11788 Distributed by: Amneal Pharmaceuticals Glasgow, KY 42141 Rev. 04-2012",
+        "SPL UNCLASSIFIED Manufactured by: Amneal Pharmaceuticals of NY Hauppauge, NY 11788 Distributed by: Amneal Pharmaceuticals Glasgow, KY 42141 Rev. 02-2012"
+      ],
+      "how_supplied": [
+        "HOW SUPPLIED Extended Phenytoin Sodium Capsules, USP 100 mg are supplied as white opaque / light lavender opaque, hard gelatin capsules imprinted with \"IP 212\" on both cap and body. They are available as follows: Bottles of 30: NDC 65162-212-03 Bottles of 100: NDC 65162-212-10 Bottles of 500: NDC 65162-212-50 Bottles of 1000: NDC 65162-212-11 Store at 20° to 25°C (68° to 77°F) [See USP Controlled Room Temperature]. Preserve in tight, light-resistant containers. Protect from moisture. Rx only"
+      ],
+      "package_label_principal_display_panel": [
+        "PACKAGE LABEL.PRINCIPAL DISPLAY PANEL SECTION DRUG: Extended Phenytoin Sodium GENERIC: Phenytoin Sodium DOSAGE: CAPSULE ADMINSTRATION: ORAL NDC: 52125-300-02 ACTIVE INGREDIENT(S): PHENYTOIN SODIUM 100mg in 1 COLOR: white SHAPE: CAPSULE SCORE: No score SIZE: 16 mm IMPRINT: IP;212 PACKAGING: 30 in 1 BLISTER PACK MM2 MM3"
+      ],
+      "spl_medguide": [
+        "Spl Medguide Section Extended Phenytoin Sodium Capsules Read this Medication Guide before you start taking extended phenytoin sodium and each time you get a refill. There may be new information. This information does not take the place of talking to your healthcare provider about your medical condition or treatment. If you have any questions about extended phenytoin sodium, ask your healthcare provider or pharmacist. What is the most important information I should know about extended phenytoin sodium? Do not stop taking extended phenytoin sodium without first talking to your healthcare provider. Stopping extended phenytoin sodium suddenly can cause serious problems. Extended phenytoin sodium can cause serious side effects including: 1. Like other antiepileptic drugs, extended phenytoin sodium may cause suicidal thoughts or actions in a very small number of people, about 1 in 500. Call a healthcare provider right away if you have any of these symptoms, especially if they are new, worse, or worry you: thoughts about suicide or dying attempts to commit suicide new or worse depression new or worse anxiety feeling agitated or restless panic attacks trouble sleeping (insomnia) new or worse irritability acting aggressive, being angry, or violent acting on dangerous impulses an extreme increase activity and talking (mania) other unusual changes in behavior or mood How can I watch for early symptoms of suicidal thoughts and actions? Pay attention to any changes, especially sudden changes, in mood, behaviors, thoughts, or feelings. Keep all follow-up visits with your health-care provider as scheduled. Call your healthcare provider between visits as needed, especially if you are worried about symptoms. Do not stop taking extended phenytoin sodium without first talking to a healthcare provider. Stopping extended phenytoin sodium suddenly can cause serious problems. Stopping a seizure medicine suddenly in a patient who has epilepsy can cause seizures that will not stop (status epilepticus). Suicidal thoughts or actions can be caused by things other than medicines. If you have suicidal thoughts or actions, your healthcare provider may check for other causes. 2. Extended phenytoin sodium may harm your unborn baby. If you take extended phenytoin sodium during pregnancy, your baby is at risk for serious birth defects. Birth defects may occur even in children born to women who are not taking any medicines and do not have other risk factors If you take extended phenytoin sodium during pregnancy, your baby is also at risk for bleeding problems right after birth. Your healthcare provider may give you and your baby medicine to prevent this. All women of child-bearing age should talk to their healthcare provider about using other possible treatments instead of extended phenytoin sodium. If the decision is made to use extended phenytoin sodium, you should use effective birth control (contraception) unless you are planning to become pregnant. Tell your healthcare provider right away if you become pregnant while taking extended phenytoin sodium. You and your healthcare provider should decide if you will take extended phenytoin sodium while you are pregnant. Pregnancy Registry: If you become pregnant while taking extended phenytoin sodium, talk to your healthcare provider about registering with the North American Antiepileptic Drug Pregnancy Registry. You can enroll in this registry by calling 1-888-233-2334. The purpose of this registry is to collect information about the safety of antiepileptic drugs during pregnancy. 3. Swollen glands (lymph nodes) 4. Allergic reactions or serious problems which may affect organs and other parts of your body like the liver or blood cells. You may or may not have a rash with these types of reactions. Symptoms include: swelling of your face, eyes, lips, or tongue trouble swallowing or breathing a skin rash hives fever, swollen glands, or sore throat that do not go away or come and go painful sores in the mouth or around your eyes yellowing of your skin or eyes unusual bruising or bleeding severe fatigue or weakness severe muscle pain frequent infections or an infection that does not go away Call your healthcare provider right away if you have any of the symptoms listed above. What is extended phenytoin sodium? Extended phenytoin sodium is a prescription medicine used to treat tonic-clonic (grand mal), complex partial (psychomotor or temporal lobe) seizures, and to prevent and treat seizures that happen during or after brain surgery. Who should not take extended phenytoin sodium? Do not take extended phenytoin sodium if you: are allergic to phenytoin or any of the ingredients in extended phenytoin sodium capsules. See the end of this leaflet for a complete list of ingredients in extended phenytoin sodium capsules. have had an allergic reaction to CEREBYX (fosphenytoin), PEGANONE (ethotoin), or MESANTOIN (mephenytoin). What should I tell my healthcare provider before taking extended phenytoin sodium? Before you take extended phenytoin sodium, tell your healthcare provider if you: Have or had liver disease Have or had porphyria Have or had diabetes Have or have had depression, mood problems, or suicidal thoughts or behavior Are pregnant or plan to become pregnant. οIf you become pregnant while taking extended phenytoin sodium, the level of extended phenytoin sodium in your blood may decrease, causing your seizures to become worse. Your healthcare provider may change your dose of extended phenytoin sodium. Are breast feeding or plan to breastfeed. Extended phenytoin sodium can pass into breast milk. You and your healthcare provider should decide if you will take extended phenytoin sodium or breastfeed. You should not do both. Tell your healthcare provider about all the medicines you take, including prescription and non-prescription medicines, vitamins, and herbal supplements. Taking extended phenytoin sodium with certain other medicines can cause side effects or affect how well they work. Do not start or stop other medicines without talking to your healthcare provider. Know the medicines you take. Keep a list of them and show it to your healthcare provider and pharmacist when you get a new medicine. How should I take extended phenytoin sodium capsules? Take extended phenytoin sodium capsules exactly as prescribed. Your healthcare provider will tell you how much extended phenytoin sodium to take. Your healthcare provider may change your dose. Do not change your dose of extended phenytoin sodium without talking to your healthcare provider. Extended phenytoin sodium can cause overgrowth of your gums. Brushing and flossing your teeth and seeing a dentist regularly while taking extended phenytoin sodium can help prevent this. If you take too much extended phenytoin sodium, call your healthcare provider or local Poison Control Center right away. Do not stop taking extended phenytoin sodium without first talking to your healthcare provider. Stopping extended phenytoin sodium suddenly can cause serious problems. What should I avoid while taking extended phenytoin sodium? Do not drink alcohol while you take extended phenytoin sodium without first talking to your healthcare provider. Drinking alcohol while taking extended phenytoin sodium may change your blood levels of extended phenytoin sodium which can cause serious problems. Do not drive, operate heavy machinery, or do other dangerous activities until you know how extended phenytoin sodium affects you. Extended phenytoin sodium can slow your thinking and motor skills. What are the possible side effects of extended phenytoin sodium? See “What is the most important information I should know about extended phenytoin sodium?” Extended phenytoin sodium may cause other serious side effects including: Softening of your bones (osteomalacia). This can cause broken bones. Call your healthcare provider right away, if you have any of the symptoms listed above. The most common side effects of extended phenytoin sodium include: problems with walking and coordination slurred speech confusion dizziness trouble sleeping nervousness tremor headache nausea vomiting constipation rash These are not all the possible side effects of extended phenytoin sodium. For more information, ask your health-care provider or pharmacist. Tell your healthcare provider if you have any side effect that bothers you or that does not go away. Call your doctor for medical advice about side effects. You may report side effects to FDA at 1-800-FDA-1088. How should I store extended phenytoin sodium capsules? Store extended phenytoin sodium capsules at room temperature between 68°F to 77°F (20°C to 25°C) in tight, light-resistant containers. Protect from moisture. Keep extended phenytoin sodium and all medicines out of the reach of children. General information about extended phenytoin sodium Medicines are sometimes prescribed for purposes other than those listed in a Medication Guide. Do not use extended phenytoin sodium for a condition for which it was not prescribed. Do not give extended phenytoin sodium to other people, even if they have the same symptoms that you have. It may harm them. This Medication Guide summarizes the most important information about extended phenytoin sodium. If you would like more information, talk with your healthcare provider. You can ask your healthcare provider or pharmacist for information about extended phenytoin sodium that was written for healthcare professionals. For more information about extended phenytoin sodium, visit www.amneal.com or call 1-877-835-5472. What are the ingredients in extended phenytoin sodium capsules? Extended Oral Capsule Extended phenytoin sodium capsule 100mg: White opaque/lavender opaque, hard gelatin capsules imprinted “IP 212” on both cap and body. Active ingredient: 100 mg phenytoin sodium Inactive ingredients: D&C Red #28, D&C Red #33, FD&C Blue #1, gelatin, hydroxypropyl cellulose, mannitol, magnesium stearate, talc and titanium dioxide. This Medication Guide has been approved by the U.S. Food and Drug Administration."
+      ],
+      "indications_and_usage": [
+        "INDICATIONS & USAGE Extended phenytoin sodium capsules, USP are indicated for the control of generalized tonic-clonic (grand mal) and complex partial (psychomotor, temporal lobe) seizures and prevention and treatment of seizures occurring during or following neurosurgery. Phenytoin serum level determinations may be necessary for optimal dosage adjustments (see DOSAGE AND ADMINISTRATION and CLINICAL PHARMACOLOGY sections)."
+      ],
+      "clinical_pharmacology": [
+        "CLINICAL PHARMACOLOGY Phenytoin is an antiepileptic drug which can be used in the treatment of epilepsy. The primary site of action appears to be the motor cortex where spread of seizure activity is inhibited. Possibly by promoting sodium efflux from neurons, phenytoin tends to stabilize the threshold against hyperexcitability caused by excessive stimulation or environmental changes capable of reducing membrane sodium gradient. This includes the reduction of posttetanic potentiation at synapses. Loss of posttetanic potentiation prevents cortical seizure foci from detonating adjacent cortical areas. Phenytoin reduces the maximal activity of brain stem centers responsible for the tonic phase of tonic-clonic (grand mal) seizures. The plasma half-life in man after oral administration of phenytoin averages 22 hours, with a range of 7 to 42 hours. Steady-state therapeutic levels are achieved at least 7 to 10 days (5 to 7 half-lives) after initiation of therapy with recommended doses of 300 mg/day. When serum level determinations are necessary, they should be obtained at least 5 to 7 half-lives after treatment initiation, dosage change, or addition or subtraction of another drug to the regimen so that equilibrium or steady-state will have been achieved. Trough levels provide information about clinically effective serum level range and confirm patient compliance and are obtained just prior to the patient’s next scheduled dose. Peak levels indicate an individual’s threshold for emergence of dose-related side effects and are obtained at the time of expected peak concentration. For extended phenytoin sodium capsules, peak serum levels occur 4 to 12 hours after administration. Optimum control without clinical signs of toxicity occurs more often with serum levels between 10 and 20 mcg/mL, although some mild cases of tonic-clonic (grand mal) epilepsy may be controlled with lower serum levels of phenytoin. In most patients maintained at a steady dosage, stable phenytoin serum levels are achieved. There may be wide interpatient variability in phenytoin serum levels with equivalent dosages. Patients with unusually low levels may be noncompliant or hypermetabolizers of phenytoin. Unusually high levels result from liver disease, congenital enzyme deficiency, or drug interactions which result in metabolic interference. The patient with large variations in phenytoin plasma levels, despite standard doses, presents a difficult clinical problem. Serum level determinations in such patients may be particularly helpful. As phenytoin is highly protein bound, free phenytoin levels may be altered in patients whose protein binding characteristics differ from normal. Most of the drug is excreted in the bile as inactive metabolites which are then reabsorbed from the intestinal tract and excreted in the urine. Urinary excretion of phenytoin and its metabolites occurs partly with glomerular filtration but more importantly by tubular secretion. Because phenytoin is hydroxylated in the liver by an enzyme system which is saturable at high plasma levels, small incremental doses may increase the half-life and produce very substantial increases in serum levels, when these are in the upper range. The steady-state level may be disproportionately increased, with resultant intoxication, from an increase in dosage of 10% or more."
+      ],
+      "set_id": "04459c3e-f394-43cc-b8fd-263662597bfa",
+      "id": "46670cec-da5f-65f2-e054-00144ff88e88",
+      "overdosage": [
+        "OVERDOSAGE The lethal dose in pediatric patients is not known. The lethal dose in adults is estimated to be 2 to 5 grams. The initial symptoms are nystagmus, ataxia, and dysarthria. Other signs are tremor, hyperreflexia, lethargy, slurred speech, nausea, vomiting. The patient may become comatose and hypotensive. Death is due to respiratory and circulatory depression. There are marked variations among individuals with respect to phenytoin plasma levels where toxicity may occur. Nystagmus, on lateral gaze, usually appears at 20 mcg/mL, ataxia at 30 mcg/mL; dysarthria and lethargy appear when the plasma concentration is over 40 mcg/mL, but as high a concentration as 50 mcg/mL has been reported without evidence of toxicity. As much as 25 times the therapeutic dose has been taken to result in a serum concentration over 100 mcg/mL with complete recovery. Treatment: Treatment is nonspecific since there is no known antidote. The adequacy of the respiratory and circulatory systems should be carefully observed and appropriate supportive measures employed. Hemodialysis can be considered since phenytoin is not completely bound to plasma proteins. Total exchange transfusion has been used in the treatment of severe intoxication in pediatric patients. In acute overdosage, the possibility of other CNS depressants, including alcohol, should be borne in mind."
+      ],
+      "warnings_table": [
+        "<table width=\"638\"> <caption> Table 1 Risk by indication for antiepileptic drugs in the pooled analysis </caption> <tbody> <tr> <td> Indication </td> <td> Placebo Patients  with Events Per  1000 Patients </td> <td> Drug Patients  with Events Per  1000 Patients </td> <td> Relative Risk:  Incidence of  Events in Drug  Patients/Incidence  in Placebo Patients </td> <td> Risk Difference:  Additional Drug  Patients with  Events Per 1000  Patients </td> </tr> <tr> <td>Epilepsy</td> <td>1.0 </td> <td>3.4 </td> <td>3.5 </td> <td>2.4</td> </tr> <tr> <td>Psychiatric</td> <td>5.7 </td> <td>8.5 </td> <td>1.5 </td> <td>2.9</td> </tr> <tr> <td>Other</td> <td>1.0 </td> <td>1.8</td> <td>1.9 </td> <td>0.9</td> </tr> <tr> <td>Total</td> <td>2.4 </td> <td>4.3 </td> <td>1.8 </td> <td>1.9</td> </tr> </tbody> </table>"
+      ]
+    }
+  ]
+}
+web search: 
+web search: site:www.ncbi.nlm.nih.gov ethotoin synonyms Peganone 3-ethyl-5-phenylhydantoin
+exec
+/bin/zsh -lc "curl -sL 'https://pubmed.ncbi.nlm.nih.gov/?term=(ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D)+AND+(randomized+OR+randomised+OR+placebo+OR+trial)' | rg -o 'PMID: [0-9]+' | head" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-21T00:00:29.766443Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:00:29.767049Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:00:29.771529Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:00:29.771585Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:29.786820Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.786825Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.787311Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.787314Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.787792Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.787797Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.788270Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.788275Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.788797Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.788800Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.789801Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:29.789804Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:29.823432Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:29.827112Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:29.827186Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 412ms:
+exec
+/bin/zsh -lc "curl -sL 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=(ethotoin%5BTitle%2FAbstract%5D%20OR%20Peganone%5BTitle%2FAbstract%5D)%20AND%20(randomized%20OR%20randomised%20OR%20placebo%20OR%20trial)&retmode=json&retmax=20'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-21T00:00:34.560121Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:00:34.560633Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:00:34.563718Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:00:34.563761Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:34.576957Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.576962Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.577371Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.577375Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.577795Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.577798Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.578189Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.578192Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.578618Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.578621Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.579487Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:34.579490Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:34.610032Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:34.613606Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:34.613678Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 284ms:
+{"header":{"type":"esearch","version":"0.3"},"esearchresult":{"count":"2","retmax":"2","retstart":"0","idlist":["1973383","7194443"],"translationset":[{"from":"randomized","to":"\"random allocation\"[MeSH Terms] OR (\"random\"[All Fields] AND \"allocation\"[All Fields]) OR \"random allocation\"[All Fields] OR \"randomization\"[All Fields] OR \"randomized\"[All Fields] OR \"random\"[All Fields] OR \"randomisation\"[All Fields] OR \"randomisations\"[All Fields] OR \"randomise\"[All Fields] OR \"randomised\"[All Fields] OR \"randomising\"[All Fields] OR \"randomizations\"[All Fields] OR \"randomize\"[All Fields] OR \"randomizes\"[All Fields] OR \"randomizing\"[All Fields] OR \"randomness\"[All Fields] OR \"randoms\"[All Fields]"},{"from":"randomised","to":"\"random allocation\"[MeSH Terms] OR (\"random\"[All Fields] AND \"allocation\"[All Fields]) OR \"random allocation\"[All Fields] OR \"randomization\"[All Fields] OR \"randomized\"[All Fields] OR \"random\"[All Fields] OR \"randomisation\"[All Fields] OR \"randomisations\"[All Fields] OR \"randomise\"[All Fields] OR \"randomised\"[All Fields] OR \"randomising\"[All Fields] OR \"randomizations\"[All Fields] OR \"randomize\"[All Fields] OR \"randomizes\"[All Fields] OR \"randomizing\"[All Fields] OR \"randomness\"[All Fields] OR \"randoms\"[All Fields]"},{"from":"placebo","to":"\"placeboes\"[All Fields] OR \"placebos\"[Supplementary Concept] OR \"placebos\"[All Fields] OR \"placebo\"[All Fields] OR \"placebos\"[MeSH Terms]"},{"from":"trial","to":"\"clinical trials as topic\"[MeSH Terms] OR (\"clinical\"[All Fields] AND \"trials\"[All Fields] AND \"topic\"[All Fields]) OR \"clinical trials as topic\"[All Fields] OR \"trial\"[All Fields] OR \"trial's\"[All Fields] OR \"trialed\"[All Fields] OR \"trialing\"[All Fields] OR \"trials\"[All Fields]"}],"querytranslation":"(\"ethotoin\"[Title/Abstract] OR \"Peganone\"[Title/Abstract]) AND (\"random allocation\"[MeSH Terms] OR (\"random\"[All Fields] AND \"allocation\"[All Fields]) OR \"random allocation\"[All Fields] OR \"randomization\"[All Fields] OR \"randomized\"[All Fields] OR \"random\"[All Fields] OR \"randomisation\"[All Fields] OR \"randomisations\"[All Fields] OR \"randomise\"[All Fields] OR \"randomised\"[All Fields] OR \"randomising\"[All Fields] OR \"randomizations\"[All Fields] OR \"randomize\"[All Fields] OR \"randomizes\"[All Fields] OR \"randomizing\"[All Fields] OR \"randomness\"[All Fields] OR \"randoms\"[All Fields] OR (\"random allocation\"[MeSH Terms] OR (\"random\"[All Fields] AND \"allocation\"[All Fields]) OR \"random allocation\"[All Fields] OR \"randomization\"[All Fields] OR \"randomized\"[All Fields] OR \"random\"[All Fields] OR \"randomisation\"[All Fields] OR \"randomisations\"[All Fields] OR \"randomise\"[All Fields] OR \"randomised\"[All Fields] OR \"randomising\"[All Fields] OR \"randomizations\"[All Fields] OR \"randomize\"[All Fields] OR \"randomizes\"[All Fields] OR \"randomizing\"[All Fields] OR \"randomness\"[All Fields] OR \"randoms\"[All Fields]) OR (\"placeboes\"[All Fields] OR \"placebos\"[Supplementary Concept] OR \"placebos\"[All Fields] OR \"placebo\"[All Fields] OR \"placebos\"[MeSH Terms]) OR (\"clinical trials as topic\"[MeSH Terms] OR (\"clinical\"[All Fields] AND \"trials\"[All Fields] AND \"topic\"[All Fields]) OR \"clinical trials as topic\"[All Fields] OR \"trial\"[All Fields] OR \"trial s\"[All Fields] OR \"trialed\"[All Fields] OR \"trialing\"[All Fields] OR \"trials\"[All Fields]))"}}
+
+exec
+/bin/zsh -lc "curl -sL 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=1973383,7194443&retmode=json'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-21T00:00:38.458434Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:00:38.458933Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:00:38.462481Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:00:38.462525Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:38.475687Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.475692Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.476108Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.476114Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.476534Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.476537Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.476950Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.476953Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.477376Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.477378Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.478245Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:38.478248Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:38.508518Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:38.511547Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:38.511603Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 246ms:
+{"header":{"type":"esummary","version":"0.3"},"result":{"uids":["1973383","7194443"],"1973383":{"uid":"1973383","pubdate":"1990 Jul-Aug","epubdate":"","source":"Epilepsia","authors":[{"name":"Biton V","authtype":"Author","clusterid":""},{"name":"Gates JR","authtype":"Author","clusterid":""},{"name":"Ritter FJ","authtype":"Author","clusterid":""},{"name":"Loewenson RB","authtype":"Author","clusterid":""}],"lastauthor":"Loewenson RB","title":"Adjunctive therapy for intractable epilepsy with ethotoin.","sorttitle":"adjunctive therapy for intractable epilepsy with ethotoin","volume":"31","issue":"4","pages":"433-7","lang":["eng"],"nlmuniqueid":"2983306R","issn":"0013-9580","essn":"","pubtype":["Journal Article","Research Support, U.S. Gov't, P.H.S."],"recordstatus":"PubMed - indexed for MEDLINE","pubstatus":"4","articleids":[{"idtype":"pubmed","idtypen":1,"value":"1973383"},{"idtype":"doi","idtypen":3,"value":"10.1111/j.1528-1157.1990.tb05499.x"}],"history":[{"pubstatus":"pubmed","date":"1990/07/01 00:00"},{"pubstatus":"medline","date":"1990/07/01 00:01"},{"pubstatus":"entrez","date":"1990/07/01 00:00"}],"references":[],"attributes":["Has Abstract"],"pmcrefcount":"","fulljournalname":"Epilepsia","elocationid":"","doctype":"citation","srccontriblist":[],"booktitle":"","medium":"","edition":"","publisherlocation":"","publishername":"","srcdate":"","reportnumber":"","availablefromurl":"","locationlabel":"","doccontriblist":[],"docdate":"","bookname":"","chapter":"","sortpubdate":"1990/07/01 00:00","sortfirstauthor":"Biton V","vernaculartitle":""},"7194443":{"uid":"7194443","pubdate":"1981 Apr","epubdate":"","source":"Neurology","authors":[{"name":"Reynolds NC Jr","authtype":"Author","clusterid":""},{"name":"Miska RM","authtype":"Author","clusterid":""}],"lastauthor":"Miska RM","title":"Safety of anticonvulsants in hepatic porphyrias.","sorttitle":"safety of anticonvulsants in hepatic porphyrias","volume":"31","issue":"4","pages":"480-4","lang":["eng"],"nlmuniqueid":"0401060","issn":"0028-3878","essn":"","pubtype":["Journal Article"],"recordstatus":"PubMed - indexed for MEDLINE","pubstatus":"4","articleids":[{"idtype":"pubmed","idtypen":1,"value":"7194443"},{"idtype":"doi","idtypen":3,"value":"10.1212/wnl.31.4.480"}],"history":[{"pubstatus":"pubmed","date":"1981/04/01 00:00"},{"pubstatus":"medline","date":"2001/03/28 10:01"},{"pubstatus":"entrez","date":"1981/04/01 00:00"}],"references":[],"attributes":["Has Abstract"],"pmcrefcount":"","fulljournalname":"Neurology","elocationid":"","doctype":"citation","srccontriblist":[],"booktitle":"","medium":"","edition":"","publisherlocation":"","publishername":"","srcdate":"","reportnumber":"","availablefromurl":"","locationlabel":"","doccontriblist":[],"docdate":"","bookname":"","chapter":"","sortpubdate":"1981/04/01 00:00","sortfirstauthor":"Reynolds NC Jr","vernaculartitle":""}}}
+
+exec
+/bin/zsh -lc "curl -sL 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=1973383,7194443&retmode=xml' | rg -n '<ArticleTitle>|<AbstractText>|<PublicationType>|<PMID>|<DescriptorName'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-21T00:00:43.057520Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:00:43.057976Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:00:43.061436Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:00:43.061485Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:43.075479Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.075484Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.075920Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.075925Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.076345Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.076348Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.076767Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.076771Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.077221Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.077226Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.078159Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:00:43.078162Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:00:43.111189Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:43.114807Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:00:43.114879Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ exited 1 in 140ms:
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/7194443/
+web search: 
+web search: "Adjunctive therapy for intractable epilepsy with ethotoin" PubMed abstract
+web search: 
+web search: clinicaltrials.gov ethotoin Peganone epilepsy placebo
+exec
+/bin/zsh -lc "curl -sL 'https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA010841%22&limit=1' | jq '.meta.last_updated, .results[0].application_number, .results[0].sponsor_name, .results[0].products, [.results[0].submissions[] | select(.submission_type==\"ORIG\")][0]'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+2026-05-21T00:01:06.936074Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:01:06.936608Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:01:06.940486Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:01:06.940537Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:06.954639Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.954648Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.955160Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.955165Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.955609Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.955613Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.956097Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.956100Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.956510Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.956513Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.957413Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:06.957416Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:06.990543Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:06.994022Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:06.994076Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+ succeeded in 336ms:
+exec
+/bin/zsh -lc "curl -sL 'https://api.fda.gov/drug/drugsfda.json?search=application_number:%22NDA010841%22&limit=1' | head -c 2000" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+2026-05-21T00:01:12.793805Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:01:12.794195Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:01:12.797264Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:01:12.797316Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:12.810931Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.810936Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.811373Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.811377Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.811796Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.811799Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.812214Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.812218Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.812781Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.812784Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.813625Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:12.813629Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:12.843537Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:12.846763Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:12.846828Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "curl -sL 'https://api.fda.gov/drug/drugsfda.json?search=application_number:NDA010841&limit=1' | head -c 2000" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+2026-05-21T00:01:19.387640Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:01:19.388064Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:01:19.391249Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:01:19.391293Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:19.404438Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.404442Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.404867Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.404871Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.405279Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.405283Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.405669Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.405672Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.406107Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.406113Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.406986Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:19.406989Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:19.441322Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:19.444888Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:19.444951Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf
+exec
+/bin/zsh -lc "curl -sL 'https://clinicaltrials.gov/api/v2/studies?query.term=ethotoin%20OR%20Peganone&pageSize=10' | head -c 1000" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ succeeded in 0ms:
+2026-05-21T00:01:39.149104Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T00:01:39.149461Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T00:01:39.152158Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T00:01:39.152193Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:39.164710Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.164715Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.165122Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.165126Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.165530Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.165533Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.165919Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.165922Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.166361Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.166364Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.167185Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T00:01:39.167190Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T00:01:39.197115Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:39.200278Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T00:01:39.200342Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+codex
+{"black_box_warning":{"current_value":"No current FDA/DailyMed label identified.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22ETHOTOIN%22+OR+openfda.brand_name:%22PEGANONE%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"],"proposed_value":"No FDA boxed warning identified in FDA Peganone (ethotoin) labeling reviewed.","rationale":"DailyMed is not permissible for this field. The FDA/openFDA label API query returned no current openFDA SPL label for ethotoin/Peganone, but FDA accessdata labeling for Peganone exists and contains Warnings/Medication Guide content without a boxed-warning section.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"ethotoin","field":"generic_name","proposed_value":"ethotoin","rationale":"FDA/openFDA Drugs@FDA lists ETHOTOIN as the active ingredient for Peganone NDA010841 products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"Peganone","field":"trade_names","proposed_value":"Peganone","rationale":"FDA/openFDA and FDA labeling identify Peganone as the brand/trade name for ethotoin tablets.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Peganone","field":"pubmed_search_aliases","proposed_value":"Peganone","rationale":"Peganone is a verified trade name and appears in PubMed-indexed ethotoin literature, so it is appropriate as a search alias.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/13553007/","https://pubmed.ncbi.nlm.nih.gov/2566627/"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No separate alternate generic name requiring row de-duplication was identified. Peganone belongs in trade_names/pubmed_search_aliases, not alternate_generic_names.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"No - discontinued FDA Orange Book product","field":"available_in_us","proposed_value":"No - discontinued FDA/openFDA Drugs@FDA product","rationale":"FDA/openFDA Drugs@FDA lists Peganone oral tablet products as Discontinued.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","field":"epilepsy_type","proposed_value":"Tonic-clonic (grand mal) and complex partial (psychomotor) seizures","rationale":"FDA Peganone labeling states these labeled seizure indications; the row should not remain unspecified.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical oral tablet (not marketed in U.S.)","field":"formulations_available","proposed_value":"Historical oral tablets: Peganone 250 mg in FDA label; FDA/openFDA Drugs@FDA lists discontinued Peganone oral tablet products at 250 mg and 500 mg.","rationale":"The formulation is oral tablet, but FDA sources support specific historical strengths and discontinued status.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf","https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.","field":"half_life_range","proposed_value":"3-9 hours at plasma concentrations below about 8 mcg/mL; FDA label also notes a reported half-life of 6-9 hours with 4-6 hour dosing intervals.","rationale":"FDA Peganone labeling provides half-life information; the no-label rationale is contradicted by FDA labeling.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.","field":"major_organ_for_metabolism","proposed_value":"Liver; FDA label states ethotoin is apparently biotransformed by the liver.","rationale":"FDA labeling supports hepatic metabolism/biotransformation.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","field":"mechanism_of_action","proposed_value":"Hydantoin antiepileptic; mechanism probably similar to phenytoin: stabilizes rather than raises seizure threshold and prevents spread of seizure activity.","rationale":"FDA Peganone labeling provides a limited, phenytoin-like mechanism statement.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Limited","field":"mechanism_confidence","proposed_value":"Limited","rationale":"The FDA label uses probabilistic mechanism wording, so limited confidence is appropriate.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA Peganone (ethotoin) labeling (accessdata.fda.gov; NDA010841/S-022)","rationale":"The Orange Book/Drugs@FDA product listing supports product status, not mechanism. The mechanism statement is supported by FDA labeling.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical/limited","field":"mechanism_source_tier","proposed_value":"FDA labeling","rationale":"The mechanism source should be the FDA label, not the Orange Book product listing.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Limited/unknown: FDA label does not document ethotoin enzyme induction/inhibition; it notes saturable metabolism and cautions that a phenytoin-like coumarin anticoagulant interaction may occur without documentation.","rationale":"FDA labeling exists and includes metabolism/drug-interaction discussion, but it does not establish a clear enzyme induction/inhibition classification.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.","field":"maximum_approved_daily_dose","proposed_value":"3 g/day (upper end of usual adult maintenance dose; label does not state a separate maximum)","rationale":"FDA labeling gives usual adult maintenance dosing of 2 to 3 g daily.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.","field":"minimum_effective_dose","proposed_value":"Adults: 2 g/day; FDA label states less than 2 g/day has been ineffective in most adults.","rationale":"FDA labeling provides an adult lower effective threshold statement.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.","field":"typical_doses_per_day","proposed_value":"4 to 6 divided doses daily, after food.","rationale":"FDA Peganone labeling specifies administration in 4 to 6 divided daily doses after food.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA Peganone label lists adverse reactions qualitatively and does not provide adverse-event incidence percentages.","rationale":"FDA labeling exists and lists adverse reactions without percentages; the Orange Book/product listing does not provide AE incidence data.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.","field":"qt_interval_effect","proposed_value":"N/A - FDA Peganone label does not describe a QT-interval effect.","rationale":"The QT fact remains limited/unknown, but the source rationale should use FDA labeling rather than no-label wording.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"1957 (FDA/openFDA Drugs@FDA original approval Apr 22, 1957; Orange Book may display Approved prior to Jan 1, 1982)","rationale":"The current value is consistent with pre-1982 Orange Book display, but FDA/openFDA Drugs@FDA provides the exact original approval date.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2010/010841s022ltr.pdf"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA Drugs@FDA; FDA Peganone labeling (accessdata.fda.gov); PubMed","rationale":"DailyMed should not be used for boxed-warning verification, and Orange Book/product files do not support mechanism, dosing, half-life, metabolism, or adverse-reaction details. FDA label and PubMed sources should be named.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29"]},{"current_value":"Historical/unspecified epilepsy","field":"filter_epilepsy_type","proposed_value":"Tonic-clonic and complex partial seizures","rationale":"FDA labeling identifies specific seizure categories.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic","rationale":"FDA labeling states ethotoin is apparently biotransformed by the liver.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Other / unclear","field":"filter_mechanism","proposed_value":"Hydantoin / phenytoin-like (limited confidence)","rationale":"FDA labeling identifies ethotoin as a hydantoin antiepileptic with probable phenytoin-like mechanism.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Not available in US","field":"filter_availability","proposed_value":"Not available in US","rationale":"Discontinued status in FDA/openFDA supports not-available filtering.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"Historical/not marketed; Tablet","field":"filter_formulation","proposed_value":"Historical/not marketed; Tablet","rationale":"FDA/openFDA lists discontinued oral tablet products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"Unknown/limited","field":"filter_qt_effect","proposed_value":"Unknown/limited","rationale":"FDA labeling reviewed does not describe QT-interval effects.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Unquantified/limited data","field":"filter_symptom_category","proposed_value":"Unquantified/limited data","rationale":"FDA label lists adverse reactions without incidence percentages.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"FDA Orange Book pre-1982 legacy ASM product (Peganone); discontinued U.S. product listing.","field":"status_or_notes","proposed_value":"FDA/openFDA Drugs@FDA legacy ASM product (Peganone; NDA010841; original approval Apr 22, 1957); discontinued U.S. product listing.","rationale":"FDA/openFDA gives exact NDA/product and discontinuation details.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT for ethotoin was identified. The relevant PubMed search returns non-qualifying records, including a retrospective adjunctive ethotoin study and a non-efficacy porphyria safety article.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29","https://pubmed.ncbi.nlm.nih.gov/1973383/","https://pubmed.ncbi.nlm.nih.gov/7194443/"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT found in PubMed search as of 05-20-2026; PMID 1973383 is retrospective adjunctive ethotoin therapy and PMID 7194443 is not an ethotoin efficacy RCT.","rationale":"Refreshes date and records why apparent PubMed hits are non-qualifying.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29","https://pubmed.ncbi.nlm.nih.gov/1973383/","https://pubmed.ncbi.nlm.nih.gov/7194443/"]}],"generic_name":"ethotoin","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT/outcome evidence was identified for ethotoin; RR50 differential should remain N/A.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29","https://pubmed.ncbi.nlm.nih.gov/1973383/"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled RCT was identified; median percent change differential should remain N/A.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled RCT was identified; seizure-freedom differential should remain N/A.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29"]},{"current_value":"","field":"plot_diff_50_responder_maximum_effective_dose","proposed_value":"","rationale":"Plot field is not applicable because the outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]},{"current_value":"","field":"plot_diff_median_pct_change_maximum_effective_dose","proposed_value":"","rationale":"Plot field is not applicable because the outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]},{"current_value":"","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"","rationale":"Plot field is not applicable because the outcome is N/A.","requires_user_approval":false,"status":"not_applicable","supporting_sources":[]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA Drugs@FDA; FDA Peganone labeling (accessdata.fda.gov); PubMed","reason":"Existing named sources do not support multiple retained clinical pharmacology/dosing facts, and DailyMed is not permissible for boxed-warning verification.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29"]},{"current_value":"No - discontinued FDA Orange Book product","field":"available_in_us","proposed_value":"No - discontinued FDA/openFDA Drugs@FDA product","reason":"FDA/openFDA directly verifies discontinued Peganone oral tablet products.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in FDA Peganone (ethotoin) labeling reviewed.","reason":"FDA accessdata labeling exists; boxed-warning field should state FDA-label boxed-warning status and avoid DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22ETHOTOIN%22+OR+openfda.brand_name:%22PEGANONE%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [ethotoin; Peganone].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026 found no current openFDA SPL label for openfda.generic_name=\"ETHOTOIN\" or openfda.brand_name=\"PEGANONE\"; FDA accessdata Peganone label (NDA010841/S-022, May 2010) reviewed and no boxed-warning section/text was identified.","reason":"Use FDA/openFDA and FDA accessdata only for boxed-warning verification.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22ETHOTOIN%22+OR+openfda.brand_name:%22PEGANONE%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical/unspecified epilepsy (specific FDA-labeled seizure category not available from Orange Book listing)","field":"epilepsy_type","proposed_value":"Tonic-clonic (grand mal) and complex partial (psychomotor) seizures","reason":"FDA label provides the labeled seizure categories.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical/unspecified epilepsy","field":"filter_epilepsy_type","proposed_value":"Tonic-clonic and complex partial seizures","reason":"Align filter with FDA-labeled seizure categories.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical oral tablet (not marketed in U.S.)","field":"formulations_available","proposed_value":"Historical oral tablets: Peganone 250 mg in FDA label; FDA/openFDA Drugs@FDA lists discontinued Peganone oral tablet products at 250 mg and 500 mg.","reason":"FDA sources support tablet formulation and historical strengths.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf","https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide half-life.","field":"half_life_range","proposed_value":"3-9 hours at plasma concentrations below about 8 mcg/mL; FDA label also notes a reported half-life of 6-9 hours with 4-6 hour dosing intervals.","reason":"FDA Peganone label provides half-life data.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide metabolism information.","field":"major_organ_for_metabolism","proposed_value":"Liver; FDA label states ethotoin is apparently biotransformed by the liver.","reason":"FDA Peganone label supports hepatic metabolism.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic","reason":"FDA label supports liver biotransformation.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located; FDA Orange Book confirms historical U.S. product approval/listing but does not provide mechanism of action.","field":"mechanism_of_action","proposed_value":"Hydantoin antiepileptic; mechanism probably similar to phenytoin: stabilizes rather than raises seizure threshold and prevents spread of seizure activity.","reason":"FDA Peganone label supports a limited phenytoin-like mechanism statement.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA Peganone (ethotoin) labeling (accessdata.fda.gov; NDA010841/S-022)","reason":"Mechanism is supported by FDA label, not Orange Book/product listing.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Historical/limited","field":"mechanism_source_tier","proposed_value":"FDA labeling","reason":"Correct source tier for the mechanism statement.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Other / unclear","field":"filter_mechanism","proposed_value":"Hydantoin / phenytoin-like (limited confidence)","reason":"FDA label identifies ethotoin as a hydantoin with probable phenytoin-like mechanism.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe enzyme induction or inhibition.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Limited/unknown: FDA label does not document ethotoin enzyme induction/inhibition; it notes saturable metabolism and cautions that a phenytoin-like coumarin anticoagulant interaction may occur without documentation.","reason":"FDA label exists and gives limited metabolism/interaction information.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a maximum approved daily dose.","field":"maximum_approved_daily_dose","proposed_value":"3 g/day (upper end of usual adult maintenance dose; label does not state a separate maximum)","reason":"FDA label provides usual adult maintenance dose of 2 to 3 g daily.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide a minimum effective dose.","field":"minimum_effective_dose","proposed_value":"Adults: 2 g/day; FDA label states less than 2 g/day has been ineffective in most adults.","reason":"FDA label supports adult minimum-effective threshold wording.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not provide dosing.","field":"typical_doses_per_day","proposed_value":"4 to 6 divided doses daily, after food.","reason":"FDA label provides dosing frequency.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A 0%: no current FDA/DailyMed label identified; FDA Orange Book product listing does not provide adverse-event percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A: FDA Peganone label lists adverse reactions qualitatively and does not provide adverse-event incidence percentages.","reason":"FDA label exists but adverse reactions are qualitative, not percentage-based.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"N/A - no current FDA/DailyMed label located and FDA Orange Book product listing does not describe QT effect.","field":"qt_interval_effect","proposed_value":"N/A - FDA Peganone label does not describe a QT-interval effect.","reason":"Retain unknown QT effect but correct source rationale.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"1957 (FDA/openFDA Drugs@FDA original approval Apr 22, 1957; Orange Book may display Approved prior to Jan 1, 1982)","reason":"FDA/openFDA provides a more precise original approval date.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2010/010841s022ltr.pdf"]},{"current_value":"FDA Orange Book pre-1982 legacy ASM product (Peganone); discontinued U.S. product listing.","field":"status_or_notes","proposed_value":"FDA/openFDA Drugs@FDA legacy ASM product (Peganone; NDA010841; original approval Apr 22, 1957); discontinued U.S. product listing.","reason":"FDA/openFDA supports exact NDA, approval date, and discontinued status.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT found in PubMed search as of 05-20-2026; PMID 1973383 is retrospective adjunctive ethotoin therapy and PMID 7194443 is not an ethotoin efficacy RCT.","reason":"Refresh date and document non-qualifying PubMed hits.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29","https://pubmed.ncbi.nlm.nih.gov/1973383/","https://pubmed.ncbi.nlm.nih.gov/7194443/"]}],"rct_link_checks":[{"label":"pubmed_phase_ii_iii_rct_links","pmid":"","proposed_action":"Keep as N/A; no phase II/III placebo-controlled randomized epilepsy RCT link should be added based on available PubMed evidence.","rationale":"No existing links were provided. PubMed search found no qualifying ethotoin phase II/III placebo-controlled RCT; PMID 1973383 is retrospective and PMID 7194443 is not an ethotoin efficacy RCT.","status":"verified","url":"N/A"}],"source_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA/openFDA Drugs@FDA; FDA Peganone labeling (accessdata.fda.gov); PubMed","reason":"DailyMed is not allowed for boxed-warning verification, and the FDA label/PubMed are needed to support retained pharmacology, dosing, adverse-reaction, and RCT-gap facts.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/drugsfda.json?search=products.active_ingredients.name:%22ETHOTOIN%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/?term=%28ethotoin%5BTitle%2FAbstract%5D+OR+Peganone%5BTitle%2FAbstract%5D%29+AND+%28randomized+OR+randomised+OR+placebo+OR+trial%29"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [ethotoin; Peganone].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API search on 05-20-2026 found no current openFDA SPL label for openfda.generic_name=\"ETHOTOIN\" or openfda.brand_name=\"PEGANONE\"; FDA accessdata Peganone label (NDA010841/S-022, May 2010) reviewed and no boxed-warning section/text was identified.","reason":"Boxed-warning verification must use FDA/openFDA/FDA label sources only.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22ETHOTOIN%22+OR+openfda.brand_name:%22PEGANONE%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]},{"current_value":"FDA Orange Book products file","field":"mechanism_source","proposed_value":"FDA Peganone (ethotoin) labeling (accessdata.fda.gov; NDA010841/S-022)","reason":"The mechanism statement is present in FDA labeling, not in the Orange Book/product listing.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2010/010841s022lbl.pdf"]}],"summary":"Ethotoin/Peganone row needs updates. FDA/openFDA verifies Peganone NDA010841 oral tablet products are discontinued and gives an original approval date of Apr 22, 1957. The row’s repeated “no current FDA/DailyMed label located” rationale is not adequate because FDA accessdata Peganone labeling exists and supports seizure type, mechanism, metabolism, half-life, dosing, and qualitative adverse reactions. RCT/outcome N/A values are supported: no phase II/III placebo-controlled randomized epilepsy RCT for ethotoin was identified in PubMed."}
+tokens used
+222,961

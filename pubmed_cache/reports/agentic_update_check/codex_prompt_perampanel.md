@@ -1,0 +1,1484 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: dizziness 32-43%, CNS: somnolence 11-18%, constitutional: fatigue 12-15%, psychiatric: irritability 11-12%, injury: falls 7-10%, GI: nausea 7-8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "9.7-24.7 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Lagae2016 perampanel up to 12 mg/day 22%; French2015 perampanel up to 8 mg/day 24.7%; French2012b perampanel 12 mg/day 19.2%; French2012 perampanel 12 mg/day 9.7%; Krauss2012 perampanel 8 mg/day 17%)",
+    "diff_median_pct_change_maximum_effective_dose": "7.9-38.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Vossler2024 perampanel up to 12 mg/day 18.6%; Nishida2017 perampanel 12 mg/day 27.2%; Lagae2016 perampanel up to 12 mg/day 34%; French2015 perampanel up to 8 mg/day 38.1%; French2012b perampanel 12 mg/day 7.9%; French2012 perampanel 12 mg/day 13.5%; Krauss2012 perampanel 8 mg/day 20.1%)",
+    "diff_seizure_freedom_maximum_effective_dose": "18.6 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: French2015 perampanel up to 8 mg/day 18.6%)",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A inducer at higher doses; CYP3A substrate",
+    "epilepsy_type": "Focal; Primary generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ) . These reactions occurred in patients with and without prior psychiatric history, prior aggressive behavior, or concomitant use of medications associated with hostility and aggression ( 5.1 ) . Advise patients and caregivers to contact a healthcare provider immediately if any of these reactions or changes in mood, behavior, or personality that are not typical for the patient are observed while taking FYCOMPA or after discontinuing FYCOMPA ( 5.1 ) . Closely monitor patients particularly during the titration period and at higher doses ( 5.1 ) . FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 ) . WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS See full prescribing information for complete boxed warning. Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ) Monitor patients for these reactions as well as for changes in mood, behavior, or personality that are not typical for the patient, particularly during the titration period and at higher doses ( 5.1 ) FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=71cf3309-e182-473c-8b0b-280cabd0e122; published=Jan 28, 2026; title=FYCOMPA (PERAMPANEL) TABLET FYCOMPA (PERAMPANEL) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71cf3309-e182-473c-8b0b-280cabd0e122",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Substrate / affected by modulators; Weak inducer",
+    "filter_epilepsy_type": "Focal; Primary generalized tonic-clonic",
+    "filter_formulation": "Liquid; Tablet",
+    "filter_mechanism": "Glutamate receptor",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Constitutional; GI; Injury; Psychiatric",
+    "formulations_available": "Tablet; oral suspension",
+    "generic_name": "perampanel",
+    "half_life_range": "~105 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "12 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Noncompetitive antagonist of ionotropic AMPA glutamate receptors on postsynaptic neurons; precise human antiepileptic mechanism is still described as unknown in labeling.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "4 mg/day for focal seizures; titrate by seizure type and response",
+    "plot_diff_50_responder_maximum_effective_dose": "Lagae2016|22|https://pubmed.ncbi.nlm.nih.gov/27221398/|133; French2015|24.7|https://pubmed.ncbi.nlm.nih.gov/26296511/|162; Krauss2012|17|https://pubmed.ncbi.nlm.nih.gov/22517103/|706; French2012b|19.2|https://pubmed.ncbi.nlm.nih.gov/22905857/|386; French2012|9.7|https://pubmed.ncbi.nlm.nih.gov/22843280/|387",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Vossler2024|18.6|https://pubmed.ncbi.nlm.nih.gov/39576191/|70; Nishida2017|27.2|https://pubmed.ncbi.nlm.nih.gov/29250772/|704; Lagae2016|34|https://pubmed.ncbi.nlm.nih.gov/27221398/|133; French2015|38.1|https://pubmed.ncbi.nlm.nih.gov/26296511/|162; Krauss2012|20.1|https://pubmed.ncbi.nlm.nih.gov/22517103/|706; French2012b|7.9|https://pubmed.ncbi.nlm.nih.gov/22905857/|386; French2012|13.5|https://pubmed.ncbi.nlm.nih.gov/22843280/|387",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "French2015|18.6|https://pubmed.ncbi.nlm.nih.gov/26296511/|162",
+    "pubmed_phase_ii_iii_rct_links": "Vossler2024|https://pubmed.ncbi.nlm.nih.gov/39576191/; Nishida2017|https://pubmed.ncbi.nlm.nih.gov/29250772/; Lagae2016|https://pubmed.ncbi.nlm.nih.gov/27221398/; French2015|https://pubmed.ncbi.nlm.nih.gov/26296511/; Belousova2014|https://pubmed.ncbi.nlm.nih.gov/25345628/; Krauss2012|https://pubmed.ncbi.nlm.nih.gov/22517103/; French2012b|https://pubmed.ncbi.nlm.nih.gov/22905857/; French2012|https://pubmed.ncbi.nlm.nih.gov/22843280/",
+    "pubmed_search_aliases": "E2007",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 40/65 on 2026-05-15: 8 qualifying placebo-controlled randomized clinical trial report(s) retained from 50 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current ASM for focal-onset and primary generalized tonic-clonic seizures.",
+    "trade_names": "Fycompa",
+    "typical_doses_per_day": "Adults/adolescents: 4-12 mg once daily at bedtime",
+    "year_fda_cleared": "2012"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Vossler2024|https://pubmed.ncbi.nlm.nih.gov/39576191/",
+      "label": "Vossler2024",
+      "pmid": "39576191",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39576191/"
+    },
+    {
+      "entry": "Nishida2017|https://pubmed.ncbi.nlm.nih.gov/29250772/",
+      "label": "Nishida2017",
+      "pmid": "29250772",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29250772/"
+    },
+    {
+      "entry": "Lagae2016|https://pubmed.ncbi.nlm.nih.gov/27221398/",
+      "label": "Lagae2016",
+      "pmid": "27221398",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27221398/"
+    },
+    {
+      "entry": "French2015|https://pubmed.ncbi.nlm.nih.gov/26296511/",
+      "label": "French2015",
+      "pmid": "26296511",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26296511/"
+    },
+    {
+      "entry": "Belousova2014|https://pubmed.ncbi.nlm.nih.gov/25345628/",
+      "label": "Belousova2014",
+      "pmid": "25345628",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25345628/"
+    },
+    {
+      "entry": "Krauss2012|https://pubmed.ncbi.nlm.nih.gov/22517103/",
+      "label": "Krauss2012",
+      "pmid": "22517103",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22517103/"
+    },
+    {
+      "entry": "French2012b|https://pubmed.ncbi.nlm.nih.gov/22905857/",
+      "label": "French2012b",
+      "pmid": "22905857",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22905857/"
+    },
+    {
+      "entry": "French2012|https://pubmed.ncbi.nlm.nih.gov/22843280/",
+      "label": "French2012",
+      "pmid": "22843280",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22843280/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: dizziness 32-43%, CNS: somnolence 11-18%, constitutional: fatigue 12-15%, psychiatric: irritability 11-12%, injury: falls 7-10%, GI: nausea 7-8%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "9.7-24.7 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Lagae2016 perampanel up to 12 mg/day 22%; French2015 perampanel up to 8 mg/day 24.7%; French2012b perampanel 12 mg/day 19.2%; French2012 perampanel 12 mg/day 9.7%; Krauss2012 perampanel 8 mg/day 17%)",
+    "diff_median_pct_change_maximum_effective_dose": "7.9-38.1 % (drug minus placebo MPC differential at maximum effective dose/regimen: Vossler2024 perampanel up to 12 mg/day 18.6%; Nishida2017 perampanel 12 mg/day 27.2%; Lagae2016 perampanel up to 12 mg/day 34%; French2015 perampanel up to 8 mg/day 38.1%; French2012b perampanel 12 mg/day 7.9%; French2012 perampanel 12 mg/day 13.5%; Krauss2012 perampanel 8 mg/day 20.1%)",
+    "diff_seizure_freedom_maximum_effective_dose": "18.6 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: French2015 perampanel up to 8 mg/day 18.6%)",
+    "enzyme_inducing_or_inhibiting": "Weak CYP3A inducer at higher doses; CYP3A substrate",
+    "epilepsy_type": "Focal; Primary generalized tonic-clonic",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling",
+    "fda_black_box_warning": "WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ) . These reactions occurred in patients with and without prior psychiatric history, prior aggressive behavior, or concomitant use of medications associated with hostility and aggression ( 5.1 ) . Advise patients and caregivers to contact a healthcare provider immediately if any of these reactions or changes in mood, behavior, or personality that are not typical for the patient are observed while taking FYCOMPA or after discontinuing FYCOMPA ( 5.1 ) . Closely monitor patients particularly during the titration period and at higher doses ( 5.1 ) . FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 ) . WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS See full prescribing information for complete boxed warning. Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ) Monitor patients for these reactions as well as for changes in mood, behavior, or personality that are not typical for the patient, particularly during the titration period and at higher doses ( 5.1 ) FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 )",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=71cf3309-e182-473c-8b0b-280cabd0e122; published=Jan 28, 2026; title=FYCOMPA (PERAMPANEL) TABLET FYCOMPA (PERAMPANEL) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71cf3309-e182-473c-8b0b-280cabd0e122",
+    "formulations_available": "Tablet; oral suspension",
+    "half_life_range": "~105 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "12 mg/day",
+    "mechanism_confidence": "High",
+    "mechanism_of_action": "Noncompetitive antagonist of ionotropic AMPA glutamate receptors on postsynaptic neurons; precise human antiepileptic mechanism is still described as unknown in labeling.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "4 mg/day for focal seizures; titrate by seizure type and response",
+    "plot_diff_50_responder_maximum_effective_dose": "Lagae2016|22|https://pubmed.ncbi.nlm.nih.gov/27221398/|133; French2015|24.7|https://pubmed.ncbi.nlm.nih.gov/26296511/|162; Krauss2012|17|https://pubmed.ncbi.nlm.nih.gov/22517103/|706; French2012b|19.2|https://pubmed.ncbi.nlm.nih.gov/22905857/|386; French2012|9.7|https://pubmed.ncbi.nlm.nih.gov/22843280/|387",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Vossler2024|18.6|https://pubmed.ncbi.nlm.nih.gov/39576191/|70; Nishida2017|27.2|https://pubmed.ncbi.nlm.nih.gov/29250772/|704; Lagae2016|34|https://pubmed.ncbi.nlm.nih.gov/27221398/|133; French2015|38.1|https://pubmed.ncbi.nlm.nih.gov/26296511/|162; Krauss2012|20.1|https://pubmed.ncbi.nlm.nih.gov/22517103/|706; French2012b|7.9|https://pubmed.ncbi.nlm.nih.gov/22905857/|386; French2012|13.5|https://pubmed.ncbi.nlm.nih.gov/22843280/|387",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "French2015|18.6|https://pubmed.ncbi.nlm.nih.gov/26296511/|162",
+    "pubmed_phase_ii_iii_rct_links": "Vossler2024|https://pubmed.ncbi.nlm.nih.gov/39576191/; Nishida2017|https://pubmed.ncbi.nlm.nih.gov/29250772/; Lagae2016|https://pubmed.ncbi.nlm.nih.gov/27221398/; French2015|https://pubmed.ncbi.nlm.nih.gov/26296511/; Belousova2014|https://pubmed.ncbi.nlm.nih.gov/25345628/; Krauss2012|https://pubmed.ncbi.nlm.nih.gov/22517103/; French2012b|https://pubmed.ncbi.nlm.nih.gov/22905857/; French2012|https://pubmed.ncbi.nlm.nih.gov/22843280/",
+    "pubmed_search_aliases": "E2007",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Fycompa",
+    "typical_doses_per_day": "Adults/adolescents: 4-12 mg once daily at bedtime",
+    "year_fda_cleared": "2012"
+  },
+  "generic_name": "perampanel",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Vossler2024|https://pubmed.ncbi.nlm.nih.gov/39576191/; Nishida2017|https://pubmed.ncbi.nlm.nih.gov/29250772/; Lagae2016|https://pubmed.ncbi.nlm.nih.gov/27221398/; French2015|https://pubmed.ncbi.nlm.nih.gov/26296511/; Belousova2014|https://pubmed.ncbi.nlm.nih.gov/25345628/; Krauss2012|https://pubmed.ncbi.nlm.nih.gov/22517103/; French2012b|https://pubmed.ncbi.nlm.nih.gov/22905857/; French2012|https://pubmed.ncbi.nlm.nih.gov/22843280/",
+      "details": {
+        "article": {
+          "abstract": "Assess cognitive effects of adjunctive perampanel in adolescents. In this double-blind study (ClinicalTrials.gov identifier: NCT01161524), patients aged 12 to <18 years with partial-onset seizures despite receiving 1-3 antiepileptic drugs were randomized (2:1) to perampanel or placebo. Perampanel was increased weekly in 2-mg increments to 8-12 mg/day (6-week titration; 13-week maintenance). Changes in neuropsychological outcomes were assessed at end of maintenance: Cognitive Drug Research (CDR) System Global Cognition Score (primary end point), five CDR System domain T-scores (secondary end points), letter fluency, category fluency, and Lafayette Grooved Pegboard Test (LGPT). One hundred thirty-three patients were randomized. In the full analysis set, there were no differences of perampanel (n = 79) vs. placebo (n = 44) in CDR System Global Cognition Score (least squares mean change, -0.6 vs. 1.6; p = 0.145), Quality of Working Memory (1.1 vs. 2.0; p = 0.579), or Power of Attention (-6.9 vs. -2.7; p = 0.219). There were small differences with perampanel vs. placebo in other CDR System domains: improvements in Quality of Episodic Memory (3.0 vs. -1.2; p = 0.012), and worsening in Continuity of Attention (-3.3 vs. 1.6; p = 0.013) and Speed of Memory (0.3 vs. 7.0; p = 0.032). Letter fluency, category fluency, and LGPT were not significantly different between groups. The most frequent adverse events with perampanel were dizziness (30.6%) and somnolence (15.3%). Perampanel did not differ from placebo in the global cognitive score, two of five subdomains, and four other cognitive measures. Perampanel was worse on two and better on one subdomain. © 2015 The Authors. Epilepsia published by Wiley Periodicals, Inc. on behalf of International League Against Epilepsy.",
+          "first_author": "Meador",
+          "pmid": "26724782",
+          "pub_types": [
+            "Clinical Trial, Phase II",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Cognitive effects of adjunctive perampanel for partial-onset seizures: A randomized trial.",
+          "year": "2016"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/26724782/",
+      "generic_name": "perampanel",
+      "id": "new_pubmed_phase_ii_iii_rct-0ecabda8188f",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Meador2016|https://pubmed.ncbi.nlm.nih.gov/26724782/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 26724782 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Meador2016|https://pubmed.ncbi.nlm.nih.gov/26724782/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Cognitive effects of adjunctive perampanel for partial-onset seizures: A randomized trial."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Vossler2024|https://pubmed.ncbi.nlm.nih.gov/39576191/; Nishida2017|https://pubmed.ncbi.nlm.nih.gov/29250772/; Lagae2016|https://pubmed.ncbi.nlm.nih.gov/27221398/; French2015|https://pubmed.ncbi.nlm.nih.gov/26296511/; Belousova2014|https://pubmed.ncbi.nlm.nih.gov/25345628/; Krauss2012|https://pubmed.ncbi.nlm.nih.gov/22517103/; French2012b|https://pubmed.ncbi.nlm.nih.gov/22905857/; French2012|https://pubmed.ncbi.nlm.nih.gov/22843280/",
+      "details": {
+        "article": {
+          "abstract": "Perampanel is a selective, noncompetitive AMPA receptor antagonist approved as adjunctive treatment for partial seizures. To assess potential for delayed cardiac repolarization, a Phase I thorough QT study was performed, supplemented by plasma concentration-QT data modeled from 3 pooled Phase III studies. The Phase I thorough QT study (double-blind, combined fixed-sequence, parallel-group) quantified the effect of perampanel (6 mg once daily for 7 days, followed by dose escalation to a single 8-mg dose, a single 10-mg dose, then 12 mg once daily for 7 days), moxifloxacin positive control (single 400-mg dose on Day 16), and placebo on QT interval duration in healthy subjects (N = 261). Electrocardiograms were recorded at baseline, Day 7 (post 6 mg dose), and Day 16 (post 12 mg dose). Statistical comparisons were between the highest approved perampanel dose (12 mg) versus placebo, a \"mid-therapeutic\" dose (6 mg) versus placebo, and moxifloxacin versus placebo. Acknowledging that the Phase I thorough QT study could not incorporate a true \"supratherapeutic\" dose due to length of titration and tolerability concerns in healthy subjects, Phase III studies of perampanel included expanded electrocardiogram safety evaluations specifically intended to support concentration-QT response modeling. The lack of effect of perampanel on the QT interval is shown from pooled analysis of 3 double-blind, placebo-controlled, 19-week, Phase III studies with perampanel doses ≤ 12 mg (N = 1038, total perampanel; and N=442, placebo) in patients with partial seizures. QT measures were corrected for heart rate using Fridericia's (QTcF; the primary endpoint) and Bazett's (QTcB) formulas. In the Phase I thorough QT study, the positive control moxifloxacin caused peak time-matched, baseline-adjusted, placebo-corrected (ΔΔ) QTcF of 12.15 ms at 4h postdose, confirming a drug effect on QTc interval and study assessment sensitivity. Mean baseline-adjusted (Δ) QTcF versus nominal time curves were comparable between perampanel 12 mg and placebo, with most ΔQTcF values being slightly negative. Healthy subjects receiving perampanel 6 and 12 mg doses for 7 days showed no evidence of effects on cardiac repolarization. Peak ΔΔQTcF was 2.34 ms at 1.5h postdose for perampanel 6 mg and 3.92 ms at 0.5h postdose for perampanel 12 mg. At every time point, the upper 95% confidence limit of ΔΔQTcF for perampanel 6 and 12 mg was <10 ms. Phase III studies revealed no clinically significant difference between patients with partial seizures treated with perampanel or placebo in QTcF and QTcB values >450 ms, with no dose-dependent increases or large incremental changes from baseline of >60 ms. Regression analysis of individual plasma perampanel concentrations versus corresponding QTc interval values in Phase I thorough QT and Phase III studies demonstrated no relationship between perampanel concentrations and QT interval duration. Treatment with perampanel 6 mg and 12 mg for 7 days did not delay cardiac repolarization in healthy volunteers. In a population analysis of 1480 patients with partial seizures treated with perampanel doses ≤ 12 mg or placebo, no clinically significant trends in QT interval data were noted. Based on the thorough QT study and evaluations from pooled Phase III studies, there is no evidence of prolonged QT interval duration with perampanel treatment. Copyright © 2015 The Authors. Published by Elsevier B.V. All rights reserved.",
+          "first_author": "Yang",
+          "pmid": "26088895",
+          "pub_types": [
+            "Clinical Trial, Phase I",
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "Lack of effect of perampanel on QT interval duration: Results from a thorough QT analysis and pooled partial seizure Phase III clinical trials.",
+          "year": "2015"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/26088895/",
+      "generic_name": "perampanel",
+      "id": "new_pubmed_phase_ii_iii_rct-1584ae761e3f",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Yang2015|https://pubmed.ncbi.nlm.nih.gov/26088895/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 26088895 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Yang2015|https://pubmed.ncbi.nlm.nih.gov/26088895/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: Lack of effect of perampanel on QT interval duration: Results from a thorough QT analysis and pooled partial seizure Phase III clinical trials."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2012",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2012"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10",
+      "generic_name": "perampanel",
+      "id": "source_fact_concordance_problem-c16d79125017",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The primary objective of this study is to determine the maximal tolerated dose (MTD) of E2007 given twice daily (bid) or once a day (qd) in patients with refractory partial-onset seizures (including secondarily generalized seizures). The secondary objectives are to evaluate the safety, efficacy, concentration-efficacy relationship, and pharmacokinetics of E2007 and the effects of E2007 on the Profile of Mood States (POMS) test.",
+        "interventions": [
+          "E2007 (perampanel)",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00144690",
+        "new_reference_pmids": [
+          "21883097",
+          "37059702",
+          "35305920"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "21883097",
+          "37059702",
+          "35305920"
+        ],
+        "title": "E2007 Given as Adjunctive Therapy in Patients With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00144690",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-78647697e188",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: E2007 Given as Adjunctive Therapy in Patients With Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to evaluate the efficacy, safety and tolerability of perampanel when given as an adjunctive therapy in subjects with refractory partial seizures.",
+        "interventions": [
+          "E2007 (perampanel)",
+          "E2007 (perampanel)",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00699582",
+        "new_reference_pmids": [
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001",
+          "22905857"
+        ],
+        "title": "To Evaluate The Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00699582",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-704bc530338a",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: To Evaluate The Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is designed to evaluate the efficacy, safety, and pharmacokinetics (PK) of perampanel on Primary Generalized Tonic Clonic (PGTC) seizure frequency in adolescents and adults maintained on one to two stable antiepileptic drugs (AED).",
+        "interventions": [
+          "Perampanel",
+          "Placebo comparator"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01393743",
+        "new_reference_pmids": [
+          "36106379"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "36106379",
+          "26296511"
+        ],
+        "title": "A Efficacy and Safety Study of Adjunctive Perampanel in Primary Generalized Tonic Clonic Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01393743",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-f3d60c6fec30",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Efficacy and Safety Study of Adjunctive Perampanel in Primary Generalized Tonic Clonic Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Brain injury is the main cause of death and disability for patients surviving cardiac arrest resuscitation and seizures are diagnosed in up to a third of these patients. The investigators are proposing a pilot randomized placebo-controlled clinical trial to evaluate the safety and feasibility of perampanel use for post-cardiac arrest status epilepticus (PCARSE) prevention after cardiac arrest.",
+        "interventions": [
+          "Perampanel",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT06401707",
+        "new_reference_pmids": [
+          "30159874",
+          "33475321"
+        ],
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "30159874",
+          "33475321"
+        ],
+        "title": "PeRampanel fOr Status ePilEpticus pRophylaxis Post-cardiac Arrest"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT06401707",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-d01aa43487fa",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: PeRampanel fOr Status ePilEpticus pRophylaxis Post-cardiac Arrest"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to evaluate the safety, efficacy and tolerability of perampanel when given as an adjunctive therapy in subjects with refractory partial seizures.",
+        "interventions": [
+          "E2007 (perampanel)",
+          "E2007 (perampanel)",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00699972",
+        "new_reference_pmids": [
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "22843280",
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001"
+        ],
+        "title": "Evaluating the Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00699972",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-238e755f0fa3",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Evaluating the Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to confirm the efficacy and safety of perampanel compared to placebo in patients with refractory partial-onset seizures",
+        "interventions": [
+          "Perampanel",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01618695",
+        "new_reference_pmids": [
+          "37059702"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "37059702",
+          "29250772"
+        ],
+        "title": "A Study With an Open-label Extension Phase to Evaluate the Efficacy and Safety of Perampanel (E2007) Administered as an Adjunctive Therapy in Subjects With Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01618695",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c4bd41f361f7",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Study With an Open-label Extension Phase to Evaluate the Efficacy and Safety of Perampanel (E2007) Administered as an Adjunctive Therapy in Subjects With Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The purpose of this study is to evaluate the efficacy, safety and tolerability of perampanel when given as an adjunctive therapy in subjects with refractory partial seizures.",
+        "interventions": [
+          "perampanel",
+          "perampanel",
+          "perampanel",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00700310",
+        "new_reference_pmids": [
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "37059702",
+          "35305920",
+          "25878175",
+          "25823975",
+          "23663001",
+          "22517103"
+        ],
+        "title": "Evaluating Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00700310",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-98ff5a0d723f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Evaluating Efficacy and Safety of E2007 (Perampanel) Given as Adjunctive Therapy in Subjects With Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The objectives of this study were to assess the tolerability and safety of E2007 in patients with refractory partial or generalised seizures and to assess the pharmacokinetics of E2007 in epileptic patients receiving at least one concomitant anti-epileptic drug.",
+        "interventions": [
+          "E2007",
+          "E2007",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT03780907",
+        "new_reference_pmids": [
+          "35305920"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "35305920"
+        ],
+        "title": "Safety and Pharmacokinetics Study of E2007 to Treat Partial and Generalised Seizures in People With Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03780907",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c915501730b9",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Safety and Pharmacokinetics Study of E2007 to Treat Partial and Generalised Seizures in People With Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a randomized, double-blind, placebo-controlled, parallel group study to determine the maximum tolerated dose of E2007. Epilepsy patients with refractory partial seizures will be divided into two groups of 24 patients each. One group will be patients who take concomitant inducing AEDs (anti-epileptic drugs) and the second group will be patients who do not take concomitant inducing AEDs. In each group, 18 patients will receive E2007 (dose escalating to a maximum of 12 mg per day) and six will receive placebo.",
+        "interventions": [
+          "E2007",
+          "Placebo"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT00416195",
+        "new_reference_pmids": [
+          "37059702",
+          "35305920"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "37059702",
+          "35305920"
+        ],
+        "title": "Exploring the Safety And Tolerability of Doses of E2007 up to a Maximum of 12 mg In Patients With Refractory Partial Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00416195",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-0db469871592",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Exploring the Safety And Tolerability of Doses of E2007 up to a Maximum of 12 mg In Patients With Refractory Partial Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is being conducted to demonstrate that perampanel given as adjunctive anti-epileptic treatment is superior to placebo in reducing the number of drop seizures in participants with inadequately controlled seizures associated with Lennox-Gastaut Syndrome (LGS).",
+        "interventions": [
+          "Placebo",
+          "Perampanel"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT02834793",
+        "new_reference_pmids": [
+          "33825230"
+        ],
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "33825230"
+        ],
+        "title": "Study of Perampanel as Adjunctive Treatment for Inadequately Controlled Seizures Associated With Lennox-Gastaut Syndrome"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT02834793",
+      "generic_name": "perampanel",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-5ad40793dd5c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study of Perampanel as Adjunctive Treatment for Inadequately Controlled Seizures Associated With Lennox-Gastaut Syndrome"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=71cf3309-e182-473c-8b0b-280cabd0e122; published=Jan 28, 2026; title=FYCOMPA (PERAMPANEL) TABLET FYCOMPA (PERAMPANEL) SUSPENSION [EISAI INC.]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71cf3309-e182-473c-8b0b-280cabd0e122",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10",
+      "generic_name": "perampanel",
+      "id": "fda_warning_metadata_refresh-19307f16717b",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ). These reactions occurred in patients with and without prior psychiatric history, prior aggressive behavior, or concomitant use of medications associated with hostility and aggression ( 5.1 ). Advise patients and caregivers to contact a healthcare provider immediately if any of these reactions or changes in mood, behavior, or personality that are not typical for the patient are observed while taking FYCOMPA or after discontinuing FYCOMPA ( 5.1 ). Closely monitor patients particularly during the titration period and at higher doses ( 5.1 ). FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 ). WARNING: SERIOUS PSYCHIATRIC AND BEHAVIORAL REACTIONS See full prescribing information for complete boxed warning. Serious or life-threatening psychiatric and behavioral adverse reactions including aggression, hostility, irritability, anger, and homicidal ideation and threats have been reported in patients taking FYCOMPA ( 5.1 ) Monitor patients for these reactions as well as for changes in mood, behavior, or personality that are not typical for the patient, particularly during the titration period and at higher doses ( 5.1 ) FYCOMPA should be reduced if these symptoms occur and should be discontinued immediately if symptoms are severe or are worsening ( 5.1 )",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=ec812ea3-de3a-4271-957c-db8f692d1ae3; effective_time=20240105; title=Fycompa / PERAMPANEL; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=ec812ea3-de3a-4271-957c-db8f692d1ae3; effective_time=20240105; title=Fycompa / PERAMPANEL; api_url=https://api.fda.gov/drug/label.json?search=openfda.generic_name%3A%22perampanel%22+OR+openfda.brand_name%3A%22perampanel%22+OR+openfda.substance_name%3A%22perampanel%22&limit=10",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports prespecified drop-seizure median reduction values; the prespecified comparison was underpowered and not statistically significant.",
+      "dose_or_regimen": "perampanel up to 12 mg/day",
+      "endpoint": "LGS drop seizures",
+      "generic_name": "perampanel",
+      "label": "Vossler2024",
+      "mpc_active_percent": "23.1",
+      "mpc_differential_percent": "18.6",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "4.5",
+      "pmid": "39576191",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39576191/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Efficacy and safety of perampanel in patients with seizures associated with Lennox-Gastaut syndrome: A randomized trial."
+    },
+    {
+      "audit_note": "Abstract reports 12 mg/day median seizure-frequency reduction versus placebo; responder and seizure-freedom percentages were not reported in the abstract.",
+      "dose_or_regimen": "perampanel 12 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "perampanel",
+      "label": "Nishida2017",
+      "mpc_active_percent": "38.0",
+      "mpc_differential_percent": "27.2",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "10.8",
+      "pmid": "29250772",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29250772/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive perampanel in partial-onset seizures: Asia-Pacific, randomized phase III study."
+    },
+    {
+      "audit_note": "Abstract reports adolescent responder and median seizure-frequency reduction values.",
+      "dose_or_regimen": "perampanel up to 12 mg/day",
+      "endpoint": "adolescent partial-onset seizures",
+      "generic_name": "perampanel",
+      "label": "Lagae2016",
+      "mpc_active_percent": "58.0",
+      "mpc_differential_percent": "34.0",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "24.0",
+      "pmid": "27221398",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/27221398/",
+      "rr50_active_percent": "59.0",
+      "rr50_differential_percent": "22.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "37.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive perampanel in adolescents with inadequately controlled partial-onset seizures: A randomized study evaluating behavior, efficacy, and safety."
+    },
+    {
+      "audit_note": "Abstract reports PGTC responder and seizure-freedom rates; median PGTC reduction values are taken from the reported active/placebo percent changes.",
+      "dose_or_regimen": "perampanel up to 8 mg/day",
+      "endpoint": "primary generalized tonic-clonic seizures",
+      "generic_name": "perampanel",
+      "label": "French2015",
+      "mpc_active_percent": "76.5",
+      "mpc_differential_percent": "38.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "38.4",
+      "pmid": "26296511",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26296511/",
+      "rr50_active_percent": "64.2",
+      "rr50_differential_percent": "24.7",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "39.5",
+      "sf_active_percent": "30.9",
+      "sf_differential_percent": "18.6",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "12.3",
+      "title": "Perampanel for tonic-clonic seizures in idiopathic generalized epilepsy A randomized trial."
+    },
+    {
+      "audit_note": "Secondary summary of international phase III studies; source study values are captured from the primary perampanel RCT reports.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "perampanel",
+      "label": "Belousova2014",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "25345628",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25345628/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "[Perampanel in treatment of refractory partial epilepsy in adolescents and adults: results of international multicenter randomized, double-blind, placebo-controlled phase III studies]."
+    },
+    {
+      "audit_note": "Abstract reports 12 mg/day responder and median seizure-frequency reduction values.",
+      "dose_or_regimen": "perampanel 12 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "perampanel",
+      "label": "French2012b",
+      "mpc_active_percent": "17.6",
+      "mpc_differential_percent": "7.9",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "9.7",
+      "pmid": "22905857",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/22905857/",
+      "rr50_active_percent": "33.9",
+      "rr50_differential_percent": "19.2",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "14.7",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Evaluation of adjunctive perampanel in patients with refractory partial-onset seizures: results of randomized global phase III study 305."
+    },
+    {
+      "audit_note": "Abstract reports 12 mg/day responder and median seizure-frequency reduction values.",
+      "dose_or_regimen": "perampanel 12 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "perampanel",
+      "label": "French2012",
+      "mpc_active_percent": "34.5",
+      "mpc_differential_percent": "13.5",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "21.0",
+      "pmid": "22843280",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/22843280/",
+      "rr50_active_percent": "36.1",
+      "rr50_differential_percent": "9.7",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "26.4",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Adjunctive perampanel for refractory partial-onset seizures: randomized phase III study 304."
+    },
+    {
+      "audit_note": "Abstract reports responder and median seizure-frequency reduction values for the highest dose tested in study 306.",
+      "dose_or_regimen": "perampanel 8 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "perampanel",
+      "label": "Krauss2012",
+      "mpc_active_percent": "30.8",
+      "mpc_differential_percent": "20.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "10.7",
+      "pmid": "22517103",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/22517103/",
+      "rr50_active_percent": "34.9",
+      "rr50_differential_percent": "17.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "17.9",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized phase III study 306: adjunctive perampanel for refractory partial-onset seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Vossler",
+      "generic_name": "perampanel",
+      "label": "Vossler2024",
+      "pmid": "39576191",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Clinical Trial, Phase III; Multicenter Study",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Efficacy and safety of perampanel in patients with seizures associated with Lennox-Gastaut syndrome: A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39576191/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Nishida",
+      "generic_name": "perampanel",
+      "label": "Nishida2017",
+      "pmid": "29250772",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive perampanel in partial-onset seizures: Asia-Pacific, randomized phase III study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29250772/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Lagae",
+      "generic_name": "perampanel",
+      "label": "Lagae2016",
+      "pmid": "27221398",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive perampanel in adolescents with inadequately controlled partial-onset seizures: A randomized study evaluating behavior, efficacy, and safety.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27221398/",
+      "year": "2016"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "perampanel",
+      "label": "French2015",
+      "pmid": "26296511",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Perampanel for tonic-clonic seizures in idiopathic generalized epilepsy A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26296511/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Belousova",
+      "generic_name": "perampanel",
+      "label": "Belousova2014",
+      "pmid": "25345628",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "[Perampanel in treatment of refractory partial epilepsy in adolescents and adults: results of international multicenter randomized, double-blind, placebo-controlled phase III studies].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25345628/",
+      "year": "2014"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "perampanel",
+      "label": "French2012b",
+      "pmid": "22905857",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Evaluation of adjunctive perampanel in patients with refractory partial-onset seizures: results of randomized global phase III study 305.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22905857/",
+      "year": "2012"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "perampanel",
+      "label": "French2012",
+      "pmid": "22843280",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Adjunctive perampanel for refractory partial-onset seizures: randomized phase III study 304.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22843280/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "perampanel",
+      "label": "Krauss2012",
+      "pmid": "22517103",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized phase III study 306: adjunctive perampanel for refractory partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22517103/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Kerr",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "40372283",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to prerandomization seizure count design sufficiently assessed the safety and tolerability of perampanel for the treatment of focal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40372283/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Kerr",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "38864472",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to prerandomization seizure count design sufficiently assessed the safety and tolerability of perampanel for the treatment of primary generalized tonic-clonic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38864472/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Nishida",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "37867420",
+      "pub_types": "Randomized Controlled Trial; Clinical Trial, Phase III; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term efficacy and safety of adjunctive perampanel in patients from the Asia-Pacific region with refractory focal-onset seizures in Study 335 open-label extension.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37867420/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Heuer",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "38279087",
+      "pub_types": "Randomized Controlled Trial; Multicenter Study; Clinical Trial, Phase II; Journal Article; Equivalence Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "PerSurge (NOA-30) phase II trial of perampanel treatment around surgery in patients with progressive glioblastoma.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38279087/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Chen",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "37999939",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The Primary Prevention of Poststroke Epilepsy in Patients With Middle Cerebral Artery Infarct: Protocol for a Randomized Controlled Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37999939/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Kerr",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "36106379",
+      "pub_types": "Randomized Controlled Trial; Multicenter Study; Journal Article; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Time to exceed pre-randomization monthly seizure count for perampanel in participants with primary generalized tonic-clonic seizures: A potential clinical end point.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36106379/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "36122531",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Assessment of the long-term efficacy and safety of adjunctive perampanel in adolescent patients with epilepsy: Post hoc analysis of open-label extension studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36122531/",
+      "year": "2022"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "35445567",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Long-term open-label perampanel: Generalized tonic-clonic seizures in idiopathic generalized epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35445567/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Resnick",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "35078116",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Sustained seizure freedom with adjunctive perampanel in patients with convulsive seizures: Post hoc analysis of open-label extension studies 307 and 332.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35078116/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Kanner",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "34735963",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Does a psychiatric history play a role in the development of psychiatric adverse events to perampanel… and to placebo?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34735963/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "34022524",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A multivariable prediction model of a major treatment response for focal-onset seizures: A post-hoc analysis of Phase III trials of perampanel.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34022524/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Nicolo",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "33972334",
+      "pub_types": "Clinical Trial Protocol; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Study protocol for a phase II randomised, double-blind, placebo-controlled trial of perampanel as an antiepileptogenic treatment following acute stroke.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33972334/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Mehndiratta",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "33681652",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive perampanel in patients with focal seizures or generalized tonic-clonic seizures: Post hoc analysis of Phase II and Phase III double-blind and open-label extension studies in India.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33681652/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Weiping",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "33340263",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy, safety, and tolerability of adjunctive perampanel in patients from China with focal seizures or generalized tonic-clonic seizures: Post hoc analysis of phase III double-blind and open-label extension studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33340263/",
+      "year": "2021"
+    },
+    {
+      "first_author": "Rektor",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "32645213",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Assessment of the long-term efficacy and safety of adjunctive perampanel in tonic-clonic seizures: Analysis of four open-label extension studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32645213/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "31954998",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive perampanel in adolescent patients with epilepsy: Post hoc analysis of six randomized studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31954998/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Steinhoff",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "31944276",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive perampanel 4 mg/d for the treatment of focal seizures: A pooled post hoc analysis of four randomized, double-blind, phase III studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31944276/",
+      "year": "2020"
+    },
+    {
+      "first_author": "Nishida",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "30869168",
+      "pub_types": "Clinical Trial, Phase III; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Efficacy and safety of perampanel in generalized and focal to bilateral tonic-clonic seizures: A comparative study of Asian and non-Asian populations.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30869168/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Inoue",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "30869167",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A post hoc analysis of the long-term safety and efficacy of perampanel in Asian patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30869167/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Tsai",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "30869165",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Efficacy, safety, and tolerability of perampanel in Asian and non-Asian patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30869165/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Piña-Garza",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "29653338",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term effects of adjunctive perampanel on cognition in adolescents with partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29653338/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Takenaka",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "29171002",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pharmacokinetic/pharmacodynamic analysis of adjunctive perampanel in subjects with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29171002/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "27869305",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Analysis of falls in patients with epilepsy enrolled in the perampanel phase III randomized double-blind studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27869305/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Villanueva",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "27595590",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Pharmacokinetics, exposure-cognition, and exposure-efficacy relationships of perampanel in adolescents with inadequately controlled partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27595590/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Meador",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26724782",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Cognitive effects of adjunctive perampanel for partial-onset seizures: A randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26724782/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Kwan",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26448264",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Analysis of pooled phase III trials of adjunctive perampanel for epilepsy: Impact of mechanism of action and pharmacokinetics on clinical outcomes.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26448264/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Ettinger",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26140524",
+      "pub_types": "Clinical Trial, Phase I; Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Psychiatric and behavioral adverse events in randomized clinical studies of the noncompetitive AMPA receptor antagonist perampanel.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26140524/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Montouris",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26088896",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of perampanel in patients with drug-resistant partial seizures after conversion from double-blind placebo to open-label perampanel.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26088896/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Yang",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26088895",
+      "pub_types": "Clinical Trial, Phase I; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Lack of effect of perampanel on QT interval duration: Results from a thorough QT analysis and pooled partial seizure Phase III clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26088895/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Ko",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "26057204",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Perampanel in the treatment of partial seizures: Time to onset and duration of most common adverse events from pooled Phase III and extension studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26057204/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Laurenza",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "25986193",
+      "pub_types": "Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Absence of Liver Toxicity in Perampanel-Treated Subjects: Pooled results from partial seizure phase III perampanel clinical studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25986193/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Rosenfeld",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "25823975",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of perampanel in adolescent patients with drug-resistant partial seizures in three double-blind, placebo-controlled, phase III randomized clinical studies and a combined extension study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25823975/",
+      "year": "2015"
+    },
+    {
+      "first_author": "French",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "25878175",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Time to prerandomization monthly seizure count in perampanel trials: A novel epilepsy endpoint.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25878175/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "25878177",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Perampanel efficacy and tolerability with enzyme-inducing AEDs in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25878177/",
+      "year": "2015"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "25162090",
+      "pub_types": "Journal Article",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Perampanel. Just another anticonvulsant for partial epilepsy: no progress.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25162090/",
+      "year": "2014"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "23772853",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Concentration-effect relationships with perampanel in patients with pharmacoresistant partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23772853/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Steinhoff",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "23663001",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Efficacy and safety of adjunctive perampanel for the treatment of refractory partial seizures: a pooled analysis of three phase III studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23663001/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Shih",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "23874099",
+      "pub_types": "Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "New drug classes for the treatment of partial onset epilepsy: focus on perampanel.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23874099/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Serratosa",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "23480154",
+      "pub_types": "Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Safety and tolerability of perampanel: a review of clinical trial data.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23480154/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "22905878",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Perampanel, a selective, noncompetitive α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor antagonist, as adjunctive therapy for refractory partial-onset seizures: interim results from phase III, extension study 307.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22905878/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Rektor",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "22913800",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Perampanel Study 207: long-term open-label evaluation in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22913800/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Krauss",
+      "generic_name": "perampanel",
+      "label": "",
+      "pmid": "21883097",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Tolerability and safety of perampanel: two randomized dose-escalation studies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21883097/",
+      "year": "2011"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

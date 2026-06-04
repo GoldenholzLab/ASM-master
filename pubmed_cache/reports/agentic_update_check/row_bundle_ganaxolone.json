@@ -1,0 +1,753 @@
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "CNS: somnolence 38%, infectious: pyrexia 18%, respiratory: salivary hypersecretion 6%, allergic/immunologic: seasonal allergy 6%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "9 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sperling2017 ganaxolone 1500 mg/day 9%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.6-37.5 % (drug minus placebo MPC differential at maximum effective dose/regimen: Sullivan2023 ganaxolone up to 63 mg/kg/day or 1800 mg/day 37.5%; Knight2022 ganaxolone up to 63 mg/kg/day or 1800 mg/day 27.1%; Sperling2017 ganaxolone 1500 mg/day 19.6%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "CYP3A4 substrate; not a major inducer/inhibitor",
+    "epilepsy_type": "CDKL5 deficiency disorder",
+    "evidence_sources": "FDA Ztalmy approval/snapshot pages; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e; published=Dec 01, 2025; title=ZTALMY (GANAXOLONE) SUSPENSION [IMMEDICA PHARMA US INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Substrate / affected by modulators",
+    "filter_epilepsy_type": "CDKL5 deficiency disorder",
+    "filter_formulation": "Liquid",
+    "filter_mechanism": "GABA",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "Allergic/immunologic; CNS; Infectious; Respiratory",
+    "formulations_available": "Oral suspension",
+    "generic_name": "ganaxolone",
+    "half_life_range": "~34 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "1800 mg/day for >28 kg; lower max for lower weights",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise therapeutic mechanism is unknown; anticonvulsant effects are thought to result from positive allosteric modulation of CNS GABA-A receptors.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Weight-based titration to maintenance; pivotal CDD target up to 1800 mg/day for >28 kg",
+    "plot_diff_50_responder_maximum_effective_dose": "Sperling2017|9|https://pubmed.ncbi.nlm.nih.gov/28230252/|147",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Sullivan2023|37.5|https://pubmed.ncbi.nlm.nih.gov/36870093/|21; Knight2022|27.1|https://pubmed.ncbi.nlm.nih.gov/35429480/|100; Sperling2017|19.6|https://pubmed.ncbi.nlm.nih.gov/28230252/|147",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Downs2024|https://pubmed.ncbi.nlm.nih.gov/38959712/; Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/36870093/; Knight2022|https://pubmed.ncbi.nlm.nih.gov/35429480/; Sperling2017|https://pubmed.ncbi.nlm.nih.gov/28230252/",
+    "pubmed_search_aliases": "CCD1042",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "rct_pubmed_verification_notes": "PubMed loop 25/65 on 2026-05-15: 4 qualifying placebo-controlled randomized clinical trial report(s) retained from 7 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Current neuroactive-steroid ASM for seizures associated with CDKL5 deficiency disorder.",
+    "trade_names": "Ztalmy",
+    "typical_doses_per_day": "CDD: weight-based TID dosing; adults/children >28 kg 1800 mg/day",
+    "year_fda_cleared": "2022"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Downs2024|https://pubmed.ncbi.nlm.nih.gov/38959712/",
+      "label": "Downs2024",
+      "pmid": "38959712",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38959712/"
+    },
+    {
+      "entry": "Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/36870093/",
+      "label": "Sullivan2023",
+      "pmid": "36870093",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36870093/"
+    },
+    {
+      "entry": "Knight2022|https://pubmed.ncbi.nlm.nih.gov/35429480/",
+      "label": "Knight2022",
+      "pmid": "35429480",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35429480/"
+    },
+    {
+      "entry": "Sperling2017|https://pubmed.ncbi.nlm.nih.gov/28230252/",
+      "label": "Sperling2017",
+      "pmid": "28230252",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28230252/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "CNS: somnolence 38%, infectious: pyrexia 18%, respiratory: salivary hypersecretion 6%, allergic/immunologic: seasonal allergy 6%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "9 % (drug minus placebo RR50 differential at maximum effective dose/regimen: Sperling2017 ganaxolone 1500 mg/day 9%)",
+    "diff_median_pct_change_maximum_effective_dose": "19.6-37.5 % (drug minus placebo MPC differential at maximum effective dose/regimen: Sullivan2023 ganaxolone up to 63 mg/kg/day or 1800 mg/day 37.5%; Knight2022 ganaxolone up to 63 mg/kg/day or 1800 mg/day 27.1%; Sperling2017 ganaxolone 1500 mg/day 19.6%)",
+    "diff_seizure_freedom_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo seizure-freedom patient-rate differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "enzyme_inducing_or_inhibiting": "CYP3A4 substrate; not a major inducer/inhibitor",
+    "epilepsy_type": "CDKL5 deficiency disorder",
+    "evidence_sources": "FDA Ztalmy approval/snapshot pages; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e; published=Dec 01, 2025; title=ZTALMY (GANAXOLONE) SUSPENSION [IMMEDICA PHARMA US INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e",
+    "formulations_available": "Oral suspension",
+    "half_life_range": "~34 h",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "1800 mg/day for >28 kg; lower max for lower weights",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise therapeutic mechanism is unknown; anticonvulsant effects are thought to result from positive allosteric modulation of CNS GABA-A receptors.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "Weight-based titration to maintenance; pivotal CDD target up to 1800 mg/day for >28 kg",
+    "plot_diff_50_responder_maximum_effective_dose": "Sperling2017|9|https://pubmed.ncbi.nlm.nih.gov/28230252/|147",
+    "plot_diff_median_pct_change_maximum_effective_dose": "Sullivan2023|37.5|https://pubmed.ncbi.nlm.nih.gov/36870093/|21; Knight2022|27.1|https://pubmed.ncbi.nlm.nih.gov/35429480/|100; Sperling2017|19.6|https://pubmed.ncbi.nlm.nih.gov/28230252/|147",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "Downs2024|https://pubmed.ncbi.nlm.nih.gov/38959712/; Sullivan2023|https://pubmed.ncbi.nlm.nih.gov/36870093/; Knight2022|https://pubmed.ncbi.nlm.nih.gov/35429480/; Sperling2017|https://pubmed.ncbi.nlm.nih.gov/28230252/",
+    "pubmed_search_aliases": "CCD1042",
+    "qt_interval_effect": "No clinically meaningful QT effect established",
+    "trade_names": "Ztalmy",
+    "typical_doses_per_day": "CDD: weight-based TID dosing; adults/children >28 kg 1800 mg/day",
+    "year_fda_cleared": "2022"
+  },
+  "generic_name": "ganaxolone",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Knight2022|https://pubmed.ncbi.nlm.nih.gov/35429480/",
+      "details": {
+        "article": {
+          "abstract": "CDKL5 deficiency disorder (CDD) is a rare, X-linked, developmental and epileptic encephalopathy characterised by severe global developmental impairment and seizures that can begin in the first few months after birth and are often treatment refractory. Ganaxolone, an investigational neuroactive steroid, reduced seizure frequency in an open-label, phase 2 trial that included patients with CDD. We aimed to further assess the efficacy and safety of ganaxolone in patients with CDD-associated refractory epilepsy. In the double-blind phase of this randomised, placebo-controlled, phase 3 trial, done at 39 outpatient clinics in eight countries (Australia, France, Israel, Italy, Poland, Russia, the UK, and the USA), patients were eligible if they were aged 2-21 years with a pathogenic or probably pathogenic CDKL5 variant and at least 16 major motor seizures (defined as bilateral tonic, generalised tonic-clonic, bilateral clonic, atonic, or focal to bilateral tonic-clonic) per 28 days in each 4-week period of an 8-week historical period. After a 6-week prospective baseline period, patients were randomly assigned (1:1) via an interactive web response system to receive either enteral adjunctive ganaxolone or matching enteral adjunctive placebo (maximum dose 63 mg/kg per day for patients weighing \u226428 kg or 1800 mg/day for patients weighing >28 kg) for 17 weeks. Patients, caregivers, investigators (including those analysing data), trial staff, and the sponsor (other than the investigational product manager) were masked to treatment allocation. The primary efficacy endpoint was percentage change in median 28-day major motor seizure frequency from the baseline period to the 17-week double-blind phase and was analysed (using a Wilcoxon-rank sum test) in all patients who received at least one dose of trial treatment and for whom baseline data were available. Safety (compared descriptively across groups) was analysed in all patients who received at least one dose of trial treatment. This study is registered with ClinicalTrials.gov, NCT03572933, and the open-label extension phase is ongoing. Between June 25, 2018, and July 2, 2020, 114 patients were screened for eligibility, of whom 101 (median age 6 years [IQR 3 to 10]) were randomly assigned to receive either ganaxolone (n=50) or placebo (n=51). All patients received at least one dose of a study drug, but seizure frequency for one patient in the ganaxolone group was not recorded at baseline and so the primary endpoint was analysed in a population of 100 patients. There was a median percentage change in 28-day major motor seizure frequency of -30\u00b77% (IQR -49\u00b75 to -1\u00b79) in the ganaxolone group and of -6\u00b79% (-24\u00b71 to 39\u00b77) in the placebo group (p=0\u00b70036). The Hodges-Lehmann estimate of median difference in responses to ganaxolone versus placebo was -27\u00b71% (95% CI -47\u00b79 to - 9\u00b76). Treatment-emergent adverse events occurred in 43 (86%) of 50 patients in the ganaxolone group and in 45 (88%) of 51 patients in the placebo group. Somnolence, pyrexia, and upper respiratory tract infections occurred in at least 10% of patients in the ganaxolone group and more frequently than in the placebo group. Serious adverse events occurred in six (12%) patients in the ganaxolone group and in five (10%) patients in the placebo group. Two (4%) patients in the ganaxolone group and four (8%) patients in the placebo group discontinued the trial. There were no deaths in the double-blind phase. Ganaxolone significantly reduced the frequency of CDD-associated seizures compared with placebo and was generally well tolerated. Results from what is, to our knowledge, the first controlled trial in CDD suggest a potential treatment benefit for ganaxolone. Long-term treatment is being assessed in the ongoing open-label extension phase of this trial. Marinus Pharmaceuticals. Copyright \u00a9 2022 Elsevier Ltd. All rights reserved.",
+          "first_author": "Knight",
+          "pmid": "35429480",
+          "pub_types": [
+            "Clinical Trial, Phase III",
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "title": "Safety and efficacy of ganaxolone in patients with CDKL5 deficiency disorder: results from the double-blind phase of a randomised, placebo-controlled, phase 3 trial.",
+          "year": "2022"
+        },
+        "reason": "title lacks seizure/epilepsy context"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35429480/",
+      "generic_name": "ganaxolone",
+      "id": "rct_pubmed_concordance_problem-dc0596a5aaea",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 35429480 needs manual review for ganaxolone; PubMed validation reason: title lacks seizure/epilepsy context.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 35429480 needs manual review for ganaxolone; PubMed validation reason: title lacks seizure/epilepsy context.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks seizure/epilepsy context."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "2022",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "2022"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5",
+      "generic_name": "ganaxolone",
+      "id": "source_fact_concordance_problem-19b1d8a7be2f",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The study will evaluate the effectiveness and safety of an investigational drug-ganaxolone - on partial seizure frequency in adults with epilepsy taking a maximum of 3 antiepileptic medications (AEDs).",
+        "interventions": [
+          "ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01963208",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Phase 3 Study of Adjunctive Ganaxolone in Adults With Drug-resistant Partial Onset Seizures and Open-label Extension"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01963208",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-4ff44d44d474",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Phase 3 Study of Adjunctive Ganaxolone in Adults With Drug-resistant Partial Onset Seizures and Open-label Extension"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study is designed to optimize the dosing regimen and evaluate the preliminary safety and efficacy of Intravenous (IV) ganaxolone as adjuvant therapy for participants with ESE receiving initial IV antiepileptic drug (AED) according to currently practiced standard of care (SOC). The study will be composed of 2 phases: an initial, open-label, dose optimization phase followed by IV ganaxolone versus placebo double-blind phase.",
+        "interventions": [
+          "IV Ganaxolone",
+          "IV Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT05757544",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "Safety and Efficacy Study of IV Ganaxolone as Adjuvant Therapy for Established Status Epilepticus (ESE)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05757544",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-933e287c2d71",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Safety and Efficacy Study of IV Ganaxolone as Adjuvant Therapy for Established Status Epilepticus (ESE)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will evaluate the effectiveness and safety of an investigational drug, IV ganaxolone, as adjunctive therapy to standard of care to treat subjects with status epilepticus.",
+        "interventions": [
+          "IV Ganaxolone active",
+          "IV Placebo, non-active"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03350035",
+        "new_reference_pmids": [
+          "35748707"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "35748707"
+        ],
+        "title": "Intravenous Ganaxolone as Adjunctive Therapy to Treat Subjects With Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03350035",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-e6181b95aaac",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Intravenous Ganaxolone as Adjunctive Therapy to Treat Subjects With Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The study consists of cohorts where participants are randomized, in a 2:1 ratio, to 1 of 2 sequences, A and B. In each cohort, Sequence A, comprised of participants, who will receive ascending doses of ganaxolone and ascending doses of placebo. Sequence B, comprised of participants, who will receive ascending doses of placebo and ascending doses of ganaxolone. The dosing level in each subsequent cohort will be based upon experience gained from previous cohorts.",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00441896",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "A Randomized, Controlled Trial of Ganaxolone in Patients With Infantile Spasms"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00441896",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-6319c9f46db6",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Randomized, Controlled Trial of Ganaxolone in Patients With Infantile Spasms"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a multicenter, double-blind, randomized, placebo-controlled study that will evaluate the efficacy, safety, and tolerability of intravenous (IV) ganaxolone versus placebo co-administered with IV antiepileptic drug (AED) according to standard of care for the treatment of RSE. Approximately 70 participants will be randomized in a 1:1 ratio to receive ganaxolone IV solution or placebo IV solution along with standard of care (SOC) IV AED.",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo",
+          "Standard of care"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT05814523",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "To Evaluate the Efficacy, Safety, and Tolerability of Intravenous Ganaxolone Added to Standard of Care in Refractory Status Epilepticus (RSE)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05814523",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c435ce0cd595",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: To Evaluate the Efficacy, Safety, and Tolerability of Intravenous Ganaxolone Added to Standard of Care in Refractory Status Epilepticus (RSE)"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The study will evaluate the effectiveness and safety of an investigational drug-ganaxolone - on partial seizure frequency in adults with epilepsy taking a maximum of 3 antiepileptic medications (AEDs). The study will also evaluate the effectiveness of ganaxolone in females with catamenial epilepsy.\n\nCatamenial epilepsy refers to a relationship between seizure frequency and a woman's menstrual cycle, where the number of seizures increases around the time of a woman's menstrual cycle.",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT00465517",
+        "new_reference_pmids": [
+          "34528245"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "34528245"
+        ],
+        "title": "A Randomized, Controlled Trial of Ganaxolone in Adult Uncontrolled Partial-Onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT00465517",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-1f56a451132b",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Randomized, Controlled Trial of Ganaxolone in Adult Uncontrolled Partial-Onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "A clinical study to evaluate the efficacy, safety, and tolerability of adjunctive ganaxolone therapy compared to placebo for the treatment of seizures in children and young adults with genetically confirmed CDKL5 gene mutation.",
+        "interventions": [
+          "ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03572933",
+        "new_reference_pmids": [
+          "36517284"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "36517284",
+          "35429480"
+        ],
+        "title": "Study of Adjunctive Ganaxolone Treatment in Children and Young Adults With CDKL5 Deficiency Disorder"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03572933",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-33c82d2368c0",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study of Adjunctive Ganaxolone Treatment in Children and Young Adults With CDKL5 Deficiency Disorder"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the effectiveness and safety of an investigational product (IP), intravenous (IV) ganaxolone, to treat participants with status epilepticus (SE).",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT04391569",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Randomized Therapy In Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT04391569",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-c16956a7871c",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Randomized Therapy In Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study will assess the efficacy, safety, and tolerability of ganaxolone (GNX) compared with placebo (PBO) as adjunctive therapy to the participant's standard anti-epileptic medication for the treatment of seizures in pediatric patients from 6 months to less than 2 years old with genetically confirmed CDD during a 12-week, DB phase. Pharmacokinetic (PK) assessments and population PK analyses will also be performed during this time. The DB phase will be followed by an optional long-term OL phase at which time all participants will receive GNX as an adjunct to their standard anti-seizure medication. Efficacy, safety and tolerability, and PK assessments will continue to be performed.",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT05249556",
+        "new_reference_pmids": [
+          "36517284"
+        ],
+        "overall_status": "NOT_YET_RECRUITING",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "36517284"
+        ],
+        "title": "Double-blind, Randomized, Placebo-controlled Trial of Ganaxolone in CDKL5 Deficiency Patients 6 Months to Less Than 2 Years Old"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05249556",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-cc8c48d12ec3",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Double-blind, Randomized, Placebo-controlled Trial of Ganaxolone in CDKL5 Deficiency Patients 6 Months to Less Than 2 Years Old"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This is a Phase 3, global, double-blind, randomized, placebo-controlled study of adjunctive GNX treatment in children and adults with TSC-related epilepsy. The study consists of a 4-week prospective Baseline phase, defined as the first 28 days following screening, followed by a double-blind phase consisting of a 4-week titration period (Day 1 to Day 28) and a 12-week maintenance period (Day 29 to Week 16).",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "TRIPLE",
+        "nct_id": "NCT05323734",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Adjunctive GNX Treatment Compared With Placebo in Children and Adults With TSC-related Epilepsy"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT05323734",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-7991afaf963a",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Adjunctive GNX Treatment Compared With Placebo in Children and Adults With TSC-related Epilepsy"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "A clinical study to evaluate the efficacy, safety, and tolerability of adjunctive ganaxolone therapy compared to placebo for the treatment of seizures in female children and young adults with genetically confirmed PCDH19 gene mutation.",
+        "interventions": [
+          "Ganaxolone",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT03865732",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [
+          "36870093"
+        ],
+        "title": "Study of Adjunctive Ganaxolone Treatment in Female Children With Protocadherin 19 (PCDH19)-Related Epilepsy (Violet Study)"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT03865732",
+      "generic_name": "ganaxolone",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-77b34d730aa9",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Study of Adjunctive Ganaxolone Treatment in Female Children With Protocadherin 19 (PCDH19)-Related Epilepsy (Violet Study)"
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e; published=Dec 01, 2025; title=ZTALMY (GANAXOLONE) SUSPENSION [IMMEDICA PHARMA US INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5",
+      "generic_name": "ganaxolone",
+      "id": "fda_warning_metadata_refresh-95e876d2b356",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e; effective_time=20251128; title=ZTALMY / GANAXOLONE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=d91612c4-b03a-4be4-a1ee-6a13e3b83d4e; effective_time=20251128; title=ZTALMY / GANAXOLONE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22d91612c4-b03a-4be4-a1ee-6a13e3b83d4e%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Non-seizure outcomes analysis; seizure efficacy data are not extractable from this PubMed abstract.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "ganaxolone",
+      "label": "Downs2024",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "38959712",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38959712/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Effects of ganaxolone on non-seizure outcomes in CDKL5 Deficiency Disorder: Double-blind placebo-controlled randomized trial."
+    },
+    {
+      "audit_note": "Abstract reports median percentage change in 28-day seizure frequency.",
+      "dose_or_regimen": "ganaxolone up to 63 mg/kg/day or 1800 mg/day",
+      "endpoint": "PCDH19-clustering seizures",
+      "generic_name": "ganaxolone",
+      "label": "Sullivan2023",
+      "mpc_active_percent": "61.5",
+      "mpc_differential_percent": "37.5",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "24.0",
+      "pmid": "36870093",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36870093/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Phase 2, placebo-controlled clinical study of oral ganaxolone in PCDH19-clustering epilepsy."
+    },
+    {
+      "audit_note": "Abstract reports the Hodges-Lehmann placebo-adjusted median difference for 28-day major motor seizure-frequency change.",
+      "dose_or_regimen": "ganaxolone up to 63 mg/kg/day or 1800 mg/day",
+      "endpoint": "CDD-associated major motor seizures",
+      "generic_name": "ganaxolone",
+      "label": "Knight2022",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "27.1",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "",
+      "pmid": "35429480",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35429480/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Safety and efficacy of ganaxolone in patients with CDKL5 deficiency disorder: results from the double-blind phase of a randomised, placebo-controlled, phase 3 trial."
+    },
+    {
+      "audit_note": "Abstract reports responder rates and mean percent change. The mean percent change is retained with an explicit note because a median value was not reported.",
+      "dose_or_regimen": "ganaxolone 1500 mg/day",
+      "endpoint": "partial-onset seizures",
+      "generic_name": "ganaxolone",
+      "label": "Sperling2017",
+      "mpc_active_percent": "17.6",
+      "mpc_differential_percent": "19.6",
+      "mpc_included_in_csv_summary": "yes",
+      "mpc_placebo_percent": "-2.0",
+      "pmid": "28230252",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28230252/",
+      "rr50_active_percent": "24.0",
+      "rr50_differential_percent": "9.0",
+      "rr50_included_in_csv_summary": "yes",
+      "rr50_placebo_percent": "15.0",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Randomized, double-blind, placebo-controlled phase 2 study of ganaxolone as add-on therapy in adults with uncontrolled partial-onset seizures."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Downs",
+      "generic_name": "ganaxolone",
+      "label": "Downs2024",
+      "pmid": "38959712",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Effects of ganaxolone on non-seizure outcomes in CDKL5 Deficiency Disorder: Double-blind placebo-controlled randomized trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38959712/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Sullivan",
+      "generic_name": "ganaxolone",
+      "label": "Sullivan2023",
+      "pmid": "36870093",
+      "pub_types": "Randomized Controlled Trial; Clinical Trial, Phase II; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Phase 2, placebo-controlled clinical study of oral ganaxolone in PCDH19-clustering epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36870093/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Knight",
+      "generic_name": "ganaxolone",
+      "label": "Knight2022",
+      "pmid": "35429480",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Safety and efficacy of ganaxolone in patients with CDKL5 deficiency disorder: results from the double-blind phase of a randomised, placebo-controlled, phase 3 trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35429480/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Sperling",
+      "generic_name": "ganaxolone",
+      "label": "Sperling2017",
+      "pmid": "28230252",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Randomized, double-blind, placebo-controlled phase 2 study of ganaxolone as add-on therapy in adults with uncontrolled partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28230252/",
+      "year": "2017"
+    },
+    {
+      "first_author": "O'Kelley",
+      "generic_name": "ganaxolone",
+      "label": "",
+      "pmid": "41061327",
+      "pub_types": "Journal Article; Multicenter Study; Clinical Trial, Phase II; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Neurodevelopmental Outcomes From the PREVeNT Trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41061327/",
+      "year": "2025"
+    },
+    {
+      "first_author": "Olson",
+      "generic_name": "ganaxolone",
+      "label": "",
+      "pmid": "37950390",
+      "pub_types": "Randomized Controlled Trial; Journal Article",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "Long-term treatment with ganaxolone for seizures associated with cyclin-dependent kinase-like 5 deficiency disorder: Two-year open-label extension follow-up.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37950390/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Rossetti",
+      "generic_name": "ganaxolone",
+      "label": "",
+      "pmid": "30159866",
+      "pub_types": "Case Reports; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Place of neurosteroids in the treatment of status epilepticus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30159866/",
+      "year": "2018"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}

@@ -1,0 +1,1719 @@
+2026-05-21T02:56:54.027943Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:54.082256Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e4876-ecec-7e41-99aa-30112f121d76
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Neurologic: nystagmus 20-40%, neurologic: ataxia 10-30%, CNS: dizziness 10-20%, gingival: gingival hyperplasia 20%, dermatologic: rash 5-10%, dermatologic: SJS/TEN <1%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "8.8-10.6 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Temkin1990 phenytoin high-therapeutic serum range after serious head trauma 10.6%; North1980 post-craniotomy phenytoin prophylaxis 8.8%)",
+    "enzyme_inducing_or_inhibiting": "Strong enzyme inducer: CYP3A4, CYP2C9/19, and UGT; nonlinear metabolism",
+    "epilepsy_type": "Focal; Generalized tonic-clonic; Status epilepticus; Neurosurgical seizure prophylaxis",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "fda_black_box_warning": "WARNING: CARIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minutes in adults and 1 to 3 mg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.1) and Warnings and Precautions (5.1)]. See full prescribing information for complete boxed warning. • The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. • Reduction in rate of administration or discontinuation of dosing may be needed (2.1, 5.1)",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; published=; title=Phenytoin Sodium Injection, USP Rx Only These highlights do not include all the information needed to use PHENYTOIN SODIUM INJECTION safely and effectively. See full prescribing information for PHENYTOIN SODIUM INJECTION. PHENYTOIN Sodium Injection for intravenous or intramuscular use Initial U.S. Approval: 1953; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Inducer",
+    "filter_epilepsy_type": "Focal; Generalized tonic-clonic; Neurosurgical seizure prophylaxis; Status epilepticus",
+    "filter_formulation": "Capsule; IV/IM injection; Liquid; Tablet",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Liver/hepatic",
+    "filter_qt_effect": "Conduction/arrhythmia caution; QT prolongation",
+    "filter_symptom_category": "CNS; Dermatologic; Gingival; Neurologic",
+    "formulations_available": "Capsule; chewable tablet; oral suspension; IV injection",
+    "generic_name": "phenytoin",
+    "half_life_range": "7-42 h; concentration-dependent/nonlinear",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Dose individualized by serum level; commonly up to 400-600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is not established in labeling; thought to involve voltage-dependent blockade of membrane sodium channels, reducing sustained high-frequency neuronal discharges.",
+    "mechanism_source": "FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "300 mg/day common adult maintenance starting regimen; individualized by levels",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Temkin1990|10.6|https://pubmed.ncbi.nlm.nih.gov/2115976/|404; North1980|8.8|https://pubmed.ncbi.nlm.nih.gov/6101843/|203",
+    "pubmed_phase_ii_iii_rct_links": "Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No typical QT prolongation; IV administration/toxicity can cause arrhythmias and conduction effects",
+    "rct_pubmed_verification_notes": "PubMed loop 45/65 on 2026-05-15: 6 qualifying placebo-controlled randomized clinical trial report(s) retained from 78 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Classic ASM for tonic-clonic and focal seizures/status epilepticus; also seizure prophylaxis after neurosurgery in some settings.",
+    "trade_names": "Dilantin; Epanutin; Phenytek; Phenytoin Sodium Flynn",
+    "typical_doses_per_day": "Adults maintenance commonly 300-400 mg/day; individualized by levels",
+    "year_fda_cleared": "1938 legacy approval"
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/",
+      "label": "Young2004",
+      "pmid": "15039684",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15039684/"
+    },
+    {
+      "entry": "DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/",
+      "label": "DeSantis2002",
+      "pmid": "11903465",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11903465/"
+    },
+    {
+      "entry": "Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/",
+      "label": "Dikmen1991",
+      "pmid": "1995974",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1995974/"
+    },
+    {
+      "entry": "Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/",
+      "label": "Temkin1990",
+      "pmid": "2115976",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2115976/"
+    },
+    {
+      "entry": "Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/",
+      "label": "Bacon1981",
+      "pmid": "6116084",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6116084/"
+    },
+    {
+      "entry": "North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/",
+      "label": "North1980",
+      "pmid": "6101843",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6101843/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Neurologic: nystagmus 20-40%, neurologic: ataxia 10-30%, CNS: dizziness 10-20%, gingival: gingival hyperplasia 20%, dermatologic: rash 5-10%, dermatologic: SJS/TEN <1%",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "8.8-10.6 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Temkin1990 phenytoin high-therapeutic serum range after serious head trauma 10.6%; North1980 post-craniotomy phenytoin prophylaxis 8.8%)",
+    "enzyme_inducing_or_inhibiting": "Strong enzyme inducer: CYP3A4, CYP2C9/19, and UGT; nonlinear metabolism",
+    "epilepsy_type": "Focal; Generalized tonic-clonic; Status epilepticus; Neurosurgical seizure prophylaxis",
+    "evidence_sources": "NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "fda_black_box_warning": "WARNING: CARIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minutes in adults and 1 to 3 mg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.1) and Warnings and Precautions (5.1)]. See full prescribing information for complete boxed warning. • The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. • Reduction in rate of administration or discontinuation of dosing may be needed (2.1, 5.1)",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; published=; title=Phenytoin Sodium Injection, USP Rx Only These highlights do not include all the information needed to use PHENYTOIN SODIUM INJECTION safely and effectively. See full prescribing information for PHENYTOIN SODIUM INJECTION. PHENYTOIN Sodium Injection for intravenous or intramuscular use Initial U.S. Approval: 1953; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb",
+    "formulations_available": "Capsule; chewable tablet; oral suspension; IV injection",
+    "half_life_range": "7-42 h; concentration-dependent/nonlinear",
+    "major_organ_for_metabolism": "Liver",
+    "maximum_approved_daily_dose": "Dose individualized by serum level; commonly up to 400-600 mg/day",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Precise mechanism is not established in labeling; thought to involve voltage-dependent blockade of membrane sodium channels, reducing sustained high-frequency neuronal discharges.",
+    "mechanism_source": "FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "300 mg/day common adult maintenance starting regimen; individualized by levels",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Temkin1990|10.6|https://pubmed.ncbi.nlm.nih.gov/2115976/|404; North1980|8.8|https://pubmed.ncbi.nlm.nih.gov/6101843/|203",
+    "pubmed_phase_ii_iii_rct_links": "Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No typical QT prolongation; IV administration/toxicity can cause arrhythmias and conduction effects",
+    "trade_names": "Dilantin; Epanutin; Phenytek; Phenytoin Sodium Flynn",
+    "typical_doses_per_day": "Adults maintenance commonly 300-400 mg/day; individualized by levels",
+    "year_fda_cleared": "1938 legacy approval"
+  },
+  "generic_name": "phenytoin",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/",
+      "details": {
+        "article": {
+          "abstract": "1. The effect of carbamazepine (CBZ), sodium valproate (VPA) and phenytoin (PHT) on the pharmacokinetics of oxcarbazepine (OXC) was explored in three groups of 12 epileptic patients taking one of these drug as monotherapy. 2. Each patient took a single 600 mg dose of OXC followed 7 days later by 3 weeks' treatment with OXC 300 mg thrice daily and matched placebo in random order. 3. Seven untreated patients, acting as controls, were prescribed the single OXC dose and 3 weeks' active treatment only. 4. In those patients completing the study, the area under the concentration-time curve (AUC) at steady-state for hydroxycarbazepine (OHCZ), the active metabolite of OXC, was significantly lower in the CBZ-treated group than in controls (P < 0.05). 5. No other differences in AUCs or elimination half-lives for OHCZ were found between treated and untreated patients following single or multiple OXC dosing. 6. Median AUCs of CBZ, VPA and PHT during a dosage interval did not differ significantly after treatment with OXC and placebo. 7. Ten patients completing the study complained of side-effects during treatment with OXC compared with one taking placebo (P < 0.01). 8. There were no important changes in cognitive function testing during administration of OXC compared with placebo. 9. Standard doses of OXC can be given as add-on therapy in epileptic patients receiving CBZ, VPA or PHT without producing a clinically relevant pharmacokinetic interaction.",
+          "first_author": "McKee",
+          "pmid": "8148215",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, Non-U.S. Gov't"
+          ],
+          "title": "A double-blind, placebo-controlled interaction study between oxcarbazepine and carbamazepine, sodium valproate and phenytoin in epileptic patients.",
+          "year": "1994"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/8148215/",
+      "generic_name": "phenytoin",
+      "id": "new_pubmed_phase_ii_iii_rct-62aa3a8f4e16",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "McKee1994|https://pubmed.ncbi.nlm.nih.gov/8148215/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 8148215 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "McKee1994|https://pubmed.ncbi.nlm.nih.gov/8148215/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: A double-blind, placebo-controlled interaction study between oxcarbazepine and carbamazepine, sodium valproate and phenytoin in epileptic patients."
+    },
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/",
+      "details": {
+        "article": {
+          "abstract": "Twenty severely retarded institutionalized epileptic adults with phenytoin-induced gingival hyperplasia were divided into two groups and received a daily 3 mg capsule of either folic acid or lactose for 16 weeks in a randomized, double-blind, parallel study. Serum folate and phenytoin levels were recorded at baseline and on completion of the study. Twelve areas of the gingiva on each patient were graded at 4-week intervals for 16 weeks with respect to the three indexes: hyperplasia, gingival health, and plaque index. There were no significant differences between treatment groups for any of the three indexes over time. The poststudy serum folate levels were three times baseline levels for the active drug group (p less than 0.001) but unchanged in the placebo group. Phenytoin blood levels that began within the therapeutic window (10 to 20 micrograms/ml) tended to remain within the therapeutic window for both groups, with no reported seizure activity. A single daily oral 3 mg capsule of folic acid did not show efficacy as the sole therapeutic agent in the reduction of phenytoin-induced gingival hyperplasia.",
+          "first_author": "Brown",
+          "pmid": "1828561",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial",
+            "Research Support, U.S. Gov't, P.H.S."
+          ],
+          "title": "The administration of folic acid to institutionalized epileptic adults with phenytoin-induced gingival hyperplasia. A double-blind, randomized, placebo-controlled, parallel study.",
+          "year": "1991"
+        },
+        "reason": "qualifying PubMed placebo-controlled randomized ASM trial report"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/1828561/",
+      "generic_name": "phenytoin",
+      "id": "new_pubmed_phase_ii_iii_rct-27e4f41b19a7",
+      "kind": "new_pubmed_phase_ii_iii_rct",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "pubmed_phase_ii_iii_rct_links": "Brown1991|https://pubmed.ncbi.nlm.nih.gov/1828561/",
+        "rct_pubmed_verification_notes": "update_check on 05-19-2026: added PMID 1828561 after PubMed qualification as qualifying PubMed placebo-controlled randomized ASM trial report."
+      },
+      "proposed_value": "Brown1991|https://pubmed.ncbi.nlm.nih.gov/1828561/",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "New qualifying placebo-controlled randomized phase II/III ASM trial report: The administration of folic acid to institutionalized epileptic adults with phenytoin-induced gingival hyperplasia. A double-blind, randomized, placebo-controlled, parallel study."
+    },
+    {
+      "column": "half_life_range",
+      "current_value": "7-42 h; concentration-dependent/nonlinear",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "42"
+        ],
+        "missing_terms": [
+          "concentration dependent",
+          "nonlinear"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-388c2732febe",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: half_life_range was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: half_life_range was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "half_life_range could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "typical_doses_per_day",
+      "current_value": "Adults maintenance commonly 300-400 mg/day; individualized by levels",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "300",
+          "400"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-22292dd7cbcf",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: typical_doses_per_day was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "typical_doses_per_day could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "minimum_effective_dose",
+      "current_value": "300 mg/day common adult maintenance starting regimen; individualized by levels",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "300"
+        ],
+        "missing_terms": [
+          "starting"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-204dd8553ed7",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: minimum_effective_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "minimum_effective_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "maximum_approved_daily_dose",
+      "current_value": "Dose individualized by serum level; commonly up to 400-600 mg/day",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "400"
+        ],
+        "missing_terms": [],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-61a1bffac48a",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "maximum_approved_daily_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "1938 legacy approval",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1938"
+        ],
+        "missing_terms": [
+          "legacy",
+          "approval"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-af4524cc922b",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "The main purpose of this study is to know on one hand if lorazepam is more (effective) than clonazepam and on the other hand if lorazepam is also effective as the association clonazepam + fosphenytoin in out-of-hospital treatment of the generalized convulsive status epilepticus in adult patients.",
+        "interventions": [
+          "Clonazepam",
+          "Fosphenytoin",
+          "Placebo",
+          "Lorazepam"
+        ],
+        "masking": "DOUBLE",
+        "nct_id": "NCT01870024",
+        "new_reference_pmids": [],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [],
+        "title": "Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01870024",
+      "generic_name": "phenytoin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-28312e9c6f6f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Comparison Between Lorazepam, Clonazepam and Clonazepam + Fosphenytoin for the Treatment of Out-of-hospital Generalized Status Epilepticus"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "This study evaluated the efficacy and safety of two trough-ranges of everolimus given as adjunctive therapy in patients with tuberous sclerosis complex (TSC) who had refractory partial-onset seizures.\n\nThe study consisted of 4 phases for each patient Baseline phase:\\[From Screening Week -8 (V1) to randomization visit at Week 0 (V2)\\], Core phase \\[from randomization at Week 0 (V2) to Week 18 (V11)\\], Extension phase \\[from Week 18 (V11) until 48 weeks after the last patient had completed the core phase\\] and Post Extension phase \\[from end of Extension phase to end of study\\].",
+        "interventions": [
+          "RAD001",
+          "Placebo",
+          "Antiepileptic drug (1 to 3 only)",
+          "open label RAD001 (only used for post-extension phase)"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01713946",
+        "new_reference_pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "pmids": [
+          "30169322",
+          "27613521",
+          "25682485"
+        ],
+        "title": "A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01713946",
+      "generic_name": "phenytoin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-f12b1fdad1ef",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: A Placebo-controlled Study of Efficacy & Safety of 2 Trough-ranges of Everolimus as Adjunctive Therapy in Patients With Tuberous Sclerosis Complex (TSC) & Refractory Partial-onset Seizures"
+    },
+    {
+      "column": "",
+      "current_value": "",
+      "details": {
+        "allocation": "RANDOMIZED",
+        "brief_summary": "Nodding Syndrome (NS) is a novel form of epilepsy seen predominantly among children aged 5-15 years and characterized by head nodding, progressively worsening seizures, and cognitive impairment. To date, the cause of NS remains unclear. A recent assessment by the Uganda Ministry of Health (MOH), World Health Organization (WHO), and US CDC conducted in Kitgum District in northern Uganda documented that the nodding episodes themselves resulted from atonic seizures, and that the children also exhibit multiple different seizure types, both clinically and electrographically. The investigation also found that there was significantly greater sero-positivity for onchocerciasis among children with NS compared with control children, and demonstrated low serum concentrations of vitamin B6 (pyridoxine) among both cases and controls. Vitamin B6 is involved in neurotransmission and has been an effective treatment of seizures for certain rare type of epileptic syndrome. Children with nodding syndrome in Kitgum have been episodically treated with multivitamins, ivermectin, and anti-epileptic medications including phenobarbital, phenytoin, carbamazepine, and valproate, but the possible beneficial or harmful effects of any of these medications for nodding syndrome has not been systematically assessed, and reports from parents and guardians about apparent effectiveness are varied.\n\nThe investigators propose a randomized blinded four group clinical trial with crossover design to study the effect and response to therapeutic doses of oral pyridoxine (vitamin B6) and treatment with currently used conventional anti-epileptics including phenytoin and sodium valproate, among children with nodding syndrome.",
+        "interventions": [
+          "Pyridoxine",
+          "Sodium Valproate",
+          "Phenytoin",
+          "Placebo"
+        ],
+        "masking": "QUADRUPLE",
+        "nct_id": "NCT01730313",
+        "new_reference_pmids": [],
+        "overall_status": "WITHDRAWN",
+        "phases": [
+          "PHASE2"
+        ],
+        "pmids": [],
+        "title": "Treatment of Nodding Syndrome - A Randomized Blinded Placebo-Controlled Crossover Trial of Oral Pyridoxine and Conventional Anti-Epileptic Therapy, in Northern Uganda - 2012"
+      },
+      "evidence_url": "https://clinicaltrials.gov/study/NCT01730313",
+      "generic_name": "phenytoin",
+      "id": "nih_clinicaltrial_phase_ii_iii_rct-2aa81236e60f",
+      "kind": "nih_clinicaltrial_phase_ii_iii_rct",
+      "proposed_updates": {},
+      "proposed_value": "",
+      "requires_approval": false,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "NIH ClinicalTrials.gov",
+      "summary": "NIH ClinicalTrials.gov lists a phase II/III randomized placebo-controlled epilepsy/seizure trial: Treatment of Nodding Syndrome - A Randomized Blinded Placebo-Controlled Crossover Trial of Oral Pyridoxine and Conventional Anti-Epileptic Therapy, in Northern Uganda - 2012"
+    },
+    {
+      "column": "formulations_available",
+      "current_value": "Capsule; chewable tablet; oral suspension; IV injection",
+      "details": {
+        "checked": true,
+        "matched_terms": [
+          "injection"
+        ],
+        "missing_numbers": [],
+        "missing_terms": [
+          "capsule",
+          "chewable",
+          "suspension"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "capsule",
+          "chewable",
+          "suspension",
+          "injection"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "source_fact_concordance_problem-cd863eca6f3f",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: formulations_available was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "formulations_available could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=boxed_warning_found; setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; published=; title=Phenytoin Sodium Injection, USP Rx Only These highlights do not include all the information needed to use PHENYTOIN SODIUM INJECTION safely and effectively. See full prescribing information for PHENYTOIN SODIUM INJECTION. PHENYTOIN Sodium Injection for intravenous or intramuscular use Initial U.S. Approval: 1953; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "generic_name": "phenytoin",
+      "id": "fda_warning_metadata_refresh-1321f86509b2",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "WARNING: CARIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minutes in adults and 1 to 3 mg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. Although the risk of cardiovascular toxicity increases with infusion rates above the recommended infusion rate, these events have also been reported at or below the recommended infusion rate. Reduction in rate of administration or discontinuation of dosing may be needed [see Dosage and Administration (2.1) and Warnings and Precautions (5.1)]. See full prescribing information for complete boxed warning. • The rate of intravenous Phenytoin Sodium Injection administration should not exceed 50 mg per minute in adults and 1 to 3 mg/kg/min (or 50 mg per minute, whichever is slower) in pediatric patients because of the risk of severe hypotension and cardiac arrhythmias. • Careful cardiac monitoring is needed during and after administering intravenous Phenytoin Sodium Injection. • Reduction in rate of administration or discontinuation of dosing may be needed (2.1, 5.1)",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; effective_time=20241226; title=PHENYTOIN SODIUM / PHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; effective_time=20241226; title=PHENYTOIN SODIUM / PHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Pediatric blunt-head-injury prophylaxis trial had slightly more early seizures with phenytoin than placebo; not included as a maximum effective regimen.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "phenytoin",
+      "label": "Young2004",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "15039684",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/15039684/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "A randomized, double-blinded, placebo-controlled trial of phenytoin for the prevention of early posttraumatic seizures in children with moderate to severe blunt head injury."
+    },
+    {
+      "audit_note": "Post-craniotomy study used an open-label no-phenytoin control rather than a placebo arm, so no placebo differential is extractable.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "phenytoin",
+      "label": "DeSantis2002",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "11903465",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11903465/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Add-on phenytoin fails to prevent early seizures after surgery for supratentorial brain tumors: a randomized controlled study."
+    },
+    {
+      "audit_note": "Neurobehavioral prophylaxis analysis; seizure-prevention efficacy is captured from the source post-traumatic seizure trial.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "phenytoin",
+      "label": "Dikmen1991",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "1995974",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/1995974/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Neurobehavioral effects of phenytoin prophylaxis of posttraumatic seizures."
+    },
+    {
+      "audit_note": "Abstract reports day-0-to-7 seizure rates of 3.6% with phenytoin and 14.2% with placebo; converted to seizure-free patient rates.",
+      "dose_or_regimen": "phenytoin high-therapeutic serum range after serious head trauma",
+      "endpoint": "early post-traumatic seizure prevention",
+      "generic_name": "phenytoin",
+      "label": "Temkin1990",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "2115976",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/2115976/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "96.4",
+      "sf_differential_percent": "10.6",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "85.8",
+      "title": "A randomized, double-blind study of phenytoin for the prevention of post-traumatic seizures."
+    },
+    {
+      "audit_note": "Febrile-convulsion prophylaxis trial found phenytoin ineffective and did not provide extractable active/placebo percentages.",
+      "dose_or_regimen": "",
+      "endpoint": "",
+      "generic_name": "phenytoin",
+      "label": "Bacon1981",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6116084",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6116084/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "",
+      "sf_differential_percent": "",
+      "sf_included_in_csv_summary": "no",
+      "sf_placebo_percent": "",
+      "title": "Placebo-controlled study of phenobarbitone and phenytoin in the prophylaxis of febrile convulsions."
+    },
+    {
+      "audit_note": "Abstract reports postoperative epilepsy in 7.9% of phenytoin-treated patients and 16.7% of placebo-treated patients; converted to epilepsy-free patient rates.",
+      "dose_or_regimen": "post-craniotomy phenytoin prophylaxis",
+      "endpoint": "postoperative epilepsy prevention",
+      "generic_name": "phenytoin",
+      "label": "North1980",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "6101843",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/6101843/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "92.1",
+      "sf_differential_percent": "8.8",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "83.3",
+      "title": "Postoperative epilepsy: a double-blind trial of phenytoin after craniotomy."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Young",
+      "generic_name": "phenytoin",
+      "label": "Young2004",
+      "pmid": "15039684",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized, double-blinded, placebo-controlled trial of phenytoin for the prevention of early posttraumatic seizures in children with moderate to severe blunt head injury.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15039684/",
+      "year": "2004"
+    },
+    {
+      "first_author": "De Santis",
+      "generic_name": "phenytoin",
+      "label": "DeSantis2002",
+      "pmid": "11903465",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Add-on phenytoin fails to prevent early seizures after surgery for supratentorial brain tumors: a randomized controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11903465/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Dikmen",
+      "generic_name": "phenytoin",
+      "label": "Dikmen1991",
+      "pmid": "1995974",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Neurobehavioral effects of phenytoin prophylaxis of posttraumatic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1995974/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Temkin",
+      "generic_name": "phenytoin",
+      "label": "Temkin1990",
+      "pmid": "2115976",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "A randomized, double-blind study of phenytoin for the prevention of post-traumatic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2115976/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Bacon",
+      "generic_name": "phenytoin",
+      "label": "Bacon1981",
+      "pmid": "6116084",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Placebo-controlled study of phenobarbitone and phenytoin in the prophylaxis of febrile convulsions.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6116084/",
+      "year": "1981"
+    },
+    {
+      "first_author": "North",
+      "generic_name": "phenytoin",
+      "label": "North1980",
+      "pmid": "6101843",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Postoperative epilepsy: a double-blind trial of phenytoin after craniotomy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6101843/",
+      "year": "1980"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "38356105",
+      "pub_types": "Randomized Controlled Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and Tolerability of Adjunctive Brivaracetam in Patients with Focal-Onset Seizures on Specific Concomitant Antiseizure Medications: Pooled Analysis of Double-Blind, Placebo-Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38356105/",
+      "year": "2024"
+    },
+    {
+      "first_author": "Moseley",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "31675621",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic interaction of brivaracetam on other antiepileptic drugs in adults with focal seizures: Pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31675621/",
+      "year": "2019"
+    },
+    {
+      "first_author": "Abou-Khalil",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "30278294",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Tolerability of adjunctive eslicarbazepine acetate according to concomitant lamotrigine or carbamazepine use: A subgroup analysis of three phase III trials in adults with focal (partial-onset) seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30278294/",
+      "year": "2018"
+    },
+    {
+      "first_author": "Takenaka",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "29171002",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetic/pharmacodynamic analysis of adjunctive perampanel in subjects with partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29171002/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Inchingolo",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "28467333",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Bedsores successfully treated with topical phenytoin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28467333/",
+      "year": "2017"
+    },
+    {
+      "first_author": "Schoemaker",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "27146213",
+      "pub_types": "Clinical Trial, Phase II; Clinical Trial, Phase III; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Brivaracetam Population Pharmacokinetics and Exposure-Response Modeling in Adult Subjects With Partial-Onset Seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27146213/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Villanueva",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "27595590",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetics, exposure-cognition, and exposure-efficacy relationships of perampanel in adolescents with inadequately controlled partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27595590/",
+      "year": "2016"
+    },
+    {
+      "first_author": "Kellinghaus",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "26554812",
+      "pub_types": "Journal Article; Multicenter Study; Observational Study; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Making SENSE--Sustained Effort Network for treatment of Status Epilepticus as a multicenter prospective registry.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26554812/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Patterson",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "25953073",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Canine status epilepticus treated with fosphenytoin: A proof of principle study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25953073/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Gwer",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "24135012",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Fosphenytoin for seizure prevention in childhood coma in Africa: a randomized clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24135012/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Lazzari",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "24010637",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Prevention of bone loss and vertebral fractures in patients with chronic epilepsy--antiepileptic drug and osteoporosis prevention trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24010637/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "23772853",
+      "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Concentration-effect relationships with perampanel in patients with pharmacoresistant partial-onset seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23772853/",
+      "year": "2013"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "21967357",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Canine status epilepticus: a translational platform for human therapeutic trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21967357/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Garcia",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "21332573",
+      "pub_types": "Clinical Trial, Phase II; Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Pharmacokinetics of combined treatment with praziquantel and albendazole in neurocysticercosis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21332573/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Arya",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "21482950",
+      "pub_types": "Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, N.I.H., Extramural; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Folic acid supplementation prevents phenytoin-induced gingival overgrowth in children.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21482950/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Hernández",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "16315636",
+      "pub_types": "Comparative Study; English Abstract; Journal Article; Randomized Controlled Trial",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "[Decrease of folic acid and cognitive alterations in patients with epilepsy treated with phenytoin or carbamazepine, pilot study].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16315636/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Gidal",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "15823510",
+      "pub_types": "Clinical Trial; Clinical Trial, Phase III; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of levetiracetam on the pharmacokinetics of adjunctive antiepileptic drugs: a pooled analysis of data from randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15823510/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Devinsky",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "12160664",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A double-blind, placebo-controlled study of remacemide hydrochloride in patients with refractory epilepsy following pre-surgical assessment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12160664/",
+      "year": "2002"
+    },
+    {
+      "first_author": "PMID",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "11987312",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Gabapentin: new indication. Little impact on partial epilepsy in children between 3 and 12.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11987312/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Chadwick",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "11945098",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Remacemide hydrochloride as an add-on therapy in epilepsy: a randomized, placebo-controlled trial of three dose levels (300, 600 and 1200 mg/day) in a Q.I.D. regimen.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11945098/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Jones",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "11945097",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Remacemide hydrochloride as an add-on therapy in epilepsy: a randomized, placebo-controlled trial of three dose levels (300, 600 and 800 mg/day) in a B.I.D. regimen.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11945097/",
+      "year": "2002"
+    },
+    {
+      "first_author": "Pålhagen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "11164700",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Rufinamide: a double-blind, placebo-controlled proof of principle trial in patients with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11164700/",
+      "year": "2001"
+    },
+    {
+      "first_author": "Baren",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "10609922",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "An approach to community consultation prior to initiating an emergency research study incorporating a waiver of informed consent.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10609922/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Spanaki",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "10534261",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The effect of vigabatrin (gamma-vinyl GABA) on cerebral blood flow and metabolism.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10534261/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Haltiner",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "10507379",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Side effects and mortality associated with use of phenytoin for early posttraumatic seizure prophylaxis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10507379/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Wang",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "10082251",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Trial of antiepilepsirine (AES) in children with epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10082251/",
+      "year": "1999"
+    },
+    {
+      "first_author": "Read",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "9627208",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Cognitive effects of anticonvulsant monotherapy in elderly patients: a placebo-controlled study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9627208/",
+      "year": "1998"
+    },
+    {
+      "first_author": "Anderson",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "9066931",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Revised Winter-Tozer equation for normalized phenytoin concentrations in trauma and elderly patients with hypoalbuminemia.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9066931/",
+      "year": "1997"
+    },
+    {
+      "first_author": "Leach",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "9095400",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Mutual interaction between remacemide hydrochloride and phenytoin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9095400/",
+      "year": "1997"
+    },
+    {
+      "first_author": "Wilder",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8759983",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Safety and tolerance of multiple doses of intramuscular fosphenytoin substituted for oral phenytoin in epilepsy or neurosurgery.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8759983/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Thilothammal",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8979563",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Comparison of phenobarbitone, phenytoin with sodium valproate: randomized, double-blind study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8979563/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Privitera",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8649569",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Topiramate placebo-controlled dose-ranging trial in refractory partial epilepsy using 600-, 800-, and 1,000-mg daily dosages. Topiramate YE Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8649569/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Willmore",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8559420",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Efficacy and safety of add-on divalproex sodium in the treatment of complex partial seizures. The M88-194 Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8559420/",
+      "year": "1996"
+    },
+    {
+      "first_author": "Pledger",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "7936231",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Flunarizine for treatment of partial seizures: results of a concentration-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7936231/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Privitera",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8058148",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Dezinamide for partial seizures: results of an n-of-1 design trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8058148/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Smith",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8018037",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Neurobehavioral effects of phenytoin and carbamazepine in patients recovering from brain trauma: a comparative study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8018037/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Rathlev",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8135426",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "The lack of efficacy of phenytoin in the prevention of recurrent alcohol-related seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8135426/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Sahlroot",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8019586",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Dosage adjustments in response to monitored plasma concentrations: can unblinded staff adhere to objective criteria?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8019586/",
+      "year": "1994"
+    },
+    {
+      "first_author": "McKee",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8148215",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "A double-blind, placebo-controlled interaction study between oxcarbazepine and carbamazepine, sodium valproate and phenytoin in epileptic patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8148215/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Kamali",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "7995328",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Effect of saliva flow rate on saliva phenytoin concentrations: implications for therapeutic monitoring.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7995328/",
+      "year": "1994"
+    },
+    {
+      "first_author": "Botez",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "8269914",
+      "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Thiamine and folate treatment of chronic epileptic patients: a controlled study with the Wechsler IQ scale.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8269914/",
+      "year": "1993"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "1944909",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Felbamate for partial seizures: results of a controlled clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1944909/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Andersen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "1840138",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "No influence of the antidepressant paroxetine on carbamazepine, valproate and phenytoin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1840138/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Chance",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2024792",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "Emergency department treatment of alcohol withdrawal seizures with phenytoin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2024792/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Brown",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "1828561",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "excluded secondary/non-primary title",
+      "status": "rejected",
+      "title": "The administration of folic acid to institutionalized epileptic adults with phenytoin-induced gingival hyperplasia. A double-blind, randomized, placebo-controlled, parallel study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1828561/",
+      "year": "1991"
+    },
+    {
+      "first_author": "Duncan",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2119303",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Effects of removal of phenytoin, carbamazepine, and valproate on cognitive function.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2119303/",
+      "year": "1990"
+    },
+    {
+      "first_author": "Alldredge",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2686433",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Placebo-controlled trial of intravenous diphenylhydantoin for short-term treatment of alcohol withdrawal seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2686433/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Lee",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2711309",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Prophylactic anticonvulsants for prevention of immediate and early postcraniotomy seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2711309/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Jawad",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2498073",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Controlled trial of lamotrigine (Lamictal) for refractory partial seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2498073/",
+      "year": "1989"
+    },
+    {
+      "first_author": "Duncan",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3144581",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Withdrawal symptoms from phenytoin, carbamazepine and sodium valproate.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3144581/",
+      "year": "1988"
+    },
+    {
+      "first_author": "Brundage",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3427561",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Effect of progabide on serum phenytoin and carbamazepine concentrations.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3427561/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Tassinari",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "2887152",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Double-blind study of vigabatrin in the treatment of drug-resistant epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2887152/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Leppik",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3295590",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A controlled study of progabide in partial seizures: methodology and results.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3295590/",
+      "year": "1987"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3511402",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Progabide for refractory partial epilepsy: a controlled add-on trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3511402/",
+      "year": "1986"
+    },
+    {
+      "first_author": "Smart",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3840029",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "The effects of sucralfate upon phenytoin absorption in man.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3840029/",
+      "year": "1985"
+    },
+    {
+      "first_author": "Bittencourt",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "3925929",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; English Abstract; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[Efficient serum concentrations after single doses of antiepileptic drugs: concept of loading-dose].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3925929/",
+      "year": "1985"
+    },
+    {
+      "first_author": "Schmidt",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6382068",
+      "pub_types": "Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Progabide as an add-on drug for epilepsy refractory to high dose antiepileptic drug therapy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6382068/",
+      "year": "1984"
+    },
+    {
+      "first_author": "Rimmer",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6141335",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Double-blind study of gamma-vinyl GABA in patients with refractory epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6141335/",
+      "year": "1984"
+    },
+    {
+      "first_author": "McQueen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6417279",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Low risk of late post-traumatic seizures following severe head injury: implications for clinical trials of prophylaxis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6417279/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Glötzner",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6410292",
+      "pub_types": "Clinical Trial; English Abstract; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[Seizure prevention using carbamazepine following severe brain injuries].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6410292/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Young",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6848681",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Failure of prophylactically administered phenytoin to prevent late posttraumatic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6848681/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Young",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6848680",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Failure of prophylactically administered phenytoin to prevent early posttraumatic seizures.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6848680/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Young",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6409521",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "Failure of prophylactically administered phenytoin to prevent post-traumatic seizures in children.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6409521/",
+      "year": "1983"
+    },
+    {
+      "first_author": "Thompson",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "6803819",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Sodium valproate and cognitive functioning in normal volunteers.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/6803819/",
+      "year": "1981"
+    },
+    {
+      "first_author": "Thompson",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "7284649",
+      "pub_types": "Clinical Trial; Controlled Clinical Trial; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "no randomized language",
+      "status": "rejected",
+      "title": "Phenytoin and cognitive function: effects on normal volunteers and implications for epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7284649/",
+      "year": "1981"
+    },
+    {
+      "first_author": "Gibberd",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "7007061",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "The influence of folic acid on the frequency of epileptic attacks.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7007061/",
+      "year": "1981"
+    },
+    {
+      "first_author": "Ahmad",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "22216504",
+      "pub_types": "Controlled Clinical Trial; Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Controlled trial of frusemide as an antiepileptic drug in focal epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22216504/",
+      "year": "1976"
+    },
+    {
+      "first_author": "Richens",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "1104059",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Controlled trial of sodium valproate in severe epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1104059/",
+      "year": "1975"
+    },
+    {
+      "first_author": "Kutt",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "811074",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Carbamazepine in difficult to control epileptic out-patients.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/811074/",
+      "year": "1975"
+    },
+    {
+      "first_author": "Christiansen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "4207965",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "\"Anticonvulsant action\" of vitamin D in epileptic patients? A controlled pilot study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4207965/",
+      "year": "1974"
+    },
+    {
+      "first_author": "Christiansen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "4776883",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Incidence of anticonvulsant osteomalacia and effect of vitamin D: controlled therapeutic trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4776883/",
+      "year": "1973"
+    },
+    {
+      "first_author": "Christiansen",
+      "generic_name": "phenytoin",
+      "label": "",
+      "pmid": "4573205",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Effect of vitamin D on bone mineral mass in normal subjects and in epileptic patients on anticonvulsants: a controlled therapeutic trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/4573205/",
+      "year": "1973"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T02:56:54.111227Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:54.186305Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:56:54.186858Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:56:54.190154Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:56:54.190206Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:54.205707Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.205715Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.206167Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.206172Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.206669Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.206674Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.207207Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.207210Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.207812Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.207815Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.208965Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:54.208968Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:54.217555Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:54.247230Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:54.251733Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:54.255734Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:54.255808Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:54.276786Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:54.292467Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:56:54.292836Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:56:54.295782Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:56:54.295821Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:54.306358Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T02:56:56.269437Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T02:56:56.269916Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T02:56:56.273381Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T02:56:56.273430Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:56.287454Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.287460Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.287911Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.287916Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.288339Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.288343Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.288843Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.288846Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.289322Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.289326Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.290332Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T02:56:56.290336Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T02:56:56.321873Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:56.325297Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T02:56:56.325371Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label phenytoin sodium boxed warning rapid infusion a52cf1bd
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf
+web search: 
+web search: site:accessdata.fda.gov drugsatfda_docs label Dilantin capsules chewable tablets oral suspension phenytoin label
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf
+web search: 
+web search: phenytoin adverse effects nystagmus ataxia dizziness gingival hyperplasia percent rash Stevens-Johnson syndrome incidence NCBI
+web search: 
+web search: phenytoin strong inducer CYP3A4 UGT CYP2C9 CYP2C19 source NCBI
+web search: 
+web search: site:accessdata.fda.gov Phenytek phenytoin label FDA
+web search: 
+web search: "PHENYTEK" "extended phenytoin sodium capsules" FDA label "Initial U.S. Approval"
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/daf/index.cfm Phenytek phenytoin
+web search: 
+web search: site:epilepsy.com phenytoin Dilantin Phenytek
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/15039684/
+web search: 
+web search: PubMed 15039684 phenytoin placebo randomized blunt head injury abstract
+web search: 
+web search: "A randomized, double-blind study of phenytoin for the prevention of post-traumatic seizures" "3.6" "14.2" PubMed
+web search: 
+web search: PubMed 6116084 placebo controlled study phenobarbitone phenytoin febrile convulsions
+web search: 
+web search: PubMed 2686433 placebo-controlled trial intravenous diphenylhydantoin alcohol withdrawal seizures abstract phenytoin
+codex
+{"black_box_warning":{"current_value":"Boxed warning text is populated but uses a DailyMed source, contains duplicated heading text, and includes internally inconsistent/typographic wording such as CARIOVASCULAR, per minutes, and pediatric 1 to 3 mg/min in part of the text.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"],"proposed_value":"WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION. Do not exceed IV phenytoin administration rates of 50 mg/min in adults or 1 to 3 mg/kg/min (or 50 mg/min, whichever is slower) in pediatric patients because rapid infusion can cause severe hypotension and cardiac arrhythmias. Monitor cardiac status during and after administration; reduce the rate or stop dosing if needed.","rationale":"FDA/openFDA confirms a boxed warning for IV phenytoin rapid infusion. DailyMed is not permissible for this field, and the current cell should use FDA/openFDA or accessdata FDA labeling metadata instead.","requires_user_approval":true,"status":"incorrect"},"blocking_questions":["Decide whether placebo-controlled phenytoin/diphenylhydantoin trials for alcohol-withdrawal seizure recurrence are in scope for pubmed_phase_ii_iii_rct_links, or whether the list should be limited to epilepsy/neurosurgical/post-traumatic seizure prophylaxis."],"fact_checks":[{"current_value":"phenytoin","field":"generic_name","proposed_value":"phenytoin","rationale":"FDA labeling and PubMed records identify the drug as phenytoin/phenytoin sodium.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/2115976/"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"diphenylhydantoin; phenytoin sodium","rationale":"Diphenylhydantoin is an established phenytoin alias in PubMed RCT records, and phenytoin sodium is the labeled salt form used for capsules/injection.","requires_user_approval":false,"status":"missing","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/4610196/","https://pubmed.ncbi.nlm.nih.gov/2686433/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"diphenylhydantoin; diphenylhydantoin sodium; phenytoin sodium","rationale":"Missing diphenylhydantoin aliases can cause phenytoin RCTs to be missed or misclassified.","requires_user_approval":false,"status":"missing","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/4610196/","https://pubmed.ncbi.nlm.nih.gov/2686433/"]},{"current_value":"Dilantin; Epanutin; Phenytek; Phenytoin Sodium Flynn","field":"trade_names","proposed_value":"Dilantin; Epanutin; Phenytek; Phenytoin Sodium Flynn","rationale":"Dilantin/Phenytek are supported by US epilepsy/FDA-adjacent sources; Epanutin and Phenytoin Sodium Flynn are supported by eMC SmPC records.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.epilepsy.com/treatment/medicines/drug-interactions","https://www.medicines.org.uk/emc/product/7558/smpc","https://www.medicines.org.uk/emc/product/2257/smpc"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA labels exist for Dilantin/phenytoin products in the US.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"Capsule; chewable tablet; oral suspension; IV injection","field":"formulations_available","proposed_value":"Capsule; chewable tablet; oral suspension; IV/IM injection","rationale":"US FDA labeling supports extended capsules, chewable tablets, oral suspension, and parenteral phenytoin sodium injection for intravenous or intramuscular use.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2015/084427Orig1s032lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/008762s047lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"Focal; Generalized tonic-clonic; Status epilepticus; Neurosurgical seizure prophylaxis","field":"epilepsy_type","proposed_value":"Focal; Generalized tonic-clonic; Status epilepticus; Neurosurgical seizure prophylaxis","rationale":"Oral labeling supports tonic-clonic and psychomotor/temporal lobe seizures and neurosurgical seizure prevention/treatment; injection labeling supports generalized tonic-clonic status epilepticus.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"Strong enzyme inducer: CYP3A4, CYP2C9/19, and UGT; nonlinear metabolism","field":"enzyme_inducing_or_inhibiting","proposed_value":"Strong CYP3A inducer and broad/potent hepatic enzyme inducer of CYP/UGT pathways; primarily metabolized by CYP2C9 and CYP2C19; saturable/nonlinear metabolism","rationale":"FDA supports phenytoin as a strong CYP3A inducer and potent hepatic enzyme inducer. PubMed review supports CYP/UGT induction. FDA/eMC labeling supports CYP2C9/CYP2C19 metabolism and saturable metabolism, but the current wording overstates CYP2C9/19 as strong induced enzymes.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.fda.gov/drugs/drug-interactions-labeling/drug-development-and-drug-interactions-table-substrates-inhibitors-and-inducers","https://pubmed.ncbi.nlm.nih.gov/9606477/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.medicines.org.uk/emc/product/7558/smpc"]},{"current_value":"7-42 h; concentration-dependent/nonlinear","field":"half_life_range","proposed_value":"7-42 h; concentration-dependent/nonlinear","rationale":"FDA oral labeling reports a 7 to 42 hour range and describes saturable hepatic metabolism with disproportionate serum-level increases after small dose increments.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Liver","field":"major_organ_for_metabolism","proposed_value":"Liver","rationale":"FDA/eMC labeling states phenytoin is primarily metabolized by hepatic CYP enzymes and that liver is the chief site of biotransformation.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.medicines.org.uk/emc/product/7558/smpc"]},{"current_value":"Precise mechanism is not established in labeling; thought to involve voltage-dependent blockade of membrane sodium channels, reducing sustained high-frequency neuronal discharges.","field":"mechanism_of_action","proposed_value":"Precise mechanism is not established in labeling; thought to involve voltage-dependent blockade of membrane sodium channels, reducing sustained high-frequency neuronal discharges.","rationale":"FDA labeling directly supports this mechanism wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"mechanism_source","proposed_value":"FDA accessdata labeling; Sills and Rogawski 2020 ASM mechanism review","rationale":"DailyMed is not in the trusted source list supplied for this audit. FDA accessdata labeling supports the mechanism cell.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"The label says the precise therapeutic mechanism is not established but describes a plausible sodium-channel mechanism, supporting moderate rather than high confidence.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"300 mg/day common adult maintenance starting regimen; individualized by levels","field":"minimum_effective_dose","proposed_value":"Adult starting regimen: 100 mg three times daily (300 mg/day), individualized by serum levels","rationale":"FDA labeling gives 100 mg three times daily as the adult starting dose and recommends serum level monitoring for dosage adjustment.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Adults maintenance commonly 300-400 mg/day; individualized by levels","field":"typical_doses_per_day","proposed_value":"Adults maintenance commonly 300-400 mg/day; individualized by levels","rationale":"FDA labeling says most adults have satisfactory maintenance with one 100 mg capsule three to four times daily and dosage should be individualized.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Dose individualized by serum level; commonly up to 400-600 mg/day","field":"maximum_approved_daily_dose","proposed_value":"Dose individualized by serum level; adult dosing may be increased up to 600 mg/day if necessary","rationale":"FDA labeling permits an increase up to two 100 mg capsules three times daily if necessary.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"1938 legacy approval","field":"year_fda_cleared","proposed_value":"1953 (Initial U.S. Approval)","rationale":"FDA labeling lists Initial U.S. Approval as 1953; 1938 may refer to historical introduction/use but is not supported as the FDA clearance/approval year in the checked FDA labels.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"No typical QT prolongation; IV administration/toxicity can cause arrhythmias and conduction effects","field":"qt_interval_effect","proposed_value":"No typical QT-prolongation warning identified in checked FDA labeling; IV administration/toxicity can cause serious arrhythmias and conduction effects including bradycardia, heart block, ventricular tachycardia/fibrillation, cardiac arrest, and severe hypotension","rationale":"FDA labeling supports serious cardiac arrhythmia/conduction risk with IV or toxic phenytoin. The row's separate filter_qt_effect should not include QT prolongation unless a specific source is added.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Neurologic: nystagmus 20-40%, neurologic: ataxia 10-30%, CNS: dizziness 10-20%, gingival: gingival hyperplasia 20%, dermatologic: rash 5-10%, dermatologic: SJS/TEN <1%","field":"adverse_symptoms_percentages","proposed_value":"Neurologic/CNS: nystagmus, ataxia, slurred speech/decreased coordination, somnolence/mental confusion, dizziness/vertigo (common or dose-related; exact percentages not consistently quantified in checked FDA/NCBI sources); gingival: gingival hyperplasia/overgrowth reported (13% clinically significant in one community study; estimates up to 50% in reviews); dermatologic: rash reported (morbilliform rash 2-5% in IARC review; LiverTox notes rash can occur in 10%); severe dermatologic: SJS/TEN rare serious reactions","rationale":"Checked sources support the adverse event types but not the current exact nystagmus/ataxia/dizziness percentages. NCBI sources give different gingival/rash estimates and describe SJS/TEN as rare serious reactions.","requires_user_approval":true,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK548889/","https://www.ncbi.nlm.nih.gov/books/NBK423938/","https://www.ncbi.nlm.nih.gov/books/NBK482444/"]},{"current_value":"NCBI LiverTox anticonvulsants table; Epilepsy Society ASM list; Epilepsy Foundation Australia ASM list; FDA/DailyMed labeling; Sills and Rogawski 2020 ASM mechanism review","field":"evidence_sources","proposed_value":"FDA accessdata labeling; FDA/openFDA drug label API for boxed warning; NCBI Bookshelf LiverTox/StatPearls/IARC phenytoin monographs; PubMed RCT records; eMC SmPC records for UK trade names; FDA drug-interaction table","rationale":"Several current named sources are not in the trusted-source domain list or do not support the specific FDA boxed-warning field. Replace with sources actually used for checked cells.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5","https://www.ncbi.nlm.nih.gov/books/NBK548889/","https://www.ncbi.nlm.nih.gov/books/NBK423938/","https://www.medicines.org.uk/emc/product/7558/smpc"]}],"generic_name":"phenytoin","missing_rcts":[{"pmid":"4610196","proposed_link_text":"Sampliner1974|https://pubmed.ncbi.nlm.nih.gov/4610196/","title":"Diphenylhydantoin control of alcohol withdrawal seizures. Results of a controlled study","url":"https://pubmed.ncbi.nlm.nih.gov/4610196/","why_relevant":"Diphenylhydantoin is a phenytoin alias. PubMed classifies the report as Clinical Trial and Randomized Controlled Trial with placebo and seizure-prevention MeSH terms; include if alcohol-withdrawal seizure trials are in row scope."},{"pmid":"2686433","proposed_link_text":"Alldredge1989|https://pubmed.ncbi.nlm.nih.gov/2686433/","title":"Placebo-controlled trial of intravenous diphenylhydantoin for short-term treatment of alcohol withdrawal seizures","url":"https://pubmed.ncbi.nlm.nih.gov/2686433/","why_relevant":"Prospective randomized double-blind placebo-controlled IV diphenylhydantoin/phenytoin trial for recurrent alcohol-withdrawal seizures; include if provoked seizure trials are in scope."},{"pmid":"2024792","proposed_link_text":"Chance1991|https://pubmed.ncbi.nlm.nih.gov/2024792/","title":"Emergency department treatment of alcohol withdrawal seizures with phenytoin","url":"https://pubmed.ncbi.nlm.nih.gov/2024792/","why_relevant":"Prospective randomized placebo-controlled double-blind phenytoin trial for recurrence of alcohol-withdrawal seizures; include if provoked seizure trials are in scope."}],"outcome_checks":[{"current_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_50_responder_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included placebo-controlled RCT records","rationale":"The retained phenytoin placebo RCTs are seizure-prevention/prophylaxis trials and do not report chronic-epilepsy RR50 responder outcomes.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/2115976/","https://pubmed.ncbi.nlm.nih.gov/6101843/","https://pubmed.ncbi.nlm.nih.gov/6116084/"]},{"current_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included placebo-controlled RCT records","rationale":"The retained phenytoin placebo RCTs do not provide extractable median percent seizure-frequency change outcomes.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/2115976/","https://pubmed.ncbi.nlm.nih.gov/6101843/","https://pubmed.ncbi.nlm.nih.gov/6116084/"]},{"current_value":"8.8-10.6 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Temkin1990 phenytoin high-therapeutic serum range after serious head trauma 10.6%; North1980 post-craniotomy phenytoin prophylaxis 8.8%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"8.8-10.6 % (drug minus placebo seizure/epilepsy-free differential derived from reported seizure/epilepsy rates: Temkin1990 96.4% vs 85.8% seizure-free through day 7, differential 10.6%; North1980 92.1% vs 83.3% epilepsy-free after craniotomy, differential 8.8%)","rationale":"Temkin reports seizures in 3.6% with phenytoin vs 14.2% with placebo; North reports postoperative epilepsy in 7.9% with phenytoin vs 16.7% with placebo. The CSV differentials are arithmetically correct when converted to seizure/epilepsy-free rates.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/2115976/","https://pubmed.ncbi.nlm.nih.gov/6101843/"]},{"current_value":"Temkin1990|10.6|https://pubmed.ncbi.nlm.nih.gov/2115976/|404; North1980|8.8|https://pubmed.ncbi.nlm.nih.gov/6101843/|203","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Temkin1990|10.6|https://pubmed.ncbi.nlm.nih.gov/2115976/|404; North1980|8.8|https://pubmed.ncbi.nlm.nih.gov/6101843/|203","rationale":"Sample sizes and seizure-free differentials match the PubMed abstracts/source evidence: Temkin n=404; North n=203.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/2115976/","https://pubmed.ncbi.nlm.nih.gov/6101843/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA/DailyMed SPL; status=boxed_warning_found; setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; ... url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a52cf1bd-dc1f-47be-aba8-29066d9a50fb","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=boxed_warning_found; spl_set_id=a52cf1bd-dc1f-47be-aba8-29066d9a50fb; effective_time=20241226; title=PHENYTOIN SODIUM / PHENYTOIN SODIUM; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5","reason":"DailyMed is not permissible for FDA boxed-warning verification; use FDA/openFDA metadata.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5"]},{"current_value":"Current long boxed-warning text with duplicated heading and DailyMed-derived typographic inconsistencies","field":"fda_black_box_warning","proposed_value":"WARNING: CARDIOVASCULAR RISK ASSOCIATED WITH RAPID INFUSION. Do not exceed IV phenytoin administration rates of 50 mg/min in adults or 1 to 3 mg/kg/min (or 50 mg/min, whichever is slower) in pediatric patients because rapid infusion can cause severe hypotension and cardiac arrhythmias. Monitor cardiac status during and after administration; reduce the rate or stop dosing if needed.","reason":"Normalizes the boxed warning to FDA-supported content and removes duplicated/erroneous wording.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5"]},{"current_value":"1938 legacy approval","field":"year_fda_cleared","proposed_value":"1953 (Initial U.S. Approval)","reason":"Checked FDA labels list 1953 as Initial U.S. Approval.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"diphenylhydantoin; phenytoin sodium","reason":"Adds important alias/salt names to prevent duplicate-row or PubMed-search misses.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/4610196/","https://pubmed.ncbi.nlm.nih.gov/2686433/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"diphenylhydantoin; diphenylhydantoin sodium; phenytoin sodium","reason":"Diphenylhydantoin appears in placebo-controlled phenytoin RCT titles/records.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/4610196/","https://pubmed.ncbi.nlm.nih.gov/2686433/"]},{"current_value":"Capsule; chewable tablet; oral suspension; IV injection","field":"formulations_available","proposed_value":"Capsule; chewable tablet; oral suspension; IV/IM injection","reason":"Parenteral phenytoin sodium injection labeling includes IV or IM use.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"Other / unclear","field":"filter_mechanism","proposed_value":"Sodium channel blocker","reason":"FDA labeling supports voltage-dependent sodium channel blockade as the thought mechanism, while noting the precise mechanism is not established.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Conduction/arrhythmia caution; QT prolongation","field":"filter_qt_effect","proposed_value":"Conduction/arrhythmia caution","reason":"Checked FDA labeling supports arrhythmia/conduction risk but not a QT-prolongation classification.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf"]},{"current_value":"Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; DeSantis2002|https://pubmed.ncbi.nlm.nih.gov/11903465/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Young2004|https://pubmed.ncbi.nlm.nih.gov/15039684/; Dikmen1991|https://pubmed.ncbi.nlm.nih.gov/1995974/; Temkin1990|https://pubmed.ncbi.nlm.nih.gov/2115976/; Bacon1981|https://pubmed.ncbi.nlm.nih.gov/6116084/; North1980|https://pubmed.ncbi.nlm.nih.gov/6101843/; Sampliner1974|https://pubmed.ncbi.nlm.nih.gov/4610196/; Alldredge1989|https://pubmed.ncbi.nlm.nih.gov/2686433/; Chance1991|https://pubmed.ncbi.nlm.nih.gov/2024792/","reason":"DeSantis2002 is randomized open-label/no-treatment control rather than placebo-controlled. The three added records are phenytoin/diphenylhydantoin placebo-controlled RCTs if alcohol-withdrawal seizure trials are in scope.","requires_user_approval":true,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/11903465/","https://pubmed.ncbi.nlm.nih.gov/4610196/","https://pubmed.ncbi.nlm.nih.gov/2686433/","https://pubmed.ncbi.nlm.nih.gov/2024792/"]}],"rct_link_checks":[{"label":"Young2004","pmid":"15039684","proposed_action":"Retain; no extractable maximum-effect RR50/MPC/SF value used in CSV summary.","rationale":"Title and PubMed metadata identify a randomized, double-blinded, placebo-controlled phenytoin trial for early posttraumatic seizure prevention in children.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/15039684/"},{"label":"DeSantis2002","pmid":"11903465","proposed_action":"Remove from placebo-controlled RCT list or move to a non-placebo randomized-control field; user approval required because this deletes an existing link.","rationale":"PubMed abstract states the design was prospective open-label controlled; the control group did not receive phenytoin, so this is not a placebo-controlled trial despite randomization.","status":"not_placebo_rct","url":"https://pubmed.ncbi.nlm.nih.gov/11903465/"},{"label":"Dikmen1991","pmid":"1995974","proposed_action":"Retain as a placebo-controlled randomized phenytoin safety/neurobehavioral report; do not use for RR50/MPC/SF efficacy extraction.","rationale":"Report states subjects were randomized to phenytoin or placebo for posttraumatic seizure prophylaxis, but outcomes are neurobehavioral rather than seizure efficacy.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/1995974/"},{"label":"Temkin1990","pmid":"2115976","proposed_action":"Retain; use for derived 10.6 percentage-point seizure-free differential.","rationale":"Randomized double-blind phenytoin vs placebo trial in 404 serious head trauma patients; PubMed reports 3.6% vs 14.2% early seizure rates.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/2115976/"},{"label":"Bacon1981","pmid":"6116084","proposed_action":"Retain; phenytoin ineffective and extractable RR50/MPC/SF not available from checked abstract.","rationale":"Placebo-controlled study of phenobarbitone and phenytoin for febrile-convulsion prophylaxis with phenytoin and placebo arms.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/6116084/"},{"label":"North1980","pmid":"6101843","proposed_action":"Retain; use for derived 8.8 percentage-point epilepsy-free differential.","rationale":"Double-blind phenytoin vs placebo craniotomy trial; PubMed reports postoperative epilepsy in 7.9% vs 16.7%.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/6101843/"},{"label":"McKee1994","pmid":"8148215","proposed_action":"Do not add to the phenytoin row's placebo-controlled phenytoin RCT list.","rationale":"The randomized intervention is oxcarbazepine vs placebo in patients receiving background carbamazepine/valproate/phenytoin; phenytoin is not the randomized study drug.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/8148215/"},{"label":"Brown1991","pmid":"1828561","proposed_action":"Do not add to the phenytoin ASM RCT list.","rationale":"The randomized intervention is folic acid vs lactose for phenytoin-induced gingival hyperplasia; phenytoin is background exposure/adverse-effect cause, not the trial drug for seizure efficacy.","status":"wrong_drug","url":"https://pubmed.ncbi.nlm.nih.gov/1828561/"}],"source_updates":[{"current_value":"FDA/DailyMed labeling in evidence_sources and mechanism_source; DailyMed URL in fda_black_box_warning_source","field":"FDA/DailyMed source usage","proposed_value":"Use FDA accessdata labeling and FDA/openFDA drug label API for FDA facts; remove DailyMed as black-box-warning support","reason":"The audit policy forbids DailyMed for FDA boxed-warning verification and trusted-source list does not include DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%22a52cf1bd-dc1f-47be-aba8-29066d9a50fb%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/084349s088lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/010151s047s048lbl.pdf"]},{"current_value":"update_check proposed McKee1994 and Brown1991 as new qualifying phenytoin RCTs","field":"latest_deterministic_update_check_findings_for_row","proposed_value":"Reject McKee1994 and Brown1991 for this row's phenytoin placebo-controlled ASM RCT list","reason":"McKee1994 randomizes oxcarbazepine, not phenytoin; Brown1991 randomizes folic acid, not phenytoin.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/8148215/","https://pubmed.ncbi.nlm.nih.gov/1828561/"]}],"summary":"Phenytoin row is broadly correct for core identity, US availability, indications, mechanism, hepatic metabolism, half-life, and the Temkin/North seizure-free differentials. Updates are needed for FDA boxed-warning sourcing/text, FDA approval year, missing aliases, formulation completeness, enzyme wording, adverse-event percentages, QT filter wording, and the PubMed RCT list because DeSantis2002 is not placebo-controlled and diphenylhydantoin alias trials may be missing depending on scope."}
+tokens used
+173,303

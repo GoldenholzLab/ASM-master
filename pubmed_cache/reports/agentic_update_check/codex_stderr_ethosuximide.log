@@ -1,0 +1,377 @@
+2026-05-20T23:50:36.182944Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:36.230539Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e47cc-5d78-7e43-83dc-c7c262c65863
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists anorexia, gastric upset, nausea, vomiting, cramps, abdominal pain, weight loss, diarrhea, drowsiness, headache, dizziness, euphoria, hiccups, irritability, hyperactivity, lethargy, fatigue, ataxia, rash/urticaria/SJS, blood dyscrasias, and psychiatric symptoms without quantified incidence percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition; label notes interactions with other antiepileptic drug serum levels.",
+    "epilepsy_type": "Absence",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6; published=Jul 16, 2024; title=ZARONTIN (ETHOSUXIMIDE) CAPSULE [PARKE-DAVIS DIV OF PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Available in US",
+    "filter_enzyme_effect": "Unknown/limited",
+    "filter_epilepsy_type": "Absence",
+    "filter_formulation": "Capsule; Liquid",
+    "filter_mechanism": "Other / unclear",
+    "filter_metabolism": "Limited/unknown",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Hematologic; Neurologic; Psychiatric",
+    "formulations_available": "Oral capsule; oral syrup/solution",
+    "generic_name": "ethosuximide",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label advises caution and monitoring with liver or renal disease.",
+    "maximum_approved_daily_dose": "1500 mg/day; FDA label states doses exceeding 1.5 g/day should be used only under strict physician supervision.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states ethosuximide suppresses the 3-cycle-per-second spike-wave activity of absence seizures and reduces attack frequency apparently by depression of motor cortex and elevation of CNS seizure threshold.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "250 mg/day age 3-6 years or 500 mg/day age 6 years and older initial labeled dose; titrate to control.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Zarontin",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "FDA Orange Book pre-1982 succinimide ASM; FDA-labeled for control of absence (petit mal) epilepsy.",
+    "trade_names": "Ethosuximide; Zarontin",
+    "typical_doses_per_day": "Initial: 250 mg/day age 3-6 years or 500 mg/day age 6 years and older; increase by 250 mg every 4-7 days; optimal pediatric dose often 20 mg/kg/day per FDA label.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "N/A 0%: FDA label lists anorexia, gastric upset, nausea, vomiting, cramps, abdominal pain, weight loss, diarrhea, drowsiness, headache, dizziness, euphoria, hiccups, irritability, hyperactivity, lethargy, fatigue, ataxia, rash/urticaria/SJS, blood dyscrasias, and psychiatric symptoms without quantified incidence percentages.",
+    "alternate_generic_names": "",
+    "available_in_us": "Yes",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition; label notes interactions with other antiepileptic drug serum levels.",
+    "epilepsy_type": "Absence",
+    "evidence_sources": "FDA Orange Book products file; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6; published=Jul 16, 2024; title=ZARONTIN (ETHOSUXIMIDE) CAPSULE [PARKE-DAVIS DIV OF PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6",
+    "formulations_available": "Oral capsule; oral syrup/solution",
+    "half_life_range": "N/A - selected FDA/DailyMed label does not provide a half-life value.",
+    "major_organ_for_metabolism": "N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label advises caution and monitoring with liver or renal disease.",
+    "maximum_approved_daily_dose": "1500 mg/day; FDA label states doses exceeding 1.5 g/day should be used only under strict physician supervision.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "FDA labeling states ethosuximide suppresses the 3-cycle-per-second spike-wave activity of absence seizures and reduces attack frequency apparently by depression of motor cortex and elevation of CNS seizure threshold.",
+    "mechanism_source": "FDA/DailyMed labeling",
+    "mechanism_source_tier": "FDA label",
+    "minimum_effective_dose": "250 mg/day age 3-6 years or 500 mg/day age 6 years and older initial labeled dose; titrate to control.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "Zarontin",
+    "qt_interval_effect": "No QT interval effect described in selected FDA label.",
+    "trade_names": "Ethosuximide; Zarontin",
+    "typical_doses_per_day": "Initial: 250 mg/day age 3-6 years or 500 mg/day age 6 years and older; increase by 250 mg every 4-7 days; optimal pediatric dose often 20 mg/kg/day per FDA label.",
+    "year_fda_cleared": "Approved Prior to Jan 1, 1982 (FDA Orange Book)"
+  },
+  "generic_name": "ethosuximide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "maximum_approved_daily_dose",
+      "current_value": "1500 mg/day; FDA label states doses exceeding 1.5 g/day should be used only under strict physician supervision.",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1500"
+        ],
+        "missing_terms": [
+          "states",
+          "strict"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+      "generic_name": "ethosuximide",
+      "id": "source_fact_concordance_problem-2cd845e7b7be",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: maximum_approved_daily_dose was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "maximum_approved_daily_dose could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "year_fda_cleared",
+      "current_value": "Approved Prior to Jan 1, 1982 (FDA Orange Book)",
+      "details": {
+        "checked": true,
+        "missing_numbers": [
+          "1982"
+        ],
+        "missing_terms": [
+          "orange"
+        ],
+        "ok": false
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+      "generic_name": "ethosuximide",
+      "id": "source_fact_concordance_problem-f644fe6180da",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: year_fda_cleared was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "FDA/openFDA",
+      "summary": "year_fda_cleared could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "qt_interval_effect",
+      "current_value": "No QT interval effect described in selected FDA label.",
+      "details": {
+        "checked": true,
+        "matched_terms": [],
+        "missing_numbers": [],
+        "missing_terms": [
+          "interval"
+        ],
+        "numbers": [],
+        "ok": false,
+        "terms": [
+          "interval"
+        ]
+      },
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+      "generic_name": "ethosuximide",
+      "id": "source_fact_concordance_problem-48f9a032d9e2",
+      "kind": "source_fact_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"status_or_notes\": \"update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: qt_interval_effect was not concordant with the selected FDA/openFDA label (https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5); review current text before relying on it.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "medium",
+      "source": "FDA/openFDA",
+      "summary": "qt_interval_effect could not be verified against the selected FDA/openFDA label."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6; published=Jul 16, 2024; title=ZARONTIN (ETHOSUXIMIDE) CAPSULE [PARKE-DAVIS DIV OF PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6",
+      "details": {},
+      "evidence_url": "https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+      "generic_name": "ethosuximide",
+      "id": "fda_warning_metadata_refresh-183ee13cd841",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No FDA boxed warning identified in selected current FDA/openFDA label.",
+        "fda_black_box_warning_source": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0e008f33-70a1-4bc6-b3a0-d45214418ab6; effective_time=20240715; title=Zarontin / ETHOSUXIMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0e008f33-70a1-4bc6-b3a0-d45214418ab6; effective_time=20240715; title=Zarontin / ETHOSUXIMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Diezi",
+      "generic_name": "ethosuximide",
+      "label": "",
+      "pmid": "36537292",
+      "pub_types": "Randomized Controlled Trial; Clinical Trial, Phase I; Journal Article; Research Support, Non-U.S. Gov't",
+      "reason": "drug appears in title but not as primary intervention",
+      "status": "rejected",
+      "title": "An innovative ethosuximide granule formulation designed for pediatric use: Comparative pharmacokinetics, safety, tolerability, and palatability profile versus reference syrup.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36537292/",
+      "year": "2023"
+    },
+    {
+      "first_author": "Jiang",
+      "generic_name": "ethosuximide",
+      "label": "",
+      "pmid": "31374046",
+      "pub_types": "Clinical Trial Protocol; Journal Article",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "A statistical analysis plan for a randomized clinical trial to evaluate the efficacy and safety of ethosuximide in patients with treatment-resistant depression.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31374046/",
+      "year": "2019"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-20T23:50:36.259461Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:36.323444Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:50:36.323905Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:50:36.327270Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:50:36.327310Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:36.342258Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.342267Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.342754Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.342757Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.343194Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.343196Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.343662Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.343668Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.344299Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.344305Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.345132Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:36.345136Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:36.383293Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:36.386458Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:36.386542Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:36.396408Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:36.425575Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:36.455153Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:36.459650Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:50:36.460009Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:50:36.462479Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:50:36.462510Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:36.484719Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-20T23:50:37.235393Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-20T23:50:37.235727Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-20T23:50:37.238284Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-20T23:50:37.238320Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:37.251850Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.251859Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.252296Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.252300Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.252694Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.252697Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.253117Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.253120Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.253555Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.253561Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.254464Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-20T23:50:37.254468Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-20T23:50:37.286455Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:37.289876Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-20T23:50:37.289939Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label ethosuximide Zarontin spl_set_id 0e008f33-70a1-4bc6-b3a0-d45214418ab6
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf
+web search: 
+web search: site:labels.fda.gov Zarontin ethosuximide boxed warning
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob ethosuximide Zarontin NDA 012380 Orange Book approved prior to 1982
+web search: 
+web search: https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm
+web search: 
+web search: 'form' in https://www.accessdata.fda.gov/scripts/cder/ob/index.cfm
+web search: 
+web search: 
+web search: 
+web search: accessdata.fda.gov scripts cder ob results_product.cfm Appl_No 012380
+web search: 
+web search: "Product Details for NDA 012380" "ZARONTIN" "Orange Book"
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug drugsfda NDA012380 ethosuximide Zarontin
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov ethosuximide placebo randomized trial absence epilepsy
+web search: 
+web search: PubMed Glauser ethosuximide valproic acid lamotrigine childhood absence epilepsy PMID 20200383
+web search: 
+web search: https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/080258s025lbl.pdf
+web search: 
+web search: NCBI ethosuximide metabolized liver half-life CYP3A4 CYP2E1
+web search: 
+web search: NCBI ethosuximide no enzyme induction inhibition antiepileptic drug
+web search: 
+web search: ethosuximide QT interval PubMed
+web search: 
+web search: site:accessdata.fda.gov/scripts/cder/ob ethosuximide solution oral 080258 Zarontin Approved Prior to Jan 1 1982
+web search: 
+web search: 
+web search: 
+web search: accessdata Drugs@FDA NDA 012380 Zarontin ethosuximide
+codex
+{"black_box_warning":{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"],"proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","rationale":"The no-boxed-warning finding is supported when checked against FDA/openFDA and FDA labeling, but the current row wording and source rely on DailyMed, which is not permissible for this field under the audit policy.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"ethosuximide","field":"generic_name","proposed_value":"ethosuximide","rationale":"FDA labeling identifies Zarontin as ethosuximide.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Yes","field":"available_in_us","proposed_value":"Yes","rationale":"FDA labeling/openFDA product listing and Orange Book resources support US approved/marketed ethosuximide products.","requires_user_approval":false,"status":"verified","supporting_sources":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"Absence","field":"epilepsy_type","proposed_value":"Absence","rationale":"FDA labeling states Zarontin is indicated for control of absence (petit mal) epilepsy.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Oral capsule; oral syrup/solution","field":"formulations_available","proposed_value":"Oral capsule; oral syrup/solution","rationale":"FDA capsule labeling and FDA oral solution labeling support capsule and oral solution/syrup formulations.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/080258s025lbl.pdf"]},{"current_value":"Ethosuximide; Zarontin","field":"trade_names","proposed_value":"Zarontin","rationale":"Zarontin is the FDA-labeled proprietary/brand name; ethosuximide is already the generic name and should not be repeated as a trade name unless the row intentionally stores generic-labeled product names in this field.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5"]},{"current_value":"","field":"alternate_generic_names","proposed_value":"","rationale":"No separate alternate generic name requiring a duplicate-row merge was identified in the trusted sources checked; Zarontin belongs in trade/search aliases, not alternate generic names.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://pubmed.ncbi.nlm.nih.gov/20200383/"]},{"current_value":"Zarontin","field":"pubmed_search_aliases","proposed_value":"Zarontin","rationale":"Zarontin is a valid brand/search alias for ethosuximide.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling; FDA-approved labeling PDFs; NIH/NCBI Bookshelf; PubMed","rationale":"DailyMed should not be used for the boxed-warning field, and the row needs NIH/NCBI/PubMed sources for pharmacokinetic and enzyme-effect facts not present in FDA labeling.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/9606477/"]},{"current_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition; label notes interactions with other antiepileptic drug serum levels.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Neither enzyme-inducing nor enzyme-inhibiting; ethosuximide may increase phenytoin levels, and valproic acid has been reported to both increase and decrease ethosuximide levels.","rationale":"A PubMed review states ethosuximide is neither an inducer nor inhibitor of drug metabolism, while FDA labeling supports the phenytoin/valproate interaction wording.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/9606477/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"30 hours in children; 50-60 hours in adults.","rationale":"The selected FDA label may omit half-life, but a trusted NIH/NCBI source provides the half-life range, so N/A is incomplete for the data field.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label advises caution and monitoring with liver or renal disease.","field":"major_organ_for_metabolism","proposed_value":"Hepatic metabolism; about 80% metabolized to inactive metabolites, primarily by CYP3A4.","rationale":"NIH/NCBI sources identify hepatic metabolism and CYP3A4 involvement; LiverTox also describes liver metabolism via cytochrome P450.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://www.ncbi.nlm.nih.gov/books/NBK547870/","https://pubmed.ncbi.nlm.nih.gov/12637244/"]},{"current_value":"1500 mg/day; FDA label states doses exceeding 1.5 g/day should be used only under strict physician supervision.","field":"maximum_approved_daily_dose","proposed_value":"1500 mg/day; FDA label states doses exceeding 1.5 g/day should be used only under strict physician supervision.","rationale":"FDA labeling verifies the 1.5 g/day threshold; the deterministic mismatch appears to be a unit/string-matching false positive.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/080258s025lbl.pdf"]},{"current_value":"250 mg/day age 3-6 years or 500 mg/day age 6 years and older initial labeled dose; titrate to control.","field":"minimum_effective_dose","proposed_value":"250 mg/day age 3-6 years or 500 mg/day age 6 years and older initial labeled dose; titrate to control.","rationale":"FDA dosage labeling supports these initial doses and titration to response.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Initial: 250 mg/day age 3-6 years or 500 mg/day age 6 years and older; increase by 250 mg every 4-7 days; optimal pediatric dose often 20 mg/kg/day per FDA label.","field":"typical_doses_per_day","proposed_value":"Initial: 250 mg/day age 3-6 years or 500 mg/day age 6 years and older; increase by 250 mg every 4-7 days; optimal pediatric dose often 20 mg/kg/day per FDA label.","rationale":"FDA labeling supports the starting doses, 250 mg increments every 4-7 days, and 20 mg/kg/day optimal pediatric dose statement.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/080258s025lbl.pdf"]},{"current_value":"FDA labeling states ethosuximide suppresses the 3-cycle-per-second spike-wave activity of absence seizures and reduces attack frequency apparently by depression of motor cortex and elevation of CNS seizure threshold.","field":"mechanism_of_action","proposed_value":"FDA labeling states ethosuximide suppresses the 3-cycle-per-second spike-wave activity of absence seizures and reduces attack frequency apparently by depression of motor cortex and elevation of CNS seizure threshold.","rationale":"This is an accurate statement of the FDA label mechanism language. A more modern T-type calcium channel description is also supported by NIH/NCBI, but the current cell is specifically framed as FDA-label wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA-approved labeling","rationale":"The mechanism statement is supportable from FDA-approved labeling PDFs, so the source should not depend on DailyMed wording.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"FDA label","field":"mechanism_source_tier","proposed_value":"FDA label","rationale":"The cited mechanism statement is supported by FDA labeling.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Moderate","field":"mechanism_confidence","proposed_value":"Moderate","rationale":"Moderate confidence is defensible because FDA labeling gives older pharmacologic wording and NIH/NCBI describes the T-type calcium channel mechanism as thought/accepted but mechanistically complex.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"Other / unclear","field":"filter_mechanism","proposed_value":"T-type calcium channel blocker","rationale":"NIH/NCBI describes ethosuximide as disrupting thalamocortical absence seizure circuitry by blocking/reducing T-type calcium currents; the current filter is less accurate.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic; CYP3A4","rationale":"Trusted NIH/NCBI and PubMed sources identify hepatic/CYP metabolism, so the filter should not remain limited/unknown.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/12637244/"]},{"current_value":"Unknown/limited","field":"filter_enzyme_effect","proposed_value":"None / not clinically meaningful","rationale":"PubMed review evidence supports ethosuximide as neither an inducer nor inhibitor of drug metabolism.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/9606477/"]},{"current_value":"No QT interval effect described in selected FDA label.","field":"qt_interval_effect","proposed_value":"No QT interval effect described in selected FDA label.","rationale":"The FDA labeling reviewed does not describe a QT interval effect; this supports the narrow wording, but it should not be overread as proof from a dedicated QT study.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"No QT effect described in FDA label","rationale":"Absence of QT wording in the FDA label supports label silence, not a positive no-effect finding from a QT study.","requires_user_approval":false,"status":"insufficient_evidence","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"N/A 0%: FDA label lists anorexia, gastric upset, nausea, vomiting, cramps, abdominal pain, weight loss, diarrhea, drowsiness, headache, dizziness, euphoria, hiccups, irritability, hyperactivity, lethargy, fatigue, ataxia, rash/urticaria/SJS, blood dyscrasias, and psychiatric symptoms without quantified incidence percentages.","field":"adverse_symptoms_percentages","proposed_value":"N/A 0%: FDA label lists anorexia, gastric upset, nausea, vomiting, cramps, abdominal pain, weight loss, diarrhea, drowsiness, headache, dizziness, euphoria, hiccups, irritability, hyperactivity, lethargy, fatigue, ataxia, rash/urticaria/SJS, blood dyscrasias, and psychiatric symptoms without quantified incidence percentages.","rationale":"FDA labeling lists these adverse reactions without incidence percentages. Treat the 0% portion as an N/A placeholder rather than a true incidence value.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/080258s025lbl.pdf"]},{"current_value":"Approved Prior to Jan 1, 1982 (FDA Orange Book)","field":"year_fda_cleared","proposed_value":"Approved prior to Jan 1, 1982 (FDA Orange Book)","rationale":"FDA Orange Book documentation uses this phrase for products approved before January 1, 1982; only capitalization should be normalized if exact FDA wording is desired.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"FDA Orange Book pre-1982 succinimide ASM; FDA-labeled for control of absence (petit mal) epilepsy.","field":"status_or_notes","proposed_value":"FDA Orange Book pre-1982 succinimide ASM; FDA-labeled for control of absence (petit mal) epilepsy.","rationale":"FDA labeling supports succinimide classification and absence epilepsy indication; Orange Book resources support pre-1982 approval wording.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf","https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files"]},{"current_value":"N/A","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"N/A","rationale":"No qualifying phase II/III placebo-controlled epilepsy RCT for ethosuximide was identified. The key CAE RCT is randomized and double-blind but active-controlled, not placebo-controlled; a 2026 placebo RCT is for IBS pain, not epilepsy.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20200383/","https://pubmed.ncbi.nlm.nih.gov/41505133/"]}],"generic_name":"ethosuximide","missing_rcts":[],"outcome_checks":[{"current_value":"N/A","field":"diff_50_responder_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was retained, so placebo-differential RR50 is not applicable.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20200383/"]},{"current_value":"N/A","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was retained, so placebo-differential median percent seizure change is not applicable.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20200383/"]},{"current_value":"N/A","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"N/A","rationale":"No qualifying placebo-controlled phase II/III epilepsy RCT was retained, so placebo-differential seizure freedom is not applicable. Active-controlled CAE evidence should not be converted into placebo-differential values.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/20200383/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling; FDA-approved labeling PDFs; NIH/NCBI Bookshelf; PubMed","reason":"Replace DailyMed-dependent source wording and add sources needed for pharmacokinetics/enzyme-effect fields.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/9606477/"]},{"current_value":"No FDA boxed warning identified in selected current DailyMed label.","field":"fda_black_box_warning","proposed_value":"No FDA boxed warning identified in selected current FDA/openFDA label.","reason":"DailyMed is not permissible for boxed-warning verification; FDA/openFDA supports the finding.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5"]},{"current_value":"FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6; published=Jul 16, 2024; title=ZARONTIN (ETHOSUXIMIDE) CAPSULE [PARKE-DAVIS DIV OF PFIZER INC]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0e008f33-70a1-4bc6-b3a0-d45214418ab6","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA drug label API; status=no_boxed_warning_in_selected_fda_label; spl_set_id=0e008f33-70a1-4bc6-b3a0-d45214418ab6; effective_time=20240715; title=Zarontin / ETHOSUXIMIDE; api_url=https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","reason":"Use FDA/openFDA metadata instead of DailyMed for boxed-warning source.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5"]},{"current_value":"N/A - selected FDA label does not define clinically meaningful enzyme induction or inhibition; label notes interactions with other antiepileptic drug serum levels.","field":"enzyme_inducing_or_inhibiting","proposed_value":"Neither enzyme-inducing nor enzyme-inhibiting; ethosuximide may increase phenytoin levels, and valproic acid has been reported to both increase and decrease ethosuximide levels.","reason":"PubMed supports neither inducer nor inhibitor; FDA labeling supports specific phenytoin/valproate interaction wording.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/9606477/","https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Unknown/limited","field":"filter_enzyme_effect","proposed_value":"None / not clinically meaningful","reason":"Ethosuximide is not a meaningful inducer or inhibitor of drug metabolism in the cited PubMed review.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/9606477/"]},{"current_value":"N/A - selected FDA/DailyMed label does not provide a half-life value.","field":"half_life_range","proposed_value":"30 hours in children; 50-60 hours in adults.","reason":"NIH/NCBI provides a half-life range; N/A is incomplete.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"N/A - selected FDA/DailyMed label does not identify a major metabolic organ; label advises caution and monitoring with liver or renal disease.","field":"major_organ_for_metabolism","proposed_value":"Hepatic metabolism; about 80% metabolized to inactive metabolites, primarily by CYP3A4.","reason":"NIH/NCBI and PubMed identify hepatic/CYP metabolism.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/12637244/"]},{"current_value":"Limited/unknown","field":"filter_metabolism","proposed_value":"Hepatic; CYP3A4","reason":"Trusted sources identify hepatic/CYP metabolism.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/12637244/"]},{"current_value":"Other / unclear","field":"filter_mechanism","proposed_value":"T-type calcium channel blocker","reason":"NIH/NCBI describes the anti-absence mechanism through low-threshold T-type calcium current/channel effects.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK544244/"]},{"current_value":"FDA/DailyMed labeling","field":"mechanism_source","proposed_value":"FDA-approved labeling","reason":"The current mechanism wording is supported directly by FDA labeling PDFs, without needing DailyMed as a cited source.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"Ethosuximide; Zarontin","field":"trade_names","proposed_value":"Zarontin","reason":"Ethosuximide is the generic name, not a distinct trade name; removing it from trade_names requires user approval because it removes existing CSV text.","requires_user_approval":true,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"No known meaningful QT effect","field":"filter_qt_effect","proposed_value":"No QT effect described in FDA label","reason":"FDA label silence supports the narrower label-based statement, not a definitive no-effect claim from QT-specific evidence.","requires_user_approval":false,"source_urls":["https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/012380s037lbl.pdf"]},{"current_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-19-2026; RCT section set to N/A per current scope.","field":"rct_pubmed_verification_notes","proposed_value":"No qualifying phase II/III placebo-controlled randomized epilepsy RCT identified as of 05-20-2026; active-controlled CAE trial PMID 20200383 is not placebo-controlled and was not retained for placebo-differential outcomes.","reason":"Refresh audit date and clarify why the major ethosuximide CAE RCT is excluded from placebo-differential outcome fields.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/20200383/"]}],"rct_link_checks":[],"source_updates":[{"current_value":"FDA Orange Book products file; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"FDA Orange Book products file; FDA/openFDA labeling; FDA-approved labeling PDFs; NIH/NCBI Bookshelf; PubMed","reason":"Needed to comply with the boxed-warning source policy and to support half-life, metabolism, enzyme-effect, and RCT-scope checks.","requires_user_approval":false,"source_urls":["https://www.fda.gov/drugs/drug-approvals-and-databases/orange-book-data-files","https://api.fda.gov/drug/label.json?search=openfda.spl_set_id%3A%220e008f33-70a1-4bc6-b3a0-d45214418ab6%22&limit=5","https://www.ncbi.nlm.nih.gov/books/NBK544244/","https://pubmed.ncbi.nlm.nih.gov/20200383/"]}],"summary":"Ethosuximide row is mostly supported for indication, formulations, FDA dosing, adverse reaction list without percentages, and absence of qualifying placebo-controlled epilepsy RCT outcomes. Updates are needed for FDA boxed-warning source compliance, pharmacokinetics/metabolism, enzyme-effect categorization, mechanism filter, QT filter wording, and trade-name cleanup."}
+tokens used
+137,222

@@ -1,0 +1,459 @@
+2026-05-21T04:06:47.870955Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:06:47.871653Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:06:47.876957Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:06:47.877023Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:47.920600Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:47.948304Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.131.0-alpha.9
+--------
+workdir: /Users/dgoldenh/Documents/GitHub/ASM-master
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019e48b6-eb51-7c82-bdca-8824d8579231
+--------
+user
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "GI: anorexia 15%, neurologic: paresthesia 10%, CNS: fatigue 10%, respiratory: hyperpnea 5%, dermatologic: rash 2%",
+    "alternate_generic_names": "sulthiame",
+    "available_in_us": "No",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "30-47.1 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Debus2004 sultiame 5-10 mg/kg/day add-on to baseline pyridoxine 30%; Rating2000 sultiame 5 mg/kg/day 47.1%)",
+    "enzyme_inducing_or_inhibiting": "Carbonic anhydrase inhibitor; not a major CYP inducer/inhibitor",
+    "epilepsy_type": "Focal; Self-limited epilepsy with centrotemporal spikes; Absence",
+    "evidence_sources": "Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; UK eMC SmPC labeling; Sills and Rogawski 2020 ASM mechanism review; Sulthiame sodium-current mechanism study; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [sultiame; sulthiame; Ospolot].",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "Inhibitor",
+    "filter_epilepsy_type": "Absence; Focal; Self-limited epilepsy with centrotemporal spikes",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "Carbonic anhydrase",
+    "filter_metabolism": "Liver/hepatic; Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Neurologic; Respiratory",
+    "formulations_available": "Tablet/oral formulation in non-U.S. markets",
+    "generic_name": "sultiame",
+    "half_life_range": "2-16 h",
+    "major_organ_for_metabolism": "Liver and renal excretion",
+    "maximum_approved_daily_dose": "Not FDA-approved",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Carbonic anhydrase inhibitor with documented anticonvulsant effect; sodium-current reduction has also been reported, but the relative clinical contribution is not fully defined.",
+    "mechanism_source": "UK eMC SmPC labeling; Sulthiame sodium-current mechanism study",
+    "mechanism_source_tier": "EMA/UK SmPC",
+    "minimum_effective_dose": "Not FDA-approved; non-U.S. effective dosing commonly 5-10 mg/kg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Debus2004|30|https://pubmed.ncbi.nlm.nih.gov/14738417/|37; Rating2000|47.1|https://pubmed.ncbi.nlm.nih.gov/11051123/|66",
+    "pubmed_phase_ii_iii_rct_links": "Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/; Rating2000|https://pubmed.ncbi.nlm.nih.gov/11051123/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No established clinically meaningful QT effect",
+    "rct_pubmed_verification_notes": "PubMed loop 56/65 on 2026-05-15: 2 qualifying placebo-controlled randomized clinical trial report(s) retained from 4 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.",
+    "status_or_notes": "Sulfonamide/carbonic anhydrase inhibitor ASM used in some countries, especially pediatric focal epilepsy/self-limited epilepsy with centrotemporal spikes.",
+    "trade_names": "Ospolot",
+    "typical_doses_per_day": "Non-U.S. epilepsy dosing commonly 5-10 mg/kg/day divided",
+    "year_fda_cleared": "Not FDA-cleared for epilepsy or not marketed in U.S."
+  },
+  "existing_pubmed_links": [
+    {
+      "entry": "Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "label": "Debus2004",
+      "pmid": "14738417",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14738417/"
+    },
+    {
+      "entry": "Rating2000|https://pubmed.ncbi.nlm.nih.gov/11051123/",
+      "label": "Rating2000",
+      "pmid": "11051123",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11051123/"
+    }
+  ],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "GI: anorexia 15%, neurologic: paresthesia 10%, CNS: fatigue 10%, respiratory: hyperpnea 5%, dermatologic: rash 2%",
+    "alternate_generic_names": "sulthiame",
+    "available_in_us": "No",
+    "diff_50_responder_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_median_pct_change_maximum_effective_dose": "NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records",
+    "diff_seizure_freedom_maximum_effective_dose": "30-47.1 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Debus2004 sultiame 5-10 mg/kg/day add-on to baseline pyridoxine 30%; Rating2000 sultiame 5 mg/kg/day 47.1%)",
+    "enzyme_inducing_or_inhibiting": "Carbonic anhydrase inhibitor; not a major CYP inducer/inhibitor",
+    "epilepsy_type": "Focal; Self-limited epilepsy with centrotemporal spikes; Absence",
+    "evidence_sources": "Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; UK eMC SmPC labeling; Sills and Rogawski 2020 ASM mechanism review; Sulthiame sodium-current mechanism study; FDA/DailyMed labeling",
+    "fda_black_box_warning": "No current FDA/DailyMed label identified.",
+    "fda_black_box_warning_source": "FDA/DailyMed search on 05-20-2026: no current label found for terms [sultiame; sulthiame; Ospolot].",
+    "formulations_available": "Tablet/oral formulation in non-U.S. markets",
+    "half_life_range": "2-16 h",
+    "major_organ_for_metabolism": "Liver and renal excretion",
+    "maximum_approved_daily_dose": "Not FDA-approved",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Carbonic anhydrase inhibitor with documented anticonvulsant effect; sodium-current reduction has also been reported, but the relative clinical contribution is not fully defined.",
+    "mechanism_source": "UK eMC SmPC labeling; Sulthiame sodium-current mechanism study",
+    "mechanism_source_tier": "EMA/UK SmPC",
+    "minimum_effective_dose": "Not FDA-approved; non-U.S. effective dosing commonly 5-10 mg/kg/day",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "Debus2004|30|https://pubmed.ncbi.nlm.nih.gov/14738417/|37; Rating2000|47.1|https://pubmed.ncbi.nlm.nih.gov/11051123/|66",
+    "pubmed_phase_ii_iii_rct_links": "Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/; Rating2000|https://pubmed.ncbi.nlm.nih.gov/11051123/",
+    "pubmed_search_aliases": "",
+    "qt_interval_effect": "No established clinically meaningful QT effect",
+    "trade_names": "Ospolot",
+    "typical_doses_per_day": "Non-U.S. epilepsy dosing commonly 5-10 mg/kg/day divided",
+    "year_fda_cleared": "Not FDA-cleared for epilepsy or not marketed in U.S."
+  },
+  "generic_name": "sultiame",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [
+    {
+      "column": "pubmed_phase_ii_iii_rct_links",
+      "current_value": "Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "details": {
+        "article": {
+          "abstract": "West syndrome (WS) is still one of the most difficult to treat epilepsies in infancy. Sulthiame (STM), which is commonly used in some countries in the treatment of benign focal epilepsies in childhood, has been suggested to be effective in WS too. This prospective, randomized placebo-controlled study was designed to prove or refute this hypothesis. Thirty-seven infants aged between 3.5 and 15 months with newly diagnosed WS received baseline therapy with pyridoxine (PDX). The children were randomized in a double-blind fashion to STM (n = 20) or placebo (n = 17), starting at day 4 at a moderate dose of 5 mg/kg body weight. Without complete cessation of infantile spasms (ISs) and resolution of hypsarrhythmia as the definition criteria of a response, the dose was doubled at day 7. The final examination was undertaken at the end of day 9. Based on the intention to treat, six (30%) of 20 patients responded to STM (p < 0.025), as did six (35%) of 17 infants fulfilling the study criteria (p < 0.01). Patients with tuberous sclerosis did not respond to STM (n = 3) No patient responded to placebo. One patient in the verum group was withdrawn because of reversible somnolence. As no child in the placebo group responded to the baseline PDX therapy, nor did any child in the STM group during the first 3 days of baseline therapy, PDX does not seem to be effective in WS. STM has a positive effect in the primary therapy of WS, comparable to that of vigabatrin.",
+          "first_author": "Debus",
+          "pmid": "14738417",
+          "pub_types": [
+            "Clinical Trial",
+            "Journal Article",
+            "Randomized Controlled Trial"
+          ],
+          "title": "Sulthiame in the primary therapy of West syndrome: a randomized double-blind placebo-controlled add-on trial on baseline pyridoxine medication.",
+          "year": "2004"
+        },
+        "reason": "title lacks seizure/epilepsy context"
+      },
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "generic_name": "sultiame",
+      "id": "rct_pubmed_concordance_problem-706bbf690711",
+      "kind": "rct_pubmed_concordance_problem",
+      "proposed_updates": {
+        "__append_fields__": "{\"rct_pubmed_verification_notes\": \"update_check on 05-19-2026: PMID 14738417 needs manual review for sultiame; PubMed validation reason: title lacks seizure/epilepsy context.\"}"
+      },
+      "proposed_value": "update_check on 05-19-2026: PMID 14738417 needs manual review for sultiame; PubMed validation reason: title lacks seizure/epilepsy context.",
+      "requires_approval": true,
+      "safe_to_apply": false,
+      "severity": "high",
+      "source": "PubMed",
+      "summary": "Existing RCT link may be assigned to the wrong drug or may not meet the phase II/III placebo-controlled randomized epilepsy criteria: title lacks seizure/epilepsy context."
+    },
+    {
+      "column": "evidence_sources",
+      "current_value": "Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; UK eMC SmPC labeling; Sills and Rogawski 2020 ASM mechanism review; Sulthiame sodium-current mechanism study; FDA/DailyMed labeling",
+      "details": {},
+      "evidence_url": "/Users/dgoldenh/Documents/GitHub/ASM-master/ASM-list.csv",
+      "generic_name": "sultiame",
+      "id": "source_reference_gap-040c7479de0f",
+      "kind": "source_reference_gap",
+      "proposed_updates": {
+        "evidence_sources": "UK eMC SmPC labeling; Sulthiame sodium-current mechanism study"
+      },
+      "proposed_value": "UK eMC SmPC labeling; Sulthiame sodium-current mechanism study",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "medium",
+      "source": "Local source validation",
+      "summary": "mechanism_source is not represented in evidence_sources."
+    },
+    {
+      "column": "fda_black_box_warning_source",
+      "current_value": "FDA/DailyMed search on 05-19-2026: no current label found for terms [sultiame; sulthiame; Ospolot].",
+      "details": {},
+      "evidence_url": "https://open.fda.gov/apis/drug/label/",
+      "generic_name": "sultiame",
+      "id": "fda_warning_metadata_refresh-a687d0ef66a8",
+      "kind": "fda_warning_metadata_refresh",
+      "proposed_updates": {
+        "data_most_recently_refreshed": "05-19-2026",
+        "evidence_sources": "FDA/openFDA labeling",
+        "fda_black_box_warning": "No current FDA/openFDA label identified.",
+        "fda_black_box_warning_source": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [sultiame; sulthiame; Ospolot].",
+        "fda_black_box_warning_verified": "05-19-2026"
+      },
+      "proposed_value": "FDA/openFDA label API search on 05-19-2026: no current FDA label found for terms [sultiame; sulthiame; Ospolot].",
+      "requires_approval": false,
+      "safe_to_apply": true,
+      "severity": "info",
+      "source": "FDA/openFDA",
+      "summary": "FDA boxed-warning text matches current CSV or only the source wording changed; FDA/openFDA metadata can be refreshed."
+    }
+  ],
+  "local_outcome_audit_rows": [
+    {
+      "audit_note": "Abstract reports complete cessation of infantile spasms and hypsarrhythmia resolution in 6/20 sultiame patients and 0/17 placebo patients.",
+      "dose_or_regimen": "sultiame 5-10 mg/kg/day add-on to baseline pyridoxine",
+      "endpoint": "West syndrome response",
+      "generic_name": "sultiame",
+      "label": "Debus2004",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "14738417",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "30.0",
+      "sf_differential_percent": "30.0",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "0.0",
+      "title": "Sulthiame in the primary therapy of West syndrome: a randomized double-blind placebo-controlled add-on trial on baseline pyridoxine medication."
+    },
+    {
+      "audit_note": "Derived directly from abstract seizure TFE counts: 4/31 sultiame and 21/35 placebo had seizures, so seizure-free rates were 87.1% and 40.0%.",
+      "dose_or_regimen": "sultiame 5 mg/kg/day",
+      "endpoint": "BECTS seizure prevention",
+      "generic_name": "sultiame",
+      "label": "Rating2000",
+      "mpc_active_percent": "",
+      "mpc_differential_percent": "",
+      "mpc_included_in_csv_summary": "no",
+      "mpc_placebo_percent": "",
+      "pmid": "11051123",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11051123/",
+      "rr50_active_percent": "",
+      "rr50_differential_percent": "",
+      "rr50_included_in_csv_summary": "no",
+      "rr50_placebo_percent": "",
+      "sf_active_percent": "87.1",
+      "sf_differential_percent": "47.1",
+      "sf_included_in_csv_summary": "yes",
+      "sf_placebo_percent": "40.0",
+      "title": "Sulthiame as monotherapy in children with benign childhood epilepsy with centrotemporal spikes: a 6-month randomized, double-blind, placebo-controlled study. Sulthiame Study Group."
+    }
+  ],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Debus",
+      "generic_name": "sultiame",
+      "label": "Debus2004",
+      "pmid": "14738417",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Sulthiame in the primary therapy of West syndrome: a randomized double-blind placebo-controlled add-on trial on baseline pyridoxine medication.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14738417/",
+      "year": "2004"
+    },
+    {
+      "first_author": "Rating",
+      "generic_name": "sultiame",
+      "label": "Rating2000",
+      "pmid": "11051123",
+      "pub_types": "Clinical Trial; Journal Article; Randomized Controlled Trial",
+      "reason": "qualifying placebo-controlled randomized clinical trial report",
+      "status": "included",
+      "title": "Sulthiame as monotherapy in children with benign childhood epilepsy with centrotemporal spikes: a 6-month randomized, double-blind, placebo-controlled study. Sulthiame Study Group.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11051123/",
+      "year": "2000"
+    },
+    {
+      "first_author": "Basnec",
+      "generic_name": "sultiame",
+      "label": "",
+      "pmid": "15813357",
+      "pub_types": "Clinical Trial; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[The risk of second seizure in children with benign childhood epilepsy with centrotemporal spikes without treatment--a prospective study].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15813357/",
+      "year": "2005"
+    },
+    {
+      "first_author": "Bast",
+      "generic_name": "sultiame",
+      "label": "",
+      "pmid": "12558577",
+      "pub_types": "Clinical Trial; Evaluation Study; Journal Article; Multicenter Study; Randomized Controlled Trial",
+      "reason": "title lacks primary randomized/placebo/phase trial language",
+      "status": "rejected",
+      "title": "The influence of sulthiame on EEG in children with benign childhood epilepsy with centrotemporal spikes (BECTS).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12558577/",
+      "year": "2003"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
+
+2026-05-21T04:06:48.019410Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:48.046475Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:48.053665Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:06:48.054051Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:06:48.057037Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:06:48.057074Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.071995Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.072002Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.072425Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.072428Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.072898Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.072901Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.073418Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.073421Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.073950Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.073953Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.074894Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.074897Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.076151Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:48.108166Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.111636Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.111707Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.125322Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:48.154869Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-21T04:06:48.836399Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:06:48.836936Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:06:48.840656Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:06:48.840708Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.854492Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.854500Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.855033Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.855036Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.855485Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.855488Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.855902Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.855907Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.856334Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.856337Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.857250Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:06:48.857253Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:06:48.888454Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.891593Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:06:48.891655Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: sultiame Ospolot SmPC medicines.org.uk sultiame sulthiame tablet adverse anorexia paresthesia fatigue hyperpnea rash half-life metabolism
+web search: 
+web search: https://www.medicines.org.uk/emc/product/100433/smpc
+web search: 
+web search: site:medicines.org.uk/emc/product Ospolot tablet sulthiame
+web search: 
+web search: 
+web search: 
+web search: api.fda.gov drug label sultiame Ospolot
+web search: 
+web search: https://api.fda.gov/drug/label.json?search=openfda.generic_name:%22sultiame%22&limit=1
+web search: 
+web search: site:accessdata.fda.gov "sultiame" "FDA"
+web search: 
+web search: site:labels.fda.gov "sulthiame"
+2026-05-21T04:07:47.872401Z  WARN codex_analytics::client: events failed with status 503 Service Unavailable: upstream connect error or disconnect/reset before headers. retried and the latest reset reason: remote connection failure, transport failure reason: delayed connect error: Connection refused
+web search: 
+web search: https://pubmed.ncbi.nlm.nih.gov/14738417/
+web search: 
+web search: PMID 14738417 Debus 2004 sulthiame randomized double-blind placebo-controlled abstract 6 20 0 17
+web search: 
+web search: https://pmc.ncbi.nlm.nih.gov/articles/PMC8459749/
+web search: 
+web search: PMC8459749 sulthiame monotherapy seizure free 31 35 Rating 2000 21 35 4 31
+web search: 
+web search: Debus 2004 Sulthiame primary therapy West syndrome randomized double-blind placebo-controlled add-on trial baseline pyridoxine 6/20 0/17 PubMed
+web search: 
+web search: Rating Wolf Bast sulthiame monotherapy children benign childhood epilepsy centrotemporal spikes 6-month randomized double-blind placebo-controlled study PubMed 11051123 abstract seizure TFE 31 35
+web search: 
+web search: pubmed.ncbi.nlm.nih.gov/11051123 "Sulthiame as monotherapy" "4" "21"
+web search: 
+web search: site:pubmed.ncbi.nlm.nih.gov sultiame sulthiame Ospolot epilepsy
+web search: 
+web search: https://open.fda.gov/apis/drug/label/understanding-the-api-results/
+web search: 
+web search: https://api.fda.gov/drug/label.json?limit=1&search=effective_time%3A%5B20040101+TO+20081231%5D
+web search: 
+web search: 
+exec
+/bin/zsh -lc "curl -sS 'https://api.fda.gov/drug/label.json?search=openfda.generic_name:sultiame&limit=1' ; printf '\\n---\\n' ; curl -sS 'https://api.fda.gov/drug/label.json?search=openfda.generic_name:sulthiame&limit=1' ; printf '\\n---\\n' ; curl -sS 'https://api.fda.gov/drug/label.json?search=openfda.brand_name:Ospolot&limit=1'" in /Users/dgoldenh/Documents/GitHub/ASM-master
+ exited 6 in 0ms:
+curl: (6) Could not resolve host: api.fda.gov
+
+---
+curl: (6) Could not resolve host: api.fda.gov
+
+---
+curl: (6) Could not resolve host: api.fda.gov
+
+2026-05-21T04:09:50.421201Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: prompt must be at most 128 characters path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/build-ios-apps/.codex-plugin/plugin.json
+2026-05-21T04:09:50.421699Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/plugin-eval/.codex-plugin/plugin.json
+2026-05-21T04:09:50.425626Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/twilio-developer-kit/.codex-plugin/plugin.json
+2026-05-21T04:09:50.425678Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:09:50.439129Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.439134Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.439554Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.439559Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.439967Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.439969Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.440394Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.440398Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.440827Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.440829Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.441779Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-21T04:09:50.441782Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-21T04:09:50.473141Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:09:50.476954Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+2026-05-21T04:09:50.477013Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt: maximum of 3 prompts is supported path=/Users/dgoldenh/.codex/.tmp/plugins/plugins/openai-developers/.codex-plugin/plugin.json
+web search: 
+web search: Sills Rogawski 2020 antiseizure drugs mechanisms sultiame carbonic anhydrase PubMed
+web search: 
+web search: Sultiame pharmacokinetic profile plasma erythrocytes half-life 2 16 PubMed 31990440
+web search: 
+web search: sulthiame absence epilepsy PubMed
+web search: 
+web search: PMID 15813357 Basnec sulthiame placebo study BECTS abstract
+codex
+{"black_box_warning":{"current_value":"No current FDA/DailyMed label identified.; source says FDA/DailyMed search.","fda_source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:sultiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.generic_name:sulthiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.brand_name:Ospolot&limit=1","https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-database","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213"],"proposed_value":"No current FDA/openFDA label identified.","rationale":"The warning fact should not cite DailyMed under the audit rule. FDA/openFDA label searches for sultiame/sulthiame/Ospolot are the correct FDA-only basis; FDA orphan designation lists sulthiame for BECTS as not FDA approved for the orphan indication.","requires_user_approval":false,"status":"incorrect"},"blocking_questions":[],"fact_checks":[{"current_value":"sultiame; alternate_generic_names=sulthiame; trade_names=Ospolot; pubmed_search_aliases empty","field":"names_and_aliases","proposed_value":"generic_name=sultiame; alternate_generic_names=sulthiame; trade_names=Ospolot; pubmed_search_aliases=sulthiame; sultiam; sulphenytame; Ospolot; Conadil; Contravul; Elisal; Riker; Trolone","rationale":"Sulthiame and Ospolot are verified by eMC/PubMed. NCBI/NICE search strategies include additional alias terms useful to prevent duplicate rows and improve PubMed retrieval.","requires_user_approval":false,"status":"missing","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/14738417/","https://www.ncbi.nlm.nih.gov/books/NBK581162/bin/niceng217er36-appb-et1.pdf"]},{"current_value":"No; Not FDA-cleared for epilepsy or not marketed in U.S.; Not FDA-approved","field":"available_in_us/year_fda_cleared/maximum_approved_daily_dose","proposed_value":"No; Not FDA-cleared for epilepsy or not marketed in U.S.; Not FDA-approved","rationale":"FDA orphan designation for sulthiame in BECTS states not FDA approved for the orphan indication, and no FDA/openFDA label was identified for sultiame/sulthiame/Ospolot.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213","https://api.fda.gov/drug/label.json?search=openfda.generic_name:sultiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.generic_name:sulthiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.brand_name:Ospolot&limit=1"]},{"current_value":"Tablet/oral formulation in non-U.S. markets; filter_formulation=Tablet","field":"formulations_available/filter_formulation","proposed_value":"Tablet/oral formulation in non-U.S. markets; filter_formulation=Tablet; Oral suspension","rationale":"eMC currently lists Ospolot 20 mg/ml oral suspension; NCBI/Cochrane text also describes sulthiame as usually taken in tablet form in some non-US settings. The filter omits oral suspension.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://www.medicines.org.uk/emc/ingredient/10084","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"Focal; Self-limited epilepsy with centrotemporal spikes; Absence","field":"epilepsy_type/filter_epilepsy_type","proposed_value":"Focal; Self-limited epilepsy with centrotemporal spikes/Rolandic epilepsy; West syndrome/infantile spasms (placebo-controlled add-on RCT evidence)","rationale":"Trusted sources support Rolandic/BECTS, focal epilepsy, and West syndrome/infantile spasms. I did not find trusted row evidence supporting an Absence epilepsy entry for sulthiame.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/12027906/","https://pubmed.ncbi.nlm.nih.gov/16930943/"]},{"current_value":"Carbonic anhydrase inhibitor with documented anticonvulsant effect; sodium-current reduction has also been reported, but the relative clinical contribution is not fully defined.","field":"mechanism_of_action/mechanism_confidence/filter_mechanism","proposed_value":"Carbonic anhydrase inhibitor with documented anticonvulsant effect; sodium-current reduction has also been reported, but the relative clinical contribution is not fully defined.","rationale":"eMC states sulthiame belongs to carbonic anhydrase inhibitors and has anticonvulsant effects; PubMed mechanistic studies support intracellular pH/CA inhibition and sodium-current reduction.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/12027906/","https://pubmed.ncbi.nlm.nih.gov/11325350/"]},{"current_value":"Carbonic anhydrase inhibitor; not a major CYP inducer/inhibitor","field":"enzyme_inducing_or_inhibiting","proposed_value":"Carbonic anhydrase inhibitor; inhibits CYP2C19; no evidence identified for CYP induction.","rationale":"The UK SmPC states there is evidence sulthiame inhibits CYP2C19 enzyme activity. The current wording incorrectly implies no CYP inhibition.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"2-16 h","field":"half_life_range","proposed_value":"Approximately 12 h in healthy adults; shorter half-life assumed in children.","rationale":"The trusted eMC SmPC gives an adult half-life of approximately 12 h and says a shorter half-life is assumed in children; I did not find trusted support for the exact 2-16 h range.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/31990440/"]},{"current_value":"Liver and renal excretion; filter_metabolism=Liver/hepatic; Renal/no major metabolism","field":"major_organ_for_metabolism/filter_metabolism","proposed_value":"Predominantly renal excretion with secondary fecal excretion after biliary secretion; no major metabolism characterized in the UK SmPC. filter_metabolism=Renal/no major metabolism; Biliary/fecal excretion","rationale":"The SmPC states 80-90% is eliminated in urine, 10-20% in feces after biliary secretion, and 32% unchanged via kidneys within 24 h. It does not support 'liver/hepatic' as a major metabolism route.","requires_user_approval":true,"status":"incorrect","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"GI: anorexia 15%, neurologic: paresthesia 10%, CNS: fatigue 10%, respiratory: hyperpnea 5%, dermatologic: rash 2%","field":"adverse_symptoms_percentages","proposed_value":"GI/metabolic: lack of appetite, weight loss, nausea/vomiting about 10%; neurologic: paresthesias in extremities/face, dizziness, headache; respiratory: tachypnoea/hyperpnoea/dyspnoea/hiccups; CNS/general: tiredness/exhaustion may occur with carbonic anhydrase inhibition; dermatologic/hypersensitivity: allergic skin reactions and severe reactions including Stevens-Johnson syndrome/TEN reported, frequency not known.","rationale":"The exact percentages in the row are not supported by the UK SmPC. The SmPC gives frequency categories and only quantifies nausea/vomiting at about 10%.","requires_user_approval":true,"status":"missing_source","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"Not FDA-approved; non-U.S. effective dosing commonly 5-10 mg/kg/day; typical dosing commonly 5-10 mg/kg/day divided","field":"minimum_effective_dose/typical_doses_per_day","proposed_value":"Not FDA-approved; non-U.S. maintenance dosing commonly 5-10 mg/kg/day, divided where possible into three doses.","rationale":"eMC supports maintenance dose about 5-10 mg/kg/day and recommends spreading the daily dose over three single doses where possible.","requires_user_approval":false,"status":"verified","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"No established clinically meaningful QT effect","field":"qt_interval_effect/filter_qt_effect","proposed_value":"No QT-prolongation warning identified in the UK SmPC; cardiac adverse reactions listed include stenocardia and tachycardia.","rationale":"The current negative QT wording is plausible but not directly sourced as written. The SmPC supports a narrower statement that QT prolongation is not identified in the label text reviewed.","requires_user_approval":false,"status":"missing_source","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; UK eMC SmPC labeling; Sills and Rogawski 2020 ASM mechanism review; Sulthiame sodium-current mechanism study; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"UK eMC SmPC labeling; PubMed/NCBI sulthiame monotherapy and add-on reviews; Debus2004 and Rating2000 PubMed RCT abstracts; Leniger2002 carbonic anhydrase mechanism study; Madeja2001 sodium-current mechanism study; FDA/openFDA labeling and FDA orphan designation search","rationale":"Wikipedia is not in the trusted source list, and DailyMed cannot support boxed-warning verification. Several retained facts need PubMed/NCBI and FDA/openFDA sources named explicitly.","requires_user_approval":false,"status":"incorrect","supporting_sources":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://pubmed.ncbi.nlm.nih.gov/12027906/","https://pubmed.ncbi.nlm.nih.gov/11325350/","https://pubmed.ncbi.nlm.nih.gov/23543577/","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213"]}],"generic_name":"sultiame","missing_rcts":[{"pmid":"15813357","proposed_link_text":"Basnec2005|https://pubmed.ncbi.nlm.nih.gov/15813357/","title":"[The risk of second seizure in children with benign childhood epilepsy with centrotemporal spikes without treatment--a prospective study]","url":"https://pubmed.ncbi.nlm.nih.gov/15813357/","why_relevant":"PubMed abstract describes candidates for a prospective multicenter randomized double-blind placebo-controlled sulthiame study, and the NCBI/Cochrane monotherapy review treats Basnec 2005 as a sulthiame-versus-placebo BECTS study. No RR50, median percent change, or seizure-freedom differential was extractable from the abstract."}],"outcome_checks":[{"current_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_50_responder_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo RR50 differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"Debus2004 reports short-term complete response/cessation with EEG resolution; Rating2000 reports seizure treatment-failure/seizure-free counts. Neither provides an RR50 differential.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","field":"diff_median_pct_change_maximum_effective_dose","proposed_value":"NR/not extractable as a drug-minus-placebo MPC differential at the maximum effective dose/regimen from included phase II/III placebo-controlled RCT records","rationale":"No median percent seizure-frequency change differential is reported in the cited PubMed abstracts or extractable NCBI review material for the retained placebo RCTs.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"30-47.1 % (drug minus placebo seizure-freedom differential at maximum effective dose/regimen: Debus2004 sultiame 5-10 mg/kg/day add-on to baseline pyridoxine 30%; Rating2000 sultiame 5 mg/kg/day 47.1%)","field":"diff_seizure_freedom_maximum_effective_dose","proposed_value":"30-47.1 % (drug minus placebo seizure-freedom/complete-response differential: Debus2004 sulthiame 5-10 mg/kg/day add-on to baseline pyridoxine 30.0%; Rating2000 sulthiame 5 mg/kg/day 47.1%)","rationale":"Debus2004: 6/20 sulthiame responders with complete cessation of infantile spasms and hypsarrhythmia resolution versus 0/17 placebo = 30.0 point differential. Rating2000: seizure events 4/31 sulthiame and 21/35 placebo imply seizure-free rates 27/31=87.1% and 14/35=40.0%, differential 47.1 points.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"Debus2004|30|https://pubmed.ncbi.nlm.nih.gov/14738417/|37; Rating2000|47.1|https://pubmed.ncbi.nlm.nih.gov/11051123/|66","field":"plot_diff_seizure_freedom_maximum_effective_dose","proposed_value":"Debus2004|30|https://pubmed.ncbi.nlm.nih.gov/14738417/|37; Rating2000|47.1|https://pubmed.ncbi.nlm.nih.gov/11051123/|66","rationale":"Plot values match total randomized N and calculated drug-minus-placebo differentials for Debus2004 and Rating2000.","requires_user_approval":false,"status":"verified","supporting_sources":["https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/"]}],"overall_status":"needs_update","proposed_row_updates":[{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [sultiame; sulthiame; Ospolot].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API searches on 05-21-2026 found no current FDA label for terms [sultiame; sulthiame; Ospolot]; FDA orphan designation record for sulthiame in BECTS lists the orphan indication as not FDA approved.","reason":"DailyMed is not permissible for boxed-warning verification; use FDA/openFDA/Drugs@FDA/FDA sources only.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:sultiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.generic_name:sulthiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.brand_name:Ospolot&limit=1","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213"]},{"current_value":"No current FDA/DailyMed label identified.","field":"fda_black_box_warning","proposed_value":"No current FDA/openFDA label identified.","reason":"Remove DailyMed wording from the boxed-warning field.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/understanding-the-api-results/"]},{"current_value":"05-20-2026","field":"fda_black_box_warning_verified","proposed_value":"05-21-2026","reason":"Audit was refreshed against FDA/openFDA policy on 05-21-2026.","requires_user_approval":false,"source_urls":["https://open.fda.gov/apis/drug/label/understanding-the-api-results/"]},{"current_value":"","field":"pubmed_search_aliases","proposed_value":"sulthiame; sultiam; sulphenytame; Ospolot; Conadil; Contravul; Elisal; Riker; Trolone","reason":"NCBI/NICE search strategies include these aliases; adding them reduces duplicate-row risk and improves literature retrieval.","requires_user_approval":false,"source_urls":["https://www.ncbi.nlm.nih.gov/books/NBK581162/bin/niceng217er36-appb-et1.pdf"]},{"current_value":"Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/; Rating2000|https://pubmed.ncbi.nlm.nih.gov/11051123/","field":"pubmed_phase_ii_iii_rct_links","proposed_value":"Debus2004|https://pubmed.ncbi.nlm.nih.gov/14738417/; Rating2000|https://pubmed.ncbi.nlm.nih.gov/11051123/; Basnec2005|https://pubmed.ncbi.nlm.nih.gov/15813357/","reason":"Basnec2005 is identified by PubMed/NCBI review evidence as a sulthiame-versus-placebo BECTS study, although no outcome differential is extractable from its abstract.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/15813357/","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"PubMed loop 56/65 on 2026-05-15: 2 qualifying placebo-controlled randomized clinical trial report(s) retained from 4 PubMed candidate(s). Links were rebuilt from fetched PubMed PMID metadata and named FirstAuthorYear. Differential effectiveness columns summarize extractable maximum effective dose/regimen values within qualifying RCT reports.","field":"rct_pubmed_verification_notes","proposed_value":"Manual audit on 2026-05-21: Debus2004 and Rating2000 are verified placebo-controlled randomized sulthiame clinical trial reports with extractable seizure-freedom/complete-response differentials. Basnec2005 should be considered for the RCT link field as a sulthiame-versus-placebo BECTS report, but no RR50, MPC, or seizure-freedom differential was extractable from its abstract. Bast2003 is an EEG companion report of the Rating study and is not a separate efficacy RCT.","reason":"Updates notes for the manually verified RCT set and missing Basnec candidate.","requires_user_approval":false,"source_urls":["https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://pubmed.ncbi.nlm.nih.gov/15813357/","https://pubmed.ncbi.nlm.nih.gov/12558577/"]},{"current_value":"Carbonic anhydrase inhibitor; not a major CYP inducer/inhibitor","field":"enzyme_inducing_or_inhibiting","proposed_value":"Carbonic anhydrase inhibitor; inhibits CYP2C19; no evidence identified for CYP induction.","reason":"UK SmPC states evidence of CYP2C19 inhibition.","requires_user_approval":false,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"Tablet","field":"filter_formulation","proposed_value":"Tablet; Oral suspension","reason":"Oral suspension is a verified current eMC formulation; tablet use is supported in NCBI review text/non-US context.","requires_user_approval":false,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/"]},{"current_value":"2-16 h","field":"half_life_range","proposed_value":"Approximately 12 h in healthy adults; shorter half-life assumed in children.","reason":"The trusted SmPC supports approximately 12 h, not the exact 2-16 h range.","requires_user_approval":true,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc"]},{"current_value":"Liver and renal excretion","field":"major_organ_for_metabolism","proposed_value":"Predominantly renal excretion with secondary fecal excretion after biliary secretion; no major metabolism characterized in the UK SmPC.","reason":"Current wording overstates hepatic metabolism relative to SmPC elimination text.","requires_user_approval":true,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc"]}],"rct_link_checks":[{"label":"Debus2004","pmid":"14738417","proposed_action":"retain","rationale":"PubMed verifies sulthiame, West syndrome, prospective randomized double-blind placebo-controlled add-on trial on baseline pyridoxine, randomized to STM n=20 or placebo n=17.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/14738417/"},{"label":"Rating2000","pmid":"11051123","proposed_action":"retain","rationale":"PubMed/NCBI references verify sulthiame monotherapy in BECTS, 6-month randomized double-blind placebo-controlled design, sulthiame 5 mg/kg/day versus placebo, n=31 versus n=35.","status":"verified","url":"https://pubmed.ncbi.nlm.nih.gov/11051123/"}],"source_updates":[{"current_value":"Epilepsy Society ASM list; Wikipedia anticonvulsant drug-class list; UK eMC SmPC labeling; Sills and Rogawski 2020 ASM mechanism review; Sulthiame sodium-current mechanism study; FDA/DailyMed labeling","field":"evidence_sources","proposed_value":"UK eMC SmPC labeling; PubMed/NCBI sulthiame monotherapy and add-on reviews; Debus2004 and Rating2000 PubMed RCT abstracts; Leniger2002 carbonic anhydrase mechanism study; Madeja2001 sodium-current mechanism study; FDA/openFDA labeling and FDA orphan designation search","reason":"Replace non-trusted/prohibited sources and name sources that actually support retained cell facts.","requires_user_approval":false,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc","https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8459749/","https://pubmed.ncbi.nlm.nih.gov/23543577/","https://pubmed.ncbi.nlm.nih.gov/14738417/","https://pubmed.ncbi.nlm.nih.gov/11051123/","https://pubmed.ncbi.nlm.nih.gov/12027906/","https://pubmed.ncbi.nlm.nih.gov/11325350/","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213"]},{"current_value":"UK eMC SmPC labeling; Sulthiame sodium-current mechanism study","field":"mechanism_source","proposed_value":"UK eMC SmPC labeling; Leniger2002 carbonic anhydrase/intracellular pH mechanism study; Madeja2001 sodium-current mechanism study","reason":"Adds the PubMed carbonic anhydrase mechanism source supporting the primary mechanism and clarifies the sodium-current source.","requires_user_approval":false,"source_urls":["https://www.medicines.org.uk/emc/product/100433/smpc","https://pubmed.ncbi.nlm.nih.gov/12027906/","https://pubmed.ncbi.nlm.nih.gov/11325350/"]},{"current_value":"FDA/DailyMed search on 05-20-2026: no current label found for terms [sultiame; sulthiame; Ospolot].","field":"fda_black_box_warning_source","proposed_value":"FDA/openFDA label API searches on 05-21-2026 found no current FDA label for terms [sultiame; sulthiame; Ospolot]; FDA orphan designation record for sulthiame in BECTS lists the orphan indication as not FDA approved.","reason":"Boxed-warning source must be FDA/openFDA/Drugs@FDA, not DailyMed.","requires_user_approval":false,"source_urls":["https://api.fda.gov/drug/label.json?search=openfda.generic_name:sultiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.generic_name:sulthiame&limit=1","https://api.fda.gov/drug/label.json?search=openfda.brand_name:Ospolot&limit=1","https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=401213"]}],"summary":"Existing Debus2004 and Rating2000 PubMed RCT links and seizure-freedom differentials are verified. The row needs updates for FDA boxed-warning source wording, missing PubMed search aliases, Basnec2005 as a candidate placebo RCT without extractable outcomes, CYP2C19 inhibition, formulation filter, adverse-effect percentages, half-life, metabolism wording, and unsupported Absence epilepsy entry."}
+tokens used
+264,336

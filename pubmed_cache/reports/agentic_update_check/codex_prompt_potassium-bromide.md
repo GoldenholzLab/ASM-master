@@ -1,0 +1,197 @@
+You are a Codex sub-agent auditing one anti-seizure medication CSV row.
+
+Task:
+- Verify each populated fact in the row against trusted sources.
+- Verify alternate names and trade names; the same drug should not appear as a separate row just because an alias exists.
+- Verify PubMed links for phase II/III placebo-controlled RCTs, including PMID, drug, trial design, and placebo control.
+- Verify differential RR50, median percent change, and seizure-freedom values against the cited RCT/outcome evidence.
+- Verify whether each cited row source actually supports the specific cell facts it is being used for.
+- For FDA black box warnings, use FDA/openFDA, FDA labels, or Drugs@FDA only. DailyMed is not permissible for this field.
+- For non-US drugs, EMA/eMC/SmPC, ILAE, Epilepsy Foundation, NIH/NCBI/PubMed, and peer-reviewed literature may support non-FDA facts.
+- Do not edit files. Return only your final structured JSON answer.
+
+Trusted source domains to use or cite:
+- api.fda.gov
+- www.fda.gov
+- www.accessdata.fda.gov
+- pubmed.ncbi.nlm.nih.gov
+- www.ncbi.nlm.nih.gov
+- clinicaltrials.gov
+- www.ema.europa.eu
+- ema.europa.eu
+- www.medicines.org.uk
+- www.epilepsy.com
+- www.ilae.org
+- nih.gov
+
+When a row value is wrong or missing, propose exact replacement text and source URLs. Do not recommend deleting existing CSV data unless the evidence directly contradicts it; direct contradictions require user approval.
+
+Use web search if needed. If web search is unavailable, mark affected checks as insufficient_evidence instead of guessing.
+
+Developer audit instructions:
+You are auditing one row of an anti-seizure medication CSV. Produce JSON only. Verify each populated fact field against trusted sources. For black box warnings, use FDA sources only (FDA/openFDA, FDA labels, Drugs@FDA); do not rely on DailyMed for black box warning verification. For non-US drugs, EMA, eMC/SmPC, ILAE, Epilepsy Foundation, and peer-reviewed literature can support non-FDA facts. Verify alternate names and trade names; a drug should not be represented as a separate row just because an alias exists, and important aliases should be listed in alternate_generic_names, trade_names, or pubmed_search_aliases. Check that named sources in the row actually support the specific cell facts they are cited for. For placebo-controlled phase II/III RCTs, verify PubMed links, PMIDs, drug assignment, placebo control, trial phase/design, and whether differential RR50, MPC, and seizure-freedom values match cited RCT/outcome evidence. If a fact is plausible but the provided row lacks a source named in evidence_sources or RCT fields, mark missing_source. When proposing a change, give exact replacement text and source URLs. Do not recommend removing existing data unless there is a direct contradiction.
+
+Row bundle JSON:
+{
+  "audit_date": "2026-05-20",
+  "csv_row": {
+    "adverse_symptoms_percentages": "Dermatologic: bromacne about 25%; CNS: fatigue rare at low bromide levels and more common with higher levels (1-10% category); GI: coated tongue/mouth odor/aphthae/constipation/diarrhea rare (0.01-0.1% category); GI: gastritis/ulcer/pancreatitis very rare (<0.01% category); respiratory: rhinitis/bronchitis/sinusitis frequency not estimable (0% exact percentage unavailable).",
+    "alternate_generic_names": "bromide; kaliumbromid",
+    "available_in_us": "No - not available in U.S. for seizure control; German nationally authorized product information identified.",
+    "data_most_recently_refreshed": "05-20-2026",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "No pharmacologic interaction with other ASMs described; not a CYP inducer/inhibitor; bromide clearance affected by chloride/salt balance and diuretics.",
+    "epilepsy_type": "Generalized tonic-clonic; Dravet; Myoclonic syndromes; Pediatric severe epilepsy",
+    "evidence_sources": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=c77c8feb-0240-4ea3-9c89-3b972feb0538; published=May 07, 2026; title=POTASSIUM BROMIDE POWDER [AX PHARMACEUTICAL CORP]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c77c8feb-0240-4ea3-9c89-3b972feb0538",
+    "fda_black_box_warning_verified": "05-20-2026",
+    "filter_availability": "Not available in US",
+    "filter_enzyme_effect": "No major enzyme effect; Unknown/limited",
+    "filter_epilepsy_type": "Dravet; Generalized tonic-clonic; Myoclonic syndromes; Pediatric severe epilepsy",
+    "filter_formulation": "Tablet",
+    "filter_mechanism": "GABA; Other / unclear",
+    "filter_metabolism": "Renal/no major metabolism",
+    "filter_qt_effect": "No known meaningful QT effect",
+    "filter_symptom_category": "CNS; Dermatologic; GI; Respiratory",
+    "formulations_available": "Tablet; dispersible/splittable oral tablet",
+    "generic_name": "potassium bromide",
+    "half_life_range": "About 12 days",
+    "major_organ_for_metabolism": "No metabolism; renal excretion of bromide",
+    "maximum_approved_daily_dose": "4000 mg/day maximum in German Fachinformation.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Bromide-ion antiseizure mechanism is not fully established; German Fachinformation describes increased seizure threshold and proposed stabilization of neuronal membranes through bromide/chloride conductance with enhanced GABA-A receptor-mediated inhibitory anion current.",
+    "mechanism_source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf)",
+    "mechanism_source_tier": "EMA/UK SmPC",
+    "minimum_effective_dose": "German labeling maintenance range begins around 40-50 mg/kg/day depending age group; individualized by serum bromide level.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "kaliumbromid; bromide; DIBRO-BE mono; Kaliumbromid DESITIN",
+    "qt_interval_effect": "No QT interval effect described in European product information.",
+    "rct_pubmed_verification_notes": "No qualifying phase II/III placebo-controlled randomized epilepsy RCT was retained in the PubMed RCT audit/gap review as of 05-20-2026; RCT section set to N/A per current scope.",
+    "status_or_notes": "European/nationally authorized bromide salt ASM for primary/secondary generalized tonic-clonic seizures in early-childhood grand mal epilepsy and severe childhood myoclonic syndromes such as Dravet syndrome when other ASMs are insufficient.",
+    "trade_names": "DIBRO-BE mono; Kaliumbromid DESITIN",
+    "typical_doses_per_day": "German labeling: pediatric maintenance about 40-70 mg/kg/day depending age/weight; adults continuing childhood epilepsy about 30-50 mg/kg/day; divided 2-3 times daily and monitored by bromide levels.",
+    "year_fda_cleared": "Not FDA-cleared; German Kaliumbromid DESITIN authorization 07.01.2019 in Fachinformation."
+  },
+  "existing_pubmed_links": [],
+  "fact_fields_to_check": {
+    "adverse_symptoms_percentages": "Dermatologic: bromacne about 25%; CNS: fatigue rare at low bromide levels and more common with higher levels (1-10% category); GI: coated tongue/mouth odor/aphthae/constipation/diarrhea rare (0.01-0.1% category); GI: gastritis/ulcer/pancreatitis very rare (<0.01% category); respiratory: rhinitis/bronchitis/sinusitis frequency not estimable (0% exact percentage unavailable).",
+    "alternate_generic_names": "bromide; kaliumbromid",
+    "available_in_us": "No - not available in U.S. for seizure control; German nationally authorized product information identified.",
+    "diff_50_responder_maximum_effective_dose": "N/A",
+    "diff_median_pct_change_maximum_effective_dose": "N/A",
+    "diff_seizure_freedom_maximum_effective_dose": "N/A",
+    "enzyme_inducing_or_inhibiting": "No pharmacologic interaction with other ASMs described; not a CYP inducer/inhibitor; bromide clearance affected by chloride/salt balance and diuretics.",
+    "epilepsy_type": "Generalized tonic-clonic; Dravet; Myoclonic syndromes; Pediatric severe epilepsy",
+    "evidence_sources": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf); FDA/DailyMed labeling",
+    "fda_black_box_warning": "No FDA boxed warning identified in selected current DailyMed label.",
+    "fda_black_box_warning_source": "FDA/DailyMed SPL; status=no_boxed_warning_in_selected_label; setid=c77c8feb-0240-4ea3-9c89-3b972feb0538; published=May 07, 2026; title=POTASSIUM BROMIDE POWDER [AX PHARMACEUTICAL CORP]; url=https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c77c8feb-0240-4ea3-9c89-3b972feb0538",
+    "formulations_available": "Tablet; dispersible/splittable oral tablet",
+    "half_life_range": "About 12 days",
+    "major_organ_for_metabolism": "No metabolism; renal excretion of bromide",
+    "maximum_approved_daily_dose": "4000 mg/day maximum in German Fachinformation.",
+    "mechanism_confidence": "Moderate",
+    "mechanism_of_action": "Bromide-ion antiseizure mechanism is not fully established; German Fachinformation describes increased seizure threshold and proposed stabilization of neuronal membranes through bromide/chloride conductance with enhanced GABA-A receptor-mediated inhibitory anion current.",
+    "mechanism_source": "Desitin Kaliumbromid DESITIN 850 mg Fachinformation (https://www.desitin.de/wp-content/uploads/2020/01/Kaliumbromid-DESITIN-850-mg-Tabletten.pdf)",
+    "mechanism_source_tier": "EMA/UK SmPC",
+    "minimum_effective_dose": "German labeling maintenance range begins around 40-50 mg/kg/day depending age group; individualized by serum bromide level.",
+    "plot_diff_50_responder_maximum_effective_dose": "",
+    "plot_diff_median_pct_change_maximum_effective_dose": "",
+    "plot_diff_seizure_freedom_maximum_effective_dose": "",
+    "pubmed_phase_ii_iii_rct_links": "N/A",
+    "pubmed_search_aliases": "kaliumbromid; bromide; DIBRO-BE mono; Kaliumbromid DESITIN",
+    "qt_interval_effect": "No QT interval effect described in European product information.",
+    "trade_names": "DIBRO-BE mono; Kaliumbromid DESITIN",
+    "typical_doses_per_day": "German labeling: pediatric maintenance about 40-70 mg/kg/day depending age/weight; adults continuing childhood epilepsy about 30-50 mg/kg/day; divided 2-3 times daily and monitored by bromide levels.",
+    "year_fda_cleared": "Not FDA-cleared; German Kaliumbromid DESITIN authorization 07.01.2019 in Fachinformation."
+  },
+  "generic_name": "potassium bromide",
+  "instructions": {
+    "black_box_warning_policy": "FDA sources only. DailyMed is not permissible for black box warning verification.",
+    "required_row_source_policy": "Every retained fact should have a named trusted source in evidence_sources, mechanism_source, fda_black_box_warning_source, or the RCT/outcome link fields.",
+    "trusted_sources": [
+      "api.fda.gov",
+      "www.fda.gov",
+      "www.accessdata.fda.gov",
+      "pubmed.ncbi.nlm.nih.gov",
+      "www.ncbi.nlm.nih.gov",
+      "clinicaltrials.gov",
+      "www.ema.europa.eu",
+      "ema.europa.eu",
+      "www.medicines.org.uk",
+      "www.epilepsy.com",
+      "www.ilae.org",
+      "nih.gov"
+    ]
+  },
+  "latest_deterministic_update_check_findings_for_row": [],
+  "local_outcome_audit_rows": [],
+  "local_rct_audit_rows": [
+    {
+      "first_author": "Garcia",
+      "generic_name": "potassium bromide",
+      "label": "",
+      "pmid": "35967998",
+      "pub_types": "Journal Article",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Safety and efficacy of cannabidiol-cannabidiolic acid rich hemp extract in the treatment of refractory epileptic seizures in dogs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35967998/",
+      "year": "2022"
+    },
+    {
+      "first_author": "Law",
+      "generic_name": "potassium bromide",
+      "label": "",
+      "pmid": "26337751",
+      "pub_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "A randomised trial of a medium-chain TAG diet as treatment for dogs with idiopathic epilepsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26337751/",
+      "year": "2015"
+    },
+    {
+      "first_author": "Li",
+      "generic_name": "potassium bromide",
+      "label": "",
+      "pmid": "22186223",
+      "pub_types": "Journal Article; Randomized Controlled Trial",
+      "reason": "title lacks seizure/epilepsy context",
+      "status": "rejected",
+      "title": "Short-term effects of combined treatment with potassium bromide and methimazole in patients with Graves' disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22186223/",
+      "year": "2011"
+    },
+    {
+      "first_author": "Muñana",
+      "generic_name": "potassium bromide",
+      "label": "",
+      "pmid": "22295869",
+      "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "Evaluation of levetiracetam as adjunctive treatment for refractory canine epilepsy: a randomized, placebo-controlled, crossover trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22295869/",
+      "year": "2012"
+    },
+    {
+      "first_author": "Wei",
+      "generic_name": "potassium bromide",
+      "label": "",
+      "pmid": "21434340",
+      "pub_types": "English Abstract; Journal Article; Randomized Controlled Trial",
+      "reason": "drug term not in title",
+      "status": "rejected",
+      "title": "[Clinical effect of chaipo granule combined with routine treatment on refractory asthma].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21434340/",
+      "year": "2011"
+    }
+  ],
+  "possible_duplicate_name_hits": []
+}
