@@ -134,7 +134,12 @@ function isRequiredColumn(key) {
 
 function linkifyText(value) {
   const escaped = escapeHtml(value);
-  return escaped.replace(/https?:\/\/[^\s<]+/g, (url) => `<a class="trial-link" href="${url}" target="_blank" rel="noopener">${url}</a>`);
+  return escaped.replace(/https?:\/\/[^\s<]+/g, (matchedUrl) => {
+    const trailingMatch = matchedUrl.match(/[),.;:]+$/);
+    const trailing = trailingMatch ? trailingMatch[0] : "";
+    const url = trailing ? matchedUrl.slice(0, -trailing.length) : matchedUrl;
+    return `<a class="trial-link" href="${url}" target="_blank" rel="noopener">${url}</a>${trailing}`;
+  });
 }
 
 function renderPubMedLinks(value, rowId) {

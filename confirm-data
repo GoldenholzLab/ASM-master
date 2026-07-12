@@ -315,14 +315,14 @@ def validate_sources(rows, issues, source_text_by_name):
             add_issue(issues, "error", "source_section", row=generic, field="evidence_sources", message="No non-RCT evidence source listed")
             continue
         for source in sources:
-            if re.search(r"pubmed|clinicaltrials|trial|rct", source, re.I):
+            if re.search(r"clinicaltrials|randomi[sz]ed clinical trial|\bRCT\b", source, re.I):
                 add_issue(
                     issues,
                     "error",
                     "source_section",
                     row=generic,
                     field="evidence_sources",
-                    message="RCT/PubMed source belongs in the RCT section, not evidence_sources",
+                    message="RCT source belongs in the RCT section, not evidence_sources; non-RCT primary PubMed sources are allowed",
                     observed=source,
                 )
         for field in NON_RCT_FACT_FIELDS:
@@ -641,7 +641,15 @@ def validate_non_rct_fact_format(rows, issues):
 
 
 def validate_mechanism_fields(rows, issues):
-    allowed_tiers = {"FDA label", "FDA/AES summary", "AES/FDA summary", "EMA/UK SmPC", "Peer-reviewed review", "NCBI/PubChem", "Historical/limited"}
+    allowed_tiers = {
+        "FDA label",
+        "FDA labeling",
+        "EMA/UK SmPC",
+        "UK SmPC",
+        "National SmPC (HALMED/Croatia)",
+        "Peer-reviewed primary pharmacology study",
+        "Historical/limited",
+    }
     allowed_confidence = {"High", "Moderate", "Limited"}
     for row in rows:
         generic = row["generic_name"]
@@ -662,9 +670,34 @@ def validate_mechanism_fields(rows, issues):
             add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_source_tier", message="Unexpected mechanism source tier", observed=tier)
         if confidence not in allowed_confidence:
             add_issue(issues, "error", "mechanism_review", row=generic, field="mechanism_confidence", message="Unexpected mechanism confidence", observed=confidence)
-        forbidden_domain = "drugs" + ".com"
-        if forbidden_domain in " ".join(row.values()).lower():
-            add_issue(issues, "error", "source_policy", row=generic, message="Forbidden low-trust source domain is not allowed")
+        source_text = " ".join(
+            [
+                row.get("evidence_sources", ""),
+                row.get("mechanism_source", ""),
+                row.get("fda_black_box_warning_source", ""),
+            ]
+        ).lower()
+        forbidden_sources = {
+            "drugs" + ".com": "consumer drug site",
+            "healthline asm list": "consumer health list",
+            "wikipedia anticonvulsant drug-class list": "Wikipedia list",
+            "epilepsy society asm list": "secondary medication list",
+            "epilepsy foundation australia asm list": "secondary medication list",
+            "american epilepsy society 2024 u.s. asm summary": "consensus/summary source",
+            "sills and rogawski 2020 asm mechanism review": "review article",
+            "ncbi livertox": "secondary monograph",
+            "statpearls": "secondary review",
+        }
+        for source_name, source_type in forbidden_sources.items():
+            if source_name in source_text:
+                add_issue(
+                    issues,
+                    "error",
+                    "source_policy",
+                    row=generic,
+                    message=f"Forbidden {source_type} is not allowed as CSV evidence",
+                    observed=source_name,
+                )
         add_issue(
             issues,
             "info",
@@ -690,6 +723,32 @@ def validate_fda_boxed_warnings(rows, issues):
         if not audit:
             add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="Drug missing from FDA boxed-warning audit")
             continue
+        source = row.get("fda_black_box_warning_source", "")
+        primary_fda_text = " ".join([source, row.get("evidence_sources", "")]).lower()
+        uses_primary_fda_source = any(
+            domain in primary_fda_text
+            for domain in ["accessdata.fda.gov", "api.fda.gov", "www.fda.gov", "openfda"]
+        ) and "dailymed.nlm.nih.gov" not in source.lower()
+
+        if uses_primary_fda_source:
+            warning = row.get("fda_black_box_warning", "")
+            verified = row.get("fda_black_box_warning_verified", "")
+            if not re.fullmatch(r"\d{2}-\d{2}-\d{4}", verified):
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning_verified", message="FDA warning verification date must be MM-DD-YYYY", observed=verified)
+            no_warning_statement = re.search(r"no (?:current )?fda|no fda boxed warning|n/a - no fda", warning, re.I)
+            if not no_warning_statement and "WARNING" not in warning[:400].upper() and "WARNINGS" not in warning[:400].upper():
+                add_issue(issues, "error", "fda_boxed_warning_review", row=generic, field="fda_black_box_warning", message="FDA boxed-warning text does not begin with warning text or a supported no-warning statement", observed=warning[:400])
+            add_issue(
+                issues,
+                "info",
+                "fda_boxed_warning_review",
+                row=generic,
+                field="fda_black_box_warning",
+                message="FDA boxed-warning field uses primary FDA/accessdata/openFDA evidence",
+                source=source,
+            )
+            continue
+
         for field in ["fda_black_box_warning", "fda_black_box_warning_source", "fda_black_box_warning_verified"]:
             if row.get(field, "") != audit.get(field, ""):
                 add_issue(
@@ -778,7 +837,7 @@ def source_urls_from_rows(rows):
     ]
     for row in rows:
         for field in source_fields:
-            urls.update(re.findall(r"https?://[^\s;,]+", row.get(field, "")))
+            urls.update(url.rstrip(").,;:") for url in re.findall(r"https?://[^\s;,]+", row.get(field, "")))
     return sorted(urls)
 
 

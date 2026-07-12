@@ -1,4 +1,5 @@
 .confirm-data-cache/
 .fda-label-cache/
+.update-check-cache/
 __pycache__/
 papers/
