@@ -27,6 +27,9 @@ FINDINGS_PATH = (
     / "agentic_update_check_findings.csv"
 )
 UPDATE_FINDINGS_PATH = ROOT / "pubmed_cache" / "reports" / "update_check" / "update_check_findings.csv"
+RCT_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "pubmed_rct_audit.csv"
+EFFICACY_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "efficacy_outcome_audit.csv"
+SEIZURE_FREEDOM_AUDIT_PATH = ROOT / "pubmed_cache" / "reports" / "seizure_freedom_audit.csv"
 
 REGULATORY_HOSTS = {
     "api.fda.gov",
@@ -108,6 +111,226 @@ PLOT_FIELDS = [
     "plot_diff_seizure_freedom_maximum_effective_dose",
 ]
 
+PRIMARY_RCT_CORRECTIONS = {
+    "diazepam": {
+        "link": "AbouKhalil2013|https://pubmed.ncbi.nlm.nih.gov/24111974/",
+        "sources": (
+            "https://pubmed.ncbi.nlm.nih.gov/24111974/; "
+            "https://clinicaltrials.gov/study/NCT00319501"
+        ),
+        "note": (
+            "Phase III RCT audit 2026-07-12 added AbouKhalil2013 (PMID 24111974; "
+            "NCT00319501), a randomized double-blind placebo-controlled diazepam "
+            "auto-injector trial for acute repetitive seizures. Its time-to-next-seizure "
+            "endpoint is not RR50, MPC, or a standard seizure-freedom patient rate."
+        ),
+    },
+    "lorazepam": {
+        "link": "Alldredge2001|https://pubmed.ncbi.nlm.nih.gov/11547716/",
+        "sources": (
+            "https://pubmed.ncbi.nlm.nih.gov/11547716/; "
+            "https://clinicaltrials.gov/study/NCT00004297"
+        ),
+        "note": (
+            "Phase III RCT audit 2026-07-12 added Alldredge2001 (PMID 11547716; "
+            "NCT00004297), a randomized double-blind lorazepam/diazepam/placebo trial "
+            "for out-of-hospital status epilepticus. Acute status termination is not "
+            "represented as RR50, MPC, or a standard seizure-freedom patient rate."
+        ),
+    },
+    "topiramate": {
+        "link": "Chung2014|https://pubmed.ncbi.nlm.nih.gov/24902983/",
+        "sources": (
+            "https://pubmed.ncbi.nlm.nih.gov/24902983/; "
+            "https://clinicaltrials.gov/study/NCT01142193"
+        ),
+        "note": (
+            "Phase III RCT audit 2026-07-12 added Chung2014 (PMID 24902983; "
+            "NCT01142193), the 249-participant PREVAIL trial of topiramate extended "
+            "release 200 mg/day versus placebo."
+        ),
+        "diff_50_responder_maximum_effective_dose": (
+            "14.7-43 % (drug minus placebo RR50 differential at maximum effective "
+            "dose/regimen: Chung2014 topiramate extended release 200 mg/day 14.7%; "
+            "Zhang2011 topiramate 200 mg/day 40.3%; Yen2000 topiramate 300 mg/day "
+            "34.8%; PMID1999 topiramate 600 mg/day 37.7%; Sachdeo1999 topiramate "
+            "approximately 6 mg/kg/day 25%; Elterman1999 topiramate 6 mg/kg/day 19%; "
+            "Biton1999 topiramate approximately 6 mg/kg/day 36%; Sharief1996 topiramate "
+            "400 mg/day 27%; Tassinari1996 topiramate 600 mg/day 37%; Faught1996 "
+            "topiramate 400 mg/day 29%; Privitera1996 topiramate 600 mg/day 35%; "
+            "BenMenachem1996 topiramate up to 800 mg/day 43%)"
+        ),
+        "plot_diff_50_responder_maximum_effective_dose": (
+            "Chung2014|14.7|https://pubmed.ncbi.nlm.nih.gov/24902983/|249"
+        ),
+        "diff_median_pct_change_maximum_effective_dose": (
+            "17.9-58 % (drug minus placebo MPC differential at maximum effective "
+            "dose/regimen: Chung2014 topiramate extended release 200 mg/day 17.9%; "
+            "Guberman2002 topiramate 200 mg/day 24%; PMID1999 topiramate 600 mg/day "
+            "42.2%; Sachdeo1999 topiramate approximately 6 mg/kg/day 19.9%; Elterman1999 "
+            "topiramate 6 mg/kg/day 22.6%; Biton1999 topiramate approximately 6 mg/kg/day "
+            "47.7%; Sharief1996 topiramate 400 mg/day 40%; Tassinari1996 topiramate "
+            "600 mg/day 58%; Faught1996 topiramate 400 mg/day 35%; Privitera1996 "
+            "topiramate 600 mg/day 40%; BenMenachem1996 topiramate up to 800 mg/day 54%)"
+        ),
+        "plot_diff_median_pct_change_maximum_effective_dose": (
+            "Chung2014|17.9|https://pubmed.ncbi.nlm.nih.gov/24902983/|249"
+        ),
+        "diff_seizure_freedom_maximum_effective_dose": (
+            "1.6-6.7 % (drug minus placebo seizure-freedom differential at maximum "
+            "effective dose/regimen: Chung2014 topiramate extended release 200 mg/day "
+            "1.6%; PMID1999 topiramate 600 mg/day 6.7%)"
+        ),
+        "plot_diff_seizure_freedom_maximum_effective_dose": (
+            "Chung2014|1.6|https://pubmed.ncbi.nlm.nih.gov/24902983/|249"
+        ),
+    },
+}
+
+PRIMARY_RCT_AUDIT_ROWS = [
+    {
+        "generic_name": "diazepam",
+        "status": "included",
+        "pmid": "24111974",
+        "label": "AbouKhalil2013",
+        "year": "2013",
+        "first_author": "Abou-Khalil",
+        "title": "A double-blind, randomized, placebo-controlled trial of a diazepam auto-injector administered by caregivers to patients with epilepsy who require intermittent intervention for acute repetitive seizures.",
+        "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+        "reason": "qualifying phase III placebo-controlled randomized clinical trial report (NCT00319501)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24111974/",
+    },
+    {
+        "generic_name": "lorazepam",
+        "status": "included",
+        "pmid": "11547716",
+        "label": "Alldredge2001",
+        "year": "2001",
+        "first_author": "Alldredge",
+        "title": "A comparison of lorazepam, diazepam, and placebo for the treatment of out-of-hospital status epilepticus.",
+        "pub_types": "Clinical Trial; Comparative Study; Journal Article; Randomized Controlled Trial; Research Support, U.S. Gov't, P.H.S.",
+        "reason": "qualifying phase III placebo-controlled randomized clinical trial report (NCT00004297)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11547716/",
+    },
+    {
+        "generic_name": "topiramate",
+        "status": "included",
+        "pmid": "24902983",
+        "label": "Chung2014",
+        "year": "2014",
+        "first_author": "Chung",
+        "title": "Once-daily USL255 as adjunctive treatment of partial-onset seizures: randomized phase III study.",
+        "pub_types": "Clinical Trial, Phase III; Journal Article; Multicenter Study; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+        "reason": "qualifying phase III placebo-controlled randomized clinical trial report (NCT01142193)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24902983/",
+    },
+]
+
+TOPIRAMATE_EFFICACY_AUDIT_ROW = {
+    "generic_name": "topiramate",
+    "label": "Chung2014",
+    "pmid": "24902983",
+    "title": "Once-daily USL255 as adjunctive treatment of partial-onset seizures: randomized phase III study.",
+    "dose_or_regimen": "topiramate extended release 200 mg/day",
+    "endpoint": "partial-onset seizures during the 11-week double-blind treatment phase",
+    "rr50_active_percent": "37.9",
+    "rr50_placebo_percent": "23.2",
+    "rr50_differential_percent": "14.7",
+    "rr50_included_in_csv_summary": "yes",
+    "mpc_active_percent": "39.5",
+    "mpc_placebo_percent": "21.6",
+    "mpc_differential_percent": "17.9",
+    "mpc_included_in_csv_summary": "yes",
+    "sf_active_percent": "3.2",
+    "sf_placebo_percent": "1.6",
+    "sf_differential_percent": "1.6",
+    "sf_included_in_csv_summary": "yes",
+    "audit_note": "Primary phase III PREVAIL report; all 249 randomized participants were in the ITT population. Differentials are active minus placebo percentages at the sole studied 200 mg/day regimen.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24902983/",
+}
+
+NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS = [
+    {
+        "generic_name": "diazepam",
+        "label": "AbouKhalil2013",
+        "pmid": "24111974",
+        "title": "A double-blind, randomized, placebo-controlled trial of a diazepam auto-injector administered by caregivers to patients with epilepsy who require intermittent intervention for acute repetitive seizures.",
+        "dose_or_regimen": "single weight- and age-based diazepam auto-injector dose (5, 10, 15, or 20 mg)",
+        "endpoint": "time to next seizure or rescue from 15 minutes to 12 hours postdose",
+        "rr50_active_percent": "",
+        "rr50_placebo_percent": "",
+        "rr50_differential_percent": "",
+        "rr50_included_in_csv_summary": "no",
+        "mpc_active_percent": "",
+        "mpc_placebo_percent": "",
+        "mpc_differential_percent": "",
+        "mpc_included_in_csv_summary": "no",
+        "sf_active_percent": "",
+        "sf_placebo_percent": "",
+        "sf_differential_percent": "",
+        "sf_included_in_csv_summary": "no",
+        "audit_note": "Primary phase III report; 234 participants were randomized and 163 were included in the ITT analysis. The primary time-to-next-seizure/rescue endpoint is not RR50, MPC, or a standard seizure-freedom patient rate.",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24111974/",
+    },
+    {
+        "generic_name": "lorazepam",
+        "label": "Alldredge2001",
+        "pmid": "11547716",
+        "title": "A comparison of lorazepam, diazepam, and placebo for the treatment of out-of-hospital status epilepticus.",
+        "dose_or_regimen": "lorazepam 2 mg IV or diazepam 5 mg IV, with one identical repeat dose if needed",
+        "endpoint": "termination of status epilepticus on emergency-department arrival",
+        "rr50_active_percent": "",
+        "rr50_placebo_percent": "",
+        "rr50_differential_percent": "",
+        "rr50_included_in_csv_summary": "no",
+        "mpc_active_percent": "",
+        "mpc_placebo_percent": "",
+        "mpc_differential_percent": "",
+        "mpc_included_in_csv_summary": "no",
+        "sf_active_percent": "",
+        "sf_placebo_percent": "",
+        "sf_differential_percent": "",
+        "sf_included_in_csv_summary": "no",
+        "audit_note": "Primary randomized phase III-associated report with 205 participants. Acute status termination is not RR50, MPC, or a standard longitudinal seizure-freedom patient rate.",
+        "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/11547716/",
+    },
+]
+
+TOPIRAMATE_SEIZURE_FREEDOM_AUDIT_ROW = {
+    "generic_name": "topiramate",
+    "label": "Chung2014",
+    "pmid": "24902983",
+    "title": "Once-daily USL255 as adjunctive treatment of partial-onset seizures: randomized phase III study.",
+    "active_rate_percent": "3.2",
+    "placebo_rate_percent": "1.6",
+    "differential_percent": "1.6",
+    "dose_or_regimen": "topiramate extended release 200 mg/day",
+    "endpoint": "100% reduction in weekly seizure frequency during titration plus maintenance",
+    "included_in_csv_summary": "yes",
+    "extraction_status": "extracted_patient_rate_differential",
+    "audit_note": "Primary phase III PREVAIL report: 4/124 topiramate and 2/125 placebo participants were seizure-free during treatment.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24902983/",
+}
+
+NONSTANDARD_ENDPOINT_SEIZURE_FREEDOM_AUDIT_ROWS = [
+    {
+        "generic_name": row["generic_name"],
+        "label": row["label"],
+        "pmid": row["pmid"],
+        "title": row["title"],
+        "active_rate_percent": "",
+        "placebo_rate_percent": "",
+        "differential_percent": "",
+        "dose_or_regimen": row["dose_or_regimen"],
+        "endpoint": row["endpoint"],
+        "included_in_csv_summary": "no",
+        "extraction_status": "reviewed_no_extractable_differential",
+        "audit_note": row["audit_note"],
+        "pubmed_url": row["pubmed_url"],
+    }
+    for row in NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS
+]
+
 URL_RE = re.compile(r"https?://[^;\s]+")
 
 
@@ -137,6 +360,34 @@ def source_union(*values: str) -> str:
                 output.append(source)
                 seen.add(source)
     return "; ".join(output)
+
+
+def remove_sources(value: str, removed: str) -> str:
+    blocked = set(split_sources(removed))
+    return "; ".join(source for source in split_sources(value) if source not in blocked)
+
+
+def upsert_audit_rows(path: Path, records: list[dict[str, str]]) -> None:
+    fieldnames, rows = read_csv(path)
+    indexes = {
+        (row["generic_name"], row["pmid"]): index
+        for index, row in enumerate(rows)
+    }
+    for record in records:
+        key = (record["generic_name"], record["pmid"])
+        if key in indexes:
+            rows[indexes[key]] = record
+        else:
+            indexes[key] = len(rows)
+            rows.append(record)
+    write_csv(path, fieldnames, rows)
+
+
+def prepend_unique(value: str, item: str) -> str:
+    parts = split_sources(value)
+    if item in parts:
+        return value
+    return "; ".join([item, *parts])
 
 
 def extract_urls(value: str) -> list[str]:
@@ -194,6 +445,15 @@ def normalize_filter_values(row: dict[str, str]) -> None:
 
 
 def main() -> None:
+    upsert_audit_rows(RCT_AUDIT_PATH, PRIMARY_RCT_AUDIT_ROWS)
+    upsert_audit_rows(
+        EFFICACY_AUDIT_PATH,
+        [TOPIRAMATE_EFFICACY_AUDIT_ROW, *NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS],
+    )
+    upsert_audit_rows(
+        SEIZURE_FREEDOM_AUDIT_PATH,
+        [TOPIRAMATE_SEIZURE_FREEDOM_AUDIT_ROW, *NONSTANDARD_ENDPOINT_SEIZURE_FREEDOM_AUDIT_ROWS],
+    )
     fieldnames, rows = read_csv(CSV_PATH)
     _, findings = read_csv(FINDINGS_PATH)
     by_name = {row["generic_name"]: row for row in rows}
@@ -253,6 +513,25 @@ def main() -> None:
 
     for row in rows:
         generic = row["generic_name"]
+        rct_correction = PRIMARY_RCT_CORRECTIONS.get(generic)
+        if rct_correction:
+            row["pubmed_phase_ii_iii_rct_links"] = prepend_unique(
+                row["pubmed_phase_ii_iii_rct_links"], rct_correction["link"]
+            )
+            row["evidence_sources"] = remove_sources(
+                row["evidence_sources"], rct_correction["sources"]
+            )
+            row["rct_pubmed_verification_notes"] = source_union(
+                row["rct_pubmed_verification_notes"], rct_correction["note"]
+            )
+            for field in OUTCOME_FIELDS + PLOT_FIELDS:
+                value = rct_correction.get(field)
+                if not value:
+                    continue
+                if field.startswith("plot_"):
+                    row[field] = prepend_unique(row[field], value)
+                else:
+                    row[field] = value
         row["evidence_sources"] = clean_secondary_sources(row["evidence_sources"])
         row["mechanism_source"] = clean_secondary_sources(row["mechanism_source"])
         row["evidence_sources"] = source_union(
