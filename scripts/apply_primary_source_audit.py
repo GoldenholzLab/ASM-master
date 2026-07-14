@@ -138,6 +138,44 @@ PRIMARY_RCT_CORRECTIONS = {
             "represented as RR50, MPC, or a standard seizure-freedom patient rate."
         ),
     },
+    "levetiracetam": {
+        "link": "Manreza2021|https://pubmed.ncbi.nlm.nih.gov/34133509/",
+        "sources": "https://pubmed.ncbi.nlm.nih.gov/34133509/",
+        "note": (
+            "Phase III RCT audit 2026-07-14 added Manreza2021 (PMID 34133509), "
+            "a multicenter randomized double-blind placebo-controlled adjunctive "
+            "levetiracetam trial in refractory focal epilepsy. The ITT population "
+            "included 125 participants (62 levetiracetam; 63 placebo); 114 completed "
+            "16 weeks. The paper reports RR50 and MPC but no extractable patient-level "
+            "seizure-freedom rate."
+        ),
+        "diff_50_responder_maximum_effective_dose": (
+            "7.1-49.4 % (drug minus placebo RR50 differential at maximum effective "
+            "dose/regimen: Wu2018 LEV 1000-3000 mg/day 49.4%; Manreza2021 LEV up to "
+            "3000 mg/day or 60 mg/kg/day 24.42%; PinaGarza2009 LEV 40-50 mg/kg/day "
+            "23.5%; Peltola2009 LEV XR 1000 mg/day 13.9%; Wu2008 LEV 1000-3000 mg/day "
+            "29.9%; Xiao2009 LEV 3000 mg/day 7.1%; Berkovic2007 LEV target 3000 mg/day "
+            "adults or 60 mg/kg/day children 27%; Glauser2006 LEV target 60 mg/kg/day "
+            "25%; Tsai2006 LEV up to 2000 mg/day 32.9%; BenMenachem2000 LEV 3000 "
+            "mg/day 25.4%; Shorvon2000 LEV 2000 mg/day 21.2%; Cereghino2000 LEV 3000 "
+            "mg/day 29%; Betts2000 LEV 2000 mg/day 32%)"
+        ),
+        "plot_diff_50_responder_maximum_effective_dose": (
+            "Manreza2021|24.42|https://pubmed.ncbi.nlm.nih.gov/34133509/|125"
+        ),
+        "diff_median_pct_change_maximum_effective_dose": (
+            "12.7-56.2 % (drug minus placebo MPC differential at maximum effective "
+            "dose/regimen: Wu2018 LEV 1000-3000 mg/day 56.2%; Manreza2021 LEV up to "
+            "3000 mg/day or 60 mg/kg/day 32.9%; PinaGarza2009 LEV 40-50 mg/kg/day "
+            "36.5%; Peltola2009 LEV XR 1000 mg/day 12.7%; Wu2008 LEV 1000-3000 mg/day "
+            "42.2%; Berkovic2007 LEV target 3000 mg/day adults or 60 mg/kg/day children "
+            "28.3%; Glauser2006 LEV target 60 mg/kg/day 26.8%; Tsai2006 LEV up to 2000 "
+            "mg/day 23.8%)"
+        ),
+        "plot_diff_median_pct_change_maximum_effective_dose": (
+            "Manreza2021|32.9|https://pubmed.ncbi.nlm.nih.gov/34133509/|125"
+        ),
+    },
     "topiramate": {
         "link": "Chung2014|https://pubmed.ncbi.nlm.nih.gov/24902983/",
         "sources": (
@@ -213,6 +251,18 @@ PRIMARY_RCT_AUDIT_ROWS = [
         "url": "https://pubmed.ncbi.nlm.nih.gov/11547716/",
     },
     {
+        "generic_name": "levetiracetam",
+        "status": "included",
+        "pmid": "34133509",
+        "label": "Manreza2021",
+        "year": "2021",
+        "first_author": "Manreza",
+        "title": "Efficacy and safety of levetiracetam as adjunctive therapy for refractory focal epilepsy.",
+        "pub_types": "Journal Article; Multicenter Study; Randomized Controlled Trial",
+        "reason": "qualifying primary phase III placebo-controlled randomized clinical trial report; phase III design is explicit in the abstract and full text",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34133509/",
+    },
+    {
         "generic_name": "topiramate",
         "status": "included",
         "pmid": "24902983",
@@ -247,6 +297,29 @@ TOPIRAMATE_EFFICACY_AUDIT_ROW = {
     "sf_included_in_csv_summary": "yes",
     "audit_note": "Primary phase III PREVAIL report; all 249 randomized participants were in the ITT population. Differentials are active minus placebo percentages at the sole studied 200 mg/day regimen.",
     "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24902983/",
+}
+
+LEVETIRACETAM_EFFICACY_AUDIT_ROW = {
+    "generic_name": "levetiracetam",
+    "label": "Manreza2021",
+    "pmid": "34133509",
+    "title": "Efficacy and safety of levetiracetam as adjunctive therapy for refractory focal epilepsy.",
+    "dose_or_regimen": "levetiracetam up to 3000 mg/day or 60 mg/kg/day; 2000 mg/day or 40 mg/kg/day permitted if the higher dose was not tolerated",
+    "endpoint": "focal seizures during the 16-week double-blind treatment period",
+    "rr50_active_percent": "38.71",
+    "rr50_placebo_percent": "14.29",
+    "rr50_differential_percent": "24.42",
+    "rr50_included_in_csv_summary": "yes",
+    "mpc_active_percent": "43.8",
+    "mpc_placebo_percent": "10.9",
+    "mpc_differential_percent": "32.9",
+    "mpc_included_in_csv_summary": "yes",
+    "sf_active_percent": "",
+    "sf_placebo_percent": "",
+    "sf_differential_percent": "",
+    "sf_included_in_csv_summary": "no",
+    "audit_note": "Primary phase III report. RR50 is from Table 3. MPC is the active-minus-placebo difference for the combined dose-adjustment and evaluation period in Figure 4. The ITT population was 125 (62 active, 63 placebo); 114 completed 16 weeks.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34133509/",
 }
 
 NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS = [
@@ -310,6 +383,22 @@ TOPIRAMATE_SEIZURE_FREEDOM_AUDIT_ROW = {
     "extraction_status": "extracted_patient_rate_differential",
     "audit_note": "Primary phase III PREVAIL report: 4/124 topiramate and 2/125 placebo participants were seizure-free during treatment.",
     "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/24902983/",
+}
+
+LEVETIRACETAM_SEIZURE_FREEDOM_AUDIT_ROW = {
+    "generic_name": "levetiracetam",
+    "label": "Manreza2021",
+    "pmid": "34133509",
+    "title": "Efficacy and safety of levetiracetam as adjunctive therapy for refractory focal epilepsy.",
+    "active_rate_percent": "",
+    "placebo_rate_percent": "",
+    "differential_percent": "",
+    "dose_or_regimen": "levetiracetam up to 3000 mg/day or 60 mg/kg/day",
+    "endpoint": "patient-level seizure freedom during double-blind treatment",
+    "included_in_csv_summary": "no",
+    "extraction_status": "reviewed_no_extractable_differential",
+    "audit_note": "The primary report provides RR50 and MPC but does not report an extractable active-versus-placebo patient-level seizure-freedom rate.",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34133509/",
 }
 
 NONSTANDARD_ENDPOINT_SEIZURE_FREEDOM_AUDIT_ROWS = [
@@ -448,11 +537,19 @@ def main() -> None:
     upsert_audit_rows(RCT_AUDIT_PATH, PRIMARY_RCT_AUDIT_ROWS)
     upsert_audit_rows(
         EFFICACY_AUDIT_PATH,
-        [TOPIRAMATE_EFFICACY_AUDIT_ROW, *NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS],
+        [
+            TOPIRAMATE_EFFICACY_AUDIT_ROW,
+            LEVETIRACETAM_EFFICACY_AUDIT_ROW,
+            *NONSTANDARD_ENDPOINT_EFFICACY_AUDIT_ROWS,
+        ],
     )
     upsert_audit_rows(
         SEIZURE_FREEDOM_AUDIT_PATH,
-        [TOPIRAMATE_SEIZURE_FREEDOM_AUDIT_ROW, *NONSTANDARD_ENDPOINT_SEIZURE_FREEDOM_AUDIT_ROWS],
+        [
+            TOPIRAMATE_SEIZURE_FREEDOM_AUDIT_ROW,
+            LEVETIRACETAM_SEIZURE_FREEDOM_AUDIT_ROW,
+            *NONSTANDARD_ENDPOINT_SEIZURE_FREEDOM_AUDIT_ROWS,
+        ],
     )
     fieldnames, rows = read_csv(CSV_PATH)
     _, findings = read_csv(FINDINGS_PATH)
